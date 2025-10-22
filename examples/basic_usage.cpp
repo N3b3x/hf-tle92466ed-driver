@@ -14,8 +14,11 @@
 #include "TLE92466ED.hpp"
 #include "example_hal.hpp"
 #include <iostream>
+// Conditional includes based on C++ standard
+#if __cpp_lib_chrono >= 201907L
 #include <thread>
 #include <chrono>
+#endif
 
 using namespace TLE92466ED;
 // Removed chrono usage - using uint32_t for microseconds instead
@@ -106,7 +109,14 @@ int main() {
     // 8. Monitor for a few seconds
     std::cout << "\nMonitoring for 5 seconds...\n";
     for (int i = 0; i < 5; ++i) {
+#if __cpp_lib_chrono >= 201907L
         std::this_thread::sleep_for(std::chrono::seconds(1));
+#else
+        // C++11 fallback - simple delay loop
+        for (volatile int i = 0; i < 1000000; ++i) {
+            // Busy wait delay
+        }
+#endif
 
         // Reload SPI watchdog
         (void)driver.reload_spi_watchdog(1000);

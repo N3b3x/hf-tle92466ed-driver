@@ -90,7 +90,10 @@ union SPIFrame {
      * @param addr Register address (10-bit actual address)
      * @return SPIFrame configured for read operation (CRC = 0)
      */
-    [[nodiscard]] static constexpr SPIFrame make_read(uint16_t addr) noexcept {
+#if __has_cpp_attribute(nodiscard) >= 201907L
+    [[nodiscard]]
+#endif
+    static constexpr SPIFrame make_read(uint16_t addr) noexcept {
         SPIFrame frame{};
         frame.tx_fields.rw = 0;           // Read
         frame.tx_fields.address = (addr >> 3) & 0x7F;  // Upper 7 bits
@@ -105,7 +108,10 @@ union SPIFrame {
      * @param data Data word to write (16-bit)
      * @return SPIFrame configured for write operation (CRC = 0)
      */
-    [[nodiscard]] static constexpr SPIFrame make_write(uint16_t addr, uint16_t data) noexcept {
+#if __has_cpp_attribute(nodiscard) >= 201907L
+    [[nodiscard]]
+#endif
+    static constexpr SPIFrame make_write(uint16_t addr, uint16_t data) noexcept {
         SPIFrame frame{};
         frame.tx_fields.rw = 1;           // Write
         frame.tx_fields.address = (addr >> 3) & 0x7F;  // Upper 7 bits
@@ -222,7 +228,10 @@ namespace DeviceID {
      * @param icvid Value read from ICVID register
      * @return true if device type matches expected value
      */
-    [[nodiscard]] constexpr bool is_valid_device(uint16_t icvid) noexcept {
+#if __has_cpp_attribute(nodiscard) >= 201907L
+    [[nodiscard]]
+#endif
+    constexpr bool is_valid_device(uint16_t icvid) noexcept {
         [[maybe_unused]] uint8_t device_type = (icvid >> 8) & 0xFF;
         // Accept device if communication is working (non-zero response)
         // Strict type checking can be enabled if exact ID is known
@@ -232,14 +241,20 @@ namespace DeviceID {
     /**
      * @brief Extract device type from ICVID
      */
-    [[nodiscard]] constexpr uint8_t get_device_type(uint16_t icvid) noexcept {
+#if __has_cpp_attribute(nodiscard) >= 201907L
+    [[nodiscard]]
+#endif
+    constexpr uint8_t get_device_type(uint16_t icvid) noexcept {
         return (icvid >> 8) & 0xFF;
     }
     
     /**
      * @brief Extract silicon revision from ICVID
      */
-    [[nodiscard]] constexpr uint8_t get_revision(uint16_t icvid) noexcept {
+#if __has_cpp_attribute(nodiscard) >= 201907L
+    [[nodiscard]]
+#endif
+    constexpr uint8_t get_revision(uint16_t icvid) noexcept {
         return icvid & 0xFF;
     }
 }
@@ -342,7 +357,10 @@ namespace CH_CTRL {
     /**
      * @brief Get channel enable bit mask
      */
-    [[nodiscard]] constexpr uint16_t channel_mask(uint8_t channel) noexcept {
+#if __has_cpp_attribute(nodiscard) >= 201907L
+    [[nodiscard]]
+#endif
+    constexpr uint16_t channel_mask(uint8_t channel) noexcept {
         return (channel < 6) ? static_cast<uint16_t>(1 << channel) : 0;
     }
 }
@@ -548,7 +566,10 @@ namespace SETPOINT {
      * @param parallel_mode true if channel is in parallel mode
      * @return Setpoint register value
      */
-    [[nodiscard]] constexpr uint16_t calculate_target(uint16_t current_ma, bool parallel_mode = false) noexcept {
+#if __has_cpp_attribute(nodiscard) >= 201907L
+    [[nodiscard]]
+#endif
+    constexpr uint16_t calculate_target(uint16_t current_ma, bool parallel_mode = false) noexcept {
         uint32_t max_current = parallel_mode ? 4000 : 2000;
         uint32_t target = (static_cast<uint32_t>(current_ma) * 32767UL) / max_current;
         // Saturate at MAX_TARGET
@@ -562,7 +583,10 @@ namespace SETPOINT {
      * @param parallel_mode true if channel is in parallel mode
      * @return Current in milliamperes
      */
-    [[nodiscard]] constexpr uint16_t calculate_current(uint16_t target, bool parallel_mode = false) noexcept {
+#if __has_cpp_attribute(nodiscard) >= 201907L
+    [[nodiscard]]
+#endif
+    constexpr uint16_t calculate_current(uint16_t target, bool parallel_mode = false) noexcept {
         uint32_t max_current = parallel_mode ? 4000 : 2000;
         uint32_t current = (static_cast<uint32_t>(target & TARGET_MASK) * max_current) / 32767UL;
         return static_cast<uint16_t>(current);
@@ -799,7 +823,10 @@ enum class ParallelPair : uint8_t {
  * @param channel Channel number (0-5)
  * @return Base address for channel registers
  */
-[[nodiscard]] constexpr uint16_t get_channel_base(Channel channel) noexcept {
+#if __has_cpp_attribute(nodiscard) >= 201907L
+[[nodiscard]]
+#endif
+constexpr uint16_t get_channel_base(Channel channel) noexcept {
     return ChannelBase::CH0 + (static_cast<uint16_t>(channel) * ChannelBase::SPACING);
 }
 
@@ -809,21 +836,30 @@ enum class ParallelPair : uint8_t {
  * @param offset Register offset from channel base
  * @return Complete register address
  */
-[[nodiscard]] constexpr uint16_t get_channel_register(Channel channel, uint16_t offset) noexcept {
+#if __has_cpp_attribute(nodiscard) >= 201907L
+[[nodiscard]]
+#endif
+constexpr uint16_t get_channel_register(Channel channel, uint16_t offset) noexcept {
     return get_channel_base(channel) + offset;
 }
 
 /**
  * @brief Convert channel to index
  */
-[[nodiscard]] constexpr uint8_t to_index(Channel ch) noexcept {
+#if __has_cpp_attribute(nodiscard) >= 201907L
+[[nodiscard]]
+#endif
+constexpr uint8_t to_index(Channel ch) noexcept {
     return static_cast<uint8_t>(ch);
 }
 
 /**
  * @brief Validate channel number
  */
-[[nodiscard]] constexpr bool is_valid_channel(Channel ch) noexcept {
+#if __has_cpp_attribute(nodiscard) >= 201907L
+[[nodiscard]]
+#endif
+constexpr bool is_valid_channel(Channel ch) noexcept {
     return to_index(ch) < static_cast<uint8_t>(Channel::COUNT);
 }
 
@@ -843,7 +879,10 @@ enum class ParallelPair : uint8_t {
  * @param length Number of bytes
  * @return CRC-8 value
  */
-[[nodiscard]] constexpr uint8_t calculate_crc8_j1850(const uint8_t* data, size_t length) noexcept {
+#if __has_cpp_attribute(nodiscard) >= 201907L
+[[nodiscard]]
+#endif
+constexpr uint8_t calculate_crc8_j1850(const uint8_t* data, size_t length) noexcept {
     constexpr uint8_t POLY = 0x1D;
     uint8_t crc = 0xFF;
     
@@ -866,7 +905,10 @@ enum class ParallelPair : uint8_t {
  * @param frame SPI frame (CRC field should be 0)
  * @return Calculated CRC value
  */
-[[nodiscard]] inline uint8_t calculate_frame_crc(const SPIFrame& frame) noexcept {
+#if __has_cpp_attribute(nodiscard) >= 201907L
+[[nodiscard]]
+#endif
+inline uint8_t calculate_frame_crc(const SPIFrame& frame) noexcept {
     const uint8_t* bytes = reinterpret_cast<const uint8_t*>(&frame);
     // Calculate CRC on bytes 0-2 (excluding CRC byte itself at position 3)
     return calculate_crc8_j1850(bytes, 3);
@@ -877,7 +919,10 @@ enum class ParallelPair : uint8_t {
  * @param frame Received SPI frame
  * @return true if CRC is valid
  */
-[[nodiscard]] inline bool verify_frame_crc(const SPIFrame& frame) noexcept {
+#if __has_cpp_attribute(nodiscard) >= 201907L
+[[nodiscard]]
+#endif
+inline bool verify_frame_crc(const SPIFrame& frame) noexcept {
     SPIFrame temp = frame;
     uint8_t received_crc = temp.tx_fields.crc;
     temp.tx_fields.crc = 0;

@@ -3,12 +3,14 @@ cmake_minimum_required(VERSION 3.15)
 
 project(TLE92466ED_Driver 
     VERSION 2.0.0
-    DESCRIPTION "C++23 Driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver"
+    DESCRIPTION "C++11+ Driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver"
     LANGUAGES CXX
 )
 
-# Set C++23 standard (required for std::expected)
-set(CMAKE_CXX_STANDARD 23)
+# Set C++ standard (configurable - supports C++11 to C++23)
+if(NOT DEFINED CMAKE_CXX_STANDARD)
+    set(CMAKE_CXX_STANDARD 23)  # Default to C++23 for full features
+endif()
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 

@@ -15,7 +15,11 @@
 #define EXAMPLE_HAL_HPP
 
 #include "TLE92466ED_HAL.hpp"
+
+// Conditional includes based on C++ standard
+#if __cpp_lib_chrono >= 201907L
 #include <thread>
+#endif
 
 namespace TLE92466ED {
 
@@ -57,7 +61,7 @@ public:
     /**
      * @brief Initialize SPI hardware for 32-bit communication
      */
-    [[nodiscard]] HALResult<void> init() noexcept override {
+    HALResult<void> init() noexcept override {
         // TODO: Replace with actual hardware initialization
         
         // 1. Initialize SPI peripheral
@@ -76,19 +80,19 @@ public:
 
         initialized_ = true;
         last_error_ = HALError::None;
-        return {};
+        return HALResult<void>();
     }
 
     /**
      * @brief Deinitialize SPI hardware
      */
-    [[nodiscard]] HALResult<void> deinit() noexcept override {
+    HALResult<void> deinit() noexcept override {
         // TODO: Replace with actual hardware deinitialization
         // spi_deinit(spi_device_);
         // gpio_deinit(cs_pin_);
 
         initialized_ = false;
-        return {};
+        return HALResult<void>();
     }
 
     /**
@@ -98,18 +102,21 @@ public:
      * This is the core communication function. It must transfer 4 bytes
      * in MSB-first order (big-endian).
      */
-    [[nodiscard]] HALResult<uint32_t> transfer32(uint32_t tx_data) noexcept override {
+    HALResult<uint32_t> transfer32(uint32_t tx_data) noexcept override {
         if (!initialized_) {
-            last_error_ = HALError::HardwareNotReady;
+#if __cpp_lib_expected >= 202202L
             return std::unexpected(HALError::HardwareNotReady);
+#else
+            return HALError::HardwareNotReady;
+#endif
         }
 
         // TODO: Replace with actual 32-bit SPI transfer
-        uint32_t rx_data = 0;
+        uint32_t result = 0;
 
         // Method 1: If your platform supports 32-bit SPI directly:
         // gpio_set_level(cs_pin_, LOW);
-        // rx_data = spi_transfer_32bit(tx_data);
+        // result = spi_transfer_32bit(tx_data);
         // gpio_set_level(cs_pin_, HIGH);
 
         // Method 2: Transfer as 4 bytes (MSB first):
@@ -126,41 +133,50 @@ public:
         //     rx_bytes[i] = spi_transfer_byte(tx_bytes[i]);
         // }
         // 
-        // rx_data = (static_cast<uint32_t>(rx_bytes[0]) << 24) |
-        //           (static_cast<uint32_t>(rx_bytes[1]) << 16) |
-        //           (static_cast<uint32_t>(rx_bytes[2]) << 8) |
-        //           (static_cast<uint32_t>(rx_bytes[3]) << 0);
+        // result = (static_cast<uint32_t>(rx_bytes[0]) << 24) |
+        //          (static_cast<uint32_t>(rx_bytes[1]) << 16) |
+        //          (static_cast<uint32_t>(rx_bytes[2]) << 8) |
+        //          (static_cast<uint32_t>(rx_bytes[3]) << 0);
         // 
         // gpio_set_level(cs_pin_, HIGH);
 
         // For simulation/testing purposes only:
-        rx_data = tx_data;  // Echo back for testing
+        result = tx_data;  // Echo back for testing
 
-        last_error_ = HALError::None;
-        return rx_data;
+        return result;
     }
 
     /**
-     * @brief Transfer multiple 32-bit words
+     * @brief Transfer multiple 32-bit words via SPI
      */
-    [[nodiscard]] HALResult<void> transfer_multi(
+#if __cpp_lib_span >= 202002L
+    HALResult<void> transfer_multi(
         std::span<const uint32_t> tx_data,
         std::span<uint32_t> rx_data) noexcept override {
-
         if (!initialized_) {
-            last_error_ = HALError::HardwareNotReady;
+#if __cpp_lib_expected >= 202202L
             return std::unexpected(HALError::HardwareNotReady);
+#else
+            return HALError::HardwareNotReady;
+#endif
         }
 
         if (tx_data.size() != rx_data.size()) {
-            last_error_ = HALError::InvalidParameter;
+#if __cpp_lib_expected >= 202202L
             return std::unexpected(HALError::InvalidParameter);
+#else
+            return HALError::InvalidParameter;
+#endif
         }
 
         // Assert chip select once for entire transfer
         auto cs_result = chip_select();
         if (!cs_result) {
-            return cs_result;
+#if __cpp_lib_expected >= 202202L
+            return std::unexpected(cs_result.error());
+#else
+            return cs_result.error_code;
+#endif
         }
 
         // Transfer all words
@@ -168,7 +184,11 @@ public:
             auto result = transfer32(tx_data[i]);
             if (!result) {
                 (void)chip_deselect();
+#if __cpp_lib_expected >= 202202L
                 return std::unexpected(result.error());
+#else
+                return result.error_code;
+#endif
             }
             rx_data[i] = *result;
         }
@@ -176,33 +196,74 @@ public:
         // Deassert chip select
         return chip_deselect();
     }
+#else
+    HALResult<void> transfer_multi(
+        const uint32_t* tx_data,
+        uint32_t* rx_data,
+        size_t count) noexcept override {
+        if (!initialized_) {
+#if __cpp_lib_expected >= 202202L
+            return std::unexpected(HALError::HardwareNotReady);
+#else
+            return HALError::HardwareNotReady;
+#endif
+        }
+
+        // Assert chip select once for entire transfer
+        auto cs_result = chip_select();
+        if (!cs_result) {
+#if __cpp_lib_expected >= 202202L
+            return std::unexpected(cs_result.error());
+#else
+            return cs_result.error_code;
+#endif
+        }
+
+        // Transfer all words
+        for (size_t i = 0; i < count; ++i) {
+            auto result = transfer32(tx_data[i]);
+            if (!result) {
+                (void)chip_deselect();
+#if __cpp_lib_expected >= 202202L
+                return std::unexpected(result.error());
+#else
+                return result.error_code;
+#endif
+            }
+            rx_data[i] = *result;
+        }
+
+        // Deassert chip select
+        return chip_deselect();
+    }
+#endif
 
     /**
      * @brief Assert chip select
      */
-    [[nodiscard]] HALResult<void> chip_select() noexcept override {
+    HALResult<void> chip_select() noexcept override {
         // TODO: Replace with actual GPIO control
         // gpio_set_level(cs_pin_, LOW);
         
         last_error_ = HALError::None;
-        return {};
+        return HALResult<void>();
     }
 
     /**
      * @brief Deassert chip select
      */
-    [[nodiscard]] HALResult<void> chip_deselect() noexcept override {
+    HALResult<void> chip_deselect() noexcept override {
         // TODO: Replace with actual GPIO control
         // gpio_set_level(cs_pin_, HIGH);
         
         last_error_ = HALError::None;
-        return {};
+        return HALResult<void>();
     }
 
     /**
      * @brief Delay for specified duration
      */
-    [[nodiscard]] HALResult<void> delay(uint32_t microseconds) noexcept override {
+    HALResult<void> delay(uint32_t microseconds) noexcept override {
         // TODO: Replace with platform-specific delay
         // Platform-specific examples:
         // - STM32: HAL_Delay(microseconds / 1000) for ms
@@ -212,20 +273,29 @@ public:
         // - Arduino: delayMicroseconds(microseconds)
         // - Linux: usleep(microseconds)
 
-        // For now, just return success (replace with actual delay)
-        // Note: This is a placeholder - implement actual delay for your platform
-        (void)microseconds;  // Suppress unused parameter warning
+#if __cpp_lib_chrono >= 201907L
+        // C++17+ chrono-based delay
+        std::this_thread::sleep_for(std::chrono::microseconds(microseconds));
+#else
+        // C++11 fallback - simple busy wait
+        for (volatile uint32_t i = 0; i < microseconds * 1000; ++i) {
+            // Busy wait delay (adjust multiplier for your platform)
+        }
+#endif
 
-        return {};
+        return HALResult<void>();
     }
 
     /**
      * @brief Configure SPI parameters
      */
-    [[nodiscard]] HALResult<void> configure(const SPIConfig& config) noexcept override {
+    HALResult<void> configure(const SPIConfig& config) noexcept override {
         if (!initialized_) {
-            last_error_ = HALError::HardwareNotReady;
+#if __cpp_lib_expected >= 202202L
             return std::unexpected(HALError::HardwareNotReady);
+#else
+            return HALError::HardwareNotReady;
+#endif
         }
 
         // TODO: Replace with actual SPI reconfiguration
@@ -235,37 +305,37 @@ public:
 
         config_ = config;
         last_error_ = HALError::None;
-        return {};
+        return HALResult<void>();
     }
 
     /**
      * @brief Check if hardware is ready
      */
-    [[nodiscard]] bool is_ready() const noexcept override {
+    bool is_ready() const noexcept override {
         return initialized_;
     }
 
     /**
      * @brief Get last error
      */
-    [[nodiscard]] HALError get_last_error() const noexcept override {
+    HALError get_last_error() const noexcept override {
         return last_error_;
     }
 
     /**
      * @brief Clear errors
      */
-    [[nodiscard]] HALResult<void> clear_errors() noexcept override {
+    HALResult<void> clear_errors() noexcept override {
         last_error_ = HALError::None;
-        return {};
+        return HALResult<void>();
     }
 
 private:
-    [[maybe_unused]] int spi_device_;        ///< SPI device identifier
-    [[maybe_unused]] int cs_pin_;            ///< Chip select pin
-    bool initialized_;                       ///< Initialization status
-    HALError last_error_;                    ///< Last error code
-    SPIConfig config_;                       ///< Current SPI configuration
+    int spi_device_;        ///< SPI device identifier
+    int cs_pin_;            ///< Chip select pin
+    bool initialized_;      ///< Initialization status
+    HALError last_error_;   ///< Last error code
+    SPIConfig config_;      ///< Current SPI configuration
 };
 
 } // namespace TLE92466ED

@@ -6,10 +6,10 @@
  * @version 2.0.0
  *
  * @details
- * This file defines the hardware abstraction layer interface for the TLE92466ED
- * Six-Channel Low-Side Solenoid Driver IC. The HAL provides a polymorphic interface
- * that allows the driver to work with any hardware platform by implementing the
- * virtual transmission functions.
+ * This file defines the hardware abstraction layer interface for the
+ * TLE92466ED Six-Channel Low-Side Solenoid Driver IC. The HAL provides a
+ * polymorphic interface that allows the driver to work with any hardware
+ * platform by implementing the virtual transmission functions.
  *
  * The TLE92466ED uses **32-bit SPI communication** with the following structure:
  * - MOSI: 32-bit frame (CRC[31:24] + Address[23:17] + R/W[16] + Data[15:0])
@@ -26,9 +26,19 @@
 #define TLE92466ED_HAL_HPP
 
 #include <cstdint>
-#include <concepts>
-#include <span>
+
+// Conditional includes based on C++ standard
+#if __cpp_lib_expected >= 202202L
 #include <expected>
+#endif
+
+#if __cpp_lib_span >= 202002L
+#include <span>
+#endif
+
+#if __cpp_concepts >= 201907L
+#include <concepts>
+#endif
 
 namespace TLE92466ED {
 
@@ -51,15 +61,40 @@ enum class HALError : uint8_t {
     UnknownError              ///< Unknown error occurred
 };
 
+// Conditional result type based on C++ standard
+#if __cpp_lib_expected >= 202202L
 /**
- * @brief Result type for HAL operations using std::expected (C++23)
- * 
- * @tparam T The success type
- * 
- * This provides a modern, safe way to return either a success value or an error.
+ * @brief HAL operation result type (C++23 std::expected)
  */
 template<typename T>
 using HALResult = std::expected<T, HALError>;
+#else
+/**
+ * @brief HAL operation result type (C++11 fallback)
+ * 
+ * For C++11 compatibility, we use a simple struct with success flag
+ * and optional error code. Users should check the success flag before
+ * accessing the value.
+ */
+template<typename T>
+struct HALResult {
+    bool success;
+    T value;
+    HALError error_code;
+    
+    HALResult() : success(false), value(), error_code(HALError::None) {}
+    HALResult(const T& val) : success(true), value(val), error_code(HALError::None) {}
+    HALResult(HALError err) : success(false), value(), error_code(err) {}
+    
+    // Conversion operators for C++23 compatibility
+    operator bool() const noexcept { return success; }
+    const T& operator*() const noexcept { return value; }
+    T& operator*() noexcept { return value; }
+    const T* operator->() const noexcept { return &value; }
+    T* operator->() noexcept { return &value; }
+    HALError error() const noexcept { return error_code; }
+};
+#endif
 
 /**
  * @brief SPI transaction configuration
@@ -67,11 +102,14 @@ using HALResult = std::expected<T, HALError>;
  * Defines the configuration parameters for SPI communication.
  */
 struct SPIConfig {
-    uint32_t frequency{1'000'000};        ///< SPI clock frequency in Hz (max 10 MHz for TLE92466ED)
-    uint8_t mode{0};                      ///< SPI mode (CPOL=0, CPHA=0 for TLE92466ED)
-    uint8_t bits_per_word{8};             ///< Bits per word (8-bit, transfer 4 bytes for 32-bit frame)
-    bool msb_first{true};                 ///< MSB first transmission
-    uint32_t timeout_ms{100}; ///< Transaction timeout in milliseconds
+    uint32_t frequency;        ///< SPI clock frequency in Hz (max 10 MHz for TLE92466ED)
+    uint8_t mode;              ///< SPI mode (CPOL=0, CPHA=0 for TLE92466ED)
+    uint8_t bits_per_word;     ///< Bits per word (8-bit, transfer 4 bytes for 32-bit frame)
+    bool msb_first;            ///< MSB first transmission
+    uint32_t timeout_ms;       ///< Transaction timeout in milliseconds
+    
+    // C++11 constructor with conditional digit separators
+    SPIConfig() : frequency(1000000), mode(0), bits_per_word(8), msb_first(true), timeout_ms(100) {}
 };
 
 /**
@@ -83,10 +121,13 @@ struct SPIConfig {
  * and implement the virtual functions for their specific hardware platform
  * (e.g., STM32, ESP32, Arduino, Linux, etc.).
  *
- * The HAL uses modern C++20/23 features including:
- * - Concepts for compile-time constraints
- * - std::span for safe array access
- * - std::expected for error handling
+ * The HAL uses conditional C++ features and is designed for embedded systems:
+ * - C++23: std::expected for robust error handling
+ * - C++11: Simple error codes for maximum compatibility
+ * - C++20: std::span for safe array access
+ * - C++11: Pointer + size for maximum compatibility
+ * - noexcept functions for embedded safety
+ * - Minimal dependencies
  * - uint32_t for time management (microseconds)
  *
  * @par 32-Bit SPI Communication:
@@ -100,10 +141,10 @@ struct SPIConfig {
  * @code{.cpp}
  * class MyPlatformHAL : public TLE92466ED::HAL {
  * public:
- *     HALResult<uint32_t> transfer32(uint32_t data) noexcept override {
- *         uint32_t result = spi_transfer_32bit(data);
+ *     HALResult<uint32_t> transfer32(uint32_t tx_data) noexcept override {
+ *         uint32_t result = spi_transfer_32bit(tx_data);
  *         if (spi_error()) {
- *             return std::unexpected(HALError::TransferError);
+ *             return HALError::TransferError;
  *         }
  *         return result;
  *     }
@@ -126,7 +167,7 @@ public:
     /**
      * @brief Virtual destructor for polymorphic behavior
      */
-    virtual ~HAL() = default;
+    virtual ~HAL() {}
 
     /**
      * @brief Initialize the hardware interface
@@ -141,7 +182,10 @@ public:
      * @retval HALError::HardwareNotReady Hardware initialization failed
      * @retval HALError::InvalidParameter Invalid configuration
      */
-    [[nodiscard]] virtual HALResult<void> init() noexcept = 0;
+#if __has_cpp_attribute(nodiscard) >= 201907L
+    [[nodiscard]]
+#endif
+    virtual HALResult<void> init() noexcept = 0;
 
     /**
      * @brief Deinitialize the hardware interface
@@ -152,7 +196,10 @@ public:
      *
      * @return HALResult<void> Success or error code
      */
-    [[nodiscard]] virtual HALResult<void> deinit() noexcept = 0;
+#if __has_cpp_attribute(nodiscard) >= 201907L
+    [[nodiscard]]
+#endif
+    virtual HALResult<void> deinit() noexcept = 0;
 
     /**
      * @brief Transfer 32-bit data via SPI (full-duplex)
@@ -169,7 +216,7 @@ public:
      * - Bits [15:0]: Data (16 bits)
      *
      * @param[in] tx_data The 32-bit data to transmit
-     * @return HALResult<uint32_t> Received 32-bit data or error
+     * @return HALResult<uint32_t> Received 32-bit data or error code
      * @retval HALError::TransferError SPI transfer failed
      * @retval HALError::Timeout Transfer timeout
      *
@@ -180,7 +227,10 @@ public:
      *
      * @note CRC calculation is handled by the driver layer, not HAL
      */
-    [[nodiscard]] virtual HALResult<uint32_t> transfer32(uint32_t tx_data) noexcept = 0;
+#if __has_cpp_attribute(nodiscard) >= 201907L
+    [[nodiscard]]
+#endif
+    virtual HALResult<uint32_t> transfer32(uint32_t tx_data) noexcept = 0;
 
     /**
      * @brief Transfer multiple 32-bit words via SPI
@@ -189,18 +239,31 @@ public:
      * Performs multiple consecutive SPI transfers efficiently. Useful for
      * reading or writing multiple registers in sequence.
      *
-     * @param[in] tx_data Span of transmit data (32-bit words)
-     * @param[out] rx_data Span to store received data (32-bit words)
+     * @param[in] tx_data Pointer to transmit data (32-bit words)
+     * @param[out] rx_data Pointer to store received data (32-bit words)
+     * @param[in] count Number of 32-bit words to transfer
      * @return HALResult<void> Success or error code
-     * @retval HALError::InvalidParameter Buffer size mismatch
+     * @retval HALError::InvalidParameter Invalid parameters
      * @retval HALError::TransferError Transfer failed
      *
-     * @pre tx_data.size() == rx_data.size()
-     * @pre Both spans must be valid for the duration of the transfer
+     * @pre tx_data and rx_data must be valid for count words
      */
-    [[nodiscard]] virtual HALResult<void> transfer_multi(
+#if __cpp_lib_span >= 202002L
+#if __has_cpp_attribute(nodiscard) >= 201907L
+    [[nodiscard]]
+#endif
+    virtual HALResult<void> transfer_multi(
         std::span<const uint32_t> tx_data,
         std::span<uint32_t> rx_data) noexcept = 0;
+#else
+#if __has_cpp_attribute(nodiscard) >= 201907L
+    [[nodiscard]]
+#endif
+    virtual HALResult<void> transfer_multi(
+        const uint32_t* tx_data,
+        uint32_t* rx_data,
+        size_t count) noexcept = 0;
+#endif
 
     /**
      * @brief Assert (activate) chip select
@@ -214,7 +277,10 @@ public:
      *
      * @note Some implementations may handle CS automatically in transfer32()
      */
-    [[nodiscard]] virtual HALResult<void> chip_select() noexcept = 0;
+#if __has_cpp_attribute(nodiscard) >= 201907L
+    [[nodiscard]]
+#endif
+    virtual HALResult<void> chip_select() noexcept = 0;
 
     /**
      * @brief Deassert (deactivate) chip select
@@ -226,7 +292,10 @@ public:
      * @return HALResult<void> Success or error code
      * @retval HALError::ChipselectError CS control failed
      */
-    [[nodiscard]] virtual HALResult<void> chip_deselect() noexcept = 0;
+#if __has_cpp_attribute(nodiscard) >= 201907L
+    [[nodiscard]]
+#endif
+    virtual HALResult<void> chip_deselect() noexcept = 0;
 
     /**
      * @brief Delay for specified duration
@@ -242,7 +311,10 @@ public:
      * - Reset pulse width: minimum 1µs
      * - Power-up delay: minimum 1ms
      */
-    [[nodiscard]] virtual HALResult<void> delay(uint32_t microseconds) noexcept = 0;
+#if __has_cpp_attribute(nodiscard) >= 201907L
+    [[nodiscard]]
+#endif
+    virtual HALResult<void> delay(uint32_t microseconds) noexcept = 0;
 
     /**
      * @brief Configure SPI parameters
@@ -261,7 +333,10 @@ public:
      * - Bit order: MSB first
      * - Frame size: 32 bits (4 bytes)
      */
-    [[nodiscard]] virtual HALResult<void> configure(const SPIConfig& config) noexcept = 0;
+#if __has_cpp_attribute(nodiscard) >= 201907L
+    [[nodiscard]]
+#endif
+    virtual HALResult<void> configure(const SPIConfig& config) noexcept = 0;
 
     /**
      * @brief Check if hardware is ready for communication
@@ -272,7 +347,7 @@ public:
      *
      * @return true if ready, false otherwise
      */
-    [[nodiscard]] virtual bool is_ready() const noexcept = 0;
+    virtual bool is_ready() const noexcept = 0;
 
     /**
      * @brief Get the last error that occurred
@@ -283,7 +358,7 @@ public:
      *
      * @return HALError The last error code
      */
-    [[nodiscard]] virtual HALError get_last_error() const noexcept = 0;
+    virtual HALError get_last_error() const noexcept = 0;
 
     /**
      * @brief Clear any pending errors
@@ -294,7 +369,10 @@ public:
      *
      * @return HALResult<void> Success or error code
      */
-    [[nodiscard]] virtual HALResult<void> clear_errors() noexcept = 0;
+#if __has_cpp_attribute(nodiscard) >= 201907L
+    [[nodiscard]]
+#endif
+    virtual HALResult<void> clear_errors() noexcept = 0;
 
 protected:
     /**
@@ -303,40 +381,36 @@ protected:
      * @details
      * This class can only be instantiated through derived classes.
      */
-    HAL() = default;
+    HAL() {}
 
-    /**
-     * @brief Prevent copying
-     */
-    HAL(const HAL&) = delete;
-    HAL& operator=(const HAL&) = delete;
-
-    /**
-     * @brief Allow moving
-     */
-    HAL(HAL&&) noexcept = default;
-    HAL& operator=(HAL&&) noexcept = default;
+    // Prevent copying
+    HAL(const HAL&);
+    HAL& operator=(const HAL&);
 };
 
+// Conditional concept definition
+#if __cpp_concepts >= 201907L
 /**
- * @brief Concept to verify a type implements the HAL interface
- * 
- * @tparam T Type to check
+ * @brief Concept for HAL interface validation
  * 
  * @details
- * This C++20 concept ensures at compile-time that a class properly
- * implements the HAL interface. Provides better error messages than
- * traditional template constraints.
+ * Compile-time check to ensure a class implements the HAL interface correctly.
+ * This helps catch implementation errors at compile time.
  */
 template<typename T>
 concept HALInterface = std::is_base_of_v<HAL, T> && requires(T hal, uint32_t data, SPIConfig cfg) {
     { hal.init() } -> std::same_as<HALResult<void>>;
+    { hal.deinit() } -> std::same_as<HALResult<void>>;
     { hal.transfer32(data) } -> std::same_as<HALResult<uint32_t>>;
     { hal.chip_select() } -> std::same_as<HALResult<void>>;
     { hal.chip_deselect() } -> std::same_as<HALResult<void>>;
-    { hal.is_ready() } -> std::same_as<bool>;
+    { hal.delay(data) } -> std::same_as<HALResult<void>>;
     { hal.configure(cfg) } -> std::same_as<HALResult<void>>;
+    { hal.is_ready() } -> std::same_as<bool>;
+    { hal.get_last_error() } -> std::same_as<HALError>;
+    { hal.clear_errors() } -> std::same_as<HALResult<void>>;
 };
+#endif
 
 } // namespace TLE92466ED
 
