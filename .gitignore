@@ -37,7 +37,7 @@
 *.out
 *.app
 
-# debug information files
+# Debug information files
 *.dwo
 
 # Build directories (ESP-IDF and general)
@@ -48,13 +48,6 @@
 build/
 examples/esp32/build*/
 examples/esp32/**/build*/
-**/dependencies.lock
-
-# Don't exclude .vscode folder
-# .vscode/
-# But exclude user-specific files
-.vscode/settings.json.user
-.vscode/*.backup
 
 # ESP-IDF specific
 # sdkconfig and sdkconfig.defaults should be tracked (contain important ESP32 configuration)
@@ -78,39 +71,65 @@ cmake_install.cmake
 Makefile
 **/Makefile
 
+# Dependencies
+**/dependencies.lock
+
 # Documentation output
 **/docs/html/
 **/docs/doxygen/
 docs/doxygen/
+docs/html/
 
-# OS files
-.DS_Store
-**/.DS_Store
-Thumbs.db
-**/.cache/
+# VSCode user-specific files (keep .vscode/ but ignore user files)
+.vscode/settings.json.user
+.vscode/*.backup
 
-**/compile_commands.json
+# IDE settings
+.idea/
+*.swp
+*.swo
+*~
 
+# Python
 .venv/
 **/venv/
 **/.venv/
-
 __pycache__/
 **/__pycache__/
+*.pyc
+.python_env/
 
-actionlint*
-**/actionlint*
+# Cache
+**/.cache/
+.cache/
+
+# Compile commands
+**/compile_commands.json
+compile_commands.json
 
 # Log files
 **/logs/
 **/*.log
 logs/
 
+# CI/CD
 ci_build_path/
+actionlint*
+**/actionlint*
+
+# Node modules
 **/node_modules/
 node_modules/
-
 package-lock.json
 package*.json
 
+# OS files
+.DS_Store
+**/.DS_Store
+*.DS_Store
+Thumbs.db
+**/Thumbs.db
+
+# Backup files
 **/*.bak*
+*.bak
