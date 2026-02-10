@@ -20,7 +20,7 @@
 <codeline><highlight class="normal">**C++23<sp/>driver<sp/>for<sp/>Infineon<sp/>TLE92466ED<sp/>Six-Channel<sp/>Low-Side<sp/>Solenoid<sp/>Driver<sp/>IC**</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">[![C++](https://img.shields.io/badge/C%2B%2B-23-blue.svg)](https://en.cppreference.com/w/cpp/23)</highlight></codeline>
-<codeline><highlight class="normal">[![License](https://img.shields.io/badge/license-Public%20Domain-green.svg)](LICENSE)</highlight></codeline>
+<codeline><highlight class="normal">[![License](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)</highlight></codeline>
 <codeline><highlight class="normal">[![CI](https://github.com/N3b3x/hf-tle92466ed-driver/actions/workflows/esp32-examples-build-ci.yml/badge.svg?branch=main)](https://github.com/N3b3x/hf-tle92466ed-driver/actions/workflows/esp32-examples-build-ci.yml)</highlight></codeline>
 <codeline><highlight class="normal">[![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://n3b3x.github.io/hf-tle92466ed-driver/)</highlight></codeline>
 <codeline></codeline>

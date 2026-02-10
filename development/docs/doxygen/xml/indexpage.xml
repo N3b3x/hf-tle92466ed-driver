@@ -8,8 +8,8 @@
     <detaileddescription>
 <para><anchor id="index_1md_README"/> <bold>C++23 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver IC</bold></para>
 <para><ulink url="https://en.cppreference.com/w/cpp/23"><image type="html" name="https://img.shields.io/badge/C%2B%2B-23-blue.svg" alt="C++" inline="yes"></image>
-</ulink> [<image type="html" name="https://img.shields.io/badge/license-Public%20Domain-green.svg" alt="License" inline="yes"></image>
-](LICENSE) <ulink url="https://github.com/N3b3x/hf-tle92466ed-driver/actions/workflows/esp32-examples-build-ci.yml"><image type="html" name="https://github.com/N3b3x/hf-tle92466ed-driver/actions/workflows/esp32-examples-build-ci.yml/badge.svg?branch=main" alt="CI" inline="yes"></image>
+</ulink> <ulink url="https://www.gnu.org/licenses/gpl-3.0"><image type="html" name="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License" inline="yes"></image>
+</ulink> <ulink url="https://github.com/N3b3x/hf-tle92466ed-driver/actions/workflows/esp32-examples-build-ci.yml"><image type="html" name="https://github.com/N3b3x/hf-tle92466ed-driver/actions/workflows/esp32-examples-build-ci.yml/badge.svg?branch=main" alt="CI" inline="yes"></image>
 </ulink> <ulink url="https://n3b3x.github.io/hf-tle92466ed-driver/"><image type="html" name="https://img.shields.io/badge/docs-GitHub%20Pages-blue" alt="Docs" inline="yes"></image>
 </ulink></para>
 <sect1 id="index_1autotoc_md1">
