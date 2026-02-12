@@ -402,11 +402,11 @@ public:
 </pre></td><td class="rouge-code"><pre>virtual void delayMicroseconds(uint32_t us) noexcept = 0;
 
 // Optional control pin methods
-virtual auto SetGpioPin(ControlPin pin, ActiveLevel level) noexcept 
+virtual auto GpioSet(CtrlPin pin, GpioSignal signal) noexcept 
     -&gt; std::expected&lt;void, CommError&gt;;
 
-virtual auto GetGpioPin(ControlPin pin) noexcept 
-    -&gt; std::expected&lt;ActiveLevel, CommError&gt;; }; ```cpp
+virtual auto GpioRead(CtrlPin pin) noexcept 
+    -&gt; std::expected&lt;GpioSignal, CommError&gt;; }; ```cpp
 </pre></td></tr></tbody></table></div></code></pre></div></div>
 <h2 id="implementation-steps">
   
@@ -757,16 +757,16 @@ CRC (8-bit)| Don't Care |  R/W   | Address (16-bit)
 </ul>
 
 <p><code class="language-plaintext highlighter-rouge">cpp
-auto SetGpioPin(tle92466ed::ControlPin pin, tle92466ed::ActiveLevel level) noexcept 
+auto GpioSet(tle92466ed::CtrlPin pin, tle92466ed::GpioSignal signal) noexcept 
     -&gt; std::expected&lt;void, tle92466ed::CommError&gt; override {
     switch (pin) {
-        case tle92466ed::ControlPin::RESN:
+        case tle92466ed::CtrlPin::RESN:
             // Set RESN pin (active low)
-            gpio_set_level(resn_pin_, level == tle92466ed::ActiveLevel::ACTIVE ? 0 : 1);
+            gpio_set_level(resn_pin_, signal == tle92466ed::GpioSignal::ACTIVE ? 0 : 1);
             break;
-        case tle92466ed::ControlPin::EN:
+        case tle92466ed::CtrlPin::EN:
             // Set EN pin (active high)
-            gpio_set_level(en_pin_, level == tle92466ed::ActiveLevel::ACTIVE ? 1 : 0);
+            gpio_set_level(en_pin_, signal == tle92466ed::GpioSignal::ACTIVE ? 1 : 0);
             break;
         default:
             return std::unexpected(tle92466ed::CommError::InvalidParameter);

@@ -764,7 +764,7 @@
   },"109": {
     "doc": "🔧 Platform Integration",
     "title": "Interface Definition",
-    "content": "The TLE92466ED driver requires you to implement the following interface: . ```cpp class SpiInterface { public: // Required methods (implement all of these) virtual auto spiTransfer(std::span txData, std::span rxData) noexcept -&gt; std::expected&lt;void, CommError&gt; = 0; . | 1 2 3 4 5 6 7 8 . | virtual void delayMicroseconds(uint32_t us) noexcept = 0; // Optional control pin methods virtual auto SetGpioPin(ControlPin pin, ActiveLevel level) noexcept -&gt; std::expected&lt;void, CommError&gt;; virtual auto GetGpioPin(ControlPin pin) noexcept -&gt; std::expected&lt;ActiveLevel, CommError&gt;; }; ```cpp . | . ",
+    "content": "The TLE92466ED driver requires you to implement the following interface: . ```cpp class SpiInterface { public: // Required methods (implement all of these) virtual auto spiTransfer(std::span txData, std::span rxData) noexcept -&gt; std::expected&lt;void, CommError&gt; = 0; . | 1 2 3 4 5 6 7 8 . | virtual void delayMicroseconds(uint32_t us) noexcept = 0; // Optional control pin methods virtual auto GpioSet(CtrlPin pin, GpioSignal signal) noexcept -&gt; std::expected&lt;void, CommError&gt;; virtual auto GpioRead(CtrlPin pin) noexcept -&gt; std::expected&lt;GpioSignal, CommError&gt;; }; ```cpp . | . ",
     "url": "/hf-tle92466ed-driver/development/docs/platform_integration/#interface-definition",
     
     "relUrl": "/docs/platform_integration/#interface-definition"
@@ -820,7 +820,7 @@
   },"117": {
     "doc": "🔧 Platform Integration",
     "title": "Control Pins (Optional)",
-    "content": "The TLE92466ED has optional control pins that can be implemented: . | RESN: Active-low reset pin | EN: Active-high enable pin | FAULTN: Active-low fault output (open drain) | . cpp auto SetGpioPin(tle92466ed::ControlPin pin, tle92466ed::ActiveLevel level) noexcept -&gt; std::expected&lt;void, tle92466ed::CommError&gt; override { switch (pin) { case tle92466ed::ControlPin::RESN: // Set RESN pin (active low) gpio_set_level(resn_pin_, level == tle92466ed::ActiveLevel::ACTIVE ? 0 : 1); break; case tle92466ed::ControlPin::EN: // Set EN pin (active high) gpio_set_level(en_pin_, level == tle92466ed::ActiveLevel::ACTIVE ? 1 : 0); break; default: return std::unexpected(tle92466ed::CommError::InvalidParameter); } return {}; } cpp . ",
+    "content": "The TLE92466ED has optional control pins that can be implemented: . | RESN: Active-low reset pin | EN: Active-high enable pin | FAULTN: Active-low fault output (open drain) | . cpp auto GpioSet(tle92466ed::CtrlPin pin, tle92466ed::GpioSignal signal) noexcept -&gt; std::expected&lt;void, tle92466ed::CommError&gt; override { switch (pin) { case tle92466ed::CtrlPin::RESN: // Set RESN pin (active low) gpio_set_level(resn_pin_, signal == tle92466ed::GpioSignal::ACTIVE ? 0 : 1); break; case tle92466ed::CtrlPin::EN: // Set EN pin (active high) gpio_set_level(en_pin_, signal == tle92466ed::GpioSignal::ACTIVE ? 1 : 0); break; default: return std::unexpected(tle92466ed::CommError::InvalidParameter); } return {}; } cpp . ",
     "url": "/hf-tle92466ed-driver/development/docs/platform_integration/#control-pins-optional",
     
     "relUrl": "/docs/platform_integration/#control-pins-optional"

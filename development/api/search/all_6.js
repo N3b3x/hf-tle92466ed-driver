@@ -10,7 +10,8 @@ var searchData=
   ['get_5fsuccess_5fpercentage_7',['get_success_percentage',['../structTestResults.html#ab98f9ad5f994aa31bd7c0cd8ae551fb8',1,'TestResults']]],
   ['get_5ftotal_5ftime_5fms_8',['get_total_time_ms',['../structTestResults.html#a6d2e718d81a8b4a4dcca515ee858de57',1,'TestResults']]],
   ['getconfig_9',['getConfig',['../classEsp32Tle92466edSpiBus.html#a92aaf5c2cdd6e26daa496051a8426a16',1,'Esp32Tle92466edSpiBus']]],
-  ['getgpiopin_10',['GetGpioPin',['../classEsp32Tle92466edSpiBus.html#a45baa37946063c847754042308ecf155',1,'Esp32Tle92466edSpiBus']]],
-  ['getlasterror_11',['GetLastError',['../classEsp32Tle92466edSpiBus.html#a230b32d97c901977d39f76648523c3c0',1,'Esp32Tle92466edSpiBus']]],
-  ['gpio_5fpin_12',['GPIO_PIN',['../structADCConfig.html#af79e226540f25bb3bf16c03aa16a7b0f',1,'ADCConfig']]]
+  ['getlasterror_10',['GetLastError',['../classEsp32Tle92466edSpiBus.html#a230b32d97c901977d39f76648523c3c0',1,'Esp32Tle92466edSpiBus']]],
+  ['gpio_5fpin_11',['GPIO_PIN',['../structADCConfig.html#af79e226540f25bb3bf16c03aa16a7b0f',1,'ADCConfig']]],
+  ['gpioread_12',['GpioRead',['../classEsp32Tle92466edSpiBus.html#a516f3843e68dfb83264a7d2747e6bc18',1,'Esp32Tle92466edSpiBus']]],
+  ['gpioset_13',['GpioSet',['../classEsp32Tle92466edSpiBus.html#a932d66a7d0dec57677864b3a01c6102b',1,'Esp32Tle92466edSpiBus']]]
 ];

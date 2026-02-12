@@ -19,7 +19,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="423" column="15" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="423" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="444" column="15" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="444" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classEsp32Tle92466edSpiBus_1aa2ade5d165ae594007a6e7c0f9a4ce4c" prot="private" static="no" mutable="no">
         <type>spi_device_handle_t</type>
@@ -35,7 +35,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="424" column="25" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="424" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="445" column="25" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="445" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classEsp32Tle92466edSpiBus_1a043069850e70f93ebb4639914835636d" prot="private" static="no" mutable="no">
         <type>bool</type>
@@ -51,7 +51,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="425" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="425" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="446" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="446" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classEsp32Tle92466edSpiBus_1a096bb9a950f4f648b6ee6273f5bb2067" prot="private" static="no" mutable="no">
         <type>CommError</type>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="426" column="15" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="426" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="447" column="15" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="447" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="private-static-attrib">
@@ -85,7 +85,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="428" column="33" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="428" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="449" column="33" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="449" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -393,22 +393,22 @@
         </inbodydescription>
         <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="330" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="330" bodyend="330"/>
       </memberdef>
-      <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1adfbd4712be089febb5123cd39004115a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a932d66a7d0dec57677864b3a01c6102b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>auto</type>
-        <definition>auto Esp32Tle92466edSpiBus::SetGpioPin</definition>
-        <argsstring>(ControlPin pin, ActiveLevel level) noexcept -&gt; CommResult&lt; void &gt;</argsstring>
-        <name>SetGpioPin</name>
-        <qualifiedname>Esp32Tle92466edSpiBus::SetGpioPin</qualifiedname>
+        <definition>auto Esp32Tle92466edSpiBus::GpioSet</definition>
+        <argsstring>(CtrlPin pin, GpioSignal signal) noexcept -&gt; CommResult&lt; void &gt;</argsstring>
+        <name>GpioSet</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::GpioSet</qualifiedname>
         <param>
-          <type>ControlPin</type>
+          <type>CtrlPin</type>
           <declname>pin</declname>
         </param>
         <param>
-          <type>ActiveLevel</type>
-          <declname>level</declname>
+          <type>GpioSignal</type>
+          <declname>signal</declname>
         </param>
         <briefdescription>
-<para>Set GPIO control pin level. </para>
+<para>Set GPIO control pin signal. </para>
         </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
@@ -421,33 +421,35 @@
 </parameteritem>
 <parameteritem>
 <parameternamelist>
-<parametername>level</parametername>
+<parametername>signal</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Active level (HIGH or LOW) </para>
+<para>GPIO signal level (ACTIVE or INACTIVE) </para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>CommResult&lt;void&gt; Success or error </para>
+<simplesect kind="return"><para>CommResult&lt;void&gt; Success or error</para>
+</simplesect>
+<simplesect kind="note"><para>The mapping from GpioSignal to physical GPIO level is the responsibility of this bus implementation based on the board&apos;s active-level design. For TLE92466ED: RESN is active-low, EN is active-high. </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="338" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="338" bodyend="367"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="342" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="342" bodyend="384"/>
       </memberdef>
-      <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a45baa37946063c847754042308ecf155" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+      <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a516f3843e68dfb83264a7d2747e6bc18" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>auto</type>
-        <definition>auto Esp32Tle92466edSpiBus::GetGpioPin</definition>
-        <argsstring>(ControlPin pin) noexcept -&gt; CommResult&lt; ActiveLevel &gt;</argsstring>
-        <name>GetGpioPin</name>
-        <qualifiedname>Esp32Tle92466edSpiBus::GetGpioPin</qualifiedname>
+        <definition>auto Esp32Tle92466edSpiBus::GpioRead</definition>
+        <argsstring>(CtrlPin pin) noexcept -&gt; CommResult&lt; GpioSignal &gt;</argsstring>
+        <name>GpioRead</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::GpioRead</qualifiedname>
         <param>
-          <type>ControlPin</type>
+          <type>CtrlPin</type>
           <declname>pin</declname>
         </param>
         <briefdescription>
-<para>Get GPIO control pin level. </para>
+<para>Read GPIO control pin signal. </para>
         </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
@@ -459,13 +461,15 @@
 </parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>CommResult&lt;ActiveLevel&gt; Pin level or error </para>
+<simplesect kind="return"><para>CommResult&lt;GpioSignal&gt; Pin signal level or error</para>
+</simplesect>
+<simplesect kind="note"><para>The mapping from physical GPIO level to GpioSignal is the responsibility of this bus implementation. FAULTN is active-low: physical 0 = ACTIVE. </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="374" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="374" bodyend="394"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="394" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="394" bodyend="415"/>
       </memberdef>
       <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a51ba27e05beb007f49ecba1bfd72eb74" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>void</type>
@@ -530,7 +534,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="403" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="403" bodyend="414"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="424" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="424" bodyend="435"/>
       </memberdef>
       <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1ad73eb0c20ff589310eaef5e501e32f20" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>auto</type>
@@ -548,7 +552,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="420" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="420" bodyend="420"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="441" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="441" bodyend="441"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="private-func">
@@ -568,7 +572,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="434" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="434" bodyend="471"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="455" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="455" bodyend="492"/>
       </memberdef>
       <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a3ab0c7e560efec4561c7940538e4cceb" prot="private" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>auto</type>
@@ -586,7 +590,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="477" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="477" bodyend="498"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="498" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="498" bodyend="519"/>
       </memberdef>
       <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1aeed7f6eaa33189a9520bc0b34c332734" prot="private" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>auto</type>
@@ -605,7 +609,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="504" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="504" bodyend="533"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="525" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="525" bodyend="554"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -643,7 +647,7 @@
         <label>tle92466ed::SpiInterface&lt; Esp32Tle92466edSpiBus &gt;</label>
       </node>
     </collaborationgraph>
-    <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="46" column="1" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="46" bodyend="534"/>
+    <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="46" column="1" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="46" bodyend="555"/>
     <listofallmembers>
       <member refid="classEsp32Tle92466edSpiBus_1aeed7f6eaa33189a9520bc0b34c332734" prot="private" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>addSPIDevice</name></member>
       <member refid="classEsp32Tle92466edSpiBus_1af63d5b9edd17b58a23febdcf6c927efb" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>ClearErrors</name></member>
@@ -654,8 +658,9 @@
       <member refid="classEsp32Tle92466edSpiBus_1a7765e7f78ed52fca520dcb3d6dffdd16" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>Esp32Tle92466edSpiBus</name></member>
       <member refid="classEsp32Tle92466edSpiBus_1a1417b2885f7e6ed63747497b041fcb9d" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>Esp32Tle92466edSpiBus</name></member>
       <member refid="classEsp32Tle92466edSpiBus_1a92aaf5c2cdd6e26daa496051a8426a16" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>getConfig</name></member>
-      <member refid="classEsp32Tle92466edSpiBus_1a45baa37946063c847754042308ecf155" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>GetGpioPin</name></member>
       <member refid="classEsp32Tle92466edSpiBus_1a230b32d97c901977d39f76648523c3c0" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>GetLastError</name></member>
+      <member refid="classEsp32Tle92466edSpiBus_1a516f3843e68dfb83264a7d2747e6bc18" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>GpioRead</name></member>
+      <member refid="classEsp32Tle92466edSpiBus_1a932d66a7d0dec57677864b3a01c6102b" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>GpioSet</name></member>
       <member refid="classEsp32Tle92466edSpiBus_1a3da7b727dfd17c6e0f08833961efc23d" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>Init</name></member>
       <member refid="classEsp32Tle92466edSpiBus_1a043069850e70f93ebb4639914835636d" prot="private" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>initialized_</name></member>
       <member refid="classEsp32Tle92466edSpiBus_1ae017c339fbd0d40607ad84eeba91aecf" prot="private" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>initializeGPIO</name></member>
@@ -664,7 +669,6 @@
       <member refid="classEsp32Tle92466edSpiBus_1a8584733434267fd3fe40a05918994178" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>IsReady</name></member>
       <member refid="classEsp32Tle92466edSpiBus_1a096bb9a950f4f648b6ee6273f5bb2067" prot="private" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>last_error_</name></member>
       <member refid="classEsp32Tle92466edSpiBus_1a51ba27e05beb007f49ecba1bfd72eb74" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>Log</name></member>
-      <member refid="classEsp32Tle92466edSpiBus_1adfbd4712be089febb5123cd39004115a" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>SetGpioPin</name></member>
       <member refid="classEsp32Tle92466edSpiBus_1aa2ade5d165ae594007a6e7c0f9a4ce4c" prot="private" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>spi_device_</name></member>
       <member refid="classEsp32Tle92466edSpiBus_1a600e90229e8b9a5adb891ed7acf1a6bb" prot="private" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>TAG</name></member>
       <member refid="classEsp32Tle92466edSpiBus_1a9b2dffe7d4f9bad0e67eb27867736e61" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>Transfer32</name></member>

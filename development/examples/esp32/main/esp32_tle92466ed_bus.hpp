@@ -330,30 +330,47 @@ public:
     auto getConfig() const noexcept -> const SPIConfig& { return config_; }
 
     /**
-     * @brief Set GPIO control pin level
+     * @brief Set GPIO control pin signal
      * @param pin Control pin to set (RESN or EN)
-     * @param level Active level (HIGH or LOW)
+     * @param signal GPIO signal level (ACTIVE or INACTIVE)
      * @return CommResult<void> Success or error
+     * 
+     * @note The mapping from GpioSignal to physical GPIO level is the responsibility
+     *       of this bus implementation based on the board's active-level design.
+     *       For TLE92466ED: RESN is active-low, EN is active-high.
      */
-    auto SetGpioPin(ControlPin pin, ActiveLevel level) noexcept -> CommResult<void> {
+    auto GpioSet(CtrlPin pin, GpioSignal signal) noexcept -> CommResult<void> {
         if (!IsReady()) {
             last_error_ = CommError::HardwareNotReady;
             return std::unexpected(CommError::HardwareNotReady);
         }
         int gpio_pin = -1;
         switch (pin) {
-            case ControlPin::RESN: gpio_pin = config_.resn_pin; break;
-            case ControlPin::EN: gpio_pin = config_.en_pin; break;
-            case ControlPin::FAULTN:
+            case CtrlPin::RESN: gpio_pin = config_.resn_pin; break;
+            case CtrlPin::EN: gpio_pin = config_.en_pin; break;
+            case CtrlPin::FAULTN:
                 last_error_ = CommError::InvalidParameter;
                 return std::unexpected(CommError::InvalidParameter);
         }
         if (gpio_pin < 0) {
-            ESP_LOGE(TAG, "GPIO pin not configured for %s", pin == ControlPin::RESN ? "RESN" : "EN");
+            ESP_LOGE(TAG, "GPIO pin not configured for %s", pin == CtrlPin::RESN ? "RESN" : "EN");
             last_error_ = CommError::InvalidParameter;
             return std::unexpected(CommError::InvalidParameter);
         }
-        int gpio_level = (level == ActiveLevel::ACTIVE) ? 1 : 0;
+        // Map GpioSignal to physical level based on pin active-level:
+        // RESN: active-low  → ACTIVE=0, INACTIVE=1
+        // EN:   active-high → ACTIVE=1, INACTIVE=0
+        int gpio_level;
+        switch (pin) {
+            case CtrlPin::RESN:
+                gpio_level = (signal == GpioSignal::ACTIVE) ? 0 : 1;  // Active-low
+                break;
+            case CtrlPin::EN:
+                gpio_level = (signal == GpioSignal::ACTIVE) ? 1 : 0;  // Active-high
+                break;
+            default:
+                return std::unexpected(CommError::InvalidParameter);
+        }
         esp_err_t ret = gpio_set_level(static_cast<gpio_num_t>(gpio_pin), gpio_level);
         if (ret != ESP_OK) {
             ESP_LOGE(TAG, "Failed to set GPIO%d level: %s", gpio_pin, esp_err_to_name(ret));
@@ -361,22 +378,25 @@ public:
             return std::unexpected(CommError::BusError);
         }
         ESP_LOGD(TAG, "Set %s pin (GPIO%d) to %s",
-                 pin == ControlPin::RESN ? "RESN" : "EN", gpio_pin,
-                 level == ActiveLevel::ACTIVE ? "ACTIVE" : "INACTIVE");
+                 pin == CtrlPin::RESN ? "RESN" : "EN", gpio_pin,
+                 signal == GpioSignal::ACTIVE ? "ACTIVE" : "INACTIVE");
         return {};
     }
 
     /**
-     * @brief Get GPIO control pin level
+     * @brief Read GPIO control pin signal
      * @param pin Control pin to read (FAULTN)
-     * @return CommResult<ActiveLevel> Pin level or error
+     * @return CommResult<GpioSignal> Pin signal level or error
+     * 
+     * @note The mapping from physical GPIO level to GpioSignal is the responsibility
+     *       of this bus implementation. FAULTN is active-low: physical 0 = ACTIVE.
      */
-    auto GetGpioPin(ControlPin pin) noexcept -> CommResult<ActiveLevel> {
+    auto GpioRead(CtrlPin pin) noexcept -> CommResult<GpioSignal> {
         if (!IsReady()) {
             last_error_ = CommError::HardwareNotReady;
             return std::unexpected(CommError::HardwareNotReady);
         }
-        if (pin != ControlPin::FAULTN) {
+        if (pin != CtrlPin::FAULTN) {
             last_error_ = CommError::InvalidParameter;
             return std::unexpected(CommError::InvalidParameter);
         }
@@ -387,10 +407,11 @@ public:
             return std::unexpected(CommError::InvalidParameter);
         }
         int gpio_level = gpio_get_level(static_cast<gpio_num_t>(gpio_pin));
-        ActiveLevel level = (gpio_level == 0) ? ActiveLevel::ACTIVE : ActiveLevel::INACTIVE;
+        // FAULTN is active-low: physical 0 = fault active
+        GpioSignal signal = (gpio_level == 0) ? GpioSignal::ACTIVE : GpioSignal::INACTIVE;
         ESP_LOGD(TAG, "Read FAULTN pin (GPIO%d): %s", gpio_pin,
-                 level == ActiveLevel::ACTIVE ? "FAULT" : "NO FAULT");
-        return level;
+                 signal == GpioSignal::ACTIVE ? "FAULT" : "NO FAULT");
+        return signal;
     }
 
     /**

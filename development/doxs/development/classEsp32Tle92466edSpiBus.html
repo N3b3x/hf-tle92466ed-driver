@@ -167,12 +167,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a92aaf5c2cdd6e26daa496051a8426a16" id="r_a92aaf5c2cdd6e26daa496051a8426a16"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92aaf5c2cdd6e26daa496051a8426a16">getConfig</a> () const noexcept -&gt; const <a class="el" href="structEsp32Tle92466edSpiBus_1_1SPIConfig.html">SPIConfig</a> &amp;</td></tr>
 <tr class="memdesc:a92aaf5c2cdd6e26daa496051a8426a16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current SPI configuration.  <br /></td></tr>
 <tr class="separator:a92aaf5c2cdd6e26daa496051a8426a16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfbd4712be089febb5123cd39004115a" id="r_adfbd4712be089febb5123cd39004115a"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfbd4712be089febb5123cd39004115a">SetGpioPin</a> (ControlPin pin, ActiveLevel level) noexcept -&gt; CommResult&lt; void &gt;</td></tr>
-<tr class="memdesc:adfbd4712be089febb5123cd39004115a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set GPIO control pin level.  <br /></td></tr>
-<tr class="separator:adfbd4712be089febb5123cd39004115a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45baa37946063c847754042308ecf155" id="r_a45baa37946063c847754042308ecf155"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a45baa37946063c847754042308ecf155">GetGpioPin</a> (ControlPin pin) noexcept -&gt; CommResult&lt; ActiveLevel &gt;</td></tr>
-<tr class="memdesc:a45baa37946063c847754042308ecf155"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get GPIO control pin level.  <br /></td></tr>
-<tr class="separator:a45baa37946063c847754042308ecf155"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a932d66a7d0dec57677864b3a01c6102b" id="r_a932d66a7d0dec57677864b3a01c6102b"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a932d66a7d0dec57677864b3a01c6102b">GpioSet</a> (CtrlPin pin, GpioSignal signal) noexcept -&gt; CommResult&lt; void &gt;</td></tr>
+<tr class="memdesc:a932d66a7d0dec57677864b3a01c6102b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set GPIO control pin signal.  <br /></td></tr>
+<tr class="separator:a932d66a7d0dec57677864b3a01c6102b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a516f3843e68dfb83264a7d2747e6bc18" id="r_a516f3843e68dfb83264a7d2747e6bc18"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a516f3843e68dfb83264a7d2747e6bc18">GpioRead</a> (CtrlPin pin) noexcept -&gt; CommResult&lt; GpioSignal &gt;</td></tr>
+<tr class="memdesc:a516f3843e68dfb83264a7d2747e6bc18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read GPIO control pin signal.  <br /></td></tr>
+<tr class="separator:a516f3843e68dfb83264a7d2747e6bc18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51ba27e05beb007f49ecba1bfd72eb74" id="r_a51ba27e05beb007f49ecba1bfd72eb74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a51ba27e05beb007f49ecba1bfd72eb74">Log</a> (LogLevel level, const char *tag, const char *format, va_list args) noexcept</td></tr>
 <tr class="memdesc:a51ba27e05beb007f49ecba1bfd72eb74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log a message with specified severity level and tag (ESP_LOG implementation)  <br /></td></tr>
 <tr class="separator:a51ba27e05beb007f49ecba1bfd72eb74"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -487,40 +487,6 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a45baa37946063c847754042308ecf155" name="a45baa37946063c847754042308ecf155"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a45baa37946063c847754042308ecf155">&#9670;&#160;</a></span>GetGpioPin()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">auto Esp32Tle92466edSpiBus::GetGpioPin </td>
-          <td>(</td>
-          <td class="paramtype">ControlPin</td>          <td class="paramname"><span class="paramname"><em>pin</em></span></td><td>)</td>
-          <td> -&gt; CommResult&lt;ActiveLevel&gt; </td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get GPIO control pin level. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pin</td><td>Control pin to read (FAULTN) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>CommResult&lt;ActiveLevel&gt; Pin level or error </dd></dl>
-
-</div>
-</div>
 <a id="a230b32d97c901977d39f76648523c3c0" name="a230b32d97c901977d39f76648523c3c0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a230b32d97c901977d39f76648523c3c0">&#9670;&#160;</a></span>GetLastError()</h2>
 
@@ -546,6 +512,81 @@ Static Private Attributes</h2></td></tr>
 
 <p>Get the last error that occurred. </p>
 <dl class="section return"><dt>Returns</dt><dd>CommError The last error code </dd></dl>
+
+</div>
+</div>
+<a id="a516f3843e68dfb83264a7d2747e6bc18" name="a516f3843e68dfb83264a7d2747e6bc18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a516f3843e68dfb83264a7d2747e6bc18">&#9670;&#160;</a></span>GpioRead()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Esp32Tle92466edSpiBus::GpioRead </td>
+          <td>(</td>
+          <td class="paramtype">CtrlPin</td>          <td class="paramname"><span class="paramname"><em>pin</em></span></td><td>)</td>
+          <td> -&gt; CommResult&lt;GpioSignal&gt; </td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Read GPIO control pin signal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td>Control pin to read (FAULTN) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>CommResult&lt;GpioSignal&gt; Pin signal level or error</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The mapping from physical GPIO level to GpioSignal is the responsibility of this bus implementation. FAULTN is active-low: physical 0 = ACTIVE. </dd></dl>
+
+</div>
+</div>
+<a id="a932d66a7d0dec57677864b3a01c6102b" name="a932d66a7d0dec57677864b3a01c6102b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a932d66a7d0dec57677864b3a01c6102b">&#9670;&#160;</a></span>GpioSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Esp32Tle92466edSpiBus::GpioSet </td>
+          <td>(</td>
+          <td class="paramtype">CtrlPin</td>          <td class="paramname"><span class="paramname"><em>pin</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GpioSignal</td>          <td class="paramname"><span class="paramname"><em>signal</em></span>&#160;) -&gt; CommResult&lt;void&gt; </td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set GPIO control pin signal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td>Control pin to set (RESN or EN) </td></tr>
+    <tr><td class="paramname">signal</td><td>GPIO signal level (ACTIVE or INACTIVE) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>CommResult&lt;void&gt; Success or error</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The mapping from GpioSignal to physical GPIO level is the responsibility of this bus implementation based on the board's active-level design. For TLE92466ED: RESN is active-low, EN is active-high. </dd></dl>
 
 </div>
 </div>
@@ -736,45 +777,6 @@ Static Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="adfbd4712be089febb5123cd39004115a" name="adfbd4712be089febb5123cd39004115a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adfbd4712be089febb5123cd39004115a">&#9670;&#160;</a></span>SetGpioPin()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">auto Esp32Tle92466edSpiBus::SetGpioPin </td>
-          <td>(</td>
-          <td class="paramtype">ControlPin</td>          <td class="paramname"><span class="paramname"><em>pin</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">ActiveLevel</td>          <td class="paramname"><span class="paramname"><em>level</em></span>&#160;) -&gt; CommResult&lt;void&gt; </td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Set GPIO control pin level. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pin</td><td>Control pin to set (RESN or EN) </td></tr>
-    <tr><td class="paramname">level</td><td>Active level (HIGH or LOW) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>CommResult&lt;void&gt; Success or error </dd></dl>
 
 </div>
 </div>
