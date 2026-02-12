@@ -1,7 +1,7 @@
 var searchData=
 [
   ['table_20of_20contents_0',['📚 Table of Contents',['../index.html#autotoc_md1',1,'']]],
-  ['tag_1',['TAG',['../classEsp32TleCommInterface.html#a150d8ac326e8be8978d32be9d94c903c',1,'Esp32TleCommInterface']]],
+  ['tag_1',['TAG',['../classEsp32Tle92466edSpiBus.html#a600e90229e8b9a5adb891ed7acf1a6bb',1,'Esp32Tle92466edSpiBus']]],
   ['tag_2',['tag',['../structTestTaskContext.html#ae51f49c33ea802bc7f8bdde560a27304',1,'TestTaskContext']]],
   ['tag_3',['TAG',['../driver__integration__test_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c',1,'TAG:&#160;driver_integration_test.cpp'],['../solenoid__control__test_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c',1,'TAG:&#160;solenoid_control_test.cpp']]],
   ['temperature_4',['Temperature',['../structTLE92466ED__TestConfig_1_1Temperature.html',1,'TLE92466ED_TestConfig']]],
@@ -51,16 +51,12 @@ var searchData=
   ['testresults_48',['TestResults',['../structTestResults.html',1,'']]],
   ['testtaskcontext_49',['TestTaskContext',['../structTestTaskContext.html',1,'']]],
   ['timing_50',['Timing',['../structTLE92466ED__TestConfig_1_1Timing.html',1,'TLE92466ED_TestConfig']]],
-  ['tle92466ed_51',['tle92466ed',['../namespacetle92466ed.html',1,'']]],
-  ['tle92466ed_20driver_52',['HF-TLE92466ED Driver',['../index.html',1,'']]],
-  ['tle92466ed_2ecpp_53',['tle92466ed.cpp',['../tle92466ed_8cpp.html',1,'']]],
-  ['tle92466ed_5fimpl_54',['TLE92466ED_IMPL',['../tle92466ed_8cpp.html#a2b7b8ad7e4273230c89e364611dffe36',1,'tle92466ed.cpp']]],
-  ['tle92466ed_5ftest_5fconfig_2ehpp_55',['tle92466ed_test_config.hpp',['../tle92466ed__test__config_8hpp.html',1,'']]],
-  ['tle92466ed_5ftestconfig_56',['TLE92466ED_TestConfig',['../namespaceTLE92466ED__TestConfig.html',1,'']]],
-  ['tle92466ed_5fvalidate_5fcurrent_57',['TLE92466ED_VALIDATE_CURRENT',['../tle92466ed__test__config_8hpp.html#a20a718906e99a0c63907e61221cdeb85',1,'tle92466ed_test_config.hpp']]],
-  ['tle92466ed_5fvalidate_5fgpio_58',['TLE92466ED_VALIDATE_GPIO',['../tle92466ed__test__config_8hpp.html#a144227c8f24118002432fbaf425eca87',1,'tle92466ed_test_config.hpp']]],
-  ['total_5fexecution_5ftime_5fus_59',['total_execution_time_us',['../structTestResults.html#a7eddc258a4288ac5f0a36a1008c9d014',1,'TestResults']]],
-  ['total_5ftests_60',['total_tests',['../structTestResults.html#afe20b168a13950ffca7296c0c56d4359',1,'TestResults']]],
-  ['transfer32_61',['Transfer32',['../classEsp32TleCommInterface.html#ab5f7c06936fa0cde6d682778993c4af1',1,'Esp32TleCommInterface']]],
-  ['transfermulti_62',['TransferMulti',['../classEsp32TleCommInterface.html#a18bad257c45ff0f43384555f97d45eca',1,'Esp32TleCommInterface']]]
+  ['tle92466ed_20driver_51',['HF-TLE92466ED Driver',['../index.html',1,'']]],
+  ['tle92466ed_5ftestconfig_52',['TLE92466ED_TestConfig',['../namespaceTLE92466ED__TestConfig.html',1,'']]],
+  ['tle92466ed_5fvalidate_5fcurrent_53',['TLE92466ED_VALIDATE_CURRENT',['../esp32__tle92466ed__test__config_8hpp.html#a20a718906e99a0c63907e61221cdeb85',1,'esp32_tle92466ed_test_config.hpp']]],
+  ['tle92466ed_5fvalidate_5fgpio_54',['TLE92466ED_VALIDATE_GPIO',['../esp32__tle92466ed__test__config_8hpp.html#a144227c8f24118002432fbaf425eca87',1,'esp32_tle92466ed_test_config.hpp']]],
+  ['total_5fexecution_5ftime_5fus_55',['total_execution_time_us',['../structTestResults.html#a7eddc258a4288ac5f0a36a1008c9d014',1,'TestResults']]],
+  ['total_5ftests_56',['total_tests',['../structTestResults.html#afe20b168a13950ffca7296c0c56d4359',1,'TestResults']]],
+  ['transfer32_57',['Transfer32',['../classEsp32Tle92466edSpiBus.html#a9b2dffe7d4f9bad0e67eb27867736e61',1,'Esp32Tle92466edSpiBus']]],
+  ['transfermulti_58',['TransferMulti',['../classEsp32Tle92466edSpiBus.html#ac8eb66b714d008e98fd6862f959d000e',1,'Esp32Tle92466edSpiBus']]]
 ];
