@@ -1,13 +1,8 @@
 /**
- * @file tle92466ed.cpp
+ * @file tle92466ed.ipp
  * @brief Template implementation of TLE92466ED driver class
-
- * @details
- * This file contains the complete implementation of all driver methods
- * for the TLE92466ED IC. All methods include comprehensive error checking,
- * CRC calculation/verification, and validation.
+ * @copyright Copyright (c) 2024-2025 HardFOC. All rights reserved.
  */
-
 #ifndef TLE92466ED_IMPL
 #define TLE92466ED_IMPL
 

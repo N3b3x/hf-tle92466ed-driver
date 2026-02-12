@@ -35,7 +35,7 @@
 #include "esp_system.h"
 
 #include "tle92466ed.hpp"
-#include "esp32_tle_comm_interface.hpp"
+#include "esp32_tle92466ed_bus.hpp"
 #include "TestFramework.h"
 
 using namespace tle92466ed;
@@ -69,8 +69,8 @@ static TestResults g_test_results;
 // SHARED TEST RESOURCES
 //=============================================================================
 
-static std::unique_ptr<Esp32TleCommInterface> g_hal;
-static tle92466ed::Driver<Esp32TleCommInterface>* g_driver = nullptr;
+static std::unique_ptr<Esp32Tle92466edSpiBus> g_hal;
+static tle92466ed::Driver<Esp32Tle92466edSpiBus>* g_driver = nullptr;
 
 //=============================================================================
 // TEST HELPER FUNCTIONS
@@ -163,7 +163,7 @@ static void print_channel_diagnostics(Channel channel, const ChannelDiagnostics&
  */
 static bool test_hal_initialization() noexcept {
     ESP_LOGI(TAG, "Creating HAL instance...");
-    g_hal = CreateEsp32TleCommInterface();
+    g_hal = CreateEsp32Tle92466edSpiBus();
     
     if (!g_hal) {
         ESP_LOGE(TAG, "Failed to create HAL instance");
@@ -190,7 +190,7 @@ static bool test_driver_initialization() noexcept {
     }
     
     ESP_LOGI(TAG, "Creating TLE92466ED driver instance...");
-    g_driver = new tle92466ed::Driver<Esp32TleCommInterface>(*g_hal);
+    g_driver = new tle92466ed::Driver<Esp32Tle92466edSpiBus>(*g_hal);
     
     if (!g_driver) {
         ESP_LOGE(TAG, "Failed to create driver instance");

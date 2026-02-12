@@ -1,70 +1,9 @@
 /**
  * @file tle92466ed.hpp
  * @brief Main driver class for TLE92466ED Six-Channel Low-Side Solenoid Driver IC
-
- * @details
- * Comprehensive C++23 driver for the Infineon TLE92466ED IC. This driver provides
- * a complete, feature-rich interface to all capabilities of the IC including:
- *
- * **Core Features:**
- * - 6 independent low-side solenoid output channels
- * - Integrated Current Control (ICC) with 15-bit resolution
- * - Current range: 0-2A register scale (1.5A typical continuous) single channel
- *                  0-4A register scale (2.7A typical continuous) parallel mode
- * - 32-bit SPI with CRC-8 (SAE J1850)
- * - Hardware-agnostic design via polymorphic CommInterface
- *
- * **Current Control Features:**
- * - Precision current regulation (15-bit resolution = 0.061mA steps)
- * - PWM frequency control for current regulation
- * - Integrator-based current controller
- * - Dither support (configurable amplitude and frequency)
- * - Load current feedback and monitoring
- *
- * **Channel Operation Modes:**
- * - ICC Mode: Integrated Current Control with precise regulation
- * - Direct Drive: SPI-controlled on-time
- * - External Drive: DRV0/DRV1 pin-controlled
- * - Free-running Measurement: Continuous current sensing
- *
- * **Parallel Operation:**
- * - Channels can be paired: 0/3, 1/2, 4/5
- * - Doubles current capability (up to 4A)
- *
- * **Protection & Diagnostics:**
- * - Open-load detection (ON and OFF states)
- * - Short-to-ground detection
- * - Over-current protection
- * - Over-temperature (warning and shutdown)
- * - Under/over-voltage monitoring (VBAT, VIO, VDD)
- * - SPI watchdog
- * - Clock watchdog
- * - CRC error detection
- *
- * **Usage Example:**
- * @code{.cpp}
- * MyPlatformCommInterface comm;
- * tle92466ed::Driver driver(comm);
- *
- * // Initialize
- * driver.Init();
- * driver.EnterMissionMode();
- *
- * // Configure channel 0 for 1.5A current control
- * driver.SetChannelMode(Channel::CH0, ChannelMode::ICC);
- * driver.SetCurrentSetpoint(Channel::CH0, 1500); // 1500 mA
- *
- * // Enable channel
- * driver.EnableChannel(Channel::CH0, true);
- *
- * // Monitor
- * auto current = driver.GetAverageCurrent(Channel::CH0);
- * auto status = driver.GetChannelDiagnostics(Channel::CH0);
+ * @copyright Copyright (c) 2024-2025 HardFOC. All rights reserved.
  */
-
-#ifndef TLE92466ED_HPP
-#define TLE92466ED_HPP
-
+#pragma once
 #include <array>
 #include <expected>
 
@@ -1046,9 +985,8 @@ private:
 
 // Include template implementation (must be inside namespace before it closes)
 #define TLE92466ED_HEADER_INCLUDED
-#include "../src/tle92466ed.cpp"
+// NOLINTNEXTLINE(bugprone-suspicious-include) - Intentional: template implementation file
+#include "../src/tle92466ed.ipp"
 #undef TLE92466ED_HEADER_INCLUDED
 
 } // namespace tle92466ed
-
-#endif // TLE92466ED_HPP

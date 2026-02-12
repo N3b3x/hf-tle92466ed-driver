@@ -1,36 +1,9 @@
 /**
  * @file tle92466ed_registers.hpp
  * @brief Register definitions and bit field mappings for TLE92466ED
- *
- * @detail
- * This file contains comprehensive register definitions, bit field masks,
- * and helper structures for the TLE92466ED Six-Channel Low-Side Solenoid Driver IC.
- * All register addresses and bit positions have been meticulously cross-referenced
- * with the official Infineon datasheet (Rev. 1.2, 2022-02-01).
- *
- * The TLE92466ED features:
- * - 6 independent low-side solenoid drivers
- * - Integrated Current Control (ICC) with 15-bit resolution (0-2A, 0-4A in parallel)
- * - 32-bit SPI interface with 8-bit CRC (SAE J1850)
- * - PWM current control with configurable frequency
- * - Dither support for precise current shaping
- * - Channel parallel operation (0/3, 1/2, 4/5)
- * - Comprehensive diagnostics and protection
- * - SPI and Clock watchdogs
- *
- * @par Device Type:
- * Low-side solenoid/inductive load driver with current sensing and regulation
- *
- * @par SPI Communication:
- * - 32-bit frames (8-bit CRC + 7-bit Address + 1-bit R/W + 16-bit Data)
- * - CRC: SAE J1850 8-bit polynomial
- * - Max frequency: 10 MHz
- * - Mode 1 (CPOL=0, CPHA=1)
+ * @copyright Copyright (c) 2024-2025 HardFOC. All rights reserved.
  */
-
-#ifndef TLE92466ED_REGISTERS_HPP
-#define TLE92466ED_REGISTERS_HPP
-
+#pragma once
 #include <algorithm>
 #include <cmath>
 #include <cstddef>
@@ -1337,5 +1310,3 @@ enum class ParallelPair : uint8_t {
 }
 
 } // namespace tle92466ed
-
-#endif // TLE92466ED_REGISTERS_HPP

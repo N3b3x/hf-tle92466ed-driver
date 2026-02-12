@@ -22,7 +22,7 @@
  * @brief Enable detailed SPI transaction logging
  * 
  * @details
- * When enabled (set to 1), the Esp32TleCommInterface will log detailed
+ * When enabled (set to 1), the Esp32Tle92466edSpiBus will log detailed
  * information about each SPI transaction including:
  * - TX/RX frame bytes (both little-endian and MSB-first formats)
  * - CRC calculation and verification

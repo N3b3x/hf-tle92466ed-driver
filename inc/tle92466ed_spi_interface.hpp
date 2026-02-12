@@ -1,7 +1,8 @@
 /**
  * @file tle92466ed_spi_interface.hpp
  * @brief Communication Interface base class for TLE92466ED driver
-
+ * @copyright Copyright (c) 2024-2025 HardFOC. All rights reserved.
+ * 
  * @details
  * This file defines the hardware abstraction layer interface for the TLE92466ED
  * Six-Channel Low-Side Solenoid Driver IC. The CommInterface provides a polymorphic interface
@@ -15,13 +16,8 @@
  * - SCLK: Serial clock (up to 10 MHz)
  * - CRC: SAE J1850 8-bit CRC
  *
- * @copyright
- * This is free and unencumbered software released into the public domain.
  */
-
-#ifndef TLE92466ED_COMMINTERFACE_HPP
-#define TLE92466ED_COMMINTERFACE_HPP
-
+#pragma once
 #include <concepts>
 #include <cstdarg>
 #include <cstdint>
@@ -849,5 +845,3 @@ inline CommResult<void> SpiInterface<Derived>::Write(uint16_t address, uint16_t 
 }
 
 } // namespace tle92466ed
-
-#endif // TLE92466ED_COMMINTERFACE_HPP
