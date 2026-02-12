@@ -8,9 +8,9 @@ var hierarchy =
     [ "TLE92466ED_TestConfig::Diagnostics", "structTLE92466ED__TestConfig_1_1Diagnostics.html", null ],
     [ "Solenoid1Config", "structSolenoid1Config.html", null ],
     [ "Solenoid2Config", "structSolenoid2Config.html", null ],
-    [ "Esp32TleCommInterface::SPIConfig", "structEsp32TleCommInterface_1_1SPIConfig.html", null ],
+    [ "Esp32Tle92466edSpiBus::SPIConfig", "structEsp32Tle92466edSpiBus_1_1SPIConfig.html", null ],
     [ "tle92466ed::SpiInterface", null, [
-      [ "Esp32TleCommInterface", "classEsp32TleCommInterface.html", null ]
+      [ "Esp32Tle92466edSpiBus", "classEsp32Tle92466edSpiBus.html", null ]
     ] ],
     [ "TLE92466ED_TestConfig::SPIParams", "structTLE92466ED__TestConfig_1_1SPIParams.html", null ],
     [ "TLE92466ED_TestConfig::SPIPins", "structTLE92466ED__TestConfig_1_1SPIPins.html", null ],

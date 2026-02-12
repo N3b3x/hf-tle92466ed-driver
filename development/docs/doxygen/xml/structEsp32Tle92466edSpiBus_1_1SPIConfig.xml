@@ -1,0 +1,272 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="structEsp32Tle92466edSpiBus_1_1SPIConfig" kind="struct" language="C++" prot="public">
+    <compoundname>Esp32Tle92466edSpiBus::SPIConfig</compoundname>
+    <includes refid="esp32__tle92466ed__bus_8hpp" local="no">esp32_tle92466ed_bus.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structEsp32Tle92466edSpiBus_1_1SPIConfig_1abcbcad537c036befe1a85c73584b19fb" prot="public" static="no" mutable="no">
+        <type>spi_host_device_t</type>
+        <definition>spi_host_device_t Esp32Tle92466edSpiBus::SPIConfig::host</definition>
+        <argsstring></argsstring>
+        <name>host</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::SPIConfig::host</qualifiedname>
+        <initializer>= SPI2_HOST</initializer>
+        <briefdescription>
+<para>SPI host (SPI2_HOST for ESP32-C6) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="54" column="27" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEsp32Tle92466edSpiBus_1_1SPIConfig_1ae57c8f8891ecc7c47447f64ac07d1f9d" prot="public" static="no" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t Esp32Tle92466edSpiBus::SPIConfig::miso_pin</definition>
+        <argsstring></argsstring>
+        <name>miso_pin</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::SPIConfig::miso_pin</qualifiedname>
+        <initializer>= 2</initializer>
+        <briefdescription>
+<para>MISO pin (GPIO2, -1 = not configured) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="55" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEsp32Tle92466edSpiBus_1_1SPIConfig_1a3ba55352bead873278e1940f12f8e89b" prot="public" static="no" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t Esp32Tle92466edSpiBus::SPIConfig::mosi_pin</definition>
+        <argsstring></argsstring>
+        <name>mosi_pin</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::SPIConfig::mosi_pin</qualifiedname>
+        <initializer>= 7</initializer>
+        <briefdescription>
+<para>MOSI pin (GPIO7, -1 = not configured) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="56" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEsp32Tle92466edSpiBus_1_1SPIConfig_1ac7dcc7ffef89538e66b2c0af29f2f3ba" prot="public" static="no" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t Esp32Tle92466edSpiBus::SPIConfig::sclk_pin</definition>
+        <argsstring></argsstring>
+        <name>sclk_pin</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::SPIConfig::sclk_pin</qualifiedname>
+        <initializer>= 6</initializer>
+        <briefdescription>
+<para>SCLK pin (GPIO6, -1 = not configured) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="57" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEsp32Tle92466edSpiBus_1_1SPIConfig_1a9c18bd7362a5c8d05873f720bcba4480" prot="public" static="no" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t Esp32Tle92466edSpiBus::SPIConfig::cs_pin</definition>
+        <argsstring></argsstring>
+        <name>cs_pin</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::SPIConfig::cs_pin</qualifiedname>
+        <initializer>= 10</initializer>
+        <briefdescription>
+<para>CS pin (GPIO10, -1 = not configured) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="58" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEsp32Tle92466edSpiBus_1_1SPIConfig_1a6535550fb1c7e19ae540f17d83749c29" prot="public" static="no" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t Esp32Tle92466edSpiBus::SPIConfig::resn_pin</definition>
+        <argsstring></argsstring>
+        <name>resn_pin</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::SPIConfig::resn_pin</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+<para>RESN pin (active low, -1 = not configured) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="59" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEsp32Tle92466edSpiBus_1_1SPIConfig_1aa852ba3d82c9a13097e964600ca6a59b" prot="public" static="no" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t Esp32Tle92466edSpiBus::SPIConfig::en_pin</definition>
+        <argsstring></argsstring>
+        <name>en_pin</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::SPIConfig::en_pin</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+<para>EN pin (active high, -1 = not configured) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="60" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEsp32Tle92466edSpiBus_1_1SPIConfig_1a0a3f00d70d7f46803d998a1f0aee9dc7" prot="public" static="no" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t Esp32Tle92466edSpiBus::SPIConfig::faultn_pin</definition>
+        <argsstring></argsstring>
+        <name>faultn_pin</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::SPIConfig::faultn_pin</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+<para>FAULTN pin (active low, -1 = not configured) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="61" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEsp32Tle92466edSpiBus_1_1SPIConfig_1aaaa088590d983170afebe31a174bd8d3" prot="public" static="no" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t Esp32Tle92466edSpiBus::SPIConfig::drv0_pin</definition>
+        <argsstring></argsstring>
+        <name>drv0_pin</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::SPIConfig::drv0_pin</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+<para>DRV0 pin (external drive control, -1 = not configured) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="62" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEsp32Tle92466edSpiBus_1_1SPIConfig_1a939fc22fb553af941359b679b178677e" prot="public" static="no" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t Esp32Tle92466edSpiBus::SPIConfig::drv1_pin</definition>
+        <argsstring></argsstring>
+        <name>drv1_pin</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::SPIConfig::drv1_pin</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+<para>DRV1 pin (external drive control, -1 = not configured) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="63" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEsp32Tle92466edSpiBus_1_1SPIConfig_1ab10408aba51ef0668d4f45bed3e62b4b" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t Esp32Tle92466edSpiBus::SPIConfig::frequency</definition>
+        <argsstring></argsstring>
+        <name>frequency</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::SPIConfig::frequency</qualifiedname>
+        <initializer>= 1000000</initializer>
+        <briefdescription>
+<para>SPI frequency (1MHz) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="64" column="18" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEsp32Tle92466edSpiBus_1_1SPIConfig_1ab060102cef7010598049c4f014b95af1" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t Esp32Tle92466edSpiBus::SPIConfig::mode</definition>
+        <argsstring></argsstring>
+        <name>mode</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::SPIConfig::mode</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+<para>SPI mode (1 = CPOL=0, CPHA=1) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="65" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEsp32Tle92466edSpiBus_1_1SPIConfig_1aae6a7225d624a36f917063a46184f619" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t Esp32Tle92466edSpiBus::SPIConfig::queue_size</definition>
+        <argsstring></argsstring>
+        <name>queue_size</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::SPIConfig::queue_size</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+<para>Transaction queue size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="66" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEsp32Tle92466edSpiBus_1_1SPIConfig_1ac6c8a1274bffd8902b0a95b7c3d974ff" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t Esp32Tle92466edSpiBus::SPIConfig::cs_ena_pretrans</definition>
+        <argsstring></argsstring>
+        <name>cs_ena_pretrans</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::SPIConfig::cs_ena_pretrans</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+<para>CS asserted N clock cycles before transaction. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="67" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structEsp32Tle92466edSpiBus_1_1SPIConfig_1a8afab88769e928304f4e3e0c0370598f" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t Esp32Tle92466edSpiBus::SPIConfig::cs_ena_posttrans</definition>
+        <argsstring></argsstring>
+        <name>cs_ena_posttrans</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::SPIConfig::cs_ena_posttrans</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+<para>CS held N clock cycles after transaction. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="68" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="68" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>SPI configuration structure for ESP32. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="53" column="5" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="53" bodyend="69"/>
+    <listofallmembers>
+      <member refid="structEsp32Tle92466edSpiBus_1_1SPIConfig_1a8afab88769e928304f4e3e0c0370598f" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus::SPIConfig</scope><name>cs_ena_posttrans</name></member>
+      <member refid="structEsp32Tle92466edSpiBus_1_1SPIConfig_1ac6c8a1274bffd8902b0a95b7c3d974ff" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus::SPIConfig</scope><name>cs_ena_pretrans</name></member>
+      <member refid="structEsp32Tle92466edSpiBus_1_1SPIConfig_1a9c18bd7362a5c8d05873f720bcba4480" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus::SPIConfig</scope><name>cs_pin</name></member>
+      <member refid="structEsp32Tle92466edSpiBus_1_1SPIConfig_1aaaa088590d983170afebe31a174bd8d3" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus::SPIConfig</scope><name>drv0_pin</name></member>
+      <member refid="structEsp32Tle92466edSpiBus_1_1SPIConfig_1a939fc22fb553af941359b679b178677e" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus::SPIConfig</scope><name>drv1_pin</name></member>
+      <member refid="structEsp32Tle92466edSpiBus_1_1SPIConfig_1aa852ba3d82c9a13097e964600ca6a59b" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus::SPIConfig</scope><name>en_pin</name></member>
+      <member refid="structEsp32Tle92466edSpiBus_1_1SPIConfig_1a0a3f00d70d7f46803d998a1f0aee9dc7" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus::SPIConfig</scope><name>faultn_pin</name></member>
+      <member refid="structEsp32Tle92466edSpiBus_1_1SPIConfig_1ab10408aba51ef0668d4f45bed3e62b4b" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus::SPIConfig</scope><name>frequency</name></member>
+      <member refid="structEsp32Tle92466edSpiBus_1_1SPIConfig_1abcbcad537c036befe1a85c73584b19fb" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus::SPIConfig</scope><name>host</name></member>
+      <member refid="structEsp32Tle92466edSpiBus_1_1SPIConfig_1ae57c8f8891ecc7c47447f64ac07d1f9d" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus::SPIConfig</scope><name>miso_pin</name></member>
+      <member refid="structEsp32Tle92466edSpiBus_1_1SPIConfig_1ab060102cef7010598049c4f014b95af1" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus::SPIConfig</scope><name>mode</name></member>
+      <member refid="structEsp32Tle92466edSpiBus_1_1SPIConfig_1a3ba55352bead873278e1940f12f8e89b" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus::SPIConfig</scope><name>mosi_pin</name></member>
+      <member refid="structEsp32Tle92466edSpiBus_1_1SPIConfig_1aae6a7225d624a36f917063a46184f619" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus::SPIConfig</scope><name>queue_size</name></member>
+      <member refid="structEsp32Tle92466edSpiBus_1_1SPIConfig_1a6535550fb1c7e19ae540f17d83749c29" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus::SPIConfig</scope><name>resn_pin</name></member>
+      <member refid="structEsp32Tle92466edSpiBus_1_1SPIConfig_1ac7dcc7ffef89538e66b2c0af29f2f3ba" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus::SPIConfig</scope><name>sclk_pin</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

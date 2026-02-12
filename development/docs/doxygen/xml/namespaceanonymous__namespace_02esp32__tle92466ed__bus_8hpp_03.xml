@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespaceanonymous__namespace_02esp32__tle92466ed__bus_8hpp_03" kind="namespace" language="C++">
+    <compoundname>anonymous_namespace{esp32_tle92466ed_bus.hpp}</compoundname>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceanonymous__namespace_02esp32__tle92466ed__bus_8hpp_03_1ad748e43f07b909572a5efdf4fe76e440" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t anonymous_namespace{esp32_tle92466ed_bus.hpp}::byte_swap_32</definition>
+        <argsstring>(uint32_t value) noexcept</argsstring>
+        <name>byte_swap_32</name>
+        <qualifiedname>anonymous_namespace{esp32_tle92466ed_bus.hpp}::byte_swap_32</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="31" column="32" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="31" bodyend="36"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="30" column="1"/>
+  </compounddef>
+</doxygen>

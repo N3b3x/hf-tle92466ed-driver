@@ -1,5 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
 <area shape="rect" id="Node000000" title=" " alt="" coords="5,5,223,36"/>
-<area shape="rect" id="Node000001" href="$classEsp32TleCommInterface.html" title="ESP32 implementation of the TLE92466ED CommInterface." alt="" coords="271,5,493,36"/>
+<area shape="rect" id="Node000001" href="$classEsp32Tle92466edSpiBus.html" title="ESP32 implementation of the TLE92466ED CommInterface." alt="" coords="271,5,496,36"/>
 <area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="237,18,270,18,270,23,237,23"/>
 </map>

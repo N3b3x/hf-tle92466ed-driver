@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
   <compounddef id="structTLE92466ED__TestConfig_1_1ADCConfig" kind="struct" language="C++" prot="public">
     <compoundname>TLE92466ED_TestConfig::ADCConfig</compoundname>
-    <includes refid="tle92466ed__test__config_8hpp" local="no">tle92466ed_test_config.hpp</includes>
+    <includes refid="esp32__tle92466ed__test__config_8hpp" local="no">esp32_tle92466ed_test_config.hpp</includes>
     <sectiondef kind="public-static-attrib">
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1ADCConfig_1a47c51ee1182fcb7bebc014c0db817846" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint8_t</type>
@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/tle92466ed_test_config.hpp" line="75" column="30" bodyfile="examples/esp32/main/tle92466ed_test_config.hpp" bodystart="75" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="75" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="75" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1ADCConfig_1a7ac6b7505fdbf0bce8c0dcb793651779" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr float</type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/tle92466ed_test_config.hpp" line="76" column="28" bodyfile="examples/esp32/main/tle92466ed_test_config.hpp" bodystart="76" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="76" column="28" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="76" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1ADCConfig_1af89c3e12e2d1a8f4d676ea5d1da3a38d" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr float</type>
@@ -50,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/tle92466ed_test_config.hpp" line="77" column="28" bodyfile="examples/esp32/main/tle92466ed_test_config.hpp" bodystart="77" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="77" column="28" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="77" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1ADCConfig_1a352a535854228395d51108ce1b43fc48" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr float</type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/tle92466ed_test_config.hpp" line="78" column="28" bodyfile="examples/esp32/main/tle92466ed_test_config.hpp" bodystart="78" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="78" column="28" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="78" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -75,7 +75,7 @@
     <detaileddescription>
 <para>ADC pin used for reading control voltage (0-3.3V) to control solenoid currents. This is used in the solenoid control test to map ADC reading to current percentage. </para>
     </detaileddescription>
-    <location file="examples/esp32/main/tle92466ed_test_config.hpp" line="74" column="1" bodyfile="examples/esp32/main/tle92466ed_test_config.hpp" bodystart="74" bodyend="79"/>
+    <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="74" column="1" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="74" bodyend="79"/>
     <listofallmembers>
       <member refid="structTLE92466ED__TestConfig_1_1ADCConfig_1a352a535854228395d51108ce1b43fc48" prot="public" virt="non-virtual"><scope>TLE92466ED_TestConfig::ADCConfig</scope><name>MAX_VOLTAGE</name></member>
       <member refid="structTLE92466ED__TestConfig_1_1ADCConfig_1af89c3e12e2d1a8f4d676ea5d1da3a38d" prot="public" virt="non-virtual"><scope>TLE92466ED_TestConfig::ADCConfig</scope><name>MIN_VOLTAGE</name></member>

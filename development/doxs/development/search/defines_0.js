@@ -14,5 +14,5 @@ var searchData=
   ['enable_5fparallel_5foperation_5ftests_11',['ENABLE_PARALLEL_OPERATION_TESTS',['../driver__integration__test_8cpp.html#a13fa69e119ecc502376e99ad59d488d3',1,'driver_integration_test.cpp']]],
   ['enable_5fpwm_5fconfig_5ftests_12',['ENABLE_PWM_CONFIG_TESTS',['../driver__integration__test_8cpp.html#a9c20ba02d9933c7c01671a402bda9f58',1,'driver_integration_test.cpp']]],
   ['enable_5fwatchdog_5ftests_13',['ENABLE_WATCHDOG_TESTS',['../driver__integration__test_8cpp.html#a99ffa3a4b3f2ac3cdfa9c4ababcdb6a1',1,'driver_integration_test.cpp']]],
-  ['esp32_5ftle_5fcomm_5fenable_5fdetailed_5fspi_5flogging_14',['ESP32_TLE_COMM_ENABLE_DETAILED_SPI_LOGGING',['../tle92466ed__test__config_8hpp.html#a8fb5b9bce3cb52f60c3eadce0f87afcc',1,'tle92466ed_test_config.hpp']]]
+  ['esp32_5ftle_5fcomm_5fenable_5fdetailed_5fspi_5flogging_14',['ESP32_TLE_COMM_ENABLE_DETAILED_SPI_LOGGING',['../esp32__tle92466ed__test__config_8hpp.html#a8fb5b9bce3cb52f60c3eadce0f87afcc',1,'esp32_tle92466ed_test_config.hpp']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['last_5ferror_5f_0',['last_error_',['../classEsp32TleCommInterface.html#a6f15bfa4f81b66e087011f9d63e736a9',1,'Esp32TleCommInterface']]]
+  ['last_5ferror_5f_0',['last_error_',['../classEsp32Tle92466edSpiBus.html#a096bb9a950f4f648b6ee6273f5bb2067',1,'Esp32Tle92466edSpiBus']]]
 ];

@@ -3,11 +3,10 @@
   <compounddef id="dir_7751913d9073a449937b5bcfd50bf3a6" kind="dir">
     <compoundname>examples/esp32/main</compoundname>
     <innerfile refid="driver__integration__test_8cpp">driver_integration_test.cpp</innerfile>
-    <innerfile refid="esp32__tle__comm__interface_8cpp">esp32_tle_comm_interface.cpp</innerfile>
-    <innerfile refid="esp32__tle__comm__interface_8hpp">esp32_tle_comm_interface.hpp</innerfile>
+    <innerfile refid="esp32__tle92466ed__bus_8hpp">esp32_tle92466ed_bus.hpp</innerfile>
+    <innerfile refid="esp32__tle92466ed__test__config_8hpp">esp32_tle92466ed_test_config.hpp</innerfile>
     <innerfile refid="solenoid__control__test_8cpp">solenoid_control_test.cpp</innerfile>
     <innerfile refid="TestFramework_8h">TestFramework.h</innerfile>
-    <innerfile refid="tle92466ed__test__config_8hpp">tle92466ed_test_config.hpp</innerfile>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

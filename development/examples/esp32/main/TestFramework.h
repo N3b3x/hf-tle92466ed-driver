@@ -1,5 +1,3 @@
-#ifndef TEST_FRAMEWORK_H
-#define TEST_FRAMEWORK_H
 /**
  * @file TestFramework.h
  * @brief Shared testing framework for ESP32-C6 comprehensive test suites
@@ -524,5 +522,3 @@ inline void print_test_section_footer(const char* tag, const char* section_name,
  * // You can add flip_test_progress_indicator() calls between tests if desired
  * // Example: flip_test_progress_indicator(); // Toggle GPIO14 after each test
  */
-
-#endif // TEST_FRAMEWORK_H

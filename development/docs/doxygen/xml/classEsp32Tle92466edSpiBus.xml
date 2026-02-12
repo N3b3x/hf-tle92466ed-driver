@@ -1,0 +1,675 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="classEsp32Tle92466edSpiBus" kind="class" language="C++" prot="public">
+    <compoundname>Esp32Tle92466edSpiBus</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">tle92466ed::SpiInterface&lt; Esp32Tle92466edSpiBus &gt;</basecompoundref>
+    <includes refid="esp32__tle92466ed__bus_8hpp" local="no">esp32_tle92466ed_bus.hpp</includes>
+    <innerclass refid="structEsp32Tle92466edSpiBus_1_1SPIConfig" prot="public">Esp32Tle92466edSpiBus::SPIConfig</innerclass>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classEsp32Tle92466edSpiBus_1a982bcaa9045a6a4c5336f6867015d208" prot="private" static="no" mutable="no">
+        <type><ref refid="structEsp32Tle92466edSpiBus_1_1SPIConfig" kindref="compound">SPIConfig</ref></type>
+        <definition>SPIConfig Esp32Tle92466edSpiBus::config_</definition>
+        <argsstring></argsstring>
+        <name>config_</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::config_</qualifiedname>
+        <briefdescription>
+<para>SPI configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="423" column="15" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="423" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEsp32Tle92466edSpiBus_1aa2ade5d165ae594007a6e7c0f9a4ce4c" prot="private" static="no" mutable="no">
+        <type>spi_device_handle_t</type>
+        <definition>spi_device_handle_t Esp32Tle92466edSpiBus::spi_device_</definition>
+        <argsstring></argsstring>
+        <name>spi_device_</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::spi_device_</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+<para>SPI device handle. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="424" column="25" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="424" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEsp32Tle92466edSpiBus_1a043069850e70f93ebb4639914835636d" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Esp32Tle92466edSpiBus::initialized_</definition>
+        <argsstring></argsstring>
+        <name>initialized_</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::initialized_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>Initialization state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="425" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="425" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEsp32Tle92466edSpiBus_1a096bb9a950f4f648b6ee6273f5bb2067" prot="private" static="no" mutable="no">
+        <type>CommError</type>
+        <definition>CommError Esp32Tle92466edSpiBus::last_error_</definition>
+        <argsstring></argsstring>
+        <name>last_error_</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::last_error_</qualifiedname>
+        <initializer>= CommError::None</initializer>
+        <briefdescription>
+<para>Last error that occurred. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="426" column="15" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="426" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classEsp32Tle92466edSpiBus_1a600e90229e8b9a5adb891ed7acf1a6bb" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr const char *</type>
+        <definition>constexpr const char* Esp32Tle92466edSpiBus::TAG</definition>
+        <argsstring></argsstring>
+        <name>TAG</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::TAG</qualifiedname>
+        <initializer>= &quot;Esp32TleComm&quot;</initializer>
+        <briefdescription>
+<para>Logging tag. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="428" column="33" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="428" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a7765e7f78ed52fca520dcb3d6dffdd16" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Esp32Tle92466edSpiBus::Esp32Tle92466edSpiBus</definition>
+        <argsstring>()</argsstring>
+        <name>Esp32Tle92466edSpiBus</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::Esp32Tle92466edSpiBus</qualifiedname>
+        <briefdescription>
+<para>Constructor with default SPI configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="74" column="5" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="74" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a1417b2885f7e6ed63747497b041fcb9d" prot="public" static="no" const="no" explicit="yes" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>Esp32Tle92466edSpiBus::Esp32Tle92466edSpiBus</definition>
+        <argsstring>(const SPIConfig &amp;config) noexcept</argsstring>
+        <name>Esp32Tle92466edSpiBus</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::Esp32Tle92466edSpiBus</qualifiedname>
+        <param>
+          <type>const <ref refid="structEsp32Tle92466edSpiBus_1_1SPIConfig" kindref="compound">SPIConfig</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Constructor with custom SPI configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SPI configuration parameters </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="80" column="14" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="80" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a95dc225cfcc75e153c20d0d638b3eaf0" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>Esp32Tle92466edSpiBus::~Esp32Tle92466edSpiBus</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>~Esp32Tle92466edSpiBus</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::~Esp32Tle92466edSpiBus</qualifiedname>
+        <briefdescription>
+<para>Destructor - cleans up SPI resources. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Defined inline to avoid incomplete type issues with std::unique_ptr </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="109" column="5" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="109" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a3da7b727dfd17c6e0f08833961efc23d" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto Esp32Tle92466edSpiBus::Init</definition>
+        <argsstring>() noexcept -&gt; CommResult&lt; void &gt;</argsstring>
+        <name>Init</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::Init</qualifiedname>
+        <briefdescription>
+<para>Initialize the CommInterface (must be called before use) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>CommResult&lt;void&gt; Success or error </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="125" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="125" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a5c3494ca635f993181689a0f8c1c6972" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto Esp32Tle92466edSpiBus::Deinit</definition>
+        <argsstring>() noexcept -&gt; CommResult&lt; void &gt;</argsstring>
+        <name>Deinit</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::Deinit</qualifiedname>
+        <briefdescription>
+<para>Deinitialize the CommInterface. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>CommResult&lt;void&gt; Success or error </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="153" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="153" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a9b2dffe7d4f9bad0e67eb27867736e61" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto Esp32Tle92466edSpiBus::Transfer32</definition>
+        <argsstring>(uint32_t tx_data) noexcept -&gt; CommResult&lt; uint32_t &gt;</argsstring>
+        <name>Transfer32</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::Transfer32</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>tx_data</declname>
+        </param>
+        <briefdescription>
+<para>Transfer 32-bit data via SPI (full-duplex) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tx_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The 32-bit data to transmit </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>CommResult&lt;uint32_t&gt; Received 32-bit data or error </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="174" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="174" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1ac8eb66b714d008e98fd6862f959d000e" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto Esp32Tle92466edSpiBus::TransferMulti</definition>
+        <argsstring>(std::span&lt; const uint32_t &gt; tx_data, std::span&lt; uint32_t &gt; rx_data) noexcept -&gt; CommResult&lt; void &gt;</argsstring>
+        <name>TransferMulti</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::TransferMulti</qualifiedname>
+        <param>
+          <type>std::span&lt; const uint32_t &gt;</type>
+          <declname>tx_data</declname>
+        </param>
+        <param>
+          <type>std::span&lt; uint32_t &gt;</type>
+          <declname>rx_data</declname>
+        </param>
+        <briefdescription>
+<para>Transfer multiple 32-bit words via SPI. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tx_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Span of transmit data (32-bit words) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rx_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Span to store received data (32-bit words) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>CommResult&lt;void&gt; Success or error </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="250" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="250" bodyend="268"/>
+      </memberdef>
+      <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1ae86fba1c53bcf96b262060304b8b115a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto Esp32Tle92466edSpiBus::Delay</definition>
+        <argsstring>(uint32_t microseconds) noexcept -&gt; CommResult&lt; void &gt;</argsstring>
+        <name>Delay</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::Delay</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>microseconds</declname>
+        </param>
+        <briefdescription>
+<para>Delay for specified duration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>microseconds</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Duration to delay in microseconds </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>CommResult&lt;void&gt; Success or error </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="275" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="275" bodyend="289"/>
+      </memberdef>
+      <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a5711f4c3c3bdf545ca10b32ef2399aac" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto Esp32Tle92466edSpiBus::Configure</definition>
+        <argsstring>(const tle92466ed::SPIConfig &amp;config) noexcept -&gt; CommResult&lt; void &gt;</argsstring>
+        <name>Configure</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::Configure</qualifiedname>
+        <param>
+          <type>const tle92466ed::SPIConfig &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Configure SPI parameters. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>New SPI configuration </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>CommResult&lt;void&gt; Success or error </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="296" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="296" bodyend="299"/>
+      </memberdef>
+      <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a8584733434267fd3fe40a05918994178" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Esp32Tle92466edSpiBus::IsReady</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>IsReady</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::IsReady</qualifiedname>
+        <briefdescription>
+<para>Check if hardware is ready for communication. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if ready, false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="305" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="305" bodyend="307"/>
+      </memberdef>
+      <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a230b32d97c901977d39f76648523c3c0" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>CommError</type>
+        <definition>CommError Esp32Tle92466edSpiBus::GetLastError</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>GetLastError</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::GetLastError</qualifiedname>
+        <briefdescription>
+<para>Get the last error that occurred. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>CommError The last error code </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="313" column="15" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="313" bodyend="315"/>
+      </memberdef>
+      <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1af63d5b9edd17b58a23febdcf6c927efb" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto Esp32Tle92466edSpiBus::ClearErrors</definition>
+        <argsstring>() noexcept -&gt; CommResult&lt; void &gt;</argsstring>
+        <name>ClearErrors</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::ClearErrors</qualifiedname>
+        <briefdescription>
+<para>Clear any pending errors. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>CommResult&lt;void&gt; Success or error </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="321" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="321" bodyend="324"/>
+      </memberdef>
+      <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a92aaf5c2cdd6e26daa496051a8426a16" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto Esp32Tle92466edSpiBus::getConfig</definition>
+        <argsstring>() const noexcept -&gt; const SPIConfig &amp;</argsstring>
+        <name>getConfig</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::getConfig</qualifiedname>
+        <briefdescription>
+<para>Get the current SPI configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Current SPI configuration </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="330" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="330" bodyend="330"/>
+      </memberdef>
+      <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1adfbd4712be089febb5123cd39004115a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto Esp32Tle92466edSpiBus::SetGpioPin</definition>
+        <argsstring>(ControlPin pin, ActiveLevel level) noexcept -&gt; CommResult&lt; void &gt;</argsstring>
+        <name>SetGpioPin</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::SetGpioPin</qualifiedname>
+        <param>
+          <type>ControlPin</type>
+          <declname>pin</declname>
+        </param>
+        <param>
+          <type>ActiveLevel</type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+<para>Set GPIO control pin level. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Control pin to set (RESN or EN) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>level</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Active level (HIGH or LOW) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>CommResult&lt;void&gt; Success or error </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="338" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="338" bodyend="367"/>
+      </memberdef>
+      <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a45baa37946063c847754042308ecf155" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto Esp32Tle92466edSpiBus::GetGpioPin</definition>
+        <argsstring>(ControlPin pin) noexcept -&gt; CommResult&lt; ActiveLevel &gt;</argsstring>
+        <name>GetGpioPin</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::GetGpioPin</qualifiedname>
+        <param>
+          <type>ControlPin</type>
+          <declname>pin</declname>
+        </param>
+        <briefdescription>
+<para>Get GPIO control pin level. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Control pin to read (FAULTN) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>CommResult&lt;ActiveLevel&gt; Pin level or error </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="374" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="374" bodyend="394"/>
+      </memberdef>
+      <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a51ba27e05beb007f49ecba1bfd72eb74" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Esp32Tle92466edSpiBus::Log</definition>
+        <argsstring>(LogLevel level, const char *tag, const char *format, va_list args) noexcept</argsstring>
+        <name>Log</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::Log</qualifiedname>
+        <param>
+          <type>LogLevel</type>
+          <declname>level</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>tag</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>va_list</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Log a message with specified severity level and tag (ESP_LOG implementation) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>level</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Log severity level </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Tag/component name for the log message </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>format</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Format string (printf-style) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>va_list of arguments </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="403" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="403" bodyend="414"/>
+      </memberdef>
+      <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1ad73eb0c20ff589310eaef5e501e32f20" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto Esp32Tle92466edSpiBus::isInitialized</definition>
+        <argsstring>() const noexcept -&gt; bool</argsstring>
+        <name>isInitialized</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::isInitialized</qualifiedname>
+        <briefdescription>
+<para>Check if CommInterface is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if initialized, false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="420" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="420" bodyend="420"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1ae017c339fbd0d40607ad84eeba91aecf" prot="private" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto Esp32Tle92466edSpiBus::initializeGPIO</definition>
+        <argsstring>() noexcept -&gt; CommResult&lt; void &gt;</argsstring>
+        <name>initializeGPIO</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::initializeGPIO</qualifiedname>
+        <briefdescription>
+<para>Initialize GPIO pins (RESN, EN, FAULTN) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>CommResult&lt;void&gt; Success or error </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="434" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="434" bodyend="471"/>
+      </memberdef>
+      <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a3ab0c7e560efec4561c7940538e4cceb" prot="private" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto Esp32Tle92466edSpiBus::initializeSPI</definition>
+        <argsstring>() noexcept -&gt; CommResult&lt; void &gt;</argsstring>
+        <name>initializeSPI</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::initializeSPI</qualifiedname>
+        <briefdescription>
+<para>Initialize SPI bus. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>CommResult&lt;void&gt; Success or error </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="477" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="477" bodyend="498"/>
+      </memberdef>
+      <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1aeed7f6eaa33189a9520bc0b34c332734" prot="private" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto Esp32Tle92466edSpiBus::addSPIDevice</definition>
+        <argsstring>() noexcept -&gt; CommResult&lt; void &gt;</argsstring>
+        <name>addSPIDevice</name>
+        <qualifiedname>Esp32Tle92466edSpiBus::addSPIDevice</qualifiedname>
+        <briefdescription>
+<para>Add SPI device to the bus. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>CommResult&lt;void&gt; Success or error <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="504" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="504" bodyend="533"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>ESP32 implementation of the TLE92466ED CommInterface. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class provides the platform-specific implementation for ESP32, handling SPI communication with proper timing and error handling. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Esp32Tle92466edSpiBus</label>
+        <link refid="classEsp32Tle92466edSpiBus"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>tle92466ed::SpiInterface&lt; Esp32Tle92466edSpiBus &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Esp32Tle92466edSpiBus</label>
+        <link refid="classEsp32Tle92466edSpiBus"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>config_</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Esp32Tle92466edSpiBus::SPIConfig</label>
+        <link refid="structEsp32Tle92466edSpiBus_1_1SPIConfig"/>
+      </node>
+      <node id="2">
+        <label>tle92466ed::SpiInterface&lt; Esp32Tle92466edSpiBus &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="46" column="1" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="46" bodyend="534"/>
+    <listofallmembers>
+      <member refid="classEsp32Tle92466edSpiBus_1aeed7f6eaa33189a9520bc0b34c332734" prot="private" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>addSPIDevice</name></member>
+      <member refid="classEsp32Tle92466edSpiBus_1af63d5b9edd17b58a23febdcf6c927efb" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>ClearErrors</name></member>
+      <member refid="classEsp32Tle92466edSpiBus_1a982bcaa9045a6a4c5336f6867015d208" prot="private" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>config_</name></member>
+      <member refid="classEsp32Tle92466edSpiBus_1a5711f4c3c3bdf545ca10b32ef2399aac" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>Configure</name></member>
+      <member refid="classEsp32Tle92466edSpiBus_1a5c3494ca635f993181689a0f8c1c6972" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>Deinit</name></member>
+      <member refid="classEsp32Tle92466edSpiBus_1ae86fba1c53bcf96b262060304b8b115a" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>Delay</name></member>
+      <member refid="classEsp32Tle92466edSpiBus_1a7765e7f78ed52fca520dcb3d6dffdd16" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>Esp32Tle92466edSpiBus</name></member>
+      <member refid="classEsp32Tle92466edSpiBus_1a1417b2885f7e6ed63747497b041fcb9d" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>Esp32Tle92466edSpiBus</name></member>
+      <member refid="classEsp32Tle92466edSpiBus_1a92aaf5c2cdd6e26daa496051a8426a16" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>getConfig</name></member>
+      <member refid="classEsp32Tle92466edSpiBus_1a45baa37946063c847754042308ecf155" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>GetGpioPin</name></member>
+      <member refid="classEsp32Tle92466edSpiBus_1a230b32d97c901977d39f76648523c3c0" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>GetLastError</name></member>
+      <member refid="classEsp32Tle92466edSpiBus_1a3da7b727dfd17c6e0f08833961efc23d" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>Init</name></member>
+      <member refid="classEsp32Tle92466edSpiBus_1a043069850e70f93ebb4639914835636d" prot="private" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>initialized_</name></member>
+      <member refid="classEsp32Tle92466edSpiBus_1ae017c339fbd0d40607ad84eeba91aecf" prot="private" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>initializeGPIO</name></member>
+      <member refid="classEsp32Tle92466edSpiBus_1a3ab0c7e560efec4561c7940538e4cceb" prot="private" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>initializeSPI</name></member>
+      <member refid="classEsp32Tle92466edSpiBus_1ad73eb0c20ff589310eaef5e501e32f20" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>isInitialized</name></member>
+      <member refid="classEsp32Tle92466edSpiBus_1a8584733434267fd3fe40a05918994178" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>IsReady</name></member>
+      <member refid="classEsp32Tle92466edSpiBus_1a096bb9a950f4f648b6ee6273f5bb2067" prot="private" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>last_error_</name></member>
+      <member refid="classEsp32Tle92466edSpiBus_1a51ba27e05beb007f49ecba1bfd72eb74" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>Log</name></member>
+      <member refid="classEsp32Tle92466edSpiBus_1adfbd4712be089febb5123cd39004115a" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>SetGpioPin</name></member>
+      <member refid="classEsp32Tle92466edSpiBus_1aa2ade5d165ae594007a6e7c0f9a4ce4c" prot="private" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>spi_device_</name></member>
+      <member refid="classEsp32Tle92466edSpiBus_1a600e90229e8b9a5adb891ed7acf1a6bb" prot="private" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>TAG</name></member>
+      <member refid="classEsp32Tle92466edSpiBus_1a9b2dffe7d4f9bad0e67eb27867736e61" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>Transfer32</name></member>
+      <member refid="classEsp32Tle92466edSpiBus_1ac8eb66b714d008e98fd6862f959d000e" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>TransferMulti</name></member>
+      <member refid="classEsp32Tle92466edSpiBus_1a95dc225cfcc75e153c20d0d638b3eaf0" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>~Esp32Tle92466edSpiBus</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

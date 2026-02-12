@@ -37,6 +37,6 @@ var searchData=
   ['test_5ftelemetry_5fwith_5factive_5fchannel_34',['test_telemetry_with_active_channel',['../driver__integration__test_8cpp.html#a01f3dc5889509fa100606c90ef1930d6',1,'driver_integration_test.cpp']]],
   ['test_5fvbat_5fthresholds_35',['test_vbat_thresholds',['../driver__integration__test_8cpp.html#a522cb8d7da6197e14bb1b3823cd72dbe',1,'driver_integration_test.cpp']]],
   ['test_5fvoltage_5freading_36',['test_voltage_reading',['../driver__integration__test_8cpp.html#a33ced9d335d2f2d33969d7180f88fa43',1,'driver_integration_test.cpp']]],
-  ['transfer32_37',['Transfer32',['../classEsp32TleCommInterface.html#ab5f7c06936fa0cde6d682778993c4af1',1,'Esp32TleCommInterface']]],
-  ['transfermulti_38',['TransferMulti',['../classEsp32TleCommInterface.html#a18bad257c45ff0f43384555f97d45eca',1,'Esp32TleCommInterface']]]
+  ['transfer32_37',['Transfer32',['../classEsp32Tle92466edSpiBus.html#a9b2dffe7d4f9bad0e67eb27867736e61',1,'Esp32Tle92466edSpiBus']]],
+  ['transfermulti_38',['TransferMulti',['../classEsp32Tle92466edSpiBus.html#ac8eb66b714d008e98fd6862f959d000e',1,'Esp32Tle92466edSpiBus']]]
 ];

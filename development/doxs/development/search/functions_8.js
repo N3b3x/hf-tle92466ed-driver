@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['log_0',['Log',['../classEsp32TleCommInterface.html#a8c194512dee133d50442d1ef78452bf7',1,'Esp32TleCommInterface']]]
+  ['log_0',['Log',['../classEsp32Tle92466edSpiBus.html#a51ba27e05beb007f49ecba1bfd72eb74',1,'Esp32Tle92466edSpiBus']]]
 ];

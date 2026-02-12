@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
   <compounddef id="structTLE92466ED__TestConfig_1_1AppConfig" kind="struct" language="C++" prot="public">
     <compoundname>TLE92466ED_TestConfig::AppConfig</compoundname>
-    <includes refid="tle92466ed__test__config_8hpp" local="no">tle92466ed_test_config.hpp</includes>
+    <includes refid="esp32__tle92466ed__test__config_8hpp" local="no">esp32_tle92466ed_test_config.hpp</includes>
     <sectiondef kind="public-static-attrib">
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1AppConfig_1a6bdda711f77ba91e423e1502c5b2a397" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr bool</type>
@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/tle92466ed_test_config.hpp" line="185" column="27" bodyfile="examples/esp32/main/tle92466ed_test_config.hpp" bodystart="185" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="185" column="27" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="185" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1AppConfig_1a979487f02eb09e526f8a9cac2e322fbc" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr bool</type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/tle92466ed_test_config.hpp" line="186" column="27" bodyfile="examples/esp32/main/tle92466ed_test_config.hpp" bodystart="186" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="186" column="27" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="186" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1AppConfig_1af8de3a818970b3ca408963b48605eb30" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr bool</type>
@@ -50,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/tle92466ed_test_config.hpp" line="189" column="27" bodyfile="examples/esp32/main/tle92466ed_test_config.hpp" bodystart="189" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="189" column="27" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="189" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1AppConfig_1a73d040921dd27c8d9446c7aa0848c66f" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/tle92466ed_test_config.hpp" line="190" column="31" bodyfile="examples/esp32/main/tle92466ed_test_config.hpp" bodystart="190" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="190" column="31" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="190" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1AppConfig_1a3ef17aa73f6bc44607cc2f83bf3c7745" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr bool</type>
@@ -82,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/tle92466ed_test_config.hpp" line="193" column="27" bodyfile="examples/esp32/main/tle92466ed_test_config.hpp" bodystart="193" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="193" column="27" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="193" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1AppConfig_1a8e6b4f9371f9d222d1c605f03c7b5408" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint8_t</type>
@@ -98,7 +98,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/tle92466ed_test_config.hpp" line="194" column="30" bodyfile="examples/esp32/main/tle92466ed_test_config.hpp" bodystart="194" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="194" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="194" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -107,7 +107,7 @@
     <detaileddescription>
 <para>Configuration values that can be adjusted per application. </para>
     </detaileddescription>
-    <location file="examples/esp32/main/tle92466ed_test_config.hpp" line="183" column="1" bodyfile="examples/esp32/main/tle92466ed_test_config.hpp" bodystart="183" bodyend="195"/>
+    <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="183" column="1" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="183" bodyend="195"/>
     <listofallmembers>
       <member refid="structTLE92466ED__TestConfig_1_1AppConfig_1a3ef17aa73f6bc44607cc2f83bf3c7745" prot="public" virt="non-virtual"><scope>TLE92466ED_TestConfig::AppConfig</scope><name>ENABLE_AUTO_RECOVERY</name></member>
       <member refid="structTLE92466ED__TestConfig_1_1AppConfig_1a6bdda711f77ba91e423e1502c5b2a397" prot="public" virt="non-virtual"><scope>TLE92466ED_TestConfig::AppConfig</scope><name>ENABLE_DEBUG_LOGGING</name></member>

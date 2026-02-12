@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['tag_0',['TAG',['../classEsp32TleCommInterface.html#a150d8ac326e8be8978d32be9d94c903c',1,'Esp32TleCommInterface']]],
+  ['tag_0',['TAG',['../classEsp32Tle92466edSpiBus.html#a600e90229e8b9a5adb891ed7acf1a6bb',1,'Esp32Tle92466edSpiBus']]],
   ['tag_1',['tag',['../structTestTaskContext.html#ae51f49c33ea802bc7f8bdde560a27304',1,'TestTaskContext']]],
   ['tag_2',['TAG',['../driver__integration__test_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c',1,'TAG:&#160;driver_integration_test.cpp'],['../solenoid__control__test_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c',1,'TAG:&#160;solenoid_control_test.cpp']]],
   ['test_5fduration_5fms_3',['TEST_DURATION_MS',['../structTLE92466ED__TestConfig_1_1TestConfig.html#a0bfc6f1c08f4ab5603e90d8c3fed98a5',1,'TLE92466ED_TestConfig::TestConfig']]],

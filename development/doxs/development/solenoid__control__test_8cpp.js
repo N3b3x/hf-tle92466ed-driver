@@ -15,7 +15,7 @@ var solenoid__control__test_8cpp =
     [ "update_solenoid_currents", "solenoid__control__test_8cpp.html#ae75b9efaa99cfa8c2b9295288cf8304d", null ],
     [ "g_adc_cali_handle", "solenoid__control__test_8cpp.html#ae17bd7fdeae9b708d352e36672e0b72e", null ],
     [ "g_adc_handle", "solenoid__control__test_8cpp.html#acefbb4b5237cd7692227db14429b5dff", null ],
-    [ "g_driver", "solenoid__control__test_8cpp.html#a02003d146ba6a2cf9db8ddfbb8642231", null ],
-    [ "g_hal", "solenoid__control__test_8cpp.html#a24db71501f93a69b4c6eea17c2b6bd36", null ],
+    [ "g_driver", "solenoid__control__test_8cpp.html#a3373634be9233201d6554eb7cc7a2da6", null ],
+    [ "g_hal", "solenoid__control__test_8cpp.html#a98e7328ae9e7016a8df9584e5fbea942", null ],
     [ "TAG", "solenoid__control__test_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c", null ]
 ];

@@ -1,0 +1,5 @@
+<map id="Esp32Tle92466edSpiBus" name="Esp32Tle92466edSpiBus">
+<area shape="rect" id="Node000001" title="ESP32 implementation of the TLE92466ED CommInterface." alt="" coords="21,104,247,135"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,263,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,70,137,104,131,104,131,70"/>
+</map>

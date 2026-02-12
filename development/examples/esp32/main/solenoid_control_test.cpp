@@ -31,8 +31,8 @@
 #include "esp_adc/adc_cali_scheme.h"
 
 #include "tle92466ed.hpp"
-#include "esp32_tle_comm_interface.hpp"
-#include "tle92466ed_test_config.hpp"
+#include "esp32_tle92466ed_bus.hpp"
+#include "esp32_tle92466ed_test_config.hpp"
 
 using namespace tle92466ed;
 using namespace TLE92466ED_TestConfig;
@@ -84,8 +84,8 @@ struct Solenoid2Config {
 // GLOBAL RESOURCES
 //=============================================================================
 
-static std::unique_ptr<Esp32TleCommInterface> g_hal;
-static tle92466ed::Driver<Esp32TleCommInterface>* g_driver = nullptr;
+static std::unique_ptr<Esp32Tle92466edSpiBus> g_hal;
+static tle92466ed::Driver<Esp32Tle92466edSpiBus>* g_driver = nullptr;
 static adc_oneshot_unit_handle_t g_adc_handle = nullptr;
 static adc_cali_handle_t g_adc_cali_handle = nullptr;
 
@@ -490,7 +490,7 @@ extern "C" void app_main() {
     
     // Initialize HAL
     ESP_LOGI(TAG, "Initializing HAL...");
-    g_hal = CreateEsp32TleCommInterface();
+    g_hal = CreateEsp32Tle92466edSpiBus();
     if (!g_hal) {
         ESP_LOGE(TAG, "Failed to create HAL instance");
         return;
@@ -504,7 +504,7 @@ extern "C" void app_main() {
     
     // Initialize Driver
     ESP_LOGI(TAG, "Initializing TLE92466ED driver...");
-    g_driver = new tle92466ed::Driver<Esp32TleCommInterface>(*g_hal);
+    g_driver = new tle92466ed::Driver<Esp32Tle92466edSpiBus>(*g_hal);
     if (!g_driver) {
         ESP_LOGE(TAG, "Failed to create driver instance");
         return;

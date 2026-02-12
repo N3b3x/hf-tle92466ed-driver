@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7eesp32tlecomminterface_0',['~Esp32TleCommInterface',['../classEsp32TleCommInterface.html#a9ea5cdfd9492290839f09bc07a3310f9',1,'Esp32TleCommInterface']]]
+  ['_7eesp32tle92466edspibus_0',['~Esp32Tle92466edSpiBus',['../classEsp32Tle92466edSpiBus.html#a95dc225cfcc75e153c20d0d638b3eaf0',1,'Esp32Tle92466edSpiBus']]]
 ];

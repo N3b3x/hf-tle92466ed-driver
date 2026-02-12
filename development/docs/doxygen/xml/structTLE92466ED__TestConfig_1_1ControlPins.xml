@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
   <compounddef id="structTLE92466ED__TestConfig_1_1ControlPins" kind="struct" language="C++" prot="public">
     <compoundname>TLE92466ED_TestConfig::ControlPins</compoundname>
-    <includes refid="tle92466ed__test__config_8hpp" local="no">tle92466ed_test_config.hpp</includes>
+    <includes refid="esp32__tle92466ed__test__config_8hpp" local="no">esp32_tle92466ed_test_config.hpp</includes>
     <sectiondef kind="public-static-attrib">
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1ControlPins_1a4ecb4cfcaf908b1a16bbb436093c268b" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint8_t</type>
@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/tle92466ed_test_config.hpp" line="61" column="30" bodyfile="examples/esp32/main/tle92466ed_test_config.hpp" bodystart="61" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="61" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="61" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1ControlPins_1a9d17758f1c459951f04a5e932f6b9157" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint8_t</type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/tle92466ed_test_config.hpp" line="62" column="30" bodyfile="examples/esp32/main/tle92466ed_test_config.hpp" bodystart="62" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="62" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="62" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1ControlPins_1abd525deb25fcb647fa6c4690c63f74c4" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint8_t</type>
@@ -50,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/tle92466ed_test_config.hpp" line="63" column="30" bodyfile="examples/esp32/main/tle92466ed_test_config.hpp" bodystart="63" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="63" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="63" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1ControlPins_1a2d22c523fac2c084d1821d7dcdf3d78a" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint8_t</type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/tle92466ed_test_config.hpp" line="64" column="30" bodyfile="examples/esp32/main/tle92466ed_test_config.hpp" bodystart="64" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="64" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="64" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1ControlPins_1aea4b6762eaab6ac731f1f22b207d2f9a" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint8_t</type>
@@ -82,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/tle92466ed_test_config.hpp" line="65" column="30" bodyfile="examples/esp32/main/tle92466ed_test_config.hpp" bodystart="65" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="65" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="65" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -91,7 +91,7 @@
     <detaileddescription>
 <para>These pins control device operation and status monitoring. Set to -1 if not connected/configured. </para>
     </detaileddescription>
-    <location file="examples/esp32/main/tle92466ed_test_config.hpp" line="60" column="1" bodyfile="examples/esp32/main/tle92466ed_test_config.hpp" bodystart="60" bodyend="66"/>
+    <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="60" column="1" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="60" bodyend="66"/>
     <listofallmembers>
       <member refid="structTLE92466ED__TestConfig_1_1ControlPins_1a2d22c523fac2c084d1821d7dcdf3d78a" prot="public" virt="non-virtual"><scope>TLE92466ED_TestConfig::ControlPins</scope><name>DRV0</name></member>
       <member refid="structTLE92466ED__TestConfig_1_1ControlPins_1aea4b6762eaab6ac731f1f22b207d2f9a" prot="public" virt="non-virtual"><scope>TLE92466ED_TestConfig::ControlPins</scope><name>DRV1</name></member>

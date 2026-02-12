@@ -1,0 +1,7 @@
+<map id="examples/esp32/main/esp32_tle92466ed_bus.hpp" name="examples/esp32/main/esp32_tle92466ed_bus.hpp">
+<area shape="rect" id="Node000001" title="ESP32 Communication Interface implementation for TLE92466ED driver." alt="" coords="99,5,348,56"/>
+<area shape="rect" id="Node000002" href="$driver__integration__test_8cpp.html" title="Comprehensive Integration Test Suite for TLE92466ED Driver." alt="" coords="5,104,204,175"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,67,145,106,141,102,184,63"/>
+<area shape="rect" id="Node000003" href="$solenoid__control__test_8cpp.html" title="Real Hardware Solenoid Control Test with ADC&#45;Based Current Control." alt="" coords="228,114,459,165"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="262,63,318,112,314,116,259,67"/>
+</map>

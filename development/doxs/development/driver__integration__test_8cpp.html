@@ -112,12 +112,12 @@ $(function(){initNavTree('driver__integration__test_8cpp.html',''); initResizabl
 <code>#include &quot;esp_log.h&quot;</code><br />
 <code>#include &quot;esp_system.h&quot;</code><br />
 <code>#include &quot;tle92466ed.hpp&quot;</code><br />
-<code>#include &quot;<a class="el" href="esp32__tle__comm__interface_8hpp_source.html">esp32_tle_comm_interface.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="esp32__tle92466ed__bus_8hpp_source.html">esp32_tle92466ed_bus.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="TestFramework_8h_source.html">TestFramework.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for driver_integration_test.cpp:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="driver__integration__test_8cpp__incl.svg" width="100%" height="538"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="driver__integration__test_8cpp__incl.svg" width="100%" height="553"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
@@ -282,10 +282,10 @@ Variables</h2></td></tr>
 <tr class="separator:a5a85b9c772bbeb480b209a3e6ea92b4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaff89257c54366921eebb8ec1348b1fd" id="r_aaff89257c54366921eebb8ec1348b1fd"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structTestResults.html">TestResults</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaff89257c54366921eebb8ec1348b1fd">g_test_results</a></td></tr>
 <tr class="separator:aaff89257c54366921eebb8ec1348b1fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24db71501f93a69b4c6eea17c2b6bd36" id="r_a24db71501f93a69b4c6eea17c2b6bd36"><td class="memItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="classEsp32TleCommInterface.html">Esp32TleCommInterface</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24db71501f93a69b4c6eea17c2b6bd36">g_hal</a></td></tr>
-<tr class="separator:a24db71501f93a69b4c6eea17c2b6bd36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02003d146ba6a2cf9db8ddfbb8642231" id="r_a02003d146ba6a2cf9db8ddfbb8642231"><td class="memItemLeft" align="right" valign="top">static tle92466ed::Driver&lt; <a class="el" href="classEsp32TleCommInterface.html">Esp32TleCommInterface</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a02003d146ba6a2cf9db8ddfbb8642231">g_driver</a> = nullptr</td></tr>
-<tr class="separator:a02003d146ba6a2cf9db8ddfbb8642231"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98e7328ae9e7016a8df9584e5fbea942" id="r_a98e7328ae9e7016a8df9584e5fbea942"><td class="memItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="classEsp32Tle92466edSpiBus.html">Esp32Tle92466edSpiBus</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a98e7328ae9e7016a8df9584e5fbea942">g_hal</a></td></tr>
+<tr class="separator:a98e7328ae9e7016a8df9584e5fbea942"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3373634be9233201d6554eb7cc7a2da6" id="r_a3373634be9233201d6554eb7cc7a2da6"><td class="memItemLeft" align="right" valign="top">static tle92466ed::Driver&lt; <a class="el" href="classEsp32Tle92466edSpiBus.html">Esp32Tle92466edSpiBus</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3373634be9233201d6554eb7cc7a2da6">g_driver</a> = nullptr</td></tr>
+<tr class="separator:a3373634be9233201d6554eb7cc7a2da6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Comprehensive Integration Test Suite for TLE92466ED Driver. </p>
@@ -1609,8 +1609,8 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="a02003d146ba6a2cf9db8ddfbb8642231" name="a02003d146ba6a2cf9db8ddfbb8642231"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02003d146ba6a2cf9db8ddfbb8642231">&#9670;&#160;</a></span>g_driver</h2>
+<a id="a3373634be9233201d6554eb7cc7a2da6" name="a3373634be9233201d6554eb7cc7a2da6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3373634be9233201d6554eb7cc7a2da6">&#9670;&#160;</a></span>g_driver</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1619,7 +1619,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">tle92466ed::Driver&lt;<a class="el" href="classEsp32TleCommInterface.html">Esp32TleCommInterface</a>&gt;* g_driver = nullptr</td>
+          <td class="memname">tle92466ed::Driver&lt;<a class="el" href="classEsp32Tle92466edSpiBus.html">Esp32Tle92466edSpiBus</a>&gt;* g_driver = nullptr</td>
         </tr>
       </table>
   </td>
@@ -1631,8 +1631,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a24db71501f93a69b4c6eea17c2b6bd36" name="a24db71501f93a69b4c6eea17c2b6bd36"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24db71501f93a69b4c6eea17c2b6bd36">&#9670;&#160;</a></span>g_hal</h2>
+<a id="a98e7328ae9e7016a8df9584e5fbea942" name="a98e7328ae9e7016a8df9584e5fbea942"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98e7328ae9e7016a8df9584e5fbea942">&#9670;&#160;</a></span>g_hal</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1641,7 +1641,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unique_ptr&lt;<a class="el" href="classEsp32TleCommInterface.html">Esp32TleCommInterface</a>&gt; g_hal</td>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classEsp32Tle92466edSpiBus.html">Esp32Tle92466edSpiBus</a>&gt; g_hal</td>
         </tr>
       </table>
   </td>
