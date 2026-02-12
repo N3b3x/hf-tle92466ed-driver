@@ -1972,9 +1972,9 @@ DriverResult<void> Driver<CommType>::SetReset(bool reset) noexcept {
             reset ? "LOW (in reset)" : "HIGH (released)");
   // RESN is active low: reset=true means hold in reset (GPIO LOW), reset=false means release (GPIO
   // HIGH)
-  ActiveLevel level = reset ? ActiveLevel::INACTIVE : ActiveLevel::ACTIVE;
+  GpioSignal signal = reset ? GpioSignal::INACTIVE : GpioSignal::ACTIVE;
 
-  auto result = comm_.SetGpioPin(ControlPin::RESN, level);
+  auto result = comm_.GpioSet(CtrlPin::RESN, signal);
   if (!result) {
     return std::unexpected(DriverError::HardwareError);
   }
@@ -1988,9 +1988,9 @@ DriverResult<void> Driver<CommType>::SetEnable(bool enable) noexcept {
             enable ? "HIGH (enabled)" : "LOW (disabled)");
   // EN is active high: enable=true means enable outputs (GPIO HIGH), enable=false means disable
   // (GPIO LOW)
-  ActiveLevel level = enable ? ActiveLevel::ACTIVE : ActiveLevel::INACTIVE;
+  GpioSignal signal = enable ? GpioSignal::ACTIVE : GpioSignal::INACTIVE;
 
-  auto result = comm_.SetGpioPin(ControlPin::EN, level);
+  auto result = comm_.GpioSet(CtrlPin::EN, signal);
   if (!result) {
     return std::unexpected(DriverError::HardwareError);
   }
@@ -2000,13 +2000,13 @@ DriverResult<void> Driver<CommType>::SetEnable(bool enable) noexcept {
 
 template <typename CommType>
 DriverResult<bool> Driver<CommType>::IsFault(bool print_faults) noexcept {
-  auto result = comm_.GetGpioPin(ControlPin::FAULTN);
+  auto result = comm_.GpioRead(CtrlPin::FAULTN);
   if (!result) {
     return std::unexpected(DriverError::HardwareError);
   }
 
   // FAULTN is active low: ACTIVE means fault detected, INACTIVE means no fault
-  bool fault_detected = (*result == ActiveLevel::ACTIVE);
+  bool fault_detected = (*result == GpioSignal::ACTIVE);
 
   // If fault is detected and print_faults is true, automatically print detailed fault report
   // Only print if driver is initialized (PrintAllFaults requires initialization)

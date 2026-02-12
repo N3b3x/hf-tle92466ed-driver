@@ -48,15 +48,17 @@ enum class CommError : uint8_t {
  * @brief Control pin enumeration for TLE92466ED
  *
  * These pins are used for device control and status monitoring.
+ * The naming convention matches the standardized GPIO interface used
+ * across all HardFOC drivers.
  */
-enum class ControlPin : uint8_t {
+enum class CtrlPin : uint8_t {
   RESN,  ///< Reset pin (active low) - Must be HIGH for device operation
   EN,    ///< Enable pin (active high) - Enables/disables output channels
   FAULTN ///< Fault pin (active low) - Indicates device fault condition
 };
 
 /**
- * @brief Active level enumeration for GPIO pins
+ * @brief GPIO signal states with board-agnostic naming.
  *
  * Defines the logical active/inactive state of control pins.
  * The actual HIGH/LOW GPIO level depends on whether the pin is active-high or active-low.
@@ -64,9 +66,9 @@ enum class ControlPin : uint8_t {
  * @note This represents the logical state (active/inactive), not the physical GPIO level.
  *       The CommInterface implementation handles the active-high vs active-low conversion.
  */
-enum class ActiveLevel : uint8_t {
-  INACTIVE = 0, ///< Inactive state (logical inactive)
-  ACTIVE = 1    ///< Active state (logical active)
+enum class GpioSignal : uint8_t {
+  INACTIVE = 0, ///< Inactive signal state (logical inactive)
+  ACTIVE = 1    ///< Active signal state (logical active)
 };
 
 /**
@@ -564,15 +566,17 @@ public:
   }
 
   /**
-   * @brief Set GPIO control pin level
+   * @brief Set GPIO control pin signal state (output control).
    *
    * @details
    * Controls the state of TLE92466ED control pins (RESN, EN).
+   * The implementation must map ACTIVE/INACTIVE to the appropriate physical
+   * levels based on board design.
    *
    * @param pin Control pin to set (RESN or EN)
-   * @param level Active level (ACTIVE or INACTIVE)
+   * @param signal The desired signal state (ACTIVE or INACTIVE)
    * @return CommResult<void> Success or error code
-   * @retval CommError::InvalidParameter Invalid pin or level
+   * @retval CommError::InvalidParameter Invalid pin or signal
    * @retval CommError::HardwareNotReady Hardware not initialized
    *
    * @par Pin Behavior:
@@ -582,18 +586,20 @@ public:
    * @note RESN must be ACTIVE for SPI communication to work.
    * @note EN only affects output channels, not SPI communication.
    */
-  [[nodiscard]] CommResult<void> SetGpioPin(ControlPin pin, ActiveLevel level) noexcept {
-    return static_cast<Derived*>(this)->SetGpioPin(pin, level);
+  [[nodiscard]] CommResult<void> GpioSet(CtrlPin pin, GpioSignal signal) noexcept {
+    return static_cast<Derived*>(this)->GpioSet(pin, signal);
   }
 
   /**
-   * @brief Get GPIO control pin level
+   * @brief Read GPIO control pin signal state (input state).
    *
    * @details
    * Reads the current state of TLE92466ED control pins (FAULTN).
+   * The implementation must map physical levels to ACTIVE/INACTIVE based
+   * on board design.
    *
    * @param pin Control pin to read (FAULTN)
-   * @return CommResult<ActiveLevel> Pin state (ACTIVE or INACTIVE) or error
+   * @return CommResult<GpioSignal> Pin signal state (ACTIVE or INACTIVE) or error
    * @retval CommError::InvalidParameter Invalid pin (only FAULTN can be read)
    * @retval CommError::HardwareNotReady Hardware not initialized
    *
@@ -602,8 +608,26 @@ public:
    *
    * @note Only FAULTN can be read. RESN and EN are output-only.
    */
-  [[nodiscard]] CommResult<ActiveLevel> GetGpioPin(ControlPin pin) noexcept {
-    return static_cast<Derived*>(this)->GetGpioPin(pin);
+  [[nodiscard]] CommResult<GpioSignal> GpioRead(CtrlPin pin) noexcept {
+    return static_cast<Derived*>(this)->GpioRead(pin);
+  }
+
+  /**
+   * @brief Set GPIO pin to active state (convenience method).
+   * @param pin The control pin to set active
+   * @return CommResult<void> Success or error code
+   */
+  [[nodiscard]] CommResult<void> GpioSetActive(CtrlPin pin) noexcept {
+    return GpioSet(pin, GpioSignal::ACTIVE);
+  }
+
+  /**
+   * @brief Set GPIO pin to inactive state (convenience method).
+   * @param pin The control pin to set inactive
+   * @return CommResult<void> Success or error code
+   */
+  [[nodiscard]] CommResult<void> GpioSetInactive(CtrlPin pin) noexcept {
+    return GpioSet(pin, GpioSignal::INACTIVE);
   }
 
   /**
@@ -723,13 +747,13 @@ protected:
  */
 template <typename T>
 concept SpiInterfaceLike =
-    requires(T comm, uint32_t data, SPIConfig cfg, ControlPin pin, ActiveLevel level) {
+    requires(T comm, uint32_t data, SPIConfig cfg, CtrlPin pin, GpioSignal signal) {
       { comm.Init() } -> std::same_as<CommResult<void>>;
       { comm.Transfer32(data) } -> std::same_as<CommResult<uint32_t>>;
       { comm.IsReady() } -> std::same_as<bool>;
       { comm.Configure(cfg) } -> std::same_as<CommResult<void>>;
-      { comm.SetGpioPin(pin, level) } -> std::same_as<CommResult<void>>;
-      { comm.GetGpioPin(pin) } -> std::same_as<CommResult<ActiveLevel>>;
+      { comm.GpioSet(pin, signal) } -> std::same_as<CommResult<void>>;
+      { comm.GpioRead(pin) } -> std::same_as<CommResult<GpioSignal>>;
     };
 
 } // namespace tle92466ed

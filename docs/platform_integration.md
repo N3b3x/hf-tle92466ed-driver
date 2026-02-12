@@ -80,11 +80,11 @@ public:
     virtual void delayMicroseconds(uint32_t us) noexcept = 0;
     
     // Optional control pin methods
-    virtual auto SetGpioPin(ControlPin pin, ActiveLevel level) noexcept 
+    virtual auto GpioSet(CtrlPin pin, GpioSignal signal) noexcept 
         -> std::expected<void, CommError>;
     
-    virtual auto GetGpioPin(ControlPin pin) noexcept 
-        -> std::expected<ActiveLevel, CommError>;
+    virtual auto GpioRead(CtrlPin pin) noexcept 
+        -> std::expected<GpioSignal, CommError>;
 };
 ```cpp
 
@@ -290,16 +290,16 @@ The TLE92466ED has optional control pins that can be implemented:
 - **FAULTN**: Active-low fault output (open drain)
 
 ```cpp
-auto SetGpioPin(tle92466ed::ControlPin pin, tle92466ed::ActiveLevel level) noexcept 
+auto GpioSet(tle92466ed::CtrlPin pin, tle92466ed::GpioSignal signal) noexcept 
     -> std::expected<void, tle92466ed::CommError> override {
     switch (pin) {
-        case tle92466ed::ControlPin::RESN:
+        case tle92466ed::CtrlPin::RESN:
             // Set RESN pin (active low)
-            gpio_set_level(resn_pin_, level == tle92466ed::ActiveLevel::ACTIVE ? 0 : 1);
+            gpio_set_level(resn_pin_, signal == tle92466ed::GpioSignal::ACTIVE ? 0 : 1);
             break;
-        case tle92466ed::ControlPin::EN:
+        case tle92466ed::CtrlPin::EN:
             // Set EN pin (active high)
-            gpio_set_level(en_pin_, level == tle92466ed::ActiveLevel::ACTIVE ? 1 : 0);
+            gpio_set_level(en_pin_, signal == tle92466ed::GpioSignal::ACTIVE ? 1 : 0);
             break;
         default:
             return std::unexpected(tle92466ed::CommError::InvalidParameter);
