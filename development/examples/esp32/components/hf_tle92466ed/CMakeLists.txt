@@ -1,31 +1,34 @@
+# =============================================================================
+# TLE92466ED Driver Component - CMakeLists.txt
+# =============================================================================
+# This component wraps the hardware-agnostic TLE92466ED driver for ESP-IDF.
+# The driver is header-only (template-based C++23).
+# =============================================================================
+
 cmake_minimum_required(VERSION 3.16)
 
-# Get the absolute path to the project root
-# In CI, the files are copied to the build directory, so we can use relative paths from CMAKE_SOURCE_DIR
-get_filename_component(PROJECT_ROOT "${CMAKE_SOURCE_DIR}" ABSOLUTE)
-
-# Check if we're in the CI environment (files copied to build directory)
-if(EXISTS "${PROJECT_ROOT}/src" AND EXISTS "${PROJECT_ROOT}/inc")
-    # We're in CI or local build with copied files
-    set(SRC_ROOT "${PROJECT_ROOT}")
-else()
-    # We're in development with original structure
-    get_filename_component(SRC_ROOT "${CMAKE_SOURCE_DIR}/../../" ABSOLUTE)
-endif()
+# =============================================================================
+# Path Configuration
+# =============================================================================
+# Set the source root path relative to this component directory
+set(SRC_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../../../../src")
+set(INC_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../../../../inc")
 
 message(STATUS "TLE92466ED Driver - ESP32 Component Configuration")
-message(STATUS "Project Root: ${PROJECT_ROOT}")
 message(STATUS "Source Root: ${SRC_ROOT}")
 
-# TLE92466ED is now a header-only template library
+# =============================================================================
+# Source File Discovery and Validation
+# =============================================================================
+# TLE92466ED is a header-only template library
 # Template implementation is included in the header file
-set(TLE92466ED_SRCS
+set(DRIVER_SRCS
     # No source files - template implementation is included in header
 )
 
 # Check which source files actually exist and add them
 set(EXISTING_SRCS "")
-foreach(src_file ${TLE92466ED_SRCS})
+foreach(src_file ${DRIVER_SRCS})
     if(EXISTS "${src_file}")
         list(APPEND EXISTING_SRCS "${src_file}")
         message(STATUS "Found source: ${src_file}")
@@ -34,113 +37,36 @@ foreach(src_file ${TLE92466ED_SRCS})
     endif()
 endforeach()
 
+# =============================================================================
+# Include Directories Configuration
+# =============================================================================
+# Define include directories for the driver component
+set(DRIVER_INCLUDE_DIRS
+    "${INC_ROOT}"                           # Main driver headers
+)
+
+# =============================================================================
+# Component Dependencies
+# =============================================================================
+# Define required ESP-IDF components for the driver
+set(DRIVER_REQUIRES
+    driver              # ESP-IDF driver framework (SPI)
+)
+
+# =============================================================================
+# Component Registration
+# =============================================================================
+# Register the driver component with ESP-IDF build system
 idf_component_register(
-    SRCS 
-        ${EXISTING_SRCS}
-        
-    INCLUDE_DIRS 
-        "${SRC_ROOT}/inc"
-        
-    REQUIRES 
-        # ESP-IDF core components
-        driver              # SPI drivers
-        esp_timer           # Timing functions
-        freertos            # RTOS support
-        esp_system          # System utilities
-        esp_hw_support      # Hardware support
-        hal                 # Hardware abstraction
-        soc                 # SoC definitions
-        log                 # Logging
-        
-        # Driver components
-        esp_driver_gpio
-        esp_driver_spi
-        
-        # Additional components
-        esp_common          # Common ESP32 utilities
-        spi_flash           # SPI flash support
+    SRCS ${EXISTING_SRCS}                 # Source files (validated above)
+    INCLUDE_DIRS ${DRIVER_INCLUDE_DIRS}   # Include directories defined above
+    REQUIRES ${DRIVER_REQUIRES}           # Component dependencies defined above
 )
 
-# Set C++ standard (TLE92466ED requires C++23)
+# =============================================================================
+# Compiler Configuration
+# =============================================================================
+# TLE92466ED requires C++23 for std::expected
+# Use INTERFACE since this is a header-only library
 target_compile_features(${COMPONENT_LIB} INTERFACE cxx_std_23)
-
-# Add ESP32 family definitions based on target
-if(CONFIG_IDF_TARGET_ESP32)
-    target_compile_definitions(${COMPONENT_LIB} INTERFACE
-        TLE92466ED_TARGET_ESP32=1
-        TLE92466ED_MCU_FAMILY_ESP32=1
-        ESP32=1
-    )
-elseif(CONFIG_IDF_TARGET_ESP32C6)
-    target_compile_definitions(${COMPONENT_LIB} INTERFACE
-        TLE92466ED_TARGET_ESP32C6=1
-        TLE92466ED_MCU_FAMILY_ESP32=1
-        ESP32C6=1
-    )
-elseif(CONFIG_IDF_TARGET_ESP32S3)
-    target_compile_definitions(${COMPONENT_LIB} INTERFACE
-        TLE92466ED_TARGET_ESP32S3=1
-        TLE92466ED_MCU_FAMILY_ESP32=1
-        ESP32S3=1
-    )
-elseif(CONFIG_IDF_TARGET_ESP32C3)
-    target_compile_definitions(${COMPONENT_LIB} INTERFACE
-        TLE92466ED_TARGET_ESP32C3=1
-        TLE92466ED_MCU_FAMILY_ESP32=1
-        ESP32C3=1
-    )
-else()
-    # Default to ESP32
-    target_compile_definitions(${COMPONENT_LIB} INTERFACE
-        TLE92466ED_TARGET_ESP32=1
-        TLE92466ED_MCU_FAMILY_ESP32=1
-        ESP32=1
-    )
-endif()
-
-# Compiler flags for optimization
-target_compile_options(${COMPONENT_LIB} INTERFACE
-    -Wall
-    -Wextra
-    -Wpedantic
-    -O2
-    -g
-    -ffunction-sections
-    -fdata-sections
-)
-
-# Add specific flags for C++ files
-target_compile_options(${COMPONENT_LIB} INTERFACE
-    $<$<COMPILE_LANGUAGE:CXX>:-std=gnu++23>
-    $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>
-    $<$<COMPILE_LANGUAGE:CXX>:-fno-exceptions>
-    $<$<COMPILE_LANGUAGE:CXX>:-Wno-error=pedantic>
-)
-
-# Link time optimization for better performance
-if(CONFIG_COMPILER_OPTIMIZATION_SIZE OR CONFIG_COMPILER_OPTIMIZATION_PERF)
-    target_compile_options(${COMPONENT_LIB} INTERFACE -flto)
-    target_link_options(${COMPONENT_LIB} PRIVATE -flto)
-endif()
-
-# Final status messages
-list(LENGTH EXISTING_SRCS NUM_SOURCES)
-message(STATUS "=== TLE92466ED Driver Component Summary ===")
-message(STATUS "Component configured successfully")
-message(STATUS "Included ${NUM_SOURCES} source files")
-if(CONFIG_IDF_TARGET_ESP32)
-    message(STATUS "Target MCU: ESP32")
-elseif(CONFIG_IDF_TARGET_ESP32C6)
-    message(STATUS "Target MCU: ESP32-C6")
-elseif(CONFIG_IDF_TARGET_ESP32S3)
-    message(STATUS "Target MCU: ESP32-S3")
-elseif(CONFIG_IDF_TARGET_ESP32C3)
-    message(STATUS "Target MCU: ESP32-C3")
-else()
-    message(STATUS "Target MCU: ESP32 (default)")
-endif()
-message(STATUS "C++ Standard: C++23")
-message(STATUS "Driver Version: 2.0.0")
-message(STATUS "Optimization: LTO enabled (if configured)")
-message(STATUS "==========================================")
 

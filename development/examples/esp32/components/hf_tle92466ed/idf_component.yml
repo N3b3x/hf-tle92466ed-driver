@@ -1,240 +1,38 @@
 ###############################################################################
-#  TLE92466ED Driver – ESP-IDF Component Manager Manifest
-#
-#  This manifest file describes the TLE92466ED driver component for the
-#  ESP-IDF Component Manager. The driver provides a modern C++23 implementation
-#  for controlling the Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver
-#  IC with comprehensive SPI interface, precision current control, and extensive
-#  diagnostics support.
-#
-#  For more information about the ESP-IDF Component Manager manifest format,
-#  see: https://docs.espressif.com/projects/idf-component-manager/en/latest/reference/manifest_file.html
+# TLE92466ED Driver – ESP-IDF Component Manifest
 ###############################################################################
 
-# ─── Component Metadata ───────────────────────────────────────────────────────
 name: hf-tle92466ed-driver
 version: "2.0.0"
 description: |
-  TLE92466ED Driver - Modern C++23 driver for Infineon TLE92466ED Six-Channel
-  Low-Side Solenoid Driver IC. Features hardware-agnostic HAL interface, 15-bit
-  precision current control (0.061mA resolution), 32-bit SPI communication with
-  CRC-8 (SAE J1850), comprehensive diagnostics (overcurrent, overtemperature,
-  open load, short circuit), PWM and dither support, and zero dependencies for
-  embedded systems. Supports both single channel (0-2A) and parallel mode (0-4A)
-  operation with ESP32 family optimization.
+  Hardware-agnostic TLE92466ED Six-Channel Low-Side Solenoid Driver.
+  Modern C++23 with SPI interface, 15-bit precision current control,
+  CRC-8, and comprehensive diagnostics.
 
-# ─── External Links ───────────────────────────────────────────────────────────
 url: "https://github.com/N3b3x/hf-tle92466ed-driver"
 repository: "https://github.com/N3b3x/hf-tle92466ed-driver.git"
 documentation: "https://n3b3x.github.io/hf-tle92466ed-driver/"
 issues: "https://github.com/N3b3x/hf-tle92466ed-driver/issues"
 
-# ─── Licensing and Maintenance ───────────────────────────────────────────────
 license: "Public Domain"
 maintainers:
   - "Nebiyu Tadesse <nebysma@gmail.com>"
 
-# ─── Component Classification ────────────────────────────────────────────────
-tags:
-  - "tle92466ed"         # TLE92466ED IC
-  - "infineon"           # Infineon manufacturer
-  - "solenoid"           # Solenoid driver
-  - "driver"             # Device driver
-  - "hal"                # Hardware abstraction layer
-  - "esp-idf"            # ESP-IDF framework
-  - "esp32"              # ESP32 family
-  - "esp32c6"            # ESP32-C6 support
-  - "spi"                # SPI communication
-  - "current-control"    # Current control
-  - "motor-control"      # Motor/solenoid control
-  - "automotive"         # Automotive applications
-  - "industrial"         # Industrial applications
-  - "low-side-switch"    # Low-side switch
-  - "diagnostics"        # Fault detection
-  - "pwm"                # PWM support
-  - "dither"             # Dither support
-  - "cpp23"              # C++23 standard
-  - "no-dependencies"    # Zero dependencies
-
-# ─── Supported Targets ───────────────────────────────────────────────────────
 targets:
-  - esp32c6             # Primary target - ESP32-C6
-  - esp32               # ESP32 classic
-  - esp32s2             # ESP32-S2
-  - esp32s3             # ESP32-S3
-  - esp32c3             # ESP32-C3
-  - esp32c2             # ESP32-C2
-  - esp32h2             # ESP32-H2
+  - esp32
+  - esp32c6
+  - esp32s3
+  - esp32c3
 
-# ─── Dependencies ────────────────────────────────────────────────────────────
 dependencies:
-  # ESP-IDF Framework (required for ESP32 development)
   idf: ">=5.0.0"
 
-  # ESP-IDF Core Components (built-in, no external dependencies needed)
-  # These are automatically available when using ESP-IDF
-
-# ─── Packaging Configuration ─────────────────────────────────────────────────
-files:
-  # Include all source files and headers
-  include:
-    - "include/**/*"
-    - "src/**/*"
-    - "CMakeLists.txt"
-    - "idf_component.yml"
-    - "LICENSE"
-    - "README.md"
-
-  # Exclude development and documentation files to minimize package size
-  exclude:
-    # Documentation and examples (kept separate)
-    - "**/docs/**"
-    - "**/examples/**"
-    - "**/tests/**"
-    - "**/Datasheet/**"
-
-    # Development and CI files
-    - "**/.github/**"
-    - "**/.gitlab-ci.yml"
-    - "**/.git/**"
-    - "**/.svn/**"
-
-    # IDE and editor files
-    - "**/.idea/**"
-    - "**/.vscode/**"
-    - "**/.settings/**"
-    - "**/.DS_Store"
-    - "**/Thumbs.db"
-
-    # Build artifacts
-    - "**/build/**"
-    - "**/dist/**"
-    - "**/managed_components/**"
-    - "**/dependencies.lock"
-    - "**/sdkconfig"
-    - "**/sdkconfig.old"
-    - "**/.component_hash"
-
-    # Python and cache files
-    - "**/__pycache__/**"
-    - "**/*.pyc"
-    - "**/*.pyd"
-    - "**/*.pyo"
-
-    # Configuration files
-    - "**/Doxyfile"
-    - "**/_config/**"
-
-###############################################################################
-#  Component Architecture Overview
-#
-#  The TLE92466ED Driver consists of several layers:
-#
-#  1. Communication Interface (inc/TLE92466ED_CommInterface.hpp)
-#     - Pure virtual interface for platform independence
-#     - SPI communication interface
-#     - Timing functions
-#     - Easy platform porting
-#
-#  2. Register Definitions (inc/TLE92466ED_Registers.hpp)
-#     - Complete register map (108 registers)
-#     - Bit field definitions
-#     - Hardware specifications
-#     - CRC calculation utilities
-#
-#  3. Driver Implementation (inc/TLE92466ED.hpp, src/TLE92466ED.cpp)
-#     - High-level driver interface
-#     - 6-channel current control (0-2A single, 0-4A parallel)
-#     - 15-bit resolution (0.061mA steps)
-#     - Comprehensive diagnostics
-#     - PWM and dither support
-#     - Error handling with std::expected
-#     - All functions noexcept
-#
-#  4. ESP32 HAL Implementation (examples/esp32/main/ESP32C6_HAL.hpp/cpp)
-#     - Platform-specific SPI implementation
-#     - Microsecond precision timing
-#     - ESP32-C6 optimized
-#     - Easy adaptation to other ESP32 variants
-#
-#  Hardware Features:
-#  - 6 independent low-side output channels
-#  - Current control: 0-2A (single), 0-4A (parallel mode)
-#  - Current resolution: 15-bit (0.061mA per LSB)
-#  - SPI interface: 32-bit frames with CRC-8 (SAE J1850)
-#  - Configurable PWM frequency and dither
-#  - Comprehensive diagnostics:
-#    * Overcurrent detection and protection
-#    * Overtemperature monitoring
-#    * Open load detection (ON and OFF states)
-#    * Short to ground detection
-#    * Supply voltage monitoring (VBAT, VIO, VDD)
-#  - Parallel channel operation for higher current
-#  - Config and Mission operation modes
-#  - Unique 48-bit chip identification
-#
-#  Software Features:
-#  - Modern C++23 implementation
-#  - std::expected for error handling (no exceptions)
-#  - All functions noexcept for embedded safety
-#  - Hardware-agnostic HAL interface
-#  - Zero dependencies (freestanding-compatible)
-#  - Platform-independent design
-#  - Production-ready code
-#
-#  Usage Example:
-#  ```cpp
-#  #include "TLE92466ED.hpp"
-#  #include "ESP32C6_HAL.hpp"
-#
-#  // Create HAL instance
-#  auto hal = createTLE92466ED_HAL();
-#  if (auto result = hal->initialize(); !result) {
-#      // Handle initialization error
-#      return;
-#  }
-#
-#  // Create driver instance
-#  TLE92466ED driver(*hal);
-#
-#  // Initialize the driver
-#  if (auto result = driver.initialize(); !result) {
-#      // Handle error
-#      return;
-#  }
-#
-#  // Set current for channel 0 to 1.5A
-#  if (auto result = driver.setChannelCurrent(0, 1500); !result) {
-#      // Handle error
-#      return;
-#  }
-#
-#  // Enable channel 0
-#  if (auto result = driver.enableChannel(0); !result) {
-#      // Handle error
-#      return;
-#  }
-#
-#  // Read diagnostics
-#  if (auto diag = driver.readDiagnostics(); diag) {
-#      if (diag->hasOvercurrent()) {
-#          // Handle overcurrent condition
-#      }
-#  }
-#  ```
-#
-#  Applications:
-#  - Automotive solenoid control (transmission, fuel injection)
-#  - Industrial valve control
-#  - Robotics actuator control
-#  - Precision motor control
-#  - Test and measurement equipment
-#  - Any application requiring precision current control
-#
-#  Requirements:
-#  - C++23 compiler (GCC 12.0+, Clang 16.0+)
-#  - ESP-IDF v5.0 or later (v5.5 recommended)
-#  - std::expected support
-#  - No external dependencies
-#
-###############################################################################
+tags:
+  - "tle92466ed"
+  - "infineon"
+  - "solenoid"
+  - "driver"
+  - "spi"
+  - "current-control"
+  - "cpp23"
+  - "hardware-agnostic"
