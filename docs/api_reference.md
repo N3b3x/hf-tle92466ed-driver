@@ -16,7 +16,7 @@ Complete reference documentation for all public methods and types in the TLE9246
 - **Main Header**: [`inc/tle92466ed.hpp`](../inc/tle92466ed.hpp)
 - **SPI Interface**: [`inc/tle92466ed_spi_interface.hpp`](../inc/tle92466ed_spi_interface.hpp)
 - **Registers**: [`inc/tle92466ed_registers.hpp`](../inc/tle92466ed_registers.hpp)
-- **Implementation**: [`src/tle92466ed.cpp`](../src/tle92466ed.cpp)
+- **Template Implementation**: [`src/tle92466ed.ipp`](../src/tle92466ed.ipp)
 
 ## Core Class
 
