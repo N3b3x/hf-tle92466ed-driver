@@ -14,9 +14,9 @@ repository: "https://github.com/N3b3x/hf-tle92466ed-driver.git"
 documentation: "https://n3b3x.github.io/hf-tle92466ed-driver/"
 issues: "https://github.com/N3b3x/hf-tle92466ed-driver/issues"
 
-license: "Public Domain"
+license: "GPL-3.0"
 maintainers:
-  - "Nebiyu Tadesse <nebysma@gmail.com>"
+  - "HardFOC"
 
 targets:
   - esp32
