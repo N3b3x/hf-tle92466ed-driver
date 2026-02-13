@@ -92,7 +92,7 @@
   },"13": {
     "doc": "📖 API Reference",
     "title": "Source Code",
-    "content": ". | Main Header: inc/tle92466ed.hpp | SPI Interface: inc/tle92466ed_spi_interface.hpp | Registers: inc/tle92466ed_registers.hpp | Implementation: src/tle92466ed.cpp | . ",
+    "content": ". | Main Header: inc/tle92466ed.hpp | SPI Interface: inc/tle92466ed_spi_interface.hpp | Registers: inc/tle92466ed_registers.hpp | Template Implementation: src/tle92466ed.ipp | . ",
     "url": "/hf-tle92466ed-driver/development/docs/api_reference/#source-code",
     
     "relUrl": "/docs/api_reference/#source-code"
