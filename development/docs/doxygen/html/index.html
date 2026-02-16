@@ -31,7 +31,7 @@
   <td id="projectalign">
    <div id="projectname">TLE92466ED Driver<span id="projectnumber">&#160;0.1.0-dev</span>
    </div>
-   <div id="projectbrief">Modern C++23 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver</div>
+   <div id="projectbrief">Modern C++20 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver</div>
   </td>
  </tr>
  </tbody>
@@ -97,8 +97,8 @@ $(function(){initNavTree('index.html',''); initResizable(); });
   <div class="headertitle"><div class="title">HF-TLE92466ED Driver </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_README"></a> <b>C++23 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver IC</b></p>
-<p><a href="https://en.cppreference.com/w/cpp/23"><img src="https://img.shields.io/badge/C%2B%2B-23-blue.svg" alt="C++" style="pointer-events: none;" class="inline"/></a> <a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/N3b3x/hf-tle92466ed-driver/actions/workflows/esp32-examples-build-ci.yml"><img src="https://github.com/N3b3x/hf-tle92466ed-driver/actions/workflows/esp32-examples-build-ci.yml/badge.svg?branch=main" alt="CI" style="pointer-events: none;" class="inline"/></a> <a href="https://n3b3x.github.io/hf-tle92466ed-driver/"><img src="https://img.shields.io/badge/docs-GitHub%20Pages-blue" alt="Docs" class="inline"/></a></p>
+<div class="textblock"><p><a class="anchor" id="md_README"></a> <b>C++20 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver IC</b></p>
+<p><a href="https://en.cppreference.com/w/cpp/20"><img src="https://img.shields.io/badge/C%2B%2B-20-blue.svg" alt="C++" style="pointer-events: none;" class="inline"/></a> <a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/N3b3x/hf-tle92466ed-driver/actions/workflows/esp32-examples-build-ci.yml"><img src="https://github.com/N3b3x/hf-tle92466ed-driver/actions/workflows/esp32-examples-build-ci.yml/badge.svg?branch=main" alt="CI" style="pointer-events: none;" class="inline"/></a> <a href="https://n3b3x.github.io/hf-tle92466ed-driver/"><img src="https://img.shields.io/badge/docs-GitHub%20Pages-blue" alt="Docs" class="inline"/></a></p>
 <h1><a class="anchor" id="autotoc_md1"></a>
 📚 Table of Contents</h1>
 <ol type="1">
@@ -117,7 +117,7 @@ $(function(){initNavTree('index.html',''); initResizable(); });
 <blockquote class="doxtable">
 <p>&zwj;<b>📖 <a href="https://n3b3x.github.io/hf-tle92466ed-driver/">📚🌐 Live Complete Documentation</a></b> - Interactive guides, examples, and step-by-step tutorials </p>
 </blockquote>
-<p><b>HF-TLE92466ED</b> is a modern C++23 driver for the <b>Infineon TLE92466ED</b> Six-Channel Low-Side Solenoid Driver IC. The TLE92466ED provides six independent low-side outputs for controlling solenoids, valves, and other inductive loads with precision current regulation. Each channel supports up to 2A in single mode or 4A in parallel mode, with 15-bit resolution (0.061mA steps) for precise current control.</p>
+<p><b>HF-TLE92466ED</b> is a modern C++20 driver for the <b>Infineon TLE92466ED</b> Six-Channel Low-Side Solenoid Driver IC. The TLE92466ED provides six independent low-side outputs for controlling solenoids, valves, and other inductive loads with precision current regulation. Each channel supports up to 2A in single mode or 4A in parallel mode, with 15-bit resolution (0.061mA steps) for precise current control.</p>
 <p>The driver uses a hardware-agnostic communication interface design, allowing it to run on any platform (ESP32, STM32, Arduino, etc.) with zero runtime overhead. It implements all major features from the TLE92466ED datasheet including Integrated Current Control (ICC), PWM frequency control, dither support, parallel channel operation, comprehensive diagnostics, and protection features.</p>
 <h1><a class="anchor" id="autotoc_md3"></a>
 ✨ Features</h1>
@@ -130,7 +130,7 @@ $(function(){initNavTree('index.html',''); initResizable(); });
 <li>✅ <b>Comprehensive Diagnostics</b>: Overcurrent, overtemperature, open load, short-to-ground detection</li>
 <li>✅ <b>Supply Monitoring</b>: VBAT, VIO, and VDD voltage monitoring with configurable thresholds</li>
 <li>✅ <b>Hardware Agnostic</b>: SPI interface for platform independence</li>
-<li>✅ <b>Modern C++23</b>: Using <code>std::expected</code> for type-safe error handling without exceptions</li>
+<li>✅ <b>Modern C++20</b>: Using <code>tle::expected</code> (polyfill for <code>std::expected</code>) for type-safe error handling without exceptions</li>
 <li>✅ <b>Zero Overhead</b>: All functions <code>noexcept</code>, freestanding-compatible</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md4"></a>
@@ -165,7 +165,7 @@ $(function(){initNavTree('index.html',''); initResizable(); });
 <li><b>Implement the SPI interface</b> for your platform (see Platform Integration)</li>
 <li><b>Include the header</b> in your code: <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;inc/tle92466ed.hpp&quot;</span></div>
 </div><!-- fragment --></li>
-<li>Compile with a <b>C++23</b> or newer compiler with <code>std::expected</code> support</li>
+<li>Compile with a <b>C++20</b> or newer compiler</li>
 </ol>
 <p>For detailed installation instructions, see docs/installation.md.</p>
 <h1><a class="anchor" id="autotoc_md6"></a>

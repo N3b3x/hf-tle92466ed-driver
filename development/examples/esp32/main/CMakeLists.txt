@@ -79,8 +79,8 @@ idf_component_register(
 # =============================================================================
 # Compiler Configuration
 # =============================================================================
-# TLE92466ED requires C++23 for std::expected
-target_compile_features(${COMPONENT_LIB} PRIVATE cxx_std_23)
+# TLE92466ED requires C++20 (uses tle::expected polyfill for C++23 std::expected)
+target_compile_features(${COMPONENT_LIB} PRIVATE cxx_std_20)
 
 # =============================================================================
 # Build Type Specific Compiler Flags

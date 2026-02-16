@@ -55,8 +55,8 @@
 <meta property="og:title" content="HardFOC TLE92466ED Driver" />
 <meta name="author" content="N3b3x" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="C++23 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver IC" />
-<meta property="og:description" content="C++23 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver IC" />
+<meta name="description" content="C++20 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver IC" />
+<meta property="og:description" content="C++20 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver IC" />
 <link rel="canonical" href="https://n3b3x.github.io/hf-tle92466ed-driver/development/" />
 <meta property="og:url" content="https://n3b3x.github.io/hf-tle92466ed-driver/development/" />
 <meta property="og:site_name" content="HardFOC TLE92466ED Driver - development" />
@@ -64,7 +64,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="HardFOC TLE92466ED Driver" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"N3b3x","url":"https://github.com/n3b3x"},"description":"C++23 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver IC","headline":"HardFOC TLE92466ED Driver","name":"HardFOC TLE92466ED Driver","sameAs":["https://github.com/n3b3x/hf-tle92466ed-driver","https://github.com/n3b3x"],"url":"https://n3b3x.github.io/hf-tle92466ed-driver/development/"}</script>
+{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"N3b3x","url":"https://github.com/n3b3x"},"description":"C++20 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver IC","headline":"HardFOC TLE92466ED Driver","name":"HardFOC TLE92466ED Driver","sameAs":["https://github.com/n3b3x/hf-tle92466ed-driver","https://github.com/n3b3x"],"url":"https://n3b3x.github.io/hf-tle92466ed-driver/development/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -258,9 +258,9 @@
 </h1>
     
 
-<p><strong>C++23 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver IC</strong></p>
+<p><strong>C++20 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver IC</strong></p>
 
-<p><a href="https://en.cppreference.com/w/cpp/23"><img src="https://img.shields.io/badge/C%2B%2B-23-blue.svg" alt="C++" /></a>
+<p><a href="https://en.cppreference.com/w/cpp/20"><img src="https://img.shields.io/badge/C%2B%2B-20-blue.svg" alt="C++" /></a>
 <a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License" /></a>
 <a href="https://github.com/N3b3x/hf-tle92466ed-driver/actions/workflows/esp32-examples-build-ci.yml"><img src="https://github.com/N3b3x/hf-tle92466ed-driver/actions/workflows/esp32-examples-build-ci.yml/badge.svg?branch=main" alt="CI" /></a>
 <a href="https://n3b3x.github.io/hf-tle92466ed-driver/"><img src="https://img.shields.io/badge/docs-GitHub%20Pages-blue" alt="Docs" /></a></p>
@@ -297,7 +297,7 @@
 Interactive guides, examples, and step-by-step tutorials</p>
 </blockquote>
 
-<p><strong>HF-TLE92466ED</strong> is a modern C++23 driver for the <strong>Infineon TLE92466ED</strong> Six-Channel Low-Side Solenoid Driver IC. The TLE92466ED provides six independent low-side outputs for controlling solenoids, valves, and other inductive loads with precision current regulation. Each channel supports up to 2A in single mode or 4A in parallel mode, with 15-bit resolution (0.061mA steps) for precise current control.</p>
+<p><strong>HF-TLE92466ED</strong> is a modern C++20 driver for the <strong>Infineon TLE92466ED</strong> Six-Channel Low-Side Solenoid Driver IC. The TLE92466ED provides six independent low-side outputs for controlling solenoids, valves, and other inductive loads with precision current regulation. Each channel supports up to 2A in single mode or 4A in parallel mode, with 15-bit resolution (0.061mA steps) for precise current control.</p>
 
 <p>The driver uses a hardware-agnostic communication interface design, allowing it to run on any platform (ESP32, STM32, Arduino, etc.) with zero runtime overhead. It implements all major features from the TLE92466ED datasheet including Integrated Current Control (ICC), PWM frequency control, dither support, parallel channel operation, comprehensive diagnostics, and protection features.</p>
 <h2 id="-features">
@@ -318,7 +318,7 @@ Interactive guides, examples, and step-by-step tutorials</p>
   <li>✅ <strong>Comprehensive Diagnostics</strong>: Overcurrent, overtemperature, open load, short-to-ground detection</li>
   <li>✅ <strong>Supply Monitoring</strong>: VBAT, VIO, and VDD voltage monitoring with configurable thresholds</li>
   <li>✅ <strong>Hardware Agnostic</strong>: SPI interface for platform independence</li>
-  <li>✅ <strong>Modern C++23</strong>: Using <code class="language-plaintext highlighter-rouge">std::expected</code> for type-safe error handling without exceptions</li>
+  <li>✅ <strong>Modern C++20</strong>: Using <code class="language-plaintext highlighter-rouge">tle::expected</code> (polyfill for <code class="language-plaintext highlighter-rouge">std::expected</code>) for type-safe error handling without exceptions</li>
   <li>✅ <strong>Zero Overhead</strong>: All functions <code class="language-plaintext highlighter-rouge">noexcept</code>, freestanding-compatible</li>
 </ul>
 <h2 id="-quick-start">
@@ -394,7 +394,7 @@ Interactive guides, examples, and step-by-step tutorials</p>
 </pre></td><td class="rouge-code"><pre><span class="cp">#include</span> <span class="cpf">"inc/tle92466ed.hpp"</span><span class="cp">
 </span></pre></td></tr></tbody></table></div></code></pre></div>    </div>
   </li>
-  <li>Compile with a <strong>C++23</strong> or newer compiler with <code class="language-plaintext highlighter-rouge">std::expected</code> support</li>
+  <li>Compile with a <strong>C++20</strong> or newer compiler</li>
 </ol>
 
 <p>For detailed installation instructions, see <a href="/hf-tle92466ed-driver/development/docs/installation/">docs/installation.md</a>.</p>

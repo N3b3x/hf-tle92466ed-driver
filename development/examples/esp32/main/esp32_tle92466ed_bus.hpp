@@ -130,16 +130,16 @@ public:
         ESP_LOGI(TAG, "Initializing Esp32Tle92466edSpiBus...");
         if (auto result = initializeGPIO(); !result) {
             ESP_LOGE(TAG, "Failed to initialize GPIO pins");
-            return std::unexpected(result.error());
+            return tle::unexpected(result.error());
         }
         if (auto result = initializeSPI(); !result) {
             ESP_LOGE(TAG, "Failed to initialize SPI bus");
-            return std::unexpected(result.error());
+            return tle::unexpected(result.error());
         }
         if (auto result = addSPIDevice(); !result) {
             ESP_LOGE(TAG, "Failed to add SPI device");
             spi_bus_free(config_.host);
-            return std::unexpected(result.error());
+            return tle::unexpected(result.error());
         }
         initialized_ = true;
         ESP_LOGI(TAG, "Esp32Tle92466edSpiBus initialized successfully");
@@ -174,7 +174,7 @@ public:
     auto Transfer32(uint32_t tx_data) noexcept -> CommResult<uint32_t> {
         if (!initialized_) {
             ESP_LOGE(TAG, "CommInterface not initialized");
-            return std::unexpected(CommError::HardwareNotReady);
+            return tle::unexpected(CommError::HardwareNotReady);
         }
         uint32_t tx_data_swapped = byte_swap_32(tx_data);
         uint32_t rx_data_raw = 0;
@@ -207,7 +207,7 @@ public:
         esp_err_t ret = spi_device_transmit(spi_device_, &trans);
         if (ret != ESP_OK) {
             ESP_LOGE(TAG, "SPI transfer failed: %s", esp_err_to_name(ret));
-            return std::unexpected(CommError::TransferError);
+            return tle::unexpected(CommError::TransferError);
         }
         uint32_t rx_data = byte_swap_32(rx_data_raw);
 #if ESP32_TLE_COMM_ENABLE_DETAILED_SPI_LOGGING
@@ -251,15 +251,15 @@ public:
                        std::span<uint32_t> rx_data) noexcept -> CommResult<void> {
         if (!initialized_) {
             ESP_LOGE(TAG, "CommInterface not initialized");
-            return std::unexpected(CommError::HardwareNotReady);
+            return tle::unexpected(CommError::HardwareNotReady);
         }
         if (tx_data.size() != rx_data.size()) {
             ESP_LOGE(TAG, "Buffer size mismatch: tx=%zu, rx=%zu", tx_data.size(), rx_data.size());
-            return std::unexpected(CommError::InvalidParameter);
+            return tle::unexpected(CommError::InvalidParameter);
         }
         for (size_t i = 0; i < tx_data.size(); ++i) {
             if (auto result = Transfer32(tx_data[i]); !result) {
-                return std::unexpected(result.error());
+                return tle::unexpected(result.error());
             } else {
                 rx_data[i] = *result;
             }
@@ -342,7 +342,7 @@ public:
     auto GpioSet(CtrlPin pin, GpioSignal signal) noexcept -> CommResult<void> {
         if (!IsReady()) {
             last_error_ = CommError::HardwareNotReady;
-            return std::unexpected(CommError::HardwareNotReady);
+            return tle::unexpected(CommError::HardwareNotReady);
         }
         int gpio_pin = -1;
         switch (pin) {
@@ -350,12 +350,12 @@ public:
             case CtrlPin::EN: gpio_pin = config_.en_pin; break;
             case CtrlPin::FAULTN:
                 last_error_ = CommError::InvalidParameter;
-                return std::unexpected(CommError::InvalidParameter);
+                return tle::unexpected(CommError::InvalidParameter);
         }
         if (gpio_pin < 0) {
             ESP_LOGE(TAG, "GPIO pin not configured for %s", pin == CtrlPin::RESN ? "RESN" : "EN");
             last_error_ = CommError::InvalidParameter;
-            return std::unexpected(CommError::InvalidParameter);
+            return tle::unexpected(CommError::InvalidParameter);
         }
         // Map GpioSignal to physical level based on pin active-level:
         // RESN: active-low  → ACTIVE=0, INACTIVE=1
@@ -369,13 +369,13 @@ public:
                 gpio_level = (signal == GpioSignal::ACTIVE) ? 1 : 0;  // Active-high
                 break;
             default:
-                return std::unexpected(CommError::InvalidParameter);
+                return tle::unexpected(CommError::InvalidParameter);
         }
         esp_err_t ret = gpio_set_level(static_cast<gpio_num_t>(gpio_pin), gpio_level);
         if (ret != ESP_OK) {
             ESP_LOGE(TAG, "Failed to set GPIO%d level: %s", gpio_pin, esp_err_to_name(ret));
             last_error_ = CommError::BusError;
-            return std::unexpected(CommError::BusError);
+            return tle::unexpected(CommError::BusError);
         }
         ESP_LOGD(TAG, "Set %s pin (GPIO%d) to %s",
                  pin == CtrlPin::RESN ? "RESN" : "EN", gpio_pin,
@@ -394,17 +394,17 @@ public:
     auto GpioRead(CtrlPin pin) noexcept -> CommResult<GpioSignal> {
         if (!IsReady()) {
             last_error_ = CommError::HardwareNotReady;
-            return std::unexpected(CommError::HardwareNotReady);
+            return tle::unexpected(CommError::HardwareNotReady);
         }
         if (pin != CtrlPin::FAULTN) {
             last_error_ = CommError::InvalidParameter;
-            return std::unexpected(CommError::InvalidParameter);
+            return tle::unexpected(CommError::InvalidParameter);
         }
         int gpio_pin = config_.faultn_pin;
         if (gpio_pin < 0) {
             ESP_LOGE(TAG, "FAULTN GPIO pin not configured");
             last_error_ = CommError::InvalidParameter;
-            return std::unexpected(CommError::InvalidParameter);
+            return tle::unexpected(CommError::InvalidParameter);
         }
         int gpio_level = gpio_get_level(static_cast<gpio_num_t>(gpio_pin));
         // FAULTN is active-low: physical 0 = fault active
@@ -464,7 +464,7 @@ private:
             };
             if (gpio_config(&cfg) != ESP_OK) {
                 ESP_LOGE(TAG, "Failed to configure %s pin (GPIO%d)", name, pin);
-                return std::unexpected(CommError::HardwareNotReady);
+                return tle::unexpected(CommError::HardwareNotReady);
             }
             gpio_set_level(static_cast<gpio_num_t>(pin), initial_level);
             ESP_LOGI(TAG, "%s pin (GPIO%d) initialized, level=%d", name, pin, initial_level);
@@ -484,7 +484,7 @@ private:
             };
             if (gpio_config(&cfg) != ESP_OK) {
                 ESP_LOGE(TAG, "Failed to configure FAULTN pin (GPIO%d)", config_.faultn_pin);
-                return std::unexpected(CommError::HardwareNotReady);
+                return tle::unexpected(CommError::HardwareNotReady);
             }
             ESP_LOGI(TAG, "FAULTN pin (GPIO%d) initialized as input", config_.faultn_pin);
         }
@@ -512,7 +512,7 @@ private:
         esp_err_t ret = spi_bus_initialize(config_.host, &bus_config, SPI_DMA_DISABLED);
         if (ret != ESP_OK) {
             ESP_LOGE(TAG, "SPI bus initialization failed: %s", esp_err_to_name(ret));
-            return std::unexpected(CommError::HardwareNotReady);
+            return tle::unexpected(CommError::HardwareNotReady);
         }
         ESP_LOGI(TAG, "SPI bus initialized successfully");
         return {};
@@ -547,7 +547,7 @@ private:
         esp_err_t ret = spi_bus_add_device(config_.host, &dev_config, &spi_device_);
         if (ret != ESP_OK) {
             ESP_LOGE(TAG, "Failed to add SPI device: %s", esp_err_to_name(ret));
-            return std::unexpected(CommError::HardwareNotReady);
+            return tle::unexpected(CommError::HardwareNotReady);
         }
         ESP_LOGI(TAG, "SPI device added successfully with Mode %d", spi_mode);
         return {};

@@ -301,7 +301,7 @@ CONFIG_TLE92466ED_DEBUG_ENABLED=y # Driver debug
 3. **Build Errors**
    - Ensure ESP-IDF v5.5 is installed
    - Run `./scripts/setup_repo.sh`
-   - Check C++23 compiler support
+   - Check C++20 compiler support
 
 ## 📚 Documentation
 

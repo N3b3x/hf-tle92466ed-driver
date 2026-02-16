@@ -320,17 +320,17 @@ This design choice provides several critical benefits for embedded systems:</p>
   <li>Clear contract for required methods</li>
   <li>Catch implementation errors at compile time</li>
 </ul>
-<h4 id="3-modern-c23">
+<h4 id="3-modern-c20">
   
   
-    <a href="#3-modern-c23" class="anchor-heading" aria-labelledby="3-modern-c23"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3. <strong>Modern C++23</strong>
+    <a href="#3-modern-c20" class="anchor-heading" aria-labelledby="3-modern-c20"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3. <strong>Modern C++20</strong>
   
   
 </h4>
     
 
 <ul>
-  <li>Uses <code class="language-plaintext highlighter-rouge">std::expected</code> for error handling (no exceptions)</li>
+  <li>Uses <code class="language-plaintext highlighter-rouge">tle::expected</code> for error handling (aliases to <code class="language-plaintext highlighter-rouge">std::expected</code> on C++23, polyfill on C++20)</li>
   <li>All functions <code class="language-plaintext highlighter-rouge">noexcept</code> for embedded safety</li>
   <li>Zero-overhead abstractions</li>
 </ul>
@@ -524,7 +524,7 @@ private:
     -&gt; std::expected&lt;void, tle92466ed::CommError&gt; override {
     // TLE92466ED uses 32-bit frames
     if (txData.size() &lt; 4 || rxData.size() &lt; 4) {
-        return std::unexpected(tle92466ed::CommError::InvalidParameter);
+        return tle::unexpected(tle92466ed::CommError::InvalidParameter);
     }
     
     spi_transaction_t trans = {};
@@ -534,7 +534,7 @@ private:
     
     esp_err_t ret = spi_device_transmit(spi_device_, &amp;trans);
     if (ret != ESP_OK) {
-        return std::unexpected(tle92466ed::CommError::BusError);
+        return tle::unexpected(tle92466ed::CommError::BusError);
     }
     
     return {};
@@ -612,7 +612,7 @@ private:
     HAL_GPIO_WritePin(cs_port_, cs_pin_, GPIO_PIN_SET);
     
     if (status != HAL_OK) {
-        return std::unexpected(tle92466ed::CommError::BusError);
+        return tle::unexpected(tle92466ed::CommError::BusError);
     }
     
     return {};
@@ -769,7 +769,7 @@ auto GpioSet(tle92466ed::CtrlPin pin, tle92466ed::GpioSignal signal) noexcept
             gpio_set_level(en_pin_, signal == tle92466ed::GpioSignal::ACTIVE ? 1 : 0);
             break;
         default:
-            return std::unexpected(tle92466ed::CommError::InvalidParameter);
+            return tle::unexpected(tle92466ed::CommError::InvalidParameter);
     }
     return {};
 }

@@ -6,8 +6,8 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><anchor id="index_1md_README"/> <bold>C++23 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver IC</bold></para>
-<para><ulink url="https://en.cppreference.com/w/cpp/23"><image type="html" name="https://img.shields.io/badge/C%2B%2B-23-blue.svg" alt="C++" inline="yes"></image>
+<para><anchor id="index_1md_README"/> <bold>C++20 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver IC</bold></para>
+<para><ulink url="https://en.cppreference.com/w/cpp/20"><image type="html" name="https://img.shields.io/badge/C%2B%2B-20-blue.svg" alt="C++" inline="yes"></image>
 </ulink> <ulink url="https://www.gnu.org/licenses/gpl-3.0"><image type="html" name="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License" inline="yes"></image>
 </ulink> <ulink url="https://github.com/N3b3x/hf-tle92466ed-driver/actions/workflows/esp32-examples-build-ci.yml"><image type="html" name="https://github.com/N3b3x/hf-tle92466ed-driver/actions/workflows/esp32-examples-build-ci.yml/badge.svg?branch=main" alt="CI" inline="yes"></image>
 </ulink> <ulink url="https://n3b3x.github.io/hf-tle92466ed-driver/"><image type="html" name="https://img.shields.io/badge/docs-GitHub%20Pages-blue" alt="Docs" inline="yes"></image>
@@ -28,7 +28,7 @@
 </sect1>
 <sect1 id="index_1autotoc_md2">
 <title>📦 Overview</title><para><blockquote><para><zwj/><bold>📖 <ulink url="https://n3b3x.github.io/hf-tle92466ed-driver/">📚🌐 Live Complete Documentation</ulink></bold> - Interactive guides, examples, and step-by-step tutorials </para>
-</blockquote><bold>HF-TLE92466ED</bold> is a modern C++23 driver for the <bold>Infineon TLE92466ED</bold> Six-Channel Low-Side Solenoid Driver IC. The TLE92466ED provides six independent low-side outputs for controlling solenoids, valves, and other inductive loads with precision current regulation. Each channel supports up to 2A in single mode or 4A in parallel mode, with 15-bit resolution (0.061mA steps) for precise current control.</para>
+</blockquote><bold>HF-TLE92466ED</bold> is a modern C++20 driver for the <bold>Infineon TLE92466ED</bold> Six-Channel Low-Side Solenoid Driver IC. The TLE92466ED provides six independent low-side outputs for controlling solenoids, valves, and other inductive loads with precision current regulation. Each channel supports up to 2A in single mode or 4A in parallel mode, with 15-bit resolution (0.061mA steps) for precise current control.</para>
 <para>The driver uses a hardware-agnostic communication interface design, allowing it to run on any platform (ESP32, STM32, Arduino, etc.) with zero runtime overhead. It implements all major features from the TLE92466ED datasheet including Integrated Current Control (ICC), PWM frequency control, dither support, parallel channel operation, comprehensive diagnostics, and protection features.</para>
 </sect1>
 <sect1 id="index_1autotoc_md3">
@@ -41,7 +41,7 @@
 </listitem><listitem><para>✅ <bold>Comprehensive Diagnostics</bold>: Overcurrent, overtemperature, open load, short-to-ground detection</para>
 </listitem><listitem><para>✅ <bold>Supply Monitoring</bold>: VBAT, VIO, and VDD voltage monitoring with configurable thresholds</para>
 </listitem><listitem><para>✅ <bold>Hardware Agnostic</bold>: SPI interface for platform independence</para>
-</listitem><listitem><para>✅ <bold>Modern C++23</bold>: Using <computeroutput>std::expected</computeroutput> for type-safe error handling without exceptions</para>
+</listitem><listitem><para>✅ <bold>Modern C++20</bold>: Using <computeroutput>tle::expected</computeroutput> (polyfill for <computeroutput>std::expected</computeroutput>) for type-safe error handling without exceptions</para>
 </listitem><listitem><para>✅ <bold>Zero Overhead</bold>: All functions <computeroutput>noexcept</computeroutput>, freestanding-compatible</para>
 </listitem></itemizedlist>
 </para>
@@ -78,7 +78,7 @@
 </listitem><listitem><para><bold>Implement the SPI interface</bold> for your platform (see Platform Integration)</para>
 </listitem><listitem><para><bold>Include the header</bold> in your code: <programlisting filename=".cpp"><codeline><highlight class="preprocessor">#include<sp/>&quot;inc/tle92466ed.hpp&quot;</highlight></codeline>
 </programlisting></para>
-</listitem><listitem><para>Compile with a <bold>C++23</bold> or newer compiler with <computeroutput>std::expected</computeroutput> support</para>
+</listitem><listitem><para>Compile with a <bold>C++20</bold> or newer compiler</para>
 </listitem></orderedlist>
 </para>
 <para>For detailed installation instructions, see docs/installation.md.</para>

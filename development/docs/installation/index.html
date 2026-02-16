@@ -285,7 +285,7 @@
 <p>Before installing the driver, ensure you have:</p>
 
 <ul>
-  <li><strong>C++23 Compiler</strong>: GCC 13+, Clang 16+, or MSVC 2022+ with <code class="language-plaintext highlighter-rouge">std::expected</code> support</li>
+  <li><strong>C++20 Compiler</strong>: GCC 10+, Clang 11+, or MSVC 2022+ (C++23 <code class="language-plaintext highlighter-rouge">std::expected</code> is used automatically if available)</li>
   <li><strong>Build System</strong>: Make, CMake, or ESP-IDF (depending on your platform)</li>
   <li><strong>Platform SDK</strong>: ESP-IDF, STM32 HAL, Arduino, or your platform’s SPI driver</li>
 </ul>
@@ -325,7 +325,8 @@ cd hf-tle92466ed-driver
 inc/
   ├── tle92466ed.hpp
   ├── tle92466ed_spi_interface.hpp
-  └── tle92466ed_registers.hpp
+  ├── tle92466ed_registers.hpp
+  └── tle92466ed_expected.hpp
 src/
   └── tle92466ed.cpp
 </code>cpp</p>
@@ -401,10 +402,10 @@ target_include_directories(your_target PRIVATE
 </code>cpp</p>
   </li>
   <li>
-    <p>Compile with C++23 support:</p>
+    <p>Compile with C++20 support:</p>
 
     <p><code class="language-plaintext highlighter-rouge">bash
-g++ -std=c++23 -I inc/ your_code.cpp src/tle92466ed.cpp
+g++ -std=c++20 -I inc/ your_code.cpp src/tle92466ed.cpp
 </code>cpp</p>
   </li>
 </ol>
@@ -431,7 +432,7 @@ g++ -std=c++23 -I inc/ your_code.cpp src/tle92466ed.cpp
     <p>Compile a simple test:</p>
 
     <p><code class="language-plaintext highlighter-rouge">bash
-g++ -std=c++23 -I inc/ -c src/tle92466ed.cpp -o test.o
+g++ -std=c++20 -I inc/ -c src/tle92466ed.cpp -o test.o
 </code>cpp</p>
   </li>
   <li>

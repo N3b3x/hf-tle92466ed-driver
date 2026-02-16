@@ -10,16 +10,16 @@
 <codeline><highlight class="normal">---</highlight></codeline>
 <codeline><highlight class="normal">layout:<sp/>default</highlight></codeline>
 <codeline><highlight class="normal">title:<sp/>&quot;HardFOC<sp/>TLE92466ED<sp/>Driver&quot;</highlight></codeline>
-<codeline><highlight class="normal">description:<sp/>&quot;C++23<sp/>driver<sp/>for<sp/>Infineon<sp/>TLE92466ED<sp/>Six-Channel<sp/>Low-Side<sp/>Solenoid<sp/>Driver<sp/>IC&quot;</highlight></codeline>
+<codeline><highlight class="normal">description:<sp/>&quot;C++20<sp/>driver<sp/>for<sp/>Infineon<sp/>TLE92466ED<sp/>Six-Channel<sp/>Low-Side<sp/>Solenoid<sp/>Driver<sp/>IC&quot;</highlight></codeline>
 <codeline><highlight class="normal">nav_order:<sp/>1</highlight></codeline>
 <codeline><highlight class="normal">permalink:<sp/>/</highlight></codeline>
 <codeline><highlight class="normal">---</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">#<sp/>HF-TLE92466ED<sp/>Driver</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">**C++23<sp/>driver<sp/>for<sp/>Infineon<sp/>TLE92466ED<sp/>Six-Channel<sp/>Low-Side<sp/>Solenoid<sp/>Driver<sp/>IC**</highlight></codeline>
+<codeline><highlight class="normal">**C++20<sp/>driver<sp/>for<sp/>Infineon<sp/>TLE92466ED<sp/>Six-Channel<sp/>Low-Side<sp/>Solenoid<sp/>Driver<sp/>IC**</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">[![C++](https://img.shields.io/badge/C%2B%2B-23-blue.svg)](https://en.cppreference.com/w/cpp/23)</highlight></codeline>
+<codeline><highlight class="normal">[![C++](https://img.shields.io/badge/C%2B%2B-20-blue.svg)](https://en.cppreference.com/w/cpp/20)</highlight></codeline>
 <codeline><highlight class="normal">[![License](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)</highlight></codeline>
 <codeline><highlight class="normal">[![CI](https://github.com/N3b3x/hf-tle92466ed-driver/actions/workflows/esp32-examples-build-ci.yml/badge.svg?branch=main)](https://github.com/N3b3x/hf-tle92466ed-driver/actions/workflows/esp32-examples-build-ci.yml)</highlight></codeline>
 <codeline><highlight class="normal">[![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://n3b3x.github.io/hf-tle92466ed-driver/)</highlight></codeline>
@@ -40,7 +40,7 @@
 <codeline><highlight class="normal">&gt;<sp/>**📖<sp/>[📚🌐<sp/>Live<sp/>Complete<sp/>Documentation](https://n3b3x.github.io/hf-tle92466ed-driver/)**<sp/>-<sp/></highlight></codeline>
 <codeline><highlight class="normal">&gt;<sp/>Interactive<sp/>guides,<sp/>examples,<sp/>and<sp/>step-by-step<sp/>tutorials</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">**HF-TLE92466ED**<sp/>is<sp/>a<sp/>modern<sp/>C++23<sp/>driver<sp/>for<sp/>the<sp/>**Infineon<sp/>TLE92466ED**<sp/>Six-Channel<sp/>Low-Side<sp/>Solenoid<sp/>Driver<sp/>IC.<sp/>The<sp/>TLE92466ED<sp/>provides<sp/>six<sp/>independent<sp/>low-side<sp/>outputs<sp/>for<sp/>controlling<sp/>solenoids,<sp/>valves,<sp/>and<sp/>other<sp/>inductive<sp/>loads<sp/>with<sp/>precision<sp/>current<sp/>regulation.<sp/>Each<sp/>channel<sp/>supports<sp/>up<sp/>to<sp/>2A<sp/>in<sp/>single<sp/>mode<sp/>or<sp/>4A<sp/>in<sp/>parallel<sp/>mode,<sp/>with<sp/>15-bit<sp/>resolution<sp/>(0.061mA<sp/>steps)<sp/>for<sp/>precise<sp/>current<sp/>control.</highlight></codeline>
+<codeline><highlight class="normal">**HF-TLE92466ED**<sp/>is<sp/>a<sp/>modern<sp/>C++20<sp/>driver<sp/>for<sp/>the<sp/>**Infineon<sp/>TLE92466ED**<sp/>Six-Channel<sp/>Low-Side<sp/>Solenoid<sp/>Driver<sp/>IC.<sp/>The<sp/>TLE92466ED<sp/>provides<sp/>six<sp/>independent<sp/>low-side<sp/>outputs<sp/>for<sp/>controlling<sp/>solenoids,<sp/>valves,<sp/>and<sp/>other<sp/>inductive<sp/>loads<sp/>with<sp/>precision<sp/>current<sp/>regulation.<sp/>Each<sp/>channel<sp/>supports<sp/>up<sp/>to<sp/>2A<sp/>in<sp/>single<sp/>mode<sp/>or<sp/>4A<sp/>in<sp/>parallel<sp/>mode,<sp/>with<sp/>15-bit<sp/>resolution<sp/>(0.061mA<sp/>steps)<sp/>for<sp/>precise<sp/>current<sp/>control.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">The<sp/>driver<sp/>uses<sp/>a<sp/>hardware-agnostic<sp/>communication<sp/>interface<sp/>design,<sp/>allowing<sp/>it<sp/>to<sp/>run<sp/>on<sp/>any<sp/>platform<sp/>(ESP32,<sp/>STM32,<sp/>Arduino,<sp/>etc.)<sp/>with<sp/>zero<sp/>runtime<sp/>overhead.<sp/>It<sp/>implements<sp/>all<sp/>major<sp/>features<sp/>from<sp/>the<sp/>TLE92466ED<sp/>datasheet<sp/>including<sp/>Integrated<sp/>Current<sp/>Control<sp/>(ICC),<sp/>PWM<sp/>frequency<sp/>control,<sp/>dither<sp/>support,<sp/>parallel<sp/>channel<sp/>operation,<sp/>comprehensive<sp/>diagnostics,<sp/>and<sp/>protection<sp/>features.</highlight></codeline>
 <codeline></codeline>
@@ -54,7 +54,7 @@
 <codeline><highlight class="normal">-<sp/>✅<sp/>**Comprehensive<sp/>Diagnostics**:<sp/>Overcurrent,<sp/>overtemperature,<sp/>open<sp/>load,<sp/>short-to-ground<sp/>detection</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>✅<sp/>**Supply<sp/>Monitoring**:<sp/>VBAT,<sp/>VIO,<sp/>and<sp/>VDD<sp/>voltage<sp/>monitoring<sp/>with<sp/>configurable<sp/>thresholds</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>✅<sp/>**Hardware<sp/>Agnostic**:<sp/>SPI<sp/>interface<sp/>for<sp/>platform<sp/>independence</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>✅<sp/>**Modern<sp/>C++23**:<sp/>Using<sp/>`std::expected`<sp/>for<sp/>type-safe<sp/>error<sp/>handling<sp/>without<sp/>exceptions</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>✅<sp/>**Modern<sp/>C++20**:<sp/>Using<sp/>`tle::expected`<sp/>(polyfill<sp/>for<sp/>`std::expected`)<sp/>for<sp/>type-safe<sp/>error<sp/>handling<sp/>without<sp/>exceptions</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>✅<sp/>**Zero<sp/>Overhead**:<sp/>All<sp/>functions<sp/>`noexcept`,<sp/>freestanding-compatible</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>🚀<sp/>Quick<sp/>Start</highlight></codeline>
@@ -94,7 +94,7 @@
 <codeline><highlight class="normal"><sp/><sp/><sp/>```cpp</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/>#include<sp/>&quot;inc/tle92466ed.hpp&quot;</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/>```</highlight></codeline>
-<codeline><highlight class="normal">4.<sp/>Compile<sp/>with<sp/>a<sp/>**C++23**<sp/>or<sp/>newer<sp/>compiler<sp/>with<sp/>`std::expected`<sp/>support</highlight></codeline>
+<codeline><highlight class="normal">4.<sp/>Compile<sp/>with<sp/>a<sp/>**C++20**<sp/>or<sp/>newer<sp/>compiler</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">For<sp/>detailed<sp/>installation<sp/>instructions,<sp/>see<sp/>[docs/installation.md](docs/installation.md).</highlight></codeline>
 <codeline></codeline>
