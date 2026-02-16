@@ -31,7 +31,7 @@
   <td id="projectalign">
    <div id="projectname">TLE92466ED Driver<span id="projectnumber">&#160;0.1.0-dev</span>
    </div>
-   <div id="projectbrief">Modern C++23 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver</div>
+   <div id="projectbrief">Modern C++20 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver</div>
   </td>
  </tr>
  </tbody>
@@ -209,16 +209,16 @@ $(function(){initNavTree('esp32__tle92466ed__bus_8hpp_source.html',''); initResi
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        ESP_LOGI(<a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a600e90229e8b9a5adb891ed7acf1a6bb">TAG</a>, <span class="stringliteral">&quot;Initializing Esp32Tle92466edSpiBus...&quot;</span>);</div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        <span class="keywordflow">if</span> (<span class="keyword">auto</span> result = <a class="code hl_function" href="classEsp32Tle92466edSpiBus.html#ae017c339fbd0d40607ad84eeba91aecf">initializeGPIO</a>(); !result) {</div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>            ESP_LOGE(<a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a600e90229e8b9a5adb891ed7acf1a6bb">TAG</a>, <span class="stringliteral">&quot;Failed to initialize GPIO pins&quot;</span>);</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>            <span class="keywordflow">return</span> std::unexpected(result.error());</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>            <span class="keywordflow">return</span> tle::unexpected(result.error());</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        }</div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <span class="keywordflow">if</span> (<span class="keyword">auto</span> result = <a class="code hl_function" href="classEsp32Tle92466edSpiBus.html#a3ab0c7e560efec4561c7940538e4cceb">initializeSPI</a>(); !result) {</div>
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>            ESP_LOGE(<a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a600e90229e8b9a5adb891ed7acf1a6bb">TAG</a>, <span class="stringliteral">&quot;Failed to initialize SPI bus&quot;</span>);</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>            <span class="keywordflow">return</span> std::unexpected(result.error());</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>            <span class="keywordflow">return</span> tle::unexpected(result.error());</div>
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        }</div>
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        <span class="keywordflow">if</span> (<span class="keyword">auto</span> result = <a class="code hl_function" href="classEsp32Tle92466edSpiBus.html#aeed7f6eaa33189a9520bc0b34c332734">addSPIDevice</a>(); !result) {</div>
 <div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>            ESP_LOGE(<a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a600e90229e8b9a5adb891ed7acf1a6bb">TAG</a>, <span class="stringliteral">&quot;Failed to add SPI device&quot;</span>);</div>
 <div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>            spi_bus_free(<a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a982bcaa9045a6a4c5336f6867015d208">config_</a>.<a class="code hl_variable" href="structEsp32Tle92466edSpiBus_1_1SPIConfig.html#abcbcad537c036befe1a85c73584b19fb">host</a>);</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            <span class="keywordflow">return</span> std::unexpected(result.error());</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            <span class="keywordflow">return</span> tle::unexpected(result.error());</div>
 <div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        }</div>
 <div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a043069850e70f93ebb4639914835636d">initialized_</a> = <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        ESP_LOGI(<a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a600e90229e8b9a5adb891ed7acf1a6bb">TAG</a>, <span class="stringliteral">&quot;Esp32Tle92466edSpiBus initialized successfully&quot;</span>);</div>
@@ -248,7 +248,7 @@ $(function(){initNavTree('esp32__tle92466ed__bus_8hpp_source.html',''); initResi
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="classEsp32Tle92466edSpiBus.html#a9b2dffe7d4f9bad0e67eb27867736e61">  174</a></span>    <span class="keyword">auto</span> <a class="code hl_function" href="classEsp32Tle92466edSpiBus.html#a9b2dffe7d4f9bad0e67eb27867736e61">Transfer32</a>(uint32_t tx_data) <span class="keyword">noexcept</span> -&gt; CommResult&lt;uint32_t&gt; {</div>
 <div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a043069850e70f93ebb4639914835636d">initialized_</a>) {</div>
 <div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>            ESP_LOGE(<a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a600e90229e8b9a5adb891ed7acf1a6bb">TAG</a>, <span class="stringliteral">&quot;CommInterface not initialized&quot;</span>);</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>            <span class="keywordflow">return</span> std::unexpected(CommError::HardwareNotReady);</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>            <span class="keywordflow">return</span> tle::unexpected(CommError::HardwareNotReady);</div>
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        }</div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        uint32_t tx_data_swapped = <a class="code hl_function" href="namespaceanonymous__namespace_02esp32__tle92466ed__bus_8hpp_03.html#ad748e43f07b909572a5efdf4fe76e440">byte_swap_32</a>(tx_data);</div>
 <div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        uint32_t rx_data_raw = 0;</div>
@@ -281,7 +281,7 @@ $(function(){initNavTree('esp32__tle92466ed__bus_8hpp_source.html',''); initResi
 <div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        esp_err_t ret = spi_device_transmit(<a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#aa2ade5d165ae594007a6e7c0f9a4ce4c">spi_device_</a>, &amp;trans);</div>
 <div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        <span class="keywordflow">if</span> (ret != ESP_OK) {</div>
 <div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>            ESP_LOGE(<a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a600e90229e8b9a5adb891ed7acf1a6bb">TAG</a>, <span class="stringliteral">&quot;SPI transfer failed: %s&quot;</span>, esp_err_to_name(ret));</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>            <span class="keywordflow">return</span> std::unexpected(CommError::TransferError);</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>            <span class="keywordflow">return</span> tle::unexpected(CommError::TransferError);</div>
 <div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        }</div>
 <div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        uint32_t rx_data = <a class="code hl_function" href="namespaceanonymous__namespace_02esp32__tle92466ed__bus_8hpp_03.html#ad748e43f07b909572a5efdf4fe76e440">byte_swap_32</a>(rx_data_raw);</div>
 <div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span><span class="preprocessor">#if ESP32_TLE_COMM_ENABLE_DETAILED_SPI_LOGGING</span></div>
@@ -321,15 +321,15 @@ $(function(){initNavTree('esp32__tle92466ed__bus_8hpp_source.html',''); initResi
 <div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>                       std::span&lt;uint32_t&gt; rx_data) <span class="keyword">noexcept</span> -&gt; CommResult&lt;void&gt; {</div>
 <div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a043069850e70f93ebb4639914835636d">initialized_</a>) {</div>
 <div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>            ESP_LOGE(<a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a600e90229e8b9a5adb891ed7acf1a6bb">TAG</a>, <span class="stringliteral">&quot;CommInterface not initialized&quot;</span>);</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>            <span class="keywordflow">return</span> std::unexpected(CommError::HardwareNotReady);</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>            <span class="keywordflow">return</span> tle::unexpected(CommError::HardwareNotReady);</div>
 <div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        }</div>
 <div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        <span class="keywordflow">if</span> (tx_data.size() != rx_data.size()) {</div>
 <div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>            ESP_LOGE(<a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a600e90229e8b9a5adb891ed7acf1a6bb">TAG</a>, <span class="stringliteral">&quot;Buffer size mismatch: tx=%zu, rx=%zu&quot;</span>, tx_data.size(), rx_data.size());</div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>            <span class="keywordflow">return</span> std::unexpected(CommError::InvalidParameter);</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>            <span class="keywordflow">return</span> tle::unexpected(CommError::InvalidParameter);</div>
 <div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>        }</div>
 <div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; tx_data.size(); ++i) {</div>
 <div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>            <span class="keywordflow">if</span> (<span class="keyword">auto</span> result = <a class="code hl_function" href="classEsp32Tle92466edSpiBus.html#a9b2dffe7d4f9bad0e67eb27867736e61">Transfer32</a>(tx_data[i]); !result) {</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>                <span class="keywordflow">return</span> std::unexpected(result.error());</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>                <span class="keywordflow">return</span> tle::unexpected(result.error());</div>
 <div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>            } <span class="keywordflow">else</span> {</div>
 <div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>                rx_data[i] = *result;</div>
 <div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>            }</div>
@@ -388,7 +388,7 @@ $(function(){initNavTree('esp32__tle92466ed__bus_8hpp_source.html',''); initResi
 <div class="line"><a id="l00342" name="l00342"></a><span class="lineno"><a class="line" href="classEsp32Tle92466edSpiBus.html#a932d66a7d0dec57677864b3a01c6102b">  342</a></span>    <span class="keyword">auto</span> <a class="code hl_function" href="classEsp32Tle92466edSpiBus.html#a932d66a7d0dec57677864b3a01c6102b">GpioSet</a>(CtrlPin pin, GpioSignal signal) <span class="keyword">noexcept</span> -&gt; CommResult&lt;void&gt; {</div>
 <div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>        <span class="keywordflow">if</span> (!<a class="code hl_function" href="classEsp32Tle92466edSpiBus.html#a8584733434267fd3fe40a05918994178">IsReady</a>()) {</div>
 <div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>            <a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a096bb9a950f4f648b6ee6273f5bb2067">last_error_</a> = CommError::HardwareNotReady;</div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>            <span class="keywordflow">return</span> std::unexpected(CommError::HardwareNotReady);</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>            <span class="keywordflow">return</span> tle::unexpected(CommError::HardwareNotReady);</div>
 <div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>        }</div>
 <div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>        <span class="keywordtype">int</span> gpio_pin = -1;</div>
 <div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>        <span class="keywordflow">switch</span> (pin) {</div>
@@ -396,12 +396,12 @@ $(function(){initNavTree('esp32__tle92466ed__bus_8hpp_source.html',''); initResi
 <div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>            <span class="keywordflow">case</span> CtrlPin::EN: gpio_pin = <a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a982bcaa9045a6a4c5336f6867015d208">config_</a>.<a class="code hl_variable" href="structEsp32Tle92466edSpiBus_1_1SPIConfig.html#aa852ba3d82c9a13097e964600ca6a59b">en_pin</a>; <span class="keywordflow">break</span>;</div>
 <div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>            <span class="keywordflow">case</span> CtrlPin::FAULTN:</div>
 <div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>                <a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a096bb9a950f4f648b6ee6273f5bb2067">last_error_</a> = CommError::InvalidParameter;</div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>                <span class="keywordflow">return</span> std::unexpected(CommError::InvalidParameter);</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>                <span class="keywordflow">return</span> tle::unexpected(CommError::InvalidParameter);</div>
 <div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>        }</div>
 <div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>        <span class="keywordflow">if</span> (gpio_pin &lt; 0) {</div>
 <div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>            ESP_LOGE(<a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a600e90229e8b9a5adb891ed7acf1a6bb">TAG</a>, <span class="stringliteral">&quot;GPIO pin not configured for %s&quot;</span>, pin == CtrlPin::RESN ? <span class="stringliteral">&quot;RESN&quot;</span> : <span class="stringliteral">&quot;EN&quot;</span>);</div>
 <div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>            <a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a096bb9a950f4f648b6ee6273f5bb2067">last_error_</a> = CommError::InvalidParameter;</div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>            <span class="keywordflow">return</span> std::unexpected(CommError::InvalidParameter);</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>            <span class="keywordflow">return</span> tle::unexpected(CommError::InvalidParameter);</div>
 <div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>        }</div>
 <div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>        <span class="comment">// Map GpioSignal to physical level based on pin active-level:</span></div>
 <div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>        <span class="comment">// RESN: active-low  → ACTIVE=0, INACTIVE=1</span></div>
@@ -415,13 +415,13 @@ $(function(){initNavTree('esp32__tle92466ed__bus_8hpp_source.html',''); initResi
 <div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>                gpio_level = (signal == GpioSignal::ACTIVE) ? 1 : 0;  <span class="comment">// Active-high</span></div>
 <div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>                <span class="keywordflow">break</span>;</div>
 <div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>            <span class="keywordflow">default</span>:</div>
-<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>                <span class="keywordflow">return</span> std::unexpected(CommError::InvalidParameter);</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>                <span class="keywordflow">return</span> tle::unexpected(CommError::InvalidParameter);</div>
 <div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>        }</div>
 <div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>        esp_err_t ret = gpio_set_level(<span class="keyword">static_cast&lt;</span>gpio_num_t<span class="keyword">&gt;</span>(gpio_pin), gpio_level);</div>
 <div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>        <span class="keywordflow">if</span> (ret != ESP_OK) {</div>
 <div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>            ESP_LOGE(<a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a600e90229e8b9a5adb891ed7acf1a6bb">TAG</a>, <span class="stringliteral">&quot;Failed to set GPIO%d level: %s&quot;</span>, gpio_pin, esp_err_to_name(ret));</div>
 <div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>            <a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a096bb9a950f4f648b6ee6273f5bb2067">last_error_</a> = CommError::BusError;</div>
-<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>            <span class="keywordflow">return</span> std::unexpected(CommError::BusError);</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>            <span class="keywordflow">return</span> tle::unexpected(CommError::BusError);</div>
 <div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>        }</div>
 <div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>        ESP_LOGD(<a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a600e90229e8b9a5adb891ed7acf1a6bb">TAG</a>, <span class="stringliteral">&quot;Set %s pin (GPIO%d) to %s&quot;</span>,</div>
 <div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>                 pin == CtrlPin::RESN ? <span class="stringliteral">&quot;RESN&quot;</span> : <span class="stringliteral">&quot;EN&quot;</span>, gpio_pin,</div>
@@ -434,17 +434,17 @@ $(function(){initNavTree('esp32__tle92466ed__bus_8hpp_source.html',''); initResi
 <div class="line"><a id="l00394" name="l00394"></a><span class="lineno"><a class="line" href="classEsp32Tle92466edSpiBus.html#a516f3843e68dfb83264a7d2747e6bc18">  394</a></span>    <span class="keyword">auto</span> <a class="code hl_function" href="classEsp32Tle92466edSpiBus.html#a516f3843e68dfb83264a7d2747e6bc18">GpioRead</a>(CtrlPin pin) <span class="keyword">noexcept</span> -&gt; CommResult&lt;GpioSignal&gt; {</div>
 <div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>        <span class="keywordflow">if</span> (!<a class="code hl_function" href="classEsp32Tle92466edSpiBus.html#a8584733434267fd3fe40a05918994178">IsReady</a>()) {</div>
 <div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>            <a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a096bb9a950f4f648b6ee6273f5bb2067">last_error_</a> = CommError::HardwareNotReady;</div>
-<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>            <span class="keywordflow">return</span> std::unexpected(CommError::HardwareNotReady);</div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>            <span class="keywordflow">return</span> tle::unexpected(CommError::HardwareNotReady);</div>
 <div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>        }</div>
 <div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>        <span class="keywordflow">if</span> (pin != CtrlPin::FAULTN) {</div>
 <div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>            <a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a096bb9a950f4f648b6ee6273f5bb2067">last_error_</a> = CommError::InvalidParameter;</div>
-<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>            <span class="keywordflow">return</span> std::unexpected(CommError::InvalidParameter);</div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>            <span class="keywordflow">return</span> tle::unexpected(CommError::InvalidParameter);</div>
 <div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>        }</div>
 <div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>        <span class="keywordtype">int</span> gpio_pin = <a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a982bcaa9045a6a4c5336f6867015d208">config_</a>.<a class="code hl_variable" href="structEsp32Tle92466edSpiBus_1_1SPIConfig.html#a0a3f00d70d7f46803d998a1f0aee9dc7">faultn_pin</a>;</div>
 <div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>        <span class="keywordflow">if</span> (gpio_pin &lt; 0) {</div>
 <div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>            ESP_LOGE(<a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a600e90229e8b9a5adb891ed7acf1a6bb">TAG</a>, <span class="stringliteral">&quot;FAULTN GPIO pin not configured&quot;</span>);</div>
 <div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>            <a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a096bb9a950f4f648b6ee6273f5bb2067">last_error_</a> = CommError::InvalidParameter;</div>
-<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>            <span class="keywordflow">return</span> std::unexpected(CommError::InvalidParameter);</div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>            <span class="keywordflow">return</span> tle::unexpected(CommError::InvalidParameter);</div>
 <div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span>        }</div>
 <div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>        <span class="keywordtype">int</span> gpio_level = gpio_get_level(<span class="keyword">static_cast&lt;</span>gpio_num_t<span class="keyword">&gt;</span>(gpio_pin));</div>
 <div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>        <span class="comment">// FAULTN is active-low: physical 0 = fault active</span></div>
@@ -493,7 +493,7 @@ $(function(){initNavTree('esp32__tle92466ed__bus_8hpp_source.html',''); initResi
 <div class="line"><a id="l00464" name="l00464"></a><span class="lineno">  464</span>            };</div>
 <div class="line"><a id="l00465" name="l00465"></a><span class="lineno">  465</span>            <span class="keywordflow">if</span> (gpio_config(&amp;cfg) != ESP_OK) {</div>
 <div class="line"><a id="l00466" name="l00466"></a><span class="lineno">  466</span>                ESP_LOGE(<a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a600e90229e8b9a5adb891ed7acf1a6bb">TAG</a>, <span class="stringliteral">&quot;Failed to configure %s pin (GPIO%d)&quot;</span>, name, pin);</div>
-<div class="line"><a id="l00467" name="l00467"></a><span class="lineno">  467</span>                <span class="keywordflow">return</span> std::unexpected(CommError::HardwareNotReady);</div>
+<div class="line"><a id="l00467" name="l00467"></a><span class="lineno">  467</span>                <span class="keywordflow">return</span> tle::unexpected(CommError::HardwareNotReady);</div>
 <div class="line"><a id="l00468" name="l00468"></a><span class="lineno">  468</span>            }</div>
 <div class="line"><a id="l00469" name="l00469"></a><span class="lineno">  469</span>            gpio_set_level(<span class="keyword">static_cast&lt;</span>gpio_num_t<span class="keyword">&gt;</span>(pin), initial_level);</div>
 <div class="line"><a id="l00470" name="l00470"></a><span class="lineno">  470</span>            ESP_LOGI(<a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a600e90229e8b9a5adb891ed7acf1a6bb">TAG</a>, <span class="stringliteral">&quot;%s pin (GPIO%d) initialized, level=%d&quot;</span>, name, pin, initial_level);</div>
@@ -513,7 +513,7 @@ $(function(){initNavTree('esp32__tle92466ed__bus_8hpp_source.html',''); initResi
 <div class="line"><a id="l00484" name="l00484"></a><span class="lineno">  484</span>            };</div>
 <div class="line"><a id="l00485" name="l00485"></a><span class="lineno">  485</span>            <span class="keywordflow">if</span> (gpio_config(&amp;cfg) != ESP_OK) {</div>
 <div class="line"><a id="l00486" name="l00486"></a><span class="lineno">  486</span>                ESP_LOGE(<a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a600e90229e8b9a5adb891ed7acf1a6bb">TAG</a>, <span class="stringliteral">&quot;Failed to configure FAULTN pin (GPIO%d)&quot;</span>, <a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a982bcaa9045a6a4c5336f6867015d208">config_</a>.<a class="code hl_variable" href="structEsp32Tle92466edSpiBus_1_1SPIConfig.html#a0a3f00d70d7f46803d998a1f0aee9dc7">faultn_pin</a>);</div>
-<div class="line"><a id="l00487" name="l00487"></a><span class="lineno">  487</span>                <span class="keywordflow">return</span> std::unexpected(CommError::HardwareNotReady);</div>
+<div class="line"><a id="l00487" name="l00487"></a><span class="lineno">  487</span>                <span class="keywordflow">return</span> tle::unexpected(CommError::HardwareNotReady);</div>
 <div class="line"><a id="l00488" name="l00488"></a><span class="lineno">  488</span>            }</div>
 <div class="line"><a id="l00489" name="l00489"></a><span class="lineno">  489</span>            ESP_LOGI(<a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a600e90229e8b9a5adb891ed7acf1a6bb">TAG</a>, <span class="stringliteral">&quot;FAULTN pin (GPIO%d) initialized as input&quot;</span>, <a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a982bcaa9045a6a4c5336f6867015d208">config_</a>.<a class="code hl_variable" href="structEsp32Tle92466edSpiBus_1_1SPIConfig.html#a0a3f00d70d7f46803d998a1f0aee9dc7">faultn_pin</a>);</div>
 <div class="line"><a id="l00490" name="l00490"></a><span class="lineno">  490</span>        }</div>
@@ -539,7 +539,7 @@ $(function(){initNavTree('esp32__tle92466ed__bus_8hpp_source.html',''); initResi
 <div class="line"><a id="l00512" name="l00512"></a><span class="lineno">  512</span>        esp_err_t ret = spi_bus_initialize(<a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a982bcaa9045a6a4c5336f6867015d208">config_</a>.<a class="code hl_variable" href="structEsp32Tle92466edSpiBus_1_1SPIConfig.html#abcbcad537c036befe1a85c73584b19fb">host</a>, &amp;bus_config, SPI_DMA_DISABLED);</div>
 <div class="line"><a id="l00513" name="l00513"></a><span class="lineno">  513</span>        <span class="keywordflow">if</span> (ret != ESP_OK) {</div>
 <div class="line"><a id="l00514" name="l00514"></a><span class="lineno">  514</span>            ESP_LOGE(<a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a600e90229e8b9a5adb891ed7acf1a6bb">TAG</a>, <span class="stringliteral">&quot;SPI bus initialization failed: %s&quot;</span>, esp_err_to_name(ret));</div>
-<div class="line"><a id="l00515" name="l00515"></a><span class="lineno">  515</span>            <span class="keywordflow">return</span> std::unexpected(CommError::HardwareNotReady);</div>
+<div class="line"><a id="l00515" name="l00515"></a><span class="lineno">  515</span>            <span class="keywordflow">return</span> tle::unexpected(CommError::HardwareNotReady);</div>
 <div class="line"><a id="l00516" name="l00516"></a><span class="lineno">  516</span>        }</div>
 <div class="line"><a id="l00517" name="l00517"></a><span class="lineno">  517</span>        ESP_LOGI(<a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a600e90229e8b9a5adb891ed7acf1a6bb">TAG</a>, <span class="stringliteral">&quot;SPI bus initialized successfully&quot;</span>);</div>
 <div class="line"><a id="l00518" name="l00518"></a><span class="lineno">  518</span>        <span class="keywordflow">return</span> {};</div>
@@ -572,7 +572,7 @@ $(function(){initNavTree('esp32__tle92466ed__bus_8hpp_source.html',''); initResi
 <div class="line"><a id="l00547" name="l00547"></a><span class="lineno">  547</span>        esp_err_t ret = spi_bus_add_device(<a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a982bcaa9045a6a4c5336f6867015d208">config_</a>.<a class="code hl_variable" href="structEsp32Tle92466edSpiBus_1_1SPIConfig.html#abcbcad537c036befe1a85c73584b19fb">host</a>, &amp;dev_config, &amp;<a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#aa2ade5d165ae594007a6e7c0f9a4ce4c">spi_device_</a>);</div>
 <div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span>        <span class="keywordflow">if</span> (ret != ESP_OK) {</div>
 <div class="line"><a id="l00549" name="l00549"></a><span class="lineno">  549</span>            ESP_LOGE(<a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a600e90229e8b9a5adb891ed7acf1a6bb">TAG</a>, <span class="stringliteral">&quot;Failed to add SPI device: %s&quot;</span>, esp_err_to_name(ret));</div>
-<div class="line"><a id="l00550" name="l00550"></a><span class="lineno">  550</span>            <span class="keywordflow">return</span> std::unexpected(CommError::HardwareNotReady);</div>
+<div class="line"><a id="l00550" name="l00550"></a><span class="lineno">  550</span>            <span class="keywordflow">return</span> tle::unexpected(CommError::HardwareNotReady);</div>
 <div class="line"><a id="l00551" name="l00551"></a><span class="lineno">  551</span>        }</div>
 <div class="line"><a id="l00552" name="l00552"></a><span class="lineno">  552</span>        ESP_LOGI(<a class="code hl_variable" href="classEsp32Tle92466edSpiBus.html#a600e90229e8b9a5adb891ed7acf1a6bb">TAG</a>, <span class="stringliteral">&quot;SPI device added successfully with Mode %d&quot;</span>, spi_mode);</div>
 <div class="line"><a id="l00553" name="l00553"></a><span class="lineno">  553</span>        <span class="keywordflow">return</span> {};</div>
