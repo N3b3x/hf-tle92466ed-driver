@@ -18,11 +18,11 @@
  *
  */
 #pragma once
-#include <concepts>
 #include <cstdarg>
 #include <cstdint>
-#include <expected>
 #include <span>
+
+#include "tle92466ed_expected.hpp"
 
 namespace tle92466ed {
 
@@ -86,14 +86,15 @@ enum class LogLevel : uint8_t {
 };
 
 /**
- * @brief Result type for communication interface operations using std::expected (C++23)
+ * @brief Result type for communication interface operations
  *
  * @tparam T The success type
  *
  * This provides a modern, safe way to return either a success value or an error.
+ * Uses std::expected on C++23, or a lightweight polyfill on C++20.
  */
 template <typename T>
-using CommResult = std::expected<T, CommError>;
+using CommResult = tle::expected<T, CommError>;
 
 /**
  * @brief SPI transaction configuration
@@ -379,7 +380,7 @@ enum class SPIStatus : uint8_t {
  *     CommResult<uint32_t> Transfer32(uint32_t data) noexcept {
  *         uint32_t result = spi_transfer_32bit(data);
  *         if (spi_error()) {
- *             return std::unexpected(CommError::TransferError);
+ *             return tle::unexpected(CommError::TransferError);
  *         }
  *         return result;
  *     }
@@ -735,6 +736,8 @@ protected:
   ~SpiInterface() = default;
 };
 
+#if __cpp_concepts >= 201907L
+#include <concepts>
 /**
  * @brief Concept to verify a type implements the CommInterface interface
  *
@@ -744,6 +747,8 @@ protected:
  * This C++20 concept ensures at compile-time that a class properly
  * implements the CommInterface interface. Provides better error messages than
  * traditional template constraints.
+ *
+ * @note Requires C++20 concepts support. Guarded by __cpp_concepts.
  */
 template <typename T>
 concept SpiInterfaceLike =
@@ -755,6 +760,7 @@ concept SpiInterfaceLike =
       { comm.GpioSet(pin, signal) } -> std::same_as<CommResult<void>>;
       { comm.GpioRead(pin) } -> std::same_as<CommResult<GpioSignal>>;
     };
+#endif // __cpp_concepts
 
 } // namespace tle92466ed
 
@@ -778,7 +784,7 @@ inline CommResult<uint32_t> SpiInterface<Derived>::Read(uint16_t address, bool v
   // First transfer: Send command (device processes command, returns dummy/previous data)
   auto first_result = static_cast<Derived*>(this)->Transfer32(tx_frame.word);
   if (!first_result) {
-    return std::unexpected(first_result.error());
+    return tle::unexpected(first_result.error());
   }
 
   // Second transfer: Send dummy command to receive response from first command
@@ -788,7 +794,7 @@ inline CommResult<uint32_t> SpiInterface<Derived>::Read(uint16_t address, bool v
 
   auto rx_result = static_cast<Derived*>(this)->Transfer32(dummy_frame.word);
   if (!rx_result) {
-    return std::unexpected(rx_result.error());
+    return tle::unexpected(rx_result.error());
   }
 
   // Parse response frame from second transfer
@@ -797,7 +803,7 @@ inline CommResult<uint32_t> SpiInterface<Derived>::Read(uint16_t address, bool v
 
   // Verify CRC if requested
   if (verify_crc && !VerifyFrameCrc(rx_frame)) {
-    return std::unexpected(CommError::CRCError);
+    return tle::unexpected(CommError::CRCError);
   }
 
   // Extract data from response based on reply mode
@@ -813,10 +819,10 @@ inline CommResult<uint32_t> SpiInterface<Derived>::Read(uint16_t address, bool v
   }
   if (rx_frame.rx_common.reply_mode == 0x02) {
     // Critical fault frame - this shouldn't happen during normal read
-    return std::unexpected(CommError::BusError);
+    return tle::unexpected(CommError::BusError);
   }
   // Reserved/unknown reply mode
-  return std::unexpected(CommError::TransferError);
+  return tle::unexpected(CommError::TransferError);
 }
 
 template <typename Derived>
@@ -831,7 +837,7 @@ inline CommResult<void> SpiInterface<Derived>::Write(uint16_t address, uint16_t 
   // First transfer: Send command (device processes command, returns dummy/previous data)
   auto first_result = static_cast<Derived*>(this)->Transfer32(tx_frame.word);
   if (!first_result) {
-    return std::unexpected(first_result.error());
+    return tle::unexpected(first_result.error());
   }
 
   // Second transfer: Send dummy command to receive response from first command
@@ -841,7 +847,7 @@ inline CommResult<void> SpiInterface<Derived>::Write(uint16_t address, uint16_t 
 
   auto rx_result = static_cast<Derived*>(this)->Transfer32(dummy_frame.word);
   if (!rx_result) {
-    return std::unexpected(rx_result.error());
+    return tle::unexpected(rx_result.error());
   }
 
   // Parse response frame from second transfer
@@ -850,7 +856,7 @@ inline CommResult<void> SpiInterface<Derived>::Write(uint16_t address, uint16_t 
 
   // Verify CRC if requested
   if (verify_crc && !VerifyFrameCrc(rx_frame)) {
-    return std::unexpected(CommError::CRCError);
+    return tle::unexpected(CommError::CRCError);
   }
 
   // Check for errors in status field (for 16-bit reply frames)
@@ -858,11 +864,11 @@ inline CommResult<void> SpiInterface<Derived>::Write(uint16_t address, uint16_t 
     // Check status field for errors
     if (rx_frame.rx_16bit.status != 0x00) {
       // Status indicates an error
-      return std::unexpected(CommError::TransferError);
+      return tle::unexpected(CommError::TransferError);
     }
   } else if (rx_frame.rx_common.reply_mode == 0x02) {
     // Critical fault frame
-    return std::unexpected(CommError::BusError);
+    return tle::unexpected(CommError::BusError);
   }
 
   return {};

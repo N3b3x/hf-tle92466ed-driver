@@ -28,7 +28,7 @@ template <typename CommType>
 DriverResult<void> Driver<CommType>::Init() noexcept {
   // 1. Initialize CommInterface (GPIO and SPI bus only)
   if (auto result = comm_.Init(); !result) {
-    return std::unexpected(DriverError::HardwareError);
+    return tle::unexpected(DriverError::HardwareError);
   }
 
   // 2. Perform device reset sequence
@@ -48,26 +48,26 @@ DriverResult<void> Driver<CommType>::Init() noexcept {
   if (auto result = SetReset(true); !result) {
     comm_.Log(LogLevel::Error, "TLE92466ED", "Failed to hold device in reset (error: %u)\n",
               static_cast<unsigned>(result.error()));
-    return std::unexpected(DriverError::HardwareError);
+    return tle::unexpected(DriverError::HardwareError);
   }
   comm_.Log(LogLevel::Info, "TLE92466ED", "  RESN set LOW (device in reset)\n");
 
   // Step 3: Wait for reset pulse duration (minimum 10ms per datasheet)
   if (auto result = comm_.Delay(10000); !result) { // 10ms = 10000 microseconds
-    return std::unexpected(DriverError::HardwareError);
+    return tle::unexpected(DriverError::HardwareError);
   }
 
   // Step 4: Release reset (HIGH)
   if (auto result = SetReset(false); !result) {
     comm_.Log(LogLevel::Error, "TLE92466ED", "Failed to release device from reset (error: %u)\n",
               static_cast<unsigned>(result.error()));
-    return std::unexpected(DriverError::HardwareError);
+    return tle::unexpected(DriverError::HardwareError);
   }
   comm_.Log(LogLevel::Info, "TLE92466ED", "  RESN set HIGH (device released from reset)\n");
 
   // Step 5: Wait for device to stabilize after reset release (minimum 10ms per datasheet)
   if (auto result = comm_.Delay(10000); !result) { // 10ms = 10000 microseconds
-    return std::unexpected(DriverError::HardwareError);
+    return tle::unexpected(DriverError::HardwareError);
   }
 
   comm_.Log(LogLevel::Info, "TLE92466ED",
@@ -80,10 +80,10 @@ DriverResult<void> Driver<CommType>::Init() noexcept {
   // 4. Verify device communication by reading IC version
   auto verify_result = VerifyDevice();
   if (!verify_result) {
-    return std::unexpected(verify_result.error());
+    return tle::unexpected(verify_result.error());
   }
   if (!*verify_result) {
-    return std::unexpected(DriverError::WrongDeviceID);
+    return tle::unexpected(DriverError::WrongDeviceID);
   }
 
   // 5. Device starts in Config Mode after power-up
@@ -91,12 +91,12 @@ DriverResult<void> Driver<CommType>::Init() noexcept {
 
   // 6. Apply default configuration
   if (auto result = applyDefaultConfig(); !result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   // 7. Clear any power-on reset flags (skip initialization check during Init)
   if (auto result = clearFaultsInternal(); !result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   // 8. Initialize cached state
@@ -130,7 +130,7 @@ DriverResult<void> Driver<CommType>::applyDefaultConfig() noexcept {
   //       - 5V mode: UV=3.7-4.5V, OV=5.5-6.4V (typical: 4.1V, 5.95V)
 
   if (auto result = WriteRegister(CentralReg::GLOBAL_CONFIG, global_cfg, false); !result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   // Update internal CRC enable state (CRC_EN is enabled in default config)
@@ -139,7 +139,7 @@ DriverResult<void> Driver<CommType>::applyDefaultConfig() noexcept {
   // Set default VBAT thresholds (UV=7V, OV=40V)
   // Use internal version that doesn't check initialization (called during Init)
   if (auto result = setVbatThresholdsInternal(7.0f, 40.0f); !result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   // Configure all channels with default settings (ICC mode, 1V/us slew, disabled)
@@ -151,19 +151,19 @@ DriverResult<void> Driver<CommType>::applyDefaultConfig() noexcept {
     if (auto result = WriteRegister(ch_base + ChannelReg::MODE,
                                     static_cast<uint16_t>(ChannelMode::ICC), false);
         !result) {
-      return std::unexpected(result.error());
+      return tle::unexpected(result.error());
     }
 
     // Set default CH_CONFIG (slew rate 2.5V/us, OL disabled)
     if (auto result =
             WriteRegister(ch_base + ChannelReg::CH_CONFIG, CH_CONFIG::SLEWR_2V5_US, false);
         !result) {
-      return std::unexpected(result.error());
+      return tle::unexpected(result.error());
     }
 
     // Set current setpoint to 0
     if (auto result = WriteRegister(ch_base + ChannelReg::SETPOINT, 0, false); !result) {
-      return std::unexpected(result.error());
+      return tle::unexpected(result.error());
     }
   }
 
@@ -190,7 +190,7 @@ DriverResult<void> Driver<CommType>::EnterMissionMode() noexcept {
   // Note: CH_CTRL reads return 0x0000, so we use cached value
   ch_ctrl_cache_ |= CH_CTRL::OP_MODE;
   if (auto result = WriteRegister(CentralReg::CH_CTRL, ch_ctrl_cache_, false, false); !result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   mission_mode_ = true;
@@ -210,7 +210,7 @@ DriverResult<void> Driver<CommType>::EnterConfigMode() noexcept {
   // Note: CH_CTRL reads return 0x0000, so we use cached value
   ch_ctrl_cache_ &= ~CH_CTRL::OP_MODE;
   if (auto result = WriteRegister(CentralReg::CH_CTRL, ch_ctrl_cache_, false, false); !result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   mission_mode_ = false;
@@ -262,7 +262,7 @@ DriverResult<void> Driver<CommType>::ConfigureGlobal(const GlobalConfig& config)
   }
 
   if (auto result = WriteRegister(CentralReg::GLOBAL_CONFIG, global_cfg); !result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   // Update internal CRC enable state
@@ -286,14 +286,14 @@ DriverResult<void> Driver<CommType>::ConfigureGlobal(const GlobalConfig& config)
 
   // Configure VBAT thresholds
   if (auto result = SetVbatThresholds(config.vbat_uv_voltage, config.vbat_ov_voltage); !result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   // Configure SPI watchdog reload (mask to 11-bit field)
   if (config.spi_watchdog_enabled) {
     uint16_t wd_reload_value = WD_RELOAD::MaskValue(config.spi_watchdog_reload);
     if (auto result = WriteRegister(CentralReg::WD_RELOAD, wd_reload_value); !result) {
-      return std::unexpected(result.error());
+      return tle::unexpected(result.error());
     }
   }
 
@@ -337,7 +337,7 @@ template <typename CommType>
 DriverResult<void> Driver<CommType>::setVbatThresholdsInternal(float uv_voltage, float ov_voltage) noexcept {
   // Validate voltage range
   if (uv_voltage < 0.0F || uv_voltage > 41.4F || ov_voltage < 0.0F || ov_voltage > 41.4F) {
-    return std::unexpected(DriverError::InvalidParameter);
+    return tle::unexpected(DriverError::InvalidParameter);
   }
 
   // Calculate register values from voltage
@@ -346,10 +346,10 @@ DriverResult<void> Driver<CommType>::setVbatThresholdsInternal(float uv_voltage,
 
   // Check if calculation was successful (non-zero values)
   if (uv_threshold == 0 && uv_voltage > 0.0F) {
-    return std::unexpected(DriverError::InvalidParameter);
+    return tle::unexpected(DriverError::InvalidParameter);
   }
   if (ov_threshold == 0 && ov_voltage > 0.0F) {
-    return std::unexpected(DriverError::InvalidParameter);
+    return tle::unexpected(DriverError::InvalidParameter);
   }
 
   uint16_t value = (static_cast<uint16_t>(ov_threshold) << 8) | uv_threshold;
@@ -406,7 +406,7 @@ DriverResult<void> Driver<CommType>::EnableChannel(Channel channel, bool enabled
   }
 
   if (!isValidChannelInternal(channel)) {
-    return std::unexpected(DriverError::InvalidChannel);
+    return tle::unexpected(DriverError::InvalidChannel);
   }
 
   comm_.Log(LogLevel::Info, "TLE92466ED", "Enabling channel: Channel=%s, Enabled=%s\n",
@@ -491,7 +491,7 @@ DriverResult<void> Driver<CommType>::SetChannelMode(Channel channel, ChannelMode
   }
 
   if (!isValidChannelInternal(channel)) {
-    return std::unexpected(DriverError::InvalidChannel);
+    return tle::unexpected(DriverError::InvalidChannel);
   }
 
   uint16_t ch_addr = GetChannelRegister(channel, ChannelReg::MODE);
@@ -525,7 +525,7 @@ DriverResult<void> Driver<CommType>::SetParallelOperation(ParallelPair pair, boo
     mask = CH_CTRL::CH_PAR_4_5;
     break;
   default:
-    return std::unexpected(DriverError::InvalidParameter);
+    return tle::unexpected(DriverError::InvalidParameter);
   }
 
   comm_.Log(LogLevel::Info, "TLE92466ED", "Setting parallel operation: Pair=%s, Enabled=%s\n",
@@ -557,7 +557,7 @@ DriverResult<void> Driver<CommType>::SetCurrentSetpoint(Channel channel, uint16_
   }
 
   if (!isValidChannelInternal(channel)) {
-    return std::unexpected(DriverError::InvalidChannel);
+    return tle::unexpected(DriverError::InvalidChannel);
   }
 
   // Validate current range (using absolute register scale)
@@ -565,7 +565,7 @@ DriverResult<void> Driver<CommType>::SetCurrentSetpoint(Channel channel, uint16_
   // but register scale allows up to 2A/4A for transient operation
   uint16_t max_current = parallel_mode ? 4000 : 2000;
   if (current_ma > max_current) {
-    return std::unexpected(DriverError::InvalidParameter);
+    return tle::unexpected(DriverError::InvalidParameter);
   }
 
   // Calculate setpoint register value
@@ -588,18 +588,18 @@ template <typename CommType>
 DriverResult<uint16_t> Driver<CommType>::GetCurrentSetpoint(Channel channel, bool parallel_mode) noexcept {
 
   if (auto result = checkInitialized(); !result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   if (!isValidChannelInternal(channel)) {
-    return std::unexpected(DriverError::InvalidChannel);
+    return tle::unexpected(DriverError::InvalidChannel);
   }
 
   // Read SETPOINT register
   uint16_t ch_addr = GetChannelRegister(channel, ChannelReg::SETPOINT);
   auto result = ReadRegister(ch_addr);
   if (!result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   // Convert to current in mA
@@ -617,12 +617,12 @@ DriverResult<void> Driver<CommType>::ConfigurePwmPeriod(Channel channel, float p
   }
 
   if (!isValidChannelInternal(channel)) {
-    return std::unexpected(DriverError::InvalidChannel);
+    return tle::unexpected(DriverError::InvalidChannel);
   }
 
   // Validate period range
   if (period_us < 0.125F || period_us > 32640.0F) {
-    return std::unexpected(DriverError::InvalidParameter);
+    return tle::unexpected(DriverError::InvalidParameter);
   }
 
   // Calculate register values from desired period
@@ -630,7 +630,7 @@ DriverResult<void> Driver<CommType>::ConfigurePwmPeriod(Channel channel, float p
 
   // Check if calculation was successful (mantissa != 0)
   if (config.mantissa == 0) {
-    return std::unexpected(DriverError::InvalidParameter);
+    return tle::unexpected(DriverError::InvalidParameter);
   }
 
   // Build PERIOD register value
@@ -655,7 +655,7 @@ DriverResult<void> Driver<CommType>::ConfigurePwmPeriodRaw(Channel channel, uint
   }
 
   if (!isValidChannelInternal(channel)) {
-    return std::unexpected(DriverError::InvalidChannel);
+    return tle::unexpected(DriverError::InvalidChannel);
   }
 
   // Build PERIOD register value
@@ -682,12 +682,12 @@ DriverResult<void> Driver<CommType>::ConfigureDither(Channel channel, float ampl
   }
 
   if (!isValidChannelInternal(channel)) {
-    return std::unexpected(DriverError::InvalidChannel);
+    return tle::unexpected(DriverError::InvalidChannel);
   }
 
   // Validate parameters
   if (amplitude_ma < 0.0F || frequency_hz <= 0.0F) {
-    return std::unexpected(DriverError::InvalidParameter);
+    return tle::unexpected(DriverError::InvalidParameter);
   }
 
   // Check if channel is in parallel mode (if not specified, detect it)
@@ -720,7 +720,7 @@ DriverResult<void> Driver<CommType>::ConfigureDitherRaw(Channel channel, uint16_
   }
 
   if (!isValidChannelInternal(channel)) {
-    return std::unexpected(DriverError::InvalidChannel);
+    return tle::unexpected(DriverError::InvalidChannel);
   }
 
   uint16_t ch_base = GetChannelBase(channel);
@@ -732,13 +732,13 @@ DriverResult<void> Driver<CommType>::ConfigureDitherRaw(Channel channel, uint16_
   // Configure DITHER_CTRL (step size)
   uint16_t ctrl_value = step_size & DITHER_CTRL::STEP_SIZE_MASK;
   if (auto result = WriteRegister(ch_base + ChannelReg::DITHER_CTRL, ctrl_value); !result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   // Configure DITHER_STEP (steps and flat period)
   uint16_t step_value = flat_steps | (static_cast<uint16_t>(num_steps) << DITHER_STEP::STEPS_SHIFT);
   if (auto result = WriteRegister(ch_base + ChannelReg::DITHER_STEP, step_value); !result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   return {};
@@ -757,7 +757,7 @@ DriverResult<void> Driver<CommType>::ConfigureChannel(Channel channel, const Cha
   }
 
   if (!isValidChannelInternal(channel)) {
-    return std::unexpected(DriverError::InvalidChannel);
+    return tle::unexpected(DriverError::InvalidChannel);
   }
 
   comm_.Log(LogLevel::Info, "TLE92466ED",
@@ -771,7 +771,7 @@ DriverResult<void> Driver<CommType>::ConfigureChannel(Channel channel, const Cha
   // 1. Set channel mode
   if (auto result = WriteRegister(ch_base + ChannelReg::MODE, static_cast<uint16_t>(config.mode));
       !result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   // 2. Set current setpoint with parallel mode detection
@@ -782,7 +782,7 @@ DriverResult<void> Driver<CommType>::ConfigureChannel(Channel channel, const Cha
     target |= SETPOINT::AUTO_LIMIT_DIS;
   }
   if (auto result = WriteRegister(ch_base + ChannelReg::SETPOINT, target); !result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   // 3. Configure CH_CONFIG register
@@ -792,7 +792,7 @@ DriverResult<void> Driver<CommType>::ConfigureChannel(Channel channel, const Cha
                      << CH_CONFIG::OL_TH_SHIFT);
 
   if (auto result = WriteRegister(ch_base + ChannelReg::CH_CONFIG, ch_cfg); !result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   // 3a. Configure OLSG warning enable if requested (bit 14 of CTRL register)
@@ -800,7 +800,7 @@ DriverResult<void> Driver<CommType>::ConfigureChannel(Channel channel, const Cha
     if (auto result = ModifyRegister(ch_base + ChannelReg::CTRL, CH_CTRL_REG::OLSG_WARN_EN,
                                      CH_CTRL_REG::OLSG_WARN_EN);
         !result) {
-      return std::unexpected(result.error());
+      return tle::unexpected(result.error());
     }
   }
 
@@ -811,7 +811,7 @@ DriverResult<void> Driver<CommType>::ConfigureChannel(Channel channel, const Cha
     if (auto result = ConfigurePwmPeriodRaw(channel, config.pwm_period_mantissa,
                                             config.pwm_period_exponent, false);
         !result) {
-      return std::unexpected(result.error());
+      return tle::unexpected(result.error());
     }
   }
 
@@ -822,7 +822,7 @@ DriverResult<void> Driver<CommType>::ConfigureChannel(Channel channel, const Cha
     if (auto result = ConfigureDitherRaw(channel, config.dither_step_size, config.dither_steps,
                                          config.dither_flat);
         !result) {
-      return std::unexpected(result.error());
+      return tle::unexpected(result.error());
     }
 
     // 5a. Enable deep dither if requested (bit 13 of DITHER_CTRL)
@@ -830,7 +830,7 @@ DriverResult<void> Driver<CommType>::ConfigureChannel(Channel channel, const Cha
       if (auto result = ModifyRegister(ch_base + ChannelReg::DITHER_CTRL, DITHER_CTRL::DEEP_DITHER,
                                        DITHER_CTRL::DEEP_DITHER);
           !result) {
-        return std::unexpected(result.error());
+        return tle::unexpected(result.error());
       }
     }
   }
@@ -845,7 +845,7 @@ DriverResult<void> Driver<CommType>::ConfigureChannel(Channel channel, const Cha
 template <typename CommType>
 DriverResult<DeviceStatus> Driver<CommType>::GetDeviceStatus() noexcept {
   if (auto result = checkInitialized(); !result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   DeviceStatus status{};
@@ -853,7 +853,7 @@ DriverResult<DeviceStatus> Driver<CommType>::GetDeviceStatus() noexcept {
   // Read GLOBAL_DIAG0
   auto diag0_result = ReadRegister(CentralReg::GLOBAL_DIAG0);
   if (!diag0_result) {
-    return std::unexpected(diag0_result.error());
+    return tle::unexpected(diag0_result.error());
   }
 
   uint16_t diag0 = *diag0_result;
@@ -907,11 +907,11 @@ DriverResult<DeviceStatus> Driver<CommType>::GetDeviceStatus() noexcept {
 template <typename CommType>
 DriverResult<ChannelDiagnostics> Driver<CommType>::GetChannelDiagnostics(Channel channel) noexcept {
   if (auto result = checkInitialized(); !result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   if (!isValidChannelInternal(channel)) {
-    return std::unexpected(DriverError::InvalidChannel);
+    return tle::unexpected(DriverError::InvalidChannel);
   }
 
   ChannelDiagnostics diag{};
@@ -971,17 +971,17 @@ DriverResult<ChannelDiagnostics> Driver<CommType>::GetChannelDiagnostics(Channel
 template <typename CommType>
 DriverResult<uint16_t> Driver<CommType>::GetAverageCurrent(Channel channel, bool parallel_mode) noexcept {
   if (auto result = checkInitialized(); !result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   if (!isValidChannelInternal(channel)) {
-    return std::unexpected(DriverError::InvalidChannel);
+    return tle::unexpected(DriverError::InvalidChannel);
   }
 
   uint16_t ch_addr = GetChannelRegister(channel, ChannelReg::FB_I_AVG);
   auto result = ReadRegister(ch_addr);
   if (!result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   // Convert raw value to mA
@@ -993,11 +993,11 @@ DriverResult<uint16_t> Driver<CommType>::GetAverageCurrent(Channel channel, bool
 template <typename CommType>
 DriverResult<uint16_t> Driver<CommType>::GetDutyCycle(Channel channel) noexcept {
   if (auto result = checkInitialized(); !result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   if (!isValidChannelInternal(channel)) {
-    return std::unexpected(DriverError::InvalidChannel);
+    return tle::unexpected(DriverError::InvalidChannel);
   }
 
   uint16_t ch_addr = GetChannelRegister(channel, ChannelReg::FB_DC);
@@ -1007,14 +1007,14 @@ DriverResult<uint16_t> Driver<CommType>::GetDutyCycle(Channel channel) noexcept 
 template <typename CommType>
 DriverResult<uint16_t> Driver<CommType>::GetVbatVoltage() noexcept {
   if (auto result = checkInitialized(); !result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   // FB_VOLTAGE2 contains VBAT (22-bit reply frame)
   // VBAT is in bits [21:11], formula: V_BAT = 41.47 V × <VBAT>/2047
   auto result = ReadRegister(CentralReg::FB_VOLTAGE2);
   if (!result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   // Extract VBAT voltage in millivolts
@@ -1024,14 +1024,14 @@ DriverResult<uint16_t> Driver<CommType>::GetVbatVoltage() noexcept {
 template <typename CommType>
 DriverResult<uint16_t> Driver<CommType>::GetVioVoltage() noexcept {
   if (auto result = checkInitialized(); !result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   // FB_VOLTAGE1 contains VIO (22-bit reply frame)
   // VIO is in bits [10:0], formula: V_IO = 0.0034534 V × <VIO>
   auto result = ReadRegister(CentralReg::FB_VOLTAGE1);
   if (!result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   // Extract VIO voltage in millivolts
@@ -1041,14 +1041,14 @@ DriverResult<uint16_t> Driver<CommType>::GetVioVoltage() noexcept {
 template <typename CommType>
 DriverResult<uint16_t> Driver<CommType>::GetVddVoltage() noexcept {
   if (auto result = checkInitialized(); !result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   // FB_VOLTAGE1 contains VDD (22-bit reply frame)
   // VDD is in bits [21:11], formula: V_DD = 0.0034534 V × <VDD>
   auto result = ReadRegister(CentralReg::FB_VOLTAGE1);
   if (!result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   // Extract VDD voltage in millivolts
@@ -1059,13 +1059,13 @@ template <typename CommType>
 DriverResult<void> Driver<CommType>::GetVbatThresholds(uint16_t& uv_threshold,
                                              uint16_t& ov_threshold) noexcept {
   if (auto result = checkInitialized(); !result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   // Read VBAT thresholds from VBAT_TH register
   auto vbat_th_result = ReadRegister(CentralReg::VBAT_TH);
   if (!vbat_th_result) {
-    return std::unexpected(vbat_th_result.error());
+    return tle::unexpected(vbat_th_result.error());
   }
 
   uint16_t vbat_th = *vbat_th_result;
@@ -1100,17 +1100,17 @@ DriverResult<void> Driver<CommType>::clearFaultsInternal() noexcept {
   // For voltage faults, the voltage must be within valid range for the fault to clear.
   // Some faults may have hysteresis (trigger at one voltage, clear at different voltage).
   if (auto result = WriteRegister(CentralReg::GLOBAL_DIAG0, GLOBAL_DIAG0::CLEAR_ALL); !result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   // Clear GLOBAL_DIAG1
   if (auto result = WriteRegister(CentralReg::GLOBAL_DIAG1, GLOBAL_DIAG1::CLEAR_ALL); !result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   // Clear GLOBAL_DIAG2
   if (auto result = WriteRegister(CentralReg::GLOBAL_DIAG2, GLOBAL_DIAG2::CLEAR_ALL); !result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   return {};
@@ -1120,7 +1120,7 @@ template <typename CommType>
 DriverResult<bool> Driver<CommType>::HasAnyFault() noexcept {
   auto status_result = GetDeviceStatus();
   if (!status_result) {
-    return std::unexpected(status_result.error());
+    return tle::unexpected(status_result.error());
   }
 
   return status_result->any_fault;
@@ -1129,7 +1129,7 @@ DriverResult<bool> Driver<CommType>::HasAnyFault() noexcept {
 template <typename CommType>
 DriverResult<FaultReport> Driver<CommType>::GetAllFaults() noexcept {
   if (auto result = checkInitialized(); !result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   FaultReport report{};
@@ -1137,7 +1137,7 @@ DriverResult<FaultReport> Driver<CommType>::GetAllFaults() noexcept {
   // Read GLOBAL_DIAG0
   auto diag0_result = ReadRegister(CentralReg::GLOBAL_DIAG0);
   if (!diag0_result) {
-    return std::unexpected(diag0_result.error());
+    return tle::unexpected(diag0_result.error());
   }
   uint16_t diag0 = *diag0_result;
 
@@ -1295,7 +1295,7 @@ template <typename CommType>
 DriverResult<void> Driver<CommType>::PrintAllFaults() noexcept {
   auto fault_result = GetAllFaults();
   if (!fault_result) {
-    return std::unexpected(fault_result.error());
+    return tle::unexpected(fault_result.error());
   }
 
   const FaultReport& report = *fault_result;
@@ -1627,7 +1627,7 @@ DriverResult<void> Driver<CommType>::ReloadSpiWatchdog(uint16_t reload_value) no
 template <typename CommType>
 DriverResult<uint16_t> Driver<CommType>::GetIcVersion() noexcept {
   if (auto result = checkInitialized(); !result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   return ReadRegister(CentralReg::ICVID);
@@ -1636,26 +1636,26 @@ DriverResult<uint16_t> Driver<CommType>::GetIcVersion() noexcept {
 template <typename CommType>
 DriverResult<std::array<uint16_t, 3>> Driver<CommType>::GetChipId() noexcept {
   if (auto result = checkInitialized(); !result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   std::array<uint16_t, 3> chip_id;
 
   auto id0_result = ReadRegister(CentralReg::CHIPID0);
   if (!id0_result) {
-    return std::unexpected(id0_result.error());
+    return tle::unexpected(id0_result.error());
   }
   chip_id[0] = *id0_result;
 
   auto id1_result = ReadRegister(CentralReg::CHIPID1);
   if (!id1_result) {
-    return std::unexpected(id1_result.error());
+    return tle::unexpected(id1_result.error());
   }
   chip_id[1] = *id1_result;
 
   auto id2_result = ReadRegister(CentralReg::CHIPID2);
   if (!id2_result) {
-    return std::unexpected(id2_result.error());
+    return tle::unexpected(id2_result.error());
   }
   chip_id[2] = *id2_result;
 
@@ -1671,7 +1671,7 @@ DriverResult<bool> Driver<CommType>::VerifyDevice() noexcept {
     comm_.Log(LogLevel::Error, "TLE92466ED",
               "Device verification failed: Failed to read ICVID register (error: %u)\n",
               static_cast<unsigned>(id_result.error()));
-    return std::unexpected(id_result.error());
+    return tle::unexpected(id_result.error());
   }
 
   uint16_t icvid = *id_result;
@@ -1710,7 +1710,7 @@ DriverResult<bool> Driver<CommType>::VerifyDevice() noexcept {
 template <typename CommType>
 DriverResult<uint32_t> Driver<CommType>::ReadRegister(uint16_t address, bool verify_crc) noexcept {
   if (!comm_.IsReady()) {
-    return std::unexpected(DriverError::HardwareError);
+    return tle::unexpected(DriverError::HardwareError);
   }
 
   // Use internal CRC enable state by default
@@ -1724,14 +1724,14 @@ DriverResult<uint32_t> Driver<CommType>::ReadRegister(uint16_t address, bool ver
     // Map CommInterface error to driver error
     switch (result.error()) {
     case CommError::Timeout:
-      return std::unexpected(DriverError::TimeoutError);
+      return tle::unexpected(DriverError::TimeoutError);
     case CommError::CRCError:
-      return std::unexpected(DriverError::CRCError);
+      return tle::unexpected(DriverError::CRCError);
     case CommError::BusError:
     case CommError::TransferError:
-      return std::unexpected(DriverError::HardwareError);
+      return tle::unexpected(DriverError::HardwareError);
     default:
-      return std::unexpected(DriverError::HardwareError);
+      return tle::unexpected(DriverError::HardwareError);
     }
   }
 
@@ -1742,7 +1742,7 @@ template <typename CommType>
 DriverResult<void> Driver<CommType>::WriteRegister(uint16_t address, uint16_t value, bool verify_crc,
                                          bool verify_write) noexcept {
   if (!comm_.IsReady()) {
-    return std::unexpected(DriverError::HardwareError);
+    return tle::unexpected(DriverError::HardwareError);
   }
 
   // Use internal CRC enable state by default
@@ -1756,14 +1756,14 @@ DriverResult<void> Driver<CommType>::WriteRegister(uint16_t address, uint16_t va
     // Map CommInterface error to driver error
     switch (result.error()) {
     case CommError::Timeout:
-      return std::unexpected(DriverError::TimeoutError);
+      return tle::unexpected(DriverError::TimeoutError);
     case CommError::CRCError:
-      return std::unexpected(DriverError::CRCError);
+      return tle::unexpected(DriverError::CRCError);
     case CommError::BusError:
     case CommError::TransferError:
-      return std::unexpected(DriverError::HardwareError);
+      return tle::unexpected(DriverError::HardwareError);
     default:
-      return std::unexpected(DriverError::HardwareError);
+      return tle::unexpected(DriverError::HardwareError);
     }
   }
 
@@ -1842,7 +1842,7 @@ DriverResult<void> Driver<CommType>::ModifyRegister(uint16_t address, uint16_t m
   // Read current value
   auto read_result = ReadRegister(address);
   if (!read_result) {
-    return std::unexpected(read_result.error());
+    return tle::unexpected(read_result.error());
   }
 
   // Modify bits
@@ -1864,14 +1864,14 @@ DriverResult<SPIFrame> Driver<CommType>::transferFrame(const SPIFrame& tx_frame,
     // Map CommInterface error to driver error
     switch (comm_result.error()) {
     case CommError::Timeout:
-      return std::unexpected(DriverError::TimeoutError);
+      return tle::unexpected(DriverError::TimeoutError);
     case CommError::CRCError:
-      return std::unexpected(DriverError::CRCError);
+      return tle::unexpected(DriverError::CRCError);
     case CommError::TransferError:
     case CommError::BusError:
-      return std::unexpected(DriverError::HardwareError);
+      return tle::unexpected(DriverError::HardwareError);
     default:
-      return std::unexpected(DriverError::RegisterError);
+      return tle::unexpected(DriverError::RegisterError);
     }
   }
 
@@ -1881,13 +1881,13 @@ DriverResult<SPIFrame> Driver<CommType>::transferFrame(const SPIFrame& tx_frame,
   // Verify CRC if requested
   if (verify_crc) {
     if (!VerifyFrameCrc(rx_frame)) {
-      return std::unexpected(DriverError::CRCError);
+      return tle::unexpected(DriverError::CRCError);
     }
   }
 
   // Check SPI status in reply
   if (auto result = checkSpiStatus(rx_frame); !result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   return rx_frame;
@@ -1902,7 +1902,7 @@ DriverResult<void> Driver<CommType>::checkSpiStatus(const SPIFrame& rx_frame) no
       // Critical fault frame - extract and log fault flags
       auto fault_flags = CriticalFaultFlags::Extract(rx_frame);
       // Return hardware error for critical faults
-      return std::unexpected(DriverError::HardwareError);
+      return tle::unexpected(DriverError::HardwareError);
     }
     // 22-bit reply frames don't have status field, assume OK
     return {};
@@ -1915,32 +1915,32 @@ DriverResult<void> Driver<CommType>::checkSpiStatus(const SPIFrame& rx_frame) no
   case SPIStatus::NO_ERROR:
     return {};
   case SPIStatus::SPI_FRAME_ERROR:
-    return std::unexpected(DriverError::SPIFrameError);
+    return tle::unexpected(DriverError::SPIFrameError);
   case SPIStatus::CRC_ERROR:
-    return std::unexpected(DriverError::CRCError);
+    return tle::unexpected(DriverError::CRCError);
   case SPIStatus::WRITE_RO_REG:
-    return std::unexpected(DriverError::WriteToReadOnly);
+    return tle::unexpected(DriverError::WriteToReadOnly);
   case SPIStatus::INTERNAL_BUS_FAULT:
-    return std::unexpected(DriverError::RegisterError);
+    return tle::unexpected(DriverError::RegisterError);
   default:
-    return std::unexpected(DriverError::RegisterError);
+    return tle::unexpected(DriverError::RegisterError);
   }
 }
 
 template <typename CommType>
 DriverResult<bool> Driver<CommType>::isChannelParallel(Channel channel) noexcept {
   if (auto result = checkInitialized(); !result) {
-    return std::unexpected(result.error());
+    return tle::unexpected(result.error());
   }
 
   if (!isValidChannelInternal(channel)) {
-    return std::unexpected(DriverError::InvalidChannel);
+    return tle::unexpected(DriverError::InvalidChannel);
   }
 
   // Read CH_CTRL to check parallel configuration bits
   auto ctrl_result = ReadRegister(CentralReg::CH_CTRL);
   if (!ctrl_result) {
-    return std::unexpected(ctrl_result.error());
+    return tle::unexpected(ctrl_result.error());
   }
 
   uint16_t ch_ctrl = *ctrl_result;
@@ -1976,7 +1976,7 @@ DriverResult<void> Driver<CommType>::SetReset(bool reset) noexcept {
 
   auto result = comm_.GpioSet(CtrlPin::RESN, signal);
   if (!result) {
-    return std::unexpected(DriverError::HardwareError);
+    return tle::unexpected(DriverError::HardwareError);
   }
 
   return {};
@@ -1992,7 +1992,7 @@ DriverResult<void> Driver<CommType>::SetEnable(bool enable) noexcept {
 
   auto result = comm_.GpioSet(CtrlPin::EN, signal);
   if (!result) {
-    return std::unexpected(DriverError::HardwareError);
+    return tle::unexpected(DriverError::HardwareError);
   }
 
   return {};
@@ -2002,7 +2002,7 @@ template <typename CommType>
 DriverResult<bool> Driver<CommType>::IsFault(bool print_faults) noexcept {
   auto result = comm_.GpioRead(CtrlPin::FAULTN);
   if (!result) {
-    return std::unexpected(DriverError::HardwareError);
+    return tle::unexpected(DriverError::HardwareError);
   }
 
   // FAULTN is active low: ACTIVE means fault detected, INACTIVE means no fault

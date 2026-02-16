@@ -10,7 +10,7 @@
 # -----------------------------------------------------------------------------
 title: "HardFOC TLE92466ED Driver"
 description: >
-  C++23 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid
+  C++20 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid
   Driver IC with comprehensive SPI interface, current control, and
   diagnostics
 
@@ -212,7 +212,7 @@ seo:
   type: "SoftwareApplication"
   name: "HardFOC TLE92466ED Driver"
   description: >
-    C++23 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid
+    C++20 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid
     Driver IC with comprehensive SPI interface, current control, and
     diagnostics
   url: "https://n3b3x.github.io/hf-tle92466ed-driver"

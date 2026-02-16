@@ -6,7 +6,7 @@ name: hf-tle92466ed-driver
 version: "2.0.0"
 description: |
   Hardware-agnostic TLE92466ED Six-Channel Low-Side Solenoid Driver.
-  Modern C++23 with SPI interface, 15-bit precision current control,
+  Modern C++20 with SPI interface, 15-bit precision current control,
   CRC-8, and comprehensive diagnostics.
 
 url: "https://github.com/N3b3x/hf-tle92466ed-driver"

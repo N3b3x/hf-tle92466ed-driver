@@ -1,16 +1,16 @@
 ---
 layout: default
 title: "HardFOC TLE92466ED Driver"
-description: "C++23 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver IC"
+description: "C++20 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver IC"
 nav_order: 1
 permalink: /
 ---
 
 # HF-TLE92466ED Driver
 
-**C++23 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver IC**
+**C++20 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver IC**
 
-[![C++](https://img.shields.io/badge/C%2B%2B-23-blue.svg)](https://en.cppreference.com/w/cpp/23)
+[![C++](https://img.shields.io/badge/C%2B%2B-20-blue.svg)](https://en.cppreference.com/w/cpp/20)
 [![License](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![CI](https://github.com/N3b3x/hf-tle92466ed-driver/actions/workflows/esp32-examples-build-ci.yml/badge.svg?branch=main)](https://github.com/N3b3x/hf-tle92466ed-driver/actions/workflows/esp32-examples-build-ci.yml)
 [![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://n3b3x.github.io/hf-tle92466ed-driver/)
@@ -31,7 +31,7 @@ permalink: /
 > **📖 [📚🌐 Live Complete Documentation](https://n3b3x.github.io/hf-tle92466ed-driver/)** - 
 > Interactive guides, examples, and step-by-step tutorials
 
-**HF-TLE92466ED** is a modern C++23 driver for the **Infineon TLE92466ED** Six-Channel Low-Side Solenoid Driver IC. The TLE92466ED provides six independent low-side outputs for controlling solenoids, valves, and other inductive loads with precision current regulation. Each channel supports up to 2A in single mode or 4A in parallel mode, with 15-bit resolution (0.061mA steps) for precise current control.
+**HF-TLE92466ED** is a modern C++20 driver for the **Infineon TLE92466ED** Six-Channel Low-Side Solenoid Driver IC. The TLE92466ED provides six independent low-side outputs for controlling solenoids, valves, and other inductive loads with precision current regulation. Each channel supports up to 2A in single mode or 4A in parallel mode, with 15-bit resolution (0.061mA steps) for precise current control.
 
 The driver uses a hardware-agnostic communication interface design, allowing it to run on any platform (ESP32, STM32, Arduino, etc.) with zero runtime overhead. It implements all major features from the TLE92466ED datasheet including Integrated Current Control (ICC), PWM frequency control, dither support, parallel channel operation, comprehensive diagnostics, and protection features.
 
@@ -45,7 +45,7 @@ The driver uses a hardware-agnostic communication interface design, allowing it 
 - ✅ **Comprehensive Diagnostics**: Overcurrent, overtemperature, open load, short-to-ground detection
 - ✅ **Supply Monitoring**: VBAT, VIO, and VDD voltage monitoring with configurable thresholds
 - ✅ **Hardware Agnostic**: SPI interface for platform independence
-- ✅ **Modern C++23**: Using `std::expected` for type-safe error handling without exceptions
+- ✅ **Modern C++20**: Using `tle::expected` (polyfill for `std::expected`) for type-safe error handling without exceptions
 - ✅ **Zero Overhead**: All functions `noexcept`, freestanding-compatible
 
 ## 🚀 Quick Start
@@ -85,7 +85,7 @@ For detailed setup, see [Installation](docs/installation.md) and [Quick Start Gu
    ```cpp
    #include "inc/tle92466ed.hpp"
    ```
-4. Compile with a **C++23** or newer compiler with `std::expected` support
+4. Compile with a **C++20** or newer compiler
 
 For detailed installation instructions, see [docs/installation.md](docs/installation.md).
 

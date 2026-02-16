@@ -30,9 +30,9 @@ This design choice provides several critical benefits for embedded systems:
 - Clear contract for required methods
 - Catch implementation errors at compile time
 
-#### 3. **Modern C++23**
+#### 3. **Modern C++20**
 
-- Uses `std::expected` for error handling (no exceptions)
+- Uses `tle::expected` for error handling (aliases to `std::expected` on C++23, polyfill on C++20)
 - All functions `noexcept` for embedded safety
 - Zero-overhead abstractions
 
@@ -144,7 +144,7 @@ public:
         -> std::expected<void, tle92466ed::CommError> override {
         // TLE92466ED uses 32-bit frames
         if (txData.size() < 4 || rxData.size() < 4) {
-            return std::unexpected(tle92466ed::CommError::InvalidParameter);
+            return tle::unexpected(tle92466ed::CommError::InvalidParameter);
         }
         
         spi_transaction_t trans = {};
@@ -154,7 +154,7 @@ public:
         
         esp_err_t ret = spi_device_transmit(spi_device_, &trans);
         if (ret != ESP_OK) {
-            return std::unexpected(tle92466ed::CommError::BusError);
+            return tle::unexpected(tle92466ed::CommError::BusError);
         }
         
         return {};
@@ -200,7 +200,7 @@ public:
         HAL_GPIO_WritePin(cs_port_, cs_pin_, GPIO_PIN_SET);
         
         if (status != HAL_OK) {
-            return std::unexpected(tle92466ed::CommError::BusError);
+            return tle::unexpected(tle92466ed::CommError::BusError);
         }
         
         return {};
@@ -302,7 +302,7 @@ auto GpioSet(tle92466ed::CtrlPin pin, tle92466ed::GpioSignal signal) noexcept
             gpio_set_level(en_pin_, signal == tle92466ed::GpioSignal::ACTIVE ? 1 : 0);
             break;
         default:
-            return std::unexpected(tle92466ed::CommError::InvalidParameter);
+            return tle::unexpected(tle92466ed::CommError::InvalidParameter);
     }
     return {};
 }

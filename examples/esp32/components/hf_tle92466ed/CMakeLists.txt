@@ -2,7 +2,7 @@
 # TLE92466ED Driver Component - CMakeLists.txt
 # =============================================================================
 # This component wraps the hardware-agnostic TLE92466ED driver for ESP-IDF.
-# The driver is header-only (template-based C++23).
+# The driver is header-only (template-based C++20).
 # =============================================================================
 
 cmake_minimum_required(VERSION 3.16)
@@ -66,7 +66,7 @@ idf_component_register(
 # =============================================================================
 # Compiler Configuration
 # =============================================================================
-# TLE92466ED requires C++23 for std::expected
+# TLE92466ED requires C++20 (uses tle::expected polyfill for C++23 std::expected)
 # Use INTERFACE since this is a header-only library
-target_compile_features(${COMPONENT_LIB} INTERFACE cxx_std_23)
+target_compile_features(${COMPONENT_LIB} INTERFACE cxx_std_20)
 

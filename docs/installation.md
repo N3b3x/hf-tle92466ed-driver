@@ -15,7 +15,7 @@ This guide covers how to obtain and integrate the TLE92466ED driver library into
 
 Before installing the driver, ensure you have:
 
-- **C++23 Compiler**: GCC 13+, Clang 16+, or MSVC 2022+ with `std::expected` support
+- **C++20 Compiler**: GCC 10+, Clang 11+, or MSVC 2022+ (C++23 `std::expected` is used automatically if available)
 - **Build System**: Make, CMake, or ESP-IDF (depending on your platform)
 - **Platform SDK**: ESP-IDF, STM32 HAL, Arduino, or your platform's SPI driver
 
@@ -36,7 +36,8 @@ Copy the following files into your project:
 inc/
   ├── tle92466ed.hpp
   ├── tle92466ed_spi_interface.hpp
-  └── tle92466ed_registers.hpp
+  ├── tle92466ed_registers.hpp
+  └── tle92466ed_expected.hpp
 src/
   └── tle92466ed.cpp
 ```cpp
@@ -78,10 +79,10 @@ idf_component_register(
    #include "tle92466ed.hpp"
 ```cpp
 
-4. Compile with C++23 support:
+4. Compile with C++20 support:
 
    ```bash
-   g++ -std=c++23 -I inc/ your_code.cpp src/tle92466ed.cpp
+   g++ -std=c++20 -I inc/ your_code.cpp src/tle92466ed.cpp
 ```cpp
 
 ## Verification
@@ -97,7 +98,7 @@ To verify the installation:
 2. Compile a simple test:
 
    ```bash
-   g++ -std=c++23 -I inc/ -c src/tle92466ed.cpp -o test.o
+   g++ -std=c++20 -I inc/ -c src/tle92466ed.cpp -o test.o
 ```cpp
 
 3. If compilation succeeds, the library is properly installed.

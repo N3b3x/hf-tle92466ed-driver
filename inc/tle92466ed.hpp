@@ -5,8 +5,8 @@
  */
 #pragma once
 #include <array>
-#include <expected>
 
+#include "tle92466ed_expected.hpp"
 #include "tle92466ed_spi_interface.hpp"
 #include "tle92466ed_registers.hpp"
 
@@ -34,10 +34,10 @@ enum class DriverError : uint8_t {
 };
 
 /**
- * @brief Driver result type using std::expected
+ * @brief Driver result type
  */
 template <typename T>
-using DriverResult = std::expected<T, DriverError>;
+using DriverResult = tle::expected<T, DriverError>;
 
 /**
  * @brief Channel configuration structure
@@ -904,7 +904,7 @@ private:
    */
   [[nodiscard]] DriverResult<void> checkInitialized() const noexcept {
     if (!initialized_) {
-      return std::unexpected(DriverError::NotInitialized);
+      return tle::unexpected(DriverError::NotInitialized);
     }
     return {};
   }
@@ -914,7 +914,7 @@ private:
    */
   [[nodiscard]] DriverResult<void> checkMissionMode() const noexcept {
     if (!mission_mode_) {
-      return std::unexpected(DriverError::WrongMode);
+      return tle::unexpected(DriverError::WrongMode);
     }
     return {};
   }
@@ -924,7 +924,7 @@ private:
    */
   [[nodiscard]] DriverResult<void> checkConfigMode() const noexcept {
     if (mission_mode_) {
-      return std::unexpected(DriverError::WrongMode);
+      return tle::unexpected(DriverError::WrongMode);
     }
     return {};
   }
