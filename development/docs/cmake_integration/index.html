@@ -17,7 +17,7 @@
     .site-nav > ul.nav-list:first-child > li > a,
     .site-nav > ul.nav-list:first-child > li > ul > li > a,
     
-    .site-nav > ul.nav-list:first-child > li > ul > li > ul > li:not(:nth-child(8)) > a,
+    .site-nav > ul.nav-list:first-child > li > ul > li > ul > li:not(:nth-child(5)) > a,
     .site-nav > ul.nav-list:first-child > li > ul > li > ul > li > ul > li a {
       background-image: none;
     }
@@ -27,16 +27,16 @@
       background-image: none;
     }
 
-    .site-nav > ul.nav-list:first-child > li:nth-child(1) > ul > li:nth-child(1) > ul > li:nth-child(8) > a {
+    .site-nav > ul.nav-list:first-child > li:nth-child(1) > ul > li:nth-child(1) > ul > li:nth-child(5) > a {
       font-weight: 600;
       text-decoration: none;
     }.site-nav > ul.nav-list:first-child > li:nth-child(1) > button svg,
     .site-nav > ul.nav-list:first-child > li:nth-child(1) > ul > li:nth-child(1) > button svg,
-    .site-nav > ul.nav-list:first-child > li:nth-child(1) > ul > li:nth-child(1) > ul > li:nth-child(8) > button svg {
+    .site-nav > ul.nav-list:first-child > li:nth-child(1) > ul > li:nth-child(1) > ul > li:nth-child(5) > button svg {
       transform: rotate(-90deg);
     }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(1) > ul.nav-list,
     .site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(1) > ul.nav-list > li.nav-list-item:nth-child(1) > ul.nav-list,
-    .site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(1) > ul.nav-list > li.nav-list-item:nth-child(1) > ul.nav-list > li.nav-list-item:nth-child(8) > ul.nav-list {
+    .site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(1) > ul.nav-list > li.nav-list-item:nth-child(1) > ul.nav-list > li.nav-list-item:nth-child(5) > ul.nav-list {
       display: block;
     }
   </style>
@@ -56,21 +56,21 @@
 
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>💡 Examples | HardFOC TLE92466ED Driver - development</title>
+<title>⚙️ CMake Integration | HardFOC TLE92466ED Driver - development</title>
 <meta name="generator" content="Jekyll v3.10.0" />
-<meta property="og:title" content="💡 Examples" />
+<meta property="og:title" content="⚙️ CMake Integration" />
 <meta name="author" content="N3b3x" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="Complete example walkthroughs for the TLE92466ED driver" />
-<meta property="og:description" content="Complete example walkthroughs for the TLE92466ED driver" />
-<link rel="canonical" href="https://n3b3x.github.io/hf-tle92466ed-driver/development/docs/examples/" />
-<meta property="og:url" content="https://n3b3x.github.io/hf-tle92466ed-driver/development/docs/examples/" />
+<meta name="description" content="How to integrate the TLE92466ED driver into your CMake project" />
+<meta property="og:description" content="How to integrate the TLE92466ED driver into your CMake project" />
+<link rel="canonical" href="https://n3b3x.github.io/hf-tle92466ed-driver/development/docs/cmake_integration/" />
+<meta property="og:url" content="https://n3b3x.github.io/hf-tle92466ed-driver/development/docs/cmake_integration/" />
 <meta property="og:site_name" content="HardFOC TLE92466ED Driver - development" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="💡 Examples" />
+<meta property="twitter:title" content="⚙️ CMake Integration" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"N3b3x","url":"https://github.com/n3b3x"},"description":"Complete example walkthroughs for the TLE92466ED driver","headline":"💡 Examples","url":"https://n3b3x.github.io/hf-tle92466ed-driver/development/docs/examples/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"N3b3x","url":"https://github.com/n3b3x"},"description":"How to integrate the TLE92466ED driver into your CMake project","headline":"⚙️ CMake Integration","url":"https://n3b3x.github.io/hf-tle92466ed-driver/development/docs/cmake_integration/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -255,7 +255,7 @@
   <ol class="breadcrumb-nav-list">
     <li class="breadcrumb-nav-list-item"><a href="/hf-tle92466ed-driver/development/">HardFOC TLE92466ED Driver</a></li>
     <li class="breadcrumb-nav-list-item"><a href="/hf-tle92466ed-driver/development/docs/">📚 Documentation</a></li>
-    <li class="breadcrumb-nav-list-item"><span>💡 Examples</span></li>
+    <li class="breadcrumb-nav-list-item"><span>⚙️ CMake Integration</span></li>
   </ol>
 </nav>
 
@@ -263,448 +263,95 @@
       <div id="main-content" class="main-content">
         <main>
           
-            <h1 id="examples">
+            <h1 id="tle92466ed--cmake-integration-guide">
   
   
-    <a href="#examples" class="anchor-heading" aria-labelledby="examples"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Examples
+    <a href="#tle92466ed--cmake-integration-guide" class="anchor-heading" aria-labelledby="tle92466ed--cmake-integration-guide"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> TLE92466ED — CMake Integration Guide
   
   
 </h1>
     
 
-<p>This guide provides complete, working examples demonstrating various use cases for the TLE92466ED driver.</p>
-<h2 id="example-1-basic-solenoid-control">
+<blockquote>
+  <p><strong>Build contract architecture and templates:</strong>
+<a href="../../../../../docs/development/CMAKE_BUILD_CONTRACT.md">CMake Build Contract</a>.</p>
+</blockquote>
+<h2 id="quick-start-generic-cmake">
   
   
-    <a href="#example-1-basic-solenoid-control" class="anchor-heading" aria-labelledby="example-1-basic-solenoid-control"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Example 1: Basic Solenoid Control
+    <a href="#quick-start-generic-cmake" class="anchor-heading" aria-labelledby="quick-start-generic-cmake"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Quick Start (Generic CMake)
   
   
 </h2>
     
 
-<p>This example shows basic solenoid control with current regulation.</p>
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="nb">add_subdirectory</span><span class="p">(</span>external/hf-tle92466ed-driver<span class="p">)</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span>my_app PRIVATE hf::tle92466ed<span class="p">)</span>
+</pre></td></tr></tbody></table></div></code></pre></div></div>
+<h2 id="esp-idf-integration">
+  
+  
+    <a href="#esp-idf-integration" class="anchor-heading" aria-labelledby="esp-idf-integration"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ESP-IDF Integration
+  
+  
+</h2>
+    
 
-<p>```cpp
-#include “tle92466ed.hpp”
-#include “esp32_tle_comm_interface.hpp”</p>
+<p>Component wrapper: <code class="language-plaintext highlighter-rouge">examples/esp32/components/hf_tle92466ed/</code></p>
 
-<p>void app_main() {
-    // 1. Create SPI interface
-    auto hal = CreateEsp32TleCommInterface();
-    if (!hal || hal-&gt;Init().has_value() == false) {
-        printf(“HAL initialization failed\n”);
-        return;
-    }</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
 6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-</pre></td><td class="rouge-code"><pre>// 2. Create driver
-tle92466ed::Driver driver(*hal);
-
-// 3. Initialize
-if (auto result = driver.Init(); !result) {
-    printf("Initialization failed\n");
-    return;
-}
-
-// 4. Configure channel 0 for 1.5A current control
-driver.SetChannelMode(tle92466ed::Channel::CH0, tle92466ed::ChannelMode::ICC);
-driver.SetCurrentSetpoint(tle92466ed::Channel::CH0, 1500); // 1.5A
-
-// 5. Enter Mission Mode
-driver.EnterMissionMode();
-
-// 6. Enable channel
-driver.EnableChannel(tle92466ed::Channel::CH0, true);
-
-// 7. Monitor current
-while (true) {
-    if (auto current = driver.GetAverageCurrent(tle92466ed::Channel::CH0); current) {
-        printf("Channel 0 current: %u mA\n", *current);
-    }
-    vTaskDelay(pdMS_TO_TICKS(100));
-} } ```cpp
+</pre></td><td class="rouge-code"><pre><span class="nf">idf_component_register</span><span class="p">(</span>
+    SRCS <span class="s2">"app_main.cpp"</span>
+    INCLUDE_DIRS <span class="s2">"."</span>
+    REQUIRES hf_tle92466ed driver
+<span class="p">)</span>
+<span class="nb">target_compile_features</span><span class="p">(</span><span class="si">${</span><span class="nv">COMPONENT_LIB</span><span class="si">}</span> PRIVATE cxx_std_20<span class="p">)</span>
 </pre></td></tr></tbody></table></div></code></pre></div></div>
-<h2 id="example-2-parallel-operation-high-current">
+<h2 id="build-variables">
   
   
-    <a href="#example-2-parallel-operation-high-current" class="anchor-heading" aria-labelledby="example-2-parallel-operation-high-current"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Example 2: Parallel Operation (High Current)
+    <a href="#build-variables" class="anchor-heading" aria-labelledby="build-variables"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Build Variables
   
   
 </h2>
     
 
-<p>This example demonstrates parallel channel operation for higher current capability.</p>
-
-<p>```cpp
-void configure_high_current_solenoid() {
-    auto hal = CreateEsp32TleCommInterface();
-    tle92466ed::Driver driver(*hal);
-    driver.Init();</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-</pre></td><td class="rouge-code"><pre>// Enter Config Mode
-driver.EnterConfigMode();
-
-// Enable parallel operation CH0+CH3
-driver.SetParallelOperation(tle92466ed::ParallelPair::CH0_CH3, true);
-
-// Configure both channels identically
-tle92466ed::ChannelConfig config;
-config.mode = tle92466ed::ChannelMode::ICC;
-config.current_setpoint_ma = 3500;  // 3.5A total (parallel mode)
-config.slew_rate = tle92466ed::SlewRate::MEDIUM_2V5_US;
-
-driver.ConfigureChannel(tle92466ed::Channel::CH0, config);
-driver.ConfigureChannel(tle92466ed::Channel::CH3, config);
-
-// Enter Mission Mode and enable
-driver.EnterMissionMode();
-driver.EnableChannel(tle92466ed::Channel::CH0, true);
-driver.EnableChannel(tle92466ed::Channel::CH3, true);
-
-printf("High-current mode active: 3.5A\n"); } ```cpp
-</pre></td></tr></tbody></table></div></code></pre></div></div>
-<h2 id="example-3-fault-monitoring">
-  
-  
-    <a href="#example-3-fault-monitoring" class="anchor-heading" aria-labelledby="example-3-fault-monitoring"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Example 3: Fault Monitoring
-  
-  
-</h2>
-    
-
-<p>This example shows how to monitor and handle faults.</p>
-
-<p>```cpp
-void monitor_faults() {
-    tle92466ed::Driver driver(*hal);
-    driver.Init();
-    driver.EnterMissionMode();</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-</pre></td><td class="rouge-code"><pre>// Enable channel
-driver.EnableChannel(tle92466ed::Channel::CH0, true);
-
-while (true) {
-    // Check for faults
-    if (auto has_fault = driver.HasAnyFault(); has_fault &amp;&amp; *has_fault) {
-        // Get detailed fault report
-        if (auto faults = driver.GetAllFaults(); faults) {
-            auto&amp; report = *faults;
-            
-            if (report.vbat_uv) {
-                printf("VBAT undervoltage detected!\n");
-            }
-            
-            if (report.channels[0].overcurrent) {
-                printf("Channel 0 overcurrent!\n");
-                driver.DisableAllChannels();
-            }
-            
-            // Clear faults after handling
-            driver.ClearFaults();
-        }
-    }
-    
-    vTaskDelay(pdMS_TO_TICKS(100));
-} } ```cpp
-</pre></td></tr></tbody></table></div></code></pre></div></div>
-<h2 id="example-4-multi-channel-control">
-  
-  
-    <a href="#example-4-multi-channel-control" class="anchor-heading" aria-labelledby="example-4-multi-channel-control"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Example 4: Multi-Channel Control
-  
-  
-</h2>
-    
-
-<p>This example demonstrates controlling multiple channels independently.</p>
-
-<p>```cpp
-void multi_channel_control() {
-    tle92466ed::Driver driver(*hal);
-    driver.Init();
-    driver.EnterMissionMode();</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-</pre></td><td class="rouge-code"><pre>// Configure multiple channels with different currents
-driver.SetChannelMode(tle92466ed::Channel::CH0, tle92466ed::ChannelMode::ICC);
-driver.SetChannelMode(tle92466ed::Channel::CH1, tle92466ed::ChannelMode::ICC);
-driver.SetChannelMode(tle92466ed::Channel::CH2, tle92466ed::ChannelMode::ICC);
-
-driver.SetCurrentSetpoint(tle92466ed::Channel::CH0, 1000); // 1A
-driver.SetCurrentSetpoint(tle92466ed::Channel::CH1, 1500); // 1.5A
-driver.SetCurrentSetpoint(tle92466ed::Channel::CH2, 800);  // 0.8A
-
-// Enable all channels
-driver.EnableChannels(0x07); // Bits 0,1,2 = CH0, CH1, CH2
-
-// Monitor all channels
-while (true) {
-    for (uint8_t ch = 0; ch &lt; 3; ch++) {
-        if (auto current = driver.GetAverageCurrent(static_cast&lt;tle92466ed::Channel&gt;(ch)); current) {
-            printf("CH%d: %u mA\n", ch, *current);
-        }
-    }
-    vTaskDelay(pdMS_TO_TICKS(100));
-} } ```text
-</pre></td></tr></tbody></table></div></code></pre></div></div>
-<h2 id="example-5-pwm-and-dither-configuration">
-  
-  
-    <a href="#example-5-pwm-and-dither-configuration" class="anchor-heading" aria-labelledby="example-5-pwm-and-dither-configuration"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Example 5: PWM and Dither Configuration
-  
-  
-</h2>
-    
-
-<p>This example shows advanced PWM and dither configuration.</p>
-
-<p>```cpp
-void advanced_current_control() {
-    tle92466ed::Driver driver(*hal);
-    driver.Init();
-    driver.EnterConfigMode();</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="rouge-code"><pre>// Configure channel 0
-driver.SetChannelMode(tle92466ed::Channel::CH0, tle92466ed::ChannelMode::ICC);
-
-// Set PWM period to 100 µs
-driver.ConfigurePwmPeriod(tle92466ed::Channel::CH0, 100.0f);
-
-// Configure dither: 50mA amplitude, 1000Hz frequency
-driver.ConfigureDither(tle92466ed::Channel::CH0, 50.0f, 1000.0f);
-
-// Set current
-driver.SetCurrentSetpoint(tle92466ed::Channel::CH0, 1500);
-
-driver.EnterMissionMode();
-driver.EnableChannel(tle92466ed::Channel::CH0, true); } ```text
-</pre></td></tr></tbody></table></div></code></pre></div></div>
-<h2 id="example-6-complete-channel-configuration">
-  
-  
-    <a href="#example-6-complete-channel-configuration" class="anchor-heading" aria-labelledby="example-6-complete-channel-configuration"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Example 6: Complete Channel Configuration
-  
-  
-</h2>
-    
-
-<p>This example shows complete channel configuration using ChannelConfig structure.</p>
-
-<p>```cpp
-void complete_channel_setup() {
-    tle92466ed::Driver driver(*hal);
-    driver.Init();
-    driver.EnterConfigMode();</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-</pre></td><td class="rouge-code"><pre>// Complete channel configuration
-tle92466ed::ChannelConfig config;
-config.mode = tle92466ed::ChannelMode::ICC;
-config.current_setpoint_ma = 1500;
-config.slew_rate = tle92466ed::SlewRate::MEDIUM_2V5_US;
-config.diag_current = tle92466ed::DiagCurrent::I_80UA;
-config.open_load_threshold = 3;  // 3/8 threshold
-config.pwm_period_mantissa = 100;
-config.pwm_period_exponent = 3;
-config.deep_dither_enabled = false;
-config.dither_step_size = 50;
-config.dither_steps = 10;
-config.dither_flat = 5;
-
-driver.ConfigureChannel(tle92466ed::Channel::CH0, config);
-
-driver.EnterMissionMode();
-driver.EnableChannel(tle92466ed::Channel::CH0, true); } ```cpp
-</pre></td></tr></tbody></table></div></code></pre></div></div>
-<h2 id="example-7-voltage-monitoring">
-  
-  
-    <a href="#example-7-voltage-monitoring" class="anchor-heading" aria-labelledby="example-7-voltage-monitoring"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Example 7: Voltage Monitoring
-  
-  
-</h2>
-    
-
-<p>This example demonstrates monitoring supply voltages.</p>
-
-<p>```cpp
-void monitor_voltages() {
-    tle92466ed::Driver driver(*hal);
-    driver.Init();</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-</pre></td><td class="rouge-code"><pre>while (true) {
-    // Read voltages
-    if (auto vbat = driver.GetVbatVoltage(); vbat) {
-        printf("VBAT: %u mV\n", *vbat);
-    }
-    
-    if (auto vio = driver.GetVioVoltage(); vio) {
-        printf("VIO: %u mV\n", *vio);
-    }
-    
-    if (auto vdd = driver.GetVddVoltage(); vdd) {
-        printf("VDD: %u mV\n", *vdd);
-    }
-    
-    vTaskDelay(pdMS_TO_TICKS(1000));
-} } ```cpp
-</pre></td></tr></tbody></table></div></code></pre></div></div>
-<h2 id="next-steps">
-  
-  
-    <a href="#next-steps" class="anchor-heading" aria-labelledby="next-steps"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Next Steps
-  
-  
-</h2>
-    
-
-<ul>
-  <li>Review the <a href="/hf-tle92466ed-driver/development/docs/api_reference/">API Reference</a> for all available methods</li>
-  <li>Check <a href="/hf-tle92466ed-driver/development/docs/configuration/">Configuration</a> for customization options</li>
-  <li>See <a href="/hf-tle92466ed-driver/development/docs/troubleshooting/">Troubleshooting</a> for common issues</li>
-</ul><hr />
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">HF_TLE92466ED_TARGET_NAME</code></td>
+      <td><code class="language-plaintext highlighter-rouge">hf_tle92466ed</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">HF_TLE92466ED_VERSION</code></td>
+      <td>Current <code class="language-plaintext highlighter-rouge">MAJOR.MINOR.PATCH</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">HF_TLE92466ED_SOURCE_FILES</code></td>
+      <td><code class="language-plaintext highlighter-rouge">""</code> (header-only)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">HF_TLE92466ED_IDF_REQUIRES</code></td>
+      <td><code class="language-plaintext highlighter-rouge">driver</code></td>
+    </tr>
+  </tbody>
+</table></div><hr />
 
 <p><strong>Navigation</strong>
-⬅️ <a href="/hf-tle92466ed-driver/development/docs/configuration/">Configuration</a> | <a href="/hf-tle92466ed-driver/development/docs/troubleshooting/">Next: Troubleshooting ➡️</a> | <a href="/hf-tle92466ed-driver/development/docs/">Back to Index</a></p>
+⬅️ <a href="../../DOCUMENTATION_INDEX.md">Back to Documentation Index</a> | <a href="../../../../../docs/development/CMAKE_BUILD_CONTRACT.md">CMake Build Contract ↗</a></p>
 
           
 

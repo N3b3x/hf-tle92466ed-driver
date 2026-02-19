@@ -1663,6 +1663,7 @@ extern "C" void app_main() {
     ESP_LOGI(TAG, "║         TLE92466ED COMPREHENSIVE INTEGRATION TEST SUITE - ESP32-C6           ║");
     ESP_LOGI(TAG, "║                         HardFOC Core Drivers                                 ║");
     ESP_LOGI(TAG, "╚══════════════════════════════════════════════════════════════════════════════╝");
+    ESP_LOGI(TAG, "Driver version: %s", tle92466ed::GetDriverVersion());
     
     ESP_LOGI(TAG, "Target: %s", CONFIG_IDF_TARGET);
     ESP_LOGI(TAG, "ESP-IDF Version: %s", esp_get_idf_version());
