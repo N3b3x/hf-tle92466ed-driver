@@ -1,72 +1,34 @@
-# =============================================================================
-# TLE92466ED Driver Component - CMakeLists.txt
-# =============================================================================
-# This component wraps the hardware-agnostic TLE92466ED driver for ESP-IDF.
-# The driver is header-only (template-based C++20).
-# =============================================================================
+###############################################################################
+# HF TLE92466ED Driver - ESP-IDF Component Wrapper
+###############################################################################
+# Note:
+#   cmake_minimum_required() is intentionally omitted here — ESP-IDF's
+#   project.cmake already sets it and adding another can cause policy conflicts.
+###############################################################################
 
-cmake_minimum_required(VERSION 3.16)
+set(HF_TLE92466ED_ROOT "${CMAKE_CURRENT_LIST_DIR}/../../../.." CACHE PATH
+    "Path to root of hf-tle92466ed-driver (auto-detected from component location)")
 
-# =============================================================================
-# Path Configuration
-# =============================================================================
-# Set the source root path relative to this component directory
-set(SRC_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../../../../src")
-set(INC_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../../../../inc")
+get_filename_component(HF_TLE92466ED_ROOT "${HF_TLE92466ED_ROOT}" ABSOLUTE)
+if(NOT EXISTS "${HF_TLE92466ED_ROOT}/cmake/hf_tle92466ed_build_settings.cmake")
+    message(FATAL_ERROR
+        "Cannot find TLE92466ED driver root.\n"
+        "  Resolved path: ${HF_TLE92466ED_ROOT}\n"
+        "  Expected file: ${HF_TLE92466ED_ROOT}/cmake/hf_tle92466ed_build_settings.cmake\n"
+        "  Fix: set HF_TLE92466ED_ROOT to the correct driver checkout path.")
+endif()
 
-message(STATUS "TLE92466ED Driver - ESP32 Component Configuration")
-message(STATUS "Source Root: ${SRC_ROOT}")
+include("${HF_TLE92466ED_ROOT}/cmake/hf_tle92466ed_build_settings.cmake")
 
-# =============================================================================
-# Source File Discovery and Validation
-# =============================================================================
-# TLE92466ED is a header-only template library
-# Template implementation is included in the header file
-set(DRIVER_SRCS
-    # No source files - template implementation is included in header
-)
-
-# Check which source files actually exist and add them
-set(EXISTING_SRCS "")
-foreach(src_file ${DRIVER_SRCS})
-    if(EXISTS "${src_file}")
-        list(APPEND EXISTING_SRCS "${src_file}")
-        message(STATUS "Found source: ${src_file}")
-    else()
-        message(WARNING "Source file not found: ${src_file}")
-    endif()
-endforeach()
-
-# =============================================================================
-# Include Directories Configuration
-# =============================================================================
-# Define include directories for the driver component
-set(DRIVER_INCLUDE_DIRS
-    "${INC_ROOT}"                           # Main driver headers
-)
-
-# =============================================================================
-# Component Dependencies
-# =============================================================================
-# Define required ESP-IDF components for the driver
-set(DRIVER_REQUIRES
-    driver              # ESP-IDF driver framework (SPI)
-)
-
-# =============================================================================
-# Component Registration
-# =============================================================================
-# Register the driver component with ESP-IDF build system
 idf_component_register(
-    SRCS ${EXISTING_SRCS}                 # Source files (validated above)
-    INCLUDE_DIRS ${DRIVER_INCLUDE_DIRS}   # Include directories defined above
-    REQUIRES ${DRIVER_REQUIRES}           # Component dependencies defined above
+    SRCS ${HF_TLE92466ED_SOURCE_FILES}
+    INCLUDE_DIRS ${HF_TLE92466ED_PUBLIC_INCLUDE_DIRS}
+    REQUIRES ${HF_TLE92466ED_IDF_REQUIRES}
 )
 
-# =============================================================================
-# Compiler Configuration
-# =============================================================================
-# TLE92466ED requires C++20 (uses tle::expected polyfill for C++23 std::expected)
-# Use INTERFACE since this is a header-only library
-target_compile_features(${COMPONENT_LIB} INTERFACE cxx_std_20)
+if(HF_TLE92466ED_SOURCE_FILES)
+    target_compile_features(${COMPONENT_LIB} PRIVATE cxx_std_20)
+else()
+    target_compile_features(${COMPONENT_LIB} INTERFACE cxx_std_20)
+endif()
 

@@ -1,0 +1,5 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/hf_tle92466edTargets.cmake")
+
+check_required_components(hf_tle92466ed)

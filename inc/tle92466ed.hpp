@@ -9,6 +9,7 @@
 #include "tle92466ed_expected.hpp"
 #include "tle92466ed_spi_interface.hpp"
 #include "tle92466ed_registers.hpp"
+#include "tle92466ed_version.h"
 
 namespace tle92466ed {
 
@@ -881,6 +882,30 @@ public:
   [[nodiscard]] DriverResult<void> ModifyRegister(uint16_t address, uint16_t mask,
                                                   uint16_t value) noexcept;
 
+  // ===========================================================================
+  // Driver Version
+  // ===========================================================================
+
+  /** @brief Get the compiled driver version string. */
+  static constexpr const char* GetDriverVersion() noexcept {
+    return HF_TLE92466ED_VERSION_STRING;
+  }
+
+  /** @brief Get the compiled driver major version number. */
+  static constexpr uint8_t GetDriverVersionMajor() noexcept {
+    return HF_TLE92466ED_VERSION_MAJOR;
+  }
+
+  /** @brief Get the compiled driver minor version number. */
+  static constexpr uint8_t GetDriverVersionMinor() noexcept {
+    return HF_TLE92466ED_VERSION_MINOR;
+  }
+
+  /** @brief Get the compiled driver patch version number. */
+  static constexpr uint8_t GetDriverVersionPatch() noexcept {
+    return HF_TLE92466ED_VERSION_PATCH;
+  }
+
 private:
   //==========================================================================
   // PRIVATE METHODS
@@ -988,5 +1013,10 @@ private:
 // NOLINTNEXTLINE(bugprone-suspicious-include) - Intentional: template implementation file
 #include "../src/tle92466ed.ipp"
 #undef TLE92466ED_HEADER_INCLUDED
+
+// Public API: Get driver version string
+inline const char* GetDriverVersion() noexcept {
+  return HF_TLE92466ED_VERSION_STRING;
+}
 
 } // namespace tle92466ed
