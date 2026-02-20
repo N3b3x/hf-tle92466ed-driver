@@ -260,921 +260,900 @@
   },"37": {
     "doc": "⚙️ CMake Integration",
     "title": "TLE92466ED — CMake Integration Guide",
-    "content": "Build contract architecture and templates: CMake Build Contract. ",
+    "content": " ",
     "url": "/hf-tle92466ed-driver/development/docs/cmake_integration/#tle92466ed--cmake-integration-guide",
     
     "relUrl": "/docs/cmake_integration/#tle92466ed--cmake-integration-guide"
   },"38": {
-    "doc": "⚙️ CMake Integration",
-    "title": "Quick Start (Generic CMake)",
-    "content": "| 1 2 . | add_subdirectory(external/hf-tle92466ed-driver) target_link_libraries(my_app PRIVATE hf::tle92466ed) . | . ",
-    "url": "/hf-tle92466ed-driver/development/docs/cmake_integration/#quick-start-generic-cmake",
-    
-    "relUrl": "/docs/cmake_integration/#quick-start-generic-cmake"
-  },"39": {
-    "doc": "⚙️ CMake Integration",
-    "title": "ESP-IDF Integration",
-    "content": "Component wrapper: examples/esp32/components/hf_tle92466ed/ . | 1 2 3 4 5 6 . | idf_component_register( SRCS \"app_main.cpp\" INCLUDE_DIRS \".\" REQUIRES hf_tle92466ed driver ) target_compile_features(${COMPONENT_LIB} PRIVATE cxx_std_20) . | . ",
-    "url": "/hf-tle92466ed-driver/development/docs/cmake_integration/#esp-idf-integration",
-    
-    "relUrl": "/docs/cmake_integration/#esp-idf-integration"
-  },"40": {
-    "doc": "⚙️ CMake Integration",
-    "title": "Build Variables",
-    "content": "| Variable | Value | . | HF_TLE92466ED_TARGET_NAME | hf_tle92466ed | . | HF_TLE92466ED_VERSION | Current MAJOR.MINOR.PATCH | . | HF_TLE92466ED_SOURCE_FILES | \"\" (header-only) | . | HF_TLE92466ED_IDF_REQUIRES | driver | . Navigation ⬅️ Back to Documentation Index | CMake Build Contract ↗ . ",
-    "url": "/hf-tle92466ed-driver/development/docs/cmake_integration/#build-variables",
-    
-    "relUrl": "/docs/cmake_integration/#build-variables"
-  },"41": {
     "doc": "⚙️ CMake Integration",
     "title": "⚙️ CMake Integration",
     "content": " ",
     "url": "/hf-tle92466ed-driver/development/docs/cmake_integration/",
     
     "relUrl": "/docs/cmake_integration/"
-  },"42": {
+  },"39": {
     "doc": "⚙️ Configuration",
     "title": "Configuration",
     "content": "This guide covers all configuration options available for the TLE92466ED driver. ",
     "url": "/hf-tle92466ed-driver/development/docs/configuration/#configuration",
     
     "relUrl": "/docs/configuration/#configuration"
-  },"43": {
+  },"40": {
     "doc": "⚙️ Configuration",
     "title": "Global Configuration",
     "content": " ",
     "url": "/hf-tle92466ed-driver/development/docs/configuration/#global-configuration",
     
     "relUrl": "/docs/configuration/#global-configuration"
-  },"44": {
+  },"41": {
     "doc": "⚙️ Configuration",
     "title": "Basic Global Setup",
     "content": "```cpp tle92466ed::GlobalConfig global_config; global_config.crc_enabled = true; global_config.spi_watchdog_enabled = true; global_config.clock_watchdog_enabled = true; global_config.vio_5v = false; // false = 3.3V, true = 5.0V global_config.vbat_uv_voltage = 4.0f; // UV threshold in volts global_config.vbat_ov_voltage = 41.0f; // OV threshold in volts global_config.spi_watchdog_reload = 1000; . driver.ConfigureGlobal(global_config); ```text . ",
     "url": "/hf-tle92466ed-driver/development/docs/configuration/#basic-global-setup",
     
     "relUrl": "/docs/configuration/#basic-global-setup"
-  },"45": {
+  },"42": {
     "doc": "⚙️ Configuration",
     "title": "CRC Configuration",
     "content": "cpp driver.SetCrcEnabled(true); // Enable CRC checking (recommended) cpp . | Enabled: All SPI frames include CRC-8 (SAE J1850) for error detection | Disabled: No CRC checking (faster, but less reliable) | . ",
     "url": "/hf-tle92466ed-driver/development/docs/configuration/#crc-configuration",
     
     "relUrl": "/docs/configuration/#crc-configuration"
-  },"46": {
+  },"43": {
     "doc": "⚙️ Configuration",
     "title": "VBAT Thresholds",
     "content": "```cpp // High-level API (recommended) driver.SetVbatThresholds(4.0f, 41.0f); // UV=4V, OV=41V . // Low-level API (direct register control) driver.SetVbatThresholdsRaw(25, 253); // Register values ```cpp . Threshold Range: 0V to ~41.4V (calculated as register_value * 0.16208V) . ",
     "url": "/hf-tle92466ed-driver/development/docs/configuration/#vbat-thresholds",
     
     "relUrl": "/docs/configuration/#vbat-thresholds"
-  },"47": {
+  },"44": {
     "doc": "⚙️ Configuration",
     "title": "Channel Configuration",
     "content": " ",
     "url": "/hf-tle92466ed-driver/development/docs/configuration/#channel-configuration",
     
     "relUrl": "/docs/configuration/#channel-configuration"
-  },"48": {
+  },"45": {
     "doc": "⚙️ Configuration",
     "title": "Basic Channel Setup",
     "content": "```cpp tle92466ed::ChannelConfig config; config.mode = tle92466ed::ChannelMode::ICC; config.current_setpoint_ma = 1500; // 1.5A config.slew_rate = tle92466ed::SlewRate::MEDIUM_2V5_US; config.diag_current = tle92466ed::DiagCurrent::I_80UA; config.open_load_threshold = 3; // 3/8 threshold . driver.ConfigureChannel(tle92466ed::Channel::CH0, config); ```cpp . ",
     "url": "/hf-tle92466ed-driver/development/docs/configuration/#basic-channel-setup",
     
     "relUrl": "/docs/configuration/#basic-channel-setup"
-  },"49": {
+  },"46": {
     "doc": "⚙️ Configuration",
     "title": "Channel Modes",
     "content": "ICC Mode (Integrated Current Control) . cpp config.mode = tle92466ed::ChannelMode::ICC; cpp . | Purpose: Precise current regulation with 15-bit resolution | Use Case: Solenoids, valves requiring constant current | Features: Automatic current regulation, PWM-based control | . Direct Drive Modes . ```cpp // SPI-controlled on-time config.mode = tle92466ed::ChannelMode::DIRECT_DRIVE_SPI; . // External pin control config.mode = tle92466ed::ChannelMode::DIRECT_DRIVE_DRV0; config.mode = tle92466ed::ChannelMode::DIRECT_DRIVE_DRV1; ```cpp . | Purpose: Direct control via SPI or external pins | Use Case: Simple on/off control, external timing | . Free-Running Measurement . cpp config.mode = tle92466ed::ChannelMode::FREE_RUN_MEAS; cpp . | Purpose: Continuous current sensing without output control | Use Case: Diagnostics, current monitoring | . ",
     "url": "/hf-tle92466ed-driver/development/docs/configuration/#channel-modes",
     
     "relUrl": "/docs/configuration/#channel-modes"
-  },"50": {
+  },"47": {
     "doc": "⚙️ Configuration",
     "title": "Current Settings",
     "content": "```cpp // Single channel mode (0-2000 mA) driver.SetCurrentSetpoint(tle92466ed::Channel::CH0, 1500); // 1.5A . // Parallel mode (0-4000 mA) driver.SetCurrentSetpoint(tle92466ed::Channel::CH0, 3000, true); // 3A ```cpp . Current Range: . | Single channel: 0-2000 mA (1.5A typical continuous, 2.0A max) | Parallel mode: 0-4000 mA (2.7A typical continuous, 4.0A max) | Resolution: 15-bit (0.061mA per LSB single, 0.122mA parallel) | . ",
     "url": "/hf-tle92466ed-driver/development/docs/configuration/#current-settings",
     
     "relUrl": "/docs/configuration/#current-settings"
-  },"51": {
+  },"48": {
     "doc": "⚙️ Configuration",
     "title": "PWM Configuration",
     "content": "```cpp // High-level API (recommended) driver.ConfigurePwmPeriod(tle92466ed::Channel::CH0, 100.0f); // 100 µs period . // Low-level API (direct control) driver.ConfigurePwmPeriodRaw(tle92466ed::Channel::CH0, 100, // mantissa 3, // exponent false); // low_freq_range ```cpp . PWM Period Range: ~0.125 µs to ~32.64 ms . ",
     "url": "/hf-tle92466ed-driver/development/docs/configuration/#pwm-configuration",
     
     "relUrl": "/docs/configuration/#pwm-configuration"
-  },"52": {
+  },"49": {
     "doc": "⚙️ Configuration",
     "title": "Dither Configuration",
     "content": "```cpp // High-level API (recommended) driver.ConfigureDither(tle92466ed::Channel::CH0, 50.0f, // 50 mA amplitude 1000.0f, // 1000 Hz frequency false); // not parallel mode . // Low-level API (direct control) driver.ConfigureDitherRaw(tle92466ed::Channel::CH0, 100, // step_size 10, // num_steps 5); // flat_steps ```text . Dither Amplitude: 0-1800 mA (configurable) . ",
     "url": "/hf-tle92466ed-driver/development/docs/configuration/#dither-configuration",
     
     "relUrl": "/docs/configuration/#dither-configuration"
-  },"53": {
+  },"50": {
     "doc": "⚙️ Configuration",
     "title": "Slew Rate",
     "content": "cpp config.slew_rate = tle92466ed::SlewRate::SLOW_1V0_US; // 1.0 V/µs (low EMI) config.slew_rate = tle92466ed::SlewRate::MEDIUM_2V5_US; // 2.5 V/µs (standard) config.slew_rate = tle92466ed::SlewRate::FAST_5V0_US; // 5.0 V/µs (fast) config.slew_rate = tle92466ed::SlewRate::FASTEST_10V0_US; // 10.0 V/µs (maximum) cpp . ",
     "url": "/hf-tle92466ed-driver/development/docs/configuration/#slew-rate",
     
     "relUrl": "/docs/configuration/#slew-rate"
-  },"54": {
+  },"51": {
     "doc": "⚙️ Configuration",
     "title": "Parallel Operation",
     "content": " ",
     "url": "/hf-tle92466ed-driver/development/docs/configuration/#parallel-operation",
     
     "relUrl": "/docs/configuration/#parallel-operation"
-  },"55": {
+  },"52": {
     "doc": "⚙️ Configuration",
     "title": "Enabling Parallel Mode",
     "content": "```cpp // Pair channels 0 and 3 driver.SetParallelOperation(tle92466ed::ParallelPair::CH0_CH3, true); . // Pair channels 1 and 2 driver.SetParallelOperation(tle92466ed::ParallelPair::CH1_CH2, true); . // Pair channels 4 and 5 driver.SetParallelOperation(tle92466ed::ParallelPair::CH4_CH5, true); ```cpp . Parallel Pairs: . | CH0/CH3: Doubles current capability (up to 4A) | CH1/CH2: Doubles current capability (up to 4A) | CH4/CH5: Doubles current capability (up to 4A) | . Note: When in parallel mode, set current with parallel_mode = true parameter. ",
     "url": "/hf-tle92466ed-driver/development/docs/configuration/#enabling-parallel-mode",
     
     "relUrl": "/docs/configuration/#enabling-parallel-mode"
-  },"56": {
+  },"53": {
     "doc": "⚙️ Configuration",
     "title": "Default Values",
     "content": " ",
     "url": "/hf-tle92466ed-driver/development/docs/configuration/#default-values",
     
     "relUrl": "/docs/configuration/#default-values"
-  },"57": {
+  },"54": {
     "doc": "⚙️ Configuration",
     "title": "Global Defaults",
     "content": ". | CRC: Enabled | SPI Watchdog: Enabled | Clock Watchdog: Enabled | VIO: 3.3V mode | VBAT UV: ~4V | VBAT OV: ~41V | . ",
     "url": "/hf-tle92466ed-driver/development/docs/configuration/#global-defaults",
     
     "relUrl": "/docs/configuration/#global-defaults"
-  },"58": {
+  },"55": {
     "doc": "⚙️ Configuration",
     "title": "Channel Defaults",
     "content": ". | Mode: ICC | Current: 0 mA | Slew Rate: MEDIUM_2V5_US | Diagnostic Current: I_80UA | Open Load Threshold: 3/8 | . ",
     "url": "/hf-tle92466ed-driver/development/docs/configuration/#channel-defaults",
     
     "relUrl": "/docs/configuration/#channel-defaults"
-  },"59": {
+  },"56": {
     "doc": "⚙️ Configuration",
     "title": "Next Steps",
     "content": ". | Review Examples for configuration examples | Check API Reference for all configuration methods | See Troubleshooting for configuration issues | . Navigation ⬅️ Platform Integration | Next: Examples ➡️ | Back to Index . ",
     "url": "/hf-tle92466ed-driver/development/docs/configuration/#next-steps",
     
     "relUrl": "/docs/configuration/#next-steps"
-  },"60": {
+  },"57": {
     "doc": "⚙️ Configuration",
     "title": "⚙️ Configuration",
     "content": " ",
     "url": "/hf-tle92466ed-driver/development/docs/configuration/",
     
     "relUrl": "/docs/configuration/"
-  },"61": {
+  },"58": {
     "doc": "💡 Examples",
     "title": "Examples",
     "content": "This guide provides complete, working examples demonstrating various use cases for the TLE92466ED driver. ",
     "url": "/hf-tle92466ed-driver/development/docs/examples/#examples",
     
     "relUrl": "/docs/examples/#examples"
-  },"62": {
+  },"59": {
     "doc": "💡 Examples",
     "title": "Example 1: Basic Solenoid Control",
     "content": "This example shows basic solenoid control with current regulation. ```cpp #include “tle92466ed.hpp” #include “esp32_tle_comm_interface.hpp” . void app_main() { // 1. Create SPI interface auto hal = CreateEsp32TleCommInterface(); if (!hal || hal-&gt;Init().has_value() == false) { printf(“HAL initialization failed\\n”); return; } . | 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 . | // 2. Create driver tle92466ed::Driver driver(*hal); // 3. Initialize if (auto result = driver.Init(); !result) { printf(\"Initialization failed\\n\"); return; } // 4. Configure channel 0 for 1.5A current control driver.SetChannelMode(tle92466ed::Channel::CH0, tle92466ed::ChannelMode::ICC); driver.SetCurrentSetpoint(tle92466ed::Channel::CH0, 1500); // 1.5A // 5. Enter Mission Mode driver.EnterMissionMode(); // 6. Enable channel driver.EnableChannel(tle92466ed::Channel::CH0, true); // 7. Monitor current while (true) { if (auto current = driver.GetAverageCurrent(tle92466ed::Channel::CH0); current) { printf(\"Channel 0 current: %u mA\\n\", *current); } vTaskDelay(pdMS_TO_TICKS(100)); } } ```cpp . | . ",
     "url": "/hf-tle92466ed-driver/development/docs/examples/#example-1-basic-solenoid-control",
     
     "relUrl": "/docs/examples/#example-1-basic-solenoid-control"
-  },"63": {
+  },"60": {
     "doc": "💡 Examples",
     "title": "Example 2: Parallel Operation (High Current)",
     "content": "This example demonstrates parallel channel operation for higher current capability. ```cpp void configure_high_current_solenoid() { auto hal = CreateEsp32TleCommInterface(); tle92466ed::Driver driver(*hal); driver.Init(); . | 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 . | // Enter Config Mode driver.EnterConfigMode(); // Enable parallel operation CH0+CH3 driver.SetParallelOperation(tle92466ed::ParallelPair::CH0_CH3, true); // Configure both channels identically tle92466ed::ChannelConfig config; config.mode = tle92466ed::ChannelMode::ICC; config.current_setpoint_ma = 3500; // 3.5A total (parallel mode) config.slew_rate = tle92466ed::SlewRate::MEDIUM_2V5_US; driver.ConfigureChannel(tle92466ed::Channel::CH0, config); driver.ConfigureChannel(tle92466ed::Channel::CH3, config); // Enter Mission Mode and enable driver.EnterMissionMode(); driver.EnableChannel(tle92466ed::Channel::CH0, true); driver.EnableChannel(tle92466ed::Channel::CH3, true); printf(\"High-current mode active: 3.5A\\n\"); } ```cpp . | . ",
     "url": "/hf-tle92466ed-driver/development/docs/examples/#example-2-parallel-operation-high-current",
     
     "relUrl": "/docs/examples/#example-2-parallel-operation-high-current"
-  },"64": {
+  },"61": {
     "doc": "💡 Examples",
     "title": "Example 3: Fault Monitoring",
     "content": "This example shows how to monitor and handle faults. ```cpp void monitor_faults() { tle92466ed::Driver driver(*hal); driver.Init(); driver.EnterMissionMode(); . | 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 . | // Enable channel driver.EnableChannel(tle92466ed::Channel::CH0, true); while (true) { // Check for faults if (auto has_fault = driver.HasAnyFault(); has_fault &amp;&amp; *has_fault) { // Get detailed fault report if (auto faults = driver.GetAllFaults(); faults) { auto&amp; report = *faults; if (report.vbat_uv) { printf(\"VBAT undervoltage detected!\\n\"); } if (report.channels[0].overcurrent) { printf(\"Channel 0 overcurrent!\\n\"); driver.DisableAllChannels(); } // Clear faults after handling driver.ClearFaults(); } } vTaskDelay(pdMS_TO_TICKS(100)); } } ```cpp . | . ",
     "url": "/hf-tle92466ed-driver/development/docs/examples/#example-3-fault-monitoring",
     
     "relUrl": "/docs/examples/#example-3-fault-monitoring"
-  },"65": {
+  },"62": {
     "doc": "💡 Examples",
     "title": "Example 4: Multi-Channel Control",
     "content": "This example demonstrates controlling multiple channels independently. ```cpp void multi_channel_control() { tle92466ed::Driver driver(*hal); driver.Init(); driver.EnterMissionMode(); . | 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 . | // Configure multiple channels with different currents driver.SetChannelMode(tle92466ed::Channel::CH0, tle92466ed::ChannelMode::ICC); driver.SetChannelMode(tle92466ed::Channel::CH1, tle92466ed::ChannelMode::ICC); driver.SetChannelMode(tle92466ed::Channel::CH2, tle92466ed::ChannelMode::ICC); driver.SetCurrentSetpoint(tle92466ed::Channel::CH0, 1000); // 1A driver.SetCurrentSetpoint(tle92466ed::Channel::CH1, 1500); // 1.5A driver.SetCurrentSetpoint(tle92466ed::Channel::CH2, 800); // 0.8A // Enable all channels driver.EnableChannels(0x07); // Bits 0,1,2 = CH0, CH1, CH2 // Monitor all channels while (true) { for (uint8_t ch = 0; ch &lt; 3; ch++) { if (auto current = driver.GetAverageCurrent(static_cast&lt;tle92466ed::Channel&gt;(ch)); current) { printf(\"CH%d: %u mA\\n\", ch, *current); } } vTaskDelay(pdMS_TO_TICKS(100)); } } ```text . | . ",
     "url": "/hf-tle92466ed-driver/development/docs/examples/#example-4-multi-channel-control",
     
     "relUrl": "/docs/examples/#example-4-multi-channel-control"
-  },"66": {
+  },"63": {
     "doc": "💡 Examples",
     "title": "Example 5: PWM and Dither Configuration",
     "content": "This example shows advanced PWM and dither configuration. ```cpp void advanced_current_control() { tle92466ed::Driver driver(*hal); driver.Init(); driver.EnterConfigMode(); . | 1 2 3 4 5 6 7 8 9 10 11 12 13 14 . | // Configure channel 0 driver.SetChannelMode(tle92466ed::Channel::CH0, tle92466ed::ChannelMode::ICC); // Set PWM period to 100 µs driver.ConfigurePwmPeriod(tle92466ed::Channel::CH0, 100.0f); // Configure dither: 50mA amplitude, 1000Hz frequency driver.ConfigureDither(tle92466ed::Channel::CH0, 50.0f, 1000.0f); // Set current driver.SetCurrentSetpoint(tle92466ed::Channel::CH0, 1500); driver.EnterMissionMode(); driver.EnableChannel(tle92466ed::Channel::CH0, true); } ```text . | . ",
     "url": "/hf-tle92466ed-driver/development/docs/examples/#example-5-pwm-and-dither-configuration",
     
     "relUrl": "/docs/examples/#example-5-pwm-and-dither-configuration"
-  },"67": {
+  },"64": {
     "doc": "💡 Examples",
     "title": "Example 6: Complete Channel Configuration",
     "content": "This example shows complete channel configuration using ChannelConfig structure. ```cpp void complete_channel_setup() { tle92466ed::Driver driver(*hal); driver.Init(); driver.EnterConfigMode(); . | 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 . | // Complete channel configuration tle92466ed::ChannelConfig config; config.mode = tle92466ed::ChannelMode::ICC; config.current_setpoint_ma = 1500; config.slew_rate = tle92466ed::SlewRate::MEDIUM_2V5_US; config.diag_current = tle92466ed::DiagCurrent::I_80UA; config.open_load_threshold = 3; // 3/8 threshold config.pwm_period_mantissa = 100; config.pwm_period_exponent = 3; config.deep_dither_enabled = false; config.dither_step_size = 50; config.dither_steps = 10; config.dither_flat = 5; driver.ConfigureChannel(tle92466ed::Channel::CH0, config); driver.EnterMissionMode(); driver.EnableChannel(tle92466ed::Channel::CH0, true); } ```cpp . | . ",
     "url": "/hf-tle92466ed-driver/development/docs/examples/#example-6-complete-channel-configuration",
     
     "relUrl": "/docs/examples/#example-6-complete-channel-configuration"
-  },"68": {
+  },"65": {
     "doc": "💡 Examples",
     "title": "Example 7: Voltage Monitoring",
     "content": "This example demonstrates monitoring supply voltages. ```cpp void monitor_voltages() { tle92466ed::Driver driver(*hal); driver.Init(); . | 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 . | while (true) { // Read voltages if (auto vbat = driver.GetVbatVoltage(); vbat) { printf(\"VBAT: %u mV\\n\", *vbat); } if (auto vio = driver.GetVioVoltage(); vio) { printf(\"VIO: %u mV\\n\", *vio); } if (auto vdd = driver.GetVddVoltage(); vdd) { printf(\"VDD: %u mV\\n\", *vdd); } vTaskDelay(pdMS_TO_TICKS(1000)); } } ```cpp . | . ",
     "url": "/hf-tle92466ed-driver/development/docs/examples/#example-7-voltage-monitoring",
     
     "relUrl": "/docs/examples/#example-7-voltage-monitoring"
-  },"69": {
+  },"66": {
     "doc": "💡 Examples",
     "title": "Next Steps",
     "content": ". | Review the API Reference for all available methods | Check Configuration for customization options | See Troubleshooting for common issues | . Navigation ⬅️ Configuration | Next: Troubleshooting ➡️ | Back to Index . ",
     "url": "/hf-tle92466ed-driver/development/docs/examples/#next-steps",
     
     "relUrl": "/docs/examples/#next-steps"
-  },"70": {
+  },"67": {
     "doc": "💡 Examples",
     "title": "💡 Examples",
     "content": " ",
     "url": "/hf-tle92466ed-driver/development/docs/examples/",
     
     "relUrl": "/docs/examples/"
-  },"71": {
+  },"68": {
     "doc": "🔌 Hardware Setup",
     "title": "Hardware Setup",
     "content": "This guide covers the physical connections and hardware requirements for the TLE92466ED Six-Channel Low-Side Solenoid Driver IC. ",
     "url": "/hf-tle92466ed-driver/development/docs/hardware_setup/#hardware-setup",
     
     "relUrl": "/docs/hardware_setup/#hardware-setup"
-  },"72": {
+  },"69": {
     "doc": "🔌 Hardware Setup",
     "title": "Pin Connections",
     "content": " ",
     "url": "/hf-tle92466ed-driver/development/docs/hardware_setup/#pin-connections",
     
     "relUrl": "/docs/hardware_setup/#pin-connections"
-  },"73": {
+  },"70": {
     "doc": "🔌 Hardware Setup",
     "title": "Basic SPI Connections",
     "content": "text MCU TLE92466ED ───────────────────────── 3.3V/5V ────── VIO GND ────── GND 5.5-41V ────── VBAT SCK ────── SCK MOSI ────── SI MISO ────── SO CS ────── CSN cpp . ",
     "url": "/hf-tle92466ed-driver/development/docs/hardware_setup/#basic-spi-connections",
     
     "relUrl": "/docs/hardware_setup/#basic-spi-connections"
-  },"74": {
+  },"71": {
     "doc": "🔌 Hardware Setup",
     "title": "Control Pins",
     "content": "text MCU TLE92466ED ───────────────────────── GPIO ────── RESN (optional, active low reset) GPIO ────── EN (optional, active high enable) GPIO ────── FAULTN (optional, active low fault output) cpp . ",
     "url": "/hf-tle92466ed-driver/development/docs/hardware_setup/#control-pins",
     
     "relUrl": "/docs/hardware_setup/#control-pins"
-  },"75": {
+  },"72": {
     "doc": "🔌 Hardware Setup",
     "title": "Pin Descriptions",
     "content": "| Pin | Name | Description | Required | . | VBAT | Power | Battery voltage supply (5.5V - 41V) | Yes | . | VIO | Power | SPI I/O voltage (3.0V - 5.5V, typically 3.3V or 5.0V) | Yes | . | VDD | Power | Internal 5V supply output (max 10mA load) | No | . | GND | Ground | Ground reference | Yes | . | SCK | Clock | SPI clock line (up to 10 MHz) | Yes | . | SI | Data In | SPI data input (MOSI) | Yes | . | SO | Data Out | SPI data output (MISO) | Yes | . | CSN | Chip Select | SPI chip select (active low) | Yes | . | RESN | Reset | Active-low reset (optional) | No | . | EN | Enable | Active-high global enable (optional) | No | . | FAULTN | Fault | Active-low fault indication (open drain, optional) | No | . | OUT0-5 | Outputs | Low-side switch outputs (6 channels) | Yes | . ",
     "url": "/hf-tle92466ed-driver/development/docs/hardware_setup/#pin-descriptions",
     
     "relUrl": "/docs/hardware_setup/#pin-descriptions"
-  },"76": {
+  },"73": {
     "doc": "🔌 Hardware Setup",
     "title": "Power Requirements",
     "content": ". | VBAT (Battery Supply): 5.5V - 41V (12V or 24V typical for automotive) | VIO (I/O Supply): 3.0V - 5.5V (3.3V or 5.0V typical) | VDD (Internal 5V): Output from IC, max 10mA load | Current per Channel: Up to 2A single channel, 4A parallel mode | Power Supply: Clean supply with decoupling capacitors (100nF ceramic + 10µF tantalum recommended) | . ",
     "url": "/hf-tle92466ed-driver/development/docs/hardware_setup/#power-requirements",
     
     "relUrl": "/docs/hardware_setup/#power-requirements"
-  },"77": {
+  },"74": {
     "doc": "🔌 Hardware Setup",
     "title": "SPI Configuration",
     "content": ". | Mode: SPI Mode 1 (CPOL=0, CPHA=1) | Speed: Up to 10 MHz | Bit Order: MSB first | CS Polarity: Active low (CSN) | Data Format: 32-bit frames with 8-bit CRC (SAE J1850) | Frame Structure: CRC[31:24] + Address[23:17] + R/W[16] + Data[15:0] | . ",
     "url": "/hf-tle92466ed-driver/development/docs/hardware_setup/#spi-configuration",
     
     "relUrl": "/docs/hardware_setup/#spi-configuration"
-  },"78": {
+  },"75": {
     "doc": "🔌 Hardware Setup",
     "title": "Load Connections",
     "content": " ",
     "url": "/hf-tle92466ed-driver/development/docs/hardware_setup/#load-connections",
     
     "relUrl": "/docs/hardware_setup/#load-connections"
-  },"79": {
+  },"76": {
     "doc": "🔌 Hardware Setup",
     "title": "Single Channel Mode",
     "content": "Connect the load between OUTx and VBAT (or positive supply): . cpp VBAT ────[Load]──── OUTx ──── GND cpp . ",
     "url": "/hf-tle92466ed-driver/development/docs/hardware_setup/#single-channel-mode",
     
     "relUrl": "/docs/hardware_setup/#single-channel-mode"
-  },"80": {
+  },"77": {
     "doc": "🔌 Hardware Setup",
     "title": "Parallel Channel Mode",
     "content": "For higher current, connect channels in parallel (pairs: 0/3, 1/2, 4/5): . cpp VBAT ────[Load]──── OUT0 ──── GND └──── OUT3 ──── GND cpp . ",
     "url": "/hf-tle92466ed-driver/development/docs/hardware_setup/#parallel-channel-mode",
     
     "relUrl": "/docs/hardware_setup/#parallel-channel-mode"
-  },"81": {
+  },"78": {
     "doc": "🔌 Hardware Setup",
     "title": "Physical Layout Recommendations",
     "content": ". | Keep SPI traces short (&lt; 10cm recommended) | Use ground plane for noise reduction | Place decoupling capacitors (100nF ceramic + 10µF tantalum) close to VBAT and VIO pins | Route clock and data lines away from noise sources | Keep high-current traces (OUT0-5) away from sensitive signals | Use appropriate trace widths for high-current paths (1A = ~20 mils minimum) | Add flyback diodes for inductive loads (solenoids, valves) | . ",
     "url": "/hf-tle92466ed-driver/development/docs/hardware_setup/#physical-layout-recommendations",
     
     "relUrl": "/docs/hardware_setup/#physical-layout-recommendations"
-  },"82": {
+  },"79": {
     "doc": "🔌 Hardware Setup",
     "title": "Example Wiring Diagram",
     "content": "text TLE92466ED ┌─────────┐ 12V/24V ─────┤ VBAT │ 3.3V ─────┤ VIO │ GND ─────┤ GND │ SCK ─────┤ SCK │ MOSI ─────┤ SI │ MISO ─────┤ SO │ CS ─────┤ CSN │ └─────────┘ │ │ OUT0 ├───[Solenoid]─── VBAT │ │ OUT1 ├───[Valve]─── VBAT cpp . ",
     "url": "/hf-tle92466ed-driver/development/docs/hardware_setup/#example-wiring-diagram",
     
     "relUrl": "/docs/hardware_setup/#example-wiring-diagram"
-  },"83": {
+  },"80": {
     "doc": "🔌 Hardware Setup",
     "title": "Protection Components",
     "content": " ",
     "url": "/hf-tle92466ed-driver/development/docs/hardware_setup/#protection-components",
     
     "relUrl": "/docs/hardware_setup/#protection-components"
-  },"84": {
+  },"81": {
     "doc": "🔌 Hardware Setup",
     "title": "Flyback Diodes",
     "content": "For inductive loads (solenoids, valves), the TLE92466ED has internal protection, but external flyback diodes may be needed for very high inductance loads: . cpp VBAT ────[Flyback Diode]─── OUTx (cathode to VBAT) cpp . ",
     "url": "/hf-tle92466ed-driver/development/docs/hardware_setup/#flyback-diodes",
     
     "relUrl": "/docs/hardware_setup/#flyback-diodes"
-  },"85": {
+  },"82": {
     "doc": "🔌 Hardware Setup",
     "title": "Current Limiting",
     "content": "The TLE92466ED has built-in overcurrent protection (OCP) and current regulation via ICC, but you may want to add external fuses for additional safety. ",
     "url": "/hf-tle92466ed-driver/development/docs/hardware_setup/#current-limiting",
     
     "relUrl": "/docs/hardware_setup/#current-limiting"
-  },"86": {
+  },"83": {
     "doc": "🔌 Hardware Setup",
     "title": "Next Steps",
     "content": ". | Verify connections with a multimeter | Proceed to Quick Start to test the connection | Review Platform Integration for software setup | . Navigation ⬅️ Quick Start | Next: Platform Integration ➡️ | Back to Index . ",
     "url": "/hf-tle92466ed-driver/development/docs/hardware_setup/#next-steps",
     
     "relUrl": "/docs/hardware_setup/#next-steps"
-  },"87": {
+  },"84": {
     "doc": "🔌 Hardware Setup",
     "title": "🔌 Hardware Setup",
     "content": " ",
     "url": "/hf-tle92466ed-driver/development/docs/hardware_setup/",
     
     "relUrl": "/docs/hardware_setup/"
-  },"88": {
+  },"85": {
     "doc": "📚 Documentation",
     "title": "HF-TLE92466ED Documentation",
     "content": "Welcome! This directory contains step-by-step guides for installing, building, and using the HF-TLE92466ED library. ",
     "url": "/hf-tle92466ed-driver/development/docs/#hf-tle92466ed-documentation",
     
     "relUrl": "/docs/#hf-tle92466ed-documentation"
-  },"89": {
+  },"86": {
     "doc": "📚 Documentation",
     "title": "📚 Documentation Structure",
     "content": " ",
     "url": "/hf-tle92466ed-driver/development/docs/#-documentation-structure",
     
     "relUrl": "/docs/#-documentation-structure"
-  },"90": {
+  },"87": {
     "doc": "📚 Documentation",
     "title": "Getting Started",
     "content": ". | 🛠️ Installation – Prerequisites and how to obtain the source | ⚡ Quick Start – Minimal working example to get you running | 🔌 Hardware Setup – Wiring diagrams and pin connections | . ",
     "url": "/hf-tle92466ed-driver/development/docs/#getting-started",
     
     "relUrl": "/docs/#getting-started"
-  },"91": {
+  },"88": {
     "doc": "📚 Documentation",
     "title": "Integration",
     "content": ". | 🔧 Platform Integration – Implement the SPI interface for your platform | ⚙️ Configuration – Configuration options and settings | . ",
     "url": "/hf-tle92466ed-driver/development/docs/#integration",
     
     "relUrl": "/docs/#integration"
-  },"92": {
+  },"89": {
     "doc": "📚 Documentation",
     "title": "Reference",
     "content": ". | 📖 API Reference – Complete API documentation | 💡 Examples – Detailed example walkthroughs | . ",
     "url": "/hf-tle92466ed-driver/development/docs/#reference",
     
     "relUrl": "/docs/#reference"
-  },"93": {
+  },"90": {
     "doc": "📚 Documentation",
     "title": "Troubleshooting",
     "content": ". | 🐛 Troubleshooting – Common issues and solutions | . ",
     "url": "/hf-tle92466ed-driver/development/docs/#troubleshooting",
     
     "relUrl": "/docs/#troubleshooting"
-  },"94": {
+  },"91": {
     "doc": "📚 Documentation",
     "title": "🚀 Quick Start Path",
     "content": "New to TLE92466ED? Follow this recommended path: . | Start with Installation to prepare your environment | Follow Hardware Setup to wire your hardware | Read Quick Start for a minimal working example | Check Platform Integration to implement the SPI interface | Explore Examples for more advanced usage | . ",
     "url": "/hf-tle92466ed-driver/development/docs/#-quick-start-path",
     
     "relUrl": "/docs/#-quick-start-path"
-  },"95": {
+  },"92": {
     "doc": "📚 Documentation",
     "title": "💡 Need Help?",
     "content": ". | 🐛 Found a bug? Check the Troubleshooting guide | ❓ Have questions? Review the API Reference | 📝 Want to contribute? See the contributing guidelines in the main README | . Navigation ➡️ Installation . ",
     "url": "/hf-tle92466ed-driver/development/docs/#-need-help",
     
     "relUrl": "/docs/#-need-help"
-  },"96": {
+  },"93": {
     "doc": "📚 Documentation",
     "title": "📚 Documentation",
     "content": " ",
     "url": "/hf-tle92466ed-driver/development/docs/",
     
     "relUrl": "/docs/"
-  },"97": {
+  },"94": {
     "doc": "🛠️ Installation",
     "title": "Installation",
     "content": "This guide covers how to obtain and integrate the TLE92466ED driver library into your project. ",
     "url": "/hf-tle92466ed-driver/development/docs/installation/#installation",
     
     "relUrl": "/docs/installation/#installation"
-  },"98": {
+  },"95": {
     "doc": "🛠️ Installation",
     "title": "Prerequisites",
     "content": "Before installing the driver, ensure you have: . | C++20 Compiler: GCC 10+, Clang 11+, or MSVC 2022+ (C++23 std::expected is used automatically if available) | Build System: Make, CMake, or ESP-IDF (depending on your platform) | Platform SDK: ESP-IDF, STM32 HAL, Arduino, or your platform’s SPI driver | . ",
     "url": "/hf-tle92466ed-driver/development/docs/installation/#prerequisites",
     
     "relUrl": "/docs/installation/#prerequisites"
-  },"99": {
+  },"96": {
     "doc": "🛠️ Installation",
     "title": "Obtaining the Source",
     "content": " ",
     "url": "/hf-tle92466ed-driver/development/docs/installation/#obtaining-the-source",
     
     "relUrl": "/docs/installation/#obtaining-the-source"
-  },"100": {
+  },"97": {
     "doc": "🛠️ Installation",
     "title": "Option 1: Git Clone",
     "content": "bash git clone https://github.com/n3b3x/hf-tle92466ed-driver.git cd hf-tle92466ed-driver text . ",
     "url": "/hf-tle92466ed-driver/development/docs/installation/#option-1-git-clone",
     
     "relUrl": "/docs/installation/#option-1-git-clone"
-  },"101": {
+  },"98": {
     "doc": "🛠️ Installation",
     "title": "Option 2: Copy Files",
     "content": "Copy the following files into your project: . cpp inc/ ├── tle92466ed.hpp ├── tle92466ed_spi_interface.hpp ├── tle92466ed_registers.hpp └── tle92466ed_expected.hpp src/ └── tle92466ed.cpp cpp . ",
     "url": "/hf-tle92466ed-driver/development/docs/installation/#option-2-copy-files",
     
     "relUrl": "/docs/installation/#option-2-copy-files"
-  },"102": {
+  },"99": {
     "doc": "🛠️ Installation",
     "title": "Integration Methods",
     "content": " ",
     "url": "/hf-tle92466ed-driver/development/docs/installation/#integration-methods",
     
     "relUrl": "/docs/installation/#integration-methods"
-  },"103": {
+  },"100": {
     "doc": "🛠️ Installation",
     "title": "Using CMake",
     "content": "Add the driver as a subdirectory in your CMakeLists.txt: . cmake add_subdirectory(external/hf-tle92466ed-driver) target_link_libraries(your_target PRIVATE hf_tle92466ed) target_include_directories(your_target PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/external/hf-tle92466ed-driver/inc ) cpp . ",
     "url": "/hf-tle92466ed-driver/development/docs/installation/#using-cmake",
     
     "relUrl": "/docs/installation/#using-cmake"
-  },"104": {
+  },"101": {
     "doc": "🛠️ Installation",
     "title": "Using ESP-IDF Component",
     "content": "The driver can be used as an ESP-IDF component. Add it to your components directory: . ```cmake . ",
     "url": "/hf-tle92466ed-driver/development/docs/installation/#using-esp-idf-component",
     
     "relUrl": "/docs/installation/#using-esp-idf-component"
-  },"105": {
+  },"102": {
     "doc": "🛠️ Installation",
     "title": "In your main CMakeLists.txt",
     "content": "idf_component_register( SRCS “your_code.cpp” INCLUDE_DIRS “.” REQUIRES hf_tle92466ed ) ```cpp . ",
     "url": "/hf-tle92466ed-driver/development/docs/installation/#in-your-main-cmakeliststxt",
     
     "relUrl": "/docs/installation/#in-your-main-cmakeliststxt"
-  },"106": {
+  },"103": {
     "doc": "🛠️ Installation",
     "title": "Manual Integration",
     "content": ". | Copy the driver files to your project | Add the inc/ directory to your include path | Include the header: . cpp #include \"tle92466ed.hpp\" cpp . | Compile with C++20 support: . bash g++ -std=c++20 -I inc/ your_code.cpp src/tle92466ed.cpp cpp . | . ",
     "url": "/hf-tle92466ed-driver/development/docs/installation/#manual-integration",
     
     "relUrl": "/docs/installation/#manual-integration"
-  },"107": {
+  },"104": {
     "doc": "🛠️ Installation",
     "title": "Verification",
     "content": "To verify the installation: . | Include the header in a test file: . cpp #include \"tle92466ed.hpp\" cpp . | Compile a simple test: . bash g++ -std=c++20 -I inc/ -c src/tle92466ed.cpp -o test.o cpp . | If compilation succeeds, the library is properly installed. | . ",
     "url": "/hf-tle92466ed-driver/development/docs/installation/#verification",
     
     "relUrl": "/docs/installation/#verification"
-  },"108": {
+  },"105": {
     "doc": "🛠️ Installation",
     "title": "Next Steps",
     "content": ". | Follow the Quick Start guide to create your first application | Review Hardware Setup for wiring instructions | Check Platform Integration to implement the SPI interface | . Navigation ⬅️ Back to Index | Next: Quick Start ➡️ . ",
     "url": "/hf-tle92466ed-driver/development/docs/installation/#next-steps",
     
     "relUrl": "/docs/installation/#next-steps"
-  },"109": {
+  },"106": {
     "doc": "🛠️ Installation",
     "title": "🛠️ Installation",
     "content": " ",
     "url": "/hf-tle92466ed-driver/development/docs/installation/",
     
     "relUrl": "/docs/installation/"
-  },"110": {
+  },"107": {
     "doc": "🔧 Platform Integration",
     "title": "Platform Integration Guide",
     "content": "This guide explains how to implement the hardware abstraction interface for the TLE92466ED driver on your platform. ",
     "url": "/hf-tle92466ed-driver/development/docs/platform_integration/#platform-integration-guide",
     
     "relUrl": "/docs/platform_integration/#platform-integration-guide"
-  },"111": {
+  },"108": {
     "doc": "🔧 Platform Integration",
     "title": "Understanding the SPI Interface",
     "content": "The TLE92466ED driver uses a polymorphic SPI interface design for hardware abstraction. This design choice provides several critical benefits for embedded systems: . ",
     "url": "/hf-tle92466ed-driver/development/docs/platform_integration/#understanding-the-spi-interface",
     
     "relUrl": "/docs/platform_integration/#understanding-the-spi-interface"
-  },"112": {
+  },"109": {
     "doc": "🔧 Platform Integration",
     "title": "Why This Design?",
     "content": "1. Hardware Portability . | Write driver code once, run on any platform | Easy migration between MCUs (ESP32, STM32, Arduino, etc.) | Platform-specific code isolated in one class | . 2. Type Safety . | Compile-time interface checking | Clear contract for required methods | Catch implementation errors at compile time | . 3. Modern C++20 . | Uses tle::expected for error handling (aliases to std::expected on C++23, polyfill on C++20) | All functions noexcept for embedded safety | Zero-overhead abstractions | . ",
     "url": "/hf-tle92466ed-driver/development/docs/platform_integration/#why-this-design",
     
     "relUrl": "/docs/platform_integration/#why-this-design"
-  },"113": {
+  },"110": {
     "doc": "🔧 Platform Integration",
     "title": "How It Works",
     "content": "```cpp // Base interface class (from tle92466ed_spi_interface.hpp) class SpiInterface { public: virtual auto spiTransfer(std::span txData, std::span rxData) noexcept -&gt; std::expected&lt;void, CommError&gt; = 0; . | 1 . | virtual void delayMicroseconds(uint32_t us) noexcept = 0; }; . | . // Your implementation class MySpi : public SpiInterface { public: auto spiTransfer(std::span txData, std::span rxData) noexcept -&gt; std::expected&lt;void, CommError&gt; override { // Your platform-specific SPI code return {}; } . | 1 2 3 . | void delayMicroseconds(uint32_t us) noexcept override { // Your delay implementation } }; ```cpp . | . ",
     "url": "/hf-tle92466ed-driver/development/docs/platform_integration/#how-it-works",
     
     "relUrl": "/docs/platform_integration/#how-it-works"
-  },"114": {
+  },"111": {
     "doc": "🔧 Platform Integration",
     "title": "Interface Definition",
     "content": "The TLE92466ED driver requires you to implement the following interface: . ```cpp class SpiInterface { public: // Required methods (implement all of these) virtual auto spiTransfer(std::span txData, std::span rxData) noexcept -&gt; std::expected&lt;void, CommError&gt; = 0; . | 1 2 3 4 5 6 7 8 . | virtual void delayMicroseconds(uint32_t us) noexcept = 0; // Optional control pin methods virtual auto GpioSet(CtrlPin pin, GpioSignal signal) noexcept -&gt; std::expected&lt;void, CommError&gt;; virtual auto GpioRead(CtrlPin pin) noexcept -&gt; std::expected&lt;GpioSignal, CommError&gt;; }; ```cpp . | . ",
     "url": "/hf-tle92466ed-driver/development/docs/platform_integration/#interface-definition",
     
     "relUrl": "/docs/platform_integration/#interface-definition"
-  },"115": {
+  },"112": {
     "doc": "🔧 Platform Integration",
     "title": "Implementation Steps",
     "content": " ",
     "url": "/hf-tle92466ed-driver/development/docs/platform_integration/#implementation-steps",
     
     "relUrl": "/docs/platform_integration/#implementation-steps"
-  },"116": {
+  },"113": {
     "doc": "🔧 Platform Integration",
     "title": "Step 1: Create Your Implementation Class",
     "content": "```cpp #include “tle92466ed_spi_interface.hpp” . class MyPlatformSPI : public tle92466ed::SpiInterface { private: // Your platform-specific members spi_device_handle_t spi_device_; // Example for ESP32 . public: // Constructor MyPlatformSPI(spi_device_handle_t device) : spi_device_(device) {} . | 1 2 3 4 5 6 7 8 9 10 11 12 . | // Implement required methods auto spiTransfer(std::span&lt;const uint8_t&gt; txData, std::span&lt;uint8_t&gt; rxData) noexcept -&gt; std::expected&lt;void, tle92466ed::CommError&gt; override { // Your transfer code - must handle 32-bit frames // TLE92466ED uses 32-bit SPI frames with CRC-8 return {}; } void delayMicroseconds(uint32_t us) noexcept override { // Your delay implementation } }; ```cpp . | . ",
     "url": "/hf-tle92466ed-driver/development/docs/platform_integration/#step-1-create-your-implementation-class",
     
     "relUrl": "/docs/platform_integration/#step-1-create-your-implementation-class"
-  },"117": {
+  },"114": {
     "doc": "🔧 Platform Integration",
     "title": "Step 2: Platform-Specific Examples",
     "content": "ESP32 (ESP-IDF) . ```cpp #include “driver/spi_master.h” #include “tle92466ed_spi_interface.hpp” . class Esp32SPIBus : public tle92466ed::SpiInterface { private: spi_device_handle_t spi_device_; gpio_num_t cs_pin_; . public: Esp32SPIBus(spi_host_device_t host, const spi_device_interface_config_t&amp; config, gpio_num_t cs) { spi_bus_add_device(host, &amp;config, &amp;spi_device_); cs_pin_ = cs; } . | 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 . | auto spiTransfer(std::span&lt;const uint8_t&gt; txData, std::span&lt;uint8_t&gt; rxData) noexcept -&gt; std::expected&lt;void, tle92466ed::CommError&gt; override { // TLE92466ED uses 32-bit frames if (txData.size() &lt; 4 || rxData.size() &lt; 4) { return tle::unexpected(tle92466ed::CommError::InvalidParameter); } spi_transaction_t trans = {}; trans.length = 32; // 32 bits per frame trans.tx_buffer = txData.data(); trans.rx_buffer = rxData.data(); esp_err_t ret = spi_device_transmit(spi_device_, &amp;trans); if (ret != ESP_OK) { return tle::unexpected(tle92466ed::CommError::BusError); } return {}; } void delayMicroseconds(uint32_t us) noexcept override { esp_rom_delay_us(us); } }; ```cpp . | . STM32 (HAL) . ```cpp #include “stm32f4xx_hal.h” #include “tle92466ed_spi_interface.hpp” . extern SPI_HandleTypeDef hspi1; . class STM32SPIBus : public tle92466ed::SpiInterface { private: GPIO_TypeDef* cs_port_; uint16_t cs_pin_; . public: STM32SPIBus(GPIO_TypeDef* cs_port, uint16t cs_pin) : cs_port(cs_port), cs_pin_(cs_pin) {} . | 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 . | auto spiTransfer(std::span&lt;const uint8_t&gt; txData, std::span&lt;uint8_t&gt; rxData) noexcept -&gt; std::expected&lt;void, tle92466ed::CommError&gt; override { // Assert CS HAL_GPIO_WritePin(cs_port_, cs_pin_, GPIO_PIN_RESET); // Transfer 32-bit frame (4 bytes) HAL_StatusTypeDef status = HAL_SPI_TransmitReceive(&amp;hspi1, const_cast&lt;uint8_t*&gt;(txData.data()), rxData.data(), 4, 100); // Deassert CS HAL_GPIO_WritePin(cs_port_, cs_pin_, GPIO_PIN_SET); if (status != HAL_OK) { return tle::unexpected(tle92466ed::CommError::BusError); } return {}; } void delayMicroseconds(uint32_t us) noexcept override { // STM32 HAL delay (approximate) HAL_Delay((us + 999) / 1000); // Convert to milliseconds } }; ```cpp . | . Arduino . ```cpp #include #include \"tle92466ed_spi_interface.hpp\" . class ArduinoSPIBus : public tle92466ed::SpiInterface { private: uint8_t cs_pin_; . public: ArduinoSPIBus(uint8t cs_pin) : cs_pin(cs_pin) { pinMode(cs_pin_, OUTPUT); digitalWrite(cs_pin_, HIGH); SPI.begin(); SPI.beginTransaction(SPISettings(1000000, MSBFIRST, SPI_MODE1)); } . | 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 . | auto spiTransfer(std::span&lt;const uint8_t&gt; txData, std::span&lt;uint8_t&gt; rxData) noexcept -&gt; std::expected&lt;void, tle92466ed::CommError&gt; override { digitalWrite(cs_pin_, LOW); // Transfer 32-bit frame (4 bytes) for (size_t i = 0; i &lt; 4; i++) { rxData[i] = SPI.transfer(txData[i]); } digitalWrite(cs_pin_, HIGH); return {}; } void delayMicroseconds(uint32_t us) noexcept override { delayMicroseconds(us); } }; ```cpp . | . ",
     "url": "/hf-tle92466ed-driver/development/docs/platform_integration/#step-2-platform-specific-examples",
     
     "relUrl": "/docs/platform_integration/#step-2-platform-specific-examples"
-  },"118": {
+  },"115": {
     "doc": "🔧 Platform Integration",
     "title": "SPI Frame Format",
     "content": "The TLE92466ED uses 32-bit SPI frames with CRC-8 (SAE J1850): . ",
     "url": "/hf-tle92466ed-driver/development/docs/platform_integration/#spi-frame-format",
     
     "relUrl": "/docs/platform_integration/#spi-frame-format"
-  },"119": {
+  },"116": {
     "doc": "🔧 Platform Integration",
     "title": "Write Frame Format",
     "content": "cpp Bits 31-24 | Bits 23-17 | Bit 16 | Bits 15-0 -----------+------------+--------+----------- CRC (8-bit)| Address(7) | R/W | Data (16) | 1=W | cpp . ",
     "url": "/hf-tle92466ed-driver/development/docs/platform_integration/#write-frame-format",
     
     "relUrl": "/docs/platform_integration/#write-frame-format"
-  },"120": {
+  },"117": {
     "doc": "🔧 Platform Integration",
     "title": "Read Frame Format",
     "content": "cpp Bits 31-24 | Bits 23-17 | Bit 16 | Bits 15-0 -----------+------------+--------+----------- CRC (8-bit)| Don't Care | R/W | Address (16-bit) | 0=R | text . ",
     "url": "/hf-tle92466ed-driver/development/docs/platform_integration/#read-frame-format",
     
     "relUrl": "/docs/platform_integration/#read-frame-format"
-  },"121": {
+  },"118": {
     "doc": "🔧 Platform Integration",
     "title": "SPI Configuration",
     "content": ". | Mode: SPI Mode 1 (CPOL=0, CPHA=1) | Speed: Up to 10 MHz | Bit Order: MSB first | CS Polarity: Active low | Frame Size: 32 bits (4 bytes) | . ",
     "url": "/hf-tle92466ed-driver/development/docs/platform_integration/#spi-configuration",
     
     "relUrl": "/docs/platform_integration/#spi-configuration"
-  },"122": {
+  },"119": {
     "doc": "🔧 Platform Integration",
     "title": "Control Pins (Optional)",
     "content": "The TLE92466ED has optional control pins that can be implemented: . | RESN: Active-low reset pin | EN: Active-high enable pin | FAULTN: Active-low fault output (open drain) | . cpp auto GpioSet(tle92466ed::CtrlPin pin, tle92466ed::GpioSignal signal) noexcept -&gt; std::expected&lt;void, tle92466ed::CommError&gt; override { switch (pin) { case tle92466ed::CtrlPin::RESN: // Set RESN pin (active low) gpio_set_level(resn_pin_, signal == tle92466ed::GpioSignal::ACTIVE ? 0 : 1); break; case tle92466ed::CtrlPin::EN: // Set EN pin (active high) gpio_set_level(en_pin_, signal == tle92466ed::GpioSignal::ACTIVE ? 1 : 0); break; default: return tle::unexpected(tle92466ed::CommError::InvalidParameter); } return {}; } cpp . ",
     "url": "/hf-tle92466ed-driver/development/docs/platform_integration/#control-pins-optional",
     
     "relUrl": "/docs/platform_integration/#control-pins-optional"
-  },"123": {
+  },"120": {
     "doc": "🔧 Platform Integration",
     "title": "Error Handling",
     "content": "All methods return std::expected&lt;T, CommError&gt;. Handle errors like this: . cpp if (auto result = spi_interface.spiTransfer(tx, rx); !result) { // Handle error switch (result.error()) { case tle92466ed::CommError::BusError: // SPI bus error break; case tle92466ed::CommError::Timeout: // Operation timeout break; default: // Other errors break; } } cpp . ",
     "url": "/hf-tle92466ed-driver/development/docs/platform_integration/#error-handling",
     
     "relUrl": "/docs/platform_integration/#error-handling"
-  },"124": {
+  },"121": {
     "doc": "🔧 Platform Integration",
     "title": "Testing Your Implementation",
     "content": ". | Create a simple test that transfers a known frame | Verify CRC calculation matches expected values | Test error conditions (timeout, bus error, etc.) | Verify timing requirements are met | . ",
     "url": "/hf-tle92466ed-driver/development/docs/platform_integration/#testing-your-implementation",
     
     "relUrl": "/docs/platform_integration/#testing-your-implementation"
-  },"125": {
+  },"122": {
     "doc": "🔧 Platform Integration",
     "title": "Next Steps",
     "content": ". | Review the API Reference for driver methods | Check Examples for complete usage examples | See Troubleshooting for common issues | . Navigation ⬅️ Hardware Setup | Next: Configuration ➡️ | Back to Index . ",
     "url": "/hf-tle92466ed-driver/development/docs/platform_integration/#next-steps",
     
     "relUrl": "/docs/platform_integration/#next-steps"
-  },"126": {
+  },"123": {
     "doc": "🔧 Platform Integration",
     "title": "🔧 Platform Integration",
     "content": " ",
     "url": "/hf-tle92466ed-driver/development/docs/platform_integration/",
     
     "relUrl": "/docs/platform_integration/"
-  },"127": {
+  },"124": {
     "doc": "⚡ Quick Start",
     "title": "Quick Start",
     "content": "This guide will get you up and running with the TLE92466ED driver in just a few steps. ",
     "url": "/hf-tle92466ed-driver/development/docs/quickstart/#quick-start",
     
     "relUrl": "/docs/quickstart/#quick-start"
-  },"128": {
+  },"125": {
     "doc": "⚡ Quick Start",
     "title": "Prerequisites",
     "content": ". | Driver installed | Hardware wired | SPI interface implemented | . ",
     "url": "/hf-tle92466ed-driver/development/docs/quickstart/#prerequisites",
     
     "relUrl": "/docs/quickstart/#prerequisites"
-  },"129": {
+  },"126": {
     "doc": "⚡ Quick Start",
     "title": "Minimal Example",
     "content": "Here’s a complete working example: . ```cpp #include “tle92466ed.hpp” . // 1. Implement the SPI interface class MySpi : public tle92466ed::SpiInterface { public: auto spiTransfer(std::span txData, std::span rxData) noexcept -&gt; std::expected&lt;void, tle92466ed::CommError&gt; override { // Your SPI transfer implementation // Assert CS, transfer 32-bit frames, deassert CS return {}; } . | 1 2 3 . | void delayMicroseconds(uint32_t us) noexcept override { // Your delay implementation } }; . | . // 2. Create instances MySpi spi; tle92466ed::Driver driver(spi); . // 3. Initialize if (auto result = driver.Init(); !result) { // Handle error return; } . // 4. Enter mission mode driver.EnterMissionMode(); . // 5. Configure channel 0 for 1.5A current control driver.SetChannelMode(tle92466ed::Channel::CH0, tle92466ed::ChannelMode::ICC); driver.SetCurrentSetpoint(tle92466ed::Channel::CH0, 1500); // 1500 mA . // 6. Enable channel driver.EnableChannel(tle92466ed::Channel::CH0, true); ```cpp . ",
     "url": "/hf-tle92466ed-driver/development/docs/quickstart/#minimal-example",
     
     "relUrl": "/docs/quickstart/#minimal-example"
-  },"130": {
+  },"127": {
     "doc": "⚡ Quick Start",
     "title": "Step-by-Step Explanation",
     "content": " ",
     "url": "/hf-tle92466ed-driver/development/docs/quickstart/#step-by-step-explanation",
     
     "relUrl": "/docs/quickstart/#step-by-step-explanation"
-  },"131": {
+  },"128": {
     "doc": "⚡ Quick Start",
     "title": "Step 1: Include the Header",
     "content": "cpp #include \"tle92466ed.hpp\" cpp . This includes the main driver class and all necessary types. ",
     "url": "/hf-tle92466ed-driver/development/docs/quickstart/#step-1-include-the-header",
     
     "relUrl": "/docs/quickstart/#step-1-include-the-header"
-  },"132": {
+  },"129": {
     "doc": "⚡ Quick Start",
     "title": "Step 2: Implement the SPI Interface",
     "content": "You need to implement the SpiInterface for your platform. See Platform Integration for detailed examples. ```cpp class MySpi : public tle92466ed::SpiInterface { public: auto spiTransfer(std::span txData, std::span rxData) noexcept -&gt; std::expected&lt;void, tle92466ed::CommError&gt; override { // Implement 32-bit SPI frame transfer with CRC return {}; } . | 1 2 3 . | void delayMicroseconds(uint32_t us) noexcept override { // Implement microsecond delay } }; ```cpp . | . ",
     "url": "/hf-tle92466ed-driver/development/docs/quickstart/#step-2-implement-the-spi-interface",
     
     "relUrl": "/docs/quickstart/#step-2-implement-the-spi-interface"
-  },"133": {
+  },"130": {
     "doc": "⚡ Quick Start",
     "title": "Step 3: Create Driver Instance",
     "content": "cpp MySpi spi; tle92466ed::Driver driver(spi); cpp . The constructor takes a reference to your SPI interface implementation. ",
     "url": "/hf-tle92466ed-driver/development/docs/quickstart/#step-3-create-driver-instance",
     
     "relUrl": "/docs/quickstart/#step-3-create-driver-instance"
-  },"134": {
+  },"131": {
     "doc": "⚡ Quick Start",
     "title": "Step 4: Initialize",
     "content": "cpp if (auto result = driver.Init(); !result) { // Handle error - result.error() contains DriverError return; } cpp . ",
     "url": "/hf-tle92466ed-driver/development/docs/quickstart/#step-4-initialize",
     
     "relUrl": "/docs/quickstart/#step-4-initialize"
-  },"135": {
+  },"132": {
     "doc": "⚡ Quick Start",
     "title": "Step 5: Enter Mission Mode",
     "content": "cpp driver.EnterMissionMode(); text . Mission mode enables channel control. Configuration changes require Config Mode. ",
     "url": "/hf-tle92466ed-driver/development/docs/quickstart/#step-5-enter-mission-mode",
     
     "relUrl": "/docs/quickstart/#step-5-enter-mission-mode"
-  },"136": {
+  },"133": {
     "doc": "⚡ Quick Start",
     "title": "Step 6: Configure Channel",
     "content": "cpp driver.SetChannelMode(tle92466ed::Channel::CH0, tle92466ed::ChannelMode::ICC); driver.SetCurrentSetpoint(tle92466ed::Channel::CH0, 1500); // 1500 mA cpp . ",
     "url": "/hf-tle92466ed-driver/development/docs/quickstart/#step-6-configure-channel",
     
     "relUrl": "/docs/quickstart/#step-6-configure-channel"
-  },"137": {
+  },"134": {
     "doc": "⚡ Quick Start",
     "title": "Step 7: Enable Channel",
     "content": "cpp driver.EnableChannel(tle92466ed::Channel::CH0, true); cpp . ",
     "url": "/hf-tle92466ed-driver/development/docs/quickstart/#step-7-enable-channel",
     
     "relUrl": "/docs/quickstart/#step-7-enable-channel"
-  },"138": {
+  },"135": {
     "doc": "⚡ Quick Start",
     "title": "Complete Example with Error Handling",
     "content": "```cpp #include “tle92466ed.hpp” . class MySpi : public tle92466ed::SpiInterface { // ... SPI implementation }; . void app_main() { MySpi spi; tle92466ed::Driver driver(spi); . | 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 . | // Initialize if (auto result = driver.Init(); !result) { printf(\"Initialization failed: %d\\n\", static_cast&lt;int&gt;(result.error())); return; } // Enter mission mode if (auto result = driver.EnterMissionMode(); !result) { printf(\"Failed to enter mission mode\\n\"); return; } // Configure channel 0 if (auto result = driver.SetChannelMode(tle92466ed::Channel::CH0, tle92466ed::ChannelMode::ICC); !result) { printf(\"Failed to set channel mode\\n\"); return; } if (auto result = driver.SetCurrentSetpoint(tle92466ed::Channel::CH0, 1500); !result) { printf(\"Failed to set current\\n\"); return; } // Enable channel driver.EnableChannel(tle92466ed::Channel::CH0, true); // Read diagnostics if (auto diag = driver.GetChannelDiagnostics(tle92466ed::Channel::CH0); diag) { printf(\"Channel 0 current: %u mA\\n\", diag-&gt;average_current); } } ```cpp . | . ",
     "url": "/hf-tle92466ed-driver/development/docs/quickstart/#complete-example-with-error-handling",
     
     "relUrl": "/docs/quickstart/#complete-example-with-error-handling"
-  },"139": {
+  },"136": {
     "doc": "⚡ Quick Start",
     "title": "Expected Output",
     "content": "When running this example, you should see: . cpp Channel 0 current: 1500 mA cpp . ",
     "url": "/hf-tle92466ed-driver/development/docs/quickstart/#expected-output",
     
     "relUrl": "/docs/quickstart/#expected-output"
-  },"140": {
+  },"137": {
     "doc": "⚡ Quick Start",
     "title": "Troubleshooting",
     "content": "If you encounter issues: . | Compilation errors: Check that you’ve implemented the spiTransfer() method in your SPI interface | Initialization fails: Verify SPI connections and hardware setup | Channel not working: Check channel configuration and enable state | See: Troubleshooting for common issues | . ",
     "url": "/hf-tle92466ed-driver/development/docs/quickstart/#troubleshooting",
     
     "relUrl": "/docs/quickstart/#troubleshooting"
-  },"141": {
+  },"138": {
     "doc": "⚡ Quick Start",
     "title": "Next Steps",
     "content": ". | Explore Examples for more advanced usage | Review the API Reference for all available methods | Check Configuration for customization options | . Navigation ⬅️ Installation | Next: Hardware Setup ➡️ | Back to Index . ",
     "url": "/hf-tle92466ed-driver/development/docs/quickstart/#next-steps",
     
     "relUrl": "/docs/quickstart/#next-steps"
-  },"142": {
+  },"139": {
     "doc": "⚡ Quick Start",
     "title": "⚡ Quick Start",
     "content": " ",
     "url": "/hf-tle92466ed-driver/development/docs/quickstart/",
     
     "relUrl": "/docs/quickstart/"
-  },"143": {
+  },"140": {
     "doc": "🐛 Troubleshooting",
     "title": "Troubleshooting",
     "content": "This guide helps you diagnose and resolve common issues when using the TLE92466ED driver. ",
     "url": "/hf-tle92466ed-driver/development/docs/troubleshooting/#troubleshooting",
     
     "relUrl": "/docs/troubleshooting/#troubleshooting"
-  },"144": {
+  },"141": {
     "doc": "🐛 Troubleshooting",
     "title": "Common Error Messages",
     "content": " ",
     "url": "/hf-tle92466ed-driver/development/docs/troubleshooting/#common-error-messages",
     
     "relUrl": "/docs/troubleshooting/#common-error-messages"
-  },"145": {
+  },"142": {
     "doc": "🐛 Troubleshooting",
     "title": "Error: Initialization Failed",
     "content": "Symptoms: . | Init() returns DriverError::NotInitialized or DriverError::DeviceNotResponding | Driver not responding to SPI | . Causes: . | SPI interface not properly initialized | Hardware connections incorrect | Power supply issues | RESN pin held low | . Solutions: . | Verify SPI Interface: Ensure SPI interface is initialized before creating driver | Check Connections: Verify all SPI connections (SCK, SI, SO, CSN) | Verify Power: Check power supply voltages (VBAT: 5.5V-41V, VIO: 3.0V-5.5V) | Check RESN Pin: Ensure RESN is released (HIGH) for SPI communication | Verify SPI Mode: Ensure SPI Mode 1 (CPOL=0, CPHA=1) | Check SPI Speed: Try lower SPI speed (e.g., 1 MHz) | . ",
     "url": "/hf-tle92466ed-driver/development/docs/troubleshooting/#error-initialization-failed",
     
     "relUrl": "/docs/troubleshooting/#error-initialization-failed"
-  },"146": {
+  },"143": {
     "doc": "🐛 Troubleshooting",
     "title": "Error: Communication Error / CRC Error",
     "content": "Symptoms: . | DriverError::CRCError or DriverError::SPIFrameError returned | No response from device | CRC mismatches | . Causes: . | SPI configuration incorrect | Signal integrity issues | CS timing problems | CRC calculation mismatch | . Solutions: . | Check SPI Mode: Ensure SPI Mode 1 (CPOL=0, CPHA=1) | Verify Speed: Try lower SPI speed (e.g., 1 MHz, max 10 MHz) | Check CS Timing: Verify CS assertion/deassertion timing | Verify Connections: Check all SPI connections are secure | Check CRC: Verify CRC-8 (SAE J1850) calculation matches device | Check Frame Format: Ensure 32-bit frames are used | . ",
     "url": "/hf-tle92466ed-driver/development/docs/troubleshooting/#error-communication-error--crc-error",
     
     "relUrl": "/docs/troubleshooting/#error-communication-error--crc-error"
-  },"147": {
+  },"144": {
     "doc": "🐛 Troubleshooting",
     "title": "Error: Channel Not Working",
     "content": "Symptoms: . | Channel enabled but no output | Current not flowing | No voltage on OUTx pin | . Causes: . | Channel not properly configured | Channel not enabled | Load not connected correctly | Fault condition | Wrong mode (Config vs Mission) | . Solutions: . | Check Mode: Ensure in Mission Mode (EnterMissionMode()) | Check Configuration: Verify channel configuration is correct | Check Enable State: Ensure channel is enabled via EnableChannel() | Verify Load: Check load connections (OUTx to load, load to VBAT) | Check Faults: Read fault status to identify issues | Check Channel Mode: Ensure channel mode is set (e.g., ICC mode) | . ",
     "url": "/hf-tle92466ed-driver/development/docs/troubleshooting/#error-channel-not-working",
     
     "relUrl": "/docs/troubleshooting/#error-channel-not-working"
-  },"148": {
+  },"145": {
     "doc": "🐛 Troubleshooting",
     "title": "Error: Overcurrent Protection",
     "content": "Symptoms: . | ChannelDiagnostics.overcurrent is true | Channel disabled automatically | Current reading shows fault | . Causes: . | Load current exceeds limits | Short circuit | Incorrect current settings | Parallel mode not configured correctly | . Solutions: . | Check Load: Verify load is within specifications (2A max single, 4A parallel) | Reduce Current: Lower current setpoint | Check for Shorts: Verify no short circuits in wiring | Clear Fault: Read diagnostics to clear, then reconfigure | Check Parallel Mode: If using parallel, ensure SetParallelOperation() called | . ",
     "url": "/hf-tle92466ed-driver/development/docs/troubleshooting/#error-overcurrent-protection",
     
     "relUrl": "/docs/troubleshooting/#error-overcurrent-protection"
-  },"149": {
+  },"146": {
     "doc": "🐛 Troubleshooting",
     "title": "Error: Open Load Detection",
     "content": "Symptoms: . | ChannelDiagnostics.open_load is true | No current flow | Load not detected | . Causes: . | Load not connected | Broken connection | Load impedance too high | Open load threshold too sensitive | . Solutions: . | Check Connections: Verify load is properly connected | Check Wiring: Inspect for broken wires | Verify Load: Ensure load impedance is appropriate | Adjust Threshold: Increase open load threshold if false positives | . ",
     "url": "/hf-tle92466ed-driver/development/docs/troubleshooting/#error-open-load-detection",
     
     "relUrl": "/docs/troubleshooting/#error-open-load-detection"
-  },"150": {
+  },"147": {
     "doc": "🐛 Troubleshooting",
     "title": "Error: Wrong Mode",
     "content": "Symptoms: . | DriverError::WrongMode returned | Operation not allowed | . Causes: . | Attempting channel control in Config Mode | Attempting configuration in Mission Mode | Mode transition not completed | . Solutions: . | Check Current Mode: Use IsMissionMode() or IsConfigMode() | Enter Correct Mode: . | For channel control: EnterMissionMode() | For configuration: EnterConfigMode() | . | Wait for Transition: Allow time for mode transition to complete | . ",
     "url": "/hf-tle92466ed-driver/development/docs/troubleshooting/#error-wrong-mode",
     
     "relUrl": "/docs/troubleshooting/#error-wrong-mode"
-  },"151": {
+  },"148": {
     "doc": "🐛 Troubleshooting",
     "title": "Error: Invalid Parameter",
     "content": "Symptoms: . | DriverError::InvalidParameter returned | Invalid channel number | Parameter out of range | . Causes: . | Channel number out of range (must be 0-5) | Current value out of range | Invalid configuration values | . Solutions: . | Check Channel Number: Use Channel::CH0 through Channel::CH5 | Check Current Range: . | Single mode: 0-2000 mA | Parallel mode: 0-4000 mA | . | Verify Parameters: Check all configuration values are within valid ranges | . ",
     "url": "/hf-tle92466ed-driver/development/docs/troubleshooting/#error-invalid-parameter",
     
     "relUrl": "/docs/troubleshooting/#error-invalid-parameter"
-  },"152": {
+  },"149": {
     "doc": "🐛 Troubleshooting",
     "title": "Error: Device Not Responding",
     "content": "Symptoms: . | DriverError::DeviceNotResponding returned | No SPI response | Timeout errors | . Causes: . | SPI bus not working | Device not powered | CS line issue | RESN pin held low | . Solutions: . | Check Power: Verify VBAT and VIO are within range | Check RESN: Ensure RESN is HIGH (not in reset) | Check CS: Verify CS line is properly controlled | Check SPI Bus: Test SPI bus with simple read/write | Check Connections: Verify all SPI connections | . ",
     "url": "/hf-tle92466ed-driver/development/docs/troubleshooting/#error-device-not-responding",
     
     "relUrl": "/docs/troubleshooting/#error-device-not-responding"
-  },"153": {
+  },"150": {
     "doc": "🐛 Troubleshooting",
     "title": "Error: Wrong Device ID",
     "content": "Symptoms: . | DriverError::WrongDeviceID returned | Device ID mismatch | . Causes: . | Wrong device connected | Device not fully powered up | Communication error | . Solutions: . | Verify Device: Check that TLE92466ED is connected | Wait for Power-Up: Allow time for device power-up | Check Communication: Verify SPI communication is working | Read ID Manually: Use GetIcVersion() to check device ID | . ",
     "url": "/hf-tle92466ed-driver/development/docs/troubleshooting/#error-wrong-device-id",
     
     "relUrl": "/docs/troubleshooting/#error-wrong-device-id"
-  },"154": {
+  },"151": {
     "doc": "🐛 Troubleshooting",
     "title": "Debugging Tips",
     "content": " ",
     "url": "/hf-tle92466ed-driver/development/docs/troubleshooting/#debugging-tips",
     
     "relUrl": "/docs/troubleshooting/#debugging-tips"
-  },"155": {
+  },"152": {
     "doc": "🐛 Troubleshooting",
     "title": "Enable Logging",
     "content": "cpp // Enable driver logging (if supported by your SPI interface) hal-&gt;SetLogLevel(tle92466ed::LogLevel::Debug); cpp . ",
     "url": "/hf-tle92466ed-driver/development/docs/troubleshooting/#enable-logging",
     
     "relUrl": "/docs/troubleshooting/#enable-logging"
-  },"156": {
+  },"153": {
     "doc": "🐛 Troubleshooting",
     "title": "Read Device Status",
     "content": "cpp if (auto status = driver.GetDeviceStatus(); status) { printf(\"Config Mode: %d\\n\", status-&gt;config_mode); printf(\"Init Done: %d\\n\", status-&gt;init_done); printf(\"Any Fault: %d\\n\", status-&gt;any_fault); } cpp . ",
     "url": "/hf-tle92466ed-driver/development/docs/troubleshooting/#read-device-status",
     
     "relUrl": "/docs/troubleshooting/#read-device-status"
-  },"157": {
+  },"154": {
     "doc": "🐛 Troubleshooting",
     "title": "Read All Faults",
     "content": "cpp if (auto faults = driver.GetAllFaults(); faults) { driver.PrintAllFaults(); // Prints formatted fault report } cpp . ",
     "url": "/hf-tle92466ed-driver/development/docs/troubleshooting/#read-all-faults",
     
     "relUrl": "/docs/troubleshooting/#read-all-faults"
-  },"158": {
+  },"155": {
     "doc": "🐛 Troubleshooting",
     "title": "Verify Device",
     "content": "cpp if (auto verified = driver.VerifyDevice(); verified &amp;&amp; *verified) { printf(\"Device verified\\n\"); } else { printf(\"Device verification failed\\n\"); } text . ",
     "url": "/hf-tle92466ed-driver/development/docs/troubleshooting/#verify-device",
     
     "relUrl": "/docs/troubleshooting/#verify-device"
-  },"159": {
+  },"156": {
     "doc": "🐛 Troubleshooting",
     "title": "Common Configuration Mistakes",
     "content": ". | Forgetting to Enter Mission Mode: Channels can only be enabled in Mission Mode | Configuring in Wrong Mode: Channel configuration requires Config Mode | Not Setting Channel Mode: Must set channel mode before setting current | Parallel Mode Mismatch: Forgetting to set parallel_mode = true when using parallel pairs | Current Out of Range: Setting current above 2000mA in single mode | . ",
     "url": "/hf-tle92466ed-driver/development/docs/troubleshooting/#common-configuration-mistakes",
     
     "relUrl": "/docs/troubleshooting/#common-configuration-mistakes"
-  },"160": {
+  },"157": {
     "doc": "🐛 Troubleshooting",
     "title": "Next Steps",
     "content": ". | Review Hardware Setup for wiring verification | Check Platform Integration for SPI interface issues | See Examples for working code samples | . Navigation ⬅️ Examples | Back to Index . ",
     "url": "/hf-tle92466ed-driver/development/docs/troubleshooting/#next-steps",
     
     "relUrl": "/docs/troubleshooting/#next-steps"
-  },"161": {
+  },"158": {
     "doc": "🐛 Troubleshooting",
     "title": "🐛 Troubleshooting",
     "content": " ",
     "url": "/hf-tle92466ed-driver/development/docs/troubleshooting/",
     
     "relUrl": "/docs/troubleshooting/"
-  },"162": {
+  },"159": {
     "doc": "ESP32 Examples Configuration Guide",
     "title": "ESP32 Examples Configuration Guide",
     "content": "# ESP32 Examples Configuration Guide ## Overview This guide explains all configuration files and settings for the TLE92466ED ESP32 examples, including hardware configuration, build settings, and test options. ## 📁 Configuration File Structure ```text examples/esp32/ ├── app_config.yml # Build metadata and app definitions ├── main/ │ ├── TLE92466ED_TestConfig.hpp # Hardware configuration (SPI, pins, limits) │ ├── DriverIntegrationTest.cpp # Driver integration test suite │ ├── SolenoidControlTest.cpp # Real hardware solenoid control test │ └── Esp32TleCommInterface.cpp # ESP32 communication interface ├── sdkconfig # ESP-IDF SDK configuration └── components/ └── hf_tle92466ed/ ├── CMakeLists.txt # Component build config └── idf_component.yml # Component metadata ``` --- ## 1. Hardware Configuration (`main/TLE92466ED_TestConfig.hpp`) ### Purpose **Centralized hardware-specific settings** for ESP32-C6 and TLE92466ED interface. ### Location ```text examples/esp32/main/TLE92466ED_TestConfig.hpp ``` ### Complete Configuration ```cpp #pragma once #include namespace TLE92466ED_TestConfig { //============================================================================= // SPI PIN CONFIGURATION //============================================================================= struct SPIPins { static constexpr int MISO = 2; // GPIO2 - SPI MISO static constexpr int MOSI = 7; // GPIO7 - SPI MOSI static constexpr int SCLK = 6; // GPIO6 - SPI Clock static constexpr int CS = 10; // GPIO10 - Chip Select }; //============================================================================= // SPI PARAMETERS //============================================================================= struct SPIParams { static constexpr int FREQUENCY = 1000000; // 1MHz SPI clock static constexpr int MODE = 0; // SPI Mode 0 (CPOL=0, CPHA=0) static constexpr int QUEUE_SIZE = 7; // Max transactions in queue }; //============================================================================= // CURRENT LIMITS //============================================================================= struct CurrentLimits { static constexpr uint16_t SINGLE_CHANNEL_MAX = 2000; // 2A per channel static constexpr uint16_t PARALLEL_CHANNEL_MAX = 4000; // 4A in parallel mode }; //============================================================================= // HARDWARE SPECIFICATIONS //============================================================================= struct HardwareSpecs { static constexpr float SUPPLY_VOLTAGE_MIN = 8.0f; // Minimum VBAT (V) static constexpr float SUPPLY_VOLTAGE_MAX = 28.0f; // Maximum VBAT (V) static constexpr int TEMPERATURE_MAX = 150; // Max junction temp (°C) }; //============================================================================= // TEST CONFIGURATION //============================================================================= struct TestConfig { static constexpr uint16_t TEST_CURRENT_STEPS[] = {100, 500, 1000, 1500, 2000}; static constexpr size_t TEST_CURRENT_STEPS_COUNT = sizeof(TEST_CURRENT_STEPS) / sizeof(TEST_CURRENT_STEPS[0]); static constexpr uint32_t TEST_DURATION_MS = 5000; static constexpr uint32_t DIAGNOSTICS_POLL_INTERVAL_MS = 100; }; } // namespace TLE92466ED_TestConfig ```text ### Configuration Sections #### SPI Pins (`SPIPins`) | Setting | Default | Range | Notes |---------|---------|-------|-------| `MISO` | GPIO2 | Any GPIO | Data from TLE92466ED | `MOSI` | GPIO7 | Any GPIO | Data to TLE92466ED | `SCLK` | GPIO6 | Any GPIO | SPI clock output | `CS` | GPIO10 | Any GPIO | Chip select (active LOW) | **ESP32-C6 GPIO Considerations**: - Avoid GPIO0, GPIO8, GPIO9 (strapping pins) - GPIO12-GPIO13: JTAG (avoid if debugging) - GPIO15-GPIO20: USB Serial/JTAG - Recommended: GPIO2-GPIO11 for peripherals #### SPI Parameters (`SPIParams`) | Setting | Default | Range | Notes |---------|---------|-------|-------| `FREQUENCY` | 1000000 | 100000-10000000 | SPI clock (Hz, datasheet: 0.1-10MHz) | `MODE` | 1 | 0-3 | SPI mode (TLE92466ED requires Mode 1: CPOL=0, CPHA=1) | `QUEUE_SIZE` | 7 | 1-10 | Transaction queue depth | **SPI Mode 1** (per datasheet): - CPOL = 0 (clock idle LOW) - CPHA = 1 (sample on falling edge) - **Required by TLE92466ED** - do not change! **Frequency Guidelines**: - **100kHz**: Debug/troubleshooting - **1MHz**: Default, reliable (recommended) - **2-4MHz**: Higher performance - **8-10MHz**: Maximum (may require shorter cables, datasheet max: 10MHz) #### Current Limits (`CurrentLimits`) | Setting | Default | Range | Notes |---------|---------|-------|-------| `SINGLE_CHANNEL_MAX` | 2000 | 0-2000 | Max per channel (mA) | `PARALLEL_CHANNEL_MAX` | 4000 | 0-4000 | Parallel mode max (mA) | **Safety Notes**: - TLE92466ED maximum: 2A per channel - Parallel mode: 4A across paired channels - Driver enforces these limits - Exceeding causes overcurrent fault #### Hardware Specs (`HardwareSpecs`) | Setting | Default | Range | Notes |---------|---------|-------|-------| `SUPPLY_VOLTAGE_MIN` | 5.5 | 5.5-41.0 | Minimum VBAT (V) | `SUPPLY_VOLTAGE_MAX` | 41.0 | 5.5-41.0 | Maximum VBAT (V) | `TEMPERATURE_MAX` | 150 | -40 to 150 | Max junction temp (°C) | **Operating Range** (per datasheet): - VBAT: 5.5V to 41V recommended operating (typical: 12V or 24V automotive) - VDD: 5V input to TLE92466ED (powers central logic) - Required for IC operation - VIO: 3.0V to 5.5V input (sets I/O voltage levels for SPI communication, typical: 3.3V or 5.0V) - Temperature: -40°C to 150°C junction #### Test Configuration (`TestConfig`) | Setting | Default | Notes |---------|---------|-------| `TEST_CURRENT_STEPS` | {100, 500, 1000, 1500, 2000} | Current test points (mA) | `TEST_DURATION_MS` | 5000 | Test duration (ms) | `DIAGNOSTICS_POLL_INTERVAL_MS` | 100 | Polling interval (ms) | **Used by test suites** for consistent test parameters. ### Modifying Hardware Configuration #### Example: Different GPIO Pins ```cpp struct SPIPins { static constexpr int MISO = 4; // Changed to GPIO4 static constexpr int MOSI = 5; // Changed to GPIO5 static constexpr int SCLK = 3; // Changed to GPIO3 static constexpr int CS = 11; // Changed to GPIO11 }; ```text #### Example: Higher SPI Frequency ```cpp struct SPIParams { static constexpr int FREQUENCY = 4000000; // 4MHz (higher performance) static constexpr int MODE = 0; static constexpr int QUEUE_SIZE = 7; }; ```text #### Example: Custom Test Currents ```cpp struct TestConfig { static constexpr uint16_t TEST_CURRENT_STEPS[] = {250, 750, 1250, 1750}; static constexpr size_t TEST_CURRENT_STEPS_COUNT = 4; static constexpr uint32_t TEST_DURATION_MS = 10000; // 10 seconds static constexpr uint32_t DIAGNOSTICS_POLL_INTERVAL_MS = 50; // 50ms }; ```text --- ## 2. Application Configuration (`app_config.yml`) ### Purpose **Build metadata and app definitions** for the dynamic build system. ### Location ```text examples/esp32/app_config.yml ```text ### Structure ```yaml apps: driver_integration_test: description: \"Comprehensive driver integration test suite (no hardware required)\" source_file: \"DriverIntegrationTest.cpp\" category: \"test\" idf_versions: [\"release/v5.5\"] build_types: [\"Debug\", \"Release\"] ci_enabled: true featured: true documentation: \"docs/readme_driver_integration_test.md\" ``` ### App Definition Fields | Field | Type | Required | Description |-------|------|----------|-------------| `description` | string | Yes | Human-readable description | `source_file` | string | Yes | Main source file in `main/` | `category` | string | Yes | Category: `demo`, `test`, `application` | `idf_versions` | list | Yes | Compatible ESP-IDF versions | `build_types` | list | Yes | Supported build types | `ci_enabled` | bool | Yes | Enable in CI/CD pipeline | `featured` | bool | No | Feature in documentation | `documentation` | string | No | Path to documentation file | ### Build Types #### Debug ```yaml build_types: [\"Debug\"] ```text - **Optimization**: `-Og` (debug-friendly) - **Symbols**: Full debug symbols - **Assertions**: Enabled - **Size**: Larger binaries - **Speed**: Slower execution - **Use**: Development, debugging #### Release ```yaml build_types: [\"Release\"] ```text - **Optimization**: `-O2` (performance) - **Symbols**: Minimal symbols - **Assertions**: Disabled - **Size**: Smaller binaries - **Speed**: Faster execution - **Use**: Production, benchmarking ### IDF Versions ```yaml idf_versions: - \"release/v5.5\" # ESP-IDF v5.5.x (recommended) - \"release/v5.4\" # ESP-IDF v5.4.x (compatible) - \"release/v5.3\" # ESP-IDF v5.3.x (minimum) ```text **Requirements**: - **Minimum**: ESP-IDF v5.3 (C++23 support) - **Recommended**: ESP-IDF v5.5 (latest features) ### Adding a New App ```yaml apps: my_custom_app: description: \"My custom TLE92466ED application\" source_file: \"MyCustomApp.cpp\" category: \"application\" idf_versions: [\"release/v5.5\"] build_types: [\"Debug\", \"Release\"] ci_enabled: false featured: false documentation: \"docs/README_MY_CUSTOM_APP.md\" ```text Then create: ```text examples/esp32/main/MyCustomApp.cpp examples/esp32/docs/README_MY_CUSTOM_APP.md ```text --- ## 3. Test Section Configuration ### Purpose **Compile-time enable/disable** of test sections. ### Location In each example source file (e.g., `DriverIntegrationTest.cpp`): ```cpp //============================================================================= // TEST CONFIGURATION //============================================================================= #define ENABLE_INITIALIZATION_TESTS 1 #define ENABLE_BASIC_OPERATION_TESTS 1 #define ENABLE_CURRENT_CONTROL_TESTS 1 ```text ### Test Sections | Section | Purpose | Tests |---------|---------|-------| `INITIALIZATION_TESTS` | HAL and driver setup | HAL init, driver init, chip ID | `BASIC_OPERATION_TESTS` | Core operations | Enable/disable, current setting, diagnostics | `CURRENT_CONTROL_TESTS` | Advanced control | Current ramping, multi-channel | ### Disabling Sections Set to `0` to disable: ```cpp #define ENABLE_INITIALIZATION_TESTS 1 // Enabled #define ENABLE_BASIC_OPERATION_TESTS 1 // Enabled #define ENABLE_CURRENT_CONTROL_TESTS 0 // DISABLED ```text **Benefits**: - Faster iteration during development - Focus on specific features - Reduce test time - Save memory if needed ### Usage in Code ```cpp RUN_TEST_SECTION_IF_ENABLED( ENABLE_INITIALIZATION_TESTS, \"INITIALIZATION TESTS\", // Tests only run if flag is 1 RUN_TEST_IN_TASK(\"hal_init\", test_hal_initialization, 8192, 5); ); ```text --- ## 4. ESP-IDF SDK Configuration (`sdkconfig`) ### Purpose **ESP-IDF framework configuration** - compiler, components, features. ### Location ```text examples/esp32/sdkconfig ```text ### Key Settings #### Compiler Optimization ```ini CONFIG_COMPILER_OPTIMIZATION_SIZE=n CONFIG_COMPILER_OPTIMIZATION_PERF=y CONFIG_COMPILER_OPTIMIZATION_DEBUG=n ```text **Options**: - `SIZE`: Optimize for size (`-Os`) - `PERF`: Optimize for performance (`-O2`) **← Default** - `DEBUG`: Optimize for debugging (`-Og`) #### C++ Standard ```ini CONFIG_COMPILER_CXX_STD_GNUXX23=y ```text **Required**: TLE92466ED driver uses C++23 features (`std::expected`) #### Log Level ```ini CONFIG_LOG_DEFAULT_LEVEL_INFO=y CONFIG_LOG_DEFAULT_LEVEL_DEBUG=n ```text **Options**: - `NONE`: No logging - `ERROR`: Errors only - `WARN`: Warnings and errors - `INFO`: Information, warnings, errors **← Default** - `DEBUG`: Debug + all above - `VERBOSE`: Verbose + all above #### Stack Sizes ```ini CONFIG_ESP_MAIN_TASK_STACK_SIZE=8192 CONFIG_ESP_SYSTEM_EVENT_TASK_STACK_SIZE=4096 ```text **Recommendations**: - Main task: 8KB (default sufficient) - Increase if stack overflow errors occur #### FreeRTOS ```ini CONFIG_FREERTOS_HZ=1000 CONFIG_FREERTOS_USE_TRACE_FACILITY=y CONFIG_FREERTOS_GENERATE_RUN_TIME_STATS=y ```text **Important**: - `HZ=1000`: 1ms tick resolution (for accurate timing) - Trace facility: Useful for debugging ### Modifying sdkconfig #### Via menuconfig (Interactive) ```bash cd examples/esp32 idf.py menuconfig ```text Navigate with arrow keys, space to select, 'S' to save. #### Via sdkconfig.defaults Create `sdkconfig.defaults`: ```ini # Custom defaults CONFIG_COMPILER_OPTIMIZATION_PERF=y CONFIG_LOG_DEFAULT_LEVEL_DEBUG=y CONFIG_ESP_MAIN_TASK_STACK_SIZE=16384 ```text Then: ```bash idf.py fullclean idf.py reconfigure ```text --- ## 5. Component Configuration ### Component CMakeLists.txt **Location**: `examples/esp32/components/hf_tle92466ed/CMakeLists.txt` ```cmake # Source resolution (automatic) if(EXISTS \"${PROJECT_ROOT}/src\" AND EXISTS \"${PROJECT_ROOT}/include\") set(SRC_ROOT \"${PROJECT_ROOT}\") # CI environment else() get_filename_component(SRC_ROOT \"${CMAKE_SOURCE_DIR}/../../\" ABSOLUTE) endif() # Source files set(TLE92466ED_SRCS \"${SRC_ROOT}/src/tle92466ed.cpp\" ) # Component registration idf_component_register( SRCS ${EXISTING_SRCS} INCLUDE_DIRS \"${SRC_ROOT}/include\" REQUIRES driver esp_timer freertos esp_driver_spi ) # C++23 standard target_compile_features(${COMPONENT_LIB} PRIVATE cxx_std_23) ```text **Key Points**: - Automatically finds driver sources - Handles CI and development paths - C++23 required - No manual source list maintenance ### Component Manifest (idf_component.yml) **Location**: `examples/esp32/components/hf_tle92466ed/idf_component.yml` ```yaml name: hf-tle92466ed-driver version: \"2.0.0\" description: TLE92466ED driver for ESP-IDF dependencies: idf: \">=5.0.0\" targets: - esp32c6 - esp32 - esp32s3 - esp32c3 ``` **Purpose**: ESP-IDF Component Manager metadata --- ## 🔧 Configuration Workflows ### Development Setup 1. **Clone repository** ```bash git clone https://github.com/N3b3x/hf-tle92466ed-driver.git cd hf-tle92466ed-driver/examples/esp32 ``` 2. **Initialize submodules** ```bash git submodule update --init --recursive ``` 3. **Configure hardware** (if needed) ```bash nano main/TLE92466ED_TestConfig.hpp # Modify SPI pins, frequency, etc. ``` 4. **Set ESP-IDF target** ```bash idf.py set-target esp32c6 ``` 5. **Configure SDK** (optional) ```bash idf.py menuconfig ``` 6. **Build** ```bash ./scripts/build_app.sh basic_usage Debug ``` ### Production Setup 1. **Use Release build** ```bash ./scripts/build_app.sh basic_usage Release ``` 2. **Optimize sdkconfig** ```ini CONFIG_COMPILER_OPTIMIZATION_PERF=y CONFIG_LOG_DEFAULT_LEVEL_WARN=y CONFIG_BOOTLOADER_LOG_LEVEL_WARN=y ``` 3. **Disable debug features** ```cpp #define ENABLE_DEBUG_LOGGING 0 #define ENABLE_STRESS_TESTS 0 ``` 4. **Verify settings** ```bash idf.py size idf.py size-components ``` ### Troubleshooting Configuration #### GPIO Conflict **Error**: `GPIO already in use` **Solution**: Change pins in `TLE92466ED_TestConfig.hpp`: ```cpp struct SPIPins { static constexpr int MISO = 4; // Try different GPIO // ... }; ``` #### SPI Communication Failure **Error**: `Failed to initialize HAL` **Solutions**: 1. Check frequency: Lower to 100kHz for testing 2. Verify wiring matches configuration 3. Try different SPI host (SPI2_HOST vs SPI3_HOST) #### Stack Overflow **Error**: `***ERROR*** A stack overflow in task` **Solutions**: 1. Increase task stack in `RUN_TEST_IN_TASK`: ```cpp RUN_TEST_IN_TASK(\"test\", test_func, 16384, 5); // 16KB ``` 2. Increase main stack in sdkconfig: ```ini CONFIG_ESP_MAIN_TASK_STACK_SIZE=16384 ``` #### Build Type Issues **Error**: Unexpected optimization level **Solution**: ```bash # Clean and rebuild with explicit build type idf.py fullclean idf.py -DCMAKE_BUILD_TYPE=Debug build ``` --- ## 📚 Configuration Reference ### File Purposes Summary | File | Purpose | When to Modify |------|---------|----------------| `TLE92466ED_TestConfig.hpp` | Hardware settings | Different GPIO/hardware | `app_config.yml` | Build metadata | Add new app/example | `DriverIntegrationTest.cpp` (flags) | Test sections | Enable/disable tests | `sdkconfig` | ESP-IDF settings | Compiler/framework config | `components/.../CMakeLists.txt` | Component build | Never (auto-configured) | `components/.../idf_component.yml` | Component metadata | Version/dependency changes | ### Configuration Hierarchy ```text Hardware Layer └── TLE92466ED_TestConfig.hpp (SPI pins, frequencies, limits) Application Layer ├── app_config.yml (Build metadata, app list) └── *Example.cpp (Test section flags) Framework Layer ├── sdkconfig (ESP-IDF configuration) └── components/ (Component configuration) ```text --- **Document Version**: 1.0.0 **Last Updated**: 2025-10-21 **Status**: ✅ Complete ",
     "url": "/hf-tle92466ed-driver/development/examples/esp32/docs/README_CONFIGURATION.html",
     
     "relUrl": "/examples/esp32/docs/README_CONFIGURATION.html"
-  },"163": {
+  },"160": {
     "doc": "Driver Integration Test Suite - TLE92466ED ESP32-C6",
     "title": "Driver Integration Test Suite - TLE92466ED ESP32-C6",
     "content": "# Driver Integration Test Suite - TLE92466ED ESP32-C6 ## Table of Contents 1. [Overview](#overview) 2. [Purpose](#purpose) 3. [Test Framework Architecture](#test-framework-architecture) 4. [Test Suite Structure](#test-suite-structure) 5. [Hardware Setup](#hardware-setup) 6. [Configuration](#configuration) 7. [Building and Running](#building-and-running) 8. [Expected Output](#expected-output) 9. [Test Coverage](#test-coverage) 10. [Individual Test Details](#individual-test-details) 11. [Troubleshooting](#troubleshooting) 12. [Performance Characteristics](#performance-characteristics) 13. [Related Documentation](#related-documentation) --- ## Overview The **Driver Integration Test Suite** validates all functionality of the TLE92466ED driver without requiring actual solenoids or loads. This test suite provides API validation with **40+ individual tests** organized into **13 test sections**, covering all driver capabilities. ### Key Features - **Complete API Coverage**: Tests all public driver functions - **No Hardware Required**: Validates driver logic and SPI communication only - **Test Framework**: FreeRTOS task-based execution with automatic result tracking - **GPIO14 Progress Indicator**: Visual feedback on oscilloscope/logic analyzer - **Telemetry Testing**: Validates all status and diagnostic reading functions - **Error Condition Testing**: Verifies proper error handling and validation --- ## Purpose This test suite serves multiple purposes: 1. **Driver Validation**: Ensures all driver APIs work correctly 2. **Regression Testing**: Detects breaking changes during development 3. **CI/CD Integration**: Automated testing in continuous integration pipelines 4. **Documentation**: Demonstrates proper usage of all driver functions 5. **Development Aid**: Helps developers understand driver capabilities 6. **Quality Assurance**: Validates driver behavior before hardware testing **Note**: This test validates the driver and SPI communication but does not test actual solenoid operation. For real hardware testing with solenoids, use the **Solenoid Control Test**. --- ## Test Framework Architecture The test suite uses the **TLE92466ED Test Framework** (`TLE92466ED_TestFramework.hpp`), which provides: #### FreeRTOS Task-Based Execution - Each test runs in isolated FreeRTOS task - Custom stack size per test (8KB default) - Automatic semaphore synchronization - 30-second timeout protection - Fallback to inline execution on failure #### GPIO14 Progress Indicator - Visual feedback on oscilloscope/logic analyzer - **Toggle**: HIGH/LOW on each test completion - **Blink Pattern**: 5 blinks at section start/end - Hardware-level test progression tracking #### Automatic Result Tracking - Pass/fail counting - Microsecond-precision execution timing - Success rate calculation - Summary reports #### Test Section Management - Compile-time section enable/disable - Section-based organization - Custom blink patterns per section - Structured output formatting --- ## Test Suite Structure This integration test suite validates all functionality of the TLE92466ED driver. The suite includes **13 test sections** with **40+ individual tests** covering all driver APIs. ### Test Sections #### 1. INITIALIZATION_TESTS (`#define ENABLE_INITIALIZATION_TESTS 1`) Tests fundamental setup and communication: - `test_hal_initialization` - ESP32-C6 HAL setup and SPI configuration - `test_driver_initialization` - TLE92466ED driver instance creation - `test_chip_id` - SPI communication verification via chip ID - `test_ic_version` - IC version register reading - `test_device_verification` - Device ID verification #### 2. MODE_CONTROL_TESTS (`#define ENABLE_MODE_CONTROL_TESTS 1`) Tests mode transitions and state management: - `test_enter_mission_mode` - Transition to Mission Mode - `test_enter_config_mode` - Transition to Config Mode - `test_mode_transitions` - Multiple mode transition cycles #### 3. GLOBAL_CONFIGURATION_TESTS (`#define ENABLE_GLOBAL_CONFIG_TESTS 1`) Tests global device configuration: - `test_crc_control` - CRC enable/disable functionality - `test_vbat_thresholds` - VBAT UV/OV threshold configuration (high-level and raw APIs) - `test_global_configuration` - Complete global configuration #### 4. CHANNEL_CONTROL_TESTS (`#define ENABLE_CHANNEL_CONTROL_TESTS 1`) Tests channel enable/disable and mode configuration: - `test_single_channel_control` - Single channel enable/disable - `test_all_channels_control` - All channels enable/disable - `test_channel_mask_control` - Channel mask-based control - `test_channel_mode_configuration` - All channel modes (OFF, ICC, Direct Drive, etc.) #### 5. CURRENT_CONTROL_TESTS (`#define ENABLE_CURRENT_CONTROL_TESTS 1`) Tests current setpoint control: - `test_current_setpoint` - Current setting with read-back verification (100mA, 500mA, 1000mA, 1500mA, 2000mA) - `test_current_ramping` - Smooth 0→1000mA→0mA transitions #### 6. PWM_CONFIGURATION_TESTS (`#define ENABLE_PWM_CONFIG_TESTS 1`) Tests PWM period configuration: - `test_pwm_period_configuration` - High-level API (period in microseconds) - `test_pwm_period_raw` - Low-level API (mantissa, exponent, low_freq_range) #### 7. DITHER_CONFIGURATION_TESTS (`#define ENABLE_DITHER_CONFIG_TESTS 1`) Tests dither configuration: - `test_dither_configuration` - High-level API (amplitude in mA, frequency in Hz) - `test_dither_raw` - Low-level API (step_size, num_steps, flat_steps) #### 8. DIAGNOSTICS_TESTS (`#define ENABLE_DIAGNOSTICS_TESTS 1`) Tests diagnostics and monitoring: - `test_device_status` - Global device status reading - `test_channel_diagnostics` - Channel-specific diagnostics - `test_voltage_reading` - VBAT and VIO voltage reading - `test_current_reading` - Average current and duty cycle reading - `test_all_channels_telemetry` - Telemetry for all 6 channels - `test_device_telemetry` - Device telemetry - `test_telemetry_with_active_channel` - Telemetry with active channel #### 9. FAULT_MANAGEMENT_TESTS (`#define ENABLE_FAULT_MANAGEMENT_TESTS 1`) Tests fault handling: - `test_fault_clearing` - Fault flag clearing - `test_software_reset` - Software reset functionality #### 10. WATCHDOG_TESTS (`#define ENABLE_WATCHDOG_TESTS 1`) Tests watchdog functionality: - `test_spi_watchdog` - SPI watchdog reload with various values #### 11. GPIO_CONTROL_TESTS (`#define ENABLE_GPIO_CONTROL_TESTS 1`) Tests GPIO pin control: - `test_gpio_control` - Reset, Enable, and Fault pin control #### 12. MULTI_CHANNEL_TESTS (`#define ENABLE_MULTI_CHANNEL_TESTS 1`) Tests all channels individually: - `test_all_channels_individually` - All 6 channels tested with enable/disable and current control #### 13. PARALLEL_OPERATION_TESTS (`#define ENABLE_PARALLEL_OPERATION_TESTS 1`) Tests parallel channel operation: - `test_parallel_operation` - Parallel pair configuration (CH0/CH3, CH1/CH2, CH4/CH5) #### 14. ERROR_CONDITION_TESTS (`#define ENABLE_ERROR_CONDITION_TESTS 1`) Tests error handling and validation: - `test_error_conditions` - Wrong mode operations (should fail correctly) ### Test Function Signatures All test functions follow this pattern: ```cpp static bool test_function_name() noexcept; ``` **Key Characteristics**: - Return `bool` (true = passed, false = failed) - Declared `noexcept` for embedded safety - Self-contained and isolated - Descriptive ESP_LOG output - Proper error handling with `std::expected` --- ## Hardware Setup ### Required Components - **ESP32-C6-DevKitC-1** development board - **TLE92466ED** evaluation board or custom PCB - **5.5-41V power supply** for VBAT (2A minimum) - *Note: VBAT not required for SPI communication, but recommended for complete testing. Typical: 12V or 24V automotive* - **3.0-5.5V power supply** for VIO (I/O level supply) - *Required for SPI communication (sets I/O voltage levels). Typical: 3.3V or 5.0V* - **5V power supply** for VDD (internal logic supply) - *Required for IC operation* - **Oscilloscope/Logic Analyzer** (optional, for GPIO14 monitoring) - Connecting wires ### Wiring Diagram ``` ┌─────────────────┐ ┌──────────────────┐ │ ESP32-C6 │ │ TLE92466ED │ │ │ │ │ │ GPIO2 ───────┼────────>│ MISO │ │ GPIO7 ───────┼────────>│ MOSI │ │ GPIO6 ───────┼────────>│ SCLK │ │ GPIO18 ───────┼────────>│ CS │ │ GPIO21 ───────┼────────>│ RESN │ │ GPIO20 ───────┼────────>│ EN │ │ GPIO19 │ [LED/Scope] │ │ │ │ │ │ 5V ───────┼────────>│ VDD │ │ 3.3V ───────┼────────>│ VIO │ │ GND ───────┼────────>│ GND │ └─────────────────┘ └──────────────────┘ │ ┌────────┴────────┐ │ │ External Supply Test Load ────────────── ────────── 12-24V ──────> VBAT OUT0 ──> Load GND ──────> GND GND ──> Return ``` ### Complete Pin Configuration | Function | ESP32-C6 GPIO | TLE92466ED Pin | Configuration | Notes |----------|---------------|----------------|---------------|-------| **SPI MISO** | GPIO2 | MISO | Input | Data from TLE92466ED | **SPI MOSI** | GPIO7 | MOSI | Output | Data to TLE92466ED | **SPI SCLK** | GPIO6 | SCLK | Output | 1MHz SPI Clock | **SPI CS** | GPIO18 | CS | Output | Active Low | **RESN** | GPIO21 | RESN | Output | Reset pin (active low) | **EN** | GPIO20 | EN | Output | Enable pin (active high) | **FAULTN** | GPIO19 | FAULTN | Input | Fault pin (active low) | **Test Indicator** | GPIO14 | - | Output | Progress indicator | **VDD Supply** | 5V | VDD | Power | 5V (Required for IC operation) | **VIO Supply** | 3.3V/5V | VIO | Power | 3.0-5.5V (Required for SPI) | **Load Supply** | External | VBAT | Power | 5.5-41V, 2A+ (Optional for SPI) | **Ground** | GND | GND | Ground | Common reference | ### GPIO14 Test Indicator Setup ``` ESP32-C6 GPIO14 ──┬── LED (Anode) │ └── LED (Cathode) ── 220Ω ── GND │ └── Oscilloscope/Logic Analyzer Probe ``` **Purpose**: Visual and measurable feedback showing test progression ### Power Supply Requirements ``` ┌─────────────────────────────────────────────────┐ │ Power Supply Requirements │ ├─────────────────────────────────────────────────┤ │ │ │ VDD (Internal Logic Supply): │ │ └─ 5V input to TLE92466ED │ │ └─ Powers central logic of the IC │ │ └─ Required for IC operation │ │ │ │ VIO (I/O Level Supply): │ │ └─ 3.0V to 5.5V (input) │ │ └─ Sets I/O voltage levels for SPI │ │ └─ Required for SPI communication │ │ └─ Typical: 3.3V or 5.0V │ │ └─ Typical current: 10-20mA │ │ │ │ VBAT (Load Supply): │ │ └─ 5.5V to 41V (recommended operating) │ │ └─ Typical: 12V or 24V automotive │ │ └─ NOT required for SPI communication │ │ └─ Required for actual load operation │ │ └─ Typical: 2A+ per channel │ │ │ └─────────────────────────────────────────────────┘ ``` **Important**: For this driver integration test, **VBAT is not required**. The test validates SPI communication and driver logic only. **VDD is required** (powers central logic). **VIO is required for SPI communication** (sets I/O voltage levels). --- ## Configuration ### Hardware Configuration (`main/TLE92466ED_TestConfig.hpp`) All hardware-specific settings are centralized: ```cpp namespace TLE92466ED_TestConfig { struct SPIPins { static constexpr uint8_t MISO = 2; // GPIO2 static constexpr uint8_t MOSI = 7; // GPIO7 static constexpr uint8_t SCLK = 6; // GPIO6 static constexpr uint8_t CS = 18; // GPIO18 }; struct ControlPins { static constexpr uint8_t RESN = 21; // GPIO21 static constexpr uint8_t EN = 20; // GPIO20 static constexpr uint8_t FAULTN = 19; // GPIO19 static constexpr uint8_t DRV0 = 22; // GPIO22 static constexpr uint8_t DRV1 = 23; // GPIO23 }; struct SPIParams { static constexpr uint32_t FREQUENCY = 1000000; // 1MHz static constexpr uint8_t MODE = 1; // SPI Mode 1 (CPOL=0, CPHA=1) static constexpr uint8_t QUEUE_SIZE = 1; static constexpr uint8_t CS_ENA_PRETRANS = 1; static constexpr uint8_t CS_ENA_POSTTRANS = 1; }; } // namespace TLE92466ED_TestConfig ``` **To modify hardware settings**: Edit `main/TLE92466ED_TestConfig.hpp` ### Test Configuration (`main/DriverIntegrationTest.cpp`) Enable/disable test sections at compile time: ```cpp // Enable/disable test sections (set to 0 to skip a section) #define ENABLE_INITIALIZATION_TESTS 1 #define ENABLE_MODE_CONTROL_TESTS 1 #define ENABLE_GLOBAL_CONFIG_TESTS 1 #define ENABLE_CHANNEL_CONTROL_TESTS 1 #define ENABLE_CURRENT_CONTROL_TESTS 1 #define ENABLE_PWM_CONFIG_TESTS 1 #define ENABLE_DITHER_CONFIG_TESTS 1 #define ENABLE_DIAGNOSTICS_TESTS 1 #define ENABLE_FAULT_MANAGEMENT_TESTS 1 #define ENABLE_WATCHDOG_TESTS 1 #define ENABLE_GPIO_CONTROL_TESTS 1 #define ENABLE_MULTI_CHANNEL_TESTS 1 #define ENABLE_PARALLEL_OPERATION_TESTS 1 #define ENABLE_ERROR_CONDITION_TESTS 1 ``` **To disable a section**: Set to `0` and rebuild. This allows you to run only specific test categories during development or debugging. ### Build Configuration (`app_config.yml`) Application metadata and build settings: ```yaml apps: driver_integration_test: description: \"Comprehensive driver integration test suite (no hardware required)\" source_file: \"DriverIntegrationTest.cpp\" category: \"test\" idf_versions: [\"release/v5.5\"] build_types: [\"Debug\", \"Release\"] ci_enabled: true featured: true ``` **Note**: This is for build metadata only. Hardware config is in `TLE92466ED_TestConfig.hpp`. --- ## Building and Running ### Quick Start ```bash cd examples/esp32 # Build the driver integration test ./scripts/build_app.sh driver_integration_test Debug # Flash to ESP32-C6 ./scripts/flash_app.sh driver_integration_test Debug # Monitor output ./scripts/monitor_app.sh driver_integration_test ``` ### Manual Build ```bash cd examples/esp32 # Set target idf.py set-target esp32c6 # Configure (optional) idf.py menuconfig # Build with APP_TYPE=driver_integration_test idf.py -DAPP_TYPE=driver_integration_test build # Flash idf.py -p /dev/ttyUSB0 flash # Monitor idf.py -p /dev/ttyUSB0 monitor ``` ### Build Targets ```bash # Debug build (optimized for debugging) idf.py -DAPP_TYPE=driver_integration_test -DCMAKE_BUILD_TYPE=Debug build # Release build (optimized for performance) idf.py -DAPP_TYPE=driver_integration_test -DCMAKE_BUILD_TYPE=Release build ``` --- ## Expected Output ### Test Header ``` ╔══════════════════════════════════════════════════════════════════════════════╗ ║ TLE92466ED DRIVER INTEGRATION TEST SUITE - ESP32-C6 ║ ║ HardFOC Core Drivers ║ ╚══════════════════════════════════════════════════════════════════════════════╝ Target: esp32c6 ESP-IDF Version: v5.5.1 ╔══════════════════════════════════════════════════════════════════════════════╗ ║ TLE92466ED TEST CONFIGURATION ╠══════════════════════════════════════════════════════════════════════════════╣ ║ Test sections will execute based on compile-time configuration ║ ║ GPIO14 test progression indicator: ENABLED ║ ╚══════════════════════════════════════════════════════════════════════════════╝ ``` ### Test Execution ``` ╔══════════════════════════════════════════════════════════════════════════════╗ ║ SECTION: INITIALIZATION TESTS ║ ╚══════════════════════════════════════════════════════════════════════════════╝ [GPIO14: Blink pattern - 5 blinks] ╔══════════════════════════════════════════════════════════════════════════════╗ ║ Running (task): hal_initialization ║ ╚══════════════════════════════════════════════════════════════════════════════╝ I (1234) TLE92466ED_Test: Creating HAL instance... I (1235) Esp32TleComm: Esp32TleCommInterface created with SPI config I (1236) Esp32TleComm: MISO: GPIO2, MOSI: GPIO7, SCLK: GPIO6, CS: GPIO18 I (1237) Esp32TleComm: Frequency: 1000000 Hz, Mode: 1 I (1238) TLE92466ED_Test: Initializing HAL... I (1240) Esp32TleComm: Esp32TleCommInterface initialized successfully I (1241) TLE92466ED_Test: ✅ HAL initialized successfully [SUCCESS] PASSED (task): hal_initialization (12.34 ms) Test task completed: hal_initialization [GPIO14: Toggle HIGH] ``` ### Test Results Summary ``` ╔══════════════════════════════════════════════════════════════════════════════╗ ║ TEST RESULTS SUMMARY ║ ╠══════════════════════════════════════════════════════════════════════════════╣ ║ Total Tests: 40+ ║ ║ Passed: 40+ ║ ║ Failed: 0 ║ ║ Success Rate: 100.00% ║ ║ Total Time: ~10-15 seconds ║ ╚══════════════════════════════════════════════════════════════════════════════╝ I (15000) TLE92466ED_Test: ✅ ALL TESTS PASSED! System will restart in 10 seconds... ``` ### GPIO14 Signal Pattern ``` Time │ GPIO14 │ Event ────────┼────────┼────────────────────────────── 0ms │ LOW │ Boot 100ms │ BLINK │ Section start (5 blinks) │ ↑↓ │ 200ms │ HIGH │ Test 1 complete 300ms │ LOW │ Test 2 complete 400ms │ HIGH │ Test 3 complete 500ms │ BLINK │ Section 2 start (5 blinks) 600ms │ LOW │ Test 4 complete ... ``` --- ## Test Coverage ### Complete API Coverage This test suite covers all TLE92466ED driver functionality: #### Initialization & Device Information - HAL initialization - Driver initialization - Chip ID reading - IC version reading - Device verification #### Mode Management - Mission Mode entry/exit - Config Mode entry/exit - Mode transition validation #### Global Configuration - CRC enable/disable - VBAT threshold configuration (high-level and raw) - Complete global configuration #### Channel Control - Single channel enable/disable - All channels control - Channel mask control - Channel mode configuration (all modes) #### Current Control - Current setpoint setting (with read-back) - Current ramping (smooth transitions) #### PWM Configuration - High-level API (period in microseconds) - Low-level API (mantissa, exponent, low_freq_range) #### Dither Configuration - High-level API (amplitude in mA, frequency in Hz) - Low-level API (step_size, num_steps, flat_steps) #### Diagnostics & Monitoring - Device status reading - Channel diagnostics - Voltage reading (VBAT, VIO) - Current and duty cycle reading - **Telemetry for all channels** - **Device-level telemetry** - **Telemetry with active channels** #### Fault Management - Fault clearing - Software reset #### Watchdog - SPI watchdog reload #### GPIO Control - Reset pin control - Enable pin control - Fault pin reading #### Multi-Channel Operations - All 6 channels individually tested #### Parallel Operation - Parallel pair configuration #### Error Handling - Wrong mode operation validation - Error condition testing --- ## Individual Test Details ### Initialization Tests #### `test_hal_initialization()` **Purpose**: Validate ESP32-C6 HAL creation and SPI initialization **Operations**: 1. Create Esp32TleCommInterface instance with configuration from `TLE92466ED_TestConfig.hpp` 2. Initialize SPI peripheral (SPI2_HOST) 3. Configure GPIO pins for SPI 4. Set up SPI parameters (1MHz, Mode 1) **Expected Result**: ✅ PASS - HAL instance created successfully - SPI bus initialized - GPIO pins configured - Ready for communication **Failure Modes**: - SPI bus already initialized - GPIO pins in use - Invalid SPI configuration - Hardware fault --- #### `test_driver_initialization()` **Purpose**: Create TLE92466ED driver instance and initialize IC **Operations**: 1. Create TLE92466ED driver instance with HAL reference 2. Execute driver initialization sequence 3. Configure TLE92466ED registers 4. Set up default parameters **Expected Result**: ✅ PASS - Driver instance created - IC initialized successfully - Registers configured - Ready for operations **Failure Modes**: - HAL not initialized - SPI communication failure - TLE92466ED not powered (VIO required for SPI) - IC initialization timeout --- ### Telemetry Tests #### `test_all_channels_telemetry()` **Purpose**: Test telemetry reading for all 6 channels **Operations**: 1. Iterate through all channels (CH0-CH5) 2. For each channel, test: - `GetCurrentSetpoint()` - Read current setpoint - `GetAverageCurrent()` - Read average current - `GetDutyCycle()` - Read PWM duty cycle - `GetChannelDiagnostics()` - Read complete diagnostics 3. Report faults and warnings **Expected Result**: ✅ PASS - All telemetry functions work for all channels - Values read successfully (may be 0 if channels not enabled) **Telemetry Data Read**: - Current setpoint (mA) - Average current (mA) - Duty cycle (raw 16-bit value) - Diagnostics (faults, warnings, min/max current) --- #### `test_device_telemetry()` **Purpose**: Test device-level telemetry reading **Operations**: 1. Read device status (`GetDeviceStatus()`) 2. Read VBAT voltage (`GetVbatVoltage()`) 3. Read VIO voltage (`GetVioVoltage()`) 4. Read fault pin status (`IsFault()`) **Expected Result**: ✅ PASS - All device telemetry functions work - Status information displayed - Voltage readings obtained **Telemetry Data Read**: - Device mode (Config/Mission) - Initialization status - Fault conditions - Supply voltages (VBAT, VIO) - Fault pin state --- #### `test_telemetry_with_active_channel()` **Purpose**: Test telemetry with an active channel (enabled with current set) **Operations**: 1. Enter Mission Mode 2. Enable outputs (EN pin) 3. Set current setpoint to 500mA 4. Enable channel 5. Wait for current to stabilize (500ms) 6. Read all telemetry: - Current setpoint - Average current - Duty cycle - Complete diagnostics 7. Verify values are reasonable 8. Disable channel **Expected Result**: ✅ PASS - All telemetry functions work with active channel - Current setpoint matches set value - Average current is measured - Duty cycle is non-zero - Diagnostics show channel is active **Telemetry Validation**: - Setpoint matches configured value - Average current is within reasonable range - Duty cycle reflects current regulation - No unexpected faults --- ### Mode Control Tests #### `test_mode_transitions()` **Purpose**: Validate mode transitions work correctly **Operations**: 1. Perform 3 cycles of Config → Mission → Config transitions 2. Verify mode state after each transition 3. Ensure no errors occur **Expected Result**: ✅ PASS - All mode transitions succeed - Mode state is correct after each transition - No communication errors --- ### Error Condition Tests #### `test_error_conditions()` **Purpose**: Verify proper error handling **Operations**: 1. Try to enable channel in Config Mode (should fail) 2. Try to configure channel mode in Mission Mode (should fail) 3. Try to configure global settings in Mission Mode (should fail) 4. Verify all operations correctly return errors **Expected Result**: ✅ PASS - All invalid operations correctly rejected - Appropriate error codes returned - No crashes or undefined behavior --- ## Troubleshooting ### Common Issues #### 1. All Tests Fail ❌ **Symptom**: Every test returns FAILED **Root Causes**: - TLE92466ED not powered (check VIO: 3.0-5.5V, typical 3.3V or 5.0V) - SPI wiring incorrect - Common ground missing - ESP32-C6 not programmed correctly **Solutions**: ```bash # Check wiring - VIO: 3.0-5.5V present (REQUIRED for SPI, typical 3.3V or 5.0V) - GND: Common ground between ESP32-C6, TLE92466ED - SPI pins: MISO, MOSI, SCLK, CS connected correctly - RESN: Must be HIGH (not in reset) # Re-flash idf.py -p /dev/ttyUSB0 erase-flash idf.py -p /dev/ttyUSB0 flash ``` --- #### 2. HAL Initialization Fails ❌ **Symptom**: `test_hal_initialization` fails **Root Causes**: - SPI2 bus already in use - GPIO pins conflicting - Invalid SPI configuration **Solutions**: 1. Check `sdkconfig` for SPI conflicts 2. Verify GPIO pins are not used elsewhere 3. Try different GPIO pins (modify `TLE92466ED_TestConfig.hpp`) 4. Check ESP32-C6 hardware --- #### 3. Driver Initialization Fails ❌ **Symptom**: `test_driver_initialization` fails **Root Causes**: - SPI communication not working - TLE92466ED not responding - Power supply issue (VIO required for SPI) **Solutions**: 1. Verify SPI with logic analyzer/oscilloscope 2. Check VIO voltage (must be 3.0V to 5.5V, typical 3.3V or 5.0V) 3. Check VBAT voltage if testing with loads (5.5V to 41V, typical 12V or 24V) 4. Verify RESN pin is HIGH (not in reset) 5. Verify TLE92466ED is not damaged 6. Check VDD voltage (must be 5V) - powers central logic of the IC 7. Check VIO voltage (must be 3.0V to 5.5V, typical 3.3V or 5.0V) - sets SPI I/O levels --- #### 4. Telemetry Tests Fail ⚠️ **Symptom**: Telemetry reading functions fail **Root Causes**: - Channels not enabled (expected for some tests) - Device not in correct mode - Register read errors **Solutions**: 1. Check if test expects channels to be enabled 2. Verify device is in correct mode (Config vs Mission) 3. Check SPI communication is working 4. Some telemetry failures are expected if channels are disabled --- ## Performance Characteristics ### Typical Execution Times | Test Section | Expected Time | Max Time |--------------|--------------|----------| Initialization Tests | 50-100 ms | 200 ms | Mode Control Tests | 30-50 ms | 100 ms | Global Configuration Tests | 200-300 ms | 500 ms | Channel Control Tests | 500-800 ms | 1500 ms | Current Control Tests | 2000-3000 ms | 5000 ms | PWM Configuration Tests | 300-500 ms | 1000 ms | Dither Configuration Tests | 300-500 ms | 1000 ms | Diagnostics Tests | 1000-1500 ms | 3000 ms | Fault Management Tests | 100-200 ms | 400 ms | Watchdog Tests | 200-300 ms | 500 ms | GPIO Control Tests | 200-300 ms | 500 ms | Multi-Channel Tests | 2000-3000 ms | 5000 ms | Parallel Operation Tests | 300-500 ms | 1000 ms | Error Condition Tests | 100-200 ms | 400 ms | **Total Suite** | **~10-15 seconds** | **~30 seconds** | ### Memory Usage | Resource | Usage | Notes |----------|-------|-------| **Flash** | ~350KB | Driver + HAL + test framework | **RAM (static)** | ~15KB | Driver instance + buffers | **Stack (per task)** | 8KB | Configurable in `RUN_TEST_IN_TASK` | **Heap (dynamic)** | ~5KB | HAL instance + std::unique_ptr | ### SPI Performance - **Clock Frequency**: 1MHz (datasheet range: 0.1MHz - 10MHz) - **Transaction Time**: ~32μs per 32-bit frame - **Register Read**: ~100μs (including overhead) - **Register Write**: ~80μs (including overhead) --- ## Related Documentation ### ESP32 Examples - [Solenoid Control Test](readme_solenoid_control_test.md) - Real hardware solenoid testing - [Test Framework Reference](../main/TLE92466ED_TestFramework.hpp) - Framework API - [Hardware Configuration](../main/TLE92466ED_TestConfig.hpp) - Pin and parameter config - [ESP32-C6 CommInterface](../main/Esp32TleCommInterface.hpp) - CommInterface implementation details ### Driver Documentation - [Driver API Reference](../../../docs/07_Driver_API.md) - Complete API documentation - [CommInterface Implementation Guide](../../../docs/08_HAL_Implementation.md) - Porting to new platforms - [Register Map](../../../docs/03_Register_Map.md) - TLE92466ED register details - [Diagnostics](../../../docs/06_Diagnostics.md) - Fault detection and handling ### Build System - [App Configuration](/hf-tle92466ed-driver/development/examples/esp32/app_config.yml) - Build metadata - [CMake Setup](/hf-tle92466ed-driver/development/examples/esp32/CMakeLists.txt) - Build system configuration - [Component Structure](../components/hf_tle92466ed/) - ESP-IDF component --- ## Notes - This test suite is designed to validate driver functionality without requiring actual solenoids - All tests are independent and can be enabled/disabled individually - The suite validates both high-level and low-level APIs - Error conditions are tested to ensure proper validation - The suite covers all driver functionality - Test execution time depends on enabled sections (typically 10-15 seconds for full suite) - **VBAT is not required** for this test - only VDD and VIO are needed for SPI communication --- **Example**: Driver Integration Test Suite **Platform**: ESP32-C6 **Framework**: FreeRTOS + Test Framework **Test Sections**: 13 **Total Tests**: 40+ **Status**: ✅ Production Ready **Hardware Required**: TLE92466ED IC (no solenoids needed) ",
     "url": "/hf-tle92466ed-driver/development/examples/esp32/docs/README_DRIVER_INTEGRATION_TEST.html",
     
     "relUrl": "/examples/esp32/docs/README_DRIVER_INTEGRATION_TEST.html"
-  },"164": {
+  },"161": {
     "doc": "Solenoid Control Test - TLE92466ED ESP32-C6",
     "title": "Solenoid Control Test - TLE92466ED ESP32-C6",
     "content": "# Solenoid Control Test - TLE92466ED ESP32-C6 ## Table of Contents 1. [Overview](#overview) 2. [Purpose](#purpose) 3. [Hardware Requirements](#hardware-requirements) 4. [System Architecture](#system-architecture) 5. [Hardware Setup](#hardware-setup) 6. [Configuration](#configuration) 7. [Building and Running](#building-and-running) 8. [Operation](#operation) 9. [Real-Time Telemetry](#real-time-telemetry) 10. [Control Algorithm](#control-algorithm) 11. [Troubleshooting](#troubleshooting) 12. [Performance Characteristics](#performance-characteristics) 13. [Safety Considerations](#safety-considerations) 14. [Related Documentation](#related-documentation) --- ## Overview The **Solenoid Control Test** is a real hardware test application that demonstrates actual solenoid control using the TLE92466ED driver. This test uses **ADC-based current control** where an analog voltage input (0-3.3V) controls the current setpoint for two solenoids, with real-time telemetry monitoring. ### Key Features - **Real Hardware Testing**: Tests actual solenoids, not just driver logic - **ADC-Based Control**: Analog voltage input (0-3.3V) maps to current percentage (0-100%) - **Dual Solenoid Setup**: One single channel, one parallel pair - **Independent Current Ranges**: Each solenoid has different min/max but same percentage mapping - **Real-Time Telemetry**: Monitoring every 1 second - **Continuous Operation**: Runs indefinitely until reset ### Test Configuration ``` ┌─────────────────────────────────────────────────────────────┐ │ Solenoid Configuration │ ├─────────────────────────────────────────────────────────────┤ │ │ │ Solenoid 1 (Single Channel): │ │ └─ Channel: CH0 │ │ └─ Mode: Single Channel (ICC) │ │ └─ Current Range: 200-1500 mA │ │ └─ Percentage Mapping: 0-100% → 200-1500 mA │ │ │ │ Solenoid 2 (Parallel Pair): │ │ └─ Channels: CH1/CH2 (Parallel) │ │ └─ Mode: Parallel Pair (ICC) │ │ └─ Current Range: 400-3000 mA │ │ └─ Percentage Mapping: 0-100% → 400-3000 mA │ │ │ │ Control Input: │ │ └─ ADC Pin: GPIO0 (ADC1_CH0) │ │ └─ Voltage Range: 0-3.3V │ │ └─ Maps to: 0-100% current for both solenoids │ │ │ └─────────────────────────────────────────────────────────────┘ ``` --- ## Purpose This test serves multiple purposes: 1. **Real Hardware Validation**: Tests actual solenoid operation with real loads 2. **Parallel Operation Verification**: Validates parallel channel pairing works correctly 3. **Current Control Accuracy**: Tests current regulation with real solenoids 4. **Telemetry Validation**: Demonstrates real-time monitoring capabilities 5. **System Integration**: Tests complete system from ADC input to solenoid output 6. **Performance Evaluation**: Measures actual current regulation accuracy **Note**: This test requires actual solenoids and proper power supplies. For driver-only testing without hardware, use the **Driver Integration Test**. --- ## Hardware Requirements ### Required Components - **ESP32-C6-DevKitC-1** development board - **TLE92466ED** evaluation board or custom PCB - **Two Solenoids** with appropriate current ratings: - Solenoid 1: 200-1500mA range - Solenoid 2: 400-3000mA range (parallel pair) - **5.5-41V Power Supply** for VBAT (5A+ recommended for parallel operation, typical: 12V or 24V automotive) - **3.0-5.5V Power Supply** for VIO (I/O level supply for SPI, typical: 3.3V or 5.0V) - **5V Power Supply** for VDD (internal logic supply) - *Required for IC operation* - **ADC Control Source**: Potentiometer, DAC, or voltage source (0-3.3V) - **Current Sense Resistors** (if using external current monitoring) - **Oscilloscope/Logic Analyzer** (optional, for signal analysis) - Connecting wires and appropriate connectors ### Power Supply Requirements ``` ┌─────────────────────────────────────────────────────────────┐ │ Power Supply Specifications │ ├─────────────────────────────────────────────────────────────┤ │ │ │ VDD (Internal Logic Supply): │ │ └─ Voltage: 5V input to TLE92466ED │ │ └─ Purpose: Powers central logic of the IC │ │ └─ Required: YES (for IC operation) │ │ │ │ VIO (I/O Level Supply): │ │ └─ Voltage: 3.0V to 5.5V (input) │ │ └─ Purpose: Sets I/O voltage levels for SPI │ │ └─ Typical: 3.3V or 5.0V │ │ └─ Current: 10-20mA │ │ └─ Required: YES (for SPI communication) │ │ │ │ VBAT (Load Supply): │ │ └─ Voltage: 5.5V to 41V (recommended operating) │ │ └─ Typical: 12V or 24V automotive │ │ └─ Current: 5A+ (for parallel operation) │ │ └─ Required: YES (for solenoid operation) │ │ └─ Note: Must be capable of supplying peak currents │ │ │ └─────────────────────────────────────────────────────────────┘ ``` ### Solenoid Specifications **Solenoid 1 (Single Channel)**: - Recommended current range: 200-1500mA - Typical resistance: 6-120Ω - Power rating: 2.4-18W at 12V - Must be rated for continuous operation **Solenoid 2 (Parallel Pair)**: - Recommended current range: 400-3000mA - Typical resistance: 3-60Ω (combined) - Power rating: 4.8-36W at 12V - Must be rated for continuous operation - Requires proper current sharing between CH1 and CH2 --- ## System Architecture ### Block Diagram ``` ┌─────────────────────────────────────────────────────────────────────┐ │ System Architecture │ ├─────────────────────────────────────────────────────────────────────┤ │ │ │ ┌──────────────┐ ┌──────────────────┐ │ │ │ Control │ │ ESP32-C6 │ │ │ │ Source │ │ │ │ │ │ │ │ ┌──────────────┐ │ │ │ │ Pot/DAC │────────>│ │ ADC (GPIO0) │ │ │ │ │ 0-3.3V │ │ └──────┬───────┘ │ │ │ └──────────────┘ │ │ │ │ │ │ ▼ │ │ │ │ ┌──────────────┐ │ │ │ │ │ Control │ │ │ │ │ │ Logic │ │ │ │ │ └──────┬───────┘ │ │ │ │ │ │ │ │ │ ▼ │ │ │ │ ┌──────────────┐ │ │ │ │ │ TLE92466ED │ │ │ │ │ │ Driver │ │ │ │ │ └──────┬───────┘ │ │ │ └─────────┼──────────┘ │ │ │ │ │ ┌─────────┴──────────┐ │ │ │ │ │ │ ┌───────▼───────┐ ┌───────▼───────┐ │ │ │ TLE92466ED │ │ TLE92466ED │ │ │ │ IC │ │ IC │ │ │ └───────┬───────┘ └───────┬───────┘ │ │ │ │ │ │ ┌───────▼───────┐ ┌───────▼───────┐ │ │ │ Solenoid 1 │ │ Solenoid 2 │ │ │ │ (CH0) │ │ (CH1/CH2) │ │ │ │ 200-1500mA │ │ 400-3000mA │ │ │ └───────────────┘ └───────────────┘ │ │ │ └─────────────────────────────────────────────────────────────────────┘ ``` ### Control Flow ``` ┌─────────────────────────────────────────────────────────────────┐ │ Control Flow Diagram │ ├─────────────────────────────────────────────────────────────────┤ │ │ │ 1. ADC Reading (100ms) │ │ └─> Read GPIO0 voltage (0-3.3V) │ │ └─> Convert to percentage (0-100%) │ │ │ │ 2. Current Calculation │ │ └─> Solenoid 1: percentage → 200-1500mA │ │ └─> Solenoid 2: percentage → 400-3000mA │ │ │ │ 3. Current Update │ │ └─> SetCurrentSetpoint(Solenoid 1) │ │ └─> SetCurrentSetpoint(Solenoid 2) │ │ │ │ 4. Telemetry Collection (1 second) │ │ └─> Read device status │ │ └─> Read channel diagnostics │ │ └─> Read voltages (VBAT, VIO) │ │ └─> Read currents (setpoint, actual) │ │ └─> Read duty cycles │ │ └─> Check faults and warnings │ │ │ │ 5. Display Telemetry │ │ └─> Format and print status │ │ │ │ Loop: Steps 1-5 repeat continuously │ │ │ └─────────────────────────────────────────────────────────────────┘ ``` --- ## Hardware Setup ### Complete Wiring Diagram ``` ┌──────────────────────────────────────────────────────────────────────┐ │ Complete Wiring │ ├──────────────────────────────────────────────────────────────────────┤ │ │ │ ESP32-C6 TLE92466ED │ │ ──────── ────────── │ │ │ │ GPIO2 ───────────────────> MISO │ │ GPIO7 ───────────────────> MOSI │ │ GPIO6 ───────────────────> SCLK │ │ GPIO18 ───────────────────> CS │ │ GPIO21 ───────────────────> RESN │ │ GPIO20 ───────────────────> EN │ │ GPIO19 VDD │ │ 3.3V ───────────────────> VIO │ │ GND ───────────────────> GND │ │ │ │ External Supply TLE92466ED │ │ ─────────────── ────────── │ │ │ │ 5.5-41V (12-24V typical) ──> VBAT │ │ GND ───────────────────> GND │ │ │ │ Solenoid 1 TLE92466ED │ │ ────────── ────────── │ │ │ │ Solenoid+ ────────────────> OUT0 (CH0) │ │ Solenoid- ────────────────> GND (via sense) │ │ │ │ Solenoid 2 TLE92466ED │ │ ────────── ────────── │ │ │ │ Solenoid+ ────────────────> OUT1 (CH1) ──┐ │ │ ┌─────────────────┼──> OUT2 (CH2) │ │ │ │ │ │ Solenoid- ──────────────┴─────────────────┴──> GND (via sense) │ │ │ │ Control Source ESP32-C6 │ │ ────────────── ──────── │ │ │ │ Potentiometer: │ │ 3.3V ──[R1]─── GPIO0 ──[R2]─── GND │ │ (or DAC, voltage source, etc.) │ │ │ └──────────────────────────────────────────────────────────────────────┘ ``` ### Pin Assignment Table | Function | ESP32-C6 GPIO | TLE92466ED Pin | Direction | Notes |----------|---------------|----------------|-----------|-------| **SPI MISO** | GPIO2 | MISO | Input | Data from TLE92466ED | **SPI MOSI** | GPIO7 | MOSI | Output | Data to TLE92466ED | **SPI SCLK** | GPIO6 | SCLK | Output | 1MHz SPI Clock | **SPI CS** | GPIO18 | CS | Output | Active Low | **RESN** | GPIO21 | RESN | Output | Reset pin (active low, must be HIGH) | **EN** | GPIO20 | EN | Output | Enable pin (active high) | **FAULTN** | GPIO19 | FAULTN | Input | Fault pin (active low) | **ADC Input** | GPIO0 | - | Input | Control voltage (0-3.3V) | **VDD Supply** | 5V | VDD | Power | 5V (Required) | **VIO Supply** | 3.3V/5V | VIO | Power | 3.0-5.5V (Required) | **Load Supply** | 12-24V typical | VBAT | Power | 5.5-41V, 5A+ recommended (Required) | **Ground** | GND | GND | Ground | Common reference | ### Solenoid Connections **Solenoid 1 (Single Channel - CH0)**: ``` Solenoid Terminal+ ────> TLE92466ED OUT0 Solenoid Terminal- ────> GND (via current sense resistor if used) ``` **Solenoid 2 (Parallel Pair - CH1/CH2)**: ``` Solenoid Terminal+ ────┬───> TLE92466ED OUT1 (CH1) └───> TLE92466ED OUT2 (CH2) Solenoid Terminal- ────> GND (via current sense resistor if used) ``` **Important Notes**: - Both channels in parallel pair must be connected to the same solenoid - Ensure proper current sharing between CH1 and CH2 - Use appropriate wire gauge for high currents (parallel operation) - Add current sense resistors if external current monitoring is desired ### ADC Control Input Setup **Option 1: Potentiometer** ``` 3.3V ──[10kΩ Pot]── GPIO0 │ GND ``` **Option 2: DAC Output** ``` DAC Output (0-3.3V) ──> GPIO0 ``` **Option 3: Voltage Source** ``` Variable Voltage Source (0-3.3V) ──> GPIO0 ``` **ADC Configuration**: - Pin: GPIO0 (ADC1_CH0) - Range: 0-3.3V - Resolution: 12-bit (0-4095) - Attenuation: 12dB (full range) - Sampling: 1kHz --- ## Configuration ### Solenoid Configuration (`main/SolenoidControlTest.cpp`) ```cpp /** * @brief Solenoid 1 Configuration (Single Channel) */ struct Solenoid1Config { static constexpr Channel CHANNEL = Channel::CH0; // Single channel static constexpr uint16_t MIN_CURRENT_MA = 200; // Minimum current (mA) static constexpr uint16_t MAX_CURRENT_MA = 1500; // Maximum current (mA) static constexpr bool PARALLEL_MODE = false; // Single channel mode }; /** * @brief Solenoid 2 Configuration (Parallel Pair) */ struct Solenoid2Config { static constexpr ParallelPair PAIR = ParallelPair::CH1_CH2; // Parallel pair static constexpr Channel PRIMARY_CHANNEL = Channel::CH1; // Primary channel static constexpr uint16_t MIN_CURRENT_MA = 400; // Minimum current (mA) static constexpr uint16_t MAX_CURRENT_MA = 3000; // Maximum current (mA) static constexpr bool PARALLEL_MODE = true; // Parallel mode }; ``` **To modify solenoid configuration**: Edit these structs in `main/SolenoidControlTest.cpp` ### ADC Configuration ```cpp /** * @brief ADC Configuration */ struct ADCConfig { static constexpr adc_unit_t UNIT = ADC_UNIT_1; // ADC unit (ADC1) static constexpr adc_channel_t CHANNEL = ADC_CHANNEL_0; // ADC channel (GPIO0) static constexpr adc_atten_t ATTEN = ADC_ATTEN_DB_12; // 0-3.3V range static constexpr adc_bitwidth_t BITWIDTH = ADC_BITWIDTH_12; // 12-bit resolution static constexpr float VREF_MV = 3300.0f; // Reference voltage (3.3V) static constexpr float ADC_MAX = 4095.0f; // Maximum ADC value static constexpr int GPIO_PIN = 0; // GPIO pin number }; ``` **To change ADC pin**: Modify `CHANNEL` and `GPIO_PIN` (ensure GPIO supports ADC) ### Control Loop Timing ```cpp const TickType_t update_interval = pdMS_TO_TICKS(100); // 100ms current update const TickType_t telemetry_interval = pdMS_TO_TICKS(1000); // 1 second telemetry ``` **To modify timing**: Edit these constants in `main/SolenoidControlTest.cpp` --- ## Building and Running ### Quick Start ```bash cd examples/esp32 # Build the solenoid control test ./scripts/build_app.sh solenoid_control_test Debug # Flash to ESP32-C6 ./scripts/flash_app.sh solenoid_control_test Debug # Monitor output ./scripts/monitor_app.sh solenoid_control_test ``` ### Manual Build ```bash cd examples/esp32 # Set target idf.py set-target esp32c6 # Build with APP_TYPE=solenoid_control_test idf.py -DAPP_TYPE=solenoid_control_test build # Flash idf.py -p /dev/ttyUSB0 flash # Monitor idf.py -p /dev/ttyUSB0 monitor ``` ### Build Requirements The solenoid control test requires the `esp_adc` component, which is automatically added by CMake when `APP_TYPE=solenoid_control_test`. --- ## Operation ### Startup Sequence ``` ┌─────────────────────────────────────────────────────────────┐ │ Startup Sequence │ ├─────────────────────────────────────────────────────────────┤ │ │ │ 1. Initialize HAL │ │ └─> Create Esp32TleCommInterface │ │ └─> Initialize SPI bus │ │ └─> Configure GPIO pins │ │ │ │ 2. Initialize Driver │ │ └─> Create tle92466ed::Driver instance │ │ └─> Call Init() (resets device, verifies communication) │ │ │ │ 3. Initialize ADC │ │ └─> Configure ADC1 channel 0 (GPIO0) │ │ └─> Set attenuation for 0-3.3V range │ │ └─> Enable calibration (if available) │ │ │ │ 4. Configure Solenoids │ │ └─> Enter Config Mode │ │ └─> Set Solenoid 1 to ICC mode (CH0) │ │ └─> Enable parallel operation for Solenoid 2 (CH1/CH2) │ │ └─> Set Solenoid 2 to ICC mode (CH1) │ │ └─> Enter Mission Mode │ │ └─> Enable outputs (EN pin) │ │ │ │ 5. Enable Solenoids │ │ └─> Enable CH0 (Solenoid 1) │ │ └─> Enable CH1 (Solenoid 2, enables both in parallel) │ │ │ │ 6. Start Control Loop │ │ └─> Continuous operation begins │ │ │ └─────────────────────────────────────────────────────────────┘ ``` ### Control Loop Operation The control loop runs continuously with the following timing: ``` ┌─────────────────────────────────────────────────────────────┐ │ Control Loop Timing │ ├─────────────────────────────────────────────────────────────┤ │ │ │ Every 100ms: │ │ └─> Read ADC voltage (GPIO0) │ │ └─> Convert to percentage (0-100%) │ │ └─> Calculate currents for both solenoids │ │ └─> Update current setpoints │ │ │ │ Every 1 second: │ │ └─> Collect telemetry │ │ └─> Display formatted telemetry report │ │ │ │ Continuous: │ │ └─> Monitor for faults │ │ └─> Update currents based on ADC │ │ │ └─────────────────────────────────────────────────────────────┘ ``` ### Current Calculation The ADC reading (0-3.3V) is mapped to a percentage (0-100%), which is then used to calculate the current for each solenoid: ``` ┌─────────────────────────────────────────────────────────────┐ │ Current Calculation Formula │ ├─────────────────────────────────────────────────────────────┤ │ │ │ Step 1: ADC to Percentage │ │ percentage = (ADC_voltage / 3.3V) × 100% │ │ │ │ Step 2: Percentage to Current │ │ Solenoid 1: │ │ current = 200mA + (1500mA - 200mA) × (percentage/100) │ │ Range: 200-1500mA │ │ │ │ Solenoid 2: │ │ current = 400mA + (3000mA - 400mA) × (percentage/100) │ │ Range: 400-3000mA │ │ │ │ Example: │ │ ADC = 1.65V (50%) │ │ Solenoid 1: 200 + (1500-200)×0.5 = 850mA │ │ Solenoid 2: 400 + (3000-400)×0.5 = 1700mA │ │ │ └─────────────────────────────────────────────────────────────┘ ``` --- ## Real-Time Telemetry ### Telemetry Display Format Every 1 second, the system displays telemetry: ``` ╔══════════════════════════════════════════════════════════════════════════════╗ ║ REAL-TIME TELEMETRY ║ ╠══════════════════════════════════════════════════════════════════════════════╣ ADC Input: 1650.0 mV (50.0%) Target Currents: Solenoid 1=850 mA, Solenoid 2=1700 mA Device Status: Mode: Mission | Init: Done | Fault Pin: OK VBAT: 12000 mV | VIO: 3300 mV Solenoid 1 (CH0): Setpoint: 850 mA | Actual: 845 mA | Duty: 16384 (0x4000) Current Error: -5 mA (-0.6%) ✅ Status: Normal Solenoid 2 (CH1): Setpoint: 1700 mA | Actual: 1695 mA | Duty: 32768 (0x8000) Current Error: -5 mA (-0.3%) ✅ Status: Normal ╚══════════════════════════════════════════════════════════════════════════════╝ ``` ### Telemetry Data Explained #### Device-Level Telemetry - **Mode**: Current device mode (Config or Mission) - **Init**: Initialization status (Done or Pending) - **Fault Pin**: Hardware fault pin state (OK or FAULT) - **VBAT**: VBAT supply voltage in millivolts - **VIO**: VIO supply voltage in millivolts - **Device Faults**: Any global fault conditions (UV/OV, temperature, clock, etc.) #### Per-Solenoid Telemetry - **Setpoint**: Target current in milliamperes - **Actual**: Measured average current in milliamperes - **Duty**: PWM duty cycle (raw 16-bit value and hex) - **Current Error**: Difference between setpoint and actual (mA and percentage) - **Faults**: Channel-specific fault conditions - **Warnings**: Channel-specific warning conditions - **Status**: Overall channel status (Normal or with faults/warnings) ### Telemetry Interpretation #### Normal Operation ``` ✅ Status: Normal ``` - No faults or warnings detected - Current regulation working correctly - All systems operational #### Current Error Analysis ``` Current Error: -5 mA (-0.6%) ``` - **Negative error**: Actual current is less than setpoint - **Positive error**: Actual current is greater than setpoint - **Small errors (10%)**: May indicate load mismatch or regulation issues #### Fault Conditions ``` ⚠️ Faults: - Over-current - Short to Ground - Open Load ``` - **Over-current**: Load drawing more than expected - **Short to Ground**: Load or wiring shorted - **Open Load**: No load connected or connection issue - **Over-temperature**: IC or load overheating #### Warning Conditions ``` ⚠️ Warnings: - Current Regulation Warning - PWM Regulation Warning ``` - **Current Regulation Warning**: Current regulation may be at limits - **PWM Regulation Warning**: PWM may be saturated - **OT Warning**: Approaching temperature limits --- ## Control Algorithm ### Current Control Flow ``` ┌─────────────────────────────────────────────────────────────┐ │ Current Control Algorithm │ ├─────────────────────────────────────────────────────────────┤ │ │ │ 1. ADC Reading │ │ Input: GPIO0 voltage (0-3.3V) │ │ Process: 12-bit ADC conversion │ │ Output: Raw ADC value (0-4095) │ │ │ │ 2. Voltage Calculation │ │ Input: Raw ADC value │ │ Process: Convert to voltage (with calibration) │ │ Output: Voltage in millivolts (0-3300mV) │ │ │ │ 3. Percentage Calculation │ │ Input: Voltage (mV) │ │ Process: percentage = (voltage / 3300) × 100 │ │ Output: Percentage (0.0-100.0%) │ │ │ │ 4. Current Calculation (Per Solenoid) │ │ Input: Percentage │ │ Process: │ │ current = min + (max - min) × (percentage / 100) │ │ Output: Current in milliamperes │ │ │ │ 5. Current Update │ │ Input: Calculated current │ │ Process: SetCurrentSetpoint(channel, current) │ │ Output: Current setpoint updated in TLE92466ED │ │ │ │ 6. Current Regulation (TLE92466ED) │ │ Input: Current setpoint │ │ Process: ICC (Integrated Current Control) │ │ Output: Regulated current to solenoid │ │ │ └─────────────────────────────────────────────────────────────┘ ``` ### Parallel Operation For Solenoid 2 (parallel pair), the current is set on the primary channel (CH1), and the TLE92466ED automatically shares the current between CH1 and CH2: ``` ┌─────────────────────────────────────────────────────────────┐ │ Parallel Channel Current Sharing │ ├─────────────────────────────────────────────────────────────┤ │ │ │ Setpoint: 1700mA (on CH1) │ │ │ │ TLE92466ED automatically: │ │ └─> Shares current between CH1 and CH2 │ │ └─> Each channel: ~850mA │ │ └─> Total: ~1700mA to solenoid │ │ │ │ Current Sharing: │ │ └─> Automatic balancing by TLE92466ED │ │ └─> No manual current splitting required │ │ └─> Both channels must be enabled │ │ │ └─────────────────────────────────────────────────────────────┘ ``` --- ## Troubleshooting ### Common Issues #### 1. Solenoids Not Responding ❌ **Symptom**: No current flow, solenoids not activating **Root Causes**: - VBAT not connected or insufficient voltage - EN pin not enabled - Channels not enabled - Device not in Mission Mode - Solenoid wiring incorrect **Solutions**: ``` Checklist: □ VBAT: 5.5-41V connected (typical 12-24V) and sufficient current capacity □ EN pin: HIGH (outputs enabled) □ Channels: Enabled via EnableChannel() □ Mode: Mission Mode (EnterMissionMode()) □ Wiring: Solenoid+ to OUT, Solenoid- to GND □ RESN: HIGH (not in reset) ``` --- #### 2. Current Not Regulating Correctly ⚠️ **Symptom**: Actual current doesn't match setpoint **Root Causes**: - Load resistance mismatch - Power supply voltage too low - Current limits exceeded - Solenoid resistance out of range **Solutions**: ``` 1. Check load resistance: - Solenoid 1: R = VBAT / I_max = 12V / 1.5A = 8Ω minimum - Solenoid 2: R = VBAT / I_max = 12V / 3.0A = 4Ω minimum 2. Verify power supply: - VBAT voltage: 5.5V to 41V (typical 12-24V) - Current capacity: 5A+ for parallel operation 3. Check telemetry: - Current error should be 1000mA)** | ±2-5% | ±10% | **Parallel Operation** | ±3-7% | ±12% | **Note**: Accuracy depends on load characteristics, power supply stability, and temperature. ### Power Consumption | Component | Typical Current | Notes |-----------|----------------|-------| **ESP32-C6 (Idle)** | 20-30mA | Without WiFi/BLE | **ESP32-C6 (Active)** | 50-80mA | During operation | **TLE92466ED (VDD)** | - | 5V input (powers central logic) | **TLE92466ED (VIO)** | 10-20mA | I/O level supply (for SPI) | **Solenoid 1 (Max)** | 1500mA | At maximum setpoint | **Solenoid 2 (Max)** | 3000mA | At maximum setpoint (parallel) | --- ## Safety Considerations ### Electrical Safety ``` ┌─────────────────────────────────────────────────────────────┐ │ Safety Guidelines │ ├─────────────────────────────────────────────────────────────┤ │ │ │ ⚠️ HIGH VOLTAGE WARNING │ │ └─> VBAT can be up to 41V (recommended operating) │ │ └─> Use appropriate safety measures │ │ └─> Ensure proper grounding │ │ │ │ ⚠️ HIGH CURRENT WARNING │ │ └─> Parallel operation can draw 3A+ │ │ └─> Use appropriate wire gauge │ │ └─> Ensure connectors are rated for current │ │ │ │ ⚠️ THERMAL CONSIDERATIONS │ │ └─> TLE92466ED can get hot during operation │ │ └─> Add heatsink if needed │ │ └─> Monitor temperature via telemetry │ │ │ │ ⚠️ SHORT CIRCUIT PROTECTION │ │ └─> TLE92466ED has built-in protection │ │ └─> Monitor FAULTN pin │ │ └─> Check telemetry for fault conditions │ │ │ └─────────────────────────────────────────────────────────────┘ ``` ### Operational Safety 1. **Start with Low Currents**: Begin testing at minimum current setpoints 2. **Monitor Telemetry**: Watch for faults and warnings 3. **Check Temperatures**: Ensure adequate cooling 4. **Verify Wiring**: Double-check all connections before powering on 5. **Use Fuses**: Add appropriate fuses in power supply lines 6. **Emergency Stop**: Have a way to quickly disable power (EN pin or power supply) --- ## Related Documentation ### ESP32 Examples - [Driver Integration Test](readme_driver_integration_test.md) - Driver API validation (no hardware) - [Test Framework Reference](../main/TLE92466ED_TestFramework.hpp) - Framework API - [Hardware Configuration](../main/TLE92466ED_TestConfig.hpp) - Pin and parameter config - [ESP32-C6 CommInterface](../main/Esp32TleCommInterface.hpp) - CommInterface implementation ### Driver Documentation - [Driver API Reference](../../../docs/07_Driver_API.md) - Complete API documentation - [CommInterface Implementation Guide](../../../docs/08_HAL_Implementation.md) - Porting to new platforms - [Register Map](../../../docs/03_Register_Map.md) - TLE92466ED register details - [Diagnostics](../../../docs/06_Diagnostics.md) - Fault detection and handling ### Hardware Documentation - [TLE92466ED Datasheet](../../../Datasheet/) - Complete IC specifications - [ESP32-C6 Technical Reference](https://www.espressif.com/sites/default/files/documentation/esp32-c6_technical_reference_manual_en.pdf) - MCU documentation --- ## Notes - This test requires actual solenoids and proper power supplies - VBAT is **required** for solenoid operation (unlike driver integration test) - Both solenoids use the same ADC percentage but different current ranges - Parallel operation automatically shares current between channels - Telemetry updates every 1 second - Control loop updates every 100ms for responsive current control - The test runs continuously until reset or power cycle --- **Example**: Solenoid Control Test **Platform**: ESP32-C6 **Framework**: FreeRTOS **Status**: ✅ Production Ready **Hardware Required**: TLE92466ED IC + Two Solenoids + Power Supplies ",
     "url": "/hf-tle92466ed-driver/development/examples/esp32/docs/README_SOLENOID_CONTROL_TEST.html",
     
     "relUrl": "/examples/esp32/docs/README_SOLENOID_CONTROL_TEST.html"
-  },"165": {
+  },"162": {
     "doc": "TLE92466ED Test Framework Documentation",
     "title": "TLE92466ED Test Framework Documentation",
     "content": "# TLE92466ED Test Framework Documentation ## Overview The **TLE92466ED Test Framework** (`TLE92466ED_TestFramework.hpp`) provides professional testing infrastructure for ESP32-based examples, adapted from the HardFOC Internal Interface Wrap test framework. ## 🎯 Purpose - **Structured Testing**: Organize tests into logical sections - **Automatic Tracking**: Pass/fail counting and execution timing - **Visual Feedback**: GPIO14 progress indicator - **Task Isolation**: FreeRTOS task-based execution - **CI/CD Ready**: Structured output for automated testing ## 📚 Framework Components ### 1. GPIO14 Test Progression Indicator #### Purpose Provides **hardware-level visual feedback** showing test progression on oscilloscope, logic analyzer, or LED. #### Functions ```cpp bool init_test_progress_indicator() noexcept; ```text **Initialize GPIO14** as output for test progression indicator - Configures GPIO14 as push-pull output - Sets initial state to LOW - Returns `true` on success ```cpp void flip_test_progress_indicator() noexcept; ```text **Toggle GPIO14** state to indicate test completion - Alternates between HIGH and LOW - Called automatically after each test - 50ms delay for visual effect ```cpp void output_section_indicator(uint8_t blink_count = 5) noexcept; ```text **Blink GPIO14** to indicate section boundaries - Default: 5 blinks (50ms ON, 50ms OFF each) - Custom blink count for different sections - Marks state as LOW after completion ```cpp void cleanup_test_progress_indicator() noexcept; ```text **Cleanup and reset** GPIO14 - Sets pin to LOW - Resets pin configuration - Called before system restart #### Signal Patterns ```text Section Start: ┌─┐ ┌─┐ ┌─┐ ┌─┐ ┌─┐ └─┘ └─┘ └─┘ └─┘ └─┘ (5 blinks, 50ms each) Test Complete: ┌─────────────┐ (Toggle HIGH) └─────────────┘ Next Test: ──────────────── (Toggle LOW) ```text #### Hardware Setup ```text ESP32-C6 GPIO14 ──┬── LED Anode │ └── LED Cathode ── 220Ω ── GND │ └── Oscilloscope/Logic Analyzer Probe ```text --- ### 2. Test Result Tracking #### TestResults Structure ```cpp struct TestResults { int total_tests; // Total number of tests run int passed_tests; // Number of tests passed int failed_tests; // Number of tests failed uint64_t total_execution_time_us; // Total execution time (μs) void add_result(bool passed, uint64_t execution_time) noexcept; double get_success_percentage() const noexcept; double get_total_time_ms() const noexcept; void print_summary(const char* tag) const noexcept; }; ```text #### Global Instance ```cpp static TestResults g_test_results; ```text Automatically accumulates results from all tests. Accessed via macros. #### Methods **`add_result(passed, execution_time)`** - Records test result - Updates pass/fail counters - Accumulates execution time - Called automatically by test macros **`get_success_percentage()`** - Returns success rate (0.0 to 100.0) - Handles division by zero **`get_total_time_ms()`** - Returns total execution time in milliseconds - Converts from microseconds **`print_summary(tag)`** - Prints professional formatted summary: ```text ╔══════════════════════════════════════════════════════════════════╗ ║ TEST RESULTS SUMMARY ║ ╠══════════════════════════════════════════════════════════════════╣ ║ Total Tests: 7 ║ ║ Passed: 7 ║ ║ Failed: 0 ║ ║ Success Rate: 100.00% ║ ║ Total Time: 234.56 ms ║ ╚══════════════════════════════════════════════════════════════════╝ ```text --- ### 3. Test Execution Macros #### RUN_TEST(test_func) **Inline test execution** (no separate task) ```cpp RUN_TEST(test_hal_initialization); ```text **Features**: - Executes test in current task context - Prints formatted header - Measures execution time (microseconds) - Records result in `g_test_results` - Flips GPIO14 on completion - 100ms delay after test **Use Case**: Simple tests that don't need large stack or isolation **Output**: ```text ╔══════════════════════════════════════════════════════════════════╗ ║ Running: test_hal_initialization ╚══════════════════════════════════════════════════════════════════╝ [SUCCESS] PASSED: test_hal_initialization (12.34 ms) ```text --- #### RUN_TEST_IN_TASK(name, func, stack_size_bytes, priority) **FreeRTOS task-based test execution** ```cpp RUN_TEST_IN_TASK(\"hal_init\", test_hal_initialization, 8192, 5); ```text **Parameters**: - `name`: Test name string (for logging) - `func`: Test function pointer (`bool (*)() noexcept`) - `stack_size_bytes`: Task stack size (e.g., `8192` = 8KB) - `priority`: FreeRTOS task priority (`1-5`, typical: `5`) **Features**: - Executes test in **isolated FreeRTOS task** - Custom stack size per test - Automatic semaphore synchronization - **30-second timeout** protection - Fallback to inline execution on task creation failure - Waits for test completion before continuing - 100ms delay between tests **Use Case**: Complex tests needing large stack or isolation **Task Management**: ```cpp struct TestTaskContext { const char* test_name; bool (*test_func)() noexcept; TestResults* results; const char* tag; SemaphoreHandle_t completion_semaphore; }; void test_task_trampoline(void* param); ```text **Output**: ```text ╔══════════════════════════════════════════════════════════════════╗ ║ Running (task): hal_init ╚══════════════════════════════════════════════════════════════════╝ [SUCCESS] PASSED (task): hal_init (12.34 ms) Test task completed: hal_init ```text **Timeout Handling**: ```cpp if (xSemaphoreTake(semaphore, pdMS_TO_TICKS(30000)) == pdTRUE) { // Test completed } else { ESP_LOGW(TAG, \"Test task timeout: %s\", name); // Still records result, continues to next test } ```text --- #### RUN_TEST_SECTION_IF_ENABLED(enabled, section_name, ...) **Conditional test section execution** ```cpp RUN_TEST_SECTION_IF_ENABLED( ENABLE_INITIALIZATION_TESTS, \"INITIALIZATION TESTS\", RUN_TEST_IN_TASK(\"hal_init\", test_hal_initialization, 8192, 5); RUN_TEST_IN_TASK(\"driver_init\", test_driver_initialization, 8192, 5); ); ```text **Parameters**: - `enabled`: Compile-time flag (`0` or `1`) - `section_name`: Display name for section - `...`: Test calls (variadic) **Features**: - **Compile-time** section enable/disable - Professional section header - **5-blink pattern** on GPIO14 at section start - Wraps multiple test calls **Output**: ```text ╔══════════════════════════════════════════════════════════════════╗ ║ SECTION: INITIALIZATION TESTS ║ ╚══════════════════════════════════════════════════════════════════╝ [GPIO14: 5 blinks] ... tests ... ```text --- #### RUN_TEST_SECTION_IF_ENABLED_WITH_PATTERN(enabled, section_name, blink_count, ...) **Conditional test section with custom blink pattern** ```cpp RUN_TEST_SECTION_IF_ENABLED_WITH_PATTERN( ENABLE_ADVANCED_TESTS, \"ADVANCED TESTS\", 3, // Custom 3-blink pattern RUN_TEST_IN_TASK(\"advanced_test\", test_advanced, 16384, 5); ); ```text **Parameters**: - `enabled`: Compile-time flag - `section_name`: Display name - `blink_count`: Custom blink count for this section - `...`: Test calls **Use Case**: Differentiate sections by blink pattern on oscilloscope --- ### 4. Test Section Configuration #### print_test_section_status(tag, module_name) Prints configuration information at test start: ```cpp print_test_section_status(TAG, \"TLE92466ED\"); ```text **Output**: ```text ╔══════════════════════════════════════════════════════════════════╗ ║ TLE92466ED TEST CONFIGURATION ╠══════════════════════════════════════════════════════════════════╣ ║ Test sections will execute based on compile-time configuration ║ ║ GPIO14 test progression indicator: ENABLED ║ ╚══════════════════════════════════════════════════════════════════╝ ```text --- ## 🔧 Usage Guide ### Basic Setup #### 1. Include Framework ```cpp #include \"TLE92466ED_TestFramework.hpp\" static const char* TAG = \"MyTest\"; ```text #### 2. Define Test Sections ```cpp #define ENABLE_BASIC_TESTS 1 #define ENABLE_ADVANCED_TESTS 1 #define ENABLE_STRESS_TESTS 0 // Disabled ```text #### 3. Write Test Functions ```cpp static bool test_my_feature() noexcept { ESP_LOGI(TAG, \"Testing my feature...\"); // Test logic here bool result = some_operation(); if (result) { ESP_LOGI(TAG, \"✅ Feature works!\"); return true; } else { ESP_LOGE(TAG, \"❌ Feature failed!\"); return false; } } ```text **Requirements**: - Return type: `bool` - `noexcept` specifier - `true` = passed, `false` = failed #### 4. Create app_main() ```cpp extern \"C\" void app_main() { // Print header ESP_LOGI(TAG, \"╔════════════════════════════════════╗\"); ESP_LOGI(TAG, \"║ MY TEST SUITE ║\"); ESP_LOGI(TAG, \"╚════════════════════════════════════╝\"); // Initialize GPIO14 init_test_progress_indicator(); // Print configuration print_test_section_status(TAG, \"MY_MODULE\"); // Run test sections RUN_TEST_SECTION_IF_ENABLED( ENABLE_BASIC_TESTS, \"BASIC TESTS\", RUN_TEST_IN_TASK(\"my_feature\", test_my_feature, 8192, 5); ); // Print results g_test_results.print_summary(TAG); // Cleanup cleanup_test_progress_indicator(); // Status message if (g_test_results.failed_tests == 0) { ESP_LOGI(TAG, \"✅ ALL TESTS PASSED!\"); } else { ESP_LOGE(TAG, \"❌ %d TESTS FAILED!\", g_test_results.failed_tests); } vTaskDelay(pdMS_TO_TICKS(10000)); esp_restart(); } ```text --- ## 📊 Advanced Usage ### Custom Test Context For tests that need shared resources: ```cpp // Global resources static MyDriver* g_driver = nullptr; static bool test_with_driver() noexcept { if (!g_driver) { ESP_LOGE(TAG, \"Driver not initialized\"); return false; } // Use driver return g_driver->doSomething(); } ```text ### Stack Size Guidelines | Test Complexity | Stack Size | Notes |----------------|-----------|-------| Simple | 4096 (4KB) | Basic operations, minimal locals | Normal | 8192 (8KB) | Standard tests (default) | Complex | 12288 (12KB) | Multiple buffers, recursion | Heavy | 16384 (16KB) | Large objects, deep call chains | ### Priority Guidelines | Priority | Use Case |----------|----------| 1-2 | Low priority background tests | 3-4 | Normal test priority | 5 | **Default**, standard tests | 6-10 | High priority, time-critical tests | ### Timeout Considerations Default timeout: **30 seconds** Modify in framework if needed: ```cpp if (xSemaphoreTake(ctx.completion_semaphore, pdMS_TO_TICKS(60000))) { // 60-second timeout for slow tests } ```text --- ## 🎯 Best Practices ### 1. Test Organization ```cpp // Group related tests RUN_TEST_SECTION_IF_ENABLED( ENABLE_INITIALIZATION_TESTS, \"INITIALIZATION\", RUN_TEST_IN_TASK(\"hal\", test_hal_init, 8192, 5); RUN_TEST_IN_TASK(\"driver\", test_driver_init, 8192, 5); ); RUN_TEST_SECTION_IF_ENABLED( ENABLE_OPERATION_TESTS, \"OPERATIONS\", RUN_TEST_IN_TASK(\"read\", test_read, 8192, 5); RUN_TEST_IN_TASK(\"write\", test_write, 8192, 5); ); ```text ### 2. Clear Logging ```cpp static bool test_feature() noexcept { ESP_LOGI(TAG, \"Starting feature test...\"); ESP_LOGI(TAG, \"Step 1: Initialize\"); ESP_LOGI(TAG, \"Step 2: Execute\"); ESP_LOGI(TAG, \"Step 3: Verify\"); ESP_LOGI(TAG, \"✅ Feature test passed\"); return true; } ```text ### 3. Error Reporting ```cpp static bool test_operation() noexcept { if (auto result = do_operation(); !result) { ESP_LOGE(TAG, \"❌ Operation failed: %s\", result.error()); return false; } return true; } ```text ### 4. Resource Cleanup ```cpp extern \"C\" void app_main() { // Setup init_test_progress_indicator(); auto* resource = create_resource(); // Tests RUN_TEST_SECTION_IF_ENABLED(...); // Cleanup (ALWAYS!) delete resource; cleanup_test_progress_indicator(); g_test_results.print_summary(TAG); } ```text --- ## 📈 Performance Impact ### Memory Overhead | Component | Flash | RAM |-----------|-------|-----| Framework Code | ~8KB | ~2KB | Test Results | 0 | 32 bytes | Per Test Context | 0 | ~64 bytes (temporary) | GPIO14 State | 0 | 3 bytes | **Total** | **~8KB** | **~2KB + 64B per active task** | ### Timing Overhead | Operation | Time |-----------|------| Test Header Print | ~5ms | GPIO14 Toggle | ~50μs | GPIO14 Blink (5x) | ~500ms | Semaphore Operations | ~10μs | Result Recording | ~1μs | **Per Test Overhead** | **~5-10ms** | --- ## 🔍 Debugging ### Enable Framework Debug Output ```cpp #define TEST_FRAMEWORK_DEBUG 1 // In framework functions: #ifdef TEST_FRAMEWORK_DEBUG ESP_LOGI(\"TestFramework\", \"Debug info...\"); #endif ```text ### Monitor GPIO14 ```bash # Logic analyzer configuration Sample Rate: 1MHz Duration: 10s Trigger: Rising edge on GPIO14 ```text ### Analyze Test Timing ```cpp // Parse output for timing data grep \"PASSED\" output.log | awk '{print $NF}' ```text --- ## 🔗 Integration with CI/CD ### Structured Output Parsing ```bash #!/bin/bash # Extract results TOTAL=$(grep \"Total Tests:\" output.log | awk '{print $3}') PASSED=$(grep \"Passed:\" output.log | awk '{print $2}') FAILED=$(grep \"Failed:\" output.log | awk '{print $2}') SUCCESS_RATE=$(grep \"Success Rate:\" output.log | awk '{print $3}') # Exit code if [ \"$FAILED\" -gt 0 ]; then echo \"TESTS FAILED: $FAILED/$TOTAL\" exit 1 else echo \"ALL TESTS PASSED: $PASSED/$TOTAL ($SUCCESS_RATE)\" exit 0 fi ```text ### GitHub Actions Example ```yaml - name: Run Tests run: | ./scripts/flash_app.sh basic_usage Debug ./scripts/monitor_app.sh basic_usage > output.log - name: Parse Results run: | if grep \"\\[FAILED\\]\" output.log; then echo \"Tests failed!\" exit 1 fi ```text --- ## 📚 References - [BasicUsageExample.cpp](../main/BasicUsageExample.cpp) - Example implementation - [HardFOC Internal TestFramework.h]( ../../../../internal/hf-internal-interface-wrap/examples/esp32/main/TestFramework.h) - Original framework --- **Framework Version**: 1.0.0 **Based on**: HardFOC Internal Interface Wrap TestFramework.h **Platform**: ESP32 (ESP-IDF v5.0+) **Status**: ✅ Production Ready ",
     "url": "/hf-tle92466ed-driver/development/examples/esp32/docs/README_TEST_FRAMEWORK.html",
     
     "relUrl": "/examples/esp32/docs/README_TEST_FRAMEWORK.html"
-  },"166": {
+  },"163": {
     "doc": "TLE92466ED ESP32-C6 Examples",
     "title": "TLE92466ED ESP32-C6 Examples",
     "content": "# TLE92466ED ESP32-C6 Examples This directory contains comprehensive examples demonstrating the TLE92466ED driver on ESP32-C6 platform. ## 🎯 Overview The ESP32-C6 examples showcase real-world usage of the TLE92466ED six-channel low-side solenoid driver with: - **Hardware-specific HAL** implementation for ESP32-C6 - **Multiple example applications** covering different use cases - **Automated build system** with configurable app types - **Comprehensive documentation** for each example - **Production-ready code** with proper error handling ## 🔧 Hardware Requirements ### ESP32-C6 Development Board - ESP32-C6-DevKitC-1 or compatible - USB-C cable for programming and power ### TLE92466ED Connections | TLE92466ED Pin | ESP32-C6 GPIO | Function |----------------|---------------|----------| MOSI | GPIO7 | SPI Data Out | MISO | GPIO2 | SPI Data In | SCLK | GPIO6 | SPI Clock | CS | GPIO10 | Chip Select | VDD | 3.3V | Logic Supply | VBAT | 12-24V | Power Supply | GND | GND | Ground | ### Load Connections Connect your solenoids/loads to the TLE92466ED output channels (OUT0-OUT5) with appropriate current ratings. ## 🚀 Quick Start ### 1. Prerequisites ```bash # Install ESP-IDF v5.5 curl -fsSL https://raw.githubusercontent.com/espressif/esp-idf/master/tools/install.sh | bash source ~/esp/esp-idf/export.sh # Verify installation idf.py --version ```text ### 2. Setup Repository ```bash # Clone and setup git clone --recursive https://github.com/n3b3x/hf-tle92466ed-driver.git cd hf-tle92466ed-driver/examples/esp32 # Initialize build environment ./scripts/setup_repo.sh ```text ### 3. Build and Flash ```bash # Build basic usage example (default) ./scripts/build_app.sh basic_usage Release # Flash to ESP32-C6 ./scripts/flash_app.sh basic_usage Release # Monitor output idf.py monitor ```text ## 📱 Available Examples ### 🟢 Basic Examples #### `driver_integration_test` **Comprehensive Driver Integration Test Suite** - Complete driver API validation (40+ tests) - 13 test sections covering all functionality - Initialization, configuration, control, diagnostics - Multi-channel and parallel operation testing - Error condition validation - Comprehensive telemetry testing - Professional test framework with automatic result tracking - **No actual solenoids required** (driver test only) ```bash ./scripts/build_app.sh driver_integration_test Debug ./scripts/flash_app.sh driver_integration_test Debug ``` **Documentation**: [Driver Integration Test](docs/readme_driver_integration_test.md) #### `solenoid_control_test` **Real Hardware Solenoid Control Test** - Two solenoids: one single channel, one parallel pair - ADC-based current control (0-3.3V maps to 0-100% current) - Independent min/max current limits per solenoid - Real-time current adjustment based on ADC reading - Comprehensive real-time telemetry (every 1 second) - Proper parallel channel operation validation - **Requires actual solenoids and power supplies** ```bash ./scripts/build_app.sh solenoid_control_test Debug ./scripts/flash_app.sh solenoid_control_test Debug ``` **Documentation**: [Solenoid Control Test](docs/readme_solenoid_control_test.md) ### 🟡 Advanced Examples #### `parallel_mode` **High-current parallel channel operation** - Channel pairing (CH0/CH3, CH1/CH2, CH4/CH5) - 4A current control - Load balancing - Thermal management #### `diagnostics_test` **Comprehensive fault detection** - Overcurrent detection - Temperature monitoring - Open load detection - Short circuit detection - Real-time fault reporting #### `pwm_dither` **Precision control with PWM and dither** - Configurable PWM frequency - Dither amplitude control - Noise reduction techniques - Precision current shaping ### 🔵 Application Examples #### `automotive_demo` **Automotive solenoid control** - Transmission solenoid patterns - Fuel injector timing - Valve control with feedback - Safety interlocks #### `industrial_valve` **Industrial valve control** - Proportional valve control - Position feedback integration - Flow rate control - PID control implementation ### 🟠 Testing Examples #### `stress_test` **Reliability and stress testing** - Continuous operation testing - Thermal cycling - Communication error injection - Recovery mechanisms #### `calibration` **Current calibration and accuracy** - Current measurement calibration - Temperature compensation - Accuracy validation - Factory calibration routines ## 🛠️ Build System ### App Configuration All examples are configured in `app_config.yml`: ```yaml apps: basic_usage: description: \"Basic TLE92466ED usage example\" source_file: \"BasicUsageExample.cpp\" category: \"basic\" idf_versions: [\"release/v5.5\"] build_types: [\"Debug\", \"Release\"] ```text ### Build Commands ```bash # List available apps python3 scripts/get_app_info.py list # Get app information python3 scripts/get_app_info.py info basic_usage # Build specific app and type ./scripts/build_app.sh # Flash specific app ./scripts/flash_app.sh # Clean build ./scripts/build_app.sh --clean ```text ### Build Types - **Debug**: Full debugging symbols, verbose logging, assertions - **Release**: Optimized for performance and size - **RelWithDebInfo**: Release with debug symbols - **MinSizeRel**: Optimized for minimum size ## 📊 Configuration ### Hardware Configuration File All hardware configuration is defined in `main/TLE92466ED_TestConfig.hpp`. This is the **actual** configuration used by the HAL and examples. **Important**: The `app_config.yml` file only contains application definitions and build configuration, NOT hardware settings. ### SPI Configuration Edit `main/TLE92466ED_TestConfig.hpp` to change SPI pins: ```cpp struct SPIPins { static constexpr int MISO = 2; // GPIO2 - SPI MISO static constexpr int MOSI = 7; // GPIO7 - SPI MOSI static constexpr int SCLK = 6; // GPIO6 - SPI Clock static constexpr int CS = 10; // GPIO10 - Chip Select }; struct SPIParams { static constexpr int FREQUENCY = 1000000; // 1MHz static constexpr int MODE = 0; // SPI Mode 0 }; ```text ### Current Limits Defined in `main/TLE92466ED_TestConfig.hpp`: ```cpp struct CurrentLimits { static constexpr uint16_t SINGLE_CHANNEL_MAX = 2000; // 2A per channel static constexpr uint16_t PARALLEL_CHANNEL_MAX = 4000; // 4A parallel mode }; ```text ### Hardware Specifications Defined in `main/TLE92466ED_TestConfig.hpp`: ```cpp struct SupplyVoltage { static constexpr float VBAT_MIN = 8.0f; // Minimum VBAT (V) static constexpr float VBAT_MAX = 28.0f; // Maximum VBAT (V) }; struct Temperature { static constexpr int JUNCTION_MAX = 150; // Maximum temp (°C) }; ```text ## 🔍 Debugging ### Serial Monitor ```bash # Monitor with automatic port detection idf.py monitor # Monitor specific port idf.py monitor -p /dev/ttyUSB0 # Monitor with filtering idf.py monitor | grep \"TLE92466ED\" ```text ### Log Levels Set in `sdkconfig` or via menuconfig: ```text CONFIG_LOG_DEFAULT_LEVEL_DEBUG=y # Debug level CONFIG_TLE92466ED_DEBUG_ENABLED=y # Driver debug ```text ### Common Issues 1. **SPI Communication Errors** - Check wiring connections - Verify power supply (VBAT 12-24V, VDD 3.3V) - Ensure proper grounding 2. **Current Control Issues** - Verify load connections - Check current limits in configuration - Monitor diagnostics for faults 3. **Build Errors** - Ensure ESP-IDF v5.5 is installed - Run `./scripts/setup_repo.sh` - Check C++20 compiler support ## 📚 Documentation ### Example Documentation Each example has detailed documentation in `docs/`: - `docs/readme_driver_integration_test.md` - `docs/README_MULTI_CHANNEL.md` - `docs/README_PARALLEL_MODE.md` - `docs/README_DIAGNOSTICS.md` - And more... ### API Documentation - [Driver API Reference](../../docs/07_Driver_API.md) - [HAL Implementation Guide](../../docs/08_HAL_Implementation.md) - [Register Map](../../docs/03_Register_Map.md) ## 🧪 Testing ### Unit Tests ```bash # Run all tests ./scripts/build_app.sh stress_test Debug ./scripts/flash_app.sh stress_test Debug ```text ### Performance Testing ```bash # Performance monitoring ./scripts/build_app.sh multi_channel Release ./scripts/flash_app.sh multi_channel Release ```text ### Continuous Integration The examples are automatically tested in CI with: - Multiple ESP-IDF versions - Debug and Release builds - Hardware-in-the-loop testing ## 🤝 Contributing 1. **Adding New Examples** - Create source file in `main/` - Add entry to `app_config.yml` - Create documentation in `docs/` - Test with both Debug and Release builds 2. **Modifying HAL** - Update `ESP32C6_HAL.hpp` and `ESP32C6_HAL.cpp` - Ensure compatibility with all examples - Test SPI communication thoroughly 3. **Configuration Changes** - Update `app_config.yml` for new settings - Modify `sdkconfig` for ESP32-C6 specific changes - Document changes in README ## 📄 License This software is released into the **Public Domain**. You can use, modify, and distribute it freely without any restrictions. ## 🔗 Resources - [TLE92466ED Datasheet](../../Datasheet/) - [ESP32-C6 Technical Reference](https://www.espressif.com/sites/default/files/documentation/esp32-c6_technical_reference_manual_en.pdf) - [ESP-IDF Programming Guide](https://docs.espressif.com/projects/esp-idf/en/latest/) - [GitHub Repository](https://github.com/n3b3x/hf-tle92466ed-driver) --- **Version**: 2.0.0 | **Target**: ESP32-C6 | **ESP-IDF**: v5.5 | **Last Updated**: 2025-10-21 ",
     "url": "/hf-tle92466ed-driver/development/examples/esp32/",
     
     "relUrl": "/examples/esp32/"
-  },"167": {
+  },"164": {
     "doc": "TLE92466ED ESP-IDF Component",
     "title": "TLE92466ED ESP-IDF Component",
     "content": "# TLE92466ED ESP-IDF Component This directory contains the ESP-IDF component configuration for the TLE92466ED driver. ## Overview This component wraps the TLE92466ED driver for use as an ESP-IDF managed component, making it easy to integrate into ESP32 projects. ## Component Structure ```text tle92466ed-espidf/ ├── CMakeLists.txt # Component build configuration ├── idf_component.yml # ESP-IDF Component Manager manifest └── README.md # This file ```text ## How It Works ### Component Resolution The component automatically locates the TLE92466ED driver source files: 1. **CI/Build Environment**: Looks for `src/` and `include/` in the project root 2. **Development Environment**: Looks for `../../src/` and `../../include/` (driver root) ### Source Files Included - `src/TLE92466ED.cpp` - Main driver implementation ### Headers Included - `inc/TLE92466ED.hpp` - Driver class - `inc/TLE92466ED_Registers.hpp` - Register definitions - `inc/TLE92466ED_CommInterface.hpp` - Communication interface ## Usage in Projects ### In ESP-IDF Component Manager This component can be used with the ESP-IDF Component Manager by adding it to your project's dependencies. ### In Local Projects The component is automatically discovered by ESP-IDF when located in the `components/` directory of your project. ### Requirements Add to your main component: ```cmake idf_component_register( SRCS \"main.cpp\" INCLUDE_DIRS \".\" REQUIRES tle92466ed-espidf # Add this requirement ) ```text ## Configuration The component provides compile-time definitions based on the target: - `TLE92466ED_TARGET_ESP32` - ESP32 classic target - `TLE92466ED_TARGET_ESP32C6` - ESP32-C6 target - `TLE92466ED_TARGET_ESP32S3` - ESP32-S3 target - `TLE92466ED_TARGET_ESP32C3` - ESP32-C3 target - `TLE92466ED_MCU_FAMILY_ESP32` - ESP32 family marker ## Build Features ### C++23 Standard The component is configured to use C++23 standard: ```cmake target_compile_features(${COMPONENT_LIB} PRIVATE cxx_std_23) ```text ### Compiler Optimizations - **Link Time Optimization (LTO)**: Enabled when configured - **Function/Data Sections**: For better code size optimization - **No RTTI**: `-fno-rtti` for smaller binary size - **No Exceptions**: `-fno-exceptions` for embedded systems ### Compiler Flags ```text -Wall -Wextra -Wpedantic -O2 -g -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions ```text ## ESP-IDF Dependencies The component requires these ESP-IDF components: ### Core Components - `driver` - SPI drivers - `esp_timer` - Timing functions - `freertos` - RTOS support - `esp_system` - System utilities - `hal` - Hardware abstraction layer - `soc` - SoC definitions - `log` - Logging ### Driver Components - `esp_driver_gpio` - GPIO driver - `esp_driver_spi` - SPI driver ## Supported ESP32 Targets - ESP32 (classic) - ESP32-S2 - ESP32-S3 - ESP32-C2 - ESP32-C3 - ESP32-C6 (primary target) - ESP32-H2 ## Development ### Testing Component Configuration ```bash cd examples/esp32 idf.py reconfigure ```text ### Viewing Component Information ```bash idf.py show-components ```text ### Debugging Component Issues Enable verbose output: ```bash idf.py -v build ```text ## Component Manager ### Publishing to Component Registry To publish this component to the ESP-IDF Component Registry: 1. Update version in `idf_component.yml` 2. Create git tag matching version 3. Follow ESP-IDF Component Manager publishing guidelines ### Local Installation The component is automatically available when building the examples from the `examples/esp32` directory. ## Build Messages During build, the component will display: ```text TLE92466ED Driver - ESP32 Component Configuration Project Root: /path/to/project Source Root: /path/to/driver Found source: /path/to/TLE92466ED.cpp === TLE92466ED Driver Component Summary === Component configured successfully Included 1 source files Target MCU: ESP32-C6 C++ Standard: C++23 Driver Version: 2.0.0 Optimization: LTO enabled (if configured) ========================================== ```text ## Troubleshooting ### Source Files Not Found **Issue**: \"Source file not found\" warnings **Solution**: Verify the driver is in the correct location: - Development: `../../src/TLE92466ED.cpp` relative to component - CI: `${PROJECT_ROOT}/src/TLE92466ED.cpp` ### C++23 Not Supported **Issue**: Compiler doesn't support C++23 **Solution**: Update to: - GCC 12.0 or later - Clang 16.0 or later - ESP-IDF v5.5 or later ### Component Not Found **Issue**: \"Component 'tle92466ed-espidf' not found\" **Solution**: Ensure the component is in the `components/` directory of your ESP-IDF project. ## References - [ESP-IDF Component Manager Documentation](https://docs.espressif.com/projects/idf-component-manager/) - [ESP-IDF CMake Build System](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/build-system.html) - [TLE92466ED Driver Documentation](../../docs/) --- **Component Version**: 2.0.0 **ESP-IDF Version**: ≥5.0.0 **C++ Standard**: C++23 ",
     "url": "/hf-tle92466ed-driver/development/examples/esp32/components/hf_tle92466ed/",
     
     "relUrl": "/examples/esp32/components/hf_tle92466ed/"
-  },"168": {
+  },"165": {
     "doc": "TLE92466ED ESP32 Examples Documentation",
     "title": "TLE92466ED ESP32 Examples Documentation",
     "content": "# TLE92466ED ESP32 Examples Documentation ## 📚 Documentation Index Complete documentation for TLE92466ED driver examples on ESP32-C6. --- ## 🎯 Quick Start | Document | Purpose | When to Read |----------|---------|--------------| **[Driver Integration Test](readme_driver_integration_test.md)** | Driver API validation | Start here for driver testing | **[Solenoid Control Test](readme_solenoid_control_test.md)** | Real hardware solenoid testing | For actual solenoid operation | **[Configuration Guide](readme_configuration.md)** | All configuration options | Before customizing | **[Test Framework Reference](/hf-tle92466ed-driver/development/examples/esp32/docs/README_TEST_FRAMEWORK.html)** | Framework API details | Writing custom tests | --- ## 📖 Documentation Structure ### 1. [Driver Integration Test Suite](readme_driver_integration_test.md) **Guide to the driver integration test suite** #### Contents - ✅ **Test Framework Architecture** - How the test infrastructure works - ✅ **Test Suite Structure** - All 13 test sections with 40+ tests - ✅ **Hardware Setup** - Complete wiring diagrams and pin configurations - ✅ **Configuration** - Hardware and test settings - ✅ **Building and Running** - Build commands and workflows - ✅ **Expected Output** - Full example outputs with explanations - ✅ **Test Coverage** - Complete API coverage breakdown - ✅ **Individual Test Details** - Deep dive into each test - ✅ **Telemetry Testing** - Telemetry validation - ✅ **Troubleshooting** - Common issues and solutions - ✅ **Performance Characteristics** - Timing and memory usage **Start here for driver API validation (no hardware required)!** --- ### 2. [Solenoid Control Test](readme_solenoid_control_test.md) **Complete guide to real hardware solenoid testing** #### Contents - ✅ **Hardware Requirements** - Complete component list and specifications - ✅ **System Architecture** - Block diagrams and control flow - ✅ **Hardware Setup** - Detailed wiring diagrams and connections - ✅ **ADC Configuration** - Analog input setup and calibration - ✅ **Solenoid Configuration** - Single channel and parallel pair setup - ✅ **Control Algorithm** - Current calculation and regulation - ✅ **Real-Time Telemetry** - Monitoring and display - ✅ **Operation** - Startup sequence and control loop - ✅ **Troubleshooting** - Hardware-specific issues and solutions - ✅ **Safety Considerations** - Electrical and operational safety **Use this for real hardware testing with actual solenoids!** --- ### 3. [Configuration Guide](readme_configuration.md) **Complete reference for all configuration files and options** #### Contents - ✅ **Hardware Configuration** (`TLE92466ED_TestConfig.hpp`) - SPI pins, frequencies, current limits - ✅ **Application Configuration** (`app_config.yml`) - Build metadata and app definitions - ✅ **Test Section Configuration** - Compile-time test enable/disable - ✅ **ESP-IDF SDK Configuration** (`sdkconfig`) - Framework settings - ✅ **Component Configuration** - ESP-IDF component setup - ✅ **Configuration Workflows** - Development and production setups - ✅ **Troubleshooting** - Configuration-related issues **Read this when you need to customize hardware or build settings.** --- ### 4. [Test Framework Reference](/hf-tle92466ed-driver/development/examples/esp32/docs/README_TEST_FRAMEWORK.html) **Detailed API reference for the TLE92466ED Test Framework** #### Contents - ✅ **GPIO14 Progress Indicator** - Visual feedback system - ✅ **Test Result Tracking** - Automatic pass/fail counting - ✅ **Test Execution Macros** - `RUN_TEST`, `RUN_TEST_IN_TASK`, sections - ✅ **Usage Guide** - How to write test functions - ✅ **Advanced Usage** - Custom contexts, stack sizes, timeouts - ✅ **Best Practices** - Test organization - ✅ **Performance Impact** - Memory and timing overhead - ✅ **CI/CD Integration** - Automated testing **Essential reading for creating custom tests or understanding the framework.** --- ## 🚀 Getting Started ### Prerequisites - **Hardware**: - ESP32-C6-DevKitC-1 development board - TLE92466ED evaluation board or custom PCB - 12-24V power supply (2A minimum) - Test load (solenoid, resistor, or LED) - USB-C cable for programming - **Software**: - ESP-IDF v5.3 or later (v5.5 recommended) - Python 3.8+ - Git with submodules support - Serial terminal (screen, minicom, or built-in monitor) ### Quick Start Steps 1. **Clone and setup**: ```bash git clone https://github.com/N3b3x/hf-tle92466ed-driver.git cd hf-tle92466ed-driver/examples/esp32 git submodule update --init --recursive ``` 2. **Configure ESP-IDF**: ```bash . $IDF_PATH/export.sh idf.py set-target esp32c6 ``` 3. **Build driver integration test**: ```bash ./scripts/build_app.sh driver_integration_test Debug ``` 4. **Flash and monitor**: ```bash ./scripts/flash_app.sh driver_integration_test Debug ./scripts/monitor_app.sh driver_integration_test ``` 5. **See results**: - Serial output shows test execution - GPIO14 toggles with test progress - Summary printed at end --- ## 📊 Example Overview ### Driver Integration Test **Purpose**: Driver API validation without hardware requirements **Test Sections** (13 total): 1. **INITIALIZATION_TESTS** - HAL setup, driver init, chip ID verification 2. **MODE_CONTROL_TESTS** - Mode transitions and state management 3. **GLOBAL_CONFIGURATION_TESTS** - Global device configuration 4. **CHANNEL_CONTROL_TESTS** - Channel enable/disable and mode configuration 5. **CURRENT_CONTROL_TESTS** - Current setpoint control and ramping 6. **PWM_CONFIGURATION_TESTS** - PWM period configuration 7. **DITHER_CONFIGURATION_TESTS** - Dither configuration 8. **DIAGNOSTICS_TESTS** - Telemetry and diagnostics 9. **FAULT_MANAGEMENT_TESTS** - Fault handling 10. **WATCHDOG_TESTS** - Watchdog functionality 11. **GPIO_CONTROL_TESTS** - GPIO pin control 12. **MULTI_CHANNEL_TESTS** - All channels individually tested 13. **PARALLEL_OPERATION_TESTS** - Parallel pair configuration 14. **ERROR_CONDITION_TESTS** - Error handling validation **Features**: - ✅ 40+ individual tests - ✅ Complete API coverage - ✅ FreeRTOS task-based test execution - ✅ GPIO14 progress indicator - ✅ Automatic result tracking - ✅ Telemetry testing - ✅ Formatted output - ✅ No actual solenoids required **Read**: [Driver Integration Test](readme_driver_integration_test.md) --- ### Solenoid Control Test **Purpose**: Real hardware solenoid testing with ADC-based current control **Features**: - ✅ Two solenoids: single channel and parallel pair - ✅ ADC-based control (0-3.3V → 0-100% current) - ✅ Independent current ranges per solenoid - ✅ Real-time telemetry (every 1 second) - ✅ Continuous operation - ✅ Fault monitoring **Hardware Required**: TLE92466ED IC + Two Solenoids + Power Supplies **Read**: [Solenoid Control Test](readme_solenoid_control_test.md) --- ## 🔧 Configuration Overview ### Hardware Configuration **File**: `main/TLE92466ED_TestConfig.hpp` **What's configured**: - SPI GPIO pins (MISO, MOSI, SCLK, CS) - SPI frequency and mode - Current limits (single and parallel) - Hardware specifications (voltage, temperature) - Test parameters **Example**: ```cpp struct SPIPins { static constexpr int MISO = 2; // GPIO2 static constexpr int MOSI = 7; // GPIO7 static constexpr int SCLK = 6; // GPIO6 static constexpr int CS = 10; // GPIO10 }; ```text **Read**: [Configuration Guide - Hardware Configuration](readme_configuration.md#1-hardware-configuration-maintle92466ed_confighpp) --- ### Build Configuration **File**: `app_config.yml` **What's configured**: - Available applications (basic_usage, multi_channel, etc.) - Build types (Debug, Release) - ESP-IDF version compatibility - CI/CD settings - Documentation links **Example**: ```yaml apps: basic_usage: description: \"Basic usage example for TLE92466ED\" source_file: \"BasicUsageExample.cpp\" build_types: [\"Debug\", \"Release\"] ```text **Read**: [Configuration Guide - Application Configuration](readme_configuration.md#2-application-configuration-app_configyml) --- ### Test Configuration **File**: Each example source file (e.g., `BasicUsageExample.cpp`) **What's configured**: - Test section enable/disable flags - Compile-time test selection **Example**: ```cpp #define ENABLE_INITIALIZATION_TESTS 1 // Enable #define ENABLE_BASIC_OPERATION_TESTS 1 // Enable #define ENABLE_CURRENT_CONTROL_TESTS 0 // Disable ```text **Read**: [Configuration Guide - Test Section Configuration](readme_configuration.md#3-test-section-configuration) --- ## 🧪 Test Framework Features The examples use a test framework with: #### ✅ FreeRTOS Task-Based Execution - Each test runs in isolated task - Custom stack size per test (default: 8KB) - Automatic semaphore synchronization - 30-second timeout protection #### ✅ GPIO14 Progress Indicator - **Visual feedback** on oscilloscope/logic analyzer - **Toggle**: HIGH/LOW on test completion - **Blink patterns**: 5 blinks at section boundaries - Hardware-level progress tracking #### ✅ Automatic Result Tracking - Pass/fail counting - Microsecond-precision execution timing - Success rate calculation - Formatted summaries #### ✅ Test Section Management - Compile-time section enable/disable - Organized test grouping - Custom blink patterns per section **Read**: [Test Framework Reference](/hf-tle92466ed-driver/development/examples/esp32/docs/README_TEST_FRAMEWORK.html) --- ## 📈 Example Output ### Test Execution ```text ╔══════════════════════════════════════════════════════════════════╗ ║ TLE92466ED BASIC USAGE TEST SUITE - ESP32-C6 ║ ╚══════════════════════════════════════════════════════════════════╝ Target: esp32c6 ESP-IDF Version: v5.5.0 ╔══════════════════════════════════════════════════════════════════╗ ║ SECTION: INITIALIZATION TESTS ║ ╚══════════════════════════════════════════════════════════════════╝ [GPIO14: Blink pattern - 5 blinks] ╔══════════════════════════════════════════════════════════════════╗ ║ Running (task): hal_initialization ║ ╚══════════════════════════════════════════════════════════════════╝ I (1234) TLE92466ED_Basic: Creating HAL instance... I (1235) TLE92466ED_Basic: ✅ HAL initialized successfully [SUCCESS] PASSED (task): hal_initialization (12.34 ms) [GPIO14: Toggle HIGH] ... (more tests) ... ╔══════════════════════════════════════════════════════════════════╗ ║ TEST RESULTS SUMMARY ║ ╠══════════════════════════════════════════════════════════════════╣ ║ Total Tests: 7 ║ ║ Passed: 7 ║ ║ Failed: 0 ║ ║ Success Rate: 100.00% ║ ║ Total Time: 234.56 ms ║ ╚══════════════════════════════════════════════════════════════════╝ I (5000) TLE92466ED_Basic: ✅ ALL TESTS PASSED! ```text --- ## 🐛 Troubleshooting Quick Reference ### Common Issues | Issue | Quick Fix | Full Guide |-------|-----------|------------| **All tests fail** | Check VIO power (3.0-5.5V, typical 3.3V) and wiring | [Driver Integration Test - Troubleshooting](readme_driver_integration_test.md#troubleshooting) | **HAL init fails** | Verify GPIO pins in `TLE92466ED_TestConfig.hpp` | [Configuration - GPIO Conflict](readme_configuration.md#gpio-conflict) | **Chip ID read fails** | Check SPI wiring, CS pin, RESN pin | [Driver Integration Test - Troubleshooting](readme_driver_integration_test.md#troubleshooting) | **Solenoids not working** | Check VBAT, EN pin, channel enable | [Solenoid Control Test - Troubleshooting](readme_solenoid_control_test.md#troubleshooting) | **Stack overflow** | Increase stack size in `RUN_TEST_IN_TASK` | [Configuration - Stack Overflow](readme_configuration.md#stack-overflow) | **Build errors** | Clean and rebuild: `idf.py fullclean && idf.py build` | [Configuration - Build Type Issues](readme_configuration.md#build-type-issues) | --- ## 📦 Project Structure ```text examples/esp32/ ├── app_config.yml # Build metadata ├── CMakeLists.txt # Main CMake configuration ├── sdkconfig # ESP-IDF SDK configuration │ ├── main/ # Application source │ ├── CMakeLists.txt # Main component build │ ├── TLE92466ED_TestConfig.hpp # Hardware configuration │ ├── TLE92466ED_TestFramework.hpp # Test infrastructure │ ├── ESP32C6_HAL.hpp/.cpp # ESP32-C6 HAL implementation │ ├── DriverIntegrationTest.cpp # Driver integration test suite │ └── SolenoidControlTest.cpp # Real hardware solenoid test │ ├── components/ # ESP-IDF components │ └── hf_tle92466ed/ # TLE92466ED driver component │ ├── CMakeLists.txt │ ├── idf_component.yml │ └── README.md │ ├── docs/ # Documentation │ ├── README.md # This file │ ├── readme_driver_integration_test.md # Driver integration test guide │ ├── readme_solenoid_control_test.md # Solenoid control test guide │ ├── readme_configuration.md # Configuration reference │ └── README_TEST_FRAMEWORK.md # Test framework API │ └── scripts/ # Build/flash scripts (submodule) ├── build_app.sh ├── flash_app.sh └── monitor_app.sh ```text --- ## 🔗 Related Documentation ### Driver Documentation - [Driver Overview](/hf-tle92466ed-driver/development/) - Main driver README - [Driver API Reference](../../../docs/07_Driver_API.md) - Complete API docs - [HAL Implementation Guide](../../../docs/08_HAL_Implementation.md) - Porting guide - [Register Map](../../../docs/03_Register_Map.md) - TLE92466ED registers - [Diagnostics](../../../docs/06_Diagnostics.md) - Fault detection ### ESP32 Resources - [ESP-IDF Programming Guide](https://docs.espressif.com/projects/esp-idf/en/latest/) - [ESP32-C6 Technical Reference](https://www.espressif.com/sites/default/files/documentation/esp32-c6_technical_reference_manual_en.pdf) - [FreeRTOS Documentation](https://www.freertos.org/Documentation/RTOS_book.html) ### TLE92466ED Resources - [TLE92466ED Datasheet](../../../Datasheet/) - [Infineon Product Page](https://www.infineon.com/cms/en/product/power/motor-control-ics/intelligent-motor-control-ics/multi-half-bridge-ics/tle92466ed/) --- ## 🎓 Learning Path ### Beginner Path 1. **Read**: [Driver Integration Test](readme_driver_integration_test.md) 2. **Build**: Driver integration test (Debug mode) 3. **Run**: Flash to ESP32-C6 and observe output 4. **Verify**: All tests should pass (100% success rate) 5. **Explore**: Review telemetry tests and diagnostics ### Intermediate Path 1. **Read**: [Solenoid Control Test](readme_solenoid_control_test.md) 2. **Setup**: Connect solenoids and power supplies 3. **Configure**: Adjust solenoid current ranges if needed 4. **Test**: Run solenoid control test with real hardware 5. **Monitor**: Observe real-time telemetry and current regulation ### Advanced Path 1. **Read**: [Test Framework Reference](/hf-tle92466ed-driver/development/examples/esp32/docs/README_TEST_FRAMEWORK.html) 2. **Extend**: Add custom test functions 3. **Port**: Implement HAL for different MCU (ESP32-S3, etc.) 4. **Integrate**: Set up CI/CD pipeline with test parsing 5. **Optimize**: Profile and optimize for your application --- ## 💡 Tips and Best Practices ### Development Tips 1. **Start with Debug builds** for detailed logging 2. **Use GPIO14 indicator** to track progress without serial 3. **Monitor SPI signals** with logic analyzer during bring-up 4. **Test with known-good load** (resistor) before real solenoids 5. **Enable all test sections** initially, disable as needed ### Configuration Tips 1. **Keep hardware config centralized** in `TLE92466ED_TestConfig.hpp` 2. **Use compile-time flags** for test sections (faster than runtime) 3. **Document custom settings** in code comments 4. **Version control sdkconfig.defaults** for team consistency 5. **Use Release builds** for final performance testing ### Testing Tips 1. **Run full test suite** after any changes 2. **Check GPIO14 patterns** on oscilloscope for test flow 3. **Analyze execution times** to find performance issues 4. **Test with realistic loads** matching your application 5. **Monitor diagnostics** for fault conditions --- ## 🆘 Getting Help ### Documentation Issues If documentation is unclear or incomplete: 1. Check the specific guide (Basic Usage, Configuration, Test Framework) 2. Search for keywords in all docs 3. Review related driver documentation 4. Open GitHub issue with details ### Build/Configuration Issues If you have build or configuration problems: 1. Check [Configuration Guide - Troubleshooting](readme_configuration.md#troubleshooting-configuration) 2. Verify ESP-IDF version (v5.3+) 3. Clean and rebuild: `idf.py fullclean && idf.py build` 4. Check `sdkconfig` for conflicts ### Hardware/Test Issues If tests fail or hardware doesn't work: 1. **Driver Integration Test**: Check [Driver Integration Test - Troubleshooting](readme_driver_integration_test.md#troubleshooting) 2. **Solenoid Control Test**: Check [Solenoid Control Test - Troubleshooting](readme_solenoid_control_test.md#troubleshooting) 3. Verify wiring against pin configuration 4. Measure power supplies (VDD: 5V for central logic; VIO: 3.0-5.5V for SPI I/O levels; VBAT: 5.5-41V for solenoids) 5. Test SPI communication with logic analyzer 6. Try lower SPI frequency (100kHz) for debugging ### Support Channels - **GitHub Issues**: Bug reports, feature requests - **GitHub Discussions**: Questions, general help - **Driver Documentation**: Technical reference --- ## 📊 Example Statistics ### Driver Integration Test | Metric | Value |--------|-------| **Total Tests** | 40+ | **Test Sections** | 13 | **Typical Execution Time** | 10-15 seconds | **Flash Size** | ~350KB | **RAM Usage** | ~15KB | **Stack per Task** | 8KB | ### Test Breakdown | Section | Tests | Time |---------|-------|------| **Initialization** | 5 | ~50-100ms | **Mode Control** | 3 | ~30-50ms | **Global Configuration** | 3 | ~200-300ms | **Channel Control** | 4 | ~500-800ms | **Current Control** | 2 | ~2000-3000ms | **PWM Configuration** | 2 | ~300-500ms | **Dither Configuration** | 2 | ~300-500ms | **Diagnostics** | 7 | ~1000-1500ms | **Fault Management** | 2 | ~100-200ms | **Watchdog** | 1 | ~200-300ms | **GPIO Control** | 1 | ~200-300ms | **Multi-Channel** | 1 | ~2000-3000ms | **Parallel Operation** | 1 | ~300-500ms | **Error Conditions** | 1 | ~100-200ms | ### Solenoid Control Test | Metric | Value |--------|-------| **Control Update Rate** | 10 Hz (100ms) | **Telemetry Update Rate** | 1 Hz (1 second) | **ADC Sampling Rate** | 1 kHz | **Flash Size** | ~380KB | **RAM Usage** | ~18KB | **Stack** | 8KB | --- ## 🎉 Success Criteria You've successfully set up the examples when: - ✅ Build completes without errors - ✅ Flash and monitor show output - ✅ All tests pass (100% success rate) - ✅ GPIO14 toggles during execution - ✅ Test summary shows timing information - ✅ System restarts automatically after tests Example success output: ```text ╔══════════════════════════════════════════════════════════════════╗ ║ TEST RESULTS SUMMARY ║ ╠══════════════════════════════════════════════════════════════════╣ ║ Total Tests: 7 ║ ║ Passed: 7 ║ ║ Failed: 0 ║ ║ Success Rate: 100.00% ║ ║ Total Time: 234.56 ms ║ ╚══════════════════════════════════════════════════════════════════╝ ✅ ALL TESTS PASSED! System will restart in 10 seconds... ```text --- **Documentation Version**: 1.0.0 **Last Updated**: 2025-10-21 **Status**: ✅ Complete **Next**: Start with [Driver Integration Test](readme_driver_integration_test.md) → ",
