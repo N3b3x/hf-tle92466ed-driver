@@ -63,7 +63,7 @@
     <sectiondef kind="define">
       <memberdef kind="define" id="esp32__tle92466ed__test__config_8hpp_1a8fb5b9bce3cb52f60c3eadce0f87afcc" prot="public" static="no">
         <name>ESP32_TLE_COMM_ENABLE_DETAILED_SPI_LOGGING</name>
-        <initializer>0</initializer>
+        <initializer>1</initializer>
         <briefdescription>
 <para>Enable detailed SPI transaction logging. </para>
         </briefdescription>
@@ -132,7 +132,7 @@
 <codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">//==============================================================================</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="47"><highlight class="normal"></highlight></codeline>
 <codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>ESP32_TLE_COMM_ENABLE_DETAILED_SPI_LOGGING</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="63" refid="esp32__tle92466ed__test__config_8hpp_1a8fb5b9bce3cb52f60c3eadce0f87afcc" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ESP32_TLE_COMM_ENABLE_DETAILED_SPI_LOGGING<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="esp32__tle92466ed__test__config_8hpp_1a8fb5b9bce3cb52f60c3eadce0f87afcc" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ESP32_TLE_COMM_ENABLE_DETAILED_SPI_LOGGING<sp/>1<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TEMP:<sp/>bench<sp/>debug</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="64"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="65"><highlight class="normal"></highlight></codeline>
 <codeline lineno="66" refid="namespaceTLE92466ED__TestConfig" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceTLE92466ED__TestConfig" kindref="compound">TLE92466ED_TestConfig</ref><sp/>{</highlight></codeline>
