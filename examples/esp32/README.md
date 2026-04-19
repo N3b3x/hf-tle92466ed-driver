@@ -1,6 +1,28 @@
-# TLE92466ED ESP32-C6 Examples
+# TLE92466ED ESP32 Examples (multi-target)
 
-This directory contains comprehensive examples demonstrating the TLE92466ED driver on ESP32-C6 platform.
+This directory contains comprehensive examples demonstrating the
+TLE92466ED driver on **ESP32-C6** (default upstream reference) and
+**ESP32-S3** (HardFOC Flux V1 board pinout, opt-in).
+
+## Building for a non-default target
+
+The default target is ESP32-C6. To build the same example sources for
+ESP32-S3 (Flux V1 wiring on `SPI3_HOST`, `MISO=GPIO35 / SCK=GPIO36 /
+MOSI=GPIO37 / CS=GPIO4`, `RESN=GPIO6 / EN=GPIO5`):
+
+```bash
+# remove the cached C6 sdkconfig so set-target regenerates it
+rm -f sdkconfig
+idf.py set-target esp32s3
+./scripts/build_app.sh driver_integration_test Debug
+# or, equivalently for a one-shot build:
+CONFIG_TARGET=esp32s3 ./scripts/build_app.sh driver_integration_test Debug
+```
+
+Pin / SPI-host selection lives behind `CONFIG_IDF_TARGET_*` guards in
+`main/esp32_tle92466ed_test_config.hpp` and
+`main/esp32_tle92466ed_bus.hpp`, so the same source compiles for both
+targets without folder duplication.
 
 ## 🎯 Overview
 
