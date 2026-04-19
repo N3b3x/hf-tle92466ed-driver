@@ -35,22 +35,22 @@ DriverResult<void> Driver<CommType>::Init() noexcept {
   // RESN is active low: LOW = reset, HIGH = normal operation
   // EN is active high: HIGH = enabled, LOW = disabled
   // We keep EN disabled during initialization - user must explicitly enable
-  comm_.Log(LogLevel::Info, "TLE92466ED", "Performing device reset sequence...\n");
+  comm_.Log(LogLevel::Info, "TLE92466ED", "Performing device reset sequence...");
 
   // Step 1: Ensure EN is LOW (disabled) during reset
   if (auto result = SetEnable(false); !result) {
     comm_.Log(LogLevel::Warn, "TLE92466ED",
-              "Failed to set EN pin LOW (error: %u) - continuing anyway\n",
+              "Failed to set EN pin LOW (error: %u) - continuing anyway",
               static_cast<unsigned>(result.error()));
   }
 
   // Step 2: Hold device in reset (LOW)
   if (auto result = SetReset(true); !result) {
-    comm_.Log(LogLevel::Error, "TLE92466ED", "Failed to hold device in reset (error: %u)\n",
+    comm_.Log(LogLevel::Error, "TLE92466ED", "Failed to hold device in reset (error: %u)",
               static_cast<unsigned>(result.error()));
     return tle::unexpected(DriverError::HardwareError);
   }
-  comm_.Log(LogLevel::Info, "TLE92466ED", "  RESN set LOW (device in reset)\n");
+  comm_.Log(LogLevel::Info, "TLE92466ED", "  RESN set LOW (device in reset)");
 
   // Step 3: Wait for reset pulse duration (minimum 10ms per datasheet)
   if (auto result = comm_.Delay(10000); !result) { // 10ms = 10000 microseconds
@@ -59,11 +59,11 @@ DriverResult<void> Driver<CommType>::Init() noexcept {
 
   // Step 4: Release reset (HIGH)
   if (auto result = SetReset(false); !result) {
-    comm_.Log(LogLevel::Error, "TLE92466ED", "Failed to release device from reset (error: %u)\n",
+    comm_.Log(LogLevel::Error, "TLE92466ED", "Failed to release device from reset (error: %u)",
               static_cast<unsigned>(result.error()));
     return tle::unexpected(DriverError::HardwareError);
   }
-  comm_.Log(LogLevel::Info, "TLE92466ED", "  RESN set HIGH (device released from reset)\n");
+  comm_.Log(LogLevel::Info, "TLE92466ED", "  RESN set HIGH (device released from reset)");
 
   // Step 5: Wait for device to stabilize after reset release (minimum 10ms per datasheet)
   if (auto result = comm_.Delay(10000); !result) { // 10ms = 10000 microseconds
@@ -71,7 +71,7 @@ DriverResult<void> Driver<CommType>::Init() noexcept {
   }
 
   comm_.Log(LogLevel::Info, "TLE92466ED",
-            "✅ Device reset sequence completed (EN remains disabled)\n");
+            "✅ Device reset sequence completed (EN remains disabled)");
 
   // 3. Read and diagnose CLK_DIV register to check clock configuration
   // This helps diagnose clock-related critical faults early
@@ -184,7 +184,7 @@ DriverResult<void> Driver<CommType>::EnterMissionMode() noexcept {
     return result;
   }
 
-  comm_.Log(LogLevel::Info, "TLE92466ED", "Entering Mission Mode\n");
+  comm_.Log(LogLevel::Info, "TLE92466ED", "Entering Mission Mode");
 
   // Set OP_MODE bit in CH_CTRL register
   // Note: CH_CTRL reads return 0x0000, so we use cached value
@@ -194,7 +194,7 @@ DriverResult<void> Driver<CommType>::EnterMissionMode() noexcept {
   }
 
   mission_mode_ = true;
-  comm_.Log(LogLevel::Info, "TLE92466ED", "✅ Mission Mode entered\n");
+  comm_.Log(LogLevel::Info, "TLE92466ED", "✅ Mission Mode entered");
   return {};
 }
 
@@ -204,7 +204,7 @@ DriverResult<void> Driver<CommType>::EnterConfigMode() noexcept {
     return result;
   }
 
-  comm_.Log(LogLevel::Info, "TLE92466ED", "Entering Config Mode\n");
+  comm_.Log(LogLevel::Info, "TLE92466ED", "Entering Config Mode");
 
   // Clear OP_MODE bit in CH_CTRL register
   // Note: CH_CTRL reads return 0x0000, so we use cached value
@@ -214,7 +214,7 @@ DriverResult<void> Driver<CommType>::EnterConfigMode() noexcept {
   }
 
   mission_mode_ = false;
-  comm_.Log(LogLevel::Info, "TLE92466ED", "✅ Config Mode entered\n");
+  comm_.Log(LogLevel::Info, "TLE92466ED", "✅ Config Mode entered");
   return {};
 }
 
@@ -235,7 +235,7 @@ DriverResult<void> Driver<CommType>::ConfigureGlobal(const GlobalConfig& config)
 
   comm_.Log(LogLevel::Info, "TLE92466ED",
             "Configuring global settings: CRC=%s, SPI_WD=%s, CLK_WD=%s, VIO_5V=%s, "
-            "UV=%.2fV, OV=%.2fV, WD_Reload=%u\n",
+            "UV=%.2fV, OV=%.2fV, WD_Reload=%u",
             config.crc_enabled ? "enabled" : "disabled",
             config.spi_watchdog_enabled ? "enabled" : "disabled",
             config.clock_watchdog_enabled ? "enabled" : "disabled",
@@ -273,13 +273,13 @@ DriverResult<void> Driver<CommType>::ConfigureGlobal(const GlobalConfig& config)
 
   // Clear VIO fault flags when VIO_SEL changes (thresholds change, old fault state invalid)
   if (vio_sel_changed) {
-    comm_.Log(LogLevel::Info, "TLE92466ED", "VIO_SEL changed, clearing VIO fault flags\n");
+    comm_.Log(LogLevel::Info, "TLE92466ED", "VIO_SEL changed, clearing VIO fault flags");
     // Write 1 to clear VIO_UV and VIO_OV bits in GLOBAL_DIAG0
     if (auto result = WriteRegister(CentralReg::GLOBAL_DIAG0,
                                     GLOBAL_DIAG0::VIO_UV | GLOBAL_DIAG0::VIO_OV, false);
         !result) {
       comm_.Log(LogLevel::Warn, "TLE92466ED",
-                "Failed to clear VIO fault flags after VIO_SEL change\n");
+                "Failed to clear VIO fault flags after VIO_SEL change");
       // Don't fail the operation, just log warning
     }
   }
@@ -306,7 +306,7 @@ DriverResult<void> Driver<CommType>::SetCrcEnabled(bool enabled) noexcept {
     return result;
   }
 
-  comm_.Log(LogLevel::Info, "TLE92466ED", "Setting CRC enabled: %s\n", enabled ? "true" : "false");
+  comm_.Log(LogLevel::Info, "TLE92466ED", "Setting CRC enabled: %s", enabled ? "true" : "false");
 
   auto result = ModifyRegister(CentralReg::GLOBAL_CONFIG, GLOBAL_CONFIG::CRC_EN,
                                enabled ? GLOBAL_CONFIG::CRC_EN : 0);
@@ -314,7 +314,7 @@ DriverResult<void> Driver<CommType>::SetCrcEnabled(bool enabled) noexcept {
   if (result) {
     // Update internal CRC enable state only if register write succeeded
     crc_enabled_ = enabled;
-    comm_.Log(LogLevel::Info, "TLE92466ED", "CRC enabled state updated: %s\n",
+    comm_.Log(LogLevel::Info, "TLE92466ED", "CRC enabled state updated: %s",
               enabled ? "true" : "false");
   }
 
@@ -327,7 +327,7 @@ DriverResult<void> Driver<CommType>::SetVbatThresholds(float uv_voltage, float o
     return result;
   }
 
-  comm_.Log(LogLevel::Info, "TLE92466ED", "Setting VBAT thresholds: UV=%.2fV, OV=%.2fV\n",
+  comm_.Log(LogLevel::Info, "TLE92466ED", "Setting VBAT thresholds: UV=%.2fV, OV=%.2fV",
             uv_voltage, ov_voltage);
 
   return setVbatThresholdsInternal(uv_voltage, ov_voltage);
@@ -363,7 +363,7 @@ DriverResult<void> Driver<CommType>::setVbatThresholdsInternal(float uv_voltage,
                                   GLOBAL_DIAG0::VBAT_UV | GLOBAL_DIAG0::VBAT_OV, false);
       !result) {
     comm_.Log(LogLevel::Warn, "TLE92466ED",
-              "Failed to clear VBAT fault flags after threshold change\n");
+              "Failed to clear VBAT fault flags after threshold change");
     // Don't fail the operation, just log warning
   }
 
@@ -380,7 +380,7 @@ DriverResult<void> Driver<CommType>::SetVbatThresholdsRaw(uint8_t uv_threshold,
   float uv_voltage = VBAT_THRESHOLD::CalculateVoltage(uv_threshold);
   float ov_voltage = VBAT_THRESHOLD::CalculateVoltage(ov_threshold);
   comm_.Log(LogLevel::Info, "TLE92466ED",
-            "Setting VBAT thresholds (raw): UV_reg=%u (%.2fV), OV_reg=%u (%.2fV)\n", uv_threshold,
+            "Setting VBAT thresholds (raw): UV_reg=%u (%.2fV), OV_reg=%u (%.2fV)", uv_threshold,
             uv_voltage, ov_threshold, ov_voltage);
 
   uint16_t value = (static_cast<uint16_t>(ov_threshold) << 8) | uv_threshold;
@@ -401,7 +401,7 @@ DriverResult<void> Driver<CommType>::EnableChannel(Channel channel, bool enabled
   if (auto result = checkMissionMode(); !result) {
     comm_.Log(LogLevel::Error, "TLE92466ED",
               "Cannot enable/disable channel: Device must be in Mission Mode (currently in Config "
-              "Mode). Call EnterMissionMode() first.\n");
+              "Mode). Call EnterMissionMode() first.");
     return result;
   }
 
@@ -409,7 +409,7 @@ DriverResult<void> Driver<CommType>::EnableChannel(Channel channel, bool enabled
     return tle::unexpected(DriverError::InvalidChannel);
   }
 
-  comm_.Log(LogLevel::Info, "TLE92466ED", "Enabling channel: Channel=%s, Enabled=%s\n",
+  comm_.Log(LogLevel::Info, "TLE92466ED", "Enabling channel: Channel=%s, Enabled=%s",
             ToString(channel), enabled ? "true" : "false");
 
   uint16_t mask = CH_CTRL::ChannelMask(ToIndex(channel));
@@ -455,7 +455,7 @@ DriverResult<void> Driver<CommType>::EnableChannels(uint8_t channel_mask) noexce
       first = false;
     }
   }
-  comm_.Log(LogLevel::Info, "TLE92466ED", ")\n");
+  comm_.Log(LogLevel::Info, "TLE92466ED", ")");
 
   // Build full CH_CTRL value: preserve OP_MODE and parallel bits, update channel enable bits
   uint16_t ch_ctrl_value = ch_ctrl_cache_ & ~CH_CTRL::ALL_CH_MASK; // Clear channel bits
@@ -469,13 +469,13 @@ DriverResult<void> Driver<CommType>::EnableChannels(uint8_t channel_mask) noexce
 
 template <typename CommType>
 DriverResult<void> Driver<CommType>::EnableAllChannels() noexcept {
-  comm_.Log(LogLevel::Info, "TLE92466ED", "Enabling all channels\n");
+  comm_.Log(LogLevel::Info, "TLE92466ED", "Enabling all channels");
   return EnableChannels(CH_CTRL::ALL_CH_MASK);
 }
 
 template <typename CommType>
 DriverResult<void> Driver<CommType>::DisableAllChannels() noexcept {
-  comm_.Log(LogLevel::Info, "TLE92466ED", "Disabling all channels\n");
+  comm_.Log(LogLevel::Info, "TLE92466ED", "Disabling all channels");
   return EnableChannels(0);
 }
 
@@ -496,7 +496,7 @@ DriverResult<void> Driver<CommType>::SetChannelMode(Channel channel, ChannelMode
 
   uint16_t ch_addr = GetChannelRegister(channel, ChannelReg::MODE);
 
-  comm_.Log(LogLevel::Info, "TLE92466ED", "Setting channel mode: Channel=%s, Mode=%s (0x%04X)\n",
+  comm_.Log(LogLevel::Info, "TLE92466ED", "Setting channel mode: Channel=%s, Mode=%s (0x%04X)",
             ToString(channel), ToString(mode), static_cast<uint16_t>(mode));
 
   return WriteRegister(ch_addr, static_cast<uint16_t>(mode));
@@ -528,7 +528,7 @@ DriverResult<void> Driver<CommType>::SetParallelOperation(ParallelPair pair, boo
     return tle::unexpected(DriverError::InvalidParameter);
   }
 
-  comm_.Log(LogLevel::Info, "TLE92466ED", "Setting parallel operation: Pair=%s, Enabled=%s\n",
+  comm_.Log(LogLevel::Info, "TLE92466ED", "Setting parallel operation: Pair=%s, Enabled=%s",
             ToString(pair), enabled ? "true" : "false");
 
   // Build full CH_CTRL value: preserve OP_MODE and channel enable bits, update parallel bits
@@ -578,7 +578,7 @@ DriverResult<void> Driver<CommType>::SetCurrentSetpoint(Channel channel, uint16_
   uint16_t ch_addr = GetChannelRegister(channel, ChannelReg::SETPOINT);
 
   comm_.Log(LogLevel::Info, "TLE92466ED",
-            "Setting current setpoint: Channel=%s, Current=%u mA, Target=0x%04X, Parallel=%s\n",
+            "Setting current setpoint: Channel=%s, Current=%u mA, Target=0x%04X, Parallel=%s",
             ToString(channel), current_ma, target, parallel_mode ? "true" : "false");
 
   return WriteRegister(ch_addr, target);
@@ -638,7 +638,7 @@ DriverResult<void> Driver<CommType>::ConfigurePwmPeriod(Channel channel, float p
 
   comm_.Log(LogLevel::Info, "TLE92466ED",
             "Configuring PWM period: Channel=%s, Period=%.3f us, Mantissa=%u, Exponent=%u, "
-            "Register=0x%04X\n",
+            "Register=0x%04X",
             ToString(channel), period_us, config.mantissa, config.exponent, value);
 
   uint16_t ch_addr = GetChannelRegister(channel, ChannelReg::PERIOD);
@@ -665,7 +665,7 @@ DriverResult<void> Driver<CommType>::ConfigurePwmPeriodRaw(Channel channel, uint
 
   comm_.Log(LogLevel::Info, "TLE92466ED",
             "Configuring PWM period (raw): Channel=%s, Mantissa=%u, Exponent=%u, "
-            "LowFreq=%s, Register=0x%04X\n",
+            "LowFreq=%s, Register=0x%04X",
             ToString(channel), period_mantissa, period_exponent, low_freq_range ? "true" : "false",
             value);
 
@@ -703,7 +703,7 @@ DriverResult<void> Driver<CommType>::ConfigureDither(Channel channel, float ampl
 
   comm_.Log(LogLevel::Info, "TLE92466ED",
             "Configuring dither: Channel=%s, Amplitude=%.2f mA, Frequency=%.2f Hz, "
-            "StepSize=%u, NumSteps=%u, FlatSteps=%u, Parallel=%s\n",
+            "StepSize=%u, NumSteps=%u, FlatSteps=%u, Parallel=%s",
             ToString(channel), amplitude_ma, frequency_hz, config.step_size, config.num_steps,
             config.flat_steps, parallel_mode ? "true" : "false");
 
@@ -726,7 +726,7 @@ DriverResult<void> Driver<CommType>::ConfigureDitherRaw(Channel channel, uint16_
   uint16_t ch_base = GetChannelBase(channel);
 
   comm_.Log(LogLevel::Info, "TLE92466ED",
-            "Configuring dither (raw): Channel=%s, StepSize=%u, NumSteps=%u, FlatSteps=%u\n",
+            "Configuring dither (raw): Channel=%s, StepSize=%u, NumSteps=%u, FlatSteps=%u",
             ToString(channel), step_size, num_steps, flat_steps);
 
   // Configure DITHER_CTRL (step size)
@@ -762,7 +762,7 @@ DriverResult<void> Driver<CommType>::ConfigureChannel(Channel channel, const Cha
 
   comm_.Log(LogLevel::Info, "TLE92466ED",
             "Configuring channel: %s, Mode=%s, Current=%u mA, "
-            "SlewRate=%s, DiagCurrent=%s, OL_Threshold=%u\n",
+            "SlewRate=%s, DiagCurrent=%s, OL_Threshold=%u",
             ToString(channel), ToString(config.mode), config.current_setpoint_ma,
             ToString(config.slew_rate), ToString(config.diag_current), config.open_load_threshold);
 
@@ -1088,7 +1088,7 @@ DriverResult<void> Driver<CommType>::ClearFaults() noexcept {
     return result;
   }
 
-  comm_.Log(LogLevel::Info, "TLE92466ED", "Clearing all fault flags\n");
+  comm_.Log(LogLevel::Info, "TLE92466ED", "Clearing all fault flags");
   return clearFaultsInternal();
 }
 
@@ -1301,7 +1301,7 @@ DriverResult<void> Driver<CommType>::PrintAllFaults() noexcept {
   const FaultReport& report = *fault_result;
 
   if (!report.any_fault) {
-    comm_.Log(LogLevel::Info, "TLE92466ED", "✅ No faults detected - All systems normal\n");
+    comm_.Log(LogLevel::Info, "TLE92466ED", "✅ No faults detected - All systems normal");
     return {};
   }
 
@@ -1350,14 +1350,14 @@ DriverResult<void> Driver<CommType>::PrintAllFaults() noexcept {
       vio_5v = false;
       comm_.Log(LogLevel::Info, "TLE92466ED",
                 "GLOBAL_CONFIG read returned default 0x4005, using 3.3V mode (as written in "
-                "applyDefaultConfig)\n");
+                "applyDefaultConfig)");
     } else {
-      comm_.Log(LogLevel::Info, "TLE92466ED", "Read GLOBAL_CONFIG: 0x%04X, VIO_SEL=%s\n",
+      comm_.Log(LogLevel::Info, "TLE92466ED", "Read GLOBAL_CONFIG: 0x%04X, VIO_SEL=%s",
                 *global_config_result, vio_5v ? "5V" : "3.3V");
     }
   } else {
     comm_.Log(LogLevel::Info, "TLE92466ED",
-              "GLOBAL_CONFIG read failed, assuming 3.3V mode (as written in applyDefaultConfig)\n");
+              "GLOBAL_CONFIG read failed, assuming 3.3V mode (as written in applyDefaultConfig)");
   }
   getVioThresholds(vio_uv_th_mv, vio_ov_th_mv, vio_5v);
 
@@ -1366,36 +1366,36 @@ DriverResult<void> Driver<CommType>::PrintAllFaults() noexcept {
 
   // Print header
   comm_.Log(LogLevel::Warn, "TLE92466ED",
-            "╔══════════════════════════════════════════════════════════════════════════════╗\n");
+            "╔══════════════════════════════════════════════════════════════════════════════╗");
   comm_.Log(LogLevel::Warn, "TLE92466ED",
-            "║                          FAULT DETECTION REPORT                              ║\n");
+            "║                          FAULT DETECTION REPORT                              ║");
   comm_.Log(LogLevel::Warn, "TLE92466ED",
-            "╠══════════════════════════════════════════════════════════════════════════════╣\n");
+            "╠══════════════════════════════════════════════════════════════════════════════╣");
 
   // External Supply Faults
   bool has_external_faults = report.vbat_uv || report.vbat_ov || report.vio_uv || report.vio_ov ||
                              report.vdd_uv || report.vdd_ov;
   if (has_external_faults) {
-    comm_.Log(LogLevel::Warn, "TLE92466ED", "║ External Supply Faults:\n");
+    comm_.Log(LogLevel::Warn, "TLE92466ED", "║ External Supply Faults:");
     if (report.vbat_uv) {
-      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ VBAT Undervoltage\n");
+      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ VBAT Undervoltage");
       if (vbat_mv > 0 && vbat_uv_th_mv > 0) {
-        comm_.Log(LogLevel::Warn, "TLE92466ED", "║     Current: %u mV | UV Threshold: %u mV\n",
+        comm_.Log(LogLevel::Warn, "TLE92466ED", "║     Current: %u mV | UV Threshold: %u mV",
                   vbat_mv, vbat_uv_th_mv);
       }
     }
     if (report.vbat_ov) {
-      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ VBAT Overvoltage\n");
+      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ VBAT Overvoltage");
       if (vbat_mv > 0 && vbat_ov_th_mv > 0) {
-        comm_.Log(LogLevel::Warn, "TLE92466ED", "║     Current: %u mV | OV Threshold: %u mV\n",
+        comm_.Log(LogLevel::Warn, "TLE92466ED", "║     Current: %u mV | OV Threshold: %u mV",
                   vbat_mv, vbat_ov_th_mv);
       }
     }
     if (report.vio_uv) {
-      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ VIO Undervoltage\n");
+      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ VIO Undervoltage");
       if (vio_mv > 0) {
         comm_.Log(LogLevel::Warn, "TLE92466ED",
-                  "║     Current: %u mV | UV Threshold: %u mV (fixed hw, est)\n", vio_mv,
+                  "║     Current: %u mV | UV Threshold: %u mV (fixed hw, est)", vio_mv,
                   vio_uv_th_mv);
         // Note: VIO thresholds have a range (2.6-3.0V for 3.3V mode, 3.7-4.5V for 5V mode)
         // The actual threshold may be anywhere in this range, and there may be hysteresis
@@ -1404,37 +1404,37 @@ DriverResult<void> Driver<CommType>::PrintAllFaults() noexcept {
         if (vio_mv > vio_uv_th_mv) {
           comm_.Log(
               LogLevel::Info, "TLE92466ED",
-              "║     Note: Current voltage is above estimated threshold, but fault flag is set.\n");
+              "║     Note: Current voltage is above estimated threshold, but fault flag is set.");
           comm_.Log(
               LogLevel::Info, "TLE92466ED",
-              "║     This may indicate: (1) voltage was lower when fault triggered, (2) actual\n");
+              "║     This may indicate: (1) voltage was lower when fault triggered, (2) actual");
           comm_.Log(
               LogLevel::Info, "TLE92466ED",
-              "║     threshold is higher than estimate, or (3) hysteresis in fault detection.\n");
+              "║     threshold is higher than estimate, or (3) hysteresis in fault detection.");
         }
       }
     }
     if (report.vio_ov) {
-      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ VIO Overvoltage\n");
+      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ VIO Overvoltage");
       if (vio_mv > 0) {
         comm_.Log(LogLevel::Warn, "TLE92466ED",
-                  "║     Current: %u mV | OV Threshold: %u mV (fixed hw, est)\n", vio_mv,
+                  "║     Current: %u mV | OV Threshold: %u mV (fixed hw, est)", vio_mv,
                   vio_ov_th_mv);
       }
     }
     if (report.vdd_uv) {
-      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ VDD Undervoltage\n");
+      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ VDD Undervoltage");
       if (vdd_mv > 0) {
         comm_.Log(LogLevel::Warn, "TLE92466ED",
-                  "║     Current: %u mV | UV Threshold: %u mV (fixed hw, est)\n", vdd_mv,
+                  "║     Current: %u mV | UV Threshold: %u mV (fixed hw, est)", vdd_mv,
                   vdd_uv_th_mv);
       }
     }
     if (report.vdd_ov) {
-      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ VDD Overvoltage\n");
+      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ VDD Overvoltage");
       if (vdd_mv > 0) {
         comm_.Log(LogLevel::Warn, "TLE92466ED",
-                  "║     Current: %u mV | OV Threshold: %u mV (fixed hw, est)\n", vdd_mv,
+                  "║     Current: %u mV | OV Threshold: %u mV (fixed hw, est)", vdd_mv,
                   vdd_ov_th_mv);
       }
     }
@@ -1445,88 +1445,88 @@ DriverResult<void> Driver<CommType>::PrintAllFaults() noexcept {
                              report.vdd2v5_ov || report.ref_uv || report.ref_ov || report.vpre_ov ||
                              report.hvadc_err;
   if (has_internal_faults) {
-    comm_.Log(LogLevel::Warn, "TLE92466ED", "║ Internal Supply Faults:\n");
+    comm_.Log(LogLevel::Warn, "TLE92466ED", "║ Internal Supply Faults:");
     if (report.vr_iref_uv) {
-      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ Internal Bias Current Undervoltage\n");
+      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ Internal Bias Current Undervoltage");
     }
     if (report.vr_iref_ov) {
-      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ Internal Bias Current Overvoltage\n");
+      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ Internal Bias Current Overvoltage");
     }
     if (report.vdd2v5_uv) {
-      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ Internal 2.5V Supply Undervoltage\n");
+      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ Internal 2.5V Supply Undervoltage");
     }
     if (report.vdd2v5_ov) {
-      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ Internal 2.5V Supply Overvoltage\n");
+      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ Internal 2.5V Supply Overvoltage");
     }
     if (report.ref_uv) {
-      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ Internal Reference Undervoltage\n");
+      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ Internal Reference Undervoltage");
     }
     if (report.ref_ov) {
-      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ Internal Reference Overvoltage\n");
+      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ Internal Reference Overvoltage");
     }
     if (report.vpre_ov) {
-      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ Internal Pre-Regulator Overvoltage\n");
+      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ Internal Pre-Regulator Overvoltage");
     }
     if (report.hvadc_err) {
-      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ Internal Monitoring ADC Error\n");
+      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ Internal Monitoring ADC Error");
     }
   }
 
   // System Faults
   if (report.clock_fault || report.spi_wd_error) {
-    comm_.Log(LogLevel::Warn, "TLE92466ED", "║ System Faults:\n");
+    comm_.Log(LogLevel::Warn, "TLE92466ED", "║ System Faults:");
     if (report.clock_fault) {
-      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ Clock Fault\n");
+      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ Clock Fault");
     }
     if (report.spi_wd_error) {
-      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ SPI Watchdog Error\n");
+      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ SPI Watchdog Error");
     }
   }
 
   // Temperature Faults
   if (report.ot_error || report.ot_warning) {
-    comm_.Log(LogLevel::Warn, "TLE92466ED", "║ Temperature Faults:\n");
+    comm_.Log(LogLevel::Warn, "TLE92466ED", "║ Temperature Faults:");
     if (report.ot_error) {
-      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ Central Over-Temperature Error\n");
+      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ Central Over-Temperature Error");
     }
     if (report.ot_warning) {
-      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ⚠️  Central Over-Temperature Warning\n");
+      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ⚠️  Central Over-Temperature Warning");
     }
   }
 
   // Reset Events
   if (report.por_event || report.reset_event) {
-    comm_.Log(LogLevel::Info, "TLE92466ED", "║ Reset Events:\n");
+    comm_.Log(LogLevel::Info, "TLE92466ED", "║ Reset Events:");
     if (report.por_event) {
-      comm_.Log(LogLevel::Info, "TLE92466ED", "║   ℹ️  Power-On Reset Event\n");
+      comm_.Log(LogLevel::Info, "TLE92466ED", "║   ℹ️  Power-On Reset Event");
     }
     if (report.reset_event) {
-      comm_.Log(LogLevel::Info, "TLE92466ED", "║   ℹ️  External Reset Event (RESN pin)\n");
+      comm_.Log(LogLevel::Info, "TLE92466ED", "║   ℹ️  External Reset Event (RESN pin)");
     }
   }
 
   // Memory/ECC Faults
   if (report.reg_ecc_err || report.otp_ecc_err || report.otp_virgin) {
-    comm_.Log(LogLevel::Warn, "TLE92466ED", "║ Memory/ECC Faults:\n");
+    comm_.Log(LogLevel::Warn, "TLE92466ED", "║ Memory/ECC Faults:");
     if (report.reg_ecc_err) {
-      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ Register ECC Error\n");
+      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ Register ECC Error");
     }
     if (report.otp_ecc_err) {
-      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ OTP ECC Error\n");
+      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ OTP ECC Error");
     }
     if (report.otp_virgin) {
-      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ⚠️  OTP Virgin/Unconfigured\n");
+      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ⚠️  OTP Virgin/Unconfigured");
     }
   }
 
   // Summary Flags
   if (report.supply_nok_internal || report.supply_nok_external) {
-    comm_.Log(LogLevel::Warn, "TLE92466ED", "║ Supply Summary:\n");
+    comm_.Log(LogLevel::Warn, "TLE92466ED", "║ Supply Summary:");
     if (report.supply_nok_external) {
-      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ External Supply Fault Summary\n");
+      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ External Supply Fault Summary");
     }
     if (report.supply_nok_internal) {
-      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ Internal Supply Fault Summary\n");
+      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   ❌ Internal Supply Fault Summary");
     }
   }
 
@@ -1535,42 +1535,42 @@ DriverResult<void> Driver<CommType>::PrintAllFaults() noexcept {
   for (uint8_t ch = 0; ch < 6; ++ch) {
     if (report.channels[ch].has_fault) {
       if (!has_channel_faults) {
-        comm_.Log(LogLevel::Warn, "TLE92466ED", "║ Channel Faults:\n");
+        comm_.Log(LogLevel::Warn, "TLE92466ED", "║ Channel Faults:");
         has_channel_faults = true;
       }
-      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   Channel %u:\n", ch);
+      comm_.Log(LogLevel::Warn, "TLE92466ED", "║   Channel %u:", ch);
       if (report.channels[ch].overcurrent) {
-        comm_.Log(LogLevel::Warn, "TLE92466ED", "║     ❌ Over-Current\n");
+        comm_.Log(LogLevel::Warn, "TLE92466ED", "║     ❌ Over-Current");
       }
       if (report.channels[ch].short_to_ground) {
-        comm_.Log(LogLevel::Warn, "TLE92466ED", "║     ❌ Short to Ground\n");
+        comm_.Log(LogLevel::Warn, "TLE92466ED", "║     ❌ Short to Ground");
       }
       if (report.channels[ch].open_load) {
-        comm_.Log(LogLevel::Warn, "TLE92466ED", "║     ❌ Open Load\n");
+        comm_.Log(LogLevel::Warn, "TLE92466ED", "║     ❌ Open Load");
       }
       if (report.channels[ch].over_temperature) {
-        comm_.Log(LogLevel::Warn, "TLE92466ED", "║     ❌ Over-Temperature\n");
+        comm_.Log(LogLevel::Warn, "TLE92466ED", "║     ❌ Over-Temperature");
       }
       if (report.channels[ch].open_load_short_ground) {
-        comm_.Log(LogLevel::Warn, "TLE92466ED", "║     ❌ Open Load or Short to Ground\n");
+        comm_.Log(LogLevel::Warn, "TLE92466ED", "║     ❌ Open Load or Short to Ground");
       }
       if (report.channels[ch].ot_warning) {
-        comm_.Log(LogLevel::Warn, "TLE92466ED", "║     ⚠️  Over-Temperature Warning\n");
+        comm_.Log(LogLevel::Warn, "TLE92466ED", "║     ⚠️  Over-Temperature Warning");
       }
       if (report.channels[ch].current_regulation_warning) {
-        comm_.Log(LogLevel::Warn, "TLE92466ED", "║     ⚠️  Current Regulation Warning\n");
+        comm_.Log(LogLevel::Warn, "TLE92466ED", "║     ⚠️  Current Regulation Warning");
       }
       if (report.channels[ch].pwm_regulation_warning) {
-        comm_.Log(LogLevel::Warn, "TLE92466ED", "║     ⚠️  PWM Regulation Warning\n");
+        comm_.Log(LogLevel::Warn, "TLE92466ED", "║     ⚠️  PWM Regulation Warning");
       }
       if (report.channels[ch].olsg_warning) {
-        comm_.Log(LogLevel::Warn, "TLE92466ED", "║     ⚠️  OLSG Warning\n");
+        comm_.Log(LogLevel::Warn, "TLE92466ED", "║     ⚠️  OLSG Warning");
       }
     }
   }
 
   comm_.Log(LogLevel::Warn, "TLE92466ED",
-            "╚══════════════════════════════════════════════════════════════════════════════╝\n");
+            "╚══════════════════════════════════════════════════════════════════════════════╝");
 
   return {};
 }
@@ -1578,7 +1578,7 @@ DriverResult<void> Driver<CommType>::PrintAllFaults() noexcept {
 template <typename CommType>
 DriverResult<void> Driver<CommType>::SoftwareReset() noexcept {
   comm_.Log(LogLevel::Info, "TLE92466ED",
-            "Performing software reset (entering config mode and clearing channel enable cache)\n");
+            "Performing software reset (entering config mode and clearing channel enable cache)");
   // Software reset would require toggling RESN pin or power cycle
   // This IC doesn't have a software reset register
   // Return to config mode and clear channel enable cache
@@ -1595,7 +1595,7 @@ DriverResult<void> Driver<CommType>::SoftwareReset() noexcept {
   ch_ctrl_cache_ &= ~CH_CTRL::ALL_CH_MASK;
 
   comm_.Log(LogLevel::Info, "TLE92466ED",
-            "✅ Software reset completed (Config Mode entered, channel cache cleared)\n");
+            "✅ Software reset completed (Config Mode entered, channel cache cleared)");
   return {};
 }
 
@@ -1613,7 +1613,7 @@ DriverResult<void> Driver<CommType>::ReloadSpiWatchdog(uint16_t reload_value) no
   uint16_t masked_value = WD_RELOAD::MaskValue(reload_value);
 
   comm_.Log(LogLevel::Info, "TLE92466ED",
-            "Reloading SPI watchdog: ReloadValue=%u (masked to 0x%03X)\n", reload_value,
+            "Reloading SPI watchdog: ReloadValue=%u (masked to 0x%03X)", reload_value,
             masked_value);
 
   // Note: Writing any non-zero value clears SPI_WD_ERR if it was set
@@ -1669,7 +1669,7 @@ DriverResult<bool> Driver<CommType>::VerifyDevice() noexcept {
 
   if (!id_result) {
     comm_.Log(LogLevel::Error, "TLE92466ED",
-              "Device verification failed: Failed to read ICVID register (error: %u)\n",
+              "Device verification failed: Failed to read ICVID register (error: %u)",
               static_cast<unsigned>(id_result.error()));
     return tle::unexpected(id_result.error());
   }
@@ -1679,7 +1679,7 @@ DriverResult<bool> Driver<CommType>::VerifyDevice() noexcept {
   // Check if we got a valid response (not all zeros or all ones)
   if (icvid == 0x0000 || icvid == 0xFFFF) {
     comm_.Log(LogLevel::Error, "TLE92466ED",
-              "Device verification failed: Invalid ICVID response (0x%04X)\n", icvid);
+              "Device verification failed: Invalid ICVID response (0x%04X)", icvid);
     return DriverResult<bool>{false};
   }
 
@@ -1692,11 +1692,11 @@ DriverResult<bool> Driver<CommType>::VerifyDevice() noexcept {
 
   if (valid) {
     comm_.Log(LogLevel::Info, "TLE92466ED",
-              "Device verified: ICVID=0x%04X, Type=0x%02X, Revision=0x%02X\n", icvid, device_type,
+              "Device verified: ICVID=0x%04X, Type=0x%02X, Revision=0x%02X", icvid, device_type,
               revision);
   } else {
     comm_.Log(LogLevel::Warn, "TLE92466ED",
-              "Device verification: ICVID=0x%04X (Type=0x%02X, Rev=0x%02X) - Unknown device type\n",
+              "Device verification: ICVID=0x%04X (Type=0x%02X, Rev=0x%02X) - Unknown device type",
               icvid, device_type, revision);
   }
 
@@ -1813,22 +1813,22 @@ DriverResult<void> Driver<CommType>::WriteRegister(uint16_t address, uint16_t va
           comm_.Log(LogLevel::Debug, "TLE92466ED",
                     "Write verification mismatch (expected): Address=0x%04X, Written=0x%04X, "
                     "Read=0x%04X\n"
-                    "  %s\n",
+                    "  %s",
                     address, value, read_value, reason);
         } else {
           comm_.Log(LogLevel::Warn, "TLE92466ED",
                     "Write verification failed: Address=0x%04X, Written=0x%04X, Read=0x%04X\n"
-                    "  (This may be normal for write-only or special registers)\n",
+                    "  (This may be normal for write-only or special registers)",
                     address, value, read_value);
         }
       } else {
-        comm_.Log(LogLevel::Debug, "TLE92466ED", "Write verified: Address=0x%04X, Value=0x%04X\n",
+        comm_.Log(LogLevel::Debug, "TLE92466ED", "Write verified: Address=0x%04X, Value=0x%04X",
                   address, value);
       }
     } else {
       // Read failed - this might be expected for write-only registers
       comm_.Log(LogLevel::Debug, "TLE92466ED",
-                "Write verification read failed for address 0x%04X (may be write-only)\n", address);
+                "Write verification read failed for address 0x%04X (may be write-only)", address);
     }
   }
 
@@ -1968,7 +1968,7 @@ DriverResult<bool> Driver<CommType>::isChannelParallel(Channel channel) noexcept
 
 template <typename CommType>
 DriverResult<void> Driver<CommType>::SetReset(bool reset) noexcept {
-  comm_.Log(LogLevel::Info, "TLE92466ED", "Setting reset pin: %s\n",
+  comm_.Log(LogLevel::Info, "TLE92466ED", "Setting reset pin: %s",
             reset ? "LOW (in reset)" : "HIGH (released)");
   // RESN is active low: reset=true means hold in reset (GPIO LOW), reset=false means release (GPIO
   // HIGH)
@@ -1984,7 +1984,7 @@ DriverResult<void> Driver<CommType>::SetReset(bool reset) noexcept {
 
 template <typename CommType>
 DriverResult<void> Driver<CommType>::SetEnable(bool enable) noexcept {
-  comm_.Log(LogLevel::Info, "TLE92466ED", "Setting enable pin: %s\n",
+  comm_.Log(LogLevel::Info, "TLE92466ED", "Setting enable pin: %s",
             enable ? "HIGH (enabled)" : "LOW (disabled)");
   // EN is active high: enable=true means enable outputs (GPIO HIGH), enable=false means disable
   // (GPIO LOW)
@@ -2012,11 +2012,11 @@ DriverResult<bool> Driver<CommType>::IsFault(bool print_faults) noexcept {
   // Only print if driver is initialized (PrintAllFaults requires initialization)
   if (fault_detected && print_faults && initialized_) {
     comm_.Log(LogLevel::Warn, "TLE92466ED",
-              "⚠️  Fault detected on FAULTN pin - Printing detailed fault report:\n");
+              "⚠️  Fault detected on FAULTN pin - Printing detailed fault report:");
     comm_.Log(LogLevel::Warn, "TLE92466ED", "");
     if (auto print_result = PrintAllFaults(); !print_result) {
       comm_.Log(LogLevel::Warn, "TLE92466ED",
-                "⚠️  Failed to print detailed fault report: error code %u\n",
+                "⚠️  Failed to print detailed fault report: error code %u",
                 static_cast<unsigned>(print_result.error()));
     }
   }
@@ -2036,7 +2036,7 @@ void Driver<CommType>::diagnoseClockConfiguration() noexcept {
 
   if (!clk_div_result) {
     comm_.Log(LogLevel::Warn, "TLE92466ED",
-              "Failed to read CLK_DIV register (error: %u) - continuing anyway\n",
+              "Failed to read CLK_DIV register (error: %u) - continuing anyway",
               static_cast<unsigned>(clk_div_result.error()));
     return;
   }
@@ -2049,13 +2049,13 @@ void Driver<CommType>::diagnoseClockConfiguration() noexcept {
   uint16_t pll_fbdiv = clk_div & 0x01FF;      // Bits 8:0: PLL_FBDIV (9 bits)
 
   comm_.Log(LogLevel::Info, "TLE92466ED",
-            "═══════════════════════════════════════════════════════════\n");
-  comm_.Log(LogLevel::Info, "TLE92466ED", "CLK_DIV Register (0x0019): 0x%04X\n", clk_div);
-  comm_.Log(LogLevel::Info, "TLE92466ED", "  Bit 15 (EXT_CLK): %d (%s)\n", ext_clk ? 1 : 0,
+            "═══════════════════════════════════════════════════════════");
+  comm_.Log(LogLevel::Info, "TLE92466ED", "CLK_DIV Register (0x0019): 0x%04X", clk_div);
+  comm_.Log(LogLevel::Info, "TLE92466ED", "  Bit 15 (EXT_CLK): %d (%s)", ext_clk ? 1 : 0,
             ext_clk ? "External Clock (CLK-pin)" : "Internal Oscillator");
-  comm_.Log(LogLevel::Info, "TLE92466ED", "  Bits 14:9 (PLL_REFDIV): %d (0x%02X)\n", pll_refdiv,
+  comm_.Log(LogLevel::Info, "TLE92466ED", "  Bits 14:9 (PLL_REFDIV): %d (0x%02X)", pll_refdiv,
             pll_refdiv);
-  comm_.Log(LogLevel::Info, "TLE92466ED", "  Bits 8:0 (PLL_FBDIV): %d (0x%03X)\n", pll_fbdiv,
+  comm_.Log(LogLevel::Info, "TLE92466ED", "  Bits 8:0 (PLL_FBDIV): %d (0x%03X)", pll_fbdiv,
             pll_fbdiv);
 
   // Calculate system clock frequency if external clock is used
@@ -2063,30 +2063,30 @@ void Driver<CommType>::diagnoseClockConfiguration() noexcept {
     // fSYS = fCLK * (PLL_FBDIV) / (2 * PLL_REFDIV)
     // We don't know fCLK, but we can show the divider ratio
     float divider_ratio = static_cast<float>(pll_fbdiv) / (2.0F * static_cast<float>(pll_refdiv));
-    comm_.Log(LogLevel::Info, "TLE92466ED", "  PLL Divider Ratio: %.3f (fSYS = fCLK * %.3f)\n",
+    comm_.Log(LogLevel::Info, "TLE92466ED", "  PLL Divider Ratio: %.3f (fSYS = fCLK * %.3f)",
               divider_ratio, divider_ratio);
     comm_.Log(LogLevel::Info, "TLE92466ED",
-              "  Note: fCLK is the external clock frequency on CLK-pin\n");
+              "  Note: fCLK is the external clock frequency on CLK-pin");
 
     // Show expected fSYS for common fCLK values
-    comm_.Log(LogLevel::Info, "TLE92466ED", "  Expected fSYS for common fCLK values:\n");
+    comm_.Log(LogLevel::Info, "TLE92466ED", "  Expected fSYS for common fCLK values:");
     for (float fclk_mhz = 1.0F; fclk_mhz <= 8.0F; fclk_mhz += 0.5F) {
       float fsys_mhz = fclk_mhz * divider_ratio;
-      comm_.Log(LogLevel::Info, "TLE92466ED", "    fCLK=%.1f MHz -> fSYS=%.2f MHz\n", fclk_mhz,
+      comm_.Log(LogLevel::Info, "TLE92466ED", "    fCLK=%.1f MHz -> fSYS=%.2f MHz", fclk_mhz,
                 fsys_mhz);
     }
   } else if (!ext_clk) {
-    comm_.Log(LogLevel::Info, "TLE92466ED", "  Using Internal Oscillator (PLL dividers ignored)\n");
+    comm_.Log(LogLevel::Info, "TLE92466ED", "  Using Internal Oscillator (PLL dividers ignored)");
     comm_.Log(LogLevel::Info, "TLE92466ED",
-              "  System clock fSYS is generated from internal oscillator\n");
+              "  System clock fSYS is generated from internal oscillator");
   } else {
     comm_.Log(LogLevel::Warn, "TLE92466ED",
-              "  ⚠️  Invalid PLL divider values (PLL_REFDIV=%d, PLL_FBDIV=%d)\n", pll_refdiv,
+              "  ⚠️  Invalid PLL divider values (PLL_REFDIV=%d, PLL_FBDIV=%d)", pll_refdiv,
               pll_fbdiv);
-    comm_.Log(LogLevel::Warn, "TLE92466ED", "  This may cause clock watchdog faults!\n");
+    comm_.Log(LogLevel::Warn, "TLE92466ED", "  This may cause clock watchdog faults!");
   }
   comm_.Log(LogLevel::Info, "TLE92466ED",
-            "═══════════════════════════════════════════════════════════\n");
+            "═══════════════════════════════════════════════════════════");
 }
 
 #ifdef TLE92466ED_HEADER_INCLUDED
