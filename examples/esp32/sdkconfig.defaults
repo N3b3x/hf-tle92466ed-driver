@@ -1,0 +1,20 @@
+# =============================================================================
+# Common sdkconfig defaults for the TLE92466ED ESP32-S3 example projects.
+# =============================================================================
+
+# Plenty of stack for the integration test's deeply nested logging path
+# and large box-drawing format strings.
+CONFIG_ESP_MAIN_TASK_STACK_SIZE=24576
+
+# Slightly higher idle-task stack avoids the corner-case overflow that
+# can happen when esp_log writes are pre-empted on the idle CPU.
+CONFIG_FREERTOS_IDLE_TASK_STACKSIZE=2048
+
+# Make ESP_LOG dynamic (so per-tag levels can be set at runtime without
+# rebuilding) — useful for `ESP32_TLE_COMM_ENABLE_DETAILED_SPI_LOGGING`.
+CONFIG_LOG_MAXIMUM_LEVEL_VERBOSE=y
+CONFIG_LOG_DEFAULT_LEVEL_INFO=y
+
+# Newlib I/O for sane printf semantics.
+CONFIG_NEWLIB_STDOUT_LINE_ENDING_CRLF=y
+CONFIG_NEWLIB_STDIN_LINE_ENDING_CR=y

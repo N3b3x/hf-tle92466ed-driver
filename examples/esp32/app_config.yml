@@ -12,13 +12,12 @@ version: "1.0"
 metadata:
   project: "ESP32 TLE92466ED Driver Examples"
   default_app: "driver_integration_test"
-  # Default target is the upstream Infineon dev kit (ESP32-C6).
-  # Alternate target supported with `idf.py set-target esp32s3` (used
-  # by the HardFOC Flux V1 board, where pins are remapped via the
-  # CONFIG_IDF_TARGET_ESP32S3 guards in main/esp32_tle92466ed_test_config.hpp
-  # and main/esp32_tle92466ed_bus.hpp).
-  target: "esp32c6"
-  alt_targets: ["esp32s3"]
+  # ESP32-S3 reference board:
+  #   SPI3_HOST  MISO=GPIO35  MOSI=GPIO37  SCLK=GPIO36  CS=GPIO4
+  #   RESN=GPIO6  EN=GPIO5  FAULTN=GPIO16  DRV0=GPIO7  DRV1=GPIO15
+  #   ADC = GPIO1 (ADC1_CH0; only used by solenoid_control_test)
+  # See main/esp32_tle92466ed_test_config.hpp for the full pin map.
+  target: "esp32s3"
   idf_versions: ["release/v5.5", "release/v5.4"]
   build_types: [["Debug", "Release"], ["Debug"]]
 
@@ -34,23 +33,6 @@ apps:
     build_types: ["Debug", "Release"]
     ci_enabled: true
     featured: true
-    documentation: "docs/readme_driver_integration_test.md"
-
-  # Same source as driver_integration_test, but built for the HardFOC
-  # Flux V1 board (ESP32-S3, SPI3_HOST, GPIO matrix on GPIO35-38, CS=GPIO4).
-  # The pin / SPI-host selection happens automatically via
-  # `CONFIG_IDF_TARGET_ESP32S3` guards in:
-  #   * main/esp32_tle92466ed_test_config.hpp
-  #   * main/esp32_tle92466ed_bus.hpp
-  driver_integration_test_s3:
-    description: "Driver integration test built for the HardFOC Flux V1 board (ESP32-S3, SPI3 + Flux pinout)"
-    source_file: "driver_integration_test.cpp"
-    target: "esp32s3"
-    category: "test"
-    idf_versions: ["release/v5.5"]
-    build_types: ["Debug", "Release"]
-    ci_enabled: false
-    featured: false
     documentation: "docs/readme_driver_integration_test.md"
     test_sections:
       - "INITIALIZATION_TESTS"

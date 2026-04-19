@@ -133,3 +133,4 @@ Thumbs.db
 # Backup files
 **/*.bak*
 *.bak
+examples/esp32/sdkconfig
