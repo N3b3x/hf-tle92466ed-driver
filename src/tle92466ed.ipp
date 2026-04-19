@@ -1970,9 +1970,18 @@ template <typename CommType>
 DriverResult<void> Driver<CommType>::SetReset(bool reset) noexcept {
   comm_.Log(LogLevel::Info, "TLE92466ED", "Setting reset pin: %s",
             reset ? "LOW (in reset)" : "HIGH (released)");
-  // RESN is active low: reset=true means hold in reset (GPIO LOW), reset=false means release (GPIO
-  // HIGH)
-  GpioSignal signal = reset ? GpioSignal::INACTIVE : GpioSignal::ACTIVE;
+  // RESN is active LOW. The bus implementation already maps GpioSignal
+  // to the correct electrical level for the pin's active state:
+  //   GpioSet(RESN, ACTIVE)   → physical LOW  (chip held in reset)
+  //   GpioSet(RESN, INACTIVE) → physical HIGH (chip released)
+  //
+  // So `reset==true` (caller wants chip IN reset, line LOW) must
+  // pass ACTIVE through to the bus; `reset==false` (caller wants chip
+  // released, line HIGH) must pass INACTIVE. The previous mapping was
+  // INVERTED — driver thought it was releasing the chip but was
+  // actually putting it into reset, leaving SDO permanently low and
+  // the chip silent on every SPI transaction.
+  GpioSignal signal = reset ? GpioSignal::ACTIVE : GpioSignal::INACTIVE;
 
   auto result = comm_.GpioSet(CtrlPin::RESN, signal);
   if (!result) {
