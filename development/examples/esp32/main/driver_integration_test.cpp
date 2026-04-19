@@ -1660,7 +1660,7 @@ static bool test_error_conditions() noexcept {
 
 extern "C" void app_main() {
     ESP_LOGI(TAG, "╔══════════════════════════════════════════════════════════════════════════════╗");
-    ESP_LOGI(TAG, "║         TLE92466ED COMPREHENSIVE INTEGRATION TEST SUITE - ESP32-C6           ║");
+    ESP_LOGI(TAG, "║         TLE92466ED COMPREHENSIVE INTEGRATION TEST SUITE - ESP32-S3           ║");
     ESP_LOGI(TAG, "║                         HardFOC Core Drivers                                 ║");
     ESP_LOGI(TAG, "╚══════════════════════════════════════════════════════════════════════════════╝");
     ESP_LOGI(TAG, "Driver version: %s", tle92466ed::GetDriverVersion());

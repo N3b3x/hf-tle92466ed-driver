@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/solenoid_control_test.cpp" line="76" column="35" bodyfile="examples/esp32/main/solenoid_control_test.cpp" bodystart="76" bodyend="-1"/>
+        <location file="examples/esp32/main/solenoid_control_test.cpp" line="77" column="35" bodyfile="examples/esp32/main/solenoid_control_test.cpp" bodystart="77" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structSolenoid2Config_1a66d95aa4da24c15cf5b7c7b71d0ca51c" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr Channel</type>
@@ -33,7 +33,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/solenoid_control_test.cpp" line="77" column="30" bodyfile="examples/esp32/main/solenoid_control_test.cpp" bodystart="77" bodyend="-1"/>
+        <location file="examples/esp32/main/solenoid_control_test.cpp" line="78" column="30" bodyfile="examples/esp32/main/solenoid_control_test.cpp" bodystart="78" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structSolenoid2Config_1af40e677922499514c02c5e0ebd14b604" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -49,7 +49,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/solenoid_control_test.cpp" line="78" column="31" bodyfile="examples/esp32/main/solenoid_control_test.cpp" bodystart="78" bodyend="-1"/>
+        <location file="examples/esp32/main/solenoid_control_test.cpp" line="79" column="31" bodyfile="examples/esp32/main/solenoid_control_test.cpp" bodystart="79" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structSolenoid2Config_1a769dee9f1a7b1ab87d8fb850020ca52c" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -65,7 +65,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/solenoid_control_test.cpp" line="79" column="31" bodyfile="examples/esp32/main/solenoid_control_test.cpp" bodystart="79" bodyend="-1"/>
+        <location file="examples/esp32/main/solenoid_control_test.cpp" line="80" column="31" bodyfile="examples/esp32/main/solenoid_control_test.cpp" bodystart="80" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structSolenoid2Config_1a4e4a6ac8ec60d7da4d74a3e0b54e94c5" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr bool</type>
@@ -81,7 +81,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/solenoid_control_test.cpp" line="80" column="27" bodyfile="examples/esp32/main/solenoid_control_test.cpp" bodystart="80" bodyend="-1"/>
+        <location file="examples/esp32/main/solenoid_control_test.cpp" line="81" column="27" bodyfile="examples/esp32/main/solenoid_control_test.cpp" bodystart="81" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -89,7 +89,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="examples/esp32/main/solenoid_control_test.cpp" line="75" column="1" bodyfile="examples/esp32/main/solenoid_control_test.cpp" bodystart="75" bodyend="81"/>
+    <location file="examples/esp32/main/solenoid_control_test.cpp" line="76" column="1" bodyfile="examples/esp32/main/solenoid_control_test.cpp" bodystart="76" bodyend="82"/>
     <listofallmembers>
       <member refid="structSolenoid2Config_1a769dee9f1a7b1ab87d8fb850020ca52c" prot="public" virt="non-virtual"><scope>Solenoid2Config</scope><name>MAX_CURRENT_MA</name></member>
       <member refid="structSolenoid2Config_1af40e677922499514c02c5e0ebd14b604" prot="public" virt="non-virtual"><scope>Solenoid2Config</scope><name>MIN_CURRENT_MA</name></member>

@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="132" column="31" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="132" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="124" column="31" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="124" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1SPIParams_1a719af124eb343a53918944b959526fb3" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint8_t</type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="133" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="133" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="125" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="125" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1SPIParams_1abf680fed7c43ef4c0e7397db7c5b1e26" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint8_t</type>
@@ -50,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="134" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="134" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="126" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="126" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1SPIParams_1ab2f4932fc67cbfd35cf4e7c235b64eb4" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint8_t</type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="135" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="135" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="127" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="127" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1SPIParams_1abbc31a95b8b58b08104aecc97a94f3f3" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint8_t</type>
@@ -82,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="136" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="136" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="128" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="128" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -98,7 +98,7 @@
 </para>
 <para>cs_ena_pretrans and cs_ena_posttrans are in clock cycles. At 1MHz: 1 cycle = 1000ns, so 2 cycles = 2000ns (well above 50ns minimum) </para>
     </detaileddescription>
-    <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="131" column="1" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="131" bodyend="137"/>
+    <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="123" column="1" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="123" bodyend="129"/>
     <listofallmembers>
       <member refid="structTLE92466ED__TestConfig_1_1SPIParams_1abbc31a95b8b58b08104aecc97a94f3f3" prot="public" virt="non-virtual"><scope>TLE92466ED_TestConfig::SPIParams</scope><name>CS_ENA_POSTTRANS</name></member>
       <member refid="structTLE92466ED__TestConfig_1_1SPIParams_1ab2f4932fc67cbfd35cf4e7c235b64eb4" prot="public" virt="non-virtual"><scope>TLE92466ED_TestConfig::SPIParams</scope><name>CS_ENA_PRETRANS</name></member>

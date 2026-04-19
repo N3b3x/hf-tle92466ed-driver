@@ -101,29 +101,29 @@ $(function(){initNavTree('structTLE92466ED__TestConfig_1_1SPIPins.html',''); ini
 </div><!--header-->
 <div class="contents">
 
-<p>SPI pin assignment for the TLE92466ED.  
+<p>SPI bus pin assignment (ESP32-S3 / SPI3_HOST via GPIO matrix).  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="esp32__tle92466ed__test__config_8hpp_source.html">esp32_tle92466ed_test_config.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:aaa01c05c5f0c174720cda8b260674790" id="r_aaa01c05c5f0c174720cda8b260674790"><td class="memItemLeft" align="right" valign="top">static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa01c05c5f0c174720cda8b260674790">MISO</a> = 2</td></tr>
-<tr class="memdesc:aaa01c05c5f0c174720cda8b260674790"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO2 - SPI MISO (Master In Slave Out)  <br /></td></tr>
+<tr class="memitem:aaa01c05c5f0c174720cda8b260674790" id="r_aaa01c05c5f0c174720cda8b260674790"><td class="memItemLeft" align="right" valign="top">static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa01c05c5f0c174720cda8b260674790">MISO</a> = 35</td></tr>
+<tr class="memdesc:aaa01c05c5f0c174720cda8b260674790"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO35 - SPI3 MISO (slave SDO)  <br /></td></tr>
 <tr class="separator:aaa01c05c5f0c174720cda8b260674790"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ec17eeead4339e61eb8d9855d71c7e4" id="r_a3ec17eeead4339e61eb8d9855d71c7e4"><td class="memItemLeft" align="right" valign="top">static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ec17eeead4339e61eb8d9855d71c7e4">MOSI</a> = 7</td></tr>
-<tr class="memdesc:a3ec17eeead4339e61eb8d9855d71c7e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO7 - SPI MOSI (Master Out Slave In)  <br /></td></tr>
+<tr class="memitem:a3ec17eeead4339e61eb8d9855d71c7e4" id="r_a3ec17eeead4339e61eb8d9855d71c7e4"><td class="memItemLeft" align="right" valign="top">static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ec17eeead4339e61eb8d9855d71c7e4">MOSI</a> = 37</td></tr>
+<tr class="memdesc:a3ec17eeead4339e61eb8d9855d71c7e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO37 - SPI3 MOSI (master to slave)  <br /></td></tr>
 <tr class="separator:a3ec17eeead4339e61eb8d9855d71c7e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41782c91af07fc43521527f1ada311ef" id="r_a41782c91af07fc43521527f1ada311ef"><td class="memItemLeft" align="right" valign="top">static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41782c91af07fc43521527f1ada311ef">SCLK</a> = 6</td></tr>
-<tr class="memdesc:a41782c91af07fc43521527f1ada311ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO6 - SPI Clock.  <br /></td></tr>
+<tr class="memitem:a41782c91af07fc43521527f1ada311ef" id="r_a41782c91af07fc43521527f1ada311ef"><td class="memItemLeft" align="right" valign="top">static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41782c91af07fc43521527f1ada311ef">SCLK</a> = 36</td></tr>
+<tr class="memdesc:a41782c91af07fc43521527f1ada311ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO36 - SPI3 SCK.  <br /></td></tr>
 <tr class="separator:a41782c91af07fc43521527f1ada311ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a144454730100985c5bc1ad819cfa0ddf" id="r_a144454730100985c5bc1ad819cfa0ddf"><td class="memItemLeft" align="right" valign="top">static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a144454730100985c5bc1ad819cfa0ddf">CS</a> = 18</td></tr>
-<tr class="memdesc:a144454730100985c5bc1ad819cfa0ddf"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO18 - Chip Select (active low)  <br /></td></tr>
+<tr class="memitem:a144454730100985c5bc1ad819cfa0ddf" id="r_a144454730100985c5bc1ad819cfa0ddf"><td class="memItemLeft" align="right" valign="top">static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a144454730100985c5bc1ad819cfa0ddf">CS</a> = 4</td></tr>
+<tr class="memdesc:a144454730100985c5bc1ad819cfa0ddf"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO4 - active-LOW chip select.  <br /></td></tr>
 <tr class="separator:a144454730100985c5bc1ad819cfa0ddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>SPI pin assignment for the TLE92466ED. </p>
-<p>Pins are selected per build target so the driver's example projects can run on multiple boards from the same source tree. </p>
+<div class="textblock"><p>SPI bus pin assignment (ESP32-S3 / SPI3_HOST via GPIO matrix). </p>
+<p>The trio MISO/MOSI/SCLK can be shared with other devices on the same SPI3 bus; each slave gets its own dedicated CS line. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a144454730100985c5bc1ad819cfa0ddf" name="a144454730100985c5bc1ad819cfa0ddf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a144454730100985c5bc1ad819cfa0ddf">&#9670;&#160;</a></span>CS</h2>
@@ -135,7 +135,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr uint8_t TLE92466ED_TestConfig::SPIPins::CS = 18</td>
+          <td class="memname">constexpr uint8_t TLE92466ED_TestConfig::SPIPins::CS = 4</td>
         </tr>
       </table>
   </td>
@@ -145,7 +145,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>GPIO18 - Chip Select (active low) </p>
+<p>GPIO4 - active-LOW chip select. </p>
 
 </div>
 </div>
@@ -159,7 +159,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr uint8_t TLE92466ED_TestConfig::SPIPins::MISO = 2</td>
+          <td class="memname">constexpr uint8_t TLE92466ED_TestConfig::SPIPins::MISO = 35</td>
         </tr>
       </table>
   </td>
@@ -169,7 +169,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>GPIO2 - SPI MISO (Master In Slave Out) </p>
+<p>GPIO35 - SPI3 MISO (slave SDO) </p>
 
 </div>
 </div>
@@ -183,7 +183,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr uint8_t TLE92466ED_TestConfig::SPIPins::MOSI = 7</td>
+          <td class="memname">constexpr uint8_t TLE92466ED_TestConfig::SPIPins::MOSI = 37</td>
         </tr>
       </table>
   </td>
@@ -193,7 +193,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>GPIO7 - SPI MOSI (Master Out Slave In) </p>
+<p>GPIO37 - SPI3 MOSI (master to slave) </p>
 
 </div>
 </div>
@@ -207,7 +207,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr uint8_t TLE92466ED_TestConfig::SPIPins::SCLK = 6</td>
+          <td class="memname">constexpr uint8_t TLE92466ED_TestConfig::SPIPins::SCLK = 36</td>
         </tr>
       </table>
   </td>
@@ -217,7 +217,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>GPIO6 - SPI Clock. </p>
+<p>GPIO36 - SPI3 SCK. </p>
 
 </div>
 </div>

@@ -1,5 +1,5 @@
 <map id="examples/esp32/main/TestFramework.h" name="examples/esp32/main/TestFramework.h">
-<area shape="rect" id="Node000001" title="Shared testing framework for ESP32&#45;C6 comprehensive test suites." alt="" coords="5,5,204,56"/>
+<area shape="rect" id="Node000001" title="Shared testing framework for ESP32&#45;S3 comprehensive test suites." alt="" coords="5,5,204,56"/>
 <area shape="rect" id="Node000002" href="$driver__integration__test_8cpp.html" title="Comprehensive Integration Test Suite for TLE92466ED Driver." alt="" coords="5,104,204,175"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,70,107,104,102,104,102,70"/>
 </map>

@@ -11,7 +11,7 @@
 <!-- Node0 -->
 <g id="Node000000" class="node">
 <title>Node0</title>
-<g id="a_Node000000"><a xlink:href="structTLE92466ED__TestConfig_1_1ADCConfig.html" target="_top" xlink:title="ADC Configuration for Solenoid Control Test.">
+<g id="a_Node000000"><a xlink:href="structTLE92466ED__TestConfig_1_1ADCConfig.html" target="_top" xlink:title="ADC configuration for the solenoid control test.">
 <polygon fill="white" stroke="#666666" points="169,-38 0,-38 0,0 169,0 169,-38"/>
 <text text-anchor="start" x="8" y="-22.8" font-family="Arial" font-size="14.00">TLE92466ED_TestConfig</text>
 <text text-anchor="middle" x="84.5" y="-7.8" font-family="Arial" font-size="14.00">::ADCConfig</text>

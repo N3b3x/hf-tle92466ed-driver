@@ -647,7 +647,7 @@ Requirements:<itemizedlist>
       </memberdef>
     </sectiondef>
     <briefdescription>
-<para>Shared testing framework for ESP32-C6 comprehensive test suites. </para>
+<para>Shared testing framework for ESP32-S3 comprehensive test suites. </para>
     </briefdescription>
     <detaileddescription>
 <para>This file provides common testing infrastructure including test result tracking, execution timing, and standardized test execution macros used across all comprehensive test suites.</para>

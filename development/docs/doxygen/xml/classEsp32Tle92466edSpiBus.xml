@@ -19,7 +19,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="455" column="15" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="455" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="451" column="15" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="451" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classEsp32Tle92466edSpiBus_1aa2ade5d165ae594007a6e7c0f9a4ce4c" prot="private" static="no" mutable="no">
         <type>spi_device_handle_t</type>
@@ -35,7 +35,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="456" column="25" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="456" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="452" column="25" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="452" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classEsp32Tle92466edSpiBus_1a043069850e70f93ebb4639914835636d" prot="private" static="no" mutable="no">
         <type>bool</type>
@@ -51,7 +51,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="457" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="457" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="453" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="453" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classEsp32Tle92466edSpiBus_1a096bb9a950f4f648b6ee6273f5bb2067" prot="private" static="no" mutable="no">
         <type>CommError</type>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="458" column="15" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="458" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="454" column="15" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="454" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="private-static-attrib">
@@ -85,7 +85,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="460" column="33" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="460" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="456" column="33" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="456" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -102,7 +102,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="85" column="5" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="85" bodyend="85"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="81" column="5" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="81" bodyend="81"/>
       </memberdef>
       <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a1417b2885f7e6ed63747497b041fcb9d" prot="public" static="no" const="no" explicit="yes" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -131,7 +131,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="91" column="14" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="91" bodyend="113"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="87" column="14" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="87" bodyend="109"/>
       </memberdef>
       <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a95dc225cfcc75e153c20d0d638b3eaf0" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -147,7 +147,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="120" column="5" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="120" bodyend="130"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="116" column="5" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="116" bodyend="126"/>
       </memberdef>
       <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a3da7b727dfd17c6e0f08833961efc23d" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>auto</type>
@@ -165,7 +165,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="136" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="136" bodyend="158"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="132" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="132" bodyend="154"/>
       </memberdef>
       <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a5c3494ca635f993181689a0f8c1c6972" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>auto</type>
@@ -183,7 +183,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="164" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="164" bodyend="178"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="160" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="160" bodyend="174"/>
       </memberdef>
       <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a9b2dffe7d4f9bad0e67eb27867736e61" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>auto</type>
@@ -214,7 +214,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="185" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="185" bodyend="253"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="181" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="181" bodyend="249"/>
       </memberdef>
       <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1ac8eb66b714d008e98fd6862f959d000e" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>auto</type>
@@ -257,7 +257,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="261" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="261" bodyend="279"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="257" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="257" bodyend="275"/>
       </memberdef>
       <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1ae86fba1c53bcf96b262060304b8b115a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>auto</type>
@@ -288,7 +288,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="286" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="286" bodyend="300"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="282" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="282" bodyend="296"/>
       </memberdef>
       <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a5711f4c3c3bdf545ca10b32ef2399aac" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>auto</type>
@@ -319,7 +319,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="307" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="307" bodyend="310"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="303" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="303" bodyend="306"/>
       </memberdef>
       <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a8584733434267fd3fe40a05918994178" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
@@ -337,7 +337,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="316" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="316" bodyend="318"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="312" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="312" bodyend="314"/>
       </memberdef>
       <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a230b32d97c901977d39f76648523c3c0" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>CommError</type>
@@ -355,7 +355,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="324" column="15" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="324" bodyend="326"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="320" column="15" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="320" bodyend="322"/>
       </memberdef>
       <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1af63d5b9edd17b58a23febdcf6c927efb" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>auto</type>
@@ -373,7 +373,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="332" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="332" bodyend="335"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="328" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="328" bodyend="331"/>
       </memberdef>
       <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a92aaf5c2cdd6e26daa496051a8426a16" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>auto</type>
@@ -391,7 +391,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="341" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="341" bodyend="341"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="337" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="337" bodyend="337"/>
       </memberdef>
       <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a932d66a7d0dec57677864b3a01c6102b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>auto</type>
@@ -436,7 +436,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="353" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="353" bodyend="395"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="349" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="349" bodyend="391"/>
       </memberdef>
       <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a516f3843e68dfb83264a7d2747e6bc18" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>auto</type>
@@ -469,7 +469,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="405" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="405" bodyend="426"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="401" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="401" bodyend="422"/>
       </memberdef>
       <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a51ba27e05beb007f49ecba1bfd72eb74" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>void</type>
@@ -534,7 +534,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="435" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="435" bodyend="446"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="431" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="431" bodyend="442"/>
       </memberdef>
       <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1ad73eb0c20ff589310eaef5e501e32f20" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>auto</type>
@@ -552,7 +552,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="452" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="452" bodyend="452"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="448" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="448" bodyend="448"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="private-func">
@@ -572,7 +572,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="466" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="466" bodyend="503"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="462" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="462" bodyend="499"/>
       </memberdef>
       <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a3ab0c7e560efec4561c7940538e4cceb" prot="private" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>auto</type>
@@ -590,7 +590,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="509" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="509" bodyend="530"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="505" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="505" bodyend="526"/>
       </memberdef>
       <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1aeed7f6eaa33189a9520bc0b34c332734" prot="private" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>auto</type>
@@ -609,7 +609,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="536" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="536" bodyend="565"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="532" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="532" bodyend="561"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -647,7 +647,7 @@
         <label>tle92466ed::SpiInterface&lt; Esp32Tle92466edSpiBus &gt;</label>
       </node>
     </collaborationgraph>
-    <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="46" column="1" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="46" bodyend="566"/>
+    <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="46" column="1" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="46" bodyend="562"/>
     <listofallmembers>
       <member refid="classEsp32Tle92466edSpiBus_1aeed7f6eaa33189a9520bc0b34c332734" prot="private" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>addSPIDevice</name></member>
       <member refid="classEsp32Tle92466edSpiBus_1af63d5b9edd17b58a23febdcf6c927efb" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>ClearErrors</name></member>

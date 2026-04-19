@@ -10,15 +10,15 @@
         <argsstring></argsstring>
         <name>RESN</name>
         <qualifiedname>TLE92466ED_TestConfig::ControlPins::RESN</qualifiedname>
-        <initializer>= 21</initializer>
+        <initializer>= 6</initializer>
         <briefdescription>
-<para>GPIO21 - Reset pin (active low, must be HIGH for operation) </para>
+<para>GPIO6 - Reset (active LOW; HIGH = released) </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="92" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="92" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="89" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="89" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1ControlPins_1a9d17758f1c459951f04a5e932f6b9157" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint8_t</type>
@@ -26,15 +26,15 @@
         <argsstring></argsstring>
         <name>EN</name>
         <qualifiedname>TLE92466ED_TestConfig::ControlPins::EN</qualifiedname>
-        <initializer>= 20</initializer>
+        <initializer>= 5</initializer>
         <briefdescription>
-<para>GPIO20 - Enable pin (active high, enables outputs) </para>
+<para>GPIO5 - Enable (active HIGH; gates output stage) </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="93" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="93" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="90" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="90" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1ControlPins_1abd525deb25fcb647fa6c4690c63f74c4" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint8_t</type>
@@ -42,15 +42,15 @@
         <argsstring></argsstring>
         <name>FAULTN</name>
         <qualifiedname>TLE92466ED_TestConfig::ControlPins::FAULTN</qualifiedname>
-        <initializer>= 19</initializer>
+        <initializer>= 16</initializer>
         <briefdescription>
-<para>GPIO19 - Fault pin (active low, indicates fault condition) </para>
+<para>GPIO16 - FAULTN input (active LOW, open-drain) </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="94" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="94" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="91" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="91" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1ControlPins_1a2d22c523fac2c084d1821d7dcdf3d78a" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint8_t</type>
@@ -58,15 +58,15 @@
         <argsstring></argsstring>
         <name>DRV0</name>
         <qualifiedname>TLE92466ED_TestConfig::ControlPins::DRV0</qualifiedname>
-        <initializer>= 22</initializer>
+        <initializer>= 7</initializer>
         <briefdescription>
-<para>GPIO pin for DRV0 external drive control. </para>
+<para>GPIO7 - DRV0 external drive control. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="95" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="95" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="92" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="92" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1ControlPins_1aea4b6762eaab6ac731f1f22b207d2f9a" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint8_t</type>
@@ -74,24 +74,24 @@
         <argsstring></argsstring>
         <name>DRV1</name>
         <qualifiedname>TLE92466ED_TestConfig::ControlPins::DRV1</qualifiedname>
-        <initializer>= 23</initializer>
+        <initializer>= 15</initializer>
         <briefdescription>
-<para>GPIO pin for DRV1 external drive control. </para>
+<para>GPIO15 - DRV1 external drive control. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="96" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="96" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="93" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="93" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
-<para>Control GPIO Pins for TLE92466ED. </para>
+<para>Control GPIO pins for the TLE92466ED. </para>
     </briefdescription>
     <detaileddescription>
-<para>These pins control device operation and status monitoring. Set to -1 if not connected/configured. </para>
+<para>RESN must be HIGH for the device to be operational. EN gates the output power stage only — SPI register access works in Config Mode with EN LOW. </para>
     </detaileddescription>
-    <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="82" column="1" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="82" bodyend="98"/>
+    <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="88" column="1" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="88" bodyend="94"/>
     <listofallmembers>
       <member refid="structTLE92466ED__TestConfig_1_1ControlPins_1a2d22c523fac2c084d1821d7dcdf3d78a" prot="public" virt="non-virtual"><scope>TLE92466ED_TestConfig::ControlPins</scope><name>DRV0</name></member>
       <member refid="structTLE92466ED__TestConfig_1_1ControlPins_1aea4b6762eaab6ac731f1f22b207d2f9a" prot="public" virt="non-virtual"><scope>TLE92466ED_TestConfig::ControlPins</scope><name>DRV1</name></member>

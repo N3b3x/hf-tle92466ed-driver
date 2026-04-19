@@ -11,7 +11,7 @@
 <!-- Node0 -->
 <g id="Node000000" class="node">
 <title>Node0</title>
-<g id="a_Node000000"><a xlink:href="structEsp32Tle92466edSpiBus_1_1SPIConfig.html" target="_top" xlink:title="SPI configuration structure for ESP32.">
+<g id="a_Node000000"><a xlink:href="structEsp32Tle92466edSpiBus_1_1SPIConfig.html" target="_top" xlink:title="SPI configuration structure for ESP32&#45;S3.">
 <polygon fill="white" stroke="#666666" points="169,-38 0,-38 0,0 169,0 169,-38"/>
 <text text-anchor="start" x="8" y="-22.8" font-family="Arial" font-size="14.00">Esp32Tle92466edSpiBus</text>
 <text text-anchor="middle" x="84.5" y="-7.8" font-family="Arial" font-size="14.00">::SPIConfig</text>

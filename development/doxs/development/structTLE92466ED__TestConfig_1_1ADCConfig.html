@@ -101,18 +101,18 @@ $(function(){initNavTree('structTLE92466ED__TestConfig_1_1ADCConfig.html',''); i
 </div><!--header-->
 <div class="contents">
 
-<p>ADC Configuration for Solenoid Control Test.  
+<p>ADC configuration for the solenoid control test.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="esp32__tle92466ed__test__config_8hpp_source.html">esp32_tle92466ed_test_config.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a47c51ee1182fcb7bebc014c0db817846" id="r_a47c51ee1182fcb7bebc014c0db817846"><td class="memItemLeft" align="right" valign="top">static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a47c51ee1182fcb7bebc014c0db817846">PIN</a> = 0</td></tr>
-<tr class="memdesc:a47c51ee1182fcb7bebc014c0db817846"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO0 - ADC input pin (ADC1_CH0)  <br /></td></tr>
+<tr class="memitem:a47c51ee1182fcb7bebc014c0db817846" id="r_a47c51ee1182fcb7bebc014c0db817846"><td class="memItemLeft" align="right" valign="top">static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a47c51ee1182fcb7bebc014c0db817846">PIN</a> = 1</td></tr>
+<tr class="memdesc:a47c51ee1182fcb7bebc014c0db817846"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO1 (ADC1_CH0 on ESP32-S3)  <br /></td></tr>
 <tr class="separator:a47c51ee1182fcb7bebc014c0db817846"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ac6b7505fdbf0bce8c0dcb793651779" id="r_a7ac6b7505fdbf0bce8c0dcb793651779"><td class="memItemLeft" align="right" valign="top">static constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ac6b7505fdbf0bce8c0dcb793651779">VREF_MV</a> = 3300.0f</td></tr>
-<tr class="memdesc:a7ac6b7505fdbf0bce8c0dcb793651779"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference voltage in millivolts (3.3V)  <br /></td></tr>
+<tr class="memdesc:a7ac6b7505fdbf0bce8c0dcb793651779"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference voltage (mV)  <br /></td></tr>
 <tr class="separator:a7ac6b7505fdbf0bce8c0dcb793651779"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af89c3e12e2d1a8f4d676ea5d1da3a38d" id="r_af89c3e12e2d1a8f4d676ea5d1da3a38d"><td class="memItemLeft" align="right" valign="top">static constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af89c3e12e2d1a8f4d676ea5d1da3a38d">MIN_VOLTAGE</a> = 0.0f</td></tr>
 <tr class="memdesc:af89c3e12e2d1a8f4d676ea5d1da3a38d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum input voltage (V)  <br /></td></tr>
@@ -122,8 +122,8 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:a352a535854228395d51108ce1b43fc48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>ADC Configuration for Solenoid Control Test. </p>
-<p>ADC pin used for reading control voltage (0-3.3V) to control solenoid currents. This is used in the solenoid control test to map ADC reading to current percentage. </p>
+<div class="textblock"><p>ADC configuration for the solenoid control test. </p>
+<p>The solenoid_control_test app reads an analog control voltage and maps it to the per-channel current setpoint percentage. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a352a535854228395d51108ce1b43fc48" name="a352a535854228395d51108ce1b43fc48"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a352a535854228395d51108ce1b43fc48">&#9670;&#160;</a></span>MAX_VOLTAGE</h2>
@@ -183,7 +183,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr uint8_t TLE92466ED_TestConfig::ADCConfig::PIN = 0</td>
+          <td class="memname">constexpr uint8_t TLE92466ED_TestConfig::ADCConfig::PIN = 1</td>
         </tr>
       </table>
   </td>
@@ -193,7 +193,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>GPIO0 - ADC input pin (ADC1_CH0) </p>
+<p>GPIO1 (ADC1_CH0 on ESP32-S3) </p>
 
 </div>
 </div>
@@ -217,7 +217,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reference voltage in millivolts (3.3V) </p>
+<p>Reference voltage (mV) </p>
 
 </div>
 </div>

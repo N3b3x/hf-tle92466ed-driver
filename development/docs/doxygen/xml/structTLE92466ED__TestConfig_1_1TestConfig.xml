@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="208" column="31" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="208" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="200" column="31" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="200" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1TestConfig_1a0bfc6f1c08f4ab5603e90d8c3fed98a5" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="209" column="31" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="209" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="201" column="31" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="201" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1TestConfig_1ad2a6e6656f915d99b58a64ab706b80cb" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -50,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="210" column="31" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="210" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="202" column="31" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="202" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1TestConfig_1aa61db0bd87a2c7ceeea0c5a27ee9c228" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="211" column="31" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="211" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="203" column="31" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="203" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -75,7 +75,7 @@
     <detaileddescription>
 <para>Default parameters for testing and calibration. </para>
     </detaileddescription>
-    <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="207" column="1" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="207" bodyend="212"/>
+    <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="199" column="1" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="199" bodyend="204"/>
     <listofallmembers>
       <member refid="structTLE92466ED__TestConfig_1_1TestConfig_1a7fb0173a5edf16d673974b9cc0d0956e" prot="public" virt="non-virtual"><scope>TLE92466ED_TestConfig::TestConfig</scope><name>DEFAULT_TEST_CURRENT</name></member>
       <member refid="structTLE92466ED__TestConfig_1_1TestConfig_1aa61db0bd87a2c7ceeea0c5a27ee9c228" prot="public" virt="non-virtual"><scope>TLE92466ED_TestConfig::TestConfig</scope><name>RAMP_STEP_DELAY_MS</name></member>

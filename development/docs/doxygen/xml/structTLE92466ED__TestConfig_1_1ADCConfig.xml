@@ -10,15 +10,15 @@
         <argsstring></argsstring>
         <name>PIN</name>
         <qualifiedname>TLE92466ED_TestConfig::ADCConfig::PIN</qualifiedname>
-        <initializer>= 0</initializer>
+        <initializer>= 1</initializer>
         <briefdescription>
-<para>GPIO0 - ADC input pin (ADC1_CH0) </para>
+<para>GPIO1 (ADC1_CH0 on ESP32-S3) </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="110" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="110" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="103" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="103" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1ADCConfig_1a7ac6b7505fdbf0bce8c0dcb793651779" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr float</type>
@@ -28,13 +28,13 @@
         <qualifiedname>TLE92466ED_TestConfig::ADCConfig::VREF_MV</qualifiedname>
         <initializer>= 3300.0f</initializer>
         <briefdescription>
-<para>Reference voltage in millivolts (3.3V) </para>
+<para>Reference voltage (mV) </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="112" column="28" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="112" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="104" column="28" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="104" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1ADCConfig_1af89c3e12e2d1a8f4d676ea5d1da3a38d" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr float</type>
@@ -50,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="113" column="28" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="113" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="105" column="28" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="105" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1ADCConfig_1a352a535854228395d51108ce1b43fc48" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr float</type>
@@ -66,16 +66,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="114" column="28" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="114" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="106" column="28" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="106" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
-<para>ADC Configuration for Solenoid Control Test. </para>
+<para>ADC configuration for the solenoid control test. </para>
     </briefdescription>
     <detaileddescription>
-<para>ADC pin used for reading control voltage (0-3.3V) to control solenoid currents. This is used in the solenoid control test to map ADC reading to current percentage. </para>
+<para>The solenoid_control_test app reads an analog control voltage and maps it to the per-channel current setpoint percentage. </para>
     </detaileddescription>
-    <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="106" column="1" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="106" bodyend="115"/>
+    <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="102" column="1" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="102" bodyend="107"/>
     <listofallmembers>
       <member refid="structTLE92466ED__TestConfig_1_1ADCConfig_1a352a535854228395d51108ce1b43fc48" prot="public" virt="non-virtual"><scope>TLE92466ED_TestConfig::ADCConfig</scope><name>MAX_VOLTAGE</name></member>
       <member refid="structTLE92466ED__TestConfig_1_1ADCConfig_1af89c3e12e2d1a8f4d676ea5d1da3a38d" prot="public" virt="non-virtual"><scope>TLE92466ED_TestConfig::ADCConfig</scope><name>MIN_VOLTAGE</name></member>

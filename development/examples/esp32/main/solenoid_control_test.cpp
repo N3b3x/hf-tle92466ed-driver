@@ -11,7 +11,7 @@
  * 
  * Hardware Requirements:
  * - Two solenoids connected to TLE92466ED outputs
- * - ADC input (potentiometer or voltage source) on ESP32-C6 ADC pin
+ * - ADC input (potentiometer or voltage source) on ESP32-S3 ADC pin
  * - Proper power supply for solenoids (VBAT)
  * 
  * @author N3b3x
@@ -45,18 +45,19 @@ static const char* TAG = "SolenoidControl";
 
 /**
  * @brief ADC Configuration
- * 
- * ESP32-C6 ADC1 Channel 0 maps to GPIO0
+ *
+ * ESP32-S3 ADC1 Channel 0 maps to GPIO1.
+ * (See `TLE92466ED_TestConfig::ADCConfig::PIN` for the pin number.)
  */
 struct ADCConfig {
     static constexpr adc_unit_t UNIT = ADC_UNIT_1;           ///< ADC unit (ADC1)
-    static constexpr adc_channel_t CHANNEL = ADC_CHANNEL_0;  ///< ADC channel 0 (GPIO0 on ESP32-C6)
+    static constexpr adc_channel_t CHANNEL = ADC_CHANNEL_0;  ///< ADC channel 0 (GPIO1 on ESP32-S3)
     static constexpr adc_atten_t ATTEN = ADC_ATTEN_DB_12;    ///< 0-3.3V range (12dB attenuation)
     static constexpr adc_bitwidth_t BITWIDTH = ADC_BITWIDTH_12; ///< 12-bit resolution
     static constexpr uint32_t SAMPLE_RATE_HZ = 1000;         ///< 1kHz sampling rate
     static constexpr float VREF_MV = 3300.0f;                 ///< Reference voltage (3.3V)
     static constexpr float ADC_MAX = 4095.0f;                 ///< Maximum ADC value (12-bit)
-    static constexpr int GPIO_PIN = 0;                        ///< GPIO pin number (GPIO0)
+    static constexpr int GPIO_PIN = 1;                        ///< GPIO pin number (GPIO1)
 };
 
 /**
@@ -479,7 +480,7 @@ static void set_solenoids_enabled(bool enabled) noexcept {
 
 extern "C" void app_main() {
     ESP_LOGI(TAG, "╔══════════════════════════════════════════════════════════════════════════════╗");
-    ESP_LOGI(TAG, "║         TLE92466ED SOLENOID CONTROL TEST - ESP32-C6                          ║");
+    ESP_LOGI(TAG, "║         TLE92466ED SOLENOID CONTROL TEST - ESP32-S3                          ║");
     ESP_LOGI(TAG, "║                    Real Hardware Solenoid Testing                            ║");
     ESP_LOGI(TAG, "╚══════════════════════════════════════════════════════════════════════════════╝");
     ESP_LOGI(TAG, "Driver version: %s", tle92466ed::GetDriverVersion());

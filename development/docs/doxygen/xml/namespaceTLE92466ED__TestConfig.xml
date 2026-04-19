@@ -17,6 +17,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="51" column="1"/>
+    <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="66" column="1"/>
   </compounddef>
 </doxygen>

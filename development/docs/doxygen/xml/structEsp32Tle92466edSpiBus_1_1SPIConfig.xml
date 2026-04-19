@@ -10,15 +10,15 @@
         <argsstring></argsstring>
         <name>host</name>
         <qualifiedname>Esp32Tle92466edSpiBus::SPIConfig::host</qualifiedname>
-        <initializer>= SPI2_HOST</initializer>
+        <initializer>= SPI3_HOST</initializer>
         <briefdescription>
-<para>SPI host (SPI2_HOST for ESP32-C6) </para>
+<para>SPI host (SPI3 via GPIO matrix) </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="64" column="27" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="64" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="61" column="27" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="61" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structEsp32Tle92466edSpiBus_1_1SPIConfig_1ae57c8f8891ecc7c47447f64ac07d1f9d" prot="public" static="no" mutable="no">
         <type>int16_t</type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="66" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="66" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="62" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="62" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structEsp32Tle92466edSpiBus_1_1SPIConfig_1a3ba55352bead873278e1940f12f8e89b" prot="public" static="no" mutable="no">
         <type>int16_t</type>
@@ -50,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="67" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="67" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="63" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="63" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structEsp32Tle92466edSpiBus_1_1SPIConfig_1ac7dcc7ffef89538e66b2c0af29f2f3ba" prot="public" static="no" mutable="no">
         <type>int16_t</type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="68" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="68" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="64" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="64" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structEsp32Tle92466edSpiBus_1_1SPIConfig_1a9c18bd7362a5c8d05873f720bcba4480" prot="public" static="no" mutable="no">
         <type>int16_t</type>
@@ -82,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="69" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="69" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="65" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="65" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structEsp32Tle92466edSpiBus_1_1SPIConfig_1a6535550fb1c7e19ae540f17d83749c29" prot="public" static="no" mutable="no">
         <type>int16_t</type>
@@ -98,7 +98,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="70" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="70" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="66" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="66" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structEsp32Tle92466edSpiBus_1_1SPIConfig_1aa852ba3d82c9a13097e964600ca6a59b" prot="public" static="no" mutable="no">
         <type>int16_t</type>
@@ -114,7 +114,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="71" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="71" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="67" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="67" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structEsp32Tle92466edSpiBus_1_1SPIConfig_1a0a3f00d70d7f46803d998a1f0aee9dc7" prot="public" static="no" mutable="no">
         <type>int16_t</type>
@@ -130,7 +130,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="72" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="72" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="68" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="68" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structEsp32Tle92466edSpiBus_1_1SPIConfig_1aaaa088590d983170afebe31a174bd8d3" prot="public" static="no" mutable="no">
         <type>int16_t</type>
@@ -146,7 +146,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="73" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="73" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="69" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="69" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structEsp32Tle92466edSpiBus_1_1SPIConfig_1a939fc22fb553af941359b679b178677e" prot="public" static="no" mutable="no">
         <type>int16_t</type>
@@ -162,7 +162,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="74" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="74" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="70" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="70" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structEsp32Tle92466edSpiBus_1_1SPIConfig_1ab10408aba51ef0668d4f45bed3e62b4b" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -178,7 +178,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="75" column="18" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="75" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="71" column="18" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="71" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structEsp32Tle92466edSpiBus_1_1SPIConfig_1ab060102cef7010598049c4f014b95af1" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -194,7 +194,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="76" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="76" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="72" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="72" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structEsp32Tle92466edSpiBus_1_1SPIConfig_1aae6a7225d624a36f917063a46184f619" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -210,7 +210,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="77" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="77" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="73" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="73" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structEsp32Tle92466edSpiBus_1_1SPIConfig_1ac6c8a1274bffd8902b0a95b7c3d974ff" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -226,7 +226,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="78" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="78" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="74" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="74" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structEsp32Tle92466edSpiBus_1_1SPIConfig_1a8afab88769e928304f4e3e0c0370598f" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -242,20 +242,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="79" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="79" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="75" column="17" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="75" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
-<para>SPI configuration structure for ESP32. </para>
+<para>SPI configuration structure for ESP32-S3. </para>
     </briefdescription>
     <detaileddescription>
-<para>The default <computeroutput>host</computeroutput> is selected per build target so the example matches the real wiring on each board:<itemizedlist>
-<listitem><para>ESP32-C6 dev kit : SPI2_HOST (only general-purpose host on C6).</para>
-</listitem><listitem><para>ESP32-S3 Flux V1 : SPI3_HOST (shared with MAX22200 via GPIO matrix on GPIO35-38; SPI2 is reserved for the ADS7952 on its IOMUX pins). </para>
-</listitem></itemizedlist>
-</para>
+<para>The example uses <computeroutput>SPI3_HOST</computeroutput> so that SPI2 (with its native IOMUX pins on GPIO9-14) stays free for any other peripheral that benefits from IOMUX. SPI3 has no IOMUX path on ESP32-S3 — every pin (including CS) is routed through the GPIO matrix, which is exactly what we want when the bus pins live in the GPIO 32+ range. </para>
     </detaileddescription>
-    <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="60" column="5" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="60" bodyend="80"/>
+    <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="60" column="5" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="60" bodyend="76"/>
     <listofallmembers>
       <member refid="structEsp32Tle92466edSpiBus_1_1SPIConfig_1a8afab88769e928304f4e3e0c0370598f" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus::SPIConfig</scope><name>cs_ena_posttrans</name></member>
       <member refid="structEsp32Tle92466edSpiBus_1_1SPIConfig_1ac6c8a1274bffd8902b0a95b7c3d974ff" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus::SPIConfig</scope><name>cs_ena_pretrans</name></member>

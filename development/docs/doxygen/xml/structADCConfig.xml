@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/solenoid_control_test.cpp" line="52" column="33" bodyfile="examples/esp32/main/solenoid_control_test.cpp" bodystart="52" bodyend="-1"/>
+        <location file="examples/esp32/main/solenoid_control_test.cpp" line="53" column="33" bodyfile="examples/esp32/main/solenoid_control_test.cpp" bodystart="53" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structADCConfig_1a50cbf9858ed09cf95bc20587757328f4" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr adc_channel_t</type>
@@ -27,13 +27,13 @@
         <qualifiedname>ADCConfig::CHANNEL</qualifiedname>
         <initializer>= ADC_CHANNEL_0</initializer>
         <briefdescription>
-<para>ADC channel 0 (GPIO0 on ESP32-C6) </para>
+<para>ADC channel 0 (GPIO1 on ESP32-S3) </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/solenoid_control_test.cpp" line="53" column="36" bodyfile="examples/esp32/main/solenoid_control_test.cpp" bodystart="53" bodyend="-1"/>
+        <location file="examples/esp32/main/solenoid_control_test.cpp" line="54" column="36" bodyfile="examples/esp32/main/solenoid_control_test.cpp" bodystart="54" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structADCConfig_1a35c66d72ba1ee264175de3523a709032" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr adc_atten_t</type>
@@ -49,7 +49,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/solenoid_control_test.cpp" line="54" column="34" bodyfile="examples/esp32/main/solenoid_control_test.cpp" bodystart="54" bodyend="-1"/>
+        <location file="examples/esp32/main/solenoid_control_test.cpp" line="55" column="34" bodyfile="examples/esp32/main/solenoid_control_test.cpp" bodystart="55" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structADCConfig_1a2c750253b441627940641261ca5b955b" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr adc_bitwidth_t</type>
@@ -65,7 +65,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/solenoid_control_test.cpp" line="55" column="37" bodyfile="examples/esp32/main/solenoid_control_test.cpp" bodystart="55" bodyend="-1"/>
+        <location file="examples/esp32/main/solenoid_control_test.cpp" line="56" column="37" bodyfile="examples/esp32/main/solenoid_control_test.cpp" bodystart="56" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structADCConfig_1a415709e661142f4d02963380147572bd" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint32_t</type>
@@ -81,7 +81,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/solenoid_control_test.cpp" line="56" column="31" bodyfile="examples/esp32/main/solenoid_control_test.cpp" bodystart="56" bodyend="-1"/>
+        <location file="examples/esp32/main/solenoid_control_test.cpp" line="57" column="31" bodyfile="examples/esp32/main/solenoid_control_test.cpp" bodystart="57" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structADCConfig_1aad0972dc88daba8224b38370ea860adb" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr float</type>
@@ -97,7 +97,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/solenoid_control_test.cpp" line="57" column="28" bodyfile="examples/esp32/main/solenoid_control_test.cpp" bodystart="57" bodyend="-1"/>
+        <location file="examples/esp32/main/solenoid_control_test.cpp" line="58" column="28" bodyfile="examples/esp32/main/solenoid_control_test.cpp" bodystart="58" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structADCConfig_1a50bc4d09543221f73674c5f950fbe3b7" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr float</type>
@@ -113,7 +113,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/solenoid_control_test.cpp" line="58" column="28" bodyfile="examples/esp32/main/solenoid_control_test.cpp" bodystart="58" bodyend="-1"/>
+        <location file="examples/esp32/main/solenoid_control_test.cpp" line="59" column="28" bodyfile="examples/esp32/main/solenoid_control_test.cpp" bodystart="59" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structADCConfig_1af79e226540f25bb3bf16c03aa16a7b0f" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr int</type>
@@ -121,24 +121,24 @@
         <argsstring></argsstring>
         <name>GPIO_PIN</name>
         <qualifiedname>ADCConfig::GPIO_PIN</qualifiedname>
-        <initializer>= 0</initializer>
+        <initializer>= 1</initializer>
         <briefdescription>
-<para>GPIO pin number (GPIO0) </para>
+<para>GPIO pin number (GPIO1) </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/solenoid_control_test.cpp" line="59" column="26" bodyfile="examples/esp32/main/solenoid_control_test.cpp" bodystart="59" bodyend="-1"/>
+        <location file="examples/esp32/main/solenoid_control_test.cpp" line="60" column="26" bodyfile="examples/esp32/main/solenoid_control_test.cpp" bodystart="60" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
 <para>ADC Configuration. </para>
     </briefdescription>
     <detaileddescription>
-<para>ESP32-C6 ADC1 Channel 0 maps to GPIO0 </para>
+<para>ESP32-S3 ADC1 Channel 0 maps to GPIO1. (See <computeroutput><ref refid="structTLE92466ED__TestConfig_1_1ADCConfig_1a47c51ee1182fcb7bebc014c0db817846" kindref="member">TLE92466ED_TestConfig::ADCConfig::PIN</ref></computeroutput> for the pin number.) </para>
     </detaileddescription>
-    <location file="examples/esp32/main/solenoid_control_test.cpp" line="51" column="1" bodyfile="examples/esp32/main/solenoid_control_test.cpp" bodystart="51" bodyend="60"/>
+    <location file="examples/esp32/main/solenoid_control_test.cpp" line="52" column="1" bodyfile="examples/esp32/main/solenoid_control_test.cpp" bodystart="52" bodyend="61"/>
     <listofallmembers>
       <member refid="structADCConfig_1a50bc4d09543221f73674c5f950fbe3b7" prot="public" virt="non-virtual"><scope>ADCConfig</scope><name>ADC_MAX</name></member>
       <member refid="structADCConfig_1a35c66d72ba1ee264175de3523a709032" prot="public" virt="non-virtual"><scope>ADCConfig</scope><name>ATTEN</name></member>

@@ -1,60 +1,61 @@
-# TLE92466ED ESP32 Examples (multi-target)
+# TLE92466ED ESP32-S3 Examples
 
 This directory contains comprehensive examples demonstrating the
-TLE92466ED driver on **ESP32-C6** (default upstream reference) and
-**ESP32-S3** (HardFOC Flux V1 board pinout, opt-in).
-
-## Building for a non-default target
-
-The default target is ESP32-C6. To build the same example sources for
-ESP32-S3 (Flux V1 wiring on `SPI3_HOST`, `MISO=GPIO35 / SCK=GPIO36 /
-MOSI=GPIO37 / CS=GPIO4`, `RESN=GPIO6 / EN=GPIO5`):
-
-```bash
-# remove the cached C6 sdkconfig so set-target regenerates it
-rm -f sdkconfig
-idf.py set-target esp32s3
-./scripts/build_app.sh driver_integration_test Debug
-# or, equivalently for a one-shot build:
-CONFIG_TARGET=esp32s3 ./scripts/build_app.sh driver_integration_test Debug
-```
-
-Pin / SPI-host selection lives behind `CONFIG_IDF_TARGET_*` guards in
-`main/esp32_tle92466ed_test_config.hpp` and
-`main/esp32_tle92466ed_bus.hpp`, so the same source compiles for both
-targets without folder duplication.
+TLE92466ED driver on **ESP32-S3**. The example is intentionally pinned
+to a single MCU/pinout so the build, flash, and verification flow stays
+predictable; if you want to retarget another ESP32-S3 board, edit the
+constants in `main/esp32_tle92466ed_test_config.hpp` (single source of
+truth for every pin used by the example).
 
 ## 🎯 Overview
 
-The ESP32-C6 examples showcase real-world usage of the TLE92466ED six-channel low-side
-solenoid driver with:
+The examples exercise the TLE92466ED six-channel low-side solenoid
+driver from a freshly powered-on board through:
 
-- **Hardware-specific HAL** implementation for ESP32-C6
-- **Multiple example applications** covering different use cases
-- **Automated build system** with configurable app types
-- **Comprehensive documentation** for each example
-- **Production-ready code** with proper error handling
+- A **header-only ESP32-S3 SPI bus adapter** (`main/esp32_tle92466ed_bus.hpp`)
+  that maps the driver's CRTP `SpiInterface` onto ESP-IDF's `spi_master`.
+- A **comprehensive integration test** (`driver_integration_test.cpp`)
+  that walks every API call group — config, channel control, current,
+  PWM, dither, diagnostics, faults, watchdog, parallel-mode.
+- A **real-hardware solenoid control test** (`solenoid_control_test.cpp`)
+  that uses an ADC potentiometer to ramp current through two
+  solenoids (one single-channel, one parallel pair).
+- A **build/flash automation layer** (`scripts/`) that reads the
+  declarative `app_config.yml` and orchestrates ESP-IDF.
 
 ## 🔧 Hardware Requirements
 
-### ESP32-C6 Development Board
-- ESP32-C6-DevKitC-1 or compatible
-- USB-C cable for programming and power
+### ESP32-S3 development board
+- Any ESP32-S3 dev board with the GPIOs in the table below available.
+- USB-C cable for programming + native USB-Serial-JTAG console.
 
-### TLE92466ED Connections
+### TLE92466ED Connections (default reference pinout)
 
-| TLE92466ED Pin | ESP32-C6 GPIO | Function |
+| TLE92466ED Pin | ESP32-S3 GPIO | Function |
 |----------------|---------------|----------|
-| MOSI | GPIO7 | SPI Data Out |
-| MISO | GPIO2 | SPI Data In |
-| SCLK | GPIO6 | SPI Clock |
-| CS | GPIO10 | Chip Select |
-| VDD | 3.3V | Logic Supply |
-| VBAT | 12-24V | Power Supply |
-| GND | GND | Ground |
+| MOSI   | GPIO37 | SPI3 Data Out (master → slave) |
+| MISO   | GPIO35 | SPI3 Data In (slave → master) |
+| SCLK   | GPIO36 | SPI3 Clock |
+| CS     | GPIO4  | Chip Select (active-LOW) |
+| RESN   | GPIO6  | Reset (active-LOW; HIGH = released) |
+| EN     | GPIO5  | Output stage enable (active-HIGH) |
+| FAULTN | GPIO16 | Fault output (active-LOW, open-drain) |
+| DRV0   | GPIO7  | External drive control 0 (optional) |
+| DRV1   | GPIO15 | External drive control 1 (optional) |
+| VDD    | 3.3V   | Logic supply |
+| VBAT   | 12-24V | Power supply for output stage |
+| GND    | GND    | Ground (common to MCU and supply) |
 
 ### Load Connections
 Connect your solenoids/loads to the TLE92466ED output channels (OUT0-OUT5) with appropriate current ratings.
+
+## 🛠️ Console / serial output
+
+The included `sdkconfig.defaults.esp32s3` pins the primary console to
+the **ESP32-S3 native USB-Serial-JTAG bridge** (the device that
+enumerates as `/dev/ttyACM0` on Linux / `COMx` on Windows). UART0 is
+not used as the primary console because its default pins (GPIO43/44)
+are usually not routed to the host on USB-only ESP32-S3 dev boards.
 
 ## 🚀 Quick Start
 

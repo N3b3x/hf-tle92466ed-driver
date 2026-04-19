@@ -102,5 +102,5 @@ endif()
 # =============================================================================
 target_compile_definitions(${COMPONENT_LIB} PRIVATE
     "EXAMPLE_TYPE_${APP_TYPE}=1"
-    "TLE92466ED_ESP32_C6=1"
+    "TLE92466ED_ESP32_S3=1"
 )
