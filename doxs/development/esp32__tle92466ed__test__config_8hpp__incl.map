@@ -1,5 +1,7 @@
 <map id="examples/esp32/main/esp32_tle92466ed_test_config.hpp" name="examples/esp32/main/esp32_tle92466ed_test_config.hpp">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,5,220,76"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="75,124,150,155"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,76,115,110,110,110,110,76"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="17,124,91,155"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,78,72,114,67,111,90,75"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="116,124,229,155"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="136,75,159,111,154,114,132,78"/>
 </map>
