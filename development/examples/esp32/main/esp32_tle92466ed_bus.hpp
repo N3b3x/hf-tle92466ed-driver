@@ -49,9 +49,20 @@ public:
     using SpiInterface<Esp32Tle92466edSpiBus>::Log;
     /**
      * @brief SPI configuration structure for ESP32
+     *
+     * The default `host` is selected per build target so the example
+     * matches the real wiring on each board:
+     *  * ESP32-C6 dev kit  : SPI2_HOST (only general-purpose host on C6).
+     *  * ESP32-S3 Flux V1  : SPI3_HOST (shared with MAX22200 via GPIO
+     *                         matrix on GPIO35-38; SPI2 is reserved for
+     *                         the ADS7952 on its IOMUX pins).
      */
     struct SPIConfig {
+#if defined(CONFIG_IDF_TARGET_ESP32S3)
+        spi_host_device_t host = SPI3_HOST;     ///< SPI host (SPI3_HOST on Flux V1)
+#else
         spi_host_device_t host = SPI2_HOST;     ///< SPI host (SPI2_HOST for ESP32-C6)
+#endif
         int16_t miso_pin = 2;                   ///< MISO pin (GPIO2, -1 = not configured)
         int16_t mosi_pin = 7;                   ///< MOSI pin (GPIO7, -1 = not configured)
         int16_t sclk_pin = 6;                   ///< SCLK pin (GPIO6, -1 = not configured)

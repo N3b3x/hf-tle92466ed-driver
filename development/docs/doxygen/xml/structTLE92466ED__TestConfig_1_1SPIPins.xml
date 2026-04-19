@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="48" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="48" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="69" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="69" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1SPIPins_1a3ec17eeead4339e61eb8d9855d71c7e4" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint8_t</type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="49" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="49" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="70" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="70" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1SPIPins_1a41782c91af07fc43521527f1ada311ef" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint8_t</type>
@@ -50,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="50" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="50" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="71" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="71" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1SPIPins_1a144454730100985c5bc1ad819cfa0ddf" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint8_t</type>
@@ -66,16 +66,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="51" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="51" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="72" column="30" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="72" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
-<para>SPI Configuration for ESP32-C6. </para>
+<para>SPI pin assignment for the TLE92466ED. </para>
     </briefdescription>
     <detaileddescription>
-<para>These pins are used for SPI communication with the TLE92466ED. Ensure your hardware matches these pin assignments or modify accordingly. </para>
+<para>Pins are selected per build target so the driver&apos;s example projects can run on multiple boards from the same source tree. </para>
     </detaileddescription>
-    <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="47" column="1" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="47" bodyend="52"/>
+    <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="59" column="1" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="59" bodyend="74"/>
     <listofallmembers>
       <member refid="structTLE92466ED__TestConfig_1_1SPIPins_1a144454730100985c5bc1ad819cfa0ddf" prot="public" virt="non-virtual"><scope>TLE92466ED_TestConfig::SPIPins</scope><name>CS</name></member>
       <member refid="structTLE92466ED__TestConfig_1_1SPIPins_1aaa01c05c5f0c174720cda8b260674790" prot="public" virt="non-virtual"><scope>TLE92466ED_TestConfig::SPIPins</scope><name>MISO</name></member>

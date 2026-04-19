@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="111" column="31" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="111" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="147" column="31" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="147" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1CurrentLimits_1aa6e214ca2a7e8aae7fbf3ac68be1ee1d" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="112" column="31" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="112" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="148" column="31" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="148" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1CurrentLimits_1a5f5b2f3b210b4d67252cb7642d9e7090" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -50,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="113" column="31" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="113" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="149" column="31" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="149" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1CurrentLimits_1a62d49ba58d58330a2007f5632c4d18c2" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="114" column="31" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="114" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="150" column="31" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="150" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -75,7 +75,7 @@
     <detaileddescription>
 <para>These are hardware limits from the TLE92466ED datasheet. Single channel: 0-2000mA Parallel mode: 0-4000mA (channels paired) </para>
     </detaileddescription>
-    <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="110" column="1" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="110" bodyend="115"/>
+    <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="146" column="1" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="146" bodyend="151"/>
     <listofallmembers>
       <member refid="structTLE92466ED__TestConfig_1_1CurrentLimits_1a5f5b2f3b210b4d67252cb7642d9e7090" prot="public" virt="non-virtual"><scope>TLE92466ED_TestConfig::CurrentLimits</scope><name>PARALLEL_CHANNEL_MAX</name></member>
       <member refid="structTLE92466ED__TestConfig_1_1CurrentLimits_1a62d49ba58d58330a2007f5632c4d18c2" prot="public" virt="non-virtual"><scope>TLE92466ED_TestConfig::CurrentLimits</scope><name>RESOLUTION</name></member>

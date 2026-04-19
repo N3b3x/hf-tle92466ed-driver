@@ -102,10 +102,11 @@ $(function(){initNavTree('esp32__tle92466ed__test__config_8hpp.html',''); initRe
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;cstdint&gt;</code><br />
+<code>#include &quot;sdkconfig.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for esp32_tle92466ed_test_config.hpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="esp32__tle92466ed__test__config_8hpp__incl.svg" width="226" height="160"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="esp32__tle92466ed__test__config_8hpp__incl.svg" width="235" height="160"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
@@ -118,7 +119,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTLE92466ED__TestConfig_1_1SPIPins.html">TLE92466ED_TestConfig::SPIPins</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI Configuration for ESP32-C6.  <a href="structTLE92466ED__TestConfig_1_1SPIPins.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI pin assignment for the TLE92466ED.  <a href="structTLE92466ED__TestConfig_1_1SPIPins.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTLE92466ED__TestConfig_1_1ControlPins.html">TLE92466ED_TestConfig::ControlPins</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Control GPIO Pins for TLE92466ED.  <a href="structTLE92466ED__TestConfig_1_1ControlPins.html#details">More...</a><br /></td></tr>
@@ -165,7 +166,7 @@ Macros</h2></td></tr>
 <tr class="memdesc:a20a718906e99a0c63907e61221cdeb85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hardware configuration validation.  <br /></td></tr>
 <tr class="separator:a20a718906e99a0c63907e61221cdeb85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a144227c8f24118002432fbaf425eca87" id="r_a144227c8f24118002432fbaf425eca87"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a144227c8f24118002432fbaf425eca87">TLE92466ED_VALIDATE_GPIO</a>(pin)&#160;&#160;&#160;    static_assert((pin) &gt;= 0 &amp;&amp; (pin) &lt; 30, &quot;Invalid GPIO pin number for ESP32-C6&quot;)</td></tr>
-<tr class="memdesc:a144227c8f24118002432fbaf425eca87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper macro for GPIO pin validation.  <br /></td></tr>
+<tr class="memdesc:a144227c8f24118002432fbaf425eca87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper macro for GPIO pin validation (per-target ranges).  <br /></td></tr>
 <tr class="separator:a144227c8f24118002432fbaf425eca87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -208,7 +209,7 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">static_assert</span>((current_ma) &lt;= <a class="code hl_variable" href="structTLE92466ED__TestConfig_1_1CurrentLimits.html#aa6e214ca2a7e8aae7fbf3ac68be1ee1d">TLE92466ED_TestConfig::CurrentLimits::SINGLE_CHANNEL_MAX</a>, \</div>
 <div class="line">                  <span class="stringliteral">&quot;Current exceeds maximum limit&quot;</span>)</div>
-<div class="ttc" id="astructTLE92466ED__TestConfig_1_1CurrentLimits_html_aa6e214ca2a7e8aae7fbf3ac68be1ee1d"><div class="ttname"><a href="structTLE92466ED__TestConfig_1_1CurrentLimits.html#aa6e214ca2a7e8aae7fbf3ac68be1ee1d">TLE92466ED_TestConfig::CurrentLimits::SINGLE_CHANNEL_MAX</a></div><div class="ttdeci">static constexpr uint16_t SINGLE_CHANNEL_MAX</div><div class="ttdoc">Maximum single channel current (mA)</div><div class="ttdef"><b>Definition</b> esp32_tle92466ed_test_config.hpp:112</div></div>
+<div class="ttc" id="astructTLE92466ED__TestConfig_1_1CurrentLimits_html_aa6e214ca2a7e8aae7fbf3ac68be1ee1d"><div class="ttname"><a href="structTLE92466ED__TestConfig_1_1CurrentLimits.html#aa6e214ca2a7e8aae7fbf3ac68be1ee1d">TLE92466ED_TestConfig::CurrentLimits::SINGLE_CHANNEL_MAX</a></div><div class="ttdeci">static constexpr uint16_t SINGLE_CHANNEL_MAX</div><div class="ttdoc">Maximum single channel current (mA)</div><div class="ttdef"><b>Definition</b> esp32_tle92466ed_test_config.hpp:148</div></div>
 </div><!-- fragment -->
 <p>Hardware configuration validation. </p>
 <p>Compile-time checks to ensure configuration is valid.</p>
@@ -231,7 +232,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Helper macro for GPIO pin validation. </p>
+<p>Helper macro for GPIO pin validation (per-target ranges). </p>
 
 </div>
 </div>

@@ -1,18 +1,30 @@
 /**
  * @file tle92466ed_test_config.hpp
- * @brief Hardware configuration for TLE92466ED driver on ESP32-C6
- * 
- * This file contains the actual hardware configuration that is used by the HAL
- * and example applications. Modify these values to match your hardware setup.
- * 
+ * @brief Hardware configuration for TLE92466ED driver examples (multi-target).
+ *
+ * Per-target pin / SPI-host selection lives behind `CONFIG_IDF_TARGET_*`
+ * guards so the same example sources build cleanly for either:
+ *
+ *   * ESP32-C6  — Infineon TLE92466ED dev kit on a standalone C6
+ *                 board (default upstream reference).
+ *   * ESP32-S3  — HardFOC Flux V1 board, where the TLE92466ED shares
+ *                 the SPI3 bus with the MAX22200 and is wired through
+ *                 the GPIO matrix on GPIO35-38 / CS=GPIO4.
+ *
+ * Pick the build target with `idf.py set-target esp32s3` (or
+ * `esp32c6`) before building. The host SPI peripheral is also chosen
+ * per-target in `esp32_tle92466ed_bus.hpp`.
+ *
  * @author N3b3x
  * @date 2025-10-21
- * @version 2.0.0
+ * @version 2.1.0
  */
 
 #pragma once
 
 #include <cstdint>
+
+#include "sdkconfig.h"
 
 //==============================================================================
 // COMPILE-TIME CONFIGURATION FLAGS
@@ -39,16 +51,26 @@
 namespace TLE92466ED_TestConfig {
 
 /**
- * @brief SPI Configuration for ESP32-C6
- * 
- * These pins are used for SPI communication with the TLE92466ED.
- * Ensure your hardware matches these pin assignments or modify accordingly.
+ * @brief SPI pin assignment for the TLE92466ED.
+ *
+ * Pins are selected per build target so the driver's example projects
+ * can run on multiple boards from the same source tree.
  */
 struct SPIPins {
+#if defined(CONFIG_IDF_TARGET_ESP32S3)
+    // ─── HardFOC Flux V1 (ESP32-S3 + SPI3_HOST via GPIO matrix) ───────
+    // Shared SPI3 bus — MAX22200 lives on the same MISO/MOSI/SCK trio
+    // with its own CS=GPIO38; TLE92466ED CS is GPIO4.
+    static constexpr uint8_t MISO = 35;
+    static constexpr uint8_t MOSI = 37;
+    static constexpr uint8_t SCLK = 36;
+    static constexpr uint8_t CS   = 4;
+#else  // ESP32-C6 reference dev kit (upstream default)
     static constexpr uint8_t MISO = 2;          ///< GPIO2 - SPI MISO (Master In Slave Out)
     static constexpr uint8_t MOSI = 7;          ///< GPIO7 - SPI MOSI (Master Out Slave In)
     static constexpr uint8_t SCLK = 6;          ///< GPIO6 - SPI Clock
-    static constexpr uint8_t CS = 18;           ///< GPIO18 - Chip Select (active low)
+    static constexpr uint8_t CS   = 18;         ///< GPIO18 - Chip Select (active low)
+#endif
 };
 
 /**
@@ -58,11 +80,21 @@ struct SPIPins {
  * Set to -1 if not connected/configured.
  */
 struct ControlPins {
+#if defined(CONFIG_IDF_TARGET_ESP32S3)
+    // ─── HardFOC Flux V1 ──────────────────────────────────────────────
+    // Matches hf_functional_pin_config_flux_v1.hpp.
+    static constexpr uint8_t RESN   = 6;        ///< GPIO6  - Reset pin (active LOW)
+    static constexpr uint8_t EN     = 5;        ///< GPIO5  - Enable pin (active HIGH, gates output stage)
+    static constexpr uint8_t FAULTN = 16;       ///< GPIO16 - FAULTN input (active LOW, open-drain)
+    static constexpr uint8_t DRV0   = 7;        ///< GPIO7  - DRV0 external drive control
+    static constexpr uint8_t DRV1   = 15;       ///< GPIO15 - DRV1 external drive control
+#else  // ESP32-C6 reference dev kit
     static constexpr uint8_t RESN = 21;         ///< GPIO21 - Reset pin (active low, must be HIGH for operation)
     static constexpr uint8_t EN = 20;           ///< GPIO20 - Enable pin (active high, enables outputs)
     static constexpr uint8_t FAULTN = 19;       ///< GPIO19 - Fault pin (active low, indicates fault condition)
     static constexpr uint8_t DRV0 = 22;         ///< GPIO pin for DRV0 external drive control
     static constexpr uint8_t DRV1 = 23;         ///< GPIO pin for DRV1 external drive control
+#endif
 };
 
 /**
@@ -72,7 +104,11 @@ struct ControlPins {
  * This is used in the solenoid control test to map ADC reading to current percentage.
  */
 struct ADCConfig {
+#if defined(CONFIG_IDF_TARGET_ESP32S3)
+    static constexpr uint8_t PIN = 1;           ///< GPIO1 (ADC1_CH0 on ESP32-S3) — only used by solenoid_control_test
+#else
     static constexpr uint8_t PIN = 0;           ///< GPIO0 - ADC input pin (ADC1_CH0)
+#endif
     static constexpr float VREF_MV = 3300.0f;   ///< Reference voltage in millivolts (3.3V)
     static constexpr float MIN_VOLTAGE = 0.0f;  ///< Minimum input voltage (V)
     static constexpr float MAX_VOLTAGE = 3.3f;  ///< Maximum input voltage (V)
@@ -221,8 +257,13 @@ static_assert(TLE92466ED_TestConfig::SPIParams::MODE == 1,
                   "Current exceeds maximum limit")
 
 /**
- * @brief Helper macro for GPIO pin validation
+ * @brief Helper macro for GPIO pin validation (per-target ranges).
  */
+#if defined(CONFIG_IDF_TARGET_ESP32S3)
+#define TLE92466ED_VALIDATE_GPIO(pin) \
+    static_assert((pin) >= 0 && (pin) <= 48, "Invalid GPIO pin number for ESP32-S3 (0..48)")
+#else
 #define TLE92466ED_VALIDATE_GPIO(pin) \
     static_assert((pin) >= 0 && (pin) < 30, "Invalid GPIO pin number for ESP32-C6")
+#endif
 

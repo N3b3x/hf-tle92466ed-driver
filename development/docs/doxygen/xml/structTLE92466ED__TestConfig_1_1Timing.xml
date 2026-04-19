@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="148" column="31" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="148" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="184" column="31" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="184" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1Timing_1adc6d7d41ea03acc3ef9d63d3a9d43999" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="149" column="31" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="149" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="185" column="31" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="185" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1Timing_1aaf023abf41e248e4753d731bed20d781" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -50,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="150" column="31" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="150" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="186" column="31" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="186" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1Timing_1a1f88aa3a269db676482a797545b65476" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="151" column="31" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="151" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="187" column="31" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="187" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1Timing_1aba1378da52ce221954d8958323003953" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -82,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="152" column="31" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="152" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="188" column="31" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="188" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -91,7 +91,7 @@
     <detaileddescription>
 <para><ref refid="structTLE92466ED__TestConfig_1_1Timing" kindref="compound">Timing</ref> requirements from the TLE92466ED datasheet. </para>
     </detaileddescription>
-    <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="147" column="1" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="147" bodyend="153"/>
+    <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="183" column="1" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="183" bodyend="189"/>
     <listofallmembers>
       <member refid="structTLE92466ED__TestConfig_1_1Timing_1adc6d7d41ea03acc3ef9d63d3a9d43999" prot="public" virt="non-virtual"><scope>TLE92466ED_TestConfig::Timing</scope><name>CS_HOLD_US</name></member>
       <member refid="structTLE92466ED__TestConfig_1_1Timing_1ae15c69fddca4a34f67cedea6ad9a6ea1" prot="public" virt="non-virtual"><scope>TLE92466ED_TestConfig::Timing</scope><name>CS_SETUP_US</name></member>

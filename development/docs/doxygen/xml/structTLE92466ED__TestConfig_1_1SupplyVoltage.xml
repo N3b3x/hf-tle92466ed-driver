@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="124" column="28" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="124" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="160" column="28" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="160" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1SupplyVoltage_1aed8c289d6b0161bd6209df05f6ac76ac" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr float</type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="125" column="28" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="125" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="161" column="28" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="161" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1SupplyVoltage_1a282fd518667fd1a9ea43a71e571fe7b0" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr float</type>
@@ -50,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="126" column="28" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="126" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="162" column="28" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="162" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structTLE92466ED__TestConfig_1_1SupplyVoltage_1a8138a20d65edeb17a743fb0ae469cfa4" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr float</type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="127" column="28" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="127" bodyend="-1"/>
+        <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="163" column="28" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="163" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -75,7 +75,7 @@
     <detaileddescription>
 <para>VBAT: Main power supply for the load outputs VDD: Logic supply (3.3V for ESP32-C6) </para>
     </detaileddescription>
-    <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="123" column="1" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="123" bodyend="128"/>
+    <location file="examples/esp32/main/esp32_tle92466ed_test_config.hpp" line="159" column="1" bodyfile="examples/esp32/main/esp32_tle92466ed_test_config.hpp" bodystart="159" bodyend="164"/>
     <listofallmembers>
       <member refid="structTLE92466ED__TestConfig_1_1SupplyVoltage_1a282fd518667fd1a9ea43a71e571fe7b0" prot="public" virt="non-virtual"><scope>TLE92466ED_TestConfig::SupplyVoltage</scope><name>VBAT_MAX</name></member>
       <member refid="structTLE92466ED__TestConfig_1_1SupplyVoltage_1a394e7be9e053e324ccbaef9b337448d7" prot="public" virt="non-virtual"><scope>TLE92466ED_TestConfig::SupplyVoltage</scope><name>VBAT_MIN</name></member>
