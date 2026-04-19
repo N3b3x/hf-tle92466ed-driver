@@ -32,8 +32,9 @@
 <codeline><highlight class="normal">5.<sp/>[API<sp/>Reference](#-api-reference)</highlight></codeline>
 <codeline><highlight class="normal">6.<sp/>[Examples](#-examples)</highlight></codeline>
 <codeline><highlight class="normal">7.<sp/>[Documentation](#-documentation)</highlight></codeline>
-<codeline><highlight class="normal">8.<sp/>[Contributing](#-contributing)</highlight></codeline>
-<codeline><highlight class="normal">9.<sp/>[License](#-license)</highlight></codeline>
+<codeline><highlight class="normal">8.<sp/>[References](#-references)</highlight></codeline>
+<codeline><highlight class="normal">9.<sp/>[Contributing](#-contributing)</highlight></codeline>
+<codeline><highlight class="normal">10.<sp/>[License](#-license)</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>📦<sp/>Overview</highlight></codeline>
 <codeline></codeline>
@@ -122,13 +123,24 @@
 <codeline></codeline>
 <codeline><highlight class="normal">For<sp/>complete<sp/>documentation,<sp/>see<sp/>the<sp/>[docs<sp/>directory](docs/index.md).</highlight></codeline>
 <codeline></codeline>
+<codeline><highlight class="normal">##<sp/>🔗<sp/>References</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Resource<sp/>|<sp/>Link<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|----------|------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Infineon<sp/>TLE92466ED<sp/>product<sp/>page<sp/>|<sp/>&lt;https://www.infineon.com/cms/en/product/power/motor-control-ics/intelligent-motor-control-ics/multi-half-bridge-ics/tle92466ed/&gt;<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>TLE92466ED<sp/>datasheet<sp/>(Infineon)<sp/>|<sp/>&lt;https://www.infineon.com/dgdl/Infineon-TLE92466ED-DataSheet-v01_00-EN.pdf&gt;<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>ESP-IDF<sp/>SPI<sp/>master<sp/>|<sp/>&lt;https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/peripherals/spi_master.html&gt;<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`std::expected`<sp/>(C++23)<sp/>reference<sp/>|<sp/>&lt;https://en.cppreference.com/w/cpp/utility/expected&gt;<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>C++20<sp/>language<sp/>reference<sp/>|<sp/>&lt;https://en.cppreference.com/w/cpp/20&gt;<sp/>|</highlight></codeline>
+<codeline></codeline>
 <codeline><highlight class="normal">##<sp/>🤝<sp/>Contributing</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">Pull<sp/>requests<sp/>and<sp/>suggestions<sp/>are<sp/>welcome!<sp/>Please<sp/>follow<sp/>the<sp/>existing<sp/>code<sp/>style<sp/>and<sp/>include<sp/>tests<sp/>for<sp/>new<sp/>features.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>📄<sp/>License</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">This<sp/>project<sp/>is<sp/>released<sp/>into<sp/>the<sp/>**Public<sp/>Domain**.<sp/>You<sp/>can<sp/>use,<sp/>modify,<sp/>and<sp/>distribute<sp/>it<sp/>freely<sp/>without<sp/>any<sp/>restrictions.</highlight></codeline>
+<codeline><highlight class="normal">This<sp/>project<sp/>is<sp/>licensed<sp/>under<sp/>the<sp/>**GNU<sp/>General<sp/>Public<sp/>License<sp/>v3.0**.</highlight></codeline>
+<codeline><highlight class="normal">See<sp/>the<sp/>[LICENSE](LICENSE)<sp/>file<sp/>for<sp/>details.</highlight></codeline>
     </programlisting>
     <location file="README.md"/>
   </compounddef>

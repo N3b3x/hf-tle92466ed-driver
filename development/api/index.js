@@ -8,6 +8,7 @@ var index =
     [ "📖 API Reference", "index.html#autotoc_md6", null ],
     [ "📊 Examples", "index.html#autotoc_md7", null ],
     [ "📚 Documentation", "index.html#autotoc_md8", null ],
-    [ "🤝 Contributing", "index.html#autotoc_md9", null ],
-    [ "📄 License", "index.html#autotoc_md10", null ]
+    [ "🔗 References", "index.html#autotoc_md9", null ],
+    [ "🤝 Contributing", "index.html#autotoc_md10", null ],
+    [ "📄 License", "index.html#autotoc_md11", null ]
 ];

@@ -21,6 +21,7 @@
 </listitem><listitem><para><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">API Reference</ref></para>
 </listitem><listitem><para><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">Examples</ref></para>
 </listitem><listitem><para><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">Documentation</ref></para>
+</listitem><listitem><para><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">References</ref></para>
 </listitem><listitem><para><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">Contributing</ref></para>
 </listitem><listitem><para><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">License</ref></para>
 </listitem></orderedlist>
@@ -128,10 +129,38 @@
 <title>📚 Documentation</title><para>For complete documentation, see the docs directory.</para>
 </sect1>
 <sect1 id="index_1autotoc_md9">
-<title>🤝 Contributing</title><para>Pull requests and suggestions are welcome! Please follow the existing code style and include tests for new features.</para>
+<title>🔗 References</title><para><table rows="6" cols="2"><row>
+<entry thead="yes"><para>Resource   </para>
+</entry><entry thead="yes"><para>Link    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>Infineon TLE92466ED product page   </para>
+</entry><entry thead="no"><para><ulink url="https://www.infineon.com/cms/en/product/power/motor-control-ics/intelligent-motor-control-ics/multi-half-bridge-ics/tle92466ed/">https://www.infineon.com/cms/en/product/power/motor-control-ics/intelligent-motor-control-ics/multi-half-bridge-ics/tle92466ed/</ulink>    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>TLE92466ED datasheet (Infineon)   </para>
+</entry><entry thead="no"><para><ulink url="https://www.infineon.com/dgdl/Infineon-TLE92466ED-DataSheet-v01_00-EN.pdf">https://www.infineon.com/dgdl/Infineon-TLE92466ED-DataSheet-v01_00-EN.pdf</ulink>    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>ESP-IDF SPI master   </para>
+</entry><entry thead="no"><para><ulink url="https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/peripherals/spi_master.html">https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/peripherals/spi_master.html</ulink>    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>std::expected</computeroutput> (C++23) reference   </para>
+</entry><entry thead="no"><para><ulink url="https://en.cppreference.com/w/cpp/utility/expected">https://en.cppreference.com/w/cpp/utility/expected</ulink>    </para>
+</entry></row>
+<row>
+<entry thead="no"><para>C++20 language reference   </para>
+</entry><entry thead="no"><para><ulink url="https://en.cppreference.com/w/cpp/20">https://en.cppreference.com/w/cpp/20</ulink>   </para>
+</entry></row>
+</table>
+</para>
 </sect1>
 <sect1 id="index_1autotoc_md10">
-<title>📄 License</title><para>This project is released into the <bold>Public Domain</bold>. You can use, modify, and distribute it freely without any restrictions. </para>
+<title>🤝 Contributing</title><para>Pull requests and suggestions are welcome! Please follow the existing code style and include tests for new features.</para>
+</sect1>
+<sect1 id="index_1autotoc_md11">
+<title>📄 License</title><para>This project is licensed under the <bold>GNU General Public License v3.0</bold>. See the [LICENSE](LICENSE) file for details. </para>
 </sect1>
     </detaileddescription>
     <location file="README.md"/>
