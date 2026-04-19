@@ -23,8 +23,9 @@ permalink: /
 5. [API Reference](#-api-reference)
 6. [Examples](#-examples)
 7. [Documentation](#-documentation)
-8. [Contributing](#-contributing)
-9. [License](#-license)
+8. [References](#-references)
+9. [Contributing](#-contributing)
+10. [License](#-license)
 
 ## 📦 Overview
 
@@ -113,10 +114,21 @@ Detailed example walkthroughs are available in [docs/examples.md](docs/examples.
 
 For complete documentation, see the [docs directory](docs/index.md).
 
+## 🔗 References
+
+| Resource | Link |
+|----------|------|
+| Infineon TLE92466ED product page | <https://www.infineon.com/cms/en/product/power/motor-control-ics/intelligent-motor-control-ics/multi-half-bridge-ics/tle92466ed/> |
+| TLE92466ED datasheet (Infineon) | <https://www.infineon.com/dgdl/Infineon-TLE92466ED-DataSheet-v01_00-EN.pdf> |
+| ESP-IDF SPI master | <https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/peripherals/spi_master.html> |
+| `std::expected` (C++23) reference | <https://en.cppreference.com/w/cpp/utility/expected> |
+| C++20 language reference | <https://en.cppreference.com/w/cpp/20> |
+
 ## 🤝 Contributing
 
 Pull requests and suggestions are welcome! Please follow the existing code style and include tests for new features.
 
 ## 📄 License
 
-This project is released into the **Public Domain**. You can use, modify, and distribute it freely without any restrictions.
+This project is licensed under the **GNU General Public License v3.0**.
+See the [LICENSE](LICENSE) file for details.
