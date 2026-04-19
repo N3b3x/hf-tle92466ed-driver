@@ -60,7 +60,7 @@
  * Default: 0 (disabled) - Set to 1 to enable for debugging
  */
 #ifndef ESP32_TLE_COMM_ENABLE_DETAILED_SPI_LOGGING
-#define ESP32_TLE_COMM_ENABLE_DETAILED_SPI_LOGGING 1   // TEMP: bench debug
+#define ESP32_TLE_COMM_ENABLE_DETAILED_SPI_LOGGING 0
 #endif
 
 namespace TLE92466ED_TestConfig {
