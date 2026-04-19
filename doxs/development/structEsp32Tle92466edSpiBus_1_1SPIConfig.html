@@ -101,15 +101,15 @@ $(function(){initNavTree('structEsp32Tle92466edSpiBus_1_1SPIConfig.html',''); in
 </div><!--header-->
 <div class="contents">
 
-<p>SPI configuration structure for ESP32.  
+<p>SPI configuration structure for ESP32-S3.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="esp32__tle92466ed__bus_8hpp_source.html">esp32_tle92466ed_bus.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:abcbcad537c036befe1a85c73584b19fb" id="r_abcbcad537c036befe1a85c73584b19fb"><td class="memItemLeft" align="right" valign="top">spi_host_device_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abcbcad537c036befe1a85c73584b19fb">host</a> = SPI2_HOST</td></tr>
-<tr class="memdesc:abcbcad537c036befe1a85c73584b19fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI host (SPI2_HOST for ESP32-C6)  <br /></td></tr>
+<tr class="memitem:abcbcad537c036befe1a85c73584b19fb" id="r_abcbcad537c036befe1a85c73584b19fb"><td class="memItemLeft" align="right" valign="top">spi_host_device_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abcbcad537c036befe1a85c73584b19fb">host</a> = SPI3_HOST</td></tr>
+<tr class="memdesc:abcbcad537c036befe1a85c73584b19fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI host (SPI3 via GPIO matrix)  <br /></td></tr>
 <tr class="separator:abcbcad537c036befe1a85c73584b19fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae57c8f8891ecc7c47447f64ac07d1f9d" id="r_ae57c8f8891ecc7c47447f64ac07d1f9d"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae57c8f8891ecc7c47447f64ac07d1f9d">miso_pin</a> = 2</td></tr>
 <tr class="memdesc:ae57c8f8891ecc7c47447f64ac07d1f9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">MISO pin (GPIO2, -1 = not configured)  <br /></td></tr>
@@ -155,11 +155,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a8afab88769e928304f4e3e0c0370598f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>SPI configuration structure for ESP32. </p>
-<p>The default <code>host</code> is selected per build target so the example matches the real wiring on each board:</p><ul>
-<li>ESP32-C6 dev kit : SPI2_HOST (only general-purpose host on C6).</li>
-<li>ESP32-S3 Flux V1 : SPI3_HOST (shared with MAX22200 via GPIO matrix on GPIO35-38; SPI2 is reserved for the ADS7952 on its IOMUX pins). </li>
-</ul>
+<div class="textblock"><p>SPI configuration structure for ESP32-S3. </p>
+<p>The example uses <code>SPI3_HOST</code> so that SPI2 (with its native IOMUX pins on GPIO9-14) stays free for any other peripheral that benefits from IOMUX. SPI3 has no IOMUX path on ESP32-S3 — every pin (including CS) is routed through the GPIO matrix, which is exactly what we want when the bus pins live in the GPIO 32+ range. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a8afab88769e928304f4e3e0c0370598f" name="a8afab88769e928304f4e3e0c0370598f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8afab88769e928304f4e3e0c0370598f">&#9670;&#160;</a></span>cs_ena_posttrans</h2>
@@ -296,12 +293,12 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">spi_host_device_t Esp32Tle92466edSpiBus::SPIConfig::host = SPI2_HOST</td>
+          <td class="memname">spi_host_device_t Esp32Tle92466edSpiBus::SPIConfig::host = SPI3_HOST</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>SPI host (SPI2_HOST for ESP32-C6) </p>
+<p>SPI host (SPI3 via GPIO matrix) </p>
 
 </div>
 </div>

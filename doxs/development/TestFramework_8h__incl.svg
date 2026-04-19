@@ -57,7 +57,7 @@ var sectionId = 'dynsection-0';
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="Shared testing framework for ESP32&#45;C6 comprehensive test suites.">
+<g id="a_Node000001"><a xlink:title="Shared testing framework for ESP32&#45;S3 comprehensive test suites.">
 <polygon fill="#999999" stroke="#666666" points="453,-97 304,-97 304,-59 453,-59 453,-97"/>
 <text text-anchor="start" x="312" y="-81.8" font-family="Arial" font-size="14.00">examples/esp32/main</text>
 <text text-anchor="middle" x="378.5" y="-66.8" font-family="Arial" font-size="14.00">/TestFramework.h</text>

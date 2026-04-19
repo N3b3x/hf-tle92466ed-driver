@@ -110,7 +110,7 @@ Static Public Attributes</h2></td></tr>
 <tr class="memdesc:a1fbd7e6cfa8e6321a752fb8d95e9ecad"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC unit (ADC1)  <br /></td></tr>
 <tr class="separator:a1fbd7e6cfa8e6321a752fb8d95e9ecad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50cbf9858ed09cf95bc20587757328f4" id="r_a50cbf9858ed09cf95bc20587757328f4"><td class="memItemLeft" align="right" valign="top">static constexpr adc_channel_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a50cbf9858ed09cf95bc20587757328f4">CHANNEL</a> = ADC_CHANNEL_0</td></tr>
-<tr class="memdesc:a50cbf9858ed09cf95bc20587757328f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC channel 0 (GPIO0 on ESP32-C6)  <br /></td></tr>
+<tr class="memdesc:a50cbf9858ed09cf95bc20587757328f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC channel 0 (GPIO1 on ESP32-S3)  <br /></td></tr>
 <tr class="separator:a50cbf9858ed09cf95bc20587757328f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35c66d72ba1ee264175de3523a709032" id="r_a35c66d72ba1ee264175de3523a709032"><td class="memItemLeft" align="right" valign="top">static constexpr adc_atten_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35c66d72ba1ee264175de3523a709032">ATTEN</a> = ADC_ATTEN_DB_12</td></tr>
 <tr class="memdesc:a35c66d72ba1ee264175de3523a709032"><td class="mdescLeft">&#160;</td><td class="mdescRight">0-3.3V range (12dB attenuation)  <br /></td></tr>
@@ -127,13 +127,13 @@ Static Public Attributes</h2></td></tr>
 <tr class="memitem:a50bc4d09543221f73674c5f950fbe3b7" id="r_a50bc4d09543221f73674c5f950fbe3b7"><td class="memItemLeft" align="right" valign="top">static constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a50bc4d09543221f73674c5f950fbe3b7">ADC_MAX</a> = 4095.0f</td></tr>
 <tr class="memdesc:a50bc4d09543221f73674c5f950fbe3b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum ADC value (12-bit)  <br /></td></tr>
 <tr class="separator:a50bc4d09543221f73674c5f950fbe3b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af79e226540f25bb3bf16c03aa16a7b0f" id="r_af79e226540f25bb3bf16c03aa16a7b0f"><td class="memItemLeft" align="right" valign="top">static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af79e226540f25bb3bf16c03aa16a7b0f">GPIO_PIN</a> = 0</td></tr>
-<tr class="memdesc:af79e226540f25bb3bf16c03aa16a7b0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO pin number (GPIO0)  <br /></td></tr>
+<tr class="memitem:af79e226540f25bb3bf16c03aa16a7b0f" id="r_af79e226540f25bb3bf16c03aa16a7b0f"><td class="memItemLeft" align="right" valign="top">static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af79e226540f25bb3bf16c03aa16a7b0f">GPIO_PIN</a> = 1</td></tr>
+<tr class="memdesc:af79e226540f25bb3bf16c03aa16a7b0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO pin number (GPIO1)  <br /></td></tr>
 <tr class="separator:af79e226540f25bb3bf16c03aa16a7b0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>ADC Configuration. </p>
-<p>ESP32-C6 ADC1 Channel 0 maps to GPIO0 </p>
+<p>ESP32-S3 ADC1 Channel 0 maps to GPIO1. (See <code><a class="el" href="structTLE92466ED__TestConfig_1_1ADCConfig.html#a47c51ee1182fcb7bebc014c0db817846" title="GPIO1 (ADC1_CH0 on ESP32-S3)">TLE92466ED_TestConfig::ADCConfig::PIN</a></code> for the pin number.) </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a50bc4d09543221f73674c5f950fbe3b7" name="a50bc4d09543221f73674c5f950fbe3b7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a50bc4d09543221f73674c5f950fbe3b7">&#9670;&#160;</a></span>ADC_MAX</h2>
@@ -227,7 +227,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>ADC channel 0 (GPIO0 on ESP32-C6) </p>
+<p>ADC channel 0 (GPIO1 on ESP32-S3) </p>
 
 </div>
 </div>
@@ -241,7 +241,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr int ADCConfig::GPIO_PIN = 0</td>
+          <td class="memname">constexpr int ADCConfig::GPIO_PIN = 1</td>
         </tr>
       </table>
   </td>
@@ -251,7 +251,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>GPIO pin number (GPIO0) </p>
+<p>GPIO pin number (GPIO1) </p>
 
 </div>
 </div>
