@@ -5,6 +5,7 @@
     <includes local="no">cstdint</includes>
     <includes local="yes">sdkconfig.h</includes>
     <includedby refid="esp32__tle92466ed__bus_8hpp" local="yes">examples/esp32/main/esp32_tle92466ed_bus.hpp</includedby>
+    <includedby refid="lm__pro__cycle__test_8cpp" local="yes">examples/esp32/main/lm_pro_cycle_test.cpp</includedby>
     <includedby refid="solenoid__control__test_8cpp" local="yes">examples/esp32/main/solenoid_control_test.cpp</includedby>
     <incdepgraph>
       <node id="1">
@@ -34,6 +35,8 @@
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
       </node>
       <node id="1">
         <label>examples/esp32/main/esp32_tle92466ed_test_config.hpp</label>
@@ -42,8 +45,14 @@
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
       </node>
       <node id="4">
+        <label>examples/esp32/main/lm_pro_cycle_test.cpp</label>
+        <link refid="lm__pro__cycle__test_8cpp"/>
+      </node>
+      <node id="5">
         <label>examples/esp32/main/solenoid_control_test.cpp</label>
         <link refid="solenoid__control__test_8cpp"/>
       </node>

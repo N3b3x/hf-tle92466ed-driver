@@ -23,9 +23,10 @@ var searchData=
   ['ensure_5fconfig_5fmode_20',['ensure_config_mode',['../driver__integration__test_8cpp.html#ae884f3c8e83e03b4cc6c9c4ccd686f4a',1,'driver_integration_test.cpp']]],
   ['ensure_5fgpio14_5finitialized_21',['ensure_gpio14_initialized',['../TestFramework_8h.html#a57a48f91a141d98e45f82937581e1a97',1,'TestFramework.h']]],
   ['ensure_5fmission_5fmode_22',['ensure_mission_mode',['../driver__integration__test_8cpp.html#a6a1a43d07287e49047f360bf0faedac8',1,'driver_integration_test.cpp']]],
-  ['esp32_5ftle92466ed_5fbus_2ehpp_23',['esp32_tle92466ed_bus.hpp',['../esp32__tle92466ed__bus_8hpp.html',1,'']]],
-  ['esp32_5ftle92466ed_5ftest_5fconfig_2ehpp_24',['esp32_tle92466ed_test_config.hpp',['../esp32__tle92466ed__test__config_8hpp.html',1,'']]],
-  ['esp32_5ftle_5fcomm_5fenable_5fdetailed_5fspi_5flogging_25',['ESP32_TLE_COMM_ENABLE_DETAILED_SPI_LOGGING',['../esp32__tle92466ed__test__config_8hpp.html#a8fb5b9bce3cb52f60c3eadce0f87afcc',1,'esp32_tle92466ed_test_config.hpp']]],
-  ['esp32tle92466edspibus_26',['Esp32Tle92466edSpiBus',['../classEsp32Tle92466edSpiBus.html',1,'Esp32Tle92466edSpiBus'],['../classEsp32Tle92466edSpiBus.html#a7765e7f78ed52fca520dcb3d6dffdd16',1,'Esp32Tle92466edSpiBus::Esp32Tle92466edSpiBus()'],['../classEsp32Tle92466edSpiBus.html#a1417b2885f7e6ed63747497b041fcb9d',1,'Esp32Tle92466edSpiBus::Esp32Tle92466edSpiBus(const SPIConfig &amp;config) noexcept']]],
-  ['examples_27',['📊 Examples',['../index.html#autotoc_md7',1,'']]]
+  ['enter_5fmission_5fand_5fenable_23',['enter_mission_and_enable',['../lm__pro__cycle__test_8cpp.html#a55462005ba8fc430bf7d46b5da444362',1,'lm_pro_cycle_test.cpp']]],
+  ['esp32_5ftle92466ed_5fbus_2ehpp_24',['esp32_tle92466ed_bus.hpp',['../esp32__tle92466ed__bus_8hpp.html',1,'']]],
+  ['esp32_5ftle92466ed_5ftest_5fconfig_2ehpp_25',['esp32_tle92466ed_test_config.hpp',['../esp32__tle92466ed__test__config_8hpp.html',1,'']]],
+  ['esp32_5ftle_5fcomm_5fenable_5fdetailed_5fspi_5flogging_26',['ESP32_TLE_COMM_ENABLE_DETAILED_SPI_LOGGING',['../esp32__tle92466ed__test__config_8hpp.html#a8fb5b9bce3cb52f60c3eadce0f87afcc',1,'esp32_tle92466ed_test_config.hpp']]],
+  ['esp32tle92466edspibus_27',['Esp32Tle92466edSpiBus',['../classEsp32Tle92466edSpiBus.html',1,'Esp32Tle92466edSpiBus'],['../classEsp32Tle92466edSpiBus.html#a7765e7f78ed52fca520dcb3d6dffdd16',1,'Esp32Tle92466edSpiBus::Esp32Tle92466edSpiBus()'],['../classEsp32Tle92466edSpiBus.html#a1417b2885f7e6ed63747497b041fcb9d',1,'Esp32Tle92466edSpiBus::Esp32Tle92466edSpiBus(const SPIConfig &amp;config) noexcept']]],
+  ['examples_28',['📊 Examples',['../index.html#autotoc_md7',1,'']]]
 ];

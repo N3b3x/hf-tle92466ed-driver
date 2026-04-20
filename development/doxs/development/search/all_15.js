@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7eesp32tle92466edspibus_0',['~Esp32Tle92466edSpiBus',['../classEsp32Tle92466edSpiBus.html#a95dc225cfcc75e153c20d0d638b3eaf0',1,'Esp32Tle92466edSpiBus']]]
+  ['warning_5fthreshold_0',['WARNING_THRESHOLD',['../structTLE92466ED__TestConfig_1_1Temperature.html#a7b7b095894cc1673d97c4b8343600378',1,'TLE92466ED_TestConfig::Temperature']]]
 ];

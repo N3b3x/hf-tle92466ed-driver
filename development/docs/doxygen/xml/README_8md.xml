@@ -45,6 +45,8 @@
 <codeline></codeline>
 <codeline><highlight class="normal">The<sp/>driver<sp/>uses<sp/>a<sp/>hardware-agnostic<sp/>communication<sp/>interface<sp/>design,<sp/>allowing<sp/>it<sp/>to<sp/>run<sp/>on<sp/>any<sp/>platform<sp/>(ESP32,<sp/>STM32,<sp/>Arduino,<sp/>etc.)<sp/>with<sp/>zero<sp/>runtime<sp/>overhead.<sp/>It<sp/>implements<sp/>all<sp/>major<sp/>features<sp/>from<sp/>the<sp/>TLE92466ED<sp/>datasheet<sp/>including<sp/>Integrated<sp/>Current<sp/>Control<sp/>(ICC),<sp/>PWM<sp/>frequency<sp/>control,<sp/>dither<sp/>support,<sp/>parallel<sp/>channel<sp/>operation,<sp/>comprehensive<sp/>diagnostics,<sp/>and<sp/>protection<sp/>features.</highlight></codeline>
 <codeline></codeline>
+<codeline><highlight class="normal">![TLE92466ED<sp/>six-channel<sp/>low-side<sp/>topology<sp/>with<sp/>parallel-pair<sp/>pairing](docs/assets/tle92466ed-topology.svg)</highlight></codeline>
+<codeline></codeline>
 <codeline><highlight class="normal">##<sp/>✨<sp/>Features</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">-<sp/>✅<sp/>**Six<sp/>Independent<sp/>Channels**:<sp/>Low-side<sp/>outputs<sp/>for<sp/>solenoid/inductive<sp/>load<sp/>control</highlight></codeline>

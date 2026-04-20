@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['✨_20features_0',['✨ Features',['../index.html#autotoc_md3',1,'']]]
+  ['_7eesp32tle92466edspibus_0',['~Esp32Tle92466edSpiBus',['../classEsp32Tle92466edSpiBus.html#a95dc225cfcc75e153c20d0d638b3eaf0',1,'Esp32Tle92466edSpiBus']]]
 ];

@@ -61,6 +61,27 @@ apps:
       - "No actual solenoids required (driver test only)"
 
   # --------------------------------------------------------------------------
+  # Parker LM-Pro 24V proportional cycle test (single channel, real hw)
+  # --------------------------------------------------------------------------
+  lm_pro_cycle_test:
+    description: "Cycle a Parker LM-Pro 24V proportional valve on TLE92466ED CH5 (full-flow ramp + diagnostics)"
+    source_file: "lm_pro_cycle_test.cpp"
+    category: "test"
+    idf_versions: ["release/v5.5"]
+    build_types: ["Debug", "Release"]
+    ci_enabled: false
+    featured: true
+    documentation: "docs/readme_solenoid_control_test.md"
+    hardware_required: true
+    features:
+      - "Single LM-Pro coil on CH5 (datasheet: 148 Ω, 115 mA full-flow, 5 kHz PWM)"
+      - "Triangle-wave current ramp 0 → 115 → 0 mA in 10 mA steps"
+      - "10 Hz per-channel telemetry (setpoint vs avg current, duty, OC/SG/OL/OT)"
+      - "1 Hz device-status snapshot (vbat/vio/vdd, ot warnings, init/cfg flags)"
+      - "10 s full FaultReport scrape (every flag printed)"
+      - "Safety cap at 130 mA above the datasheet full-flow"
+
+  # --------------------------------------------------------------------------
   # Solenoid Control Test (Real Hardware)
   # --------------------------------------------------------------------------
   solenoid_control_test:

@@ -31,6 +31,8 @@
 <title>📦 Overview</title><para><blockquote><para><zwj/><bold>📖 <ulink url="https://n3b3x.github.io/hf-tle92466ed-driver/">📚🌐 Live Complete Documentation</ulink></bold> - Interactive guides, examples, and step-by-step tutorials </para>
 </blockquote><bold>HF-TLE92466ED</bold> is a modern C++20 driver for the <bold>Infineon TLE92466ED</bold> Six-Channel Low-Side Solenoid Driver IC. The TLE92466ED provides six independent low-side outputs for controlling solenoids, valves, and other inductive loads with precision current regulation. Each channel supports up to 2A in single mode or 4A in parallel mode, with 15-bit resolution (0.061mA steps) for precise current control.</para>
 <para>The driver uses a hardware-agnostic communication interface design, allowing it to run on any platform (ESP32, STM32, Arduino, etc.) with zero runtime overhead. It implements all major features from the TLE92466ED datasheet including Integrated Current Control (ICC), PWM frequency control, dither support, parallel channel operation, comprehensive diagnostics, and protection features.</para>
+<para><image type="html" name="docs/assets/tle92466ed-topology.svg" alt="TLE92466ED six-channel low-side topology with parallel-pair pairing" inline="yes"></image>
+</para>
 </sect1>
 <sect1 id="index_1autotoc_md3">
 <title>✨ Features</title><para><itemizedlist>

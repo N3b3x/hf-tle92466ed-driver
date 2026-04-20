@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacecfg" kind="namespace" language="C++">
+    <compoundname>cfg</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacecfg_1a9c5a8fcfe81843af260050da6e18171a" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr Channel</type>
+        <definition>constexpr Channel cfg::kChannel</definition>
+        <argsstring></argsstring>
+        <name>kChannel</name>
+        <qualifiedname>cfg::kChannel</qualifiedname>
+        <initializer>= Channel::CH5</initializer>
+        <briefdescription>
+<para>6th TLE channel (1-indexed) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="82" column="19" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacecfg_1aef5995cd86ae613bde5dbd21dc6d4cdf" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t cfg::kFullFlowCurrent_mA</definition>
+        <argsstring></argsstring>
+        <name>kFullFlowCurrent_mA</name>
+        <qualifiedname>cfg::kFullFlowCurrent_mA</qualifiedname>
+        <initializer>= 115</initializer>
+        <briefdescription>
+<para>115 mA at 24 V into 148 Ω </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="85" column="20" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacecfg_1a51c2cb78700dfa7c0450062a874ce75c" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t cfg::kSafetyCap_mA</definition>
+        <argsstring></argsstring>
+        <name>kSafetyCap_mA</name>
+        <qualifiedname>cfg::kSafetyCap_mA</qualifiedname>
+        <initializer>= 130</initializer>
+        <briefdescription>
+<para>Hard hardware-side limit. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="86" column="20" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacecfg_1ad2207637a9c8e7bebc73aae8358d5932" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float cfg::kPwmPeriod_us</definition>
+        <argsstring></argsstring>
+        <name>kPwmPeriod_us</name>
+        <qualifiedname>cfg::kPwmPeriod_us</qualifiedname>
+        <initializer>= 200.0f</initializer>
+        <briefdescription>
+<para>200 µs → 5 kHz (datasheet floor) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="87" column="20" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacecfg_1a69328e9f5e74bea591d3566c230d4665" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t cfg::kRampMin_mA</definition>
+        <argsstring></argsstring>
+        <name>kRampMin_mA</name>
+        <qualifiedname>cfg::kRampMin_mA</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="90" column="20" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacecfg_1aed61a9c8e8d7eb408977be1afa4c07db" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t cfg::kRampMax_mA</definition>
+        <argsstring></argsstring>
+        <name>kRampMax_mA</name>
+        <qualifiedname>cfg::kRampMax_mA</qualifiedname>
+        <initializer>= <ref refid="namespacecfg_1aef5995cd86ae613bde5dbd21dc6d4cdf" kindref="member">kFullFlowCurrent_mA</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="91" column="20" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacecfg_1a562ec71418cb1bfe8c41361068c87dca" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t cfg::kRampStep_mA</definition>
+        <argsstring></argsstring>
+        <name>kRampStep_mA</name>
+        <qualifiedname>cfg::kRampStep_mA</qualifiedname>
+        <initializer>= 10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="92" column="20" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacecfg_1abf7df546d184c8d6778fab1683e968e0" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t cfg::kStepDwell_ms</definition>
+        <argsstring></argsstring>
+        <name>kStepDwell_ms</name>
+        <qualifiedname>cfg::kStepDwell_ms</qualifiedname>
+        <initializer>= 1000</initializer>
+        <briefdescription>
+<para>1 s per step </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="93" column="20" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacecfg_1a3c113fc44af0155d777d3e68b173b3e8" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t cfg::kCycleHold_ms</definition>
+        <argsstring></argsstring>
+        <name>kCycleHold_ms</name>
+        <qualifiedname>cfg::kCycleHold_ms</qualifiedname>
+        <initializer>= 2000</initializer>
+        <briefdescription>
+<para>2 s hold at 0 between cycles </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="94" column="20" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacecfg_1ada89c01b01fd8122837e99fa2a8ff305" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t cfg::kCycleCount</definition>
+        <argsstring></argsstring>
+        <name>kCycleCount</name>
+        <qualifiedname>cfg::kCycleCount</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>0 = run forever </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="95" column="20" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacecfg_1ae6874d737cfb7e9425a7b2684a757f70" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t cfg::kTelemetryPeriod_ms</definition>
+        <argsstring></argsstring>
+        <name>kTelemetryPeriod_ms</name>
+        <qualifiedname>cfg::kTelemetryPeriod_ms</qualifiedname>
+        <initializer>= 100</initializer>
+        <briefdescription>
+<para>10 Hz </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="98" column="20" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="98" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="79" column="1"/>
+  </compounddef>
+</doxygen>

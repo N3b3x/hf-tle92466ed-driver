@@ -156,6 +156,19 @@
   <compound refid="namespaceanonymous__namespace_02esp32__tle92466ed__bus_8hpp_03" kind="namespace"><name>anonymous_namespace{esp32_tle92466ed_bus.hpp}</name>
     <member refid="namespaceanonymous__namespace_02esp32__tle92466ed__bus_8hpp_03_1ad748e43f07b909572a5efdf4fe76e440" kind="function"><name>byte_swap_32</name></member>
   </compound>
+  <compound refid="namespacecfg" kind="namespace"><name>cfg</name>
+    <member refid="namespacecfg_1a9c5a8fcfe81843af260050da6e18171a" kind="variable"><name>kChannel</name></member>
+    <member refid="namespacecfg_1aef5995cd86ae613bde5dbd21dc6d4cdf" kind="variable"><name>kFullFlowCurrent_mA</name></member>
+    <member refid="namespacecfg_1a51c2cb78700dfa7c0450062a874ce75c" kind="variable"><name>kSafetyCap_mA</name></member>
+    <member refid="namespacecfg_1ad2207637a9c8e7bebc73aae8358d5932" kind="variable"><name>kPwmPeriod_us</name></member>
+    <member refid="namespacecfg_1a69328e9f5e74bea591d3566c230d4665" kind="variable"><name>kRampMin_mA</name></member>
+    <member refid="namespacecfg_1aed61a9c8e8d7eb408977be1afa4c07db" kind="variable"><name>kRampMax_mA</name></member>
+    <member refid="namespacecfg_1a562ec71418cb1bfe8c41361068c87dca" kind="variable"><name>kRampStep_mA</name></member>
+    <member refid="namespacecfg_1abf7df546d184c8d6778fab1683e968e0" kind="variable"><name>kStepDwell_ms</name></member>
+    <member refid="namespacecfg_1a3c113fc44af0155d777d3e68b173b3e8" kind="variable"><name>kCycleHold_ms</name></member>
+    <member refid="namespacecfg_1ada89c01b01fd8122837e99fa2a8ff305" kind="variable"><name>kCycleCount</name></member>
+    <member refid="namespacecfg_1ae6874d737cfb7e9425a7b2684a757f70" kind="variable"><name>kTelemetryPeriod_ms</name></member>
+  </compound>
   <compound refid="namespacetle92466ed" kind="namespace"><name>tle92466ed</name>
   </compound>
   <compound refid="namespaceTLE92466ED__TestConfig" kind="namespace"><name>TLE92466ED_TestConfig</name>
@@ -228,6 +241,20 @@
     <member refid="esp32__tle92466ed__test__config_8hpp_1a8fb5b9bce3cb52f60c3eadce0f87afcc" kind="define"><name>ESP32_TLE_COMM_ENABLE_DETAILED_SPI_LOGGING</name></member>
     <member refid="esp32__tle92466ed__test__config_8hpp_1a20a718906e99a0c63907e61221cdeb85" kind="define"><name>TLE92466ED_VALIDATE_CURRENT</name></member>
     <member refid="esp32__tle92466ed__test__config_8hpp_1a144227c8f24118002432fbaf425eca87" kind="define"><name>TLE92466ED_VALIDATE_GPIO</name></member>
+  </compound>
+  <compound refid="lm__pro__cycle__test_8cpp" kind="file"><name>lm_pro_cycle_test.cpp</name>
+    <member refid="lm__pro__cycle__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kind="variable"><name>TAG</name></member>
+    <member refid="lm__pro__cycle__test_8cpp_1a0807b75bf04c40941bd5d8f4704ce975" kind="variable"><name>g_bus</name></member>
+    <member refid="lm__pro__cycle__test_8cpp_1a1e71ee082940e90179434ff81dc9c310" kind="variable"><name>g_driver</name></member>
+    <member refid="lm__pro__cycle__test_8cpp_1ae5414c21c8c137ad157ec98223db1eec" kind="variable"><name>g_telemetry_running</name></member>
+    <member refid="lm__pro__cycle__test_8cpp_1add7915d83ff804cc93da14da7ef80156" kind="function"><name>channel_name</name></member>
+    <member refid="lm__pro__cycle__test_8cpp_1abfddfe12de8f671d918b5a5e97e5113e" kind="function"><name>telemetry_task</name></member>
+    <member refid="lm__pro__cycle__test_8cpp_1a96e657424727b8a67bfa0a6e776165e5" kind="function"><name>create_bus_and_driver</name></member>
+    <member refid="lm__pro__cycle__test_8cpp_1aa0d0f3ef518e54c135c768ec880d3b41" kind="function"><name>initialize_driver</name></member>
+    <member refid="lm__pro__cycle__test_8cpp_1ab88e86494891e9f7b1a12af58c57fade" kind="function"><name>configure_channel</name></member>
+    <member refid="lm__pro__cycle__test_8cpp_1a55462005ba8fc430bf7d46b5da444362" kind="function"><name>enter_mission_and_enable</name></member>
+    <member refid="lm__pro__cycle__test_8cpp_1ad56d5d871ee96743fe8408af71268a1c" kind="function"><name>run_cycle</name></member>
+    <member refid="lm__pro__cycle__test_8cpp_1abce06be17fc37d675118a678a8100a36" kind="function"><name>app_main</name></member>
   </compound>
   <compound refid="solenoid__control__test_8cpp" kind="file"><name>solenoid_control_test.cpp</name>
     <member refid="solenoid__control__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kind="variable"><name>TAG</name></member>

@@ -1,9 +1,9 @@
-warning: ignoring unsupported tag 'PAGE_OUTLINE_PANEL' at line 1709, file /tmp/doxyfile.TUazzs
-warning: Tag 'DOT_FONTNAME' at line 2708 of file '/tmp/doxyfile.TUazzs' has become obsolete.
+warning: ignoring unsupported tag 'PAGE_OUTLINE_PANEL' at line 1709, file /tmp/doxyfile.MsOpZR
+warning: Tag 'DOT_FONTNAME' at line 2708 of file '/tmp/doxyfile.MsOpZR' has become obsolete.
          To avoid this warning please remove this line from your configuration file or upgrade it using "doxygen -u"
-warning: Tag 'DOT_FONTSIZE' at line 2709 of file '/tmp/doxyfile.TUazzs' has become obsolete.
+warning: Tag 'DOT_FONTSIZE' at line 2709 of file '/tmp/doxyfile.MsOpZR' has become obsolete.
          To avoid this warning please remove this line from your configuration file or upgrade it using "doxygen -u"
-warning: Tag 'DOT_TRANSPARENT' at line 2712 of file '/tmp/doxyfile.TUazzs' has become obsolete.
+warning: Tag 'DOT_TRANSPARENT' at line 2712 of file '/tmp/doxyfile.MsOpZR' has become obsolete.
          To avoid this warning please remove this line from your configuration file or upgrade it using "doxygen -u"
 warning: tag INCLUDE_PATH: include path 'inc/mcu/esp32/' does not exist
 warning: tag INCLUDE_PATH: include path 'inc/utils/' does not exist
@@ -31,13 +31,13 @@ warning: source 'include' is not a readable file or directory... skipping.
 /home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:19: warning: unable to resolve reference to '-references' for \ref command
 /home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:20: warning: unable to resolve reference to '-contributing' for \ref command
 /home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:21: warning: unable to resolve reference to '-license' for \ref command
-/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:72: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/installation.md' for \ref command
-/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:72: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/quickstart.md' for \ref command
-/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:77: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/platform_integration.md' for \ref command
-/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:84: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/installation.md' for \ref command
-/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:98: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/api_reference.md' for \ref command
-/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:104: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/examples.md' for \ref command
-/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:108: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/index.md' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:74: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/installation.md' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:74: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/quickstart.md' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:79: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/platform_integration.md' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:86: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/installation.md' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:100: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/api_reference.md' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:106: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/examples.md' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:110: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/index.md' for \ref command
 /home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/examples/esp32/main/TestFramework.h:321: warning: The following parameter of print_test_summary(const TestResults &test_results, const char *test_suite_name, const char *tag) is not documented:
   parameter 'tag'
 /home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/examples/esp32/main/TestFramework.h:341: warning: argument 'test_results' of command @param is not found in the argument list of print_test_section_status(const char *tag, const char *test_suite_name)
@@ -47,10 +47,10 @@ warning: source 'include' is not a readable file or directory... skipping.
   parameter 'tag'
 /home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/examples/esp32/main/TestFramework.h:383: warning: The following parameter of print_test_section_footer(const char *tag, const char *section_name, bool enabled=true) is not documented:
   parameter 'tag'
-/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:72: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/installation.md' for \ref command
-/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:72: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/quickstart.md' for \ref command
-/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:77: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/platform_integration.md' for \ref command
-/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:84: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/installation.md' for \ref command
-/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:98: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/api_reference.md' for \ref command
-/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:104: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/examples.md' for \ref command
-/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:108: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/index.md' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:74: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/installation.md' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:74: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/quickstart.md' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:79: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/platform_integration.md' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:86: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/installation.md' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:100: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/api_reference.md' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:106: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/examples.md' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:110: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/index.md' for \ref command
