@@ -577,20 +577,37 @@ public:
   [[nodiscard]] DriverResult<ChannelDiagnostics> GetChannelDiagnostics(Channel channel) noexcept;
 
   /**
-   * @brief Get average current for a channel
+   * @brief Get average load current for a channel, in milliamps.
    *
-   * @param channel Channel to query
-   * @param parallel_mode true if in parallel mode
-   * @return DriverResult<uint16_t> Average current in mA or error
+   * Reads the chip's compressed mantissa/exponent feedback path
+   * (FB_I_AVG and FB_DC, both 22-bit reply frames) and decodes
+   * `Iavg = 4 A × <I_AVG_MANT> / <TP_MANT>` per datasheet §4.10.2.
+   * Issues two SPI reads per call (one for FB_I_AVG, one for FB_DC).
+   *
+   * @param channel       Channel to query
+   * @param parallel_mode Currently unused — the mantissa-ratio formula
+   *                      is identical for parallel-paired channels;
+   *                      kept for API stability.
+   * @return Average load current in mA (0 if the chip hasn't completed
+   *         its first measurement period yet, i.e. TP_MANT == 0). The
+   *         underlying I_AVG_MANT is signed two's-complement; negative
+   *         readings (recirculation current) are clamped to 0 in this
+   *         legacy unsigned return type.
    */
   [[nodiscard]] DriverResult<uint16_t> GetAverageCurrent(Channel channel,
                                                          bool parallel_mode = false) noexcept;
 
   /**
-   * @brief Get PWM duty cycle for a channel
+   * @brief Get PWM duty cycle for a channel, in permyriad (0..10000).
+   *
+   * Reads FB_DC (22-bit reply) and decodes `DC = <TO_MANT> / <TP_MANT>`
+   * per datasheet §4.10.2, then scales to permyriad so the legacy
+   * uint16_t return type retains 0.01 % precision.
    *
    * @param channel Channel to query
-   * @return DriverResult<uint16_t> Duty cycle (raw 16-bit value)
+   * @return Duty cycle in permyriad (0 = 0.00 %, 10000 = 100.00 %).
+   *         Returns 0 if TP_MANT is 0 (chip hasn't completed a
+   *         measurement period yet).
    */
   [[nodiscard]] DriverResult<uint16_t> GetDutyCycle(Channel channel) noexcept;
 

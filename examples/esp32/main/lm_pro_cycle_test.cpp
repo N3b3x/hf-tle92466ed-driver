@@ -19,14 +19,14 @@
  *     * the LM-Pro plunger physically moves in step with the ramp
  *       (audible / observable on the test rig).
  *
- *   See "Note on readback APIs" inside this file regarding the live
- *   FB_I_AVG / FB_DC readbacks (a known driver decoding issue — the
- *   chip is driving correctly, the readback path needs a fix).
- *
  *   Datasheet anchors (values cribbed from `WhValveCatalog::kSpecLMPro_24V`):
  *     * Coil resistance ~148 Ω  → ~115 mA at full open at 24 V
- *     * Recommended PWM frequency: ≥ 5 kHz
- *     * No benefit from dither (linear-motor design)
+ *     * Maximum PWM frequency on TLE92466ED: 4 kHz (datasheet limit).
+ *       The chip cannot drive above 4 kHz, so the PWM is inherently
+ *       audible. Use slew-rate-control + dither for the smoothest
+ *       audible output you can get.
+ *     * No additional dither benefit from the LM-Pro coil itself
+ *       (linear-motor design with low static friction).
  *
  *   Default cycle profile: triangle wave
  *     0 → 115 mA in 10 mA steps, 1 s per step
@@ -84,7 +84,12 @@ constexpr Channel kChannel = Channel::CH5;   ///< 6th TLE channel (1-indexed)
 // ─── Datasheet specs (LM-Pro 24 V) ─────────────────────────────────────
 constexpr uint16_t kFullFlowCurrent_mA = 115;          ///< 115 mA at 24 V into 148 Ω
 constexpr uint16_t kSafetyCap_mA       = 130;          ///< Hard hardware-side limit
-constexpr float    kPwmPeriod_us       = 200.0f;       ///< 200 µs → 5 kHz (datasheet floor)
+// Datasheet PWM range is 110 Hz – 4 kHz (Equation 4 / parameter table).
+// Above 4 kHz the chip's PWM frequency controller cannot regulate. Use
+// the highest setting it accepts (250 µs = 4 kHz) for the least audible
+// drive — getting truly out of audible range (>20 kHz) is not possible
+// with this chip family.
+constexpr float    kPwmPeriod_us       = 250.0f;       ///< 250 µs → 4 kHz (datasheet ceiling)
 
 // ─── Cycle profile ─────────────────────────────────────────────────────
 constexpr uint16_t kRampMin_mA       = 0;
@@ -125,20 +130,19 @@ static const char* channel_name(Channel ch) noexcept {
     }
 }
 
-// Note on readback APIs:
-//   - `GetCurrentSetpoint`           → reads the setpoint we just wrote;
-//                                      returns the live setpoint in mA. ✅
-//   - `GetVbatVoltage / GetVioVoltage` → return engineering units (mV);
-//                                        confirmed working on the bench. ✅
-//   - `GetAverageCurrent (FB_I_AVG)` / `GetDutyCycle (FB_DC)`
-//     ── return 0 in single-channel ICC mode for CH5 even when the chip
-//        is visibly driving the coil. Verified by physical plunger
-//        movement on the LM-Pro test rig. Likely a driver-level register
-//        decoding issue (FB_* registers may be 22-bit reply frames that
-//        need different parsing than the 16-bit ReadRegister path
-//        currently uses). Tracked as a follow-up driver fix; this test
-//        intentionally still calls the APIs so the regression is visible
-//        if anyone investigates it later.
+// Readback API notes (datasheet §4.10.2 averaged feedback values):
+//   - `GetCurrentSetpoint()`       → reads the setpoint we wrote, in mA.
+//   - `GetVbatVoltage / GetVioVoltage` → device-level supply rails in mV
+//                                        (decoded from FB_VOLTAGE1/2's
+//                                        22-bit reply frames).
+//   - `GetAverageCurrent()`        → reads BOTH FB_I_AVG (I_AVG_MANT)
+//                                    and FB_DC (TP_MANT) per channel and
+//                                    decodes Iavg = 4 A × I_AVG_MANT /
+//                                    TP_MANT. Returns mA (signed values
+//                                    clamped to 0 in the unsigned API).
+//   - `GetDutyCycle()`             → reads FB_DC and decodes
+//                                    DC = TO_MANT / TP_MANT. Returns
+//                                    permyriad (0..10000 = 0..100.00 %).
 
 //==============================================================================
 // TELEMETRY TASK  (10 Hz scrape of channel + device diagnostics)
@@ -153,32 +157,44 @@ static void telemetry_task(void* /*arg*/) noexcept {
     uint32_t tick_count    = 0;
     uint32_t fault_dump_n  = 0;
 
+    // For the FB_DC + FB_I_AVG raw dump we need to know the per-channel
+    // base address. From the driver internals: each per-channel register
+    // bank lives at  ChannelBase[ch] + ChannelReg::offset. CH5's base
+    // is 0x0030 (per the chip's non-sequential bank table), so:
+    //   FB_DC[CH5]    = 0x0030 + 0x0200 = 0x0230
+    //   FB_I_AVG[CH5] = 0x0030 + 0x0202 = 0x0232
+    constexpr uint16_t kFbDcAddr   = 0x0230;
+    constexpr uint16_t kFbIavgAddr = 0x0232;
+
     while (g_telemetry_running && g_driver) {
-        // ─── Live measurements (decoded engineering units) ─────────────
-        // Use the *dedicated* APIs for live values; they read the right
-        // FB_I_AVG / FB_DC / FB_VOLTAGE registers and return engineering
-        // units. `GetChannelDiagnostics` is for the per-flag fault state.
         const auto sp_r      = g_driver->GetCurrentSetpoint(cfg::kChannel, false);
         const auto i_avg_r   = g_driver->GetAverageCurrent  (cfg::kChannel, false);
         const auto duty_r    = g_driver->GetDutyCycle       (cfg::kChannel);
         const auto diag_r    = g_driver->GetChannelDiagnostics(cfg::kChannel);
 
+        // Raw FB register dump — proves whether the chip is actually
+        // populating the feedback path or whether our decode is wrong.
+        const auto fb_dc_raw_r   = g_driver->ReadRegister(kFbDcAddr);
+        const auto fb_iavg_raw_r = g_driver->ReadRegister(kFbIavgAddr);
+
         const uint16_t setpoint_ma = sp_r    ? *sp_r    : 0;
         const uint16_t i_avg_ma    = i_avg_r ? *i_avg_r : 0;
         const uint16_t duty_raw    = duty_r  ? *duty_r  : 0;
+        const uint32_t fb_dc_raw   = fb_dc_raw_r   ? *fb_dc_raw_r   : 0;
+        const uint32_t fb_iavg_raw = fb_iavg_raw_r ? *fb_iavg_raw_r : 0;
 
         if (diag_r) {
             const auto& d = *diag_r;
-            // Compute duty as a percentage of full-scale (0xFFFF = 100 %).
-            const float duty_pct = (static_cast<float>(duty_raw) * 100.0f)
-                                 / 65535.0f;
+            const float duty_pct = static_cast<float>(duty_raw) / 100.0f;
             ESP_LOGI(TAG,
-                     "[t=%4u s+%03u] sp=%3u mA  i_avg=%3u mA  duty=%5.1f%% (0x%04X)  "
+                     "[t=%4u s+%03u] sp=%3u mA  i_avg=%3u mA  duty=%5.2f%%  "
+                     "FB_DC=0x%06" PRIX32 " FB_IAVG=0x%06" PRIX32 "  "
                      "OC=%d SG=%d OL=%d OT=%d  warn{ot=%d ireg=%d preg=%d olsg=%d}",
                      static_cast<unsigned>(tick_count * cfg::kTelemetryPeriod_ms / 1000U),
                      static_cast<unsigned>(tick_count * cfg::kTelemetryPeriod_ms % 1000U),
                      setpoint_ma, i_avg_ma,
-                     static_cast<double>(duty_pct), duty_raw,
+                     static_cast<double>(duty_pct),
+                     fb_dc_raw, fb_iavg_raw,
                      d.overcurrent, d.short_to_ground, d.open_load, d.over_temperature,
                      d.ot_warning, d.current_regulation_warning,
                      d.pwm_regulation_warning, d.olsg_warning);
@@ -273,7 +289,6 @@ static bool configure_channel() noexcept {
              static_cast<double>(1000.0f / cfg::kPwmPeriod_us),
              cfg::kFullFlowCurrent_mA);
 
-    // ConfigureChannel pushes mode/slew/diag/PWM in one transaction.
     ChannelConfig ch_cfg{};
     ch_cfg.mode                  = ChannelMode::ICC;
     ch_cfg.current_setpoint_ma   = 0;                          // start at 0
@@ -282,7 +297,10 @@ static bool configure_channel() noexcept {
     ch_cfg.open_load_threshold   = 3;                          // 3/8 of FS
     ch_cfg.olsg_warning_enabled  = true;
     ch_cfg.deep_dither_enabled   = false;
-    ch_cfg.dither_step_size      = 0;                          // dither off (LM-Pro)
+    // Skip the legacy step/flat fields so ConfigureChannel doesn't write
+    // dither registers — we do that explicitly below with the high-level
+    // ConfigureDither() API.
+    ch_cfg.dither_step_size      = 0;
     ch_cfg.dither_steps          = 0;
     ch_cfg.dither_flat           = 0;
 
@@ -295,6 +313,42 @@ static bool configure_channel() noexcept {
         ESP_LOGE(TAG, "ConfigurePwmPeriod failed: %u", static_cast<unsigned>(rc.error()));
         return false;
     }
+
+    // Configure dither — required for telemetry even on the LM-Pro.
+    //   Per datasheet §4.4.2, in ICC mode the chip's averaged-feedback
+    //   measurement period Tmeas equals the dither period TDither.
+    //   Without a non-zero dither, FB_DC / FB_I_AVG / FB_VBAT never
+    //   update and the readback APIs return 0.
+    //
+    //   The high-level ConfigureDither(amplitude_ma, frequency_hz) API
+    //   computes step_size = STEPS × amplitude × 32767 / (2A × NumSteps),
+    //   which underflows to 0 for small amplitudes (e.g. 5 mA → 0).
+    //   Use the raw API with explicit non-zero step_size so dither is
+    //   actually enabled. Per datasheet:
+    //     I_dither = STEPS × STEP_SIZE × 2 A / 32767
+    //     T_dither = [4×STEPS + 2×FLAT] × t_ref_clk
+    //   With STEPS=32, STEP_SIZE=4, FLAT=4:
+    //     I_dither = 32 × 4 × 2A / 32767 ≈ 7.8 mA
+    //     T_dither = (128 + 8) × t_ref_clk ≈ 136 × t_ref_clk
+    //   Small enough not to disturb the LM-Pro position, large enough
+    //   to give the chip a Tmeas window for telemetry updates.
+    constexpr uint16_t kDitherStepSize = 4;
+    constexpr uint8_t  kDitherSteps    = 32;
+    constexpr uint8_t  kDitherFlat     = 4;
+    if (auto rc = g_driver->ConfigureDitherRaw(cfg::kChannel,
+                                               kDitherStepSize,
+                                               kDitherSteps,
+                                               kDitherFlat); !rc) {
+        ESP_LOGE(TAG, "ConfigureDitherRaw failed: %u",
+                 static_cast<unsigned>(rc.error()));
+        return false;
+    }
+    ESP_LOGI(TAG,
+             "✅ Dither: step=%u steps=%u flat=%u → ~7.8 mA amplitude "
+             "(provides Tmeas for FB_* readback)",
+             static_cast<unsigned>(kDitherStepSize),
+             static_cast<unsigned>(kDitherSteps),
+             static_cast<unsigned>(kDitherFlat));
 
     return true;
 }
@@ -316,14 +370,40 @@ static bool enter_mission_and_enable() noexcept {
     }
     ESP_LOGI(TAG, "✅ EN pin HIGH (output stage powered)");
 
-    // NOTE: we deliberately do NOT call EnableChannel() here. The proven
-    // solenoid_control_test in this same folder skips it too — the chip
-    // auto-enables a channel the moment SetCurrentSetpoint() writes a
-    // non-zero current. An explicit EnableChannel write to CH_CTRL can
-    // race with the OP_MODE bit and silently knock the chip out of
-    // Mission Mode, after which setpoints are accepted but never applied
-    // (visible symptom: GetAverageCurrent / GetDutyCycle stuck at 0
-    // even though the coil is being driven).
+    // Explicitly enable the channel via CH_CTRL.EN_CHx. Per datasheet
+    // §4.7.x and §4.8.1, "the respective channel must be activated by
+    // setting <EN_CH> bit to 1 and a target current setpoint value
+    // different to zero" before the chip will drive the output stage.
+    if (auto rc = g_driver->EnableChannel(cfg::kChannel, true); !rc) {
+        ESP_LOGE(TAG, "EnableChannel(%s, true) failed: %u",
+                 channel_name(cfg::kChannel),
+                 static_cast<unsigned>(rc.error()));
+        return false;
+    }
+    ESP_LOGI(TAG, "✅ Channel %s enabled (CH_CTRL.EN_CHx set)",
+             channel_name(cfg::kChannel));
+
+    // Clear the feedback-freeze register so the chip starts updating
+    // FB_DC / FB_I_AVG / FB_VBAT for every channel. Per datasheet §4.10
+    // and FB_FRZ register description (0x0007): "Setting the <CH> bit in
+    // the FB_FRZ register to 0 ... enables the update of the feedback
+    // values." Reset value of FB_FRZ on this chip leaves channels
+    // frozen, which is why FB_* reads come back as 0 even when the chip
+    // is actively driving the coil. Driver doesn't expose an API for
+    // this register, so we write it directly.
+    constexpr uint16_t kFbFrzAddr = 0x0007;
+    if (auto rd = g_driver->ReadRegister(kFbFrzAddr); rd) {
+        ESP_LOGI(TAG, "  FB_FRZ before clear: 0x%06" PRIX32, *rd);
+    }
+    if (auto wr = g_driver->WriteRegister(kFbFrzAddr, 0x0000); !wr) {
+        ESP_LOGW(TAG, "WriteRegister(FB_FRZ, 0) failed: %u",
+                 static_cast<unsigned>(wr.error()));
+    } else {
+        ESP_LOGI(TAG, "✅ FB_FRZ cleared — feedback update enabled on all channels");
+    }
+    if (auto rd = g_driver->ReadRegister(kFbFrzAddr); rd) {
+        ESP_LOGI(TAG, "  FB_FRZ after  clear: 0x%06" PRIX32, *rd);
+    }
 
     return true;
 }

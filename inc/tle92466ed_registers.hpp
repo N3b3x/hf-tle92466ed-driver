@@ -1014,6 +1014,125 @@ constexpr uint32_t VBAT_SHIFT = 11;        ///< VBAT is in bits [21:11]
 } // namespace VOLTAGE_FEEDBACK
 
 //==============================================================================
+// PER-CHANNEL FEEDBACK HELPERS — FB_DC, FB_I_AVG, FB_VBAT
+//==============================================================================
+
+/**
+ * @brief Per-channel averaged feedback decoders for FB_DC, FB_I_AVG, FB_VBAT.
+ *
+ * @details
+ * Per datasheet §4.10.2 "Average feedback values", each per-channel feedback
+ * register is a 22-bit reply frame containing mantissa fields. The averaged
+ * quantities are reconstructed as ratios of mantissa values:
+ *
+ *   FB_DC (offset 0x200 within channel bank):
+ *     bits [10:0]  = TP_MANT  (Period Mantissa,  unsigned 11-bit)
+ *     bits [21:11] = TO_MANT  (On-time Mantissa, unsigned 11-bit)
+ *     →  Duty cycle (fraction)  =  TO_MANT / TP_MANT
+ *     →  T_meas = TP_MANT × 2^EXP / fSYS    (EXP from FB_VBAT or FB_I_AVG)
+ *     →  t_ON   = TO_MANT × 2^EXP / fSYS
+ *
+ *   FB_I_AVG (offset 0x202 within channel bank):
+ *     bits [10:0]  = I_AVG_MANT  (signed 11-bit, two's complement)
+ *     bits [15:12] = EXP         (4-bit measurement exponent)
+ *     →  Iavg = 4 A × signed(I_AVG_MANT) / TP_MANT
+ *
+ *   FB_VBAT (offset 0x201 within channel bank):
+ *     bits [10:0]  = VBAT_AVG_MANT (unsigned 11-bit)
+ *     bits [15:12] = EXP            (4-bit measurement exponent)
+ *     →  VBAT = 41.47 V × VBAT_AVG_MANT / TP_MANT
+ *
+ * @note To compute average current or duty cycle in engineering units,
+ *       BOTH FB_DC and FB_I_AVG must be read for the same channel
+ *       (TP_MANT lives in FB_DC, I_AVG_MANT in FB_I_AVG).
+ */
+namespace FB_FEEDBACK {
+
+constexpr uint32_t MANT11_MASK     = 0x7FFu;          ///< 11-bit mantissa mask
+constexpr uint32_t TP_MANT_SHIFT   = 0u;              ///< FB_DC: TP_MANT in [10:0]
+constexpr uint32_t TO_MANT_SHIFT   = 11u;             ///< FB_DC: TO_MANT in [21:11]
+constexpr uint32_t I_AVG_MANT_SHIFT  = 0u;            ///< FB_I_AVG: I_AVG_MANT in [10:0]
+constexpr uint32_t VBAT_MANT_SHIFT   = 0u;            ///< FB_VBAT: VBAT_AVG_MANT in [10:0]
+constexpr uint32_t MEAS_EXP_SHIFT    = 12u;           ///< FB_VBAT/FB_I_AVG: EXP in [15:12]
+constexpr uint32_t MEAS_EXP_MASK     = 0xFu;          ///< 4-bit exponent mask
+
+constexpr float I_AVG_FULL_SCALE_AMPS = 4.0f;         ///< Iavg formula scale (4 A)
+constexpr float VBAT_FULL_SCALE_VOLTS = 41.47f;       ///< VBAT formula scale (41.47 V)
+
+/// Sign-extend an 11-bit two's-complement value into int16_t.
+[[nodiscard]] constexpr int16_t SignExtend11(uint32_t v) noexcept {
+  const uint32_t masked = v & MANT11_MASK;
+  return static_cast<int16_t>((masked & 0x400u) ? (masked | 0xFFFFF800u) : masked);
+}
+
+/// Extract TP_MANT (Period Mantissa, 11 bits unsigned) from a raw FB_DC read.
+[[nodiscard]] constexpr uint16_t ExtractTpMant(uint32_t fb_dc_raw) noexcept {
+  return static_cast<uint16_t>((fb_dc_raw >> TP_MANT_SHIFT) & MANT11_MASK);
+}
+
+/// Extract TO_MANT (On-time Mantissa, 11 bits unsigned) from a raw FB_DC read.
+[[nodiscard]] constexpr uint16_t ExtractToMant(uint32_t fb_dc_raw) noexcept {
+  return static_cast<uint16_t>((fb_dc_raw >> TO_MANT_SHIFT) & MANT11_MASK);
+}
+
+/// Extract signed I_AVG_MANT (11-bit two's-complement) from FB_I_AVG.
+[[nodiscard]] constexpr int16_t ExtractIAvgMant(uint32_t fb_i_avg_raw) noexcept {
+  return SignExtend11((fb_i_avg_raw >> I_AVG_MANT_SHIFT) & MANT11_MASK);
+}
+
+/// Extract the 4-bit measurement exponent from FB_VBAT or FB_I_AVG.
+[[nodiscard]] constexpr uint8_t ExtractMeasExp(uint32_t fb_vbat_or_iavg_raw) noexcept {
+  return static_cast<uint8_t>((fb_vbat_or_iavg_raw >> MEAS_EXP_SHIFT) & MEAS_EXP_MASK);
+}
+
+/**
+ * @brief Compute duty cycle (0.0 – 1.0) from a raw FB_DC value.
+ * @return Duty cycle as a float in [0.0, 1.0]; returns 0 if TP_MANT is 0.
+ */
+[[nodiscard]] constexpr float ComputeDutyCycle(uint32_t fb_dc_raw) noexcept {
+  const uint16_t tp = ExtractTpMant(fb_dc_raw);
+  if (tp == 0) return 0.0f;
+  return static_cast<float>(ExtractToMant(fb_dc_raw)) / static_cast<float>(tp);
+}
+
+/**
+ * @brief Compute average current in mA (signed) from FB_I_AVG and FB_DC.
+ * @param  fb_i_avg_raw  Raw 22-bit FB_I_AVG read (provides I_AVG_MANT)
+ * @param  fb_dc_raw     Raw 22-bit FB_DC read    (provides TP_MANT for the divisor)
+ * @return Average load current in mA (signed); returns 0 if TP_MANT is 0.
+ */
+[[nodiscard]] inline int32_t ComputeAverageCurrent_mA(uint32_t fb_i_avg_raw,
+                                                      uint32_t fb_dc_raw) noexcept {
+  const uint16_t tp = ExtractTpMant(fb_dc_raw);
+  if (tp == 0) return 0;
+  const int16_t i_mant = ExtractIAvgMant(fb_i_avg_raw);
+  // Iavg [A]  = 4 A × I_AVG_MANT / TP_MANT
+  // Iavg [mA] = 4000 × I_AVG_MANT / TP_MANT
+  return static_cast<int32_t>(
+      (static_cast<int32_t>(i_mant) * 4000) / static_cast<int32_t>(tp));
+}
+
+/**
+ * @brief Compute averaged battery voltage in mV from FB_VBAT and FB_DC.
+ * @param  fb_vbat_raw   Raw 22-bit FB_VBAT read (provides VBAT_AVG_MANT)
+ * @param  fb_dc_raw     Raw 22-bit FB_DC read   (provides TP_MANT for the divisor)
+ * @return Battery voltage in mV; returns 0 if TP_MANT is 0.
+ */
+[[nodiscard]] inline uint32_t ComputeVbatChannel_mV(uint32_t fb_vbat_raw,
+                                                    uint32_t fb_dc_raw) noexcept {
+  const uint16_t tp = ExtractTpMant(fb_dc_raw);
+  if (tp == 0) return 0;
+  const uint16_t vbat_mant = static_cast<uint16_t>(
+      (fb_vbat_raw >> VBAT_MANT_SHIFT) & MANT11_MASK);
+  // VBAT [V]  = 41.47 V × VBAT_AVG_MANT / TP_MANT
+  // VBAT [mV] = 41470  × VBAT_AVG_MANT / TP_MANT
+  return (static_cast<uint32_t>(vbat_mant) * 41470u)
+       / static_cast<uint32_t>(tp);
+}
+
+}  // namespace FB_FEEDBACK
+
+//==============================================================================
 // HELPER ENUMERATIONS
 //==============================================================================
 

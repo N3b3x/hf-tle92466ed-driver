@@ -973,21 +973,29 @@ DriverResult<uint16_t> Driver<CommType>::GetAverageCurrent(Channel channel, bool
   if (auto result = checkInitialized(); !result) {
     return tle::unexpected(result.error());
   }
-
   if (!isValidChannelInternal(channel)) {
     return tle::unexpected(DriverError::InvalidChannel);
   }
+  (void)parallel_mode;  // mantissa-ratio formula is identical for parallel mode
 
-  uint16_t ch_addr = GetChannelRegister(channel, ChannelReg::FB_I_AVG);
-  auto result = ReadRegister(ch_addr);
-  if (!result) {
-    return tle::unexpected(result.error());
-  }
+  // Per datasheet §4.10.2:  Iavg = 4 A × <I_AVG_MANT> / <TP_MANT>
+  // I_AVG_MANT lives in FB_I_AVG (22-bit reply, signed two's-complement)
+  // TP_MANT lives in FB_DC (22-bit reply, unsigned)
+  // Both registers must be read for the same channel to compute Iavg.
+  const uint16_t i_avg_addr = GetChannelRegister(channel, ChannelReg::FB_I_AVG);
+  const uint16_t fb_dc_addr = GetChannelRegister(channel, ChannelReg::FB_DC);
 
-  // Convert raw value to mA
-  // Based on datasheet: similar calculation to setpoint
-  uint16_t current_ma = SETPOINT::CalculateCurrent(*result, parallel_mode);
-  return current_ma;
+  auto i_avg_res = ReadRegister(i_avg_addr);
+  if (!i_avg_res) return tle::unexpected(i_avg_res.error());
+  auto fb_dc_res = ReadRegister(fb_dc_addr);
+  if (!fb_dc_res) return tle::unexpected(fb_dc_res.error());
+
+  // Decode mantissas and compute current in mA. Returns int32_t (signed)
+  // so we can detect negative readings (recirculation current); clamp to
+  // unsigned for the legacy uint16_t return type.
+  const int32_t i_ma = FB_FEEDBACK::ComputeAverageCurrent_mA(*i_avg_res, *fb_dc_res);
+  const int32_t i_clamped = (i_ma < 0) ? 0 : (i_ma > 0xFFFF ? 0xFFFF : i_ma);
+  return static_cast<uint16_t>(i_clamped);
 }
 
 template <typename CommType>
@@ -995,13 +1003,21 @@ DriverResult<uint16_t> Driver<CommType>::GetDutyCycle(Channel channel) noexcept 
   if (auto result = checkInitialized(); !result) {
     return tle::unexpected(result.error());
   }
-
   if (!isValidChannelInternal(channel)) {
     return tle::unexpected(DriverError::InvalidChannel);
   }
 
-  uint16_t ch_addr = GetChannelRegister(channel, ChannelReg::FB_DC);
-  return ReadRegister(ch_addr);
+  // Per datasheet §4.10.2:  DC = <TO_MANT> / <TP_MANT>
+  // Both fields live in FB_DC (22-bit reply). Returned as a permyriad
+  // value (0..10000 = 0.0..100.0%) so the caller can pick the precision
+  // they need without losing fractional duty in the legacy uint16_t API.
+  const uint16_t addr = GetChannelRegister(channel, ChannelReg::FB_DC);
+  auto fb_dc_res = ReadRegister(addr);
+  if (!fb_dc_res) return tle::unexpected(fb_dc_res.error());
+
+  const float dc = FB_FEEDBACK::ComputeDutyCycle(*fb_dc_res);  // 0.0 .. 1.0
+  const uint16_t permyriad = static_cast<uint16_t>(dc * 10000.0f + 0.5f);
+  return permyriad;
 }
 
 template <typename CommType>
