@@ -561,7 +561,7 @@
   },"80": {
     "doc": "🔌 Hardware Setup",
     "title": "Example Wiring Diagram",
-    "content": "text TLE92466ED ┌─────────┐ 12V/24V ─────┤ VBAT │ 3.3V ─────┤ VIO │ GND ─────┤ GND │ SCK ─────┤ SCK │ MOSI ─────┤ SI │ MISO ─────┤ SO │ CS ─────┤ CSN │ └─────────┘ │ │ OUT0 ├───[Solenoid]─── VBAT │ │ OUT1 ├───[Valve]─── VBAT cpp . ",
+    "content": ". text TLE92466ED ┌─────────┐ 12V/24V ─────┤ VBAT │ 3.3V ─────┤ VIO │ GND ─────┤ GND │ SCK ─────┤ SCK │ MOSI ─────┤ SI │ MISO ─────┤ SO │ CS ─────┤ CSN │ └─────────┘ │ │ OUT0 ├───[Solenoid]─── VBAT │ │ OUT1 ├───[Valve]─── VBAT cpp . ",
     "url": "/hf-tle92466ed-driver/development/docs/hardware_setup/#example-wiring-diagram",
     
     "relUrl": "/docs/hardware_setup/#example-wiring-diagram"
