@@ -123,6 +123,9 @@ Include dependency graph for lm_pro_cycle_test.cpp:</div>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacecfg" id="r_namespacecfg"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecfg.html">cfg</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacetrack" id="r_namespacetrack"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetrack.html">track</a></td></tr>
+<tr class="memdesc:namespacetrack"><td class="mdescLeft">&#160;</td><td class="mdescRight">Per-setpoint sampling parameters. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -138,6 +141,9 @@ Functions</h2></td></tr>
 <tr class="separator:ab88e86494891e9f7b1a12af58c57fade"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55462005ba8fc430bf7d46b5da444362" id="r_a55462005ba8fc430bf7d46b5da444362"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a55462005ba8fc430bf7d46b5da444362">enter_mission_and_enable</a> () noexcept</td></tr>
 <tr class="separator:a55462005ba8fc430bf7d46b5da444362"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2edd369d9f2e48766837ad561c320108" id="r_a2edd369d9f2e48766837ad561c320108"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2edd369d9f2e48766837ad561c320108">characterize_setpoint</a> (uint16_t setpoint_ma) noexcept</td></tr>
+<tr class="memdesc:a2edd369d9f2e48766837ad561c320108"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply <code>setpoint_ma</code>, settle, sample current N times, print summary.  <br /></td></tr>
+<tr class="separator:a2edd369d9f2e48766837ad561c320108"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad56d5d871ee96743fe8408af71268a1c" id="r_ad56d5d871ee96743fe8408af71268a1c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad56d5d871ee96743fe8408af71268a1c">run_cycle</a> (uint32_t cycle_index) noexcept</td></tr>
 <tr class="separator:ad56d5d871ee96743fe8408af71268a1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abce06be17fc37d675118a678a8100a36" id="r_abce06be17fc37d675118a678a8100a36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abce06be17fc37d675118a678a8100a36">app_main</a> ()</td></tr>
@@ -183,6 +189,18 @@ Variables</h2></td></tr>
 <tr class="separator:a1e71ee082940e90179434ff81dc9c310"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5414c21c8c137ad157ec98223db1eec" id="r_ae5414c21c8c137ad157ec98223db1eec"><td class="memItemLeft" align="right" valign="top">static volatile bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5414c21c8c137ad157ec98223db1eec">g_telemetry_running</a> = false</td></tr>
 <tr class="separator:ae5414c21c8c137ad157ec98223db1eec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03a02241a9ce2d9007fe04b2288f0c5f" id="r_a03a02241a9ce2d9007fe04b2288f0c5f"><td class="memItemLeft" align="right" valign="top">constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetrack.html#a03a02241a9ce2d9007fe04b2288f0c5f">track::kSettleMs</a> = 300</td></tr>
+<tr class="memdesc:a03a02241a9ce2d9007fe04b2288f0c5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait after setpoint write before sampling.  <br /></td></tr>
+<tr class="separator:a03a02241a9ce2d9007fe04b2288f0c5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa4c3369cae7567ddfd9718d48f594e3" id="r_aaa4c3369cae7567ddfd9718d48f594e3"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetrack.html#aaa4c3369cae7567ddfd9718d48f594e3">track::kNumSamples</a> = 50</td></tr>
+<tr class="memdesc:aaa4c3369cae7567ddfd9718d48f594e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Samples per setpoint.  <br /></td></tr>
+<tr class="separator:aaa4c3369cae7567ddfd9718d48f594e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27b7cfbc735a7520c5d5db38c272fbc6" id="r_a27b7cfbc735a7520c5d5db38c272fbc6"><td class="memItemLeft" align="right" valign="top">constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetrack.html#a27b7cfbc735a7520c5d5db38c272fbc6">track::kSampleGapMs</a> = 10</td></tr>
+<tr class="memdesc:a27b7cfbc735a7520c5d5db38c272fbc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">10 ms between samples → 500 ms window  <br /></td></tr>
+<tr class="separator:a27b7cfbc735a7520c5d5db38c272fbc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62ace4dd20a39887a31c2988c9f40c16" id="r_a62ace4dd20a39887a31c2988c9f40c16"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetrack.html#a62ace4dd20a39887a31c2988c9f40c16">track::kBandPercent</a> = 2.0f</td></tr>
+<tr class="memdesc:a62ace4dd20a39887a31c2988c9f40c16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pass / fail tracking band (±%)  <br /></td></tr>
+<tr class="separator:a62ace4dd20a39887a31c2988c9f40c16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Real-hardware Parker LM-Pro proportional valve cycle test on TLE92466ED CH5 (driver channel 6 in 1-indexed nomenclature). </p>
@@ -245,6 +263,33 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2edd369d9f2e48766837ad561c320108" name="a2edd369d9f2e48766837ad561c320108"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2edd369d9f2e48766837ad561c320108">&#9670;&#160;</a></span>characterize_setpoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void characterize_setpoint </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>setpoint_ma</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Apply <code>setpoint_ma</code>, settle, sample current N times, print summary. </p>
 
 </div>
 </div>

@@ -57,6 +57,7 @@ var searchData=
   ['tle92466ed_5fvalidate_5fgpio_54',['TLE92466ED_VALIDATE_GPIO',['../esp32__tle92466ed__test__config_8hpp.html#a144227c8f24118002432fbaf425eca87',1,'esp32_tle92466ed_test_config.hpp']]],
   ['total_5fexecution_5ftime_5fus_55',['total_execution_time_us',['../structTestResults.html#a7eddc258a4288ac5f0a36a1008c9d014',1,'TestResults']]],
   ['total_5ftests_56',['total_tests',['../structTestResults.html#afe20b168a13950ffca7296c0c56d4359',1,'TestResults']]],
-  ['transfer32_57',['Transfer32',['../classEsp32Tle92466edSpiBus.html#a9b2dffe7d4f9bad0e67eb27867736e61',1,'Esp32Tle92466edSpiBus']]],
-  ['transfermulti_58',['TransferMulti',['../classEsp32Tle92466edSpiBus.html#ac8eb66b714d008e98fd6862f959d000e',1,'Esp32Tle92466edSpiBus']]]
+  ['track_57',['track',['../namespacetrack.html',1,'']]],
+  ['transfer32_58',['Transfer32',['../classEsp32Tle92466edSpiBus.html#a9b2dffe7d4f9bad0e67eb27867736e61',1,'Esp32Tle92466edSpiBus']]],
+  ['transfermulti_59',['TransferMulti',['../classEsp32Tle92466edSpiBus.html#ac8eb66b714d008e98fd6862f959d000e',1,'Esp32Tle92466edSpiBus']]]
 ];
