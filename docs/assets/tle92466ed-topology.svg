@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 540" width="800" height="540" role="img" aria-labelledby="t-tle d-tle">
+  <title id="t-tle">TLE92466ED six-channel low-side driver topology with parallel-pair pairing</title>
+  <desc id="d-tle">SPI-controlled driver with six independent low-side outputs OUT0..OUT5 sinking solenoid coil currents to GND. Channels can also be paired (0+3, 1+2, 4+5) for doubled current.</desc>
+  <defs>
+    <style type="text/css"><![CDATA[
+      .panel    { fill: #ffffff; }
+      .box      { fill: #f4f6f8; stroke: #1a365d; stroke-width: 2; }
+      .chip     { fill: #fef5e7; stroke: #c05621; stroke-width: 2; }
+      .ch       { fill: #ebf4ff; stroke: #2c5282; stroke-width: 1.6; }
+      .pair-03  { fill: none; stroke: #c53030; stroke-width: 1.8; stroke-dasharray: 6 3; }
+      .pair-12  { fill: none; stroke: #d69e2e; stroke-width: 1.8; stroke-dasharray: 6 3; }
+      .pair-45  { fill: none; stroke: #38a169; stroke-width: 1.8; stroke-dasharray: 6 3; }
+      .coil     { fill: #ffffff; stroke: #1a365d; stroke-width: 1.6; }
+      .wire-pwr { stroke: #c53030; stroke-width: 2.5; fill: none; stroke-linecap: round; }
+      .wire-gnd { stroke: #4a5568; stroke-width: 2.5; fill: none; stroke-linecap: round; }
+      .wire-spi { stroke: #2b6cb0; stroke-width: 2; fill: none; stroke-linecap: round; }
+      .head     { font-family: system-ui, sans-serif; font-size: 16px; font-weight: 600; fill: #1a365d; text-anchor: middle; }
+      .title    { font-family: system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: #1a365d; text-anchor: middle; }
+      .small    { font-family: system-ui, sans-serif; font-size: 11px; fill: #4a5568; text-anchor: middle; }
+      .pin      { font-family: "DejaVu Sans Mono", Consolas, monospace; font-size: 11px; fill: #1a202c; text-anchor: middle; }
+      .pinL     { font-family: "DejaVu Sans Mono", Consolas, monospace; font-size: 11px; fill: #1a202c; text-anchor: end; }
+      .legend   { font-family: system-ui, sans-serif; font-size: 11px; fill: #4a5568; }
+      .pair-l03 { font-family: system-ui, sans-serif; font-size: 12px; font-weight: 600; fill: #c53030; text-anchor: middle; }
+      .pair-l12 { font-family: system-ui, sans-serif; font-size: 12px; font-weight: 600; fill: #b7791f; text-anchor: middle; }
+      .pair-l45 { font-family: system-ui, sans-serif; font-size: 12px; font-weight: 600; fill: #2f855a; text-anchor: middle; }
+    ]]></style>
+    <marker id="ar-tle" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 z" fill="#2b6cb0"/>
+    </marker>
+  </defs>
+  <rect class="panel" width="800" height="540"/>
+
+  <text class="head"  x="400" y="26">TLE92466ED &#8212; six-channel low-side solenoid driver</text>
+  <text class="small" x="400" y="44">Each output sinks its solenoid current to GND. Parallel-pair mode pairs CH0+CH3, CH1+CH2, and CH4+CH5 for doubled current.</text>
+
+  <!-- VBAT supply rail (y=80) -->
+  <line class="wire-pwr" x1="80" y1="80" x2="700" y2="80"/>
+  <text class="pinL" x="74" y="84">VBAT</text>
+
+  <!-- 6 solenoid coils across the top, centered at x = 110, 210, 310, 410, 510, 610 -->
+  <g>
+    <rect class="coil" x="80"  y="92" width="60" height="62" rx="6"/>
+    <text class="title" x="110" y="112">Coil 0</text>
+    <text class="small" x="110" y="130">solenoid /</text>
+    <text class="small" x="110" y="146">valve</text>
+
+    <rect class="coil" x="180" y="92" width="60" height="62" rx="6"/>
+    <text class="title" x="210" y="112">Coil 1</text>
+    <text class="small" x="210" y="130">solenoid /</text>
+    <text class="small" x="210" y="146">valve</text>
+
+    <rect class="coil" x="280" y="92" width="60" height="62" rx="6"/>
+    <text class="title" x="310" y="112">Coil 2</text>
+    <text class="small" x="310" y="130">solenoid /</text>
+    <text class="small" x="310" y="146">valve</text>
+
+    <rect class="coil" x="380" y="92" width="60" height="62" rx="6"/>
+    <text class="title" x="410" y="112">Coil 3</text>
+    <text class="small" x="410" y="130">solenoid /</text>
+    <text class="small" x="410" y="146">valve</text>
+
+    <rect class="coil" x="480" y="92" width="60" height="62" rx="6"/>
+    <text class="title" x="510" y="112">Coil 4</text>
+    <text class="small" x="510" y="130">solenoid /</text>
+    <text class="small" x="510" y="146">valve</text>
+
+    <rect class="coil" x="580" y="92" width="60" height="62" rx="6"/>
+    <text class="title" x="610" y="112">Coil 5</text>
+    <text class="small" x="610" y="130">solenoid /</text>
+    <text class="small" x="610" y="146">valve</text>
+  </g>
+
+  <!-- VBAT down to coils -->
+  <g>
+    <line class="wire-pwr" x1="110" y1="80" x2="110" y2="92"/>
+    <line class="wire-pwr" x1="210" y1="80" x2="210" y2="92"/>
+    <line class="wire-pwr" x1="310" y1="80" x2="310" y2="92"/>
+    <line class="wire-pwr" x1="410" y1="80" x2="410" y2="92"/>
+    <line class="wire-pwr" x1="510" y1="80" x2="510" y2="92"/>
+    <line class="wire-pwr" x1="610" y1="80" x2="610" y2="92"/>
+  </g>
+
+  <!-- Coil-bottom (y=154) to chip-top (y=210) -->
+  <g>
+    <line class="wire-gnd" x1="110" y1="154" x2="110" y2="210"/>
+    <line class="wire-gnd" x1="210" y1="154" x2="210" y2="210"/>
+    <line class="wire-gnd" x1="310" y1="154" x2="310" y2="210"/>
+    <line class="wire-gnd" x1="410" y1="154" x2="410" y2="210"/>
+    <line class="wire-gnd" x1="510" y1="154" x2="510" y2="210"/>
+    <line class="wire-gnd" x1="610" y1="154" x2="610" y2="210"/>
+  </g>
+
+  <!-- TLE92466ED chip body (y=210..360, height 150) -->
+  <rect class="chip" x="60" y="210" width="660" height="150" rx="10"/>
+  <text class="head"  x="390" y="234">TLE92466ED</text>
+  <text class="small" x="390" y="252">SPI &#183; 6 x low-side, 0&#8211;2 A (single) / 0&#8211;4 A (parallel)</text>
+  <text class="small" x="390" y="268">15-bit ICC, 0.061 mA steps &#183; PWM, dither &#183; per-channel diagnostics</text>
+
+  <!-- Six channel sub-blocks inside the chip -->
+  <g>
+    <rect class="ch" x="80"  y="294" width="60" height="56" rx="4"/>
+    <text class="title" x="110" y="316">CH0</text>
+    <text class="small" x="110" y="334">OUT0</text>
+    <line class="wire-gnd" x1="110" y1="210" x2="110" y2="294"/>
+
+    <rect class="ch" x="180" y="294" width="60" height="56" rx="4"/>
+    <text class="title" x="210" y="316">CH1</text>
+    <text class="small" x="210" y="334">OUT1</text>
+    <line class="wire-gnd" x1="210" y1="210" x2="210" y2="294"/>
+
+    <rect class="ch" x="280" y="294" width="60" height="56" rx="4"/>
+    <text class="title" x="310" y="316">CH2</text>
+    <text class="small" x="310" y="334">OUT2</text>
+    <line class="wire-gnd" x1="310" y1="210" x2="310" y2="294"/>
+
+    <rect class="ch" x="380" y="294" width="60" height="56" rx="4"/>
+    <text class="title" x="410" y="316">CH3</text>
+    <text class="small" x="410" y="334">OUT3</text>
+    <line class="wire-gnd" x1="410" y1="210" x2="410" y2="294"/>
+
+    <rect class="ch" x="480" y="294" width="60" height="56" rx="4"/>
+    <text class="title" x="510" y="316">CH4</text>
+    <text class="small" x="510" y="334">OUT4</text>
+    <line class="wire-gnd" x1="510" y1="210" x2="510" y2="294"/>
+
+    <rect class="ch" x="580" y="294" width="60" height="56" rx="4"/>
+    <text class="title" x="610" y="316">CH5</text>
+    <text class="small" x="610" y="334">OUT5</text>
+    <line class="wire-gnd" x1="610" y1="210" x2="610" y2="294"/>
+  </g>
+
+  <!-- GND rail under the chip (y=384) -->
+  <line class="wire-gnd" x1="80" y1="384" x2="700" y2="384"/>
+  <text class="pinL" x="74" y="388">GND</text>
+  <g>
+    <line class="wire-gnd" x1="110" y1="360" x2="110" y2="384"/>
+    <line class="wire-gnd" x1="210" y1="360" x2="210" y2="384"/>
+    <line class="wire-gnd" x1="310" y1="360" x2="310" y2="384"/>
+    <line class="wire-gnd" x1="410" y1="360" x2="410" y2="384"/>
+    <line class="wire-gnd" x1="510" y1="360" x2="510" y2="384"/>
+    <line class="wire-gnd" x1="610" y1="360" x2="610" y2="384"/>
+  </g>
+
+  <!-- SPI block to the right of the chip (y=210..360) -->
+  <rect class="box" x="730" y="234" width="58" height="100" rx="6"/>
+  <text class="title" x="759" y="252">SPI</text>
+  <text class="pin"   x="759" y="270">SCLK</text>
+  <text class="pin"   x="759" y="286">MOSI</text>
+  <text class="pin"   x="759" y="302">MISO</text>
+  <text class="pin"   x="759" y="318">CS</text>
+  <line class="wire-spi" x1="730" y1="284" x2="720" y2="284" marker-end="url(#ar-tle)"/>
+
+  <!--
+    Parallel-pair brackets - drawn UNDER the GND rail, with proper endpoints aligned to channel boxes.
+    Channel boxes are 60 wide centered at x=110,210,310,410,510,610.
+    Pair 0+3 spans CH0 (left edge x=80) to CH3 (right edge x=440) - width 360 px
+    Pair 1+2 spans CH1 (x=180) to CH2 (x=340)                    - width 160 px
+    Pair 4+5 spans CH4 (x=480) to CH5 (x=640)                    - width 160 px
+  -->
+
+  <!-- Outermost pair 0+3 (red, lowest tier, y=440) -->
+  <path class="pair-03" d="M 80 432 L 80 444 L 440 444 L 440 432"/>
+  <text class="pair-l03" x="260" y="462">Parallel pair CH0 + CH3 (up to 4 A)</text>
+
+  <!-- Inner pair 1+2 (amber, sits ABOVE pair 0+3, y=412) -->
+  <path class="pair-12" d="M 180 408 L 180 420 L 340 420 L 340 408"/>
+  <text class="pair-l12" x="260" y="404">Pair CH1 + CH2</text>
+
+  <!-- Pair 4+5 (green, y=440 same row as 0+3 since not overlapping) -->
+  <path class="pair-45" d="M 480 432 L 480 444 L 640 444 L 640 432"/>
+  <text class="pair-l45" x="560" y="462">Parallel pair CH4 + CH5 (up to 4 A)</text>
+
+  <!-- Bottom: legend, 2 columns, plenty of margin -->
+  <g transform="translate(60, 488)">
+    <text class="title" x="0" y="0" text-anchor="start" fill="#1a365d">Legend</text>
+
+    <!-- Column 1 -->
+    <rect class="ch" x="0" y="14" width="14" height="14"/>
+    <text class="legend" x="22" y="25">Single-channel mode (up to 2 A per output)</text>
+
+    <line class="wire-pwr" x1="0" y1="42" x2="22" y2="42"/>
+    <text class="legend" x="30" y="46">VBAT load current (high-side rail to coil)</text>
+
+    <!-- Column 2 -->
+    <line class="wire-gnd" x1="380" y1="22" x2="402" y2="22"/>
+    <text class="legend" x="410" y="26">Coil current sink path through OUTn</text>
+
+    <path class="pair-03" d="M 380 38 L 380 46 L 402 46 L 402 38"/>
+    <text class="legend" x="410" y="46">Parallel-pair (CH0+CH3 / CH1+CH2 / CH4+CH5)</text>
+  </g>
+</svg>

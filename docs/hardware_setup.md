@@ -12,6 +12,8 @@ permalink: /docs/hardware_setup/
 This guide covers the physical connections and hardware requirements for the TLE92466ED
 Six-Channel Low-Side Solenoid Driver IC.
 
+![TLE92466ED six-channel low-side topology with parallel-pair pairing](assets/tle92466ed-topology.svg)
+
 ## Pin Connections
 
 ### Basic SPI Connections

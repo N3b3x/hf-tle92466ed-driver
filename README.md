@@ -36,6 +36,8 @@ permalink: /
 
 The driver uses a hardware-agnostic communication interface design, allowing it to run on any platform (ESP32, STM32, Arduino, etc.) with zero runtime overhead. It implements all major features from the TLE92466ED datasheet including Integrated Current Control (ICC), PWM frequency control, dither support, parallel channel operation, comprehensive diagnostics, and protection features.
 
+![TLE92466ED six-channel low-side topology with parallel-pair pairing](docs/assets/tle92466ed-topology.svg)
+
 ## ✨ Features
 
 - ✅ **Six Independent Channels**: Low-side outputs for solenoid/inductive load control
