@@ -173,6 +173,12 @@
   </compound>
   <compound refid="namespaceTLE92466ED__TestConfig" kind="namespace"><name>TLE92466ED_TestConfig</name>
   </compound>
+  <compound refid="namespacetrack" kind="namespace"><name>track</name>
+    <member refid="namespacetrack_1a03a02241a9ce2d9007fe04b2288f0c5f" kind="variable"><name>kSettleMs</name></member>
+    <member refid="namespacetrack_1aaa4c3369cae7567ddfd9718d48f594e3" kind="variable"><name>kNumSamples</name></member>
+    <member refid="namespacetrack_1a27b7cfbc735a7520c5d5db38c272fbc6" kind="variable"><name>kSampleGapMs</name></member>
+    <member refid="namespacetrack_1a62ace4dd20a39887a31c2988c9f40c16" kind="variable"><name>kBandPercent</name></member>
+  </compound>
   <compound refid="driver__integration__test_8cpp" kind="file"><name>driver_integration_test.cpp</name>
     <member refid="driver__integration__test_8cpp_1afacebc97896e90c317ac62cf118945cd" kind="define"><name>ENABLE_INITIALIZATION_TESTS</name></member>
     <member refid="driver__integration__test_8cpp_1a24bfa2f29d093d3fb649a0de6526af33" kind="define"><name>ENABLE_MODE_CONTROL_TESTS</name></member>
@@ -253,6 +259,7 @@
     <member refid="lm__pro__cycle__test_8cpp_1aa0d0f3ef518e54c135c768ec880d3b41" kind="function"><name>initialize_driver</name></member>
     <member refid="lm__pro__cycle__test_8cpp_1ab88e86494891e9f7b1a12af58c57fade" kind="function"><name>configure_channel</name></member>
     <member refid="lm__pro__cycle__test_8cpp_1a55462005ba8fc430bf7d46b5da444362" kind="function"><name>enter_mission_and_enable</name></member>
+    <member refid="lm__pro__cycle__test_8cpp_1a2edd369d9f2e48766837ad561c320108" kind="function"><name>characterize_setpoint</name></member>
     <member refid="lm__pro__cycle__test_8cpp_1ad56d5d871ee96743fe8408af71268a1c" kind="function"><name>run_cycle</name></member>
     <member refid="lm__pro__cycle__test_8cpp_1abce06be17fc37d675118a678a8100a36" kind="function"><name>app_main</name></member>
   </compound>

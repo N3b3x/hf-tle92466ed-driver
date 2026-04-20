@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetrack" kind="namespace" language="C++">
+    <compoundname>track</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetrack_1a03a02241a9ce2d9007fe04b2288f0c5f" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t track::kSettleMs</definition>
+        <argsstring></argsstring>
+        <name>kSettleMs</name>
+        <qualifiedname>track::kSettleMs</qualifiedname>
+        <initializer>= 300</initializer>
+        <briefdescription>
+<para>Wait after setpoint write before sampling. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="473" column="20" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="473" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetrack_1aaa4c3369cae7567ddfd9718d48f594e3" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int track::kNumSamples</definition>
+        <argsstring></argsstring>
+        <name>kNumSamples</name>
+        <qualifiedname>track::kNumSamples</qualifiedname>
+        <initializer>= 50</initializer>
+        <briefdescription>
+<para>Samples per setpoint. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="474" column="20" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="474" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetrack_1a27b7cfbc735a7520c5d5db38c272fbc6" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t track::kSampleGapMs</definition>
+        <argsstring></argsstring>
+        <name>kSampleGapMs</name>
+        <qualifiedname>track::kSampleGapMs</qualifiedname>
+        <initializer>= 10</initializer>
+        <briefdescription>
+<para>10 ms between samples → 500 ms window </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="475" column="20" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="475" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetrack_1a62ace4dd20a39887a31c2988c9f40c16" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float track::kBandPercent</definition>
+        <argsstring></argsstring>
+        <name>kBandPercent</name>
+        <qualifiedname>track::kBandPercent</qualifiedname>
+        <initializer>= 2.0f</initializer>
+        <briefdescription>
+<para>Pass / fail tracking band (±%) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="476" column="20" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="476" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Per-setpoint sampling parameters. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="472" column="1"/>
+  </compounddef>
+</doxygen>

@@ -16,5 +16,11 @@ var namespaces_dup =
       [ "kStepDwell_ms", "namespacecfg.html#abf7df546d184c8d6778fab1683e968e0", null ],
       [ "kTelemetryPeriod_ms", "namespacecfg.html#ae6874d737cfb7e9425a7b2684a757f70", null ]
     ] ],
-    [ "TLE92466ED_TestConfig", "namespaceTLE92466ED__TestConfig.html", "namespaceTLE92466ED__TestConfig" ]
+    [ "TLE92466ED_TestConfig", "namespaceTLE92466ED__TestConfig.html", "namespaceTLE92466ED__TestConfig" ],
+    [ "track", "namespacetrack.html", [
+      [ "kBandPercent", "namespacetrack.html#a62ace4dd20a39887a31c2988c9f40c16", null ],
+      [ "kNumSamples", "namespacetrack.html#aaa4c3369cae7567ddfd9718d48f594e3", null ],
+      [ "kSampleGapMs", "namespacetrack.html#a27b7cfbc735a7520c5d5db38c272fbc6", null ],
+      [ "kSettleMs", "namespacetrack.html#a03a02241a9ce2d9007fe04b2288f0c5f", null ]
+    ] ]
 ];

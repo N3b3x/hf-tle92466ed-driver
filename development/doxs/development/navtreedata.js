@@ -59,7 +59,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "TestFramework_8h.html",
-"structTLE92466ED__TestConfig_1_1ADCConfig.html#af89c3e12e2d1a8f4d676ea5d1da3a38d"
+"structSolenoid2Config.html#af40e677922499514c02c5e0ebd14b604"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

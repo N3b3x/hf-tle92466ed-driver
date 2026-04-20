@@ -465,37 +465,114 @@ static bool enter_mission_and_enable() noexcept {
 }
 
 //==============================================================================
+// SETPOINT-TRACKING CHARACTERIZATION
+//==============================================================================
+
+/// Per-setpoint sampling parameters.
+namespace track {
+constexpr uint32_t kSettleMs       = 300;   ///< Wait after setpoint write before sampling
+constexpr int      kNumSamples     = 50;    ///< Samples per setpoint
+constexpr uint32_t kSampleGapMs    = 10;    ///< 10 ms between samples → 500 ms window
+constexpr float    kBandPercent    = 2.0f;  ///< Pass / fail tracking band (±%)
+}  // namespace track
+
+/// Apply `setpoint_ma`, settle, sample current N times, print summary.
+static void characterize_setpoint(uint16_t setpoint_ma) noexcept {
+    if (auto rc = g_driver->SetCurrentSetpoint(cfg::kChannel, setpoint_ma, false); !rc) {
+        ESP_LOGE(TAG, "SetCurrentSetpoint(%u mA) failed: %u",
+                 setpoint_ma, static_cast<unsigned>(rc.error()));
+        return;
+    }
+    vTaskDelay(pdMS_TO_TICKS(track::kSettleMs));
+
+    int32_t  i_min       = INT32_MAX;
+    int32_t  i_max       = INT32_MIN;
+    int64_t  i_sum       = 0;
+    int64_t  i_sumsq     = 0;
+    int      n_collected = 0;
+    int      n_in_band   = 0;
+    const int32_t band_lo = static_cast<int32_t>(setpoint_ma)
+                          - static_cast<int32_t>(setpoint_ma * track::kBandPercent / 100.0f + 0.5f);
+    const int32_t band_hi = static_cast<int32_t>(setpoint_ma)
+                          + static_cast<int32_t>(setpoint_ma * track::kBandPercent / 100.0f + 0.5f);
+
+    for (int s = 0; s < track::kNumSamples; ++s) {
+        const auto i_r = g_driver->GetAverageCurrent(cfg::kChannel, false);
+        if (i_r) {
+            const int32_t i_ma = static_cast<int32_t>(*i_r);
+            ++n_collected;
+            i_sum   += i_ma;
+            i_sumsq += static_cast<int64_t>(i_ma) * i_ma;
+            if (i_ma < i_min) i_min = i_ma;
+            if (i_ma > i_max) i_max = i_ma;
+            if (setpoint_ma > 0 &&
+                i_ma >= band_lo && i_ma <= band_hi) ++n_in_band;
+        }
+        vTaskDelay(pdMS_TO_TICKS(track::kSampleGapMs));
+    }
+
+    if (n_collected == 0) {
+        ESP_LOGW(TAG, "  sp=%3u mA — no samples collected!", setpoint_ma);
+        return;
+    }
+
+    const double mean      = static_cast<double>(i_sum) / n_collected;
+    const double variance  = static_cast<double>(i_sumsq) / n_collected - mean * mean;
+    const double stddev    = (variance > 0.0) ? std::sqrt(variance) : 0.0;
+    const double err_abs   = mean - static_cast<double>(setpoint_ma);
+    const double err_pct   = (setpoint_ma > 0)
+        ? (err_abs / static_cast<double>(setpoint_ma) * 100.0)
+        : 0.0;
+    const double in_band_pct =
+        (setpoint_ma > 0) ? (100.0 * n_in_band / n_collected) : 100.0;
+
+    // Pass/fail flag against the ±band_percent tolerance.
+    const bool pass = setpoint_ma == 0 ||
+                      (std::fabs(err_pct) <= static_cast<double>(track::kBandPercent) &&
+                       in_band_pct >= 70.0);
+
+    ESP_LOGI(TAG,
+             "%s sp=%3u mA  mean=%6.2f mA  err=%+5.2f mA (%+5.2f %%)  "
+             "stddev=%5.2f mA  range=[%3d..%3d]  in-±%.1f%%-band=%3.0f%% (%d/%d)",
+             pass ? "  ✅" : "  ⚠️",
+             setpoint_ma,
+             mean,
+             err_abs, err_pct,
+             stddev,
+             static_cast<int>(i_min), static_cast<int>(i_max),
+             static_cast<double>(track::kBandPercent),
+             in_band_pct,
+             n_in_band, n_collected);
+}
+
+//==============================================================================
 // CYCLE DRIVER
 //==============================================================================
 
 static void run_cycle(uint32_t cycle_index) noexcept {
     ESP_LOGI(TAG, "");
-    ESP_LOGI(TAG, "═══ Cycle %u: ramp UP %u → %u mA ═══════════════════════════",
+    ESP_LOGI(TAG, "═══ Cycle %u: tracking-accuracy sweep %u → %u mA "
+                  "(±%.1f %% band, %d samples per step over %u ms) ═══",
              static_cast<unsigned>(cycle_index + 1U),
-             cfg::kRampMin_mA, cfg::kRampMax_mA);
+             cfg::kRampMin_mA, cfg::kRampMax_mA,
+             static_cast<double>(track::kBandPercent),
+             track::kNumSamples,
+             static_cast<unsigned>(track::kNumSamples * track::kSampleGapMs));
+
+    // Disable the steady-state telemetry task during characterization so
+    // its concurrent SPI reads don't perturb our sample timing.
+    g_telemetry_running = false;
+    vTaskDelay(pdMS_TO_TICKS(50));
 
     for (uint16_t sp = cfg::kRampMin_mA; sp <= cfg::kRampMax_mA; sp += cfg::kRampStep_mA) {
-        ESP_LOGI(TAG, ">>> setpoint = %3u mA", sp);
-        if (auto rc = g_driver->SetCurrentSetpoint(cfg::kChannel, sp, false); !rc) {
-            ESP_LOGE(TAG, "SetCurrentSetpoint(%u mA) failed: %u",
-                     sp, static_cast<unsigned>(rc.error()));
-        }
-        vTaskDelay(pdMS_TO_TICKS(cfg::kStepDwell_ms));
+        characterize_setpoint(sp);
     }
 
     ESP_LOGI(TAG, "");
-    ESP_LOGI(TAG, "═══ Cycle %u: ramp DOWN %u → %u mA ═══════════════════════════",
-             static_cast<unsigned>(cycle_index + 1U),
-             cfg::kRampMax_mA, cfg::kRampMin_mA);
-
+    ESP_LOGI(TAG, "═══ Cycle %u: ramp DOWN ═══", static_cast<unsigned>(cycle_index + 1U));
     for (int32_t sp = static_cast<int32_t>(cfg::kRampMax_mA);
          sp >= static_cast<int32_t>(cfg::kRampMin_mA); sp -= cfg::kRampStep_mA) {
-        ESP_LOGI(TAG, ">>> setpoint = %3d mA", static_cast<int>(sp));
-        if (auto rc = g_driver->SetCurrentSetpoint(cfg::kChannel, static_cast<uint16_t>(sp), false); !rc) {
-            ESP_LOGE(TAG, "SetCurrentSetpoint(%d mA) failed: %u",
-                     static_cast<int>(sp), static_cast<unsigned>(rc.error()));
-        }
-        vTaskDelay(pdMS_TO_TICKS(cfg::kStepDwell_ms));
+        characterize_setpoint(static_cast<uint16_t>(sp));
     }
 
     ESP_LOGI(TAG, "═══ Cycle %u: hold at 0 mA for %u ms ════════════════════════",
