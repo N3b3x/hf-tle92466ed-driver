@@ -782,38 +782,70 @@ DriverResult<void> Driver<CommType>::ConfigureDither(Channel channel, float ampl
   }
 
   //
-  // Pick a tref_clk that lands on the requested dither frequency with the
-  // helper's defaults of STEPS=16, FLAT=2  (= 4×16 + 2×2 = 68 sub-cycles
-  // per dither period). Then write DITHER_CLK_DIV before computing the
-  // amplitude scaling, so the chip's averager has a non-zero Tmeas.
+  // Pick a tref_clk that lands on the requested dither frequency with
+  // fixed STEPS=16 / FLAT=2 sub-cycle counts (= 4×16 + 2×2 = 68 sub-
+  // cycles per dither period), then write DITHER_CLK_DIV before
+  // computing the amplitude scaling. Per datasheet §5.3.3.7 the chip's
+  // POR default of DITHER_CLK_DIV = 0x0000 leaves tref_clk = 0 and the
+  // averaged-feedback engine disabled; without this register being
+  // programmed, FB_DC / FB_I_AVG / FB_VBAT stay at 0 forever even
+  // though the chip is happily driving the load.
   //
-  // Per datasheet §5.3.3.7 the chip's POR default of DITHER_CLK_DIV =
-  // 0x0000 leaves tref_clk = 0 and the averaged-feedback engine
-  // disabled; without programming this register, FB_DC / FB_I_AVG /
-  // FB_VBAT stay at 0 forever even though the chip is happily driving
-  // the load.
+  // Use a fixed STEPS/FLAT pair here so that:
+  //   1) tref_clk and the dither registers agree on what TDither is
+  //      (the helper's auto-adjust would land on STEPS=255 for low
+  //      frequencies, blowing up the measurement period);
+  //   2) the resulting Tmeas is a sensible 16 PWM cycles' worth at
+  //      typical PWM frequencies (a couple of ms), giving the chip's
+  //      averager enough samples for stable readings without making
+  //      telemetry update too slowly for a control loop.
   //
-  constexpr float kDefaultStepsForFreqCalc = 16.0F;
-  constexpr float kDefaultFlatForFreqCalc  = 2.0F;
+  constexpr uint8_t kDitherSteps = 16;
+  constexpr uint8_t kDitherFlat  = 2;
+  constexpr float   kPeriodUnits =
+      4.0F * static_cast<float>(kDitherSteps) +
+      2.0F * static_cast<float>(kDitherFlat);     // 68 sub-cycles
   const float dither_period_us = 1'000'000.0F / frequency_hz;
-  const float t_ref_clk_us = dither_period_us
-      / (4.0F * kDefaultStepsForFreqCalc + 2.0F * kDefaultFlatForFreqCalc);
+  const float t_ref_clk_us     = dither_period_us / kPeriodUnits;
 
   if (auto result = ConfigureDitherClock(channel, t_ref_clk_us); !result) {
     return result;
   }
 
-  // Calculate dither configuration from amplitude and frequency
-  auto config = DITHER::CalculateFromAmplitudeFrequency(amplitude_ma, frequency_hz, parallel_mode);
+  // Compute step_size from the requested amplitude using the FIXED steps
+  // count above (not the helper's adjustable one):
+  //   I_dither = STEPS × STEP_SIZE × max_current / 32767
+  //  ⇒ STEP_SIZE = amplitude_ma × 32767 / (STEPS × max_current)
+  const uint32_t max_current_ma = parallel_mode ? 4000U : 2000U;
+  const float step_size_f =
+      (amplitude_ma * 32767.0F) /
+      (static_cast<float>(kDitherSteps) * static_cast<float>(max_current_ma));
+  uint16_t step_size = static_cast<uint16_t>(std::lround(step_size_f));
+  if (step_size > DITHER_CTRL::STEP_SIZE_MASK) {
+    step_size = DITHER_CTRL::STEP_SIZE_MASK;
+  }
+  // For amplitudes that round down to 0 LSB, force a 1 so dither stays
+  // ON (the chip needs STEP_SIZE > 0 for the averager to run; even
+  // STEP_SIZE = 1 produces sub-mA current excursion that's typically
+  // negligible against the load and quantization noise).
+  if (step_size == 0 && amplitude_ma > 0.0F) {
+    step_size = 1;
+  }
 
   comm_.Log(LogLevel::Info, "TLE92466ED",
-            "Configuring dither: Channel=%s, Amplitude=%.2f mA, Frequency=%.2f Hz, "
-            "StepSize=%u, NumSteps=%u, FlatSteps=%u, Parallel=%s",
-            ToString(channel), amplitude_ma, frequency_hz, config.step_size, config.num_steps,
-            config.flat_steps, parallel_mode ? "true" : "false");
+            "Configuring dither: Channel=%s, Amplitude=%.2f mA (~%.2f mA actual), "
+            "Frequency=%.2f Hz, StepSize=%u, NumSteps=%u, FlatSteps=%u, "
+            "Parallel=%s",
+            ToString(channel),
+            static_cast<double>(amplitude_ma),
+            static_cast<double>(static_cast<float>(step_size) *
+                                static_cast<float>(kDitherSteps) *
+                                static_cast<float>(max_current_ma) / 32767.0F),
+            static_cast<double>(frequency_hz),
+            step_size, kDitherSteps, kDitherFlat,
+            parallel_mode ? "true" : "false");
 
-  // Configure dither registers
-  return ConfigureDitherRaw(channel, config.step_size, config.num_steps, config.flat_steps);
+  return ConfigureDitherRaw(channel, step_size, kDitherSteps, kDitherFlat);
 }
 
 template <typename CommType>

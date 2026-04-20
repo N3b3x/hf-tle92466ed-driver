@@ -166,6 +166,45 @@ static void telemetry_task(void* /*arg*/) noexcept {
     constexpr uint16_t kFbDcAddr   = 0x0230;
     constexpr uint16_t kFbIavgAddr = 0x0232;
 
+    // Host-side moving averages for current and duty.
+    //   - The chip's FB_I_AVG averages over Tmeas ≈ 20 ms (TDither), so
+    //     our 100 ms telemetry tick already gets one fully-averaged
+    //     sample; an 8-tap MA on the host side just smooths bench noise.
+    //   - FB_DC's TO_MANT/TP_MANT ratio is a single-PWM-cycle snapshot
+    //     (chip uses EXP=1 for the duty encoding regardless of what we
+    //     program) so duty bounces rapidly between 0 % and 100 %; a
+    //     longer host-side MA gives a usable steady-state read for
+    //     comparison against the setpoint.
+    constexpr int kMaTaps = 8;
+    int   ma_idx_i        = 0;
+    int   ma_idx_d        = 0;
+    int   ma_count_i      = 0;
+    int   ma_count_d      = 0;
+    int32_t  ma_i_buf[kMaTaps]    = {};
+    uint32_t ma_d_buf[kMaTaps]    = {};
+    auto push_ma_i = [&](int32_t s) {
+        ma_i_buf[ma_idx_i] = s;
+        ma_idx_i = (ma_idx_i + 1) % kMaTaps;
+        if (ma_count_i < kMaTaps) ++ma_count_i;
+    };
+    auto push_ma_d = [&](uint32_t s) {
+        ma_d_buf[ma_idx_d] = s;
+        ma_idx_d = (ma_idx_d + 1) % kMaTaps;
+        if (ma_count_d < kMaTaps) ++ma_count_d;
+    };
+    auto mean_i = [&]() -> int32_t {
+        if (ma_count_i == 0) return 0;
+        int64_t sum = 0;
+        for (int k = 0; k < ma_count_i; ++k) sum += ma_i_buf[k];
+        return static_cast<int32_t>(sum / ma_count_i);
+    };
+    auto mean_d = [&]() -> uint32_t {
+        if (ma_count_d == 0) return 0;
+        uint64_t sum = 0;
+        for (int k = 0; k < ma_count_d; ++k) sum += ma_d_buf[k];
+        return static_cast<uint32_t>(sum / ma_count_d);
+    };
+
     while (g_telemetry_running && g_driver) {
         const auto sp_r      = g_driver->GetCurrentSetpoint(cfg::kChannel, false);
         const auto i_avg_r   = g_driver->GetAverageCurrent  (cfg::kChannel, false);
@@ -183,21 +222,33 @@ static void telemetry_task(void* /*arg*/) noexcept {
         const uint32_t fb_dc_raw   = fb_dc_raw_r   ? *fb_dc_raw_r   : 0;
         const uint32_t fb_iavg_raw = fb_iavg_raw_r ? *fb_iavg_raw_r : 0;
 
+        // Push raw samples into the host-side moving-average filter.
+        push_ma_i(static_cast<int32_t>(i_avg_ma));
+        push_ma_d(static_cast<uint32_t>(duty_raw));
+        const int32_t  i_avg_ma_smooth   = mean_i();
+        const uint32_t duty_raw_smooth   = mean_d();
+
         if (diag_r) {
             const auto& d = *diag_r;
-            const float duty_pct = static_cast<float>(duty_raw) / 100.0f;
+            const float duty_pct_raw    = static_cast<float>(duty_raw)        / 100.0f;
+            const float duty_pct_smooth = static_cast<float>(duty_raw_smooth) / 100.0f;
+            // Compare raw vs MA-smoothed alongside setpoint so it's
+            // immediately obvious whether the chip is tracking the
+            // request and where the noise floor lives.
             ESP_LOGI(TAG,
-                     "[t=%4u s+%03u] sp=%3u mA  i_avg=%3u mA  duty=%5.2f%%  "
+                     "[t=%4u s+%03u] sp=%3u mA  "
+                     "i=%3d mA (avg %3d)  duty=%5.2f%% (avg %5.2f%%)  "
                      "FB_DC=0x%06" PRIX32 " FB_IAVG=0x%06" PRIX32 "  "
-                     "OC=%d SG=%d OL=%d OT=%d  warn{ot=%d ireg=%d preg=%d olsg=%d}",
+                     "OC=%d SG=%d OL=%d OT=%d",
                      static_cast<unsigned>(tick_count * cfg::kTelemetryPeriod_ms / 1000U),
                      static_cast<unsigned>(tick_count * cfg::kTelemetryPeriod_ms % 1000U),
-                     setpoint_ma, i_avg_ma,
-                     static_cast<double>(duty_pct),
+                     setpoint_ma,
+                     static_cast<int>(i_avg_ma), static_cast<int>(i_avg_ma_smooth),
+                     static_cast<double>(duty_pct_raw),
+                     static_cast<double>(duty_pct_smooth),
                      fb_dc_raw, fb_iavg_raw,
-                     d.overcurrent, d.short_to_ground, d.open_load, d.over_temperature,
-                     d.ot_warning, d.current_regulation_warning,
-                     d.pwm_regulation_warning, d.olsg_warning);
+                     d.overcurrent, d.short_to_ground, d.open_load, d.over_temperature);
+            (void)d;  // remaining flags suppressed for line length
         } else {
             ESP_LOGW(TAG, "[telemetry] GetChannelDiagnostics failed (err=%u)",
                      static_cast<unsigned>(diag_r.error()));
@@ -320,18 +371,28 @@ static bool configure_channel() noexcept {
     //   TDither, which itself is built from a per-channel reference
     //   clock tref_clk programmed in DITHER_CLK_DIV. The chip POR
     //   default of DITHER_CLK_DIV = 0x0000 makes tref_clk = 0 and the
-    //   feedback averager NEVER runs.
+    //   feedback averager NEVER runs (FB_DC / FB_I_AVG / FB_VBAT stay 0).
     //
-    //   The high-level `ConfigureDither(amplitude_ma, frequency_hz)`
-    //   API now also writes DITHER_CLK_DIV automatically, picking a
-    //   tref_clk that lands the requested frequency with the helper's
-    //   default STEPS=16 / FLAT=2 sub-cycle counts.
+    //   The high-level `ConfigureDither(amplitude_ma, frequency_hz)` API
+    //   now also writes DITHER_CLK_DIV automatically, picking a tref_clk
+    //   that lands the requested frequency with the helper's default
+    //   STEPS=16 / FLAT=2 sub-cycle counts.
     //
-    //   The LM-Pro is a low-static-friction linear motor that does not
-    //   need dither for plunger movement; we use a small amplitude
-    //   purely to unlock the FB readback path.
-    constexpr float kDitherAmplitude_mA = 10.0f;
-    constexpr float kDitherFrequency_Hz = 100.0f;     // 10 ms TDither = Tmeas
+    //   The LM-Pro is a low-static-friction linear motor that does NOT
+    //   need dither for plunger movement, AND it operates in a small
+    //   current range (0–115 mA). A large dither here causes:
+    //     - the chip's PWM duty to swing wildly (FB_DC reads bounce
+    //       between 0 % and 100 % across the dither period),
+    //     - the actual coil current to oscillate around the setpoint,
+    //       making the readback noisy and the position unstable.
+    //
+    //   Use a tiny dither — small enough to not perturb position, large
+    //   enough that the chip's averager has a non-zero Tmeas window:
+    //     amplitude = 1 mA  (≈ 1 % of full-scale current)
+    //     frequency = 50 Hz (TDither = 20 ms = 80 PWM cycles at 4 kHz,
+    //                        plenty of cycles for a stable FB average)
+    constexpr float kDitherAmplitude_mA = 1.0f;
+    constexpr float kDitherFrequency_Hz = 50.0f;
     if (auto rc = g_driver->ConfigureDither(cfg::kChannel,
                                             kDitherAmplitude_mA,
                                             kDitherFrequency_Hz); !rc) {
@@ -341,7 +402,7 @@ static bool configure_channel() noexcept {
     }
     ESP_LOGI(TAG,
              "✅ Dither: %.1f mA @ %.0f Hz "
-             "(provides Tmeas for FB_DC / FB_I_AVG readback)",
+             "(20 ms TDither = Tmeas → ~80 PWM cycles averaged per FB update)",
              static_cast<double>(kDitherAmplitude_mA),
              static_cast<double>(kDitherFrequency_Hz));
 
