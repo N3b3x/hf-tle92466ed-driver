@@ -57,15 +57,15 @@
         <argsstring></argsstring>
         <name>kPwmPeriod_us</name>
         <qualifiedname>cfg::kPwmPeriod_us</qualifiedname>
-        <initializer>= 200.0f</initializer>
+        <initializer>= 250.0f</initializer>
         <briefdescription>
-<para>200 µs → 5 kHz (datasheet floor) </para>
+<para>250 µs → 4 kHz (datasheet ceiling) </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="87" column="20" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="87" bodyend="-1"/>
+        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="92" column="20" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="92" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacecfg_1a69328e9f5e74bea591d3566c230d4665" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -80,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="90" column="20" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="90" bodyend="-1"/>
+        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="95" column="20" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="95" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacecfg_1aed61a9c8e8d7eb408977be1afa4c07db" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -95,7 +95,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="91" column="20" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="91" bodyend="-1"/>
+        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="96" column="20" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="96" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacecfg_1a562ec71418cb1bfe8c41361068c87dca" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -110,7 +110,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="92" column="20" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="92" bodyend="-1"/>
+        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="97" column="20" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="97" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacecfg_1abf7df546d184c8d6778fab1683e968e0" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint32_t</type>
@@ -126,7 +126,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="93" column="20" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="93" bodyend="-1"/>
+        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="98" column="20" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="98" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacecfg_1a3c113fc44af0155d777d3e68b173b3e8" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint32_t</type>
@@ -142,7 +142,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="94" column="20" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="94" bodyend="-1"/>
+        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="99" column="20" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="99" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacecfg_1ada89c01b01fd8122837e99fa2a8ff305" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint32_t</type>
@@ -158,7 +158,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="95" column="20" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="95" bodyend="-1"/>
+        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="100" column="20" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="100" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacecfg_1ae6874d737cfb7e9425a7b2684a757f70" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint32_t</type>
@@ -174,7 +174,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="98" column="20" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="98" bodyend="-1"/>
+        <location file="examples/esp32/main/lm_pro_cycle_test.cpp" line="103" column="20" bodyfile="examples/esp32/main/lm_pro_cycle_test.cpp" bodystart="103" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

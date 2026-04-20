@@ -156,8 +156,8 @@ Variables</h2></td></tr>
 <tr class="memitem:a51c2cb78700dfa7c0450062a874ce75c" id="r_a51c2cb78700dfa7c0450062a874ce75c"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecfg.html#a51c2cb78700dfa7c0450062a874ce75c">cfg::kSafetyCap_mA</a> = 130</td></tr>
 <tr class="memdesc:a51c2cb78700dfa7c0450062a874ce75c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hard hardware-side limit.  <br /></td></tr>
 <tr class="separator:a51c2cb78700dfa7c0450062a874ce75c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2207637a9c8e7bebc73aae8358d5932" id="r_ad2207637a9c8e7bebc73aae8358d5932"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecfg.html#ad2207637a9c8e7bebc73aae8358d5932">cfg::kPwmPeriod_us</a> = 200.0f</td></tr>
-<tr class="memdesc:ad2207637a9c8e7bebc73aae8358d5932"><td class="mdescLeft">&#160;</td><td class="mdescRight">200 µs → 5 kHz (datasheet floor)  <br /></td></tr>
+<tr class="memitem:ad2207637a9c8e7bebc73aae8358d5932" id="r_ad2207637a9c8e7bebc73aae8358d5932"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecfg.html#ad2207637a9c8e7bebc73aae8358d5932">cfg::kPwmPeriod_us</a> = 250.0f</td></tr>
+<tr class="memdesc:ad2207637a9c8e7bebc73aae8358d5932"><td class="mdescLeft">&#160;</td><td class="mdescRight">250 µs → 4 kHz (datasheet ceiling)  <br /></td></tr>
 <tr class="separator:ad2207637a9c8e7bebc73aae8358d5932"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69328e9f5e74bea591d3566c230d4665" id="r_a69328e9f5e74bea591d3566c230d4665"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecfg.html#a69328e9f5e74bea591d3566c230d4665">cfg::kRampMin_mA</a> = 0</td></tr>
 <tr class="separator:a69328e9f5e74bea591d3566c230d4665"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -194,11 +194,10 @@ Variables</h2></td></tr>
 <li>EN is the only thing gating the output stage (we toggle it on once at boot via Driver::Enable()),</li>
 <li>the LM-Pro plunger physically moves in step with the ramp (audible / observable on the test rig).</li>
 </ul>
-<p>See "Note on readback APIs" inside this file regarding the live FB_I_AVG / FB_DC readbacks (a known driver decoding issue — the chip is driving correctly, the readback path needs a fix).</p>
 <p>Datasheet anchors (values cribbed from <code>WhValveCatalog::kSpecLMPro_24V</code>):</p><ul>
 <li>Coil resistance ~148 Ω → ~115 mA at full open at 24 V</li>
-<li>Recommended PWM frequency: ≥ 5 kHz</li>
-<li>No benefit from dither (linear-motor design)</li>
+<li>Maximum PWM frequency on TLE92466ED: 4 kHz (datasheet limit). The chip cannot drive above 4 kHz, so the PWM is inherently audible. Use slew-rate-control + dither for the smoothest audible output you can get.</li>
+<li>No additional dither benefit from the LM-Pro coil itself (linear-motor design with low static friction).</li>
 </ul>
 <p>Default cycle profile: triangle wave 0 → 115 mA in 10 mA steps, 1 s per step 115 → 0 mA reverse, same cadence 2 s hold at 0 between cycles telemetry @ 10 Hz throughout</p>
 <p>Override at the top of the file for a different LM-Pro variant or to run a single-shot ramp.</p>

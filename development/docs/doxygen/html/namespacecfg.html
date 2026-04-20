@@ -111,8 +111,8 @@ Variables</h2></td></tr>
 <tr class="memitem:a51c2cb78700dfa7c0450062a874ce75c" id="r_a51c2cb78700dfa7c0450062a874ce75c"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a51c2cb78700dfa7c0450062a874ce75c">kSafetyCap_mA</a> = 130</td></tr>
 <tr class="memdesc:a51c2cb78700dfa7c0450062a874ce75c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hard hardware-side limit.  <br /></td></tr>
 <tr class="separator:a51c2cb78700dfa7c0450062a874ce75c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2207637a9c8e7bebc73aae8358d5932" id="r_ad2207637a9c8e7bebc73aae8358d5932"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad2207637a9c8e7bebc73aae8358d5932">kPwmPeriod_us</a> = 200.0f</td></tr>
-<tr class="memdesc:ad2207637a9c8e7bebc73aae8358d5932"><td class="mdescLeft">&#160;</td><td class="mdescRight">200 µs → 5 kHz (datasheet floor)  <br /></td></tr>
+<tr class="memitem:ad2207637a9c8e7bebc73aae8358d5932" id="r_ad2207637a9c8e7bebc73aae8358d5932"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad2207637a9c8e7bebc73aae8358d5932">kPwmPeriod_us</a> = 250.0f</td></tr>
+<tr class="memdesc:ad2207637a9c8e7bebc73aae8358d5932"><td class="mdescLeft">&#160;</td><td class="mdescRight">250 µs → 4 kHz (datasheet ceiling)  <br /></td></tr>
 <tr class="separator:ad2207637a9c8e7bebc73aae8358d5932"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69328e9f5e74bea591d3566c230d4665" id="r_a69328e9f5e74bea591d3566c230d4665"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a69328e9f5e74bea591d3566c230d4665">kRampMin_mA</a> = 0</td></tr>
 <tr class="separator:a69328e9f5e74bea591d3566c230d4665"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -240,7 +240,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr float cfg::kPwmPeriod_us = 200.0f</td>
+          <td class="memname">constexpr float cfg::kPwmPeriod_us = 250.0f</td>
         </tr>
       </table>
   </td>
@@ -250,7 +250,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>200 µs → 5 kHz (datasheet floor) </p>
+<p>250 µs → 4 kHz (datasheet ceiling) </p>
 
 </div>
 </div>
