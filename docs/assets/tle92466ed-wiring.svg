@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="900" height="520"
+     role="img" aria-labelledby="t-wir d-wir">
+  <title id="t-wir">TLE92466ED typical MCU wiring diagram</title>
+  <desc id="d-wir">Wiring diagram showing MCU SPI and control connections to the TLE92466ED six-channel low-side solenoid driver, with load connections and parallel-pair mode.</desc>
+  <defs>
+    <style type="text/css"><![CDATA[
+      .panel    { fill: #ffffff; }
+      .box      { fill: #f4f6f8; stroke: #1a365d; stroke-width: 2; }
+      .chip     { fill: #fef5e7; stroke: #c05621; stroke-width: 2; }
+      .wire-pwr { stroke: #c53030; stroke-width: 3; fill: none; stroke-linecap: round; }
+      .wire-gnd { stroke: #4a5568; stroke-width: 3; fill: none; stroke-linecap: round; }
+      .wire-spi { stroke: #2b6cb0; stroke-width: 2.5; fill: none; stroke-linecap: round; }
+      .wire-ctrl{ stroke: #276749; stroke-width: 2; fill: none; stroke-linecap: round; stroke-dasharray: 5 3; }
+      .wire-load{ stroke: #c05621; stroke-width: 2; fill: none; stroke-linecap: round; }
+      .head     { font-family: system-ui, sans-serif; font-size: 16px; font-weight: 600; fill: #1a365d; text-anchor: middle; }
+      .title    { font-family: system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: #1a365d; text-anchor: middle; }
+      .titleL   { font-family: system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: #1a365d; text-anchor: start; }
+      .small    { font-family: system-ui, sans-serif; font-size: 11px; fill: #4a5568; text-anchor: middle; }
+      .smallL   { font-family: system-ui, sans-serif; font-size: 11px; fill: #4a5568; text-anchor: start; }
+      .pinL     { font-family: "DejaVu Sans Mono", Consolas, monospace; font-size: 12px; fill: #1a202c; text-anchor: start; }
+      .pinR     { font-family: "DejaVu Sans Mono", Consolas, monospace; font-size: 12px; fill: #1a202c; text-anchor: end; }
+      .wlbl     { font-family: system-ui, sans-serif; font-size: 11px; font-weight: 600; text-anchor: middle; }
+      .legend   { font-family: system-ui, sans-serif; font-size: 11px; fill: #4a5568; }
+      .coil     { fill: #ffffff; stroke: #1a365d; stroke-width: 1.6; }
+      .diode    { fill: none; stroke: #1a365d; stroke-width: 1.4; }
+      .pair-br  { fill: none; stroke: #c53030; stroke-width: 1.6; stroke-dasharray: 5 3; }
+      .pair-lbl { font-family: system-ui, sans-serif; font-size: 10px; font-weight: 600; fill: #c53030; text-anchor: middle; }
+    ]]></style>
+  </defs>
+  <rect class="panel" width="900" height="520"/>
+
+  <!-- ===== Title ===== -->
+  <text class="head" x="450" y="24">TLE92466ED &#8212; typical MCU wiring</text>
+  <text class="small" x="450" y="40">SPI + optional control pins &#183; 6 low-side outputs &#183; solenoid / valve loads</text>
+
+  <!-- ===== VBAT rail (top) ===== -->
+  <line class="wire-pwr" x1="500" y1="58" x2="870" y2="58"/>
+  <text class="wlbl" x="480" y="62" fill="#c53030" text-anchor="end">VBAT</text>
+  <text class="smallL" x="480" y="73" text-anchor="end">5.5&#8211;41 V</text>
+
+  <!-- ===== MCU box ===== -->
+  <rect class="box" x="30" y="90" width="160" height="260" rx="8"/>
+  <text class="title" x="110" y="112">MCU</text>
+  <text class="small" x="110" y="128">(ESP32 / STM32)</text>
+
+  <!-- MCU SPI pins (right edge at x=190) -->
+  <text class="pinR" x="186" y="162">SCK</text>
+  <text class="pinR" x="186" y="182">MOSI</text>
+  <text class="pinR" x="186" y="202">MISO</text>
+  <text class="pinR" x="186" y="222">CS</text>
+
+  <!-- MCU control pins -->
+  <text class="pinR" x="186" y="258">RESN</text>
+  <text class="pinR" x="186" y="278">EN</text>
+  <text class="pinR" x="186" y="298">FAULTN</text>
+
+  <text class="smallL" x="40" y="248">optional</text>
+  <text class="smallL" x="40" y="260">GPIO</text>
+
+  <!-- MCU power pins -->
+  <text class="pinR" x="186" y="332">3.3V</text>
+  <text class="pinR" x="186" y="342" style="font-size:9px;fill:#4a5568">(VIO)</text>
+
+  <!-- ===== TLE92466ED chip ===== -->
+  <rect class="chip" x="310" y="90" width="200" height="290" rx="10"/>
+  <text class="title" x="410" y="112">TLE92466ED</text>
+  <text class="small" x="410" y="126">6-ch low-side driver</text>
+
+  <!-- Left-side pins of chip (x=310) -->
+  <text class="pinL" x="318" y="158">VBAT</text>
+  <text class="pinL" x="318" y="178">VIO</text>
+  <text class="pinL" x="318" y="198">GND</text>
+
+  <text class="pinL" x="318" y="228">SCK</text>
+  <text class="pinL" x="318" y="248">SI</text>
+  <text class="pinL" x="318" y="268">SO</text>
+  <text class="pinL" x="318" y="288">CSN</text>
+
+  <text class="pinL" x="318" y="318">RESN</text>
+  <text class="pinL" x="318" y="338">EN</text>
+  <text class="pinL" x="318" y="358">FAULTN</text>
+
+  <!-- Right-side pins of chip (x=510) -->
+  <text class="pinR" x="502" y="158">OUT0</text>
+  <text class="pinR" x="502" y="183">OUT1</text>
+  <text class="pinR" x="502" y="208">OUT2</text>
+  <text class="pinR" x="502" y="233">OUT3</text>
+  <text class="pinR" x="502" y="258">OUT4</text>
+  <text class="pinR" x="502" y="283">OUT5</text>
+
+  <!-- ===== SPI wires (MCU to chip, L-shaped) ===== -->
+  <!-- SCK: MCU(190,158) -> (260,158) -> (260,224) -> (310,224) -->
+  <polyline class="wire-spi" points="190,158 260,158 260,224 310,224"/>
+  <text class="wlbl" x="240" y="152" fill="#2b6cb0">SCK</text>
+
+  <!-- MOSI: MCU(190,178) -> (270,178) -> (270,244) -> (310,244) -->
+  <polyline class="wire-spi" points="190,178 270,178 270,244 310,244"/>
+  <text class="wlbl" x="240" y="172" fill="#2b6cb0">SI</text>
+
+  <!-- MISO: MCU(190,198) -> (280,198) -> (280,264) -> (310,264) -->
+  <polyline class="wire-spi" points="190,198 280,198 280,264 310,264"/>
+  <text class="wlbl" x="240" y="192" fill="#2b6cb0">SO</text>
+
+  <!-- CS: MCU(190,218) -> (290,218) -> (290,284) -> (310,284) -->
+  <polyline class="wire-spi" points="190,218 290,218 290,284 310,284"/>
+  <text class="wlbl" x="240" y="212" fill="#2b6cb0">CSN</text>
+
+  <!-- ===== Control wires (dashed green) ===== -->
+  <!-- RESN: MCU(190,254) -> (250,254) -> (250,314) -> (310,314) -->
+  <polyline class="wire-ctrl" points="190,254 250,254 250,314 310,314"/>
+
+  <!-- EN: MCU(190,274) -> (240,274) -> (240,334) -> (310,334) -->
+  <polyline class="wire-ctrl" points="190,274 240,274 240,334 310,334"/>
+
+  <!-- FAULTN: MCU(190,294) -> (230,294) -> (230,354) -> (310,354) -->
+  <polyline class="wire-ctrl" points="190,294 230,294 230,354 310,354"/>
+
+  <!-- ===== Power wires ===== -->
+  <!-- VIO: MCU 3.3V(190,328) -> (220,328) -> (220,174) -> (310,174) -->
+  <polyline class="wire-pwr" points="190,328 220,328 220,174 310,174" style="stroke:#e53e3e;stroke-width:2;"/>
+
+  <!-- VBAT: rail(500,58) -> (500,90) down to chip VBAT pin area -->
+  <!-- Actually route into chip left: (300,58) -> (300,154) -> (310,154) -->
+  <polyline class="wire-pwr" points="500,58 500,90"/>
+  <polyline class="wire-pwr" points="300,58 300,154 310,154" style="stroke-width:2;"/>
+  <line class="wire-pwr" x1="300" y1="58" x2="500" y2="58" style="stroke-width:2;"/>
+
+  <!-- GND: chip(310,194) -> (300,194) -> (300,395) = GND rail -->
+  <line class="wire-gnd" x1="300" y1="194" x2="310" y2="194"/>
+  <line class="wire-gnd" x1="300" y1="194" x2="300" y2="395"/>
+  <line class="wire-gnd" x1="30" y1="395" x2="870" y2="395"/>
+  <text class="wlbl" x="18" y="399" fill="#4a5568" text-anchor="end">GND</text>
+
+  <!-- ===== Load connections (right side) ===== -->
+  <!-- Six solenoid/valve coil boxes from OUTx pins to VBAT rail -->
+  <!-- Coil layout: each coil is a small rect, wire from chip OUTx rightward then up to VBAT -->
+
+  <!-- OUT0 at y=154 -->
+  <line class="wire-load" x1="510" y1="154" x2="560" y2="154"/>
+  <rect class="coil" x="560" y="140" width="56" height="28" rx="4"/>
+  <text class="small" x="588" y="158">Coil 0</text>
+  <line class="wire-pwr" x1="616" y1="154" x2="660" y2="154" style="stroke-width:2;"/>
+  <line class="wire-pwr" x1="660" y1="58" x2="660" y2="154" style="stroke-width:2;"/>
+
+  <!-- OUT1 at y=179 -->
+  <line class="wire-load" x1="510" y1="179" x2="560" y2="179"/>
+  <rect class="coil" x="560" y="165" width="56" height="28" rx="4"/>
+  <text class="small" x="588" y="183">Coil 1</text>
+  <line class="wire-pwr" x1="616" y1="179" x2="690" y2="179" style="stroke-width:2;"/>
+  <line class="wire-pwr" x1="690" y1="58" x2="690" y2="179" style="stroke-width:2;"/>
+
+  <!-- OUT2 at y=204 -->
+  <line class="wire-load" x1="510" y1="204" x2="560" y2="204"/>
+  <rect class="coil" x="560" y="190" width="56" height="28" rx="4"/>
+  <text class="small" x="588" y="208">Coil 2</text>
+  <line class="wire-pwr" x1="616" y1="204" x2="720" y2="204" style="stroke-width:2;"/>
+  <line class="wire-pwr" x1="720" y1="58" x2="720" y2="204" style="stroke-width:2;"/>
+
+  <!-- OUT3 at y=229 -->
+  <line class="wire-load" x1="510" y1="229" x2="560" y2="229"/>
+  <rect class="coil" x="560" y="215" width="56" height="28" rx="4"/>
+  <text class="small" x="588" y="233">Coil 3</text>
+  <line class="wire-pwr" x1="616" y1="229" x2="750" y2="229" style="stroke-width:2;"/>
+  <line class="wire-pwr" x1="750" y1="58" x2="750" y2="229" style="stroke-width:2;"/>
+
+  <!-- OUT4 at y=254 -->
+  <line class="wire-load" x1="510" y1="254" x2="560" y2="254"/>
+  <rect class="coil" x="560" y="240" width="56" height="28" rx="4"/>
+  <text class="small" x="588" y="258">Coil 4</text>
+  <line class="wire-pwr" x1="616" y1="254" x2="780" y2="254" style="stroke-width:2;"/>
+  <line class="wire-pwr" x1="780" y1="58" x2="780" y2="254" style="stroke-width:2;"/>
+
+  <!-- OUT5 at y=279 -->
+  <line class="wire-load" x1="510" y1="279" x2="560" y2="279"/>
+  <rect class="coil" x="560" y="265" width="56" height="28" rx="4"/>
+  <text class="small" x="588" y="283">Coil 5</text>
+  <line class="wire-pwr" x1="616" y1="279" x2="810" y2="279" style="stroke-width:2;"/>
+  <line class="wire-pwr" x1="810" y1="58" x2="810" y2="279" style="stroke-width:2;"/>
+
+  <!-- ===== Flyback diode note ===== -->
+  <g transform="translate(560,310)">
+    <text class="smallL" x="0" y="0" fill="#4a5568">&#9650; Flyback diode</text>
+    <text class="smallL" x="0" y="14" fill="#4a5568">(cathode to VBAT)</text>
+    <text class="smallL" x="0" y="28" fill="#4a5568">recommended for</text>
+    <text class="smallL" x="0" y="42" fill="#4a5568">inductive loads</text>
+    <!-- small diode symbol -->
+    <polygon points="118,2 130,-4 130,8" fill="none" stroke="#1a365d" stroke-width="1.4"/>
+    <line x1="130" y1="-4" x2="130" y2="8" stroke="#1a365d" stroke-width="1.4"/>
+    <line x1="114" y1="2" x2="134" y2="2" stroke="#1a365d" stroke-width="1.2"/>
+  </g>
+
+  <!-- ===== Parallel pair mode panel (bottom) ===== -->
+  <rect class="box" x="30" y="416" width="530" height="92" rx="6"/>
+  <text class="titleL" x="40" y="436">Parallel-pair mode (doubled current, up to 4 A)</text>
+
+  <!-- Pair 0+3 -->
+  <path class="pair-br" d="M 50,454 L 50,462 L 170,462 L 170,454"/>
+  <text class="pair-lbl" x="110" y="476">OUT0 + OUT3</text>
+
+  <!-- Pair 1+2 -->
+  <path class="pair-br" d="M 200,454 L 200,462 L 320,462 L 320,454"/>
+  <text class="pair-lbl" x="260" y="476">OUT1 + OUT2</text>
+
+  <!-- Pair 4+5 -->
+  <path class="pair-br" d="M 350,454 L 350,462 L 470,462 L 470,454"/>
+  <text class="pair-lbl" x="410" y="476">OUT4 + OUT5</text>
+
+  <text class="smallL" x="42" y="498">Single load wired across paired outputs &#183; configure via SPI CTRL registers</text>
+
+  <!-- ===== Legend ===== -->
+  <g transform="translate(590,420)">
+    <text class="titleL" x="0" y="12">Legend</text>
+    <line class="wire-pwr" x1="0" y1="28" x2="24" y2="28"/>
+    <text class="legend" x="30" y="32">VBAT / power</text>
+    <line class="wire-gnd" x1="0" y1="44" x2="24" y2="44"/>
+    <text class="legend" x="30" y="48">GND</text>
+    <line class="wire-spi" x1="0" y1="60" x2="24" y2="60"/>
+    <text class="legend" x="30" y="64">SPI bus</text>
+    <line class="wire-ctrl" x1="0" y1="76" x2="24" y2="76"/>
+    <text class="legend" x="30" y="80">Control (opt.)</text>
+    <line class="wire-load" x1="150" y1="28" x2="174" y2="28"/>
+    <text class="legend" x="180" y="32">Load current</text>
+  </g>
+</svg>

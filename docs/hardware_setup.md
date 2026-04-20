@@ -105,6 +105,8 @@ VBAT ────[Load]──── OUT0 ──── GND
 
 ## Example Wiring Diagram
 
+![TLE92466ED wiring](assets/tle92466ed-wiring.svg)
+
 ```text
                     TLE92466ED
                     ┌─────────┐
