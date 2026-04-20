@@ -620,9 +620,35 @@ DriverResult<void> Driver<CommType>::ConfigurePwmPeriod(Channel channel, float p
     return tle::unexpected(DriverError::InvalidChannel);
   }
 
-  // Validate period range
-  if (period_us < 0.125F || period_us > 32640.0F) {
+  // Reject periods outside the chip's combined supported range
+  // (250 µs – 72727 µs across the standard and low-frequency ranges).
+  if (period_us < PERIOD::kSpecCombinedMinPeriod_us ||
+      period_us > PERIOD::kSpecCombinedMaxPeriod_us) {
+    comm_.Log(LogLevel::Error, "TLE92466ED",
+              "ConfigurePwmPeriod: %.3f µs is outside chip-supported range "
+              "[%.0f µs .. %.0f µs] (corresponds to %.0f Hz .. %.2f Hz)",
+              static_cast<double>(period_us),
+              static_cast<double>(PERIOD::kSpecCombinedMinPeriod_us),
+              static_cast<double>(PERIOD::kSpecCombinedMaxPeriod_us),
+              static_cast<double>(PERIOD::kSpecMaxFrequency_Hz),
+              static_cast<double>(PERIOD::kSpecLowRangeMinFreq_Hz));
     return tle::unexpected(DriverError::InvalidParameter);
+  }
+
+  // Warn (but don't reject) for periods that fall in the gap between the
+  // standard range max (9090 µs ≈ 110 Hz) and the low-range min (2000 µs
+  // ≈ 500 Hz). The chip will pick whichever range the auto-encoder lands
+  // in; both are within the gap and are still valid to write, just with
+  // sub-spec frequency-control loop performance.
+  if (period_us > PERIOD::kSpecMaxPeriod_us &&
+      period_us < PERIOD::kSpecLowRangeMinPeriod_us) {
+    comm_.Log(LogLevel::Warn, "TLE92466ED",
+              "ConfigurePwmPeriod: %.3f µs falls in the gap between the "
+              "standard (≤ %.0f µs) and low-frequency (≥ %.0f µs) ranges; "
+              "PWM-control loop accuracy may be degraded",
+              static_cast<double>(period_us),
+              static_cast<double>(PERIOD::kSpecMaxPeriod_us),
+              static_cast<double>(PERIOD::kSpecLowRangeMinPeriod_us));
   }
 
   // Calculate register values from desired period
@@ -630,16 +656,32 @@ DriverResult<void> Driver<CommType>::ConfigurePwmPeriod(Channel channel, float p
 
   // Check if calculation was successful (mantissa != 0)
   if (config.mantissa == 0) {
+    comm_.Log(LogLevel::Error, "TLE92466ED",
+              "ConfigurePwmPeriod: %.3f µs cannot be encoded into the "
+              "PERIOD register (mantissa underflow)",
+              static_cast<double>(period_us));
     return tle::unexpected(DriverError::InvalidParameter);
   }
+
+  // Compute the actual period the chip will use after register quantization;
+  // log it so the operator sees what they're really getting.
+  const float actual_period_us = config.CalculatePeriodUs();
+  const float actual_freq_hz   = 1.0e6F / actual_period_us;
 
   // Build PERIOD register value
   uint16_t value = PERIOD::BuildRegisterValue(config);
 
   comm_.Log(LogLevel::Info, "TLE92466ED",
-            "Configuring PWM period: Channel=%s, Period=%.3f us, Mantissa=%u, Exponent=%u, "
+            "Configuring PWM period: Channel=%s, Requested=%.3f µs (%.1f Hz), "
+            "Actual=%.3f µs (%.1f Hz), Mantissa=%u, Exponent=%u, LowRange=%s, "
             "Register=0x%04X",
-            ToString(channel), period_us, config.mantissa, config.exponent, value);
+            ToString(channel),
+            static_cast<double>(period_us),
+            static_cast<double>(1.0e6F / period_us),
+            static_cast<double>(actual_period_us),
+            static_cast<double>(actual_freq_hz),
+            config.mantissa, config.exponent,
+            config.low_freq_range ? "true" : "false", value);
 
   uint16_t ch_addr = GetChannelRegister(channel, ChannelReg::PERIOD);
   return WriteRegister(ch_addr, value);

@@ -536,6 +536,39 @@ constexpr uint16_t LOW_FREQ_BIT = (1 << 11); ///< Low frequency range bit
 constexpr uint32_t F_SYS_HZ = 8'000'000UL; ///< System clock frequency (8 MHz)
 constexpr float F_SYS_PERIOD_US = 0.125F;  ///< System clock period (0.125 µs)
 
+//
+// Datasheet-spec PWM frequency range
+// ----------------------------------
+// Per datasheet (Electrical Characteristics, parameter "Target PWM frequency
+// fPWM"): the PWM frequency controller is specified to operate between
+// 110 Hz and 4000 Hz. Setting a value outside this range will not be
+// rejected by the chip — it simply isn't guaranteed to work.
+//
+// With the LOW_FREQ_RANGE_EN bit set, the period is multiplied by 8, so
+// the supported frequency range is 8× lower (≈13.75 Hz – 500 Hz).
+//
+// Periods are derived from the formula  T_pwm = 1 / f_pwm.
+//
+// Note: the chip family cannot drive PWM above 4 kHz, so reaching the
+// ultrasonic range (>20 kHz) is not possible with the TLE92466ED.
+//
+constexpr float kSpecMinFrequency_Hz   = 110.0F;     ///< Datasheet minimum f_PWM
+constexpr float kSpecMaxFrequency_Hz   = 4000.0F;    ///< Datasheet maximum f_PWM
+constexpr float kSpecMinPeriod_us      = 1.0e6F / kSpecMaxFrequency_Hz;  ///< 250 µs
+constexpr float kSpecMaxPeriod_us      = 1.0e6F / kSpecMinFrequency_Hz;  ///< 9090.9 µs
+
+constexpr float kSpecLowRangeMinFreq_Hz = kSpecMinFrequency_Hz / 8.0F;   ///< 13.75 Hz
+constexpr float kSpecLowRangeMaxFreq_Hz = kSpecMaxFrequency_Hz / 8.0F;   ///< 500 Hz
+constexpr float kSpecLowRangeMinPeriod_us =
+    1.0e6F / kSpecLowRangeMaxFreq_Hz;                                    ///< 2000 µs
+constexpr float kSpecLowRangeMaxPeriod_us =
+    1.0e6F / kSpecLowRangeMinFreq_Hz;                                    ///< 72727 µs
+
+/// Combined min period across both ranges (250 µs).
+constexpr float kSpecCombinedMinPeriod_us = kSpecMinPeriod_us;
+/// Combined max period across both ranges (low-range 72.7 ms).
+constexpr float kSpecCombinedMaxPeriod_us = kSpecLowRangeMaxPeriod_us;
+
 /**
  * @brief Calculate PWM period register values from desired period in microseconds
  *

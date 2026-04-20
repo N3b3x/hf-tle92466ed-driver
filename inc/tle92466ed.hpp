@@ -466,20 +466,39 @@ public:
   /**
    * @brief Configure PWM period from desired period in microseconds (High-Level API)
    *
-   * @param channel Channel to configure
-   * @param period_us Desired PWM period in microseconds
-   * @return DriverResult<void> Success or error
+   * @param channel    Channel to configure
+   * @param period_us  Desired PWM period in microseconds
+   * @return DriverResult<void> Success or DriverError::InvalidParameter
    *
    * @details
-   * Automatically calculates mantissa, exponent, and low_freq_range to achieve
-   * the desired period. Valid range: ~0.125 µs to ~32.64 ms.
+   * The TLE92466ED's PWM frequency controller is specified to operate
+   * between 110 Hz and 4 kHz (datasheet Electrical Characteristics).
+   * In `period_us` terms that is a usable range of:
    *
-   * **Formula**: T_pwm = PERIOD_MANT × 2^PERIOD_EXP × (1/f_sys)
-   *              Low Freq: T_pwm = PERIOD_MANT × 8 × 2^PERIOD_EXP × (1/f_sys)
-   *              Where f_sys ≈ 8 MHz
+   *   - Standard range (LOW_FREQ_RANGE_EN = 0):
+   *       250 µs ≤ period_us ≤ 9090 µs   (= 4 kHz .. 110 Hz)
+   *   - Low-frequency range (LOW_FREQ_RANGE_EN = 1):
+   *       2000 µs ≤ period_us ≤ 72727 µs (= 500 Hz .. 13.75 Hz)
    *
-   * @note This is the recommended API for most users. Use ConfigurePwmPeriodRaw()
-   *       only if you need direct control over register values.
+   * The driver auto-selects the appropriate range. Periods outside the
+   * combined min/max (250 µs – 72.7 ms) return `InvalidParameter`.
+   * Periods that fall in the gap between the two ranges (9.1 – 2 ms,
+   * i.e. 110 Hz – 500 Hz) are accepted but logged as a warning since
+   * the PWM-control loop is not specified there.
+   *
+   * **Formulas**:
+   *   T_pwm = PERIOD_MANT × 2^PERIOD_EXP × (1/f_sys)
+   *   Low-range: T_pwm = PERIOD_MANT × 8 × 2^PERIOD_EXP × (1/f_sys)
+   *   f_sys ≈ 8 MHz
+   *
+   * @note Reaching the ultrasonic range (>20 kHz) is not possible with
+   *       this chip family — 4 kHz is the hardware ceiling.
+   * @note This is the recommended API for most users. Use
+   *       `ConfigurePwmPeriodRaw()` only if you need direct control
+   *       over register values.
+   *
+   * @see PERIOD::kSpecMinPeriod_us, PERIOD::kSpecMaxPeriod_us,
+   *      PERIOD::kSpecLowRangeMinPeriod_us, PERIOD::kSpecLowRangeMaxPeriod_us
    */
   [[nodiscard]] DriverResult<void> ConfigurePwmPeriod(Channel channel, float period_us) noexcept;
 
