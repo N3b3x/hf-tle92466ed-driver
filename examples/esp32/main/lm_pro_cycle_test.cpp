@@ -315,40 +315,35 @@ static bool configure_channel() noexcept {
     }
 
     // Configure dither — required for telemetry even on the LM-Pro.
-    //   Per datasheet §4.4.2, in ICC mode the chip's averaged-feedback
-    //   measurement period Tmeas equals the dither period TDither.
-    //   Without a non-zero dither, FB_DC / FB_I_AVG / FB_VBAT never
-    //   update and the readback APIs return 0.
+    //   Per datasheet §4.4.2 + §5.3.3.7, in ICC mode the chip's averaged
+    //   feedback measurement period Tmeas equals the dither period
+    //   TDither, which itself is built from a per-channel reference
+    //   clock tref_clk programmed in DITHER_CLK_DIV. The chip POR
+    //   default of DITHER_CLK_DIV = 0x0000 makes tref_clk = 0 and the
+    //   feedback averager NEVER runs.
     //
-    //   The high-level ConfigureDither(amplitude_ma, frequency_hz) API
-    //   computes step_size = STEPS × amplitude × 32767 / (2A × NumSteps),
-    //   which underflows to 0 for small amplitudes (e.g. 5 mA → 0).
-    //   Use the raw API with explicit non-zero step_size so dither is
-    //   actually enabled. Per datasheet:
-    //     I_dither = STEPS × STEP_SIZE × 2 A / 32767
-    //     T_dither = [4×STEPS + 2×FLAT] × t_ref_clk
-    //   With STEPS=32, STEP_SIZE=4, FLAT=4:
-    //     I_dither = 32 × 4 × 2A / 32767 ≈ 7.8 mA
-    //     T_dither = (128 + 8) × t_ref_clk ≈ 136 × t_ref_clk
-    //   Small enough not to disturb the LM-Pro position, large enough
-    //   to give the chip a Tmeas window for telemetry updates.
-    constexpr uint16_t kDitherStepSize = 4;
-    constexpr uint8_t  kDitherSteps    = 32;
-    constexpr uint8_t  kDitherFlat     = 4;
-    if (auto rc = g_driver->ConfigureDitherRaw(cfg::kChannel,
-                                               kDitherStepSize,
-                                               kDitherSteps,
-                                               kDitherFlat); !rc) {
-        ESP_LOGE(TAG, "ConfigureDitherRaw failed: %u",
+    //   The high-level `ConfigureDither(amplitude_ma, frequency_hz)`
+    //   API now also writes DITHER_CLK_DIV automatically, picking a
+    //   tref_clk that lands the requested frequency with the helper's
+    //   default STEPS=16 / FLAT=2 sub-cycle counts.
+    //
+    //   The LM-Pro is a low-static-friction linear motor that does not
+    //   need dither for plunger movement; we use a small amplitude
+    //   purely to unlock the FB readback path.
+    constexpr float kDitherAmplitude_mA = 10.0f;
+    constexpr float kDitherFrequency_Hz = 100.0f;     // 10 ms TDither = Tmeas
+    if (auto rc = g_driver->ConfigureDither(cfg::kChannel,
+                                            kDitherAmplitude_mA,
+                                            kDitherFrequency_Hz); !rc) {
+        ESP_LOGE(TAG, "ConfigureDither failed: %u",
                  static_cast<unsigned>(rc.error()));
         return false;
     }
     ESP_LOGI(TAG,
-             "✅ Dither: step=%u steps=%u flat=%u → ~7.8 mA amplitude "
-             "(provides Tmeas for FB_* readback)",
-             static_cast<unsigned>(kDitherStepSize),
-             static_cast<unsigned>(kDitherSteps),
-             static_cast<unsigned>(kDitherFlat));
+             "✅ Dither: %.1f mA @ %.0f Hz "
+             "(provides Tmeas for FB_DC / FB_I_AVG readback)",
+             static_cast<double>(kDitherAmplitude_mA),
+             static_cast<double>(kDitherFrequency_Hz));
 
     return true;
 }

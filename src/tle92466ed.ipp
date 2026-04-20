@@ -716,6 +716,47 @@ DriverResult<void> Driver<CommType>::ConfigurePwmPeriodRaw(Channel channel, uint
 }
 
 template <typename CommType>
+DriverResult<void> Driver<CommType>::ConfigureDitherClock(Channel channel,
+                                                          float t_ref_clk_us,
+                                                          bool dither_pwm_sync,
+                                                          bool dither_setpoint_sync) noexcept {
+  if (auto result = checkInitialized(); !result) {
+    return result;
+  }
+  if (!isValidChannelInternal(channel)) {
+    return tle::unexpected(DriverError::InvalidChannel);
+  }
+  if (t_ref_clk_us <= 0.0F) {
+    comm_.Log(LogLevel::Error, "TLE92466ED",
+              "ConfigureDitherClock: t_ref_clk_us must be > 0 (got %.3f)",
+              static_cast<double>(t_ref_clk_us));
+    return tle::unexpected(DriverError::InvalidParameter);
+  }
+
+  auto cfg = DITHER_CLK_DIV::CalculateFromTrefClkUs(t_ref_clk_us);
+  cfg.dither_pwm_sync_en      = dither_pwm_sync;
+  cfg.dither_setpoint_sync_en = dither_setpoint_sync;
+
+  const float    actual_us = cfg.CalculateTrefClkUs();
+  const uint16_t reg_value = cfg.ToRegister();
+
+  comm_.Log(LogLevel::Info, "TLE92466ED",
+            "Configuring dither clock: Channel=%s, Requested=%.3f µs, "
+            "Actual=%.3f µs, MANT=%u, EXP=%u, PwmSync=%s, SetpointSync=%s, "
+            "Register=0x%04X",
+            ToString(channel),
+            static_cast<double>(t_ref_clk_us),
+            static_cast<double>(actual_us),
+            cfg.mantissa, cfg.exponent,
+            dither_pwm_sync       ? "true" : "false",
+            dither_setpoint_sync  ? "true" : "false",
+            reg_value);
+
+  const uint16_t addr = GetChannelRegister(channel, ChannelReg::DITHER_CLK_DIV);
+  return WriteRegister(addr, reg_value);
+}
+
+template <typename CommType>
 DriverResult<void> Driver<CommType>::ConfigureDither(Channel channel, float amplitude_ma, float frequency_hz,
                                            bool parallel_mode) noexcept {
 
@@ -738,6 +779,28 @@ DriverResult<void> Driver<CommType>::ConfigureDither(Channel channel, float ampl
     if (parallel_result) {
       parallel_mode = *parallel_result;
     }
+  }
+
+  //
+  // Pick a tref_clk that lands on the requested dither frequency with the
+  // helper's defaults of STEPS=16, FLAT=2  (= 4×16 + 2×2 = 68 sub-cycles
+  // per dither period). Then write DITHER_CLK_DIV before computing the
+  // amplitude scaling, so the chip's averager has a non-zero Tmeas.
+  //
+  // Per datasheet §5.3.3.7 the chip's POR default of DITHER_CLK_DIV =
+  // 0x0000 leaves tref_clk = 0 and the averaged-feedback engine
+  // disabled; without programming this register, FB_DC / FB_I_AVG /
+  // FB_VBAT stay at 0 forever even though the chip is happily driving
+  // the load.
+  //
+  constexpr float kDefaultStepsForFreqCalc = 16.0F;
+  constexpr float kDefaultFlatForFreqCalc  = 2.0F;
+  const float dither_period_us = 1'000'000.0F / frequency_hz;
+  const float t_ref_clk_us = dither_period_us
+      / (4.0F * kDefaultStepsForFreqCalc + 2.0F * kDefaultFlatForFreqCalc);
+
+  if (auto result = ConfigureDitherClock(channel, t_ref_clk_us); !result) {
+    return result;
   }
 
   // Calculate dither configuration from amplitude and frequency

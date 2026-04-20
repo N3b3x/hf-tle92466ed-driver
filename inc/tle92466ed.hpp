@@ -567,6 +567,43 @@ public:
                                                       uint8_t flat_steps) noexcept;
 
   /**
+   * @brief Configure the per-channel dither reference clock (DITHER_CLK_DIV).
+   *
+   * Per datasheet §5.3.3.7, DITHER_CLK_DIV (offset 0x0004 within each
+   * channel bank) sets the dither reference clock used by both the
+   * dither generator and the averaged-feedback engine:
+   *
+   *     tref_clk = MANT × 2^EXP / fSYS
+   *
+   * **POR reset value is 0x0000** which makes tref_clk = 0, the dither
+   * period TDither = 0, and (in ICC mode) the measurement period
+   * Tmeas = TDither = 0 — so FB_DC / FB_I_AVG / FB_VBAT NEVER update.
+   * The high-level `ConfigureDither()` API calls this function
+   * automatically with values derived from the requested dither
+   * frequency. Use this API directly if you need a specific tref_clk
+   * (e.g. to control the FB update rate independently from the dither
+   * amplitude/period).
+   *
+   * @param channel               Channel to configure
+   * @param t_ref_clk_us          Desired reference clock period in microseconds.
+   *                              The driver picks the closest representable
+   *                              MANT/EXP and logs the actual value used.
+   *                              Must be > 0; minimum 0.125 µs (1/fSYS).
+   * @param dither_pwm_sync       If true, synchronise dither period start with
+   *                              PWM rising edge (DITHER_PWM_SYNC_EN).
+   * @param dither_setpoint_sync  If true, restart dither period on every
+   *                              setpoint change (DITHER_SETPOINT_SYNC_EN);
+   *                              required for the lockstep-feedback mode
+   *                              described in datasheet §4.7.5.
+   * @return DriverResult<void> Success or error
+   */
+  [[nodiscard]] DriverResult<void> ConfigureDitherClock(
+      Channel channel,
+      float t_ref_clk_us,
+      bool dither_pwm_sync = false,
+      bool dither_setpoint_sync = false) noexcept;
+
+  /**
    * @brief Configure channel slew rate and diagnostics
    *
    * @param channel Channel to configure

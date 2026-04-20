@@ -817,18 +817,123 @@ constexpr uint16_t DEFAULT = 0x0000; ///< Default value
 // DITHER HELPER FUNCTIONS
 //==============================================================================
 
+//==============================================================================
+// DITHER_CLK_DIV REGISTER - Per Channel  (offset 0x0004 within channel bank)
+//==============================================================================
+
+/**
+ * @brief DITHER_CLK_DIV register bitfield definitions and helpers
+ *
+ * @details
+ * Per datasheet §5.3.3.7 (Dither Clock Register, offset 0x0004):
+ *
+ *   Bit 15      DITHER_SETPOINT_SYNC_EN  (0 = disabled, 1 = enabled)
+ *   Bit 14      DITHER_PWM_SYNC_EN       (0 = disabled, 1 = enabled)
+ *   Bits 13:10  EXP                      (4-bit exponent, 0..15)
+ *   Bits 9:0    MANT                     (10-bit mantissa, 0..1023)
+ *
+ * The dither reference clock is `tref_clk = MANT × 2^EXP / fSYS`. From this,
+ * the dither period is `TDither = (4×STEPS + 2×FLAT) × tref_clk` and the
+ * averaged feedback measurement period is `Tmeas = TDither` in ICC mode
+ * (per §4.4.2 "Channel Modes").
+ *
+ * **POR reset value is 0x0000** which gives MANT=0, EXP=0 → tref_clk = 0,
+ * which means TDither = 0 and the per-channel feedback averager NEVER runs
+ * (FB_DC / FB_I_AVG / FB_VBAT stay at 0 forever). DITHER_CLK_DIV must
+ * therefore be explicitly programmed before any channel feedback can be
+ * read back from those registers.
+ */
+namespace DITHER_CLK_DIV {
+constexpr uint16_t MANT_MASK         = 0x03FFu;       ///< 10-bit mantissa mask
+constexpr uint16_t EXP_SHIFT         = 10u;           ///< Exponent bit position
+constexpr uint16_t EXP_MASK          = 0x3C00u;       ///< 4-bit exponent mask
+constexpr uint8_t  EXP_VALUE_MASK    = 0x0Fu;         ///< Exponent value (4 bits)
+constexpr uint16_t DITHER_PWM_SYNC_EN_BIT      = (1u << 14);
+constexpr uint16_t DITHER_SETPOINT_SYNC_EN_BIT = (1u << 15);
+
+constexpr uint32_t F_SYS_HZ          = 8'000'000UL;   ///< System clock (8 MHz)
+constexpr float    F_SYS_PERIOD_US   = 0.125F;        ///< 1 / fSYS (µs)
+
+/// Encoded DITHER_CLK_DIV configuration.
+struct ClkDivConfig {
+  uint16_t mantissa;                  ///< MANT field (0..1023)
+  uint8_t  exponent;                  ///< EXP field  (0..15)
+  bool     dither_pwm_sync_en;        ///< DITHER_PWM_SYNC_EN
+  bool     dither_setpoint_sync_en;   ///< DITHER_SETPOINT_SYNC_EN
+
+  /// Compute the resulting tref_clk in microseconds.
+  [[nodiscard]] constexpr float CalculateTrefClkUs() const noexcept {
+    return static_cast<float>(mantissa)
+         * static_cast<float>(1ULL << exponent)
+         * F_SYS_PERIOD_US;
+  }
+
+  /// Pack into the raw 16-bit register value.
+  [[nodiscard]] constexpr uint16_t ToRegister() const noexcept {
+    return (mantissa & MANT_MASK)
+         | ((static_cast<uint16_t>(exponent) & EXP_VALUE_MASK) << EXP_SHIFT)
+         | (dither_pwm_sync_en      ? DITHER_PWM_SYNC_EN_BIT      : 0u)
+         | (dither_setpoint_sync_en ? DITHER_SETPOINT_SYNC_EN_BIT : 0u);
+  }
+};
+
+/**
+ * @brief Pick MANT/EXP that approximate a desired tref_clk in microseconds.
+ *
+ * Tries every exponent 0..15 and rounds MANT to the nearest valid value
+ * (1..1023). Returns the closest representable tref_clk.
+ *
+ * @note MANT is forced ≥ 1 (MANT=0 disables the chip's averager).
+ *
+ * @param  t_ref_clk_us  Desired reference clock period in microseconds.
+ * @return ClkDivConfig with the dither-sync flags zeroed; the caller can
+ *         OR them on as needed.
+ */
+[[nodiscard]] inline ClkDivConfig CalculateFromTrefClkUs(float t_ref_clk_us) noexcept {
+  ClkDivConfig best{};
+  best.mantissa = 1;
+  best.exponent = 0;
+  best.dither_pwm_sync_en      = false;
+  best.dither_setpoint_sync_en = false;
+
+  if (t_ref_clk_us <= 0.0F) return best;
+
+  float best_err = 1e30F;
+  for (uint8_t exp = 0; exp <= 15; ++exp) {
+    const float divisor = static_cast<float>(1ULL << exp) * F_SYS_PERIOD_US;
+    const float mant_f  = t_ref_clk_us / divisor;
+    if (mant_f < 1.0F)    continue;       // mantissa would round to 0
+    if (mant_f > 1023.0F) continue;       // out of 10-bit range
+    const uint16_t mant = static_cast<uint16_t>(mant_f + 0.5F);
+    const float    actual = static_cast<float>(mant) * divisor;
+    const float    err    = std::fabs(actual - t_ref_clk_us);
+    if (err < best_err) {
+      best_err = err;
+      best.mantissa = mant;
+      best.exponent = exp;
+    }
+  }
+  return best;
+}
+
+}  // namespace DITHER_CLK_DIV
+
 /**
  * @brief Dither configuration helper functions
  *
  * @details
- * Provides high-level functions to calculate dither parameters from user-friendly values.
+ * Provides high-level functions to calculate dither parameters from
+ * user-friendly values.
  *
  * **Formulas**:
  * - I_dither = STEPS × STEP_SIZE × 2A / 32767
  * - T_dither = [4×STEPS + 2×FLAT] × t_ref_clk
  *
- * Where t_ref_clk depends on DITHER_CLK_DIV register (typically f_sys / divider).
- * For default DITHER_CLK_DIV = 0, t_ref_clk = 1/f_sys = 0.125 µs
+ * Where t_ref_clk is set by the per-channel DITHER_CLK_DIV register
+ * (see DITHER_CLK_DIV namespace above). The chip's POR default of
+ * DITHER_CLK_DIV = 0x0000 makes t_ref_clk = 0, so any channel that
+ * needs feedback values populated MUST have DITHER_CLK_DIV programmed
+ * to a non-zero MANT/EXP combination first.
  */
 namespace DITHER {
 constexpr float F_SYS_HZ = 8'000'000.0F;       ///< System clock frequency (8 MHz)
