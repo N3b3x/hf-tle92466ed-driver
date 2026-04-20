@@ -1,11 +1,10 @@
 var searchData=
 [
-  ['tag_0',['tag',['../structTestTaskContext.html#ae51f49c33ea802bc7f8bdde560a27304',1,'TestTaskContext']]],
-  ['tag_1',['TAG',['../classEsp32Tle92466edSpiBus.html#a600e90229e8b9a5adb891ed7acf1a6bb',1,'Esp32Tle92466edSpiBus::TAG'],['../driver__integration__test_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c',1,'TAG:&#160;driver_integration_test.cpp'],['../solenoid__control__test_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c',1,'TAG:&#160;solenoid_control_test.cpp']]],
-  ['test_5fduration_5fms_2',['TEST_DURATION_MS',['../structTLE92466ED__TestConfig_1_1TestConfig.html#a0bfc6f1c08f4ab5603e90d8c3fed98a5',1,'TLE92466ED_TestConfig::TestConfig']]],
-  ['test_5ffunc_3',['test_func',['../structTestTaskContext.html#aa72faa223fd0ff992772b12458f62ec8',1,'TestTaskContext']]],
-  ['test_5fname_4',['test_name',['../structTestTaskContext.html#abcf19d2762ab98990c3fdc1eacf86130',1,'TestTaskContext']]],
-  ['test_5fprogress_5fpin_5',['TEST_PROGRESS_PIN',['../TestFramework_8h.html#a0897f1535fcbb73063a032f07550b12e',1,'TestFramework.h']]],
-  ['total_5fexecution_5ftime_5fus_6',['total_execution_time_us',['../structTestResults.html#a7eddc258a4288ac5f0a36a1008c9d014',1,'TestResults']]],
-  ['total_5ftests_7',['total_tests',['../structTestResults.html#afe20b168a13950ffca7296c0c56d4359',1,'TestResults']]]
+  ['sample_5frate_5fhz_0',['SAMPLE_RATE_HZ',['../structADCConfig.html#a415709e661142f4d02963380147572bd',1,'ADCConfig']]],
+  ['sclk_1',['SCLK',['../structTLE92466ED__TestConfig_1_1SPIPins.html#a41782c91af07fc43521527f1ada311ef',1,'TLE92466ED_TestConfig::SPIPins']]],
+  ['sclk_5fpin_2',['sclk_pin',['../structEsp32Tle92466edSpiBus_1_1SPIConfig.html#ac7dcc7ffef89538e66b2c0af29f2f3ba',1,'Esp32Tle92466edSpiBus::SPIConfig']]],
+  ['single_5fchannel_5fmax_3',['SINGLE_CHANNEL_MAX',['../structTLE92466ED__TestConfig_1_1CurrentLimits.html#aa6e214ca2a7e8aae7fbf3ac68be1ee1d',1,'TLE92466ED_TestConfig::CurrentLimits']]],
+  ['single_5fchannel_5fmin_4',['SINGLE_CHANNEL_MIN',['../structTLE92466ED__TestConfig_1_1CurrentLimits.html#a8809a699bc2464e910742e10609e546a',1,'TLE92466ED_TestConfig::CurrentLimits']]],
+  ['spi_5fdevice_5f_5',['spi_device_',['../classEsp32Tle92466edSpiBus.html#aa2ade5d165ae594007a6e7c0f9a4ce4c',1,'Esp32Tle92466edSpiBus']]],
+  ['stats_5freport_5finterval_5fms_6',['STATS_REPORT_INTERVAL_MS',['../structTLE92466ED__TestConfig_1_1AppConfig.html#a73d040921dd27c8d9446c7aa0848c66f',1,'TLE92466ED_TestConfig::AppConfig']]]
 ];
