@@ -31,11 +31,11 @@ static const char* TAG = "DiagBist";
 extern "C" void app_main() {
   ESP_LOGI(TAG, "TLE92466ED Diagnostics + BIST Example");
 
-  auto bus = std::make_unique<Esp32TLE92466ED_Bus>();
+  auto bus = std::make_unique<Esp32Tle92466edSpiBus>();
   if (auto r = bus->Init(); !r) {
     ESP_LOGE(TAG, "Bus init failed"); return;
   }
-  auto drv = std::make_unique<Driver<Esp32TLE92466ED_Bus>>(*bus);
+  auto drv = std::make_unique<Driver<Esp32Tle92466edSpiBus>>(*bus);
 
   (void)drv->SetReset(true);
   vTaskDelay(pdMS_TO_TICKS(5));

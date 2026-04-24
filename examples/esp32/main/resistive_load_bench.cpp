@@ -46,13 +46,13 @@ static constexpr int32_t  kAccuracyToleranceMa   = 2500; // \u00b12.5 mA
 extern "C" void app_main() {
   ESP_LOGI(TAG, "TLE92466ED Resistive-Load Bench (300 \u03a9 on CH0)");
 
-  auto bus = std::make_unique<Esp32TLE92466ED_Bus>();
+  auto bus = std::make_unique<Esp32Tle92466edSpiBus>();
   if (auto r = bus->Init(); !r) {
     ESP_LOGE(TAG, "Bus init failed: %d", static_cast<int>(r.error()));
     return;
   }
 
-  auto drv = std::make_unique<Driver<Esp32TLE92466ED_Bus>>(*bus);
+  auto drv = std::make_unique<Driver<Esp32Tle92466edSpiBus>>(*bus);
 
   if (auto r = drv->SetReset(true); !r)  { ESP_LOGE(TAG, "reset LOW failed");  return; }
   vTaskDelay(pdMS_TO_TICKS(5));
