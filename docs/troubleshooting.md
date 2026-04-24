@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "üêõ Troubleshooting"
+title: "Troubleshooting"
 description: "Common issues and solutions for the TLE92466ED driver"
 nav_order: 8
 parent: "üìö Documentation"
@@ -292,11 +292,11 @@ if (auto verified = driver.VerifyDevice(); verified && *verified) {
 
 ---
 
-## Phase 2ñ6 Extended API Issues
+## Phase 2‚Äì6 Extended API Issues
 
 ---
 
-### Error: Clock Configuration ó PLL Parameters Out of Range
+### Error: Clock Configuration ‚Äî PLL Parameters Out of Range
 
 **Symptoms:**
 
@@ -305,18 +305,18 @@ if (auto verified = driver.VerifyDevice(); verified && *verified) {
 
 **Causes:**
 
-- External clock frequency outside 1ñ8 MHz PLL input range
+- External clock frequency outside 1‚Äì8 MHz PLL input range
 - Calculated FBDIV does not fit in 9 bits (exceeds 511)
 
 **Solutions:**
 
-1. **Use external clock within 1ñ8 MHz**: `ConfigureClockSource(ClockSource::ExternalClockPll, 4000000)` (4 MHz)
-2. **Check calculated FBDIV**: `FBDIV = round(28e6 / f_clk_hz) - 1` must be = 511 (satisfied for f_clk_hz = ~55 kHz, which is always true in the 1ñ8 MHz range)
+1. **Use external clock within 1‚Äì8 MHz**: `ConfigureClockSource(ClockSource::ExternalClockPll, 4000000)` (4 MHz)
+2. **Check calculated FBDIV**: `FBDIV = round(28e6 / f_clk_hz) - 1` must be = 511 (satisfied for f_clk_hz = ~55 kHz, which is always true in the 1‚Äì8 MHz range)
 3. **Use internal oscillator** if no external clock is available: `ConfigureClockSource(ClockSource::InternalOscillator)`
 
 ---
 
-### Error: Integrator Limits ó Constraint Violation
+### Error: Integrator Limits ‚Äî Constraint Violation
 
 **Symptoms:**
 
@@ -338,7 +338,7 @@ if (auto verified = driver.VerifyDevice(); verified && *verified) {
 
 ---
 
-### Error: EnterMissionModeChecked ó Fault on Entry
+### Error: EnterMissionModeChecked ‚Äî Fault on Entry
 
 **Symptoms:**
 
@@ -360,7 +360,7 @@ if (auto verified = driver.VerifyDevice(); verified && *verified) {
 
 ---
 
-### Error: ReadChannelFeedback ó Timeout
+### Error: ReadChannelFeedback ‚Äî Timeout
 
 **Symptoms:**
 
@@ -369,21 +369,21 @@ if (auto verified = driver.VerifyDevice(); verified && *verified) {
 
 **Causes:**
 
-- Channel is disabled or not in ICC mode ó the feedback registers are not updated
+- Channel is disabled or not in ICC mode ‚Äî the feedback registers are not updated
 - `timeout_ms` too short for the configured PWM period (snapshot takes at least one full PWM period to update)
 - FB_UPD bit not asserting because FB_FRZ was written to the wrong channel index
 
 **Solutions:**
 
 1. **Enable the channel first**: ensure `EnableChannel(ch, true)` has been called and the channel is in `ChannelMode::ICC`
-2. **Increase timeout**: increase `timeout_ms` to at least `2 ◊ PWM_period_ms`
+2. **Increase timeout**: increase `timeout_ms` to at least `2 √ó PWM_period_ms`
    - For 1 kHz PWM (1 ms period) use `timeout_ms = 5` (default)
    - For 100 Hz PWM (10 ms period) use `timeout_ms = 30`
 3. **Verify ICC is settled**: wait at least 200 ms after changing setpoint before reading feedback
 
 ---
 
-### Error: RunSffBist ó Not Done / Fail
+### Error: RunSffBist ‚Äî Not Done / Fail
 
 **Symptoms:**
 
@@ -392,20 +392,20 @@ if (auto verified = driver.VerifyDevice(); verified && *verified) {
 
 **Causes:**
 
-- `done=false`: BIST did not complete within `timeout_ms` ó supply voltage marginal or timeout too short
+- `done=false`: BIST did not complete within `timeout_ms` ‚Äî supply voltage marginal or timeout too short
 - `pass=false` + `uncorrectable_reg_err=true`: hardware register memory fault in the IC
-- `pass=false` + `correctable_reg_err=true`: single-bit error corrected by ECC ó may be transient
+- `pass=false` + `correctable_reg_err=true`: single-bit error corrected by ECC ‚Äî may be transient
 
 **Solutions:**
 
 1. **Increase timeout**: pass `timeout_ms = 50` if the default 10 ms is insufficient
 2. **Verify supplies**: VBAT and VIO must be stable within spec for BIST to run
-3. **Power-cycle and retry**: if `correctable_reg_err=true` on a single run, retry ó transient upsets can occur
+3. **Power-cycle and retry**: if `correctable_reg_err=true` on a single run, retry ‚Äî transient upsets can occur
 4. **Replace device**: if `uncorrectable_reg_err=true` persists across multiple power cycles, the IC has a permanent fault
 
 ---
 
-### Error: RunSupplyMonitorSelfTest ó Phase Failure
+### Error: RunSupplyMonitorSelfTest ‚Äî Phase Failure
 
 **Symptoms:**
 
@@ -420,7 +420,7 @@ if (auto verified = driver.VerifyDevice(); verified && *verified) {
 
 **Solutions:**
 
-1. **Run at nominal voltages**: ensure VBAT ò 12 V or 24 V and VIO ò 3.3 V or 5 V ó do not run at supply extremes
+1. **Run at nominal voltages**: ensure VBAT ‚âà 12 V or 24 V and VIO ‚âà 3.3 V or 5 V ‚Äî do not run at supply extremes
 2. **Do not run while loads are enabled**: disable all channels before calling `RunSupplyMonitorSelfTest()`
 3. **Check CRC is enabled**: CRC-protected SPI is required for the test-mode write to take effect reliably; call `SetCrcEnabled(true)` before the self-test
 

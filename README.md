@@ -143,11 +143,11 @@ For complete documentation, see the [docs directory](docs/index.md).
 
 | Resource | Link |
 |----------|------|
-| Infineon TLE92466ED product page | <https://www.infineon.com/cms/en/product/power/motor-control-ics/intelligent-motor-control-ics/multi-half-bridge-ics/tle92466ed/> |
-| TLE92466ED datasheet (Infineon) | <https://www.infineon.com/dgdl/Infineon-TLE92466ED-DataSheet-v01_00-EN.pdf> |
-| ESP-IDF SPI master | <https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/peripherals/spi_master.html> |
-| `std::expected` (C++23) reference | <https://en.cppreference.com/w/cpp/utility/expected> |
-| C++20 language reference | <https://en.cppreference.com/w/cpp/20> |
+| Infineon TLE92466ED product page | [Infineon product page](https://www.infineon.com/cms/en/product/power/motor-control-ics/intelligent-motor-control-ics/multi-half-bridge-ics/tle92466ed/) |
+| TLE92466ED datasheet (Infineon) | [Datasheet PDF](https://www.infineon.com/dgdl/Infineon-TLE92466ED-DataSheet-v01_00-EN.pdf) |
+| ESP-IDF SPI master | [SPI master (ESP-IDF)](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/peripherals/spi_master.html) |
+| `std::expected` (C++23) reference | [cppreference — `std::expected`](https://en.cppreference.com/w/cpp/utility/expected) |
+| C++20 language reference | [cppreference — C++20](https://en.cppreference.com/w/cpp/20) |
 
 ## 🤝 Contributing
 
