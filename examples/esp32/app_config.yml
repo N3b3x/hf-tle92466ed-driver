@@ -103,6 +103,45 @@ apps:
       - "Real hardware testing with actual solenoids"
       - "Continuous monitoring and diagnostics"
 
+  # --------------------------------------------------------------------------
+  # Resistive-Load Bench (300 Ω on CH0) - Phase 7
+  # --------------------------------------------------------------------------
+  resistive_load_bench:
+    description: "300 Ω resistive bench: ICC setpoint sweep + atomic feedback verification"
+    source_file: "resistive_load_bench.cpp"
+    category: "test"
+    idf_versions: ["release/v5.5"]
+    build_types: ["Debug", "Release"]
+    ci_enabled: false
+    featured: true
+    hardware_required: true
+    documentation: "docs/README_RESISTIVE_LOAD_BENCH.md"
+    features:
+      - "300 Ω power resistor on CH0, VBAT ≈ 12 V (theoretical 40 mA max)"
+      - "Sweeps ICC setpoint 5…40 mA in 5 mA steps"
+      - "Uses atomic ReadChannelFeedback() (FB_FRZ/FB_UPD) for coherent snapshots"
+      - "Validates ±2.5 mA accuracy at each step"
+      - "Reports VBAT, duty cycle, IMIN/IMAX alongside the average current"
+
+  # --------------------------------------------------------------------------
+  # Diagnostics + BIST example - Phase 7
+  # --------------------------------------------------------------------------
+  diagnostics_and_bist:
+    description: "SFF_BIST, PIN_STAT, FAULT_MASK, supply-monitor self-test"
+    source_file: "diagnostics_and_bist.cpp"
+    category: "test"
+    idf_versions: ["release/v5.5"]
+    build_types: ["Debug"]
+    ci_enabled: true
+    featured: false
+    hardware_required: false
+    documentation: "docs/README_DIAGNOSTICS_AND_BIST.md"
+    features:
+      - "Exercises RunSffBist()"
+      - "Reads PIN_STAT snapshot and OperationState"
+      - "Runs RunSupplyMonitorSelfTest() (UV/OV swap, V1V5 UV/OV, OT_TEST)"
+      - "Demonstrates SetFaultMask() to toggle FAULTN contribution"
+
 # ============================================================================
 # BUILD CONFIGURATION (ESP-IDF Standard Build Types)
 # ============================================================================

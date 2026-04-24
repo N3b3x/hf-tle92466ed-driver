@@ -43,10 +43,15 @@ The driver uses a hardware-agnostic communication interface design, allowing it 
 - ✅ **Six Independent Channels**: Low-side outputs for solenoid/inductive load control
 - ✅ **Precision Current Control**: 15-bit resolution (0.061mA steps), 0-2A single channel, 0-4A parallel mode
 - ✅ **Integrated Current Controller (ICC)**: Automatic current regulation with configurable PWM frequency
+- ✅ **ICC Integrator Tuning**: Configurable integrator limits, Ki gain, manual on-time mode, and threshold seeding from live feedback
 - ✅ **Parallel Operation**: Channel pairs (0/3, 1/2, 4/5) for doubled current capability
-- ✅ **Dither Support**: Configurable amplitude and frequency for precise current shaping
-- ✅ **Comprehensive Diagnostics**: Overcurrent, overtemperature, open load, short-to-ground detection
-- ✅ **Supply Monitoring**: VBAT, VIO, and VDD voltage monitoring with configurable thresholds
+- ✅ **Dither Support**: Basic and advanced dither with deep-dither, sync-with-PWM/setpoint, and fast-measure modes
+- ✅ **Clock Configuration**: Internal oscillator or external clock with automatic PLL (REFDIV/FBDIV) calculation targeting 28 MHz fSYS
+- ✅ **Supply Monitoring**: VBAT, VIO, VDD voltage monitoring; junction temperature readback; supply-monitor self-test
+- ✅ **Comprehensive Diagnostics**: Overcurrent, overtemperature, open load, short-to-ground detection; OLSG timeout; off-state diagnostic injection; SFF_BIST; PIN_STAT readback
+- ✅ **Fault Mask Control**: Per-source enable/suppress of FAULTN pin contribution via FAULT_MASK0/1/2
+- ✅ **Atomic Channel Feedback**: Coherent per-channel snapshot (avg current, duty cycle, VBAT, IMIN/IMAX, period min/max, integrator threshold) using FB_FRZ/FB_UPD handshake
+- ✅ **Safe Mission-Mode Entry**: `EnterMissionModeChecked()` waits for settle time and verifies no fault
 - ✅ **Hardware Agnostic**: SPI interface for platform independence
 - ✅ **Modern C++20**: Using `tle::expected` (polyfill for `std::expected`) for type-safe error handling without exceptions
 - ✅ **Zero Overhead**: All functions `noexcept`, freestanding-compatible
@@ -98,9 +103,27 @@ For detailed installation instructions, see [docs/installation.md](docs/installa
 |--------|-------------|
 | `Init()` | Initialize the driver and hardware |
 | `EnterMissionMode()` | Enter mission mode (enables channel control) |
+| `EnterMissionModeChecked()` | Enter mission mode, settle, verify no fault |
 | `SetChannelMode()` | Set channel operation mode (ICC, Direct Drive, etc.) |
 | `SetCurrentSetpoint()` | Set current setpoint for a channel |
 | `EnableChannel()` | Enable or disable a channel |
+| `ConfigurePwmPeriod()` | Set ICC PWM frequency |
+| `ConfigureDither()` | Set dither amplitude and frequency |
+| `SetDitherAdvanced()` | Full dither setup including deep-dither and fast-measure mode |
+| `ConfigureClockSource()` | Select internal OSC or external PLL clock |
+| `ReadAllSupplyVoltages()` | Read VBAT, VIO, VDD (mV) and temperature (°C) |
+| `GetOperationState()` | Query current driver state (Reset/Config/Mission/CriticalFault) |
+| `SetIntegratorLimits()` | Configure ICC integrator absolute and auto-limit |
+| `SetPwmControllerKi()` | Set ICC Ki gain (4-bit) |
+| `SetManualOnTimeMode()` | Set manual on-time with automatic exponent selection |
+| `SeedIntegratorThresholdFromFeedback()` | Warm-start integrator threshold from live feedback |
+| `RunSffBist()` | Run SFF_BIST and return pass/fail + correctable/uncorrectable error flags |
+| `ReadPinStatus()` | Read DRV0/DRV1/EN/FAULTN/FAULTN_FB pin states |
+| `SetFaultMask()` | Enable or suppress a fault source on the FAULTN pin |
+| `SetOlsgTimeout()` | Configure open-load/short-to-GND detection timeout |
+| `ReadChannelFeedback()` | Read coherent per-channel snapshot (avg current, duty, VBAT, IMIN/IMAX, period) |
+| `ReadAllChannelFeedback()` | Read coherent snapshot for all 6 channels |
+| `RunSupplyMonitorSelfTest()` | Execute four-phase supply-monitor self-test |
 | `GetChannelDiagnostics()` | Get channel diagnostic information |
 | `GetAllFaults()` | Get comprehensive fault report |
 

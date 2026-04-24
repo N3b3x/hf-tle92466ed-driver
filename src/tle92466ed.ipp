@@ -89,6 +89,18 @@ DriverResult<void> Driver<CommType>::Init() noexcept {
   // 5. Device starts in Config Mode after power-up
   mission_mode_ = false;
 
+  // 5a. Fail-fast on uncalibrated / virgin silicon. Per datasheet \u00a75.3.2.11
+  //     p.66, GLOBAL_DIAG2.OTP_VIRGIN=1 means the device OTP trim is not
+  //     programmed, so all ICC current-regulation math is invalid. Refuse to
+  //     initialize so downstream code doesn't silently drive garbage currents.
+  if (auto diag2_result = ReadRegister(CentralReg::GLOBAL_DIAG2); diag2_result) {
+    if ((*diag2_result & GLOBAL_DIAG2::OTP_VIRGIN) != 0) {
+      comm_.Log(LogLevel::Error, "TLE92466ED",
+                "OTP_VIRGIN=1 \u2014 device OTP trim not programmed; refusing to initialize");
+      return tle::unexpected(DriverError::ConfigurationError);
+    }
+  }
+
   // 6. Apply default configuration
   if (auto result = applyDefaultConfig(); !result) {
     return tle::unexpected(result.error());
@@ -1052,54 +1064,72 @@ DriverResult<ChannelDiagnostics> Driver<CommType>::GetChannelDiagnostics(Channel
   }
 
   ChannelDiagnostics diag{};
+  const uint8_t  ch_idx = ToIndex(channel);
 
-  // Read DIAG_ERR register for this channel group
-  auto diag_err_result = ReadRegister(CentralReg::DIAG_ERR_CHGR0 + ToIndex(channel));
+  // ---- DIAG_ERR_CHGR (per-pair register, bits at 8*y offset) ----
+  // Per datasheet \u00a75.3.2.12 p.67 there are only 3 groups (CHGR0..CHGR2),
+  // each covering a channel pair. The correct bit layout for each channel is
+  //   OLSG=0, OL=1, OC=2, SG=3, OTE=4 (all shifted by 8*y).
+  const uint16_t diag_err_addr = DIAG_ERR_CHGR::AddressForChannel(ch_idx);
+  auto diag_err_result = ReadRegister(diag_err_addr);
   if (diag_err_result) {
-    uint16_t diag_err = *diag_err_result;
-    // Parse error flags (bit positions from datasheet Table in page 67)
-    diag.overcurrent = (diag_err & (1 << 0)) != 0;            // OC bit
-    diag.short_to_ground = (diag_err & (1 << 1)) != 0;        // SG bit
-    diag.open_load = (diag_err & (1 << 2)) != 0;              // OL bit
-    diag.over_temperature = (diag_err & (1 << 3)) != 0;       // OTE bit
-    diag.open_load_short_ground = (diag_err & (1 << 4)) != 0; // OLSG bit
+    const uint16_t diag_err = *diag_err_result;
+    diag.open_load_short_ground =
+        (diag_err & DIAG_ERR_CHGR::ChannelBitMask(ch_idx, DIAG_ERR_CHGR::BIT_OLSG)) != 0;
+    diag.open_load =
+        (diag_err & DIAG_ERR_CHGR::ChannelBitMask(ch_idx, DIAG_ERR_CHGR::BIT_OL))   != 0;
+    diag.overcurrent =
+        (diag_err & DIAG_ERR_CHGR::ChannelBitMask(ch_idx, DIAG_ERR_CHGR::BIT_OC))   != 0;
+    diag.short_to_ground =
+        (diag_err & DIAG_ERR_CHGR::ChannelBitMask(ch_idx, DIAG_ERR_CHGR::BIT_SG))   != 0;
+    diag.over_temperature =
+        (diag_err & DIAG_ERR_CHGR::ChannelBitMask(ch_idx, DIAG_ERR_CHGR::BIT_OTE))  != 0;
   }
 
-  // Read DIAG_WARN register for warnings
-  auto diag_warn_result = ReadRegister(CentralReg::DIAG_WARN_CHGR0 + ToIndex(channel));
+  // ---- DIAG_WARN_CHGR (per-pair register, bits at 8*y offset) ----
+  // Per datasheet \u00a75.3.2.13 p.68, bits are
+  //   PWM_REG=0, I_REG=1, OTW=2, OLSG_WARN=3, OLSG_WARN_CHK_NOK=4.
+  const uint16_t diag_warn_addr = DIAG_WARN_CHGR::AddressForChannel(ch_idx);
+  auto diag_warn_result = ReadRegister(diag_warn_addr);
   if (diag_warn_result) {
-    uint16_t diag_warn = *diag_warn_result;
-    diag.ot_warning = (diag_warn & (1 << 0)) != 0;
-    diag.current_regulation_warning = (diag_warn & (1 << 1)) != 0;
-    diag.pwm_regulation_warning = (diag_warn & (1 << 2)) != 0;
-    diag.olsg_warning = (diag_warn & (1 << 3)) != 0;
+    const uint16_t diag_warn = *diag_warn_result;
+    diag.pwm_regulation_warning =
+        (diag_warn & DIAG_WARN_CHGR::ChannelBitMask(ch_idx, DIAG_WARN_CHGR::BIT_PWM_REG))      != 0;
+    diag.current_regulation_warning =
+        (diag_warn & DIAG_WARN_CHGR::ChannelBitMask(ch_idx, DIAG_WARN_CHGR::BIT_I_REG))        != 0;
+    diag.ot_warning =
+        (diag_warn & DIAG_WARN_CHGR::ChannelBitMask(ch_idx, DIAG_WARN_CHGR::BIT_OTW))          != 0;
+    diag.olsg_warning =
+        (diag_warn & DIAG_WARN_CHGR::ChannelBitMask(ch_idx, DIAG_WARN_CHGR::BIT_OLSG_WARN))    != 0;
+    diag.olsg_check_not_performed =
+        (diag_warn & DIAG_WARN_CHGR::ChannelBitMask(ch_idx, DIAG_WARN_CHGR::BIT_OLSG_CHK_NOK)) != 0;
   }
 
-  // Read feedback values
-  uint16_t ch_base = GetChannelBase(channel);
+  // ---- Raw feedback reads (full 22-bit decode lives in Phase 6) ----
+  const uint16_t ch_base = GetChannelBase(channel);
 
-  auto fb_i_avg_result = ReadRegister(ch_base + ChannelReg::FB_I_AVG);
-  if (fb_i_avg_result) {
-    diag.average_current = *fb_i_avg_result;
+  if (auto r = ReadRegister(ch_base + ChannelReg::FB_I_AVG); r) {
+    diag.average_current = static_cast<uint16_t>(*r & 0xFFFFu);
+  }
+  if (auto r = ReadRegister(ch_base + ChannelReg::FB_DC); r) {
+    diag.duty_cycle = static_cast<uint16_t>(*r & 0xFFFFu);
+  }
+  if (auto r = ReadRegister(ch_base + ChannelReg::FB_VBAT); r) {
+    diag.vbat_feedback = static_cast<uint16_t>(*r & 0xFFFFu);
   }
 
-  auto fb_dc_result = ReadRegister(ch_base + ChannelReg::FB_DC);
-  if (fb_dc_result) {
-    diag.duty_cycle = *fb_dc_result;
-  }
-
-  auto fb_vbat_result = ReadRegister(ch_base + ChannelReg::FB_VBAT);
-  if (fb_vbat_result) {
-    diag.vbat_feedback = *fb_vbat_result;
-  }
-
-  // Read min/max current feedback (FB_IMIN_IMAX register)
-  // Register format: [15:8] = I_MAX, [7:0] = I_MIN
-  auto fb_minmax_result = ReadRegister(ch_base + ChannelReg::FB_IMIN_IMAX);
-  if (fb_minmax_result) {
-    uint16_t minmax = *fb_minmax_result;
-    diag.min_current = minmax & DeviceID::REVISION_MASK;        // Lower 8 bits
-    diag.max_current = (minmax >> 8) & DeviceID::REVISION_MASK; // Upper 8 bits
+  // FB_IMIN_IMAX decode: two 10-bit SIGNED fields, each scaled by 4000/511 mA.
+  // Per datasheet \u00a75.3.3.17 p.101. The previous code used an 8-bit unsigned
+  // split which produced nonsense values \u2014 fully replaced here.
+  if (auto r = ReadRegister(ch_base + ChannelReg::FB_IMIN_IMAX); r) {
+    const uint32_t minmax_raw = *r;
+    const int32_t imin_ma = FB_IMIN_IMAX::IMin_mA(minmax_raw);
+    const int32_t imax_ma = FB_IMIN_IMAX::IMax_mA(minmax_raw);
+    // Clamp into int16_t (valid range ~\u00b14007 mA, comfortably inside int16_t).
+    diag.min_current_mA = static_cast<int16_t>(
+        std::max<int32_t>(-32768, std::min<int32_t>(32767, imin_ma)));
+    diag.max_current_mA = static_cast<int16_t>(
+        std::max<int32_t>(-32768, std::min<int32_t>(32767, imax_ma)));
   }
 
   return diag;
@@ -1261,9 +1291,37 @@ DriverResult<void> Driver<CommType>::clearFaultsInternal() noexcept {
     return tle::unexpected(result.error());
   }
 
-  // Clear GLOBAL_DIAG2
+  // Clear GLOBAL_DIAG2. Per datasheet \u00a74.9.7, OTP_ECC_ERR requires TWO
+  // consecutive write-1-to-clear cycles before the latched flag is released.
+  // We always issue the second write unconditionally; it's a no-op for bits
+  // that were cleared by the first write.
   if (auto result = WriteRegister(CentralReg::GLOBAL_DIAG2, GLOBAL_DIAG2::CLEAR_ALL); !result) {
     return tle::unexpected(result.error());
+  }
+  if (auto result = WriteRegister(CentralReg::GLOBAL_DIAG2, GLOBAL_DIAG2::OTP_ECC_ERR); !result) {
+    return tle::unexpected(result.error());
+  }
+
+  // Clear per-pair DIAG_ERR_CHGRx registers (OLSG/OL/OC/SG/OTE).
+  // Per datasheet \u00a74.9.6 the OC flag specifically needs TWO consecutive
+  // write-1-to-clear cycles. The second pass covers both channels of every
+  // pair via DIAG_ERR_CHGR::OC_BOTH_MASK.
+  for (uint16_t g = 0; g < 3; ++g) {
+    const uint16_t addr = static_cast<uint16_t>(CentralReg::DIAG_ERR_CHGR0 + g);
+    if (auto result = WriteRegister(addr, 0xFFFFu); !result) {
+      return tle::unexpected(result.error());
+    }
+    if (auto result = WriteRegister(addr, DIAG_ERR_CHGR::OC_BOTH_MASK); !result) {
+      return tle::unexpected(result.error());
+    }
+  }
+
+  // Clear per-pair DIAG_WARN_CHGRx registers.
+  for (uint16_t g = 0; g < 3; ++g) {
+    const uint16_t addr = static_cast<uint16_t>(CentralReg::DIAG_WARN_CHGR0 + g);
+    if (auto result = WriteRegister(addr, 0xFFFFu); !result) {
+      return tle::unexpected(result.error());
+    }
   }
 
   return {};
@@ -1345,27 +1403,43 @@ DriverResult<FaultReport> Driver<CommType>::GetAllFaults() noexcept {
     report.supply_nok_external = (fb_stat & FB_STAT::SUP_NOK_EXT) != 0;
   }
 
-  // Read channel-specific faults
+  // Read channel-specific faults. Per \u00a75.3.2.12/13 each DIAG register covers
+  // a PAIR of channels via an 8*y bit offset. Use DIAG_*_CHGR::AddressForChannel
+  // and DIAG_*_CHGR::ChannelBitMask to pick the correct group and bits.
   for (uint8_t ch = 0; ch < 6; ++ch) {
-    // Read DIAG_ERR register
-    auto diag_err_result = ReadRegister(CentralReg::DIAG_ERR_CHGR0 + ch);
+    // --- Errors (DIAG_ERR_CHGRx) ---
+    const uint16_t err_addr = DIAG_ERR_CHGR::AddressForChannel(ch);
+    auto diag_err_result = ReadRegister(err_addr);
     if (diag_err_result) {
-      uint16_t diag_err = *diag_err_result;
-      report.channels[ch].overcurrent = (diag_err & (1 << 0)) != 0;
-      report.channels[ch].short_to_ground = (diag_err & (1 << 1)) != 0;
-      report.channels[ch].open_load = (diag_err & (1 << 2)) != 0;
-      report.channels[ch].over_temperature = (diag_err & (1 << 3)) != 0;
-      report.channels[ch].open_load_short_ground = (diag_err & (1 << 4)) != 0;
+      const uint16_t diag_err = *diag_err_result;
+      report.channels[ch].open_load_short_ground =
+          (diag_err & DIAG_ERR_CHGR::ChannelBitMask(ch, DIAG_ERR_CHGR::BIT_OLSG)) != 0;
+      report.channels[ch].open_load =
+          (diag_err & DIAG_ERR_CHGR::ChannelBitMask(ch, DIAG_ERR_CHGR::BIT_OL))   != 0;
+      report.channels[ch].overcurrent =
+          (diag_err & DIAG_ERR_CHGR::ChannelBitMask(ch, DIAG_ERR_CHGR::BIT_OC))   != 0;
+      report.channels[ch].short_to_ground =
+          (diag_err & DIAG_ERR_CHGR::ChannelBitMask(ch, DIAG_ERR_CHGR::BIT_SG))   != 0;
+      report.channels[ch].over_temperature =
+          (diag_err & DIAG_ERR_CHGR::ChannelBitMask(ch, DIAG_ERR_CHGR::BIT_OTE))  != 0;
     }
 
-    // Read DIAG_WARN register
-    auto diag_warn_result = ReadRegister(CentralReg::DIAG_WARN_CHGR0 + ch);
+    // --- Warnings (DIAG_WARN_CHGRx) ---
+    const uint16_t warn_addr = DIAG_WARN_CHGR::AddressForChannel(ch);
+    auto diag_warn_result = ReadRegister(warn_addr);
     if (diag_warn_result) {
-      uint16_t diag_warn = *diag_warn_result;
-      report.channels[ch].ot_warning = (diag_warn & (1 << 0)) != 0;
-      report.channels[ch].current_regulation_warning = (diag_warn & (1 << 1)) != 0;
-      report.channels[ch].pwm_regulation_warning = (diag_warn & (1 << 2)) != 0;
-      report.channels[ch].olsg_warning = (diag_warn & (1 << 3)) != 0;
+      const uint16_t diag_warn = *diag_warn_result;
+      report.channels[ch].pwm_regulation_warning =
+          (diag_warn & DIAG_WARN_CHGR::ChannelBitMask(ch, DIAG_WARN_CHGR::BIT_PWM_REG))   != 0;
+      report.channels[ch].current_regulation_warning =
+          (diag_warn & DIAG_WARN_CHGR::ChannelBitMask(ch, DIAG_WARN_CHGR::BIT_I_REG))     != 0;
+      report.channels[ch].ot_warning =
+          (diag_warn & DIAG_WARN_CHGR::ChannelBitMask(ch, DIAG_WARN_CHGR::BIT_OTW))       != 0;
+      report.channels[ch].olsg_warning =
+          (diag_warn & DIAG_WARN_CHGR::ChannelBitMask(ch, DIAG_WARN_CHGR::BIT_OLSG_WARN)) != 0;
+      // OLSG_WARN_CHK_NOK is surfaced via ChannelDiagnostics; FaultReport's
+      // per-channel bitset does not yet have a dedicated field. Intentionally
+      // not wired here so a POR-default CHK_NOK=1 is not reported as a fault.
     }
 
     // Check if channel has any fault
@@ -2090,16 +2164,13 @@ DriverResult<bool> Driver<CommType>::isChannelParallel(Channel channel) noexcept
     return tle::unexpected(DriverError::InvalidChannel);
   }
 
-  // Read CH_CTRL to check parallel configuration bits
-  auto ctrl_result = ReadRegister(CentralReg::CH_CTRL);
-  if (!ctrl_result) {
-    return tle::unexpected(ctrl_result.error());
-  }
+  // CH_CTRL is write-only on silicon \u2014 read-back always returns 0x0000.
+  // Use the driver-maintained shadow (ch_ctrl_cache_) to answer parallel-pair
+  // queries. Any API that mutates the parallel-pair bits MUST keep the cache
+  // synchronized (see SetParallelPair() in the channel-configuration section).
+  const uint16_t ch_ctrl = ch_ctrl_cache_;
+  const uint8_t  ch_index = ToIndex(channel);
 
-  uint16_t ch_ctrl = *ctrl_result;
-  uint8_t ch_index = ToIndex(channel);
-
-  // Check which parallel pair this channel belongs to
   switch (ch_index) {
   case 0:
   case 3:
@@ -2253,6 +2324,514 @@ void Driver<CommType>::diagnoseClockConfiguration() noexcept {
 
 #ifdef TLE92466ED_HEADER_INCLUDED
 // Included from header - namespace is already open, don't close it
+
+//============================================================================
+// PHASE 2-6 IMPLEMENTATIONS (clock/power/state, ICC integrator, dither,
+// diagnostics completeness, atomic feedback readout)
+//============================================================================
+
+// ---------------------------- Phase 2 helpers -------------------------------
+
+template <typename CommType>
+DriverResult<void>
+Driver<CommType>::ConfigureClockSource(ClockSource source, uint32_t f_clk_Hz) noexcept {
+  if (auto r = checkInitialized(); !r) return tle::unexpected(r.error());
+  if (auto r = checkConfigMode();   !r) return tle::unexpected(r.error());
+
+  uint16_t clk_div_value = CLK_DIV::INTERNAL_OSC;
+  if (source == ClockSource::ExternalClockPll) {
+    if (f_clk_Hz < 1'000'000UL || f_clk_Hz > 8'000'000UL) {
+      return tle::unexpected(DriverError::InvalidParameter);
+    }
+    auto cfg = CLK_DIV::CalculatePllFromExternalHz(f_clk_Hz);
+    if (cfg.fbdiv == 0 && cfg.actual_f_sys_hz == 0) {
+      return tle::unexpected(DriverError::InvalidParameter);
+    }
+    clk_div_value = CLK_DIV::BuildExternalPll(cfg.refdiv, cfg.fbdiv);
+    comm_.Log(LogLevel::Info, "TLE92466ED",
+              "ConfigureClockSource: external PLL (fCLK=%lu Hz, R=%u, N=%u, fSYS~=%lu Hz)",
+              static_cast<unsigned long>(f_clk_Hz), cfg.refdiv, cfg.fbdiv,
+              static_cast<unsigned long>(cfg.actual_f_sys_hz));
+  } else {
+    comm_.Log(LogLevel::Info, "TLE92466ED", "ConfigureClockSource: internal oscillator");
+  }
+  return WriteRegister(CentralReg::CLK_DIV, clk_div_value, false, false);
+}
+
+template <typename CommType>
+DriverResult<SupplyVoltages> Driver<CommType>::ReadAllSupplyVoltages() noexcept {
+  if (auto r = checkInitialized(); !r) return tle::unexpected(r.error());
+
+  auto v1 = ReadRegister(CentralReg::FB_VOLTAGE1, false);
+  if (!v1) return tle::unexpected(v1.error());
+  auto v2 = ReadRegister(CentralReg::FB_VOLTAGE2, false);
+  if (!v2) return tle::unexpected(v2.error());
+
+  SupplyVoltages out{};
+  out.vio_mV        = VOLTAGE_FEEDBACK::ExtractVioMillivolts(v1.value());
+  out.vdd_mV        = VOLTAGE_FEEDBACK::ExtractVddMillivolts(v1.value());
+  out.vbat_mV       = VOLTAGE_FEEDBACK::ExtractVbatMillivolts(v2.value());
+  out.temperature_c = VOLTAGE_FEEDBACK::TemperatureCelsiusFromFbVoltage2(v2.value());
+  return out;
+}
+
+template <typename CommType>
+DriverResult<float> Driver<CommType>::GetCentralTemperatureCelsius() noexcept {
+  auto r = ReadAllSupplyVoltages();
+  if (!r) return tle::unexpected(r.error());
+  return r->temperature_c;
+}
+
+template <typename CommType>
+DriverResult<void> Driver<CommType>::SetVioLevel(VioLevel level) noexcept {
+  if (auto r = checkInitialized(); !r) return tle::unexpected(r.error());
+  if (auto r = checkConfigMode();   !r) return tle::unexpected(r.error());
+
+  uint16_t base = GLOBAL_CONFIG::CRC_EN | GLOBAL_CONFIG::CLK_WD_EN;
+  if (level == VioLevel::V5_0) base |= GLOBAL_CONFIG::VIO_SEL;
+  auto w = WriteRegister(CentralReg::GLOBAL_CONFIG, base, false, false);
+  if (!w) return tle::unexpected(w.error());
+  vio_5v_mode_ = (level == VioLevel::V5_0);
+  return {};
+}
+
+template <typename CommType>
+DriverResult<OperationState> Driver<CommType>::GetOperationState() noexcept {
+  if (!initialized_) return OperationState::Reset;
+  auto fb = ReadRegister(CentralReg::FB_STAT, false);
+  if (!fb) return tle::unexpected(fb.error());
+  const bool init_done = (fb.value() & FB_STAT::INIT_DONE) != 0;
+  if (!init_done) return OperationState::Reset;
+  if (!mission_mode_) return OperationState::Config;
+  // A critical-fault reply mode would surface via SPI frame error; approximate
+  // via FAULTN pin sampling through IsFault().
+  auto flt = IsFault(false);
+  if (flt && flt.value()) return OperationState::CriticalFault;
+  return OperationState::Mission;
+}
+
+template <typename CommType>
+DriverResult<void>
+Driver<CommType>::EnterMissionModeChecked(uint32_t timeout_ms) noexcept {
+  if (auto r = EnterMissionMode(); !r) return r;
+  const uint32_t step_us = 500U;
+  const uint32_t steps   = (timeout_ms * 1000U) / step_us + 1U;
+  for (uint32_t i = 0; i < steps; ++i) {
+    auto fb = ReadRegister(CentralReg::FB_STAT, false);
+    if (!fb) return tle::unexpected(fb.error());
+    if (fb.value() & FB_STAT::INIT_DONE) return {};
+    (void)comm_.Delay(step_us);
+  }
+  return tle::unexpected(DriverError::TimeoutError);
+}
+
+template <typename CommType>
+DriverResult<SupplyMonitorSelfTestResult>
+Driver<CommType>::RunSupplyMonitorSelfTest() noexcept {
+  if (auto r = checkInitialized(); !r) return tle::unexpected(r.error());
+  if (auto r = checkConfigMode();   !r) return tle::unexpected(r.error());
+
+  SupplyMonitorSelfTestResult result{};
+
+  const uint16_t base    = GLOBAL_CONFIG::CRC_EN | GLOBAL_CONFIG::CLK_WD_EN
+                         | (vio_5v_mode_ ? GLOBAL_CONFIG::VIO_SEL : 0);
+  struct Phase { uint16_t mask; bool* slot; const char* name; };
+  const Phase phases[] = {
+      {GLOBAL_CONFIG::UV_OV_SWAP,   &result.uv_ov_swap_ok, "UV_OV_SWAP"},
+      {GLOBAL_CONFIG::V1V5_UV_TEST, &result.v1v5_uv_ok,    "V1V5_UV_TEST"},
+      {GLOBAL_CONFIG::V1V5_OV_TEST, &result.v1v5_ov_ok,    "V1V5_OV_TEST"},
+      {GLOBAL_CONFIG::OT_TEST,      &result.ot_test_ok,    "OT_TEST"},
+  };
+
+  bool overall = true;
+  for (const auto& p : phases) {
+    if (auto w = WriteRegister(CentralReg::GLOBAL_CONFIG,
+                                static_cast<uint16_t>(base | p.mask), false, false); !w) {
+      return tle::unexpected(w.error());
+    }
+    (void)comm_.Delay(1000); // 1 ms settle
+    auto flt = HasAnyFault();
+    // Expected: fault is ASSERTED during the test phase.
+    const bool ok = flt && flt.value();
+    *p.slot = ok;
+    overall = overall && ok;
+    // Clear so next phase starts clean.
+    (void)ClearFaults();
+  }
+  // Restore base configuration
+  (void)WriteRegister(CentralReg::GLOBAL_CONFIG, base, false, false);
+  (void)ClearFaults();
+  result.overall_pass = overall;
+  return result;
+}
+
+// ---------------------------- Phase 3 helpers -------------------------------
+
+template <typename CommType>
+DriverResult<void>
+Driver<CommType>::SetIntegratorLimits(Channel channel, uint16_t lim_value_abs,
+                                      uint8_t auto_lim_value_abs) noexcept {
+  if (auto r = checkInitialized(); !r) return tle::unexpected(r.error());
+  if (!isValidChannelInternal(channel)) return tle::unexpected(DriverError::InvalidChannel);
+  if (lim_value_abs     > INTEGRATOR_LIMIT::LIM_VALUE_ABS_MASK
+      || auto_lim_value_abs > (INTEGRATOR_LIMIT::AUTO_LIM_VALUE_ABS_MASK
+                                >> INTEGRATOR_LIMIT::AUTO_LIM_VALUE_ABS_SHIFT)) {
+    return tle::unexpected(DriverError::InvalidParameter);
+  }
+  // Enforce AUTO_LIM > MIN_INT_THRESH+3 per datasheet \u00a74.6.2.3
+  auto ctrl = ReadRegister(GetChannelRegister(channel, ChannelReg::CTRL), false);
+  if (ctrl) {
+    const int8_t min_int = static_cast<int8_t>(ctrl.value() & CH_CTRL_REG::MIN_INT_THRESH_MASK);
+    if (static_cast<int>(auto_lim_value_abs) <= (min_int + 3)) {
+      return tle::unexpected(DriverError::InvalidParameter);
+    }
+  }
+  const uint16_t val = INTEGRATOR_LIMIT::Build(lim_value_abs, auto_lim_value_abs);
+  return WriteRegister(GetChannelRegister(channel, ChannelReg::INTEGRATOR_LIMIT), val);
+}
+
+template <typename CommType>
+DriverResult<void>
+Driver<CommType>::SetPwmControllerKi(Channel channel, uint8_t ki) noexcept {
+  if (auto r = checkInitialized(); !r) return tle::unexpected(r.error());
+  if (!isValidChannelInternal(channel)) return tle::unexpected(DriverError::InvalidChannel);
+  if (ki > 0x0F) return tle::unexpected(DriverError::InvalidParameter);
+  const uint16_t addr = GetChannelRegister(channel, ChannelReg::PERIOD);
+  auto cur = ReadRegister(addr, false);
+  if (!cur) return tle::unexpected(cur.error());
+  const uint16_t updated = static_cast<uint16_t>(
+      (cur.value() & ~PERIOD::PWM_CTRL_PARAM_MASK)
+      | ((static_cast<uint16_t>(ki) << PERIOD::PWM_CTRL_PARAM_SHIFT)
+         & PERIOD::PWM_CTRL_PARAM_MASK));
+  return WriteRegister(addr, updated);
+}
+
+template <typename CommType>
+DriverResult<void>
+Driver<CommType>::SetMinIntegratorThreshold(Channel channel, int8_t min_int_thresh) noexcept {
+  if (auto r = checkInitialized(); !r) return tle::unexpected(r.error());
+  if (!isValidChannelInternal(channel)) return tle::unexpected(DriverError::InvalidChannel);
+  const uint16_t addr = GetChannelRegister(channel, ChannelReg::CTRL);
+  auto cur = ReadRegister(addr, false);
+  if (!cur) return tle::unexpected(cur.error());
+  const uint16_t updated = static_cast<uint16_t>(
+      (cur.value() & ~CH_CTRL_REG::MIN_INT_THRESH_MASK)
+      | (static_cast<uint16_t>(static_cast<uint8_t>(min_int_thresh))
+         & CH_CTRL_REG::MIN_INT_THRESH_MASK));
+  return WriteRegister(addr, updated);
+}
+
+template <typename CommType>
+DriverResult<void>
+Driver<CommType>::SetManualOnTimeMode(Channel channel, float on_time_us) noexcept {
+  if (auto r = checkInitialized(); !r) return tle::unexpected(r.error());
+  if (!isValidChannelInternal(channel)) return tle::unexpected(DriverError::InvalidChannel);
+  if (on_time_us <= 0.0F) return tle::unexpected(DriverError::InvalidParameter);
+
+  // TON.TON_MANT uses DITHER_CLK_DIV.EXP as its exponent. Pick the
+  // smallest EXP such that mantissa fits in 10 bits.
+  uint8_t  exp  = 0;
+  uint32_t mant = 0;
+  for (uint8_t e = 0; e <= 15; ++e) {
+    const float divisor_us = static_cast<float>(1ULL << e) * PERIOD::F_SYS_PERIOD_US;
+    const float m = on_time_us / divisor_us;
+    if (m <= static_cast<float>(TON::TON_MANT_MASK) && m >= 1.0F) {
+      mant = static_cast<uint32_t>(m + 0.5F);
+      exp  = e;
+      break;
+    }
+  }
+  if (mant == 0) return tle::unexpected(DriverError::InvalidParameter);
+
+  // Ensure DITHER_CLK_DIV.EXP matches our selection.
+  auto clkdiv_cur = ReadRegister(GetChannelRegister(channel, ChannelReg::DITHER_CLK_DIV), false);
+  if (!clkdiv_cur) return tle::unexpected(clkdiv_cur.error());
+  const uint16_t clkdiv_new = static_cast<uint16_t>(
+      (clkdiv_cur.value() & ~DITHER_CLK_DIV::EXP_MASK)
+      | ((static_cast<uint16_t>(exp) << DITHER_CLK_DIV::EXP_SHIFT) & DITHER_CLK_DIV::EXP_MASK));
+  if (auto w = WriteRegister(GetChannelRegister(channel, ChannelReg::DITHER_CLK_DIV),
+                              clkdiv_new); !w) {
+    return tle::unexpected(w.error());
+  }
+
+  if (auto w = WriteRegister(GetChannelRegister(channel, ChannelReg::TON),
+                              TON::Build(static_cast<uint16_t>(mant), 0u)); !w) {
+    return tle::unexpected(w.error());
+  }
+  // Zero PERIOD_MANT in CTRL_INT_THRESH to enter manual on-time mode.
+  return WriteRegister(GetChannelRegister(channel, ChannelReg::CTRL_INT_THRESH),
+                        CTRL_INT_THRESH::Build(0, 0));
+}
+
+template <typename CommType>
+DriverResult<void>
+Driver<CommType>::SeedIntegratorThresholdFromFeedback(Channel channel) noexcept {
+  if (auto r = checkInitialized(); !r) return tle::unexpected(r.error());
+  if (!isValidChannelInternal(channel)) return tle::unexpected(DriverError::InvalidChannel);
+  auto fb = ReadRegister(GetChannelRegister(channel, ChannelReg::FB_INT_THRESH), false);
+  if (!fb) return tle::unexpected(fb.error());
+  const int16_t seed16 = FB_INT_THRESH::Extract(fb.value());
+  const int8_t  seed8  = static_cast<int8_t>(seed16 > 127 ? 127 : seed16 < -128 ? -128 : seed16);
+  return WriteRegister(GetChannelRegister(channel, ChannelReg::CTRL_INT_THRESH),
+                        CTRL_INT_THRESH::Build(seed8, 0));
+}
+
+// ---------------------------- Phase 4 helpers -------------------------------
+
+template <typename CommType>
+DriverResult<void>
+Driver<CommType>::SetDitherAdvanced(Channel channel, const DitherSetup& setup,
+                                    bool parallel_mode) noexcept {
+  if (auto r = checkInitialized(); !r) return tle::unexpected(r.error());
+  if (!isValidChannelInternal(channel)) return tle::unexpected(DriverError::InvalidChannel);
+  if (setup.amplitude_mA < 0.0F || setup.frequency_Hz <= 0.0F) {
+    return tle::unexpected(DriverError::InvalidParameter);
+  }
+
+  // Use the existing high-level ConfigureDither path to compute step/clk div.
+  if (auto r = ConfigureDither(channel, setup.amplitude_mA, setup.frequency_Hz,
+                                parallel_mode); !r) {
+    return r;
+  }
+
+  // Layer the sync + deep + fast-meas flags on top of what ConfigureDither
+  // produced.
+  const uint16_t clkdiv_addr = GetChannelRegister(channel, ChannelReg::DITHER_CLK_DIV);
+  auto clkdiv_cur = ReadRegister(clkdiv_addr, false);
+  if (!clkdiv_cur) return tle::unexpected(clkdiv_cur.error());
+  uint16_t clkdiv_new = clkdiv_cur.value()
+                      & ~(DITHER_CLK_DIV::DITHER_PWM_SYNC_EN_BIT
+                          | DITHER_CLK_DIV::DITHER_SETPOINT_SYNC_EN_BIT);
+  if (setup.sync_with_pwm)      clkdiv_new |= DITHER_CLK_DIV::DITHER_PWM_SYNC_EN_BIT;
+  if (setup.sync_with_setpoint) clkdiv_new |= DITHER_CLK_DIV::DITHER_SETPOINT_SYNC_EN_BIT;
+  if (auto w = WriteRegister(clkdiv_addr, clkdiv_new); !w) return tle::unexpected(w.error());
+
+  const uint16_t ctrl_addr = GetChannelRegister(channel, ChannelReg::DITHER_CTRL);
+  auto ctrl_cur = ReadRegister(ctrl_addr, false);
+  if (!ctrl_cur) return tle::unexpected(ctrl_cur.error());
+  uint16_t ctrl_new = ctrl_cur.value()
+                    & ~(DITHER_CTRL::DEEP_DITHER | DITHER_CTRL::FAST_MEAS_MASK);
+  if (setup.deep_dither) ctrl_new |= DITHER_CTRL::DEEP_DITHER;
+  switch (setup.fast_measure) {
+    case FastMeasureMode::HalfPeriod:    ctrl_new |= DITHER_CTRL::FAST_MEAS_HALF; break;
+    case FastMeasureMode::QuarterPeriod: ctrl_new |= DITHER_CTRL::FAST_MEAS_QUAD; break;
+    case FastMeasureMode::FullPeriod:
+    default:                             ctrl_new |= DITHER_CTRL::FAST_MEAS_DITH; break;
+  }
+  return WriteRegister(ctrl_addr, ctrl_new);
+}
+
+// ---------------------------- Phase 5 helpers -------------------------------
+
+template <typename CommType>
+DriverResult<bool> Driver<CommType>::isSlaveChannel(Channel channel) noexcept {
+  const uint8_t idx = ToIndex(channel);
+  auto par = isChannelParallel(channel);
+  if (!par) return tle::unexpected(par.error());
+  if (!par.value()) return DriverResult<bool>{false};
+  // Within a parallel pair the \u201cslave\u201d is the odd-indexed half when
+  // pairing is (ch,ch^1); per datasheet master/slave convention CH2, CH3, CH5
+  // are slaves when their respective pairs are parallelised.
+  return DriverResult<bool>{idx == 2 || idx == 3 || idx == 5};
+}
+
+template <typename CommType>
+DriverResult<void>
+Driver<CommType>::SetOlsgTimeout(Channel channel, uint8_t olsg_timeout_code) noexcept {
+  if (auto r = checkInitialized(); !r) return tle::unexpected(r.error());
+  if (!isValidChannelInternal(channel)) return tle::unexpected(DriverError::InvalidChannel);
+  if (olsg_timeout_code > 0x3F) return tle::unexpected(DriverError::InvalidParameter);
+  const uint16_t addr = GetChannelRegister(channel, ChannelReg::TON);
+  auto cur = ReadRegister(addr, false);
+  if (!cur) return tle::unexpected(cur.error());
+  const uint16_t updated = static_cast<uint16_t>(
+      (cur.value() & ~TON::OLSG_TIMEOUT_MASK)
+      | ((static_cast<uint16_t>(olsg_timeout_code) << TON::OLSG_TIMEOUT_SHIFT)
+         & TON::OLSG_TIMEOUT_MASK));
+  return WriteRegister(addr, updated);
+}
+
+template <typename CommType>
+DriverResult<void>
+Driver<CommType>::SetOffStateDiagnostics(Channel channel, bool oc_diag_enabled,
+                                         uint8_t ol_th_fixed) noexcept {
+  if (auto r = checkInitialized(); !r) return tle::unexpected(r.error());
+  if (!isValidChannelInternal(channel)) return tle::unexpected(DriverError::InvalidChannel);
+  if (ol_th_fixed > 0x3F) return tle::unexpected(DriverError::InvalidParameter);
+  const uint16_t addr = GetChannelRegister(channel, ChannelReg::CH_CONFIG);
+  auto cur = ReadRegister(addr, false);
+  if (!cur) return tle::unexpected(cur.error());
+  uint16_t updated = static_cast<uint16_t>(
+      cur.value() & ~(CH_CONFIG::OC_DIAG_EN | CH_CONFIG::OL_TH_FIXED_MASK));
+  if (oc_diag_enabled) updated |= CH_CONFIG::OC_DIAG_EN;
+  updated |= static_cast<uint16_t>(
+      (static_cast<uint16_t>(ol_th_fixed) << CH_CONFIG::OL_TH_FIXED_SHIFT)
+      & CH_CONFIG::OL_TH_FIXED_MASK);
+  return WriteRegister(addr, updated);
+}
+
+template <typename CommType>
+DriverResult<BistResult> Driver<CommType>::RunSffBist(uint32_t timeout_ms) noexcept {
+  if (auto r = checkInitialized(); !r) return tle::unexpected(r.error());
+  if (auto r = checkConfigMode();   !r) return tle::unexpected(r.error());
+
+  BistResult res{};
+  if (auto w = WriteRegister(CentralReg::SFF_BIST, SFF_BIST::EN, false, false); !w) {
+    return tle::unexpected(w.error());
+  }
+  const uint32_t step_us = 500U;
+  const uint32_t steps   = (timeout_ms * 1000U) / step_us + 1U;
+  for (uint32_t i = 0; i < steps; ++i) {
+    auto r = ReadRegister(CentralReg::SFF_BIST, false);
+    if (!r) return tle::unexpected(r.error());
+    res.raw = static_cast<uint16_t>(r.value());
+    if (res.raw & SFF_BIST::DONE) {
+      res.done                   = true;
+      res.pass                   = (res.raw & SFF_BIST::FAIL) == 0;
+      res.uncorrectable_reg_err  = (res.raw & SFF_BIST::UERR) != 0;
+      res.correctable_reg_err    = (res.raw & SFF_BIST::CERR) != 0;
+      return res;
+    }
+    (void)comm_.Delay(step_us);
+  }
+  return tle::unexpected(DriverError::TimeoutError);
+}
+
+template <typename CommType>
+DriverResult<PinStatus> Driver<CommType>::ReadPinStatus() noexcept {
+  if (auto r = checkInitialized(); !r) return tle::unexpected(r.error());
+  auto r = ReadRegister(CentralReg::PIN_STAT, false);
+  if (!r) return tle::unexpected(r.error());
+  PinStatus out{};
+  out.raw           = static_cast<uint16_t>(r.value());
+  out.drv0          = (out.raw & PIN_STAT::DRV0) != 0;
+  out.drv1          = (out.raw & PIN_STAT::DRV1) != 0;
+  out.en            = (out.raw & PIN_STAT::EN)   != 0;
+  out.faultn_driver = (out.raw & PIN_STAT::FAULTN) != 0;
+  out.faultn_fb     = (out.raw & PIN_STAT::FAULTN_FB) != 0;
+  return out;
+}
+
+template <typename CommType>
+DriverResult<void>
+Driver<CommType>::SetFaultMask(MaskableFault fault, bool enable) noexcept {
+  if (auto r = checkInitialized(); !r) return tle::unexpected(r.error());
+  if (auto r = checkConfigMode();   !r) return tle::unexpected(r.error());
+  const uint8_t idx = FaultMaskIndex(fault);
+  const uint16_t bit = FaultMaskBit(fault);
+  uint16_t addr = CentralReg::FAULT_MASK0;
+  switch (idx) {
+    case 0: addr = CentralReg::FAULT_MASK0; break;
+    case 1: addr = CentralReg::FAULT_MASK1; break;
+    case 2: addr = CentralReg::FAULT_MASK2; break;
+    default: return tle::unexpected(DriverError::InvalidParameter);
+  }
+  auto cur = ReadRegister(addr, false);
+  if (!cur) return tle::unexpected(cur.error());
+  const uint16_t updated = static_cast<uint16_t>(
+      enable ? (cur.value() | bit) : (cur.value() & ~bit));
+  return WriteRegister(addr, updated);
+}
+
+// ---------------------------- Phase 6 helpers -------------------------------
+
+namespace detail {
+constexpr uint16_t FbBitForChannel(Channel ch) noexcept {
+  return static_cast<uint16_t>(1u << ToIndex(ch));
+}
+} // namespace detail
+
+template <typename CommType>
+DriverResult<ChannelFeedback>
+Driver<CommType>::ReadChannelFeedback(Channel channel, uint32_t timeout_ms) noexcept {
+  if (auto r = checkInitialized(); !r) return tle::unexpected(r.error());
+  if (!isValidChannelInternal(channel)) return tle::unexpected(DriverError::InvalidChannel);
+
+  const uint16_t bit = detail::FbBitForChannel(channel);
+
+  // Freeze this channel's feedback registers.
+  if (auto w = WriteRegister(CentralReg::FB_FRZ, bit, false, false); !w) {
+    return tle::unexpected(w.error());
+  }
+
+  // Poll FB_UPD for this channel.
+  const uint32_t step_us = 200U;
+  const uint32_t steps   = (timeout_ms * 1000U) / step_us + 1U;
+  bool updated = false;
+  for (uint32_t i = 0; i < steps; ++i) {
+    auto r = ReadRegister(CentralReg::FB_UPD, false);
+    if (!r) {
+      (void)WriteRegister(CentralReg::FB_FRZ, 0, false, false);
+      return tle::unexpected(r.error());
+    }
+    if (r.value() & bit) { updated = true; break; }
+    (void)comm_.Delay(step_us);
+  }
+
+  ChannelFeedback fb{};
+  auto cleanup = [&](auto& res) {
+    (void)WriteRegister(CentralReg::FB_FRZ, 0, false, false);
+    return res;
+  };
+  if (!updated) {
+    auto err = tle::unexpected(DriverError::TimeoutError);
+    return cleanup(err);
+  }
+
+  auto fb_dc    = ReadRegister(GetChannelRegister(channel, ChannelReg::FB_DC),   false);
+  auto fb_vbat  = ReadRegister(GetChannelRegister(channel, ChannelReg::FB_VBAT), false);
+  auto fb_iavg  = ReadRegister(GetChannelRegister(channel, ChannelReg::FB_I_AVG),false);
+  auto fb_imm   = ReadRegister(GetChannelRegister(channel, ChannelReg::FB_IMIN_IMAX), false);
+  auto fb_pmm   = ReadRegister(GetChannelRegister(channel, ChannelReg::FB_PERIOD_MIN_MAX), false);
+  auto fb_th    = ReadRegister(GetChannelRegister(channel, ChannelReg::FB_INT_THRESH), false);
+
+  if (!fb_dc)  { auto e = tle::unexpected(fb_dc.error());  return cleanup(e); }
+  if (!fb_vbat){ auto e = tle::unexpected(fb_vbat.error());return cleanup(e); }
+  if (!fb_iavg){ auto e = tle::unexpected(fb_iavg.error());return cleanup(e); }
+
+  fb.duty_cycle_permyriad = FB_FEEDBACK::ComputeDutyCycle(fb_dc.value());
+  fb.avg_current_mA       = FB_FEEDBACK::ComputeAverageCurrent_mA(fb_iavg.value(), fb_dc.value());
+  fb.avg_vbat_mV          = FB_FEEDBACK::ComputeVbatChannel_mV(fb_vbat.value(), fb_dc.value());
+  if (fb_imm) {
+    fb.imin_mA = FB_IMIN_IMAX::IMin_mA(fb_imm.value());
+    fb.imax_mA = FB_IMIN_IMAX::IMax_mA(fb_imm.value());
+  }
+  if (fb_pmm) {
+    fb.period_min_us = FB_PERIOD_MIN_MAX::PeriodMinMicroseconds(fb_pmm.value());
+    fb.period_max_us = FB_PERIOD_MIN_MAX::PeriodMaxMicroseconds(fb_pmm.value());
+  }
+  if (fb_th) {
+    fb.int_thresh_seed = FB_INT_THRESH::Extract(fb_th.value());
+  }
+  fb.period_seq = FB_FEEDBACK::ExtractMeasExp(fb_iavg.value());
+
+  // Release freeze.
+  (void)WriteRegister(CentralReg::FB_FRZ, 0, false, false);
+  return fb;
+}
+
+template <typename CommType>
+DriverResult<std::array<ChannelFeedback, 6>>
+Driver<CommType>::ReadAllChannelFeedback(uint32_t timeout_ms) noexcept {
+  std::array<ChannelFeedback, 6> out{};
+  for (uint8_t i = 0; i < 6; ++i) {
+    auto r = ReadChannelFeedback(static_cast<Channel>(i), timeout_ms);
+    if (!r) return tle::unexpected(r.error());
+    out[i] = r.value();
+  }
+  return out;
+}
+
+template <typename CommType>
+DriverResult<int32_t>
+Driver<CommType>::GetCalibrationAvgCurrent_mA(Channel channel) noexcept {
+  if (auto r = checkInitialized(); !r) return tle::unexpected(r.error());
+  if (!isValidChannelInternal(channel)) return tle::unexpected(DriverError::InvalidChannel);
+  auto r = ReadRegister(GetChannelRegister(channel, ChannelReg::FB_I_AVG_s16), false);
+  if (!r) return tle::unexpected(r.error());
+  return FB_I_AVG_s16::ToMilliamps(r.value());
+}
+
 #else
 // Compiled directly (shouldn't happen) - close the namespace
 } // namespace tle92466ed

@@ -259,3 +259,45 @@ void monitor_voltages() {
 
 **Navigation**
 ⬅️ [Configuration](configuration.md) | [Next: Troubleshooting ➡️](troubleshooting.md) | [Back to Index](index.md)
+
+
+## Bench Examples (Phase 7)
+
+### Resistive-Load Bench
+
+File: `examples/esp32/main/resistive_load_bench.cpp`
+
+Connect a 300 Ohm power resistor between CH0 and GND with VBAT = 12 V (theoretical 40 mA max). The example sweeps setpoints 5...40 mA in 5 mA steps and uses the atomic `ReadChannelFeedback()` path (Phase 6) to verify each step is within +/-2.5 mA of the setpoint. Reports VBAT, duty cycle and IMIN/IMAX per step.
+
+### Diagnostics + BIST
+
+File: `examples/esp32/main/diagnostics_and_bist.cpp`
+
+No external load required. Exercises `RunSffBist()`, `ReadPinStatus()`, `GetOperationState()`, `RunSupplyMonitorSelfTest()` and `SetFaultMask()`.
+
+## New High-Level APIs (Phase 2-6)
+
+| API | Purpose |
+|-----|---------|
+| `ConfigureClockSource(ClockSource, f_clk_Hz)` | Select internal osc vs external+PLL (CLK_DIV register) |
+| `ReadAllSupplyVoltages()` | Atomic VBAT/VIO/VDD/temperature snapshot |
+| `GetCentralTemperatureCelsius()` | Die temperature in degC from FB_VOLTAGE2 |
+| `SetVioLevel(VioLevel)` | Switch VIO between 3.3 V and 5.0 V |
+| `GetOperationState()` | Returns Reset / Config / Mission / CriticalFault |
+| `EnterMissionModeChecked(timeout_ms)` | Polls FB_STAT.INIT_DONE after mode switch |
+| `RunSupplyMonitorSelfTest()` | UV/OV swap, V1V5 UV/OV, OT_TEST sequence |
+| `SetIntegratorLimits(ch, lim, auto_lim)` | INTEGRATOR_LIMIT with enforcement of datasheet constraint |
+| `SetPwmControllerKi(ch, ki)` | 4-bit PWM controller proportional gain |
+| `SetMinIntegratorThreshold(ch, int8)` | Signed MIN_INT_THRESH in CTRL register |
+| `SetManualOnTimeMode(ch, on_time_us)` | DIRECT_DRIVE_SPI with constant on-time via TON |
+| `SeedIntegratorThresholdFromFeedback(ch)` | Seeds ICC integrator from FB_INT_THRESH |
+| `SetDitherAdvanced(ch, DitherSetup, parallel)` | Superset of ConfigureDither with sync + fast-meas |
+| `SetOlsgTimeout(ch, code)` | 6-bit OLSG watchdog timeout in TON register |
+| `SetOffStateDiagnostics(ch, oc, ol_fixed)` | CH_CONFIG: OC_DIAG_EN + OL_TH_FIXED |
+| `RunSffBist(timeout_ms)` | Safe-state logic-BIST, returns BistResult |
+| `ReadPinStatus()` | Snapshot of DRV0/DRV1/EN/FAULTN/FAULTN_FB |
+| `SetFaultMask(MaskableFault, bool)` | Enable/mask per-source FAULTN contribution |
+| `ReadChannelFeedback(ch, timeout_ms)` | Atomic FB_FRZ/FB_UPD snapshot: avg I, DC, VBAT, IMIN/IMAX, Tmin/Tmax, int_thresh |
+| `ReadAllChannelFeedback(timeout_ms)` | Same for all six channels |
+| `GetCalibrationAvgCurrent_mA(ch)` | High-res signed FB_I_AVG_s16 for calibration |
+

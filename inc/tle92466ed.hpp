@@ -101,25 +101,26 @@ struct DeviceStatus {
  * @brief Channel diagnostic information
  */
 struct ChannelDiagnostics {
-  // Error flags
+  // Error flags (DIAG_ERR_CHGRx, \u00a75.3.2.12)
   bool overcurrent{false};            ///< Over-current detected
   bool short_to_ground{false};        ///< Short to ground
   bool open_load{false};              ///< Open load
-  bool over_temperature{false};       ///< Channel over-temperature
-  bool open_load_short_ground{false}; ///< Open load or short to ground
+  bool over_temperature{false};       ///< Channel over-temperature error (OTE)
+  bool open_load_short_ground{false}; ///< Open load or short to ground (OLSG pre-check)
 
-  // Warning flags
-  bool ot_warning{false};                 ///< Over-temperature warning
-  bool current_regulation_warning{false}; ///< Current regulation warning
-  bool pwm_regulation_warning{false};     ///< PWM regulation warning
-  bool olsg_warning{false};               ///< OLSG warning
+  // Warning flags (DIAG_WARN_CHGRx, \u00a75.3.2.13)
+  bool ot_warning{false};                 ///< Channel over-temperature warning (OTW)
+  bool current_regulation_warning{false}; ///< ICC current regulation warning (I_REG)
+  bool pwm_regulation_warning{false};     ///< ICC PWM regulation warning (PWM_REG)
+  bool olsg_warning{false};               ///< OLSG warning (OLSG_WARN)
+  bool olsg_check_not_performed{false};   ///< OLSG check not yet performed (OLSG_WARN_CHK_NOK; POR=1)
 
   // Measurements
-  uint16_t average_current{0}; ///< Average current (raw value)
-  uint16_t duty_cycle{0};      ///< PWM duty cycle (raw value)
-  uint16_t min_current{0};     ///< Minimum current
-  uint16_t max_current{0};     ///< Maximum current
-  uint16_t vbat_feedback{0};   ///< VBAT feedback
+  uint16_t average_current{0}; ///< Average current (raw FB_I_AVG 22-bit value)
+  uint16_t duty_cycle{0};      ///< PWM duty cycle (raw FB_DC 22-bit value)
+  int16_t  min_current_mA{0};  ///< Minimum load current in mA (signed; FB_IMIN_IMAX.IMIN)
+  int16_t  max_current_mA{0};  ///< Maximum load current in mA (signed; FB_IMIN_IMAX.IMAX)
+  uint16_t vbat_feedback{0};   ///< VBAT feedback (raw FB_VBAT)
 };
 
 /**
@@ -910,6 +911,218 @@ public:
   [[nodiscard]] DriverResult<bool> IsFault(bool print_faults = false) noexcept;
 
   //==========================================================================
+  // PHASE 2 - CLOCK, POWER, STATE (D10, D29)
+  //==========================================================================
+
+  /**
+   * @brief Configure the device clock source (internal osc vs external+PLL).
+   *
+   * @param source     Desired clock source.
+   * @param f_clk_Hz   External clock rate in Hz (required if source is
+   *                   ExternalClockPll; ignored otherwise). Supported
+   *                   range is 1\u20138 MHz per datasheet \u00a74.1.
+   * @return DriverResult<void> Success or error.
+   *
+   * Writes CLK_DIV (0x0019) in Config Mode. Caller is responsible for
+   * waiting the datasheet-specified PLL lock time (\u2248500 \u00b5s).
+   */
+  [[nodiscard]] DriverResult<void> ConfigureClockSource(ClockSource source,
+                                                         uint32_t f_clk_Hz = 0) noexcept;
+
+  /**
+   * @brief Get the nominal system clock (always 28 MHz after PLL lock).
+   */
+  [[nodiscard]] static constexpr uint32_t GetSystemClockHz() noexcept {
+    return CLK_DIV::F_SYS_TARGET_HZ;
+  }
+
+  /**
+   * @brief Atomic readout of VBAT, VIO, VDD and die temperature.
+   *
+   * Reads FB_VOLTAGE1 and FB_VOLTAGE2 and decodes them via the
+   * VOLTAGE_FEEDBACK namespace helpers. Result is stable even while the
+   * device is operating in Mission Mode.
+   */
+  [[nodiscard]] DriverResult<SupplyVoltages> ReadAllSupplyVoltages() noexcept;
+
+  /**
+   * @brief Read only the central die temperature in \u00b0C.
+   */
+  [[nodiscard]] DriverResult<float> GetCentralTemperatureCelsius() noexcept;
+
+  /**
+   * @brief Select VIO voltage level (3.3 V or 5.0 V).
+   *
+   * Updates GLOBAL_CONFIG.VIO_SEL and caches the selection so that
+   * subsequent supply-voltage decodes pick the correct LSB.
+   * Must be called in Config Mode.
+   */
+  [[nodiscard]] DriverResult<void> SetVioLevel(VioLevel level) noexcept;
+
+  /**
+   * @brief Read the coarse operational state.
+   */
+  [[nodiscard]] DriverResult<OperationState> GetOperationState() noexcept;
+
+  /**
+   * @brief Enter Mission Mode and verify by polling FB_STAT.INIT_DONE.
+   * @param timeout_ms Maximum time to wait for INIT_DONE.
+   */
+  [[nodiscard]] DriverResult<void> EnterMissionModeChecked(uint32_t timeout_ms = 10U) noexcept;
+
+  /**
+   * @brief Run the built-in supply-monitor self-test sequence.
+   *
+   * Exercises the UV/OV swap, the 1.5 V monitor UV/OV trips and the
+   * over-temperature test logic. Restores the original GLOBAL_CONFIG on
+   * exit. Device must be in Config Mode.
+   */
+  [[nodiscard]] DriverResult<SupplyMonitorSelfTestResult>
+  RunSupplyMonitorSelfTest() noexcept;
+
+  //==========================================================================
+  // PHASE 3 - ICC INTEGRATOR & THRESHOLD API (D11, D12, D13, D14, D16)
+  //==========================================================================
+
+  /**
+   * @brief Set ICC integrator clamp limits (INTEGRATOR_LIMIT, offset 0x03).
+   *
+   * @param channel                Channel to configure.
+   * @param lim_value_abs          Primary integrator limit magnitude (0\u20131023).
+   * @param auto_lim_value_abs     Auto-limit setpoint delta magnitude (0\u201331).
+   *
+   * The driver enforces the datasheet constraint that
+   * auto_lim_value_abs must be greater than MIN_INT_THRESH+3
+   * (as currently cached in the channel's CTRL register).
+   */
+  [[nodiscard]] DriverResult<void> SetIntegratorLimits(Channel channel,
+                                                       uint16_t lim_value_abs,
+                                                       uint8_t  auto_lim_value_abs) noexcept;
+
+  /**
+   * @brief Set the PWM controller proportional gain (KI, PERIOD.PWM_CTRL_PARAM).
+   *
+   * @param channel Channel to configure.
+   * @param ki      4-bit PWM controller parameter (0\u201315).
+   */
+  [[nodiscard]] DriverResult<void> SetPwmControllerKi(Channel channel, uint8_t ki) noexcept;
+
+  /**
+   * @brief Set the minimum integrator threshold (CTRL.MIN_INT_THRESH).
+   *
+   * @param channel          Channel to configure.
+   * @param min_int_thresh   Signed 8-bit minimum integrator threshold.
+   */
+  [[nodiscard]] DriverResult<void> SetMinIntegratorThreshold(Channel channel,
+                                                             int8_t min_int_thresh) noexcept;
+
+  /**
+   * @brief Switch to manual on-time mode (DIRECT_DRIVE_SPI) with fixed TON.
+   *
+   * @param channel     Channel to configure.
+   * @param on_time_us  Desired constant on-time in microseconds.
+   *
+   * Writes TON.TON_MANT and sets CTRL_INT_THRESH.PERIOD_MANT=0 which
+   * disables the ICC integrator update path.
+   */
+  [[nodiscard]] DriverResult<void> SetManualOnTimeMode(Channel channel,
+                                                       float on_time_us) noexcept;
+
+  /**
+   * @brief Seed the ICC integrator from the current feedback reading.
+   *
+   * Reads FB_INT_THRESH and writes it back to CTRL_INT_THRESH.INT_THRESH
+   * so that a subsequent setpoint change doesn't wind up the integrator.
+   */
+  [[nodiscard]] DriverResult<void> SeedIntegratorThresholdFromFeedback(Channel channel) noexcept;
+
+  //==========================================================================
+  // PHASE 4 - DITHER COMPLETENESS (D15, D18)
+  //==========================================================================
+
+  /**
+   * @brief High-level dither configuration (superset of ConfigureDither).
+   *
+   * Programs DITHER_CLK_DIV + DITHER_STEP + DITHER_CTRL atomically to
+   * realize the requested amplitude/frequency and sync/fast-measure
+   * options. Clears any residual deep-dither / fast-meas flags.
+   */
+  [[nodiscard]] DriverResult<void> SetDitherAdvanced(Channel channel,
+                                                     const DitherSetup& setup,
+                                                     bool parallel_mode = false) noexcept;
+
+  //==========================================================================
+  // PHASE 5 - DIAGNOSTICS COMPLETENESS (D17, D19, D20, D21, D22, D23)
+  //==========================================================================
+
+  /**
+   * @brief Configure open-load/short-to-ground watchdog timeout.
+   *
+   * @param channel             Channel to configure.
+   * @param olsg_timeout_code   6-bit OLSG timeout value (0\u201363).
+   */
+  [[nodiscard]] DriverResult<void> SetOlsgTimeout(Channel channel,
+                                                  uint8_t olsg_timeout_code) noexcept;
+
+  /**
+   * @brief Enable / disable per-channel off-state OC diagnosis and fixed OL threshold.
+   *
+   * @param channel            Channel to configure.
+   * @param oc_diag_enabled    true to enable OC diagnosis while channel is OFF
+   * @param ol_th_fixed        Fixed open-load threshold (0\u201363; 0 = disabled)
+   */
+  [[nodiscard]] DriverResult<void> SetOffStateDiagnostics(Channel channel,
+                                                          bool oc_diag_enabled,
+                                                          uint8_t ol_th_fixed) noexcept;
+
+  /**
+   * @brief Run the safe-state logic-BIST (SFF_BIST).
+   */
+  [[nodiscard]] DriverResult<BistResult> RunSffBist(uint32_t timeout_ms = 10U) noexcept;
+
+  /**
+   * @brief Read the input pin status register (PIN_STAT).
+   */
+  [[nodiscard]] DriverResult<PinStatus> ReadPinStatus() noexcept;
+
+  /**
+   * @brief Enable or mask a specific fault source from asserting FAULTN.
+   */
+  [[nodiscard]] DriverResult<void> SetFaultMask(MaskableFault fault, bool enable) noexcept;
+
+  //==========================================================================
+  // PHASE 6 - ATOMIC FEEDBACK READOUT (D24, D27, D28)
+  //==========================================================================
+
+  /**
+   * @brief Read a coherent feedback snapshot for one channel.
+   *
+   * Workflow (datasheet \u00a74.10.5):
+   *   1. Freeze feedback for this channel (FB_FRZ).
+   *   2. Poll FB_UPD for the update bit for this channel.
+   *   3. Read FB_DC / FB_VBAT / FB_I_AVG / FB_IMIN_IMAX /
+   *      FB_PERIOD_MIN_MAX / FB_INT_THRESH.
+   *   4. Release the freeze.
+   *
+   * @param channel     Channel to read.
+   * @param timeout_ms  Maximum time to wait for FB_UPD.
+   */
+  [[nodiscard]] DriverResult<ChannelFeedback> ReadChannelFeedback(Channel channel,
+                                                                  uint32_t timeout_ms = 10U) noexcept;
+
+  /**
+   * @brief Read coherent feedback for all six channels in a single freeze window.
+   */
+  [[nodiscard]] DriverResult<std::array<ChannelFeedback, 6>>
+  ReadAllChannelFeedback(uint32_t timeout_ms = 20U) noexcept;
+
+  /**
+   * @brief Calibration-grade signed average current (FB_I_AVG_s16).
+   */
+  [[nodiscard]] DriverResult<int32_t>
+  GetCalibrationAvgCurrent_mA(Channel channel) noexcept;
+
+  //==========================================================================
   // REGISTER ACCESS (Advanced)
   //==========================================================================
 
@@ -1057,6 +1270,13 @@ private:
    * @return DriverResult<bool> true if channel is paralleled, false otherwise
    */
   [[nodiscard]] DriverResult<bool> isChannelParallel(Channel channel) noexcept;
+
+  /**
+   * @brief Check if a channel is the slave half of an enabled parallel pair.
+   * Slave channels are CH2, CH3, CH5 when their pair is parallelized; most
+   * per-channel writes are rejected on the slave.
+   */
+  [[nodiscard]] DriverResult<bool> isSlaveChannel(Channel channel) noexcept;
 
   /**
    * @brief Diagnose clock configuration by reading CLK_DIV register

@@ -163,6 +163,61 @@ explicit Driver(CommType& comm) noexcept;
 |--------|-----------|----------|
 | `SoftwareReset()` | `DriverResult<void> SoftwareReset() noexcept` | [`inc/tle92466ed.hpp#L737`](../inc/tle92466ed.hpp#L737) |
 
+---
+
+## Phase 2-6 Extended APIs
+
+### Power, Clock & State Management
+
+These methods expose the full clock-configuration PLL, supply-voltage readback, VIO level control, and a safe mission-mode entry check.
+
+| Method | Signature | Description |
+|--------|-----------|-------------|
+| `ConfigureClockSource()` | `DriverResult<void> ConfigureClockSource(ClockSource src, uint32_t f_clk_hz = 0) noexcept` | Configure internal OSC or external clock with PLL (calculates REFDIV/FBDIV automatically from `f_clk_hz`) |
+| `GetSystemClockHz()` | `static constexpr uint32_t GetSystemClockHz() noexcept` | Returns `CLK_DIV::F_SYS_TARGET_HZ` (28 MHz) |
+| `ReadAllSupplyVoltages()` | `DriverResult<SupplyVoltages> ReadAllSupplyVoltages() noexcept` | Read VBAT, VIO, VDD in mV and junction temperature in °C |
+| `GetCentralTemperatureCelsius()` | `DriverResult<float> GetCentralTemperatureCelsius() noexcept` | Read central die temperature in °C from ADC register |
+| `SetVioLevel()` | `DriverResult<void> SetVioLevel(VioLevel level) noexcept` | Switch GLOBAL_CONFIG VIO field between 3.3 V and 5.0 V |
+| `GetOperationState()` | `OperationState GetOperationState() const noexcept` | Inspect current driver state: Reset, Config, Mission, or CriticalFault |
+| `EnterMissionModeChecked()` | `DriverResult<void> EnterMissionModeChecked(uint32_t settle_ms = 10) noexcept` | Enter mission mode, wait `settle_ms`, verify no fault, return error if fault detected |
+| `RunSupplyMonitorSelfTest()` | `DriverResult<SupplyMonitorSelfTestResult> RunSupplyMonitorSelfTest() noexcept` | Execute four-phase supply-monitor self-test (UV/OV swap, V1V5 UV/OV, OT_TEST); restores config on completion |
+
+### ICC Integrator Tuning
+
+Fine-grained control over the ICC integrator: limits, Ki gain, manual on-time mode, and threshold seeding from live feedback.
+
+| Method | Signature | Description |
+|--------|-----------|-------------|
+| `SetIntegratorLimits()` | `DriverResult<void> SetIntegratorLimits(uint16_t lim_abs_ma, uint16_t auto_lim_ma) noexcept` | Write INTEGRATOR_LIMIT; enforces datasheet constraint `auto_lim > lim_abs + 3` |
+| `SetPwmControllerKi()` | `DriverResult<void> SetPwmControllerKi(uint8_t ki_param) noexcept` | Write the 4-bit Ki parameter into `PERIOD::PWM_CTRL_PARAM[15:12]` |
+| `SetMinIntegratorThreshold()` | `DriverResult<void> SetMinIntegratorThreshold(Channel ch, int8_t int_thresh) noexcept` | Write the signed 8-bit integrator threshold floor in CTRL_INT_THRESH |
+| `SetManualOnTimeMode()` | `DriverResult<void> SetManualOnTimeMode(Channel ch, uint32_t ton_ns) noexcept` | Set manual on-time (fit mantissa in 10 bits by iterating EXP 0-15), zeroes PERIOD_MANT |
+| `SeedIntegratorThresholdFromFeedback()` | `DriverResult<void> SeedIntegratorThresholdFromFeedback(Channel ch) noexcept` | Read FB_INT_THRESH feedback and write its value back to CTRL_INT_THRESH to warm-start the integrator |
+
+### Advanced Dither
+
+| Method | Signature | Description |
+|--------|-----------|-------------|
+| `SetDitherAdvanced()` | `DriverResult<void> SetDitherAdvanced(Channel ch, const DitherSetup& setup, bool parallel_mode = false) noexcept` | Write all dither registers in one call: DITHER_CLK_DIV + DITHER_STEP + DITHER_CTRL with sync, deep-dither, and fast-measure-mode flags |
+
+### Diagnostics Suite
+
+| Method | Signature | Description |
+|--------|-----------|-------------|
+| `SetOlsgTimeout()` | `DriverResult<void> SetOlsgTimeout(Channel ch, uint8_t timeout_code) noexcept` | Write 6-bit OLSG_TIMEOUT into TON register bits [15:10] |
+| `SetOffStateDiagnostics()` | `DriverResult<void> SetOffStateDiagnostics(Channel ch, bool enable, DiagCurrent current = DiagCurrent::I_190UA) noexcept` | Enable/disable open-load off-state diagnostic injection current |
+| `RunSffBist()` | `DriverResult<BistResult> RunSffBist(uint32_t timeout_ms = 10) noexcept` | Trigger SFF_BIST, poll DONE bit up to `timeout_ms`, return pass/fail and correctable/uncorrectable error flags |
+| `ReadPinStatus()` | `DriverResult<PinStatus> ReadPinStatus() noexcept` | Read PIN_STAT central register and decode DRV0, DRV1, EN, FAULTN, FAULTN_FB |
+| `SetFaultMask()` | `DriverResult<void> SetFaultMask(MaskableFault fault, bool contribute_to_faultn) noexcept` | Enable or suppress a specific fault source in FAULT_MASK0/1/2 |
+
+### Atomic Channel Feedback
+
+| Method | Signature | Description |
+|--------|-----------|-------------|
+| `ReadChannelFeedback()` | `DriverResult<ChannelFeedback> ReadChannelFeedback(Channel ch, uint32_t timeout_ms = 5) noexcept` | Freeze feedback with FB_FRZ, poll FB_UPD every 200 µs until coherent snapshot, read DC/VBAT/I_AVG/IMIN_IMAX/PERIOD_MIN_MAX/INT_THRESH, release freeze |
+| `ReadAllChannelFeedback()` | `DriverResult<std::array<ChannelFeedback, 6>> ReadAllChannelFeedback(uint32_t timeout_ms = 5) noexcept` | Call `ReadChannelFeedback()` for all 6 channels, return array |
+| `GetCalibrationAvgCurrent_mA()` | `DriverResult<int32_t> GetCalibrationAvgCurrent_mA(Channel ch) noexcept` | Return only the average current field from `ReadChannelFeedback()` without allocating the full struct on the call stack |
+
 ## Types
 
 ### Enumerations
@@ -175,6 +230,11 @@ explicit Driver(CommType& comm) noexcept;
 | `ParallelPair` | `NONE`, `CH0_CH3`, `CH1_CH2`, `CH4_CH5` | [`inc/tle92466ed_registers.hpp#L1099`](../inc/tle92466ed_registers.hpp#L1099) |
 | `SlewRate` | `SLOW_1V0_US`, `MEDIUM_2V5_US`, `FAST_5V0_US`, `FASTEST_10V0_US` | [`inc/tle92466ed_registers.hpp#L1079`](../inc/tle92466ed_registers.hpp#L1079) |
 | `DiagCurrent` | `I_80UA`, `I_190UA`, `I_720UA`, `I_1250UA` | [`inc/tle92466ed_registers.hpp#L1089`](../inc/tle92466ed_registers.hpp#L1089) |
+| `ClockSource` | `InternalOscillator`, `ExternalClockPll` | [`inc/tle92466ed_registers.hpp`](../inc/tle92466ed_registers.hpp) |
+| `VioLevel` | `V3_3` (= 0), `V5_0` (= 1) | [`inc/tle92466ed_registers.hpp`](../inc/tle92466ed_registers.hpp) |
+| `OperationState` | `Reset`, `Config`, `Mission`, `CriticalFault` | [`inc/tle92466ed_registers.hpp`](../inc/tle92466ed_registers.hpp) |
+| `FastMeasureMode` | `FullPeriod` (= 0), `HalfPeriod` (= 1), `QuarterPeriod` (= 2) | [`inc/tle92466ed_registers.hpp`](../inc/tle92466ed_registers.hpp) |
+| `MaskableFault` | `Ch0Error`…`Ch5Error`, `EnPin`, `SupplyNokInternal`, `SupplyNokExternal` (MASK0); `Ch0Warning`…`Ch5Warning`, `CentralOtWarning`, `CentralOtError`, `ClockLow` (MASK1); `VbatUv`, `VbatOv`, `VioUv`, `VioOv`, `VddUv`, `VddOv` (MASK2). Upper byte encodes register index; low 16 bits encode mask bit. | [`inc/tle92466ed_registers.hpp`](../inc/tle92466ed_registers.hpp) |
 
 ### Structures
 
@@ -185,6 +245,12 @@ explicit Driver(CommType& comm) noexcept;
 | `DeviceStatus` | Global device status structure | [`inc/tle92466ed.hpp#L128`](../inc/tle92466ed.hpp#L128) |
 | `ChannelDiagnostics` | Channel diagnostic information | [`inc/tle92466ed.hpp#L163`](../inc/tle92466ed.hpp#L163) |
 | `FaultReport` | Comprehensive fault report structure | [`inc/tle92466ed.hpp#L192`](../inc/tle92466ed.hpp#L192) |
+| `SupplyVoltages` | `vbat_mV`, `vio_mV`, `vdd_mV` (uint16_t), `temperature_c` (float) — returned by `ReadAllSupplyVoltages()` | [`inc/tle92466ed_registers.hpp`](../inc/tle92466ed_registers.hpp) |
+| `DitherSetup` | `amplitude_mA`, `frequency_Hz`, `sync_with_pwm`, `sync_with_setpoint`, `deep_dither` (bool), `fast_measure` (FastMeasureMode) — passed to `SetDitherAdvanced()` | [`inc/tle92466ed_registers.hpp`](../inc/tle92466ed_registers.hpp) |
+| `BistResult` | `done`, `pass`, `uncorrectable_reg_err`, `correctable_reg_err` (bool), `raw` (uint16_t) — returned by `RunSffBist()` | [`inc/tle92466ed_registers.hpp`](../inc/tle92466ed_registers.hpp) |
+| `PinStatus` | `drv0`, `drv1`, `en`, `faultn_driver`, `faultn_fb` (bool), `raw` (uint16_t) — returned by `ReadPinStatus()` | [`inc/tle92466ed_registers.hpp`](../inc/tle92466ed_registers.hpp) |
+| `ChannelFeedback` | `avg_current_mA` (int32_t), `duty_cycle_permyriad` (uint16_t), `avg_vbat_mV` (uint32_t), `imin_mA`/`imax_mA` (int32_t), `period_min_us`/`period_max_us` (uint32_t), `int_thresh_seed` (int16_t), `period_seq`/`quad_seq` (uint8_t) — returned by `ReadChannelFeedback()` | [`inc/tle92466ed_registers.hpp`](../inc/tle92466ed_registers.hpp) |
+| `SupplyMonitorSelfTestResult` | `uv_ov_swap_ok`, `v1v5_uv_ok`, `v1v5_ov_ok`, `ot_test_ok`, `overall_pass` (bool) — returned by `RunSupplyMonitorSelfTest()` | [`inc/tle92466ed_registers.hpp`](../inc/tle92466ed_registers.hpp) |
 
 ### Type Aliases
 

@@ -289,3 +289,142 @@ if (auto verified = driver.VerifyDevice(); verified && *verified) {
 
 **Navigation**
 â¬…ï¸ [Examples](examples.md) | [Back to Index](index.md)
+
+---
+
+## Phase 2–6 Extended API Issues
+
+---
+
+### Error: Clock Configuration — PLL Parameters Out of Range
+
+**Symptoms:**
+
+- `ConfigureClockSource()` returns `DriverError::InvalidParameter`
+- System clock unstable or ICC loop not locking
+
+**Causes:**
+
+- External clock frequency outside 1–8 MHz PLL input range
+- Calculated FBDIV does not fit in 9 bits (exceeds 511)
+
+**Solutions:**
+
+1. **Use external clock within 1–8 MHz**: `ConfigureClockSource(ClockSource::ExternalClockPll, 4000000)` (4 MHz)
+2. **Check calculated FBDIV**: `FBDIV = round(28e6 / f_clk_hz) - 1` must be = 511 (satisfied for f_clk_hz = ~55 kHz, which is always true in the 1–8 MHz range)
+3. **Use internal oscillator** if no external clock is available: `ConfigureClockSource(ClockSource::InternalOscillator)`
+
+---
+
+### Error: Integrator Limits — Constraint Violation
+
+**Symptoms:**
+
+- `SetIntegratorLimits()` returns `DriverError::InvalidParameter`
+- ICC loop unstable or output current oscillating
+
+**Causes:**
+
+- `auto_lim_ma` = `lim_abs_ma + 3`: violates datasheet requirement that the auto-limit must exceed the absolute limit by at least 3 mA (register LSB units)
+
+**Solutions:**
+
+1. **Increase the gap**: ensure `auto_lim_ma >= lim_abs_ma + 4`
+   ```cpp
+   // Correct: gap = 20 mA
+   driver.SetIntegratorLimits(100, 120);  // lim_abs=100, auto_lim=120
+   ```
+2. **Use defaults**: if `SetIntegratorLimits()` is not called, the reset values satisfy the constraint automatically
+
+---
+
+### Error: EnterMissionModeChecked — Fault on Entry
+
+**Symptoms:**
+
+- `EnterMissionModeChecked()` returns `DriverError::FaultDetected`
+- `EnterMissionMode()` succeeds but a fault is present immediately after
+
+**Causes:**
+
+- VBAT outside UV/OV threshold window configured in GLOBAL_CONFIG
+- VIO level mismatch (e.g. `VioLevel::V5_0` selected but only 3.3 V present)
+- FAULTN pin stuck low due to prior fault not cleared
+
+**Solutions:**
+
+1. **Check supply voltages**: call `ReadAllSupplyVoltages()` *before* `EnterMissionModeChecked()` and verify VBAT is within your UV/OV window
+2. **Clear prior faults**: call `ClearFaults()` after power-on before attempting mission mode
+3. **Match VIO level**: ensure `SetVioLevel()` matches your hardware (default is `V3_3`)
+4. **Increase settle time**: pass a larger `settle_ms` (e.g. 50) to allow supplies to stabilize
+
+---
+
+### Error: ReadChannelFeedback — Timeout
+
+**Symptoms:**
+
+- `ReadChannelFeedback()` returns `DriverError::TimeoutError`
+- Feedback snapshot never coherent
+
+**Causes:**
+
+- Channel is disabled or not in ICC mode — the feedback registers are not updated
+- `timeout_ms` too short for the configured PWM period (snapshot takes at least one full PWM period to update)
+- FB_UPD bit not asserting because FB_FRZ was written to the wrong channel index
+
+**Solutions:**
+
+1. **Enable the channel first**: ensure `EnableChannel(ch, true)` has been called and the channel is in `ChannelMode::ICC`
+2. **Increase timeout**: increase `timeout_ms` to at least `2 × PWM_period_ms`
+   - For 1 kHz PWM (1 ms period) use `timeout_ms = 5` (default)
+   - For 100 Hz PWM (10 ms period) use `timeout_ms = 30`
+3. **Verify ICC is settled**: wait at least 200 ms after changing setpoint before reading feedback
+
+---
+
+### Error: RunSffBist — Not Done / Fail
+
+**Symptoms:**
+
+- `RunSffBist()` returns a result with `done=false` (timeout) or `pass=false`
+- `uncorrectable_reg_err=true` or `correctable_reg_err=true`
+
+**Causes:**
+
+- `done=false`: BIST did not complete within `timeout_ms` — supply voltage marginal or timeout too short
+- `pass=false` + `uncorrectable_reg_err=true`: hardware register memory fault in the IC
+- `pass=false` + `correctable_reg_err=true`: single-bit error corrected by ECC — may be transient
+
+**Solutions:**
+
+1. **Increase timeout**: pass `timeout_ms = 50` if the default 10 ms is insufficient
+2. **Verify supplies**: VBAT and VIO must be stable within spec for BIST to run
+3. **Power-cycle and retry**: if `correctable_reg_err=true` on a single run, retry — transient upsets can occur
+4. **Replace device**: if `uncorrectable_reg_err=true` persists across multiple power cycles, the IC has a permanent fault
+
+---
+
+### Error: RunSupplyMonitorSelfTest — Phase Failure
+
+**Symptoms:**
+
+- `RunSupplyMonitorSelfTest()` returns a result with one or more sub-test fields `false`
+- `overall_pass=false`
+
+**Causes:**
+
+- Sub-test expected a fault response from the supply monitor but none was generated
+- Supplies at marginal levels may prevent the test-mode injection from exceeding thresholds
+- Fault was not cleared between sub-tests (inter-test state contamination)
+
+**Solutions:**
+
+1. **Run at nominal voltages**: ensure VBAT ˜ 12 V or 24 V and VIO ˜ 3.3 V or 5 V — do not run at supply extremes
+2. **Do not run while loads are enabled**: disable all channels before calling `RunSupplyMonitorSelfTest()`
+3. **Check CRC is enabled**: CRC-protected SPI is required for the test-mode write to take effect reliably; call `SetCrcEnabled(true)` before the self-test
+
+---
+
+**Navigation**
+?? Back to [Documentation Index](index.md)

@@ -33,20 +33,21 @@ constexpr uint16_t FB_FRZ = 0x0007;        ///< Feedback Freeze Register
 constexpr uint16_t FB_UPD = 0x0008;        ///< Feedback Update Register
 constexpr uint16_t WD_RELOAD = 0x0009;     ///< SPI Watchdog Reload Register
 
-// Channel Group Diagnosis (0x000A + channel_group)
-constexpr uint16_t DIAG_ERR_CHGR0 = 0x000A; ///< Diagnosis Error CH Group 0
-constexpr uint16_t DIAG_ERR_CHGR1 = 0x000B; ///< Diagnosis Error CH Group 1
-constexpr uint16_t DIAG_ERR_CHGR2 = 0x000C; ///< Diagnosis Error CH Group 2
-constexpr uint16_t DIAG_ERR_CHGR3 = 0x000D; ///< Diagnosis Error CH Group 3
-constexpr uint16_t DIAG_ERR_CHGR4 = 0x000E; ///< Diagnosis Error CH Group 4
-constexpr uint16_t DIAG_ERR_CHGR5 = 0x000F; ///< Diagnosis Error CH Group 5
+// Channel Group Diagnosis (per datasheet §5.3.2.12 / §5.3.2.13)
+// There are ONLY 3 groups. Each group covers a pair of channels via
+// an internal y=0/y=1 field offset:
+//   CHGR0 covers CH0 (y=0) + CH1 (y=1)
+//   CHGR1 covers CH2 (y=0) + CH3 (y=1)
+//   CHGR2 covers CH4 (y=0) + CH5 (y=1)
+// Use DIAG_ERR_CHGR::AddressForChannel(ch) / DIAG_WARN_CHGR::AddressForChannel(ch).
+// Addresses 0x000D..0x000F and 0x0013..0x0015 are NOT DIAG registers.
+constexpr uint16_t DIAG_ERR_CHGR0 = 0x000A; ///< Diag Error CHGR0 (CH0+CH1)
+constexpr uint16_t DIAG_ERR_CHGR1 = 0x000B; ///< Diag Error CHGR1 (CH2+CH3)
+constexpr uint16_t DIAG_ERR_CHGR2 = 0x000C; ///< Diag Error CHGR2 (CH4+CH5)
 
-constexpr uint16_t DIAG_WARN_CHGR0 = 0x0010; ///< Diagnosis Warning CH Group 0
-constexpr uint16_t DIAG_WARN_CHGR1 = 0x0011; ///< Diagnosis Warning CH Group 1
-constexpr uint16_t DIAG_WARN_CHGR2 = 0x0012; ///< Diagnosis Warning CH Group 2
-constexpr uint16_t DIAG_WARN_CHGR3 = 0x0013; ///< Diagnosis Warning CH Group 3
-constexpr uint16_t DIAG_WARN_CHGR4 = 0x0014; ///< Diagnosis Warning CH Group 4
-constexpr uint16_t DIAG_WARN_CHGR5 = 0x0015; ///< Diagnosis Warning CH Group 5
+constexpr uint16_t DIAG_WARN_CHGR0 = 0x0010; ///< Diag Warn CHGR0 (CH0+CH1)
+constexpr uint16_t DIAG_WARN_CHGR1 = 0x0011; ///< Diag Warn CHGR1 (CH2+CH3)
+constexpr uint16_t DIAG_WARN_CHGR2 = 0x0012; ///< Diag Warn CHGR2 (CH4+CH5)
 
 constexpr uint16_t FAULT_MASK0 = 0x0016; ///< Fault Mask Register 0
 constexpr uint16_t FAULT_MASK1 = 0x0017; ///< Fault Mask Register 1
@@ -83,23 +84,25 @@ namespace DeviceID {
 constexpr uint16_t DEVICE_TYPE_MASK = 0xFF00; ///< Device type mask [15:8]
 constexpr uint16_t REVISION_MASK = 0x00FF;    ///< Silicon revision mask [7:0]
 
-// Expected device type code for TLE92466ED (upper byte of ICVID)
-// Note: This should be confirmed from datasheet or actual device
-constexpr uint8_t EXPECTED_TYPE_92466ED = 0x92; ///< Expected device type code
+// Expected manufacturer/device-type code for TLE92466ED (upper byte of ICVID).
+// Per datasheet §5.3.2.19 p.75 the high byte is fixed at 0xC1 (Infineon
+// manufacturer ID for this family); the low byte is the silicon revision
+// and may vary by part lot. VerifyDevice() accepts any 0xC1?? value.
+constexpr uint8_t EXPECTED_TYPE_92466ED = 0xC1; ///< Expected manufacturer/type byte
 
 // Minimum supported silicon revision
 constexpr uint8_t MIN_REVISION = 0x00; ///< Minimum silicon revision
 
 /**
- * @brief Check if ICVID value is valid for TLE92466ED
- * @param icvid Value read from ICVID register
- * @return true if device type matches expected value
+ * @brief Check if ICVID value is valid for TLE92466ED.
+ * @param icvid Value read from ICVID register.
+ * @return true if upper byte matches 0xC1 (any revision).
  */
 [[nodiscard]] constexpr bool IsValidDevice(uint16_t icvid) noexcept {
-  [[maybe_unused]] uint8_t device_type = (icvid >> 8) & 0xFF;
-  // Accept device if communication is working (non-zero response)
-  // Strict type checking can be enabled if exact ID is known
-  return icvid != 0x0000 && icvid != 0xFFFF;
+  // Reject obviously broken reads (all-zero / all-one).
+  if (icvid == 0x0000 || icvid == 0xFFFF) return false;
+  const uint8_t device_type = static_cast<uint8_t>((icvid >> 8) & 0xFF);
+  return device_type == EXPECTED_TYPE_92466ED;
 }
 
 /**
@@ -392,6 +395,103 @@ constexpr uint16_t CLEAR_ALL = 0xFFFF; ///< Clear all bits (write-to-clear)
 } // namespace GLOBAL_DIAG1
 
 //==============================================================================
+// DIAG_ERR_CHGRx REGISTERS (0x000A..0x000C) - Per-Channel-Pair Error Diagnostics
+//==============================================================================
+
+/**
+ * @brief DIAG_ERR_CHGR bit layout and address helpers.
+ *
+ * @details
+ * Per datasheet \u00a75.3.2.12 p.67. There are only THREE groups, each
+ * covering a channel pair (low channel = y=0, high channel = y=1).
+ * The per-channel bit offset is `8*y`:
+ *   bit 8*y+0  OLSG  Open-Load or Short-to-Ground (latched pre-check)
+ *   bit 8*y+1  OL    Open-Load
+ *   bit 8*y+2  OC    Overcurrent  (requires TWO consecutive clear writes)
+ *   bit 8*y+3  SG    Short-to-Ground
+ *   bit 8*y+4  OTE   Channel overtemperature error
+ *   bits 8*y+5..7 reserved
+ *
+ * Example: DIAG_ERR_CHGR0 holds CH0 error flags in bits [4:0] and
+ *          CH1 error flags in bits [12:8].
+ */
+namespace DIAG_ERR_CHGR {
+constexpr uint8_t BIT_OLSG = 0; ///< Open-Load / Short-to-Ground
+constexpr uint8_t BIT_OL   = 1; ///< Open-Load
+constexpr uint8_t BIT_OC   = 2; ///< Overcurrent (double-clear)
+constexpr uint8_t BIT_SG   = 3; ///< Short-to-Ground
+constexpr uint8_t BIT_OTE  = 4; ///< Channel overtemperature error
+
+/// 5-bit mask of all error bits for one channel (before 8*y shift).
+constexpr uint16_t PER_CHANNEL_MASK = 0x001Fu;
+
+/// 16-bit mask of both-channel OC bits in a group (bits 2 and 10).
+constexpr uint16_t OC_BOTH_MASK = (1u << BIT_OC) | (1u << (BIT_OC + 8));
+
+/// Register address for the group covering a channel.
+[[nodiscard]] constexpr uint16_t AddressForChannel(uint8_t channel) noexcept {
+  return static_cast<uint16_t>(CentralReg::DIAG_ERR_CHGR0 + (channel / 2));
+}
+
+/// Bit shift (0 or 8) selecting the channel within its group.
+[[nodiscard]] constexpr uint8_t YShiftForChannel(uint8_t channel) noexcept {
+  return static_cast<uint8_t>((channel & 1u) * 8u);
+}
+
+/// Build a single-bit test mask for a given channel and bit index.
+[[nodiscard]] constexpr uint16_t ChannelBitMask(uint8_t channel, uint8_t bit_index) noexcept {
+  return static_cast<uint16_t>(1u << (bit_index + YShiftForChannel(channel)));
+}
+
+/// Clear mask writing 1s only to the OC bit(s) of the affected channel.
+[[nodiscard]] constexpr uint16_t OcClearMaskForChannel(uint8_t channel) noexcept {
+  return ChannelBitMask(channel, BIT_OC);
+}
+} // namespace DIAG_ERR_CHGR
+
+//==============================================================================
+// DIAG_WARN_CHGRx REGISTERS (0x0010..0x0012) - Per-Channel-Pair Warnings
+//==============================================================================
+
+/**
+ * @brief DIAG_WARN_CHGR bit layout and address helpers.
+ *
+ * @details
+ * Per datasheet \u00a75.3.2.13 p.68. Three groups only; bit offset is `8*y`:
+ *   bit 8*y+0  PWM_REG_WARN        ICC PWM regulation warning
+ *   bit 8*y+1  I_REG_WARN          ICC current regulation warning
+ *   bit 8*y+2  OTW                 Channel overtemperature warning
+ *   bit 8*y+3  OLSG_WARN           Open-Load/Short-to-Ground warning
+ *   bit 8*y+4  OLSG_WARN_CHK_NOK   OLSG check not yet performed (POR=1)
+ *
+ * POR default is 0x1010 because the two CHK_NOK bits come up set.
+ */
+namespace DIAG_WARN_CHGR {
+constexpr uint8_t BIT_PWM_REG      = 0;
+constexpr uint8_t BIT_I_REG        = 1;
+constexpr uint8_t BIT_OTW          = 2;
+constexpr uint8_t BIT_OLSG_WARN    = 3;
+constexpr uint8_t BIT_OLSG_CHK_NOK = 4;
+
+constexpr uint16_t PER_CHANNEL_MASK = 0x001Fu;
+
+/// Register address for the group covering a channel.
+[[nodiscard]] constexpr uint16_t AddressForChannel(uint8_t channel) noexcept {
+  return static_cast<uint16_t>(CentralReg::DIAG_WARN_CHGR0 + (channel / 2));
+}
+
+/// Bit shift (0 or 8) selecting the channel within its group.
+[[nodiscard]] constexpr uint8_t YShiftForChannel(uint8_t channel) noexcept {
+  return static_cast<uint8_t>((channel & 1u) * 8u);
+}
+
+/// Build a single-bit test mask for a given channel and bit index.
+[[nodiscard]] constexpr uint16_t ChannelBitMask(uint8_t channel, uint8_t bit_index) noexcept {
+  return static_cast<uint16_t>(1u << (bit_index + YShiftForChannel(channel)));
+}
+} // namespace DIAG_WARN_CHGR
+
+//==============================================================================
 // GLOBAL_DIAG2 REGISTER (0x0005) - Global Diagnosis Register 2
 //==============================================================================
 
@@ -524,7 +624,8 @@ constexpr uint16_t MAX_TARGET = 0x6000;
  * **Formulas**:
  * - Standard: T_pwm = PERIOD_MANT × 2^PERIOD_EXP × (1/f_sys)
  * - Low Freq: T_pwm = PERIOD_MANT × 8 × 2^PERIOD_EXP × (1/f_sys)
- * - Where f_sys ≈ 8 MHz, so 1/f_sys = 0.125 µs
+ * - Where f_sys = 28 MHz (PLL-stabilized, see datasheet §4.2.1 Table 10 p.16),
+ *   so 1/f_sys ≈ 35.714 ns (≈ 1/28 µs).
  */
 namespace PERIOD {
 constexpr uint16_t MANT_MASK = 0x00FF;       ///< Mantissa mask (bits 7:0)
@@ -533,8 +634,13 @@ constexpr uint16_t EXP_SHIFT = 8;            ///< Exponent shift
 constexpr uint8_t EXP_VALUE_MASK = 0x07;     ///< Exponent value mask (3 bits: 0-7)
 constexpr uint16_t LOW_FREQ_BIT = (1 << 11); ///< Low frequency range bit
 
-constexpr uint32_t F_SYS_HZ = 8'000'000UL; ///< System clock frequency (8 MHz)
-constexpr float F_SYS_PERIOD_US = 0.125F;  ///< System clock period (0.125 µs)
+/// PWM controller proportional gain lives in bits [15:12] of PERIOD per
+/// datasheet \u00a75.3.3.3. 4-bit KI value.
+constexpr uint16_t PWM_CTRL_PARAM_SHIFT = 12;
+constexpr uint16_t PWM_CTRL_PARAM_MASK  = 0xF000;
+
+constexpr uint32_t F_SYS_HZ = 28'000'000UL;           ///< System clock frequency (28 MHz)
+constexpr float F_SYS_PERIOD_US = 1.0F / 28.0F;       ///< System clock period (≈35.71 ns)
 
 //
 // Datasheet-spec PWM frequency range
@@ -768,6 +874,239 @@ constexpr uint16_t DEFAULT = OFF; ///< Default (off)
 } // namespace CH_MODE
 
 //==============================================================================
+// TON REGISTER - Direct-Drive On-Time (Per Channel, offset 0x000D)
+//==============================================================================
+
+/**
+ * @brief TON register bit definitions.
+ *
+ * @details
+ * Per datasheet \u00a75.3.3.12 p.96. Provides:
+ *   bits  9:0   TON_MANT        On-time mantissa (exponent comes from
+ *                               DITHER_CLK_DIV.EXP, NOT PERIOD.EXP).
+ *   bits 15:10  OLSG_TIMEOUT    Open-load / short-to-ground check timeout.
+ *
+ * Used in DIRECT_DRIVE_SPI mode to control constant on-time without dither.
+ * Formula: t_ON = TON_MANT * 2^EXP / fSYS (EXP from per-channel dither clock).
+ */
+namespace TON {
+constexpr uint16_t TON_MANT_MASK      = 0x03FFu; ///< 10-bit mantissa mask
+constexpr uint16_t OLSG_TIMEOUT_SHIFT = 10u;     ///< OLSG timeout shift
+constexpr uint16_t OLSG_TIMEOUT_MASK  = 0xFC00u; ///< 6-bit OLSG timeout mask
+
+constexpr uint16_t DEFAULT = 0x0000;             ///< POR default
+
+/// Pack TON_MANT + OLSG_TIMEOUT into the raw register value.
+[[nodiscard]] constexpr uint16_t Build(uint16_t ton_mant, uint8_t olsg_timeout) noexcept {
+  return static_cast<uint16_t>((ton_mant & TON_MANT_MASK)
+       | ((static_cast<uint16_t>(olsg_timeout) << OLSG_TIMEOUT_SHIFT) & OLSG_TIMEOUT_MASK));
+}
+} // namespace TON
+
+//==============================================================================
+// INTEGRATOR_LIMIT REGISTER - ICC Integrator Limit (Per Channel, offset 0x0003)
+//==============================================================================
+
+/**
+ * @brief INTEGRATOR_LIMIT register bit definitions.
+ *
+ * @details
+ * Per datasheet \u00a75.3.3.4 p.89. Sets the ICC integrator clamp used when
+ * recovering from disturbances:
+ *   bits  9:0   LIM_VALUE_ABS        Primary integrator limit (|lim|)
+ *   bits 14:10  AUTO_LIM_VALUE_ABS   Auto-limit setpoint delta (|auto_lim|)
+ *
+ * Constraint (\u00a74.6.2.3): AUTO_LIM_VALUE_ABS must be greater than
+ * MIN_INT_THRESH+3 to avoid integrator windup on small setpoint changes.
+ */
+namespace INTEGRATOR_LIMIT {
+constexpr uint16_t LIM_VALUE_ABS_MASK      = 0x03FFu; ///< 10-bit
+constexpr uint16_t AUTO_LIM_VALUE_ABS_SHIFT = 10u;
+constexpr uint16_t AUTO_LIM_VALUE_ABS_MASK  = 0x7C00u; ///< 5-bit
+
+constexpr uint16_t DEFAULT = 0x0000;
+
+[[nodiscard]] constexpr uint16_t Build(uint16_t lim_value_abs,
+                                       uint8_t  auto_lim_value_abs) noexcept {
+  return static_cast<uint16_t>((lim_value_abs & LIM_VALUE_ABS_MASK)
+       | ((static_cast<uint16_t>(auto_lim_value_abs) << AUTO_LIM_VALUE_ABS_SHIFT)
+          & AUTO_LIM_VALUE_ABS_MASK));
+}
+} // namespace INTEGRATOR_LIMIT
+
+//==============================================================================
+// CTRL_INT_THRESH REGISTER - ICC Integrator Threshold (Per Channel, offset 0x000E)
+//==============================================================================
+
+/**
+ * @brief CTRL_INT_THRESH register bit definitions.
+ *
+ * @details
+ * Per datasheet \u00a75.3.3.13 p.97. Seeds the integrator + latches the
+ * current PWM period mantissa for fast transient response.
+ *   bits 15:8   PERIOD_MANT         11-bit mantissa (only 8 fit here; the
+ *                                   extra bits live in PERIOD.MANT; setting
+ *                                   PERIOD_MANT=0 switches the channel to
+ *                                   manual on-time mode using TON.TON_MANT.)
+ *   bits  7:0   INT_THRESH          Signed 8-bit integrator seed value.
+ */
+namespace CTRL_INT_THRESH {
+constexpr uint16_t INT_THRESH_MASK    = 0x00FFu; ///< signed 8-bit
+constexpr uint16_t PERIOD_MANT_SHIFT  = 8u;
+constexpr uint16_t PERIOD_MANT_MASK   = 0xFF00u; ///< upper 8 bits of period_mant
+
+constexpr uint16_t DEFAULT = 0x0000;
+
+/// Build raw value. int_thresh is signed (int8_t range).
+[[nodiscard]] constexpr uint16_t Build(int8_t int_thresh, uint8_t period_mant_hi) noexcept {
+  return static_cast<uint16_t>((static_cast<uint16_t>(static_cast<uint8_t>(int_thresh))
+          & INT_THRESH_MASK)
+       | ((static_cast<uint16_t>(period_mant_hi) << PERIOD_MANT_SHIFT) & PERIOD_MANT_MASK));
+}
+} // namespace CTRL_INT_THRESH
+
+//==============================================================================
+// CLK_DIV REGISTER (0x0019) - Central Clock Source and PLL Divider
+//==============================================================================
+
+/**
+ * @brief CLK_DIV bit definitions.
+ *
+ * @details
+ * Per datasheet \u00a75.3.2.16 p.71. Selects between external clock and the
+ * internal oscillator and configures the PLL generating fSYS from the
+ * external clock (when EXT_CLK=1):
+ *   bit 15       EXT_CLK        0 = internal oscillator, 1 = external + PLL
+ *   bits 14:9    PLL_REFDIV     Reference divider R  (fREF = fCLK / (R+1))
+ *   bits  8:0    PLL_FBDIV      Feedback divider  N  (fSYS = fREF * (N+1))
+ *
+ * Resulting system clock must equal 28 MHz \u00b1 tolerances for ICC math to
+ * be valid. Typical external clock is 4 or 8 MHz.
+ */
+namespace CLK_DIV {
+constexpr uint16_t EXT_CLK_BIT      = (1u << 15);
+constexpr uint16_t PLL_REFDIV_SHIFT = 9u;
+constexpr uint16_t PLL_REFDIV_MASK  = 0x7E00u; // 6-bit
+constexpr uint16_t PLL_FBDIV_MASK   = 0x01FFu; // 9-bit
+
+constexpr uint32_t F_SYS_TARGET_HZ  = 28'000'000UL; ///< Target fSYS
+
+/// Pack the external-clock PLL configuration.
+[[nodiscard]] constexpr uint16_t BuildExternalPll(uint8_t pll_refdiv,
+                                                  uint16_t pll_fbdiv) noexcept {
+  return static_cast<uint16_t>(EXT_CLK_BIT
+       | ((static_cast<uint16_t>(pll_refdiv) << PLL_REFDIV_SHIFT) & PLL_REFDIV_MASK)
+       | (pll_fbdiv & PLL_FBDIV_MASK));
+}
+
+/// Internal-oscillator configuration (no PLL).
+constexpr uint16_t INTERNAL_OSC = 0x0000u;
+
+/// Compute the divider pair (R,N) for a given external fCLK aiming at 28 MHz.
+/// Simple heuristic: set R=0 (no reference division) and N=(28e6/fCLK)-1.
+/// Caller should check fCLK is in the supported 1\u20138 MHz range.
+struct PllConfig { uint8_t refdiv; uint16_t fbdiv; uint32_t actual_f_sys_hz; };
+[[nodiscard]] inline PllConfig CalculatePllFromExternalHz(uint32_t f_clk_hz) noexcept {
+  PllConfig cfg{0u, 0u, 0u};
+  if (f_clk_hz == 0) return cfg;
+  const uint32_t n_plus_1 = (F_SYS_TARGET_HZ + (f_clk_hz / 2)) / f_clk_hz;
+  if (n_plus_1 == 0 || n_plus_1 > 512) return cfg;
+  cfg.refdiv        = 0u;
+  cfg.fbdiv         = static_cast<uint16_t>(n_plus_1 - 1u);
+  cfg.actual_f_sys_hz = f_clk_hz * n_plus_1;
+  return cfg;
+}
+} // namespace CLK_DIV
+
+//==============================================================================
+// SFF_BIST REGISTER (0x003F) - Safe State / BIST Control
+//==============================================================================
+
+/**
+ * @brief SFF_BIST bit definitions.
+ *
+ * @details
+ * Per datasheet \u00a75.3.2.18 p.74. Triggers the built-in safe-state
+ * logic-BIST and surfaces the result status:
+ *   bit 0  SFF_BIST_EN    Start / run BIST (write 1 to trigger)
+ *   bit 1  SFF_BIST_DONE  1 = BIST completed
+ *   bit 2  SFF_BIST_FAIL  1 = BIST detected a stuck-at / logic fault
+ *   bit 3  SFF_BIST_UERR  1 = Uncorrectable register error during BIST
+ *   bit 4  SFF_BIST_CERR  1 = Correctable register error during BIST
+ */
+namespace SFF_BIST {
+constexpr uint16_t EN   = (1u << 0);
+constexpr uint16_t DONE = (1u << 1);
+constexpr uint16_t FAIL = (1u << 2);
+constexpr uint16_t UERR = (1u << 3);
+constexpr uint16_t CERR = (1u << 4);
+
+constexpr uint16_t DEFAULT = 0x0000;
+} // namespace SFF_BIST
+
+//==============================================================================
+// PIN_STAT REGISTER (0x0201) - Input Pin Status (read-only)
+//==============================================================================
+
+/**
+ * @brief PIN_STAT bit definitions.
+ *
+ * @details
+ * Per datasheet \u00a75.3.2.20 p.76. Read-only snapshot of the driver's
+ * input control pins and the FAULTN output feedback:
+ *   bit 0  DRV0        Level of DRV0 input pin
+ *   bit 1  DRV1        Level of DRV1 input pin
+ *   bit 4  EN          Level of EN pin
+ *   bit 5  FAULTN      Driver side of the FAULTN open-drain output
+ *   bit 6  FAULTN_FB   External feedback of FAULTN (1 = line high)
+ */
+namespace PIN_STAT {
+constexpr uint16_t DRV0      = (1u << 0);
+constexpr uint16_t DRV1      = (1u << 1);
+constexpr uint16_t EN        = (1u << 4);
+constexpr uint16_t FAULTN    = (1u << 5);
+constexpr uint16_t FAULTN_FB = (1u << 6);
+} // namespace PIN_STAT
+
+//==============================================================================
+// FAULT_MASK0/1/2 REGISTERS (0x0016-0x0018) - Contribution to FAULTN
+//==============================================================================
+
+/**
+ * @brief FAULT_MASK bit definitions.
+ *
+ * @details
+ * Per datasheet \u00a75.3.2.14-5.3.2.17 p.69-72. Bit=1 means the condition
+ * pulls FAULTN low; bit=0 masks it out. Organized across three registers
+ * for error/warn/supply domains.
+ */
+namespace FAULT_MASK0 {
+constexpr uint16_t CH_ERR_MASK     = 0x003Fu;   ///< Per-channel error (CH0..5)
+constexpr uint16_t EN_PIN_MASK     = (1u << 13);
+constexpr uint16_t SUP_NOK_INT_MASK = (1u << 14);
+constexpr uint16_t SUP_NOK_EXT_MASK = (1u << 15);
+constexpr uint16_t DEFAULT          = 0xC03Fu;
+} // namespace FAULT_MASK0
+
+namespace FAULT_MASK1 {
+constexpr uint16_t CH_WARN_MASK = 0x003Fu;    ///< Per-channel warning (CH0..5)
+constexpr uint16_t COTWARN_MASK = (1u << 12);
+constexpr uint16_t COTERR_MASK  = (1u << 13);
+constexpr uint16_t CLK_LOW_MASK = (1u << 14);
+constexpr uint16_t DEFAULT      = 0x703Fu;
+} // namespace FAULT_MASK1
+
+namespace FAULT_MASK2 {
+constexpr uint16_t VBAT_UV_MASK = (1u << 0);
+constexpr uint16_t VBAT_OV_MASK = (1u << 1);
+constexpr uint16_t VIO_UV_MASK  = (1u << 2);
+constexpr uint16_t VIO_OV_MASK  = (1u << 3);
+constexpr uint16_t VDD_UV_MASK  = (1u << 4);
+constexpr uint16_t VDD_OV_MASK  = (1u << 5);
+constexpr uint16_t DEFAULT      = 0x003Fu;
+} // namespace FAULT_MASK2
+
+//==============================================================================
 // DITHER CONTROL REGISTER - Per Channel
 //==============================================================================
 
@@ -851,8 +1190,8 @@ constexpr uint8_t  EXP_VALUE_MASK    = 0x0Fu;         ///< Exponent value (4 bit
 constexpr uint16_t DITHER_PWM_SYNC_EN_BIT      = (1u << 14);
 constexpr uint16_t DITHER_SETPOINT_SYNC_EN_BIT = (1u << 15);
 
-constexpr uint32_t F_SYS_HZ          = 8'000'000UL;   ///< System clock (8 MHz)
-constexpr float    F_SYS_PERIOD_US   = 0.125F;        ///< 1 / fSYS (µs)
+constexpr uint32_t F_SYS_HZ          = 28'000'000UL;  ///< System clock (28 MHz, §4.2.1)
+constexpr float    F_SYS_PERIOD_US   = 1.0F / 28.0F;  ///< 1 / fSYS (µs, ≈35.71 ns)
 
 /// Encoded DITHER_CLK_DIV configuration.
 struct ClkDivConfig {
@@ -936,8 +1275,8 @@ struct ClkDivConfig {
  * to a non-zero MANT/EXP combination first.
  */
 namespace DITHER {
-constexpr float F_SYS_HZ = 8'000'000.0F;       ///< System clock frequency (8 MHz)
-constexpr float DEFAULT_T_REF_CLK_US = 0.125F; ///< Default reference clock period (µs)
+constexpr float F_SYS_HZ = 28'000'000.0F;                ///< System clock frequency (28 MHz)
+constexpr float DEFAULT_T_REF_CLK_US = 1.0F / 28.0F;     ///< tref_clk at MANT=1, EXP=0 (≈35.71 ns)
 
 /**
  * @brief Dither configuration structure
@@ -1149,7 +1488,97 @@ constexpr uint32_t VBAT_SHIFT = 11;        ///< VBAT is in bits [21:11]
 [[nodiscard]] constexpr uint16_t ExtractTemperatureRaw(uint32_t register_value) noexcept {
   return static_cast<uint16_t>((register_value >> 0) & VBAT_MASK); // Bits [10:0]
 }
+
+/**
+ * @brief Convert a raw TEMP_VALUE (11-bit) to die temperature in \u00b0C.
+ *
+ * @details
+ * Per datasheet \u00a75.3.2.22 p.79 (FB_VOLTAGE2, TEMP_VALUE):
+ *     TFB_Central = (<TEMP_VALUE> \u00b7 0.000593 V \u2212 0.819 V) / \u22120.0016 V/\u00b0C
+ *
+ * The slope is negative, so a larger raw value yields a lower temperature.
+ *
+ * @param temp_value Raw 11-bit TEMP_VALUE field from FB_VOLTAGE2[10:0].
+ * @return Central die temperature in degrees Celsius (can be negative).
+ */
+[[nodiscard]] constexpr float TemperatureCelsiusFromRaw(uint16_t temp_value) noexcept {
+  constexpr float K_VPERLSB  = 0.000593F;   // V per LSB
+  constexpr float K_OFFSET_V = 0.819F;      // V offset
+  constexpr float K_SLOPE_VPERC = -0.0016F; // V per \u00b0C (negative slope)
+  const float v = static_cast<float>(temp_value & 0x7FFu) * K_VPERLSB - K_OFFSET_V;
+  return v / K_SLOPE_VPERC;
+}
+
+/**
+ * @brief Convert a raw 22-bit FB_VOLTAGE2 read to die temperature in \u00b0C.
+ */
+[[nodiscard]] constexpr float TemperatureCelsiusFromFbVoltage2(uint32_t register_value) noexcept {
+  return TemperatureCelsiusFromRaw(ExtractTemperatureRaw(register_value));
+}
 } // namespace VOLTAGE_FEEDBACK
+
+//==============================================================================
+// FB_IMIN_IMAX DECODER - Per-Channel Signed Min/Max Load Current
+//==============================================================================
+
+/**
+ * @brief Decoder for the FB_IMIN_IMAX register (ChannelReg::FB_IMIN_IMAX).
+ *
+ * @details
+ * Per datasheet \u00a75.3.3.17 p.101, FB_IMIN_IMAX is a 22-bit reply frame
+ * containing two 10-bit SIGNED (two's-complement) fields:
+ *
+ *   bits  9:0   IMIN   I_min = <IMIN> \u00b7 4 A / (2^9 \u2212 1) = <IMIN> \u00b7 4 A / 511
+ *   bits 19:10  IMAX   I_max = <IMAX> \u00b7 4 A / 511
+ *   bits 21:20  reserved
+ *
+ * Full-scale range is approximately \u00b14 A (values 512\u2026\u22121 map to
+ * \u22124.007\u2026+4.0 A). Negative values represent recirculation current.
+ *
+ * @note The previous driver decoded these as unsigned 8-bit halves; that
+ *       rendered all min/max reports garbage. Always route through this
+ *       namespace.
+ */
+namespace FB_IMIN_IMAX {
+constexpr uint32_t IMIN_SHIFT = 0u;
+constexpr uint32_t IMIN_MASK  = 0x3FFu;      // 10-bit
+constexpr uint32_t IMAX_SHIFT = 10u;
+constexpr uint32_t IMAX_MASK  = 0x3FFu;      // 10-bit
+constexpr int32_t  FULL_SCALE_mA = 4000;     // 4 A full scale
+constexpr int32_t  FULL_SCALE_COUNT = 511;   // 2^9 - 1
+
+/// Sign-extend a 10-bit two's-complement field to int16_t.
+[[nodiscard]] constexpr int16_t SignExtend10(uint32_t v) noexcept {
+  const uint32_t masked = v & 0x3FFu;
+  return static_cast<int16_t>((masked & 0x200u) ? (masked | 0xFC00u) : masked);
+}
+
+/// Extract signed 10-bit IMIN field from raw FB_IMIN_IMAX read.
+[[nodiscard]] constexpr int16_t ExtractIMin(uint32_t raw) noexcept {
+  return SignExtend10((raw >> IMIN_SHIFT) & IMIN_MASK);
+}
+
+/// Extract signed 10-bit IMAX field from raw FB_IMIN_IMAX read.
+[[nodiscard]] constexpr int16_t ExtractIMax(uint32_t raw) noexcept {
+  return SignExtend10((raw >> IMAX_SHIFT) & IMAX_MASK);
+}
+
+/// Convert a signed 10-bit IMIN/IMAX field value to milliamperes.
+[[nodiscard]] constexpr int32_t FieldToMilliamps(int16_t field) noexcept {
+  // I [mA] = field * 4000 / 511 (round toward zero)
+  return (static_cast<int32_t>(field) * FULL_SCALE_mA) / FULL_SCALE_COUNT;
+}
+
+/// Decode IMIN in mA from a raw FB_IMIN_IMAX read.
+[[nodiscard]] constexpr int32_t IMin_mA(uint32_t raw) noexcept {
+  return FieldToMilliamps(ExtractIMin(raw));
+}
+
+/// Decode IMAX in mA from a raw FB_IMIN_IMAX read.
+[[nodiscard]] constexpr int32_t IMax_mA(uint32_t raw) noexcept {
+  return FieldToMilliamps(ExtractIMax(raw));
+}
+} // namespace FB_IMIN_IMAX
 
 //==============================================================================
 // PER-CHANNEL FEEDBACK HELPERS — FB_DC, FB_I_AVG, FB_VBAT
@@ -1269,6 +1698,112 @@ constexpr float VBAT_FULL_SCALE_VOLTS = 41.47f;       ///< VBAT formula scale (4
 }
 
 }  // namespace FB_FEEDBACK
+
+//==============================================================================
+// FB_I_AVG_s16 REGISTER (Per Channel, offset 0x0204) - High-res signed average
+//==============================================================================
+
+/**
+ * @brief FB_I_AVG_s16 decoder.
+ *
+ * @details
+ * Per datasheet \u00a75.3.3.21 p.104. Provides a high-resolution signed
+ * average current for calibration workflows. Reply frame is 22-bit:
+ *   bits 16:0   I_AVG_s16 (signed 17-bit)  I = 4000 mA * val / 65535
+ *   bits 21:20  TIME_STAMP (2-bit rolling counter, quad-seq in fast meas)
+ *
+ * NOTE: this is distinct from FB_I_AVG (offset 0x0202) which is compressed
+ * mantissa/exponent. Use FB_I_AVG_s16 only for calibration since the
+ * frame is not valid while the chip is still settling.
+ */
+namespace FB_I_AVG_s16 {
+constexpr uint32_t I_AVG_MASK         = 0x0001FFFFu; ///< 17-bit
+constexpr uint32_t I_AVG_SIGN_BIT     = (1u << 16);
+constexpr uint32_t TIME_STAMP_SHIFT   = 20u;
+constexpr uint32_t TIME_STAMP_MASK    = 0x00300000u; ///< 2-bit
+
+constexpr int32_t  FULL_SCALE_mA      = 4000;
+constexpr int32_t  FULL_SCALE_COUNT   = 65535;
+
+/// Sign-extend the 17-bit signed field.
+[[nodiscard]] constexpr int32_t SignExtend17(uint32_t raw17) noexcept {
+  const uint32_t m = raw17 & I_AVG_MASK;
+  return (m & I_AVG_SIGN_BIT) ? static_cast<int32_t>(m | 0xFFFE0000u)
+                              : static_cast<int32_t>(m);
+}
+
+/// Decode signed 17-bit raw to milliamps.
+[[nodiscard]] constexpr int32_t ToMilliamps(uint32_t reply_22bit) noexcept {
+  const int32_t s = SignExtend17(reply_22bit);
+  return (s * FULL_SCALE_mA) / FULL_SCALE_COUNT;
+}
+
+/// Extract the 2-bit rolling timestamp.
+[[nodiscard]] constexpr uint8_t ExtractTimestamp(uint32_t reply_22bit) noexcept {
+  return static_cast<uint8_t>((reply_22bit & TIME_STAMP_MASK) >> TIME_STAMP_SHIFT);
+}
+} // namespace FB_I_AVG_s16
+
+//==============================================================================
+// FB_INT_THRESH REGISTER (Per Channel, offset 0x0205) - Integrator Threshold Readback
+//==============================================================================
+
+/**
+ * @brief FB_INT_THRESH feedback reader.
+ *
+ * @details
+ * Per datasheet \u00a75.3.3.22 p.105. Read-only snapshot of the current
+ * integrator threshold value (signed 8-bit, sign-extended to 16-bit).
+ * Used to monitor the auto-seeded integrator after setpoint changes.
+ */
+namespace FB_INT_THRESH {
+constexpr uint32_t INT_THRESH_MASK = 0x0000FFFFu;
+
+[[nodiscard]] constexpr int16_t Extract(uint32_t reply_22bit) noexcept {
+  return static_cast<int16_t>(reply_22bit & INT_THRESH_MASK);
+}
+} // namespace FB_INT_THRESH
+
+//==============================================================================
+// FB_PERIOD_MIN_MAX REGISTER (Per Channel, offset 0x0206) - PWM Period Bounds
+//==============================================================================
+
+/**
+ * @brief FB_PERIOD_MIN_MAX decoder.
+ *
+ * @details
+ * Per datasheet \u00a75.3.3.23 p.106. Reports the minimum and maximum PWM
+ * period observed during the last measurement window in 256-cycle units
+ * of fSYS:
+ *   bits  9:0   PERIOD_MIN  T_MIN = PERIOD_MIN * 256 / fSYS
+ *   bits 19:10  PERIOD_MAX  T_MAX = PERIOD_MAX * 256 / fSYS
+ */
+namespace FB_PERIOD_MIN_MAX {
+constexpr uint32_t PERIOD_MIN_MASK  = 0x000003FFu;
+constexpr uint32_t PERIOD_MAX_SHIFT = 10u;
+constexpr uint32_t PERIOD_MAX_MASK  = 0x000FFC00u;
+constexpr uint32_t TICK_CYCLES      = 256u;
+
+/// Convert a raw 10-bit count to microseconds (fSYS = 28 MHz).
+[[nodiscard]] constexpr uint32_t ToMicroseconds(uint16_t raw_count) noexcept {
+  // T_us = count * 256 / 28 = count * 64 / 7 (exact)
+  return (static_cast<uint32_t>(raw_count) * TICK_CYCLES) / 28u;
+}
+
+[[nodiscard]] constexpr uint16_t ExtractMin(uint32_t reply_22bit) noexcept {
+  return static_cast<uint16_t>(reply_22bit & PERIOD_MIN_MASK);
+}
+[[nodiscard]] constexpr uint16_t ExtractMax(uint32_t reply_22bit) noexcept {
+  return static_cast<uint16_t>((reply_22bit & PERIOD_MAX_MASK) >> PERIOD_MAX_SHIFT);
+}
+
+[[nodiscard]] constexpr uint32_t PeriodMinMicroseconds(uint32_t reply_22bit) noexcept {
+  return ToMicroseconds(ExtractMin(reply_22bit));
+}
+[[nodiscard]] constexpr uint32_t PeriodMaxMicroseconds(uint32_t reply_22bit) noexcept {
+  return ToMicroseconds(ExtractMax(reply_22bit));
+}
+} // namespace FB_PERIOD_MIN_MAX
 
 //==============================================================================
 // HELPER ENUMERATIONS
@@ -1565,5 +2100,156 @@ enum class ParallelPair : uint8_t {
   calculated_crc = CalculateFrameCrc(temp);
   return (received_crc == calculated_crc);
 }
+
+//==============================================================================
+// PHASE 2 / 4 / 5 / 6 - SHARED ENUMS AND STRUCTS
+//==============================================================================
+
+/**
+ * @brief Clock source selection for ConfigureClockSource().
+ */
+enum class ClockSource : uint8_t {
+  InternalOscillator, ///< Use internal ring oscillator (fSYS \u2248 28 MHz \u00b1 10 %)
+  ExternalClockPll    ///< Use external clock on DRV0 or dedicated pin, synth via PLL
+};
+
+/**
+ * @brief VIO voltage-level selection for SetVioLevel().
+ */
+enum class VioLevel : uint8_t { V3_3 = 0, V5_0 = 1 };
+
+/**
+ * @brief High-level supply-voltage snapshot returned by ReadAllSupplyVoltages().
+ */
+struct SupplyVoltages {
+  uint16_t vbat_mV{0};          ///< Battery supply in millivolts
+  uint16_t vio_mV{0};           ///< Logic supply in millivolts
+  uint16_t vdd_mV{0};           ///< Internal analog supply in millivolts
+  float    temperature_c{0.0F}; ///< Central die temperature in \u00b0C
+};
+
+/**
+ * @brief Coarse operational state returned by GetOperationState().
+ */
+enum class OperationState : uint8_t {
+  Reset,        ///< Held in reset (RESN low)
+  Config,       ///< Powered and initialized, but not in mission mode
+  Mission,      ///< Outputs operational
+  CriticalFault ///< Critical-fault reply flag set; requires reset/clear
+};
+
+/**
+ * @brief Fast-measurement mode for dither-synchronous feedback.
+ */
+enum class FastMeasureMode : uint8_t {
+  FullPeriod    = 0, ///< Measurement window = full dither period
+  HalfPeriod    = 1, ///< Measurement window = half dither period
+  QuarterPeriod = 2  ///< Measurement window = quarter dither period
+};
+
+/**
+ * @brief High-level dither configuration (Phase 4 superset of ConfigureDither).
+ */
+struct DitherSetup {
+  float           amplitude_mA{0.0F};      ///< Peak-to-peak dither amplitude in mA
+  float           frequency_Hz{0.0F};      ///< Dither frequency in Hz
+  bool            sync_with_pwm{false};    ///< Restart dither on each PWM rising edge
+  bool            sync_with_setpoint{false}; ///< Restart dither on setpoint change
+  bool            deep_dither{false};      ///< Enable deep-dither (extended amplitude range)
+  FastMeasureMode fast_measure{FastMeasureMode::FullPeriod}; ///< Feedback averaging window
+};
+
+/**
+ * @brief Result of RunSffBist().
+ */
+struct BistResult {
+  bool done{false};                  ///< BIST completed
+  bool pass{false};                  ///< BIST passed (fail==0)
+  bool uncorrectable_reg_err{false};
+  bool correctable_reg_err{false};
+  uint16_t raw{0};                   ///< Raw SFF_BIST register value for debug
+};
+
+/**
+ * @brief Snapshot returned by ReadPinStatus().
+ */
+struct PinStatus {
+  bool drv0{false};
+  bool drv1{false};
+  bool en{false};
+  bool faultn_driver{false};
+  bool faultn_fb{false};
+  uint16_t raw{0};
+};
+
+/**
+ * @brief Maskable fault sources for SetFaultMask().
+ *
+ * Each enumerator packs a FAULT_MASK register index (0/1/2) in the upper
+ * byte and the bit-mask within that register in the lower 16 bits.
+ */
+enum class MaskableFault : uint32_t {
+  // FAULT_MASK0
+  Ch0Error          = (0u << 24) | (1u << 0),
+  Ch1Error          = (0u << 24) | (1u << 1),
+  Ch2Error          = (0u << 24) | (1u << 2),
+  Ch3Error          = (0u << 24) | (1u << 3),
+  Ch4Error          = (0u << 24) | (1u << 4),
+  Ch5Error          = (0u << 24) | (1u << 5),
+  EnPin             = (0u << 24) | (1u << 13),
+  SupplyNokInternal = (0u << 24) | (1u << 14),
+  SupplyNokExternal = (0u << 24) | (1u << 15),
+  // FAULT_MASK1
+  Ch0Warning        = (1u << 24) | (1u << 0),
+  Ch1Warning        = (1u << 24) | (1u << 1),
+  Ch2Warning        = (1u << 24) | (1u << 2),
+  Ch3Warning        = (1u << 24) | (1u << 3),
+  Ch4Warning        = (1u << 24) | (1u << 4),
+  Ch5Warning        = (1u << 24) | (1u << 5),
+  CentralOtWarning  = (1u << 24) | (1u << 12),
+  CentralOtError    = (1u << 24) | (1u << 13),
+  ClockLow          = (1u << 24) | (1u << 14),
+  // FAULT_MASK2
+  VbatUv            = (2u << 24) | (1u << 0),
+  VbatOv            = (2u << 24) | (1u << 1),
+  VioUv             = (2u << 24) | (1u << 2),
+  VioOv             = (2u << 24) | (1u << 3),
+  VddUv             = (2u << 24) | (1u << 4),
+  VddOv             = (2u << 24) | (1u << 5),
+};
+
+[[nodiscard]] constexpr uint8_t  FaultMaskIndex(MaskableFault f) noexcept {
+  return static_cast<uint8_t>((static_cast<uint32_t>(f) >> 24) & 0x3u);
+}
+[[nodiscard]] constexpr uint16_t FaultMaskBit(MaskableFault f) noexcept {
+  return static_cast<uint16_t>(static_cast<uint32_t>(f) & 0xFFFFu);
+}
+
+/**
+ * @brief High-resolution per-channel feedback snapshot (Phase 6).
+ */
+struct ChannelFeedback {
+  int32_t  avg_current_mA{0};          ///< Average current (signed, mA)
+  uint16_t duty_cycle_permyriad{0};    ///< 0..10000
+  uint32_t avg_vbat_mV{0};             ///< Channel-referenced VBAT average (mV)
+  int32_t  imin_mA{0};                 ///< Minimum current in measurement window (mA)
+  int32_t  imax_mA{0};                 ///< Maximum current in measurement window (mA)
+  uint32_t period_min_us{0};           ///< Shortest PWM period observed (\u00b5s)
+  uint32_t period_max_us{0};           ///< Longest  PWM period observed (\u00b5s)
+  int16_t  int_thresh_seed{0};         ///< Current ICC integrator threshold
+  uint8_t  period_seq{0};              ///< Period sequence counter (MEAS_EXP path)
+  uint8_t  quad_seq{0};                ///< Quarter-period sequence counter
+};
+
+/**
+ * @brief Result of RunSupplyMonitorSelfTest().
+ */
+struct SupplyMonitorSelfTestResult {
+  bool uv_ov_swap_ok{false};
+  bool v1v5_uv_ok{false};
+  bool v1v5_ov_ok{false};
+  bool ot_test_ok{false};
+  bool overall_pass{false};
+};
 
 } // namespace tle92466ed
