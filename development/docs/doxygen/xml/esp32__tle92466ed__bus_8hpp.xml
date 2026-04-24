@@ -14,8 +14,10 @@
     <includes local="yes">freertos/FreeRTOS.h</includes>
     <includes local="yes">freertos/task.h</includes>
     <includes local="yes">tle92466ed_registers.hpp</includes>
+    <includedby refid="diagnostics__and__bist_8cpp" local="yes">examples/esp32/main/diagnostics_and_bist.cpp</includedby>
     <includedby refid="driver__integration__test_8cpp" local="yes">examples/esp32/main/driver_integration_test.cpp</includedby>
     <includedby refid="lm__pro__cycle__test_8cpp" local="yes">examples/esp32/main/lm_pro_cycle_test.cpp</includedby>
+    <includedby refid="resistive__load__bench_8cpp" local="yes">examples/esp32/main/resistive_load_bench.cpp</includedby>
     <includedby refid="solenoid__control__test_8cpp" local="yes">examples/esp32/main/solenoid_control_test.cpp</includedby>
     <incdepgraph>
       <node id="1">
@@ -96,6 +98,10 @@
     </incdepgraph>
     <invincdepgraph>
       <node id="2">
+        <label>examples/esp32/main/diagnostics_and_bist.cpp</label>
+        <link refid="diagnostics__and__bist_8cpp"/>
+      </node>
+      <node id="3">
         <label>examples/esp32/main/driver_integration_test.cpp</label>
         <link refid="driver__integration__test_8cpp"/>
       </node>
@@ -108,12 +114,20 @@
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
       </node>
-      <node id="3">
+      <node id="4">
         <label>examples/esp32/main/lm_pro_cycle_test.cpp</label>
         <link refid="lm__pro__cycle__test_8cpp"/>
       </node>
-      <node id="4">
+      <node id="5">
+        <label>examples/esp32/main/resistive_load_bench.cpp</label>
+        <link refid="resistive__load__bench_8cpp"/>
+      </node>
+      <node id="6">
         <label>examples/esp32/main/solenoid_control_test.cpp</label>
         <link refid="solenoid__control__test_8cpp"/>
       </node>

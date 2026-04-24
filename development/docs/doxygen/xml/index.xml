@@ -179,6 +179,10 @@
     <member refid="namespacetrack_1a27b7cfbc735a7520c5d5db38c272fbc6" kind="variable"><name>kSampleGapMs</name></member>
     <member refid="namespacetrack_1a62ace4dd20a39887a31c2988c9f40c16" kind="variable"><name>kBandPercent</name></member>
   </compound>
+  <compound refid="diagnostics__and__bist_8cpp" kind="file"><name>diagnostics_and_bist.cpp</name>
+    <member refid="diagnostics__and__bist_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kind="variable"><name>TAG</name></member>
+    <member refid="diagnostics__and__bist_8cpp_1abce06be17fc37d675118a678a8100a36" kind="function"><name>app_main</name></member>
+  </compound>
   <compound refid="driver__integration__test_8cpp" kind="file"><name>driver_integration_test.cpp</name>
     <member refid="driver__integration__test_8cpp_1afacebc97896e90c317ac62cf118945cd" kind="define"><name>ENABLE_INITIALIZATION_TESTS</name></member>
     <member refid="driver__integration__test_8cpp_1a24bfa2f29d093d3fb649a0de6526af33" kind="define"><name>ENABLE_MODE_CONTROL_TESTS</name></member>
@@ -262,6 +266,15 @@
     <member refid="lm__pro__cycle__test_8cpp_1a2edd369d9f2e48766837ad561c320108" kind="function"><name>characterize_setpoint</name></member>
     <member refid="lm__pro__cycle__test_8cpp_1ad56d5d871ee96743fe8408af71268a1c" kind="function"><name>run_cycle</name></member>
     <member refid="lm__pro__cycle__test_8cpp_1abce06be17fc37d675118a678a8100a36" kind="function"><name>app_main</name></member>
+  </compound>
+  <compound refid="resistive__load__bench_8cpp" kind="file"><name>resistive_load_bench.cpp</name>
+    <member refid="resistive__load__bench_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kind="variable"><name>TAG</name></member>
+    <member refid="resistive__load__bench_8cpp_1a619e5bfa8511d309821f9afe1a6b80ae" kind="variable"><name>kBenchChannel</name></member>
+    <member refid="resistive__load__bench_8cpp_1acb9984caeeda6566c8adee87272d5098" kind="variable"><name>kLoadOhms</name></member>
+    <member refid="resistive__load__bench_8cpp_1a962942ff787f3f871d295d71fe11a8c9" kind="variable"><name>kSetpointStepsMa</name></member>
+    <member refid="resistive__load__bench_8cpp_1a245d0ba06ca5870b46debc7a6cb41680" kind="variable"><name>kHoldMs</name></member>
+    <member refid="resistive__load__bench_8cpp_1af366a0b5e7319bd44105117aa7d0b7c5" kind="variable"><name>kAccuracyToleranceMa</name></member>
+    <member refid="resistive__load__bench_8cpp_1abce06be17fc37d675118a678a8100a36" kind="function"><name>app_main</name></member>
   </compound>
   <compound refid="solenoid__control__test_8cpp" kind="file"><name>solenoid_control_test.cpp</name>
     <member refid="solenoid__control__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kind="variable"><name>TAG</name></member>

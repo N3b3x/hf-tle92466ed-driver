@@ -1,0 +1,346 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="resistive__load__bench_8cpp" kind="file" language="C++">
+    <compoundname>resistive_load_bench.cpp</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">memory</includes>
+    <includes local="yes">freertos/FreeRTOS.h</includes>
+    <includes local="yes">freertos/task.h</includes>
+    <includes local="yes">esp_log.h</includes>
+    <includes local="yes">tle92466ed.hpp</includes>
+    <includes refid="esp32__tle92466ed__bus_8hpp" local="yes">esp32_tle92466ed_bus.hpp</includes>
+    <includes refid="esp32__tle92466ed__test__config_8hpp" local="yes">esp32_tle92466ed_test_config.hpp</includes>
+    <incdepgraph>
+      <node id="8">
+        <label>esp32_tle92466ed_bus.hpp</label>
+        <link refid="esp32__tle92466ed__bus_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>esp32_tle92466ed_test_config.hpp</label>
+        <link refid="esp32__tle92466ed__test__config_8hpp"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>examples/esp32/main/resistive_load_bench.cpp</label>
+        <link refid="resistive__load__bench_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>cstdarg</label>
+      </node>
+      <node id="11">
+        <label>cstdint</label>
+      </node>
+      <node id="14">
+        <label>driver/gpio.h</label>
+      </node>
+      <node id="13">
+        <label>driver/spi_master.h</label>
+      </node>
+      <node id="6">
+        <label>esp_log.h</label>
+      </node>
+      <node id="15">
+        <label>esp_timer.h</label>
+      </node>
+      <node id="4">
+        <label>freertos/FreeRTOS.h</label>
+      </node>
+      <node id="5">
+        <label>freertos/task.h</label>
+      </node>
+      <node id="3">
+        <label>memory</label>
+      </node>
+      <node id="12">
+        <label>sdkconfig.h</label>
+      </node>
+      <node id="17">
+        <label>span</label>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+      <node id="7">
+        <label>tle92466ed.hpp</label>
+      </node>
+      <node id="18">
+        <label>tle92466ed_registers.hpp</label>
+      </node>
+      <node id="9">
+        <label>tle92466ed_spi_interface.hpp</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="resistive__load__bench_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" prot="public" static="yes" mutable="no">
+        <type>const char *</type>
+        <definition>const char* TAG</definition>
+        <argsstring></argsstring>
+        <name>TAG</name>
+        <initializer>= &quot;ResistiveBench&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/resistive_load_bench.cpp" line="38" column="19" bodyfile="examples/esp32/main/resistive_load_bench.cpp" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="resistive__load__bench_8cpp_1a619e5bfa8511d309821f9afe1a6b80ae" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr Channel</type>
+        <definition>constexpr Channel kBenchChannel</definition>
+        <argsstring></argsstring>
+        <name>kBenchChannel</name>
+        <initializer>= Channel::CH0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/resistive_load_bench.cpp" line="40" column="27" bodyfile="examples/esp32/main/resistive_load_bench.cpp" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="resistive__load__bench_8cpp_1acb9984caeeda6566c8adee87272d5098" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t kLoadOhms</definition>
+        <argsstring></argsstring>
+        <name>kLoadOhms</name>
+        <initializer>= 300U</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/resistive_load_bench.cpp" line="41" column="27" bodyfile="examples/esp32/main/resistive_load_bench.cpp" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="resistive__load__bench_8cpp_1a962942ff787f3f871d295d71fe11a8c9" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t kSetpointStepsMa[]</definition>
+        <argsstring>[]</argsstring>
+        <name>kSetpointStepsMa</name>
+        <initializer>= {5, 10, 15, 20, 25, 30, 35, 40}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/resistive_load_bench.cpp" line="42" column="27" bodyfile="examples/esp32/main/resistive_load_bench.cpp" bodystart="42" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="variable" id="resistive__load__bench_8cpp_1a245d0ba06ca5870b46debc7a6cb41680" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t kHoldMs</definition>
+        <argsstring></argsstring>
+        <name>kHoldMs</name>
+        <initializer>= 200U</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/resistive_load_bench.cpp" line="43" column="27" bodyfile="examples/esp32/main/resistive_load_bench.cpp" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="resistive__load__bench_8cpp_1af366a0b5e7319bd44105117aa7d0b7c5" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int32_t</type>
+        <definition>constexpr int32_t kAccuracyToleranceMa</definition>
+        <argsstring></argsstring>
+        <name>kAccuracyToleranceMa</name>
+        <initializer>= 2500</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/resistive_load_bench.cpp" line="44" column="27" bodyfile="examples/esp32/main/resistive_load_bench.cpp" bodystart="44" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="resistive__load__bench_8cpp_1abce06be17fc37d675118a678a8100a36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void app_main</definition>
+        <argsstring>()</argsstring>
+        <name>app_main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="examples/esp32/main/resistive_load_bench.cpp" line="46" column="17" bodyfile="examples/esp32/main/resistive_load_bench.cpp" bodystart="46" bodyend="133"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Bench-level functional validation of the TLE92466ED driver against a 300 \u03a9 resistive load on a single channel. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Hardware:<itemizedlist>
+<listitem><para>TLE92466ED evaluation board</para>
+</listitem><listitem><para>VBAT \u2248 12 V</para>
+</listitem><listitem><para>300 \u03a9 power resistor wired between channel output and GND</para>
+</listitem></itemizedlist>
+</para>
+<para>Theoretical current at 100 % duty: I = VBAT / R = 12 V / 300 \u03a9 = 40 mA</para>
+<para>This example sweeps the ICC setpoint from 5 mA to 40 mA in 5 mA steps, holds each step for 200 ms, and then reads the coherent feedback snapshot via ReadChannelFeedback() (atomic FB_FRZ/FB_UPD path added in Phase 6). It prints the programmed vs measured current and VBAT for each step so the operator can quickly confirm \u00b12.5 mA accuracy without needing an external multimeter.</para>
+<para>Exit criterion: measured current for every step is within \u00b12.5 mA of the setpoint or limited by VBAT/R (whichever is smaller). </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;freertos/FreeRTOS.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;freertos/task.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;esp_log.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tle92466ed.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="esp32__tle92466ed__bus_8hpp" kindref="compound">esp32_tle92466ed_bus.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="esp32__tle92466ed__test__config_8hpp" kindref="compound">esp32_tle92466ed_test_config.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">tle92466ed;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceTLE92466ED__TestConfig" kindref="compound">TLE92466ED_TestConfig</ref>;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="resistive__load__bench_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ResistiveBench&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>Channel<sp/><sp/><ref refid="resistive__load__bench_8cpp_1a619e5bfa8511d309821f9afe1a6b80ae" kindref="member">kBenchChannel</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>Channel::CH0;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint32_t<sp/><ref refid="resistive__load__bench_8cpp_1acb9984caeeda6566c8adee87272d5098" kindref="member">kLoadOhms</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>300U;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint16_t<sp/><ref refid="resistive__load__bench_8cpp_1a962942ff787f3f871d295d71fe11a8c9" kindref="member">kSetpointStepsMa</ref>[]<sp/><sp/><sp/><sp/><sp/>=<sp/>{5,<sp/>10,<sp/>15,<sp/>20,<sp/>25,<sp/>30,<sp/>35,<sp/>40};</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint32_t<sp/><ref refid="resistive__load__bench_8cpp_1a245d0ba06ca5870b46debc7a6cb41680" kindref="member">kHoldMs</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>200U;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>int32_t<sp/><sp/><ref refid="resistive__load__bench_8cpp_1af366a0b5e7319bd44105117aa7d0b7c5" kindref="member">kAccuracyToleranceMa</ref><sp/><sp/><sp/>=<sp/>2500;<sp/></highlight><highlight class="comment">//<sp/>\u00b12.5<sp/>mA</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="resistive__load__bench_8cpp_1abce06be17fc37d675118a678a8100a36" kindref="member">app_main</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>ESP_LOGI(<ref refid="resistive__load__bench_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;TLE92466ED<sp/>Resistive-Load<sp/>Bench<sp/>(300<sp/>\u03a9<sp/>on<sp/>CH0)&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>bus<sp/>=<sp/>std::make_unique&lt;Esp32Tle92466edSpiBus&gt;();</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>r<sp/>=<sp/>bus-&gt;Init();<sp/>!r)<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGE(<ref refid="resistive__load__bench_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Bus<sp/>init<sp/>failed:<sp/>%d&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(r.error()));</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>drv<sp/>=<sp/>std::make_unique&lt;Driver&lt;Esp32Tle92466edSpiBus&gt;&gt;(*bus);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>r<sp/>=<sp/>drv-&gt;SetReset(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);<sp/>!r)<sp/><sp/>{<sp/>ESP_LOGE(<ref refid="resistive__load__bench_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;reset<sp/>LOW<sp/>failed&quot;</highlight><highlight class="normal">);<sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>vTaskDelay(pdMS_TO_TICKS(5));</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>r<sp/>=<sp/>drv-&gt;SetReset(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);<sp/>!r)<sp/>{<sp/>ESP_LOGE(<ref refid="resistive__load__bench_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;reset<sp/>HIGH<sp/>failed&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>vTaskDelay(pdMS_TO_TICKS(5));</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>r<sp/>=<sp/>drv-&gt;Init();<sp/>!r)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGE(<ref refid="resistive__load__bench_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Driver<sp/>Init<sp/>failed:<sp/>%d&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(r.error()));</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Report<sp/>supply<sp/>voltages<sp/>+<sp/>die<sp/>temperature<sp/>before<sp/>enabling<sp/>outputs.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>sv<sp/>=<sp/>drv-&gt;ReadAllSupplyVoltages();<sp/>sv)<sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="resistive__load__bench_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;VBAT=%u<sp/>mV<sp/><sp/>VIO=%u<sp/>mV<sp/><sp/>VDD=%u<sp/>mV<sp/><sp/>Tj=%.1f<sp/>C&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sv-&gt;vbat_mV,<sp/>sv-&gt;vio_mV,<sp/>sv-&gt;vdd_mV,</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(sv-&gt;temperature_c));</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Configure<sp/>channel<sp/>0<sp/>for<sp/>ICC<sp/>with<sp/>a<sp/>reasonable<sp/>PWM<sp/>period<sp/>+<sp/>dither<sp/>so<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>ICC<sp/>integrator<sp/>has<sp/>something<sp/>to<sp/>measure.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>r<sp/>=<sp/>drv-&gt;SetChannelMode(<ref refid="resistive__load__bench_8cpp_1a619e5bfa8511d309821f9afe1a6b80ae" kindref="member">kBenchChannel</ref>,<sp/>ChannelMode::ICC);<sp/>!r)<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGE(<ref refid="resistive__load__bench_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;SetChannelMode<sp/>failed&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>r<sp/>=<sp/>drv-&gt;ConfigurePwmPeriod(<ref refid="resistive__load__bench_8cpp_1a619e5bfa8511d309821f9afe1a6b80ae" kindref="member">kBenchChannel</ref>,<sp/>1000.0F<sp/></highlight><highlight class="comment">/*<sp/>1<sp/>kHz<sp/>*/</highlight><highlight class="normal">);<sp/>!r)<sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGE(<ref refid="resistive__load__bench_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;ConfigurePwmPeriod<sp/>failed&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>r<sp/>=<sp/>drv-&gt;ConfigureDither(<ref refid="resistive__load__bench_8cpp_1a619e5bfa8511d309821f9afe1a6b80ae" kindref="member">kBenchChannel</ref>,<sp/></highlight><highlight class="comment">/*amp=*/</highlight><highlight class="normal">2.0F,<sp/></highlight><highlight class="comment">/*freq=*/</highlight><highlight class="normal">200.0F);<sp/>!r)<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGE(<ref refid="resistive__load__bench_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;ConfigureDither<sp/>failed&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>r<sp/>=<sp/>drv-&gt;EnterMissionModeChecked(20U);<sp/>!r)<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGE(<ref refid="resistive__load__bench_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;EnterMissionModeChecked<sp/>failed:<sp/>%d&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(r.error()));</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>r<sp/>=<sp/>drv-&gt;EnableChannel(<ref refid="resistive__load__bench_8cpp_1a619e5bfa8511d309821f9afe1a6b80ae" kindref="member">kBenchChannel</ref>,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);<sp/>!r)<sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGE(<ref refid="resistive__load__bench_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;EnableChannel<sp/>failed&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>ESP_LOGI(<ref refid="resistive__load__bench_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Sweeping<sp/>setpoints<sp/>across<sp/>300<sp/>\u03a9<sp/>load<sp/>(theoretical<sp/>max<sp/>\u2248<sp/>%lu<sp/>mA)&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(12000U<sp/>/<sp/><ref refid="resistive__load__bench_8cpp_1acb9984caeeda6566c8adee87272d5098" kindref="member">kLoadOhms</ref>));</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/>uint32_t<sp/>passes<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>uint32_t<sp/>total<sp/><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint16_t<sp/>sp<sp/>:<sp/><ref refid="resistive__load__bench_8cpp_1a962942ff787f3f871d295d71fe11a8c9" kindref="member">kSetpointStepsMa</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>++total;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>r<sp/>=<sp/>drv-&gt;SetCurrentSetpoint(<ref refid="resistive__load__bench_8cpp_1a619e5bfa8511d309821f9afe1a6b80ae" kindref="member">kBenchChannel</ref>,<sp/>sp);<sp/>!r)<sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGE(<ref refid="resistive__load__bench_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;SetCurrentSetpoint(%u)<sp/>failed&quot;</highlight><highlight class="normal">,<sp/>sp);<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>vTaskDelay(pdMS_TO_TICKS(<ref refid="resistive__load__bench_8cpp_1a245d0ba06ca5870b46debc7a6cb41680" kindref="member">kHoldMs</ref>));</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>fb<sp/>=<sp/>drv-&gt;ReadChannelFeedback(<ref refid="resistive__load__bench_8cpp_1a619e5bfa8511d309821f9afe1a6b80ae" kindref="member">kBenchChannel</ref>,<sp/></highlight><highlight class="comment">/*timeout_ms=*/</highlight><highlight class="normal">50);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!fb)<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGW(<ref refid="resistive__load__bench_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>setpoint=%u<sp/>mA:<sp/>feedback<sp/>read<sp/>failed<sp/>(%d)&quot;</highlight><highlight class="normal">,<sp/>sp,</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(fb.error()));</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>int32_t<sp/>measured<sp/>=<sp/>fb-&gt;avg_current_mA;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>int32_t<sp/>diff_ma<sp/><sp/>=<sp/>measured<sp/>-<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">int32_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(sp);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/>ok<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>(std::abs(diff_ma)<sp/>*<sp/>1000)<sp/>&lt;=<sp/><ref refid="resistive__load__bench_8cpp_1af366a0b5e7319bd44105117aa7d0b7c5" kindref="member">kAccuracyToleranceMa</ref>;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="resistive__load__bench_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>SP=%2u<sp/>mA<sp/><sp/>I_avg=%4ld<sp/>mA<sp/><sp/>DC=%4u<sp/>\u2030<sp/><sp/>VBAT=%lu<sp/>mV<sp/><sp/>Imin=%ld<sp/>mA<sp/><sp/>Imax=%ld<sp/>mA<sp/><sp/>%s&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sp,<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">long</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(measured),</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fb-&gt;duty_cycle_permyriad,</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(fb-&gt;avg_vbat_mV),</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">long</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(fb-&gt;imin_mA),</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">long</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(fb-&gt;imax_mA),</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ok<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;PASS&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;FAIL&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ok)<sp/>++passes;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/>ESP_LOGI(<ref refid="resistive__load__bench_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Resistive-load<sp/>bench<sp/>complete:<sp/>%lu<sp/>/<sp/>%lu<sp/>steps<sp/>within<sp/>tolerance&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(passes),</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(total));</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/>(void)drv-&gt;DisableAllChannels();</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/>(void)drv-&gt;EnterConfigMode();</highlight></codeline>
+<codeline lineno="133"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="examples/esp32/main/resistive_load_bench.cpp"/>
+  </compounddef>
+</doxygen>

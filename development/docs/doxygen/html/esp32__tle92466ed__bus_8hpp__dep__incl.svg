@@ -46,7 +46,7 @@
   </g>
 </defs>
 <script type="application/ecmascript">
-var viewWidth = 521;
+var viewWidth = 903;
 var viewHeight = 135;
 var sectionId = 'dynsection-1';
 </script>
@@ -58,20 +58,19 @@ var sectionId = 'dynsection-1';
 <g id="Node000001" class="node">
 <title>Node1</title>
 <g id="a_Node000001"><a xlink:title="ESP32 Communication Interface implementation for TLE92466ED driver.">
-<polygon fill="#999999" stroke="#666666" points="338,-127 151,-127 151,-89 338,-89 338,-127"/>
-<text text-anchor="start" x="159" y="-111.8" font-family="Arial" font-size="14.00">examples/esp32/main</text>
-<text text-anchor="middle" x="244.5" y="-96.8" font-family="Arial" font-size="14.00">/esp32_tle92466ed_bus.hpp</text>
+<polygon fill="#999999" stroke="#666666" points="528.5,-127 341.5,-127 341.5,-89 528.5,-89 528.5,-127"/>
+<text text-anchor="start" x="349.5" y="-111.8" font-family="Arial" font-size="14.00">examples/esp32/main</text>
+<text text-anchor="middle" x="435" y="-96.8" font-family="Arial" font-size="14.00">/esp32_tle92466ed_bus.hpp</text>
 </a>
 </g>
 </g>
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="driver__integration__test_8cpp.html" target="_top" xlink:title="Comprehensive Integration Test Suite for TLE92466ED Driver.">
-<polygon fill="white" stroke="#666666" points="149,-53 0,-53 0,0 149,0 149,-53"/>
-<text text-anchor="start" x="8" y="-37.8" font-family="Arial" font-size="14.00">examples/esp32/main</text>
-<text text-anchor="start" x="8" y="-22.8" font-family="Arial" font-size="14.00">/driver_integration</text>
-<text text-anchor="middle" x="74.5" y="-7.8" font-family="Arial" font-size="14.00">_test.cpp</text>
+<g id="a_Node000002"><a xlink:href="diagnostics__and__bist_8cpp.html" target="_top" xlink:title="Validates Phase 5 diagnostic APIs: SFF_BIST, PIN_STAT, FAULT_MASK, off&#45;state OC/OL diagnostics and th...">
+<polygon fill="white" stroke="#666666" points="172,-45.5 0,-45.5 0,-7.5 172,-7.5 172,-45.5"/>
+<text text-anchor="start" x="8" y="-30.3" font-family="Arial" font-size="14.00">examples/esp32/main</text>
+<text text-anchor="middle" x="86" y="-15.3" font-family="Arial" font-size="14.00">/diagnostics_and_bist.cpp</text>
 </a>
 </g>
 </g>
@@ -79,18 +78,19 @@ var sectionId = 'dynsection-1';
 <g id="edge1_Node000001_Node000002" class="edge">
 <title>Node1&#45;&gt;Node2</title>
 <g id="a_edge1_Node000001_Node000002"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M196.84,-84.71C175.76,-74.85 150.85,-63.21 129.03,-53"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="195.38,-87.89 205.92,-88.96 198.35,-81.55 195.38,-87.89"/>
+<path fill="none" stroke="#63b8ff" d="M334.68,-86.94C287.85,-77.26 231.44,-65.12 181,-53 171.37,-50.69 161.23,-48.11 151.3,-45.51"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="334.02,-90.38 344.52,-88.97 335.43,-83.52 334.02,-90.38"/>
 </a>
 </g>
 </g>
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="lm__pro__cycle__test_8cpp.html" target="_top" xlink:title="Real&#45;hardware Parker LM&#45;Pro proportional valve cycle test on TLE92466ED CH5 (driver channel 6 in 1&#45;in...">
-<polygon fill="white" stroke="#666666" points="322,-45.5 167,-45.5 167,-7.5 322,-7.5 322,-45.5"/>
-<text text-anchor="start" x="175" y="-30.3" font-family="Arial" font-size="14.00">examples/esp32/main</text>
-<text text-anchor="middle" x="244.5" y="-15.3" font-family="Arial" font-size="14.00">/lm_pro_cycle_test.cpp</text>
+<g id="a_Node000003"><a xlink:href="driver__integration__test_8cpp.html" target="_top" xlink:title="Comprehensive Integration Test Suite for TLE92466ED Driver.">
+<polygon fill="white" stroke="#666666" points="339.5,-53 190.5,-53 190.5,0 339.5,0 339.5,-53"/>
+<text text-anchor="start" x="198.5" y="-37.8" font-family="Arial" font-size="14.00">examples/esp32/main</text>
+<text text-anchor="start" x="198.5" y="-22.8" font-family="Arial" font-size="14.00">/driver_integration</text>
+<text text-anchor="middle" x="265" y="-7.8" font-family="Arial" font-size="14.00">_test.cpp</text>
 </a>
 </g>
 </g>
@@ -98,18 +98,18 @@ var sectionId = 'dynsection-1';
 <g id="edge2_Node000001_Node000003" class="edge">
 <title>Node1&#45;&gt;Node3</title>
 <g id="a_edge2_Node000001_Node000003"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M244.5,-78.92C244.5,-67.9 244.5,-55.57 244.5,-45.74"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="241,-78.96 244.5,-88.96 248,-78.96 241,-78.96"/>
+<path fill="none" stroke="#63b8ff" d="M387.34,-84.71C366.26,-74.85 341.35,-63.21 319.53,-53"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="385.88,-87.89 396.42,-88.96 388.85,-81.55 385.88,-87.89"/>
 </a>
 </g>
 </g>
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="solenoid__control__test_8cpp.html" target="_top" xlink:title="Real Hardware Solenoid Control Test with ADC&#45;Based Current Control.">
-<polygon fill="white" stroke="#666666" points="513,-45.5 340,-45.5 340,-7.5 513,-7.5 513,-45.5"/>
-<text text-anchor="start" x="348" y="-30.3" font-family="Arial" font-size="14.00">examples/esp32/main</text>
-<text text-anchor="middle" x="426.5" y="-15.3" font-family="Arial" font-size="14.00">/solenoid_control_test.cpp</text>
+<g id="a_Node000004"><a xlink:href="lm__pro__cycle__test_8cpp.html" target="_top" xlink:title="Real&#45;hardware Parker LM&#45;Pro proportional valve cycle test on TLE92466ED CH5 (driver channel 6 in 1&#45;in...">
+<polygon fill="white" stroke="#666666" points="512.5,-45.5 357.5,-45.5 357.5,-7.5 512.5,-7.5 512.5,-45.5"/>
+<text text-anchor="start" x="365.5" y="-30.3" font-family="Arial" font-size="14.00">examples/esp32/main</text>
+<text text-anchor="middle" x="435" y="-15.3" font-family="Arial" font-size="14.00">/lm_pro_cycle_test.cpp</text>
 </a>
 </g>
 </g>
@@ -117,8 +117,46 @@ var sectionId = 'dynsection-1';
 <g id="edge3_Node000001_Node000004" class="edge">
 <title>Node1&#45;&gt;Node4</title>
 <g id="a_edge3_Node000001_Node000004"><a xlink:title=" ">
-<path fill="none" stroke="#63b8ff" d="M295.14,-84.88C323.47,-72.5 358.35,-57.27 385.05,-45.61"/>
-<polygon fill="#63b8ff" stroke="#63b8ff" points="293.56,-81.75 285.8,-88.96 296.36,-88.16 293.56,-81.75"/>
+<path fill="none" stroke="#63b8ff" d="M435,-78.92C435,-67.9 435,-55.57 435,-45.74"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="431.5,-78.96 435,-88.96 438.5,-78.96 431.5,-78.96"/>
+</a>
+</g>
+</g>
+<!-- Node5 -->
+<g id="Node000005" class="node">
+<title>Node5</title>
+<g id="a_Node000005"><a xlink:href="resistive__load__bench_8cpp.html" target="_top" xlink:title="Bench&#45;level functional validation of the TLE92466ED driver against a 300 \u03a9 resistive load on a s...">
+<polygon fill="white" stroke="#666666" points="703.5,-45.5 530.5,-45.5 530.5,-7.5 703.5,-7.5 703.5,-45.5"/>
+<text text-anchor="start" x="538.5" y="-30.3" font-family="Arial" font-size="14.00">examples/esp32/main</text>
+<text text-anchor="middle" x="617" y="-15.3" font-family="Arial" font-size="14.00">/resistive_load_bench.cpp</text>
+</a>
+</g>
+</g>
+<!-- Node1&#45;&gt;Node5 -->
+<g id="edge4_Node000001_Node000005" class="edge">
+<title>Node1&#45;&gt;Node5</title>
+<g id="a_edge4_Node000001_Node000005"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M485.64,-84.88C513.97,-72.5 548.85,-57.27 575.55,-45.61"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="484.06,-81.75 476.3,-88.96 486.86,-88.16 484.06,-81.75"/>
+</a>
+</g>
+</g>
+<!-- Node6 -->
+<g id="Node000006" class="node">
+<title>Node6</title>
+<g id="a_Node000006"><a xlink:href="solenoid__control__test_8cpp.html" target="_top" xlink:title="Real Hardware Solenoid Control Test with ADC&#45;Based Current Control.">
+<polygon fill="white" stroke="#666666" points="894.5,-45.5 721.5,-45.5 721.5,-7.5 894.5,-7.5 894.5,-45.5"/>
+<text text-anchor="start" x="729.5" y="-30.3" font-family="Arial" font-size="14.00">examples/esp32/main</text>
+<text text-anchor="middle" x="808" y="-15.3" font-family="Arial" font-size="14.00">/solenoid_control_test.cpp</text>
+</a>
+</g>
+</g>
+<!-- Node1&#45;&gt;Node6 -->
+<g id="edge5_Node000001_Node000006" class="edge">
+<title>Node1&#45;&gt;Node6</title>
+<g id="a_edge5_Node000001_Node000006"><a xlink:title=" ">
+<path fill="none" stroke="#63b8ff" d="M538.63,-88.66C591.08,-78.93 655.62,-66.26 713,-53 722.82,-50.73 733.15,-48.15 743.25,-45.53"/>
+<polygon fill="#63b8ff" stroke="#63b8ff" points="537.85,-85.25 528.65,-90.51 539.12,-92.13 537.85,-85.25"/>
 </a>
 </g>
 </g>

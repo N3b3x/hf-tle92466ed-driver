@@ -39,10 +39,15 @@
 <listitem><para>✅ <bold>Six Independent Channels</bold>: Low-side outputs for solenoid/inductive load control</para>
 </listitem><listitem><para>✅ <bold>Precision Current Control</bold>: 15-bit resolution (0.061mA steps), 0-2A single channel, 0-4A parallel mode</para>
 </listitem><listitem><para>✅ <bold>Integrated Current Controller (ICC)</bold>: Automatic current regulation with configurable PWM frequency</para>
+</listitem><listitem><para>✅ <bold>ICC Integrator Tuning</bold>: Configurable integrator limits, Ki gain, manual on-time mode, and threshold seeding from live feedback</para>
 </listitem><listitem><para>✅ <bold>Parallel Operation</bold>: Channel pairs (0/3, 1/2, 4/5) for doubled current capability</para>
-</listitem><listitem><para>✅ <bold>Dither Support</bold>: Configurable amplitude and frequency for precise current shaping</para>
-</listitem><listitem><para>✅ <bold>Comprehensive Diagnostics</bold>: Overcurrent, overtemperature, open load, short-to-ground detection</para>
-</listitem><listitem><para>✅ <bold>Supply Monitoring</bold>: VBAT, VIO, and VDD voltage monitoring with configurable thresholds</para>
+</listitem><listitem><para>✅ <bold>Dither Support</bold>: Basic and advanced dither with deep-dither, sync-with-PWM/setpoint, and fast-measure modes</para>
+</listitem><listitem><para>✅ <bold>Clock Configuration</bold>: Internal oscillator or external clock with automatic PLL (REFDIV/FBDIV) calculation targeting 28 MHz fSYS</para>
+</listitem><listitem><para>✅ <bold>Supply Monitoring</bold>: VBAT, VIO, VDD voltage monitoring; junction temperature readback; supply-monitor self-test</para>
+</listitem><listitem><para>✅ <bold>Comprehensive Diagnostics</bold>: Overcurrent, overtemperature, open load, short-to-ground detection; OLSG timeout; off-state diagnostic injection; SFF_BIST; PIN_STAT readback</para>
+</listitem><listitem><para>✅ <bold>Fault Mask Control</bold>: Per-source enable/suppress of FAULTN pin contribution via FAULT_MASK0/1/2</para>
+</listitem><listitem><para>✅ <bold>Atomic Channel Feedback</bold>: Coherent per-channel snapshot (avg current, duty cycle, VBAT, IMIN/IMAX, period min/max, integrator threshold) using FB_FRZ/FB_UPD handshake</para>
+</listitem><listitem><para>✅ <bold>Safe Mission-Mode Entry</bold>: <computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">EnterMissionModeChecked()</ref></computeroutput> waits for settle time and verifies no fault</para>
 </listitem><listitem><para>✅ <bold>Hardware Agnostic</bold>: SPI interface for platform independence</para>
 </listitem><listitem><para>✅ <bold>Modern C++20</bold>: Using <computeroutput>tle::expected</computeroutput> (polyfill for <computeroutput>std::expected</computeroutput>) for type-safe error handling without exceptions</para>
 </listitem><listitem><para>✅ <bold>Zero Overhead</bold>: All functions <computeroutput>noexcept</computeroutput>, freestanding-compatible</para>
@@ -87,7 +92,7 @@
 <para>For detailed installation instructions, see docs/installation.md.</para>
 </sect1>
 <sect1 id="index_1autotoc_md6">
-<title>📖 API Reference</title><para><table rows="8" cols="2"><row>
+<title>📖 API Reference</title><para><table rows="26" cols="2"><row>
 <entry thead="yes"><para>Method   </para>
 </entry><entry thead="yes"><para>Description    </para>
 </entry></row>
@@ -100,6 +105,10 @@
 </entry><entry thead="no"><para>Enter mission mode (enables channel control)    </para>
 </entry></row>
 <row>
+<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">EnterMissionModeChecked()</ref></computeroutput>   </para>
+</entry><entry thead="no"><para>Enter mission mode, settle, verify no fault    </para>
+</entry></row>
+<row>
 <entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">SetChannelMode()</ref></computeroutput>   </para>
 </entry><entry thead="no"><para>Set channel operation mode (ICC, Direct Drive, etc.)    </para>
 </entry></row>
@@ -110,6 +119,74 @@
 <row>
 <entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">EnableChannel()</ref></computeroutput>   </para>
 </entry><entry thead="no"><para>Enable or disable a channel    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">ConfigurePwmPeriod()</ref></computeroutput>   </para>
+</entry><entry thead="no"><para>Set ICC PWM frequency    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">ConfigureDither()</ref></computeroutput>   </para>
+</entry><entry thead="no"><para>Set dither amplitude and frequency    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">SetDitherAdvanced()</ref></computeroutput>   </para>
+</entry><entry thead="no"><para>Full dither setup including deep-dither and fast-measure mode    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">ConfigureClockSource()</ref></computeroutput>   </para>
+</entry><entry thead="no"><para>Select internal OSC or external PLL clock    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">ReadAllSupplyVoltages()</ref></computeroutput>   </para>
+</entry><entry thead="no"><para>Read VBAT, VIO, VDD (mV) and temperature (°C)    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">GetOperationState()</ref></computeroutput>   </para>
+</entry><entry thead="no"><para>Query current driver state (Reset/Config/Mission/CriticalFault)    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">SetIntegratorLimits()</ref></computeroutput>   </para>
+</entry><entry thead="no"><para>Configure ICC integrator absolute and auto-limit    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">SetPwmControllerKi()</ref></computeroutput>   </para>
+</entry><entry thead="no"><para>Set ICC Ki gain (4-bit)    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">SetManualOnTimeMode()</ref></computeroutput>   </para>
+</entry><entry thead="no"><para>Set manual on-time with automatic exponent selection    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">SeedIntegratorThresholdFromFeedback()</ref></computeroutput>   </para>
+</entry><entry thead="no"><para>Warm-start integrator threshold from live feedback    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">RunSffBist()</ref></computeroutput>   </para>
+</entry><entry thead="no"><para>Run SFF_BIST and return pass/fail + correctable/uncorrectable error flags    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">ReadPinStatus()</ref></computeroutput>   </para>
+</entry><entry thead="no"><para>Read DRV0/DRV1/EN/FAULTN/FAULTN_FB pin states    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">SetFaultMask()</ref></computeroutput>   </para>
+</entry><entry thead="no"><para>Enable or suppress a fault source on the FAULTN pin    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">SetOlsgTimeout()</ref></computeroutput>   </para>
+</entry><entry thead="no"><para>Configure open-load/short-to-GND detection timeout    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">ReadChannelFeedback()</ref></computeroutput>   </para>
+</entry><entry thead="no"><para>Read coherent per-channel snapshot (avg current, duty, VBAT, IMIN/IMAX, period)    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">ReadAllChannelFeedback()</ref></computeroutput>   </para>
+</entry><entry thead="no"><para>Read coherent snapshot for all 6 channels    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">RunSupplyMonitorSelfTest()</ref></computeroutput>   </para>
+</entry><entry thead="no"><para>Execute four-phase supply-monitor self-test    </para>
 </entry></row>
 <row>
 <entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">GetChannelDiagnostics()</ref></computeroutput>   </para>
@@ -137,23 +214,23 @@
 </entry></row>
 <row>
 <entry thead="no"><para>Infineon TLE92466ED product page   </para>
-</entry><entry thead="no"><para><ulink url="https://www.infineon.com/cms/en/product/power/motor-control-ics/intelligent-motor-control-ics/multi-half-bridge-ics/tle92466ed/">https://www.infineon.com/cms/en/product/power/motor-control-ics/intelligent-motor-control-ics/multi-half-bridge-ics/tle92466ed/</ulink>    </para>
+</entry><entry thead="no"><para><ulink url="https://www.infineon.com/cms/en/product/power/motor-control-ics/intelligent-motor-control-ics/multi-half-bridge-ics/tle92466ed/">Infineon product page</ulink>    </para>
 </entry></row>
 <row>
 <entry thead="no"><para>TLE92466ED datasheet (Infineon)   </para>
-</entry><entry thead="no"><para><ulink url="https://www.infineon.com/dgdl/Infineon-TLE92466ED-DataSheet-v01_00-EN.pdf">https://www.infineon.com/dgdl/Infineon-TLE92466ED-DataSheet-v01_00-EN.pdf</ulink>    </para>
+</entry><entry thead="no"><para><ulink url="https://www.infineon.com/dgdl/Infineon-TLE92466ED-DataSheet-v01_00-EN.pdf">Datasheet PDF</ulink>    </para>
 </entry></row>
 <row>
 <entry thead="no"><para>ESP-IDF SPI master   </para>
-</entry><entry thead="no"><para><ulink url="https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/peripherals/spi_master.html">https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/peripherals/spi_master.html</ulink>    </para>
+</entry><entry thead="no"><para><ulink url="https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/peripherals/spi_master.html">SPI master (ESP-IDF)</ulink>    </para>
 </entry></row>
 <row>
 <entry thead="no"><para><computeroutput>std::expected</computeroutput> (C++23) reference   </para>
-</entry><entry thead="no"><para><ulink url="https://en.cppreference.com/w/cpp/utility/expected">https://en.cppreference.com/w/cpp/utility/expected</ulink>    </para>
+</entry><entry thead="no"><para><ulink url="https://en.cppreference.com/w/cpp/utility/expected">cppreference — <computeroutput>std::expected</computeroutput></ulink>    </para>
 </entry></row>
 <row>
 <entry thead="no"><para>C++20 language reference   </para>
-</entry><entry thead="no"><para><ulink url="https://en.cppreference.com/w/cpp/20">https://en.cppreference.com/w/cpp/20</ulink>   </para>
+</entry><entry thead="no"><para><ulink url="https://en.cppreference.com/w/cpp/20">cppreference — C++20</ulink>   </para>
 </entry></row>
 </table>
 </para>

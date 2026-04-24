@@ -1,13 +1,18 @@
 <map id="examples/esp32/main/esp32_tle92466ed_test_config.hpp" name="examples/esp32/main/esp32_tle92466ed_test_config.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="228,5,443,76"/>
-<area shape="rect" id="Node000002" href="$esp32__tle92466ed__bus_8hpp.html" title="ESP32 Communication Interface implementation for TLE92466ED driver." alt="" coords="211,124,460,175"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="338,90,338,124,333,124,333,90"/>
-<area shape="rect" id="Node000004" href="$lm__pro__cycle__test_8cpp.html" title="Real&#45;hardware Parker LM&#45;Pro proportional valve cycle test on TLE92466ED CH5 (driver channel 6 in 1&#45;in..." alt="" coords="5,233,212,283"/>
-<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="256,85,201,126,177,152,155,181,123,234,119,231,151,178,173,149,198,122,253,81"/>
-<area shape="rect" id="Node000005" href="$solenoid__control__test_8cpp.html" title="Real Hardware Solenoid Control Test with ADC&#45;Based Current Control." alt="" coords="459,233,689,283"/>
-<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="417,81,474,122,525,178,562,231,557,234,521,181,471,126,414,85"/>
-<area shape="rect" id="Node000003" href="$driver__integration__test_8cpp.html" title="Comprehensive Integration Test Suite for TLE92466ED Driver." alt="" coords="236,223,435,293"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="338,188,338,223,333,223,333,188"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="273,183,161,235,159,230,271,178"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="403,178,521,230,519,235,401,183"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="569,5,784,76"/>
+<area shape="rect" id="Node000002" href="$esp32__tle92466ed__bus_8hpp.html" title="ESP32 Communication Interface implementation for TLE92466ED driver." alt="" coords="472,124,721,175"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="645,89,617,125,613,122,641,85"/>
+<area shape="rect" id="Node000005" href="$lm__pro__cycle__test_8cpp.html" title="Real&#45;hardware Parker LM&#45;Pro proportional valve cycle test on TLE92466ED CH5 (driver channel 6 in 1&#45;in..." alt="" coords="5,233,212,283"/>
+<area shape="poly" id="edge7_Node000001_Node000005" title=" " alt="" coords="575,83,460,126,174,235,172,230,458,122,573,78"/>
+<area shape="rect" id="Node000006" href="$resistive__load__bench_8cpp.html" title="Bench&#45;level functional validation of the TLE92466ED driver against a 300 \u03a9 resistive load on a s..." alt="" coords="713,233,944,283"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="711,86,813,231,809,234,707,89"/>
+<area shape="rect" id="Node000007" href="$solenoid__control__test_8cpp.html" title="Real Hardware Solenoid Control Test with ADC&#45;Based Current Control." alt="" coords="968,233,1199,283"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="754,80,1039,230,1036,235,752,85"/>
+<area shape="rect" id="Node000003" href="$diagnostics__and__bist_8cpp.html" title="Validates Phase 5 diagnostic APIs: SFF_BIST, PIN_STAT, FAULT_MASK, off&#45;state OC/OL diagnostics and th..." alt="" coords="459,233,689,283"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="591,189,582,233,577,232,586,188"/>
+<area shape="rect" id="Node000004" href="$driver__integration__test_8cpp.html" title="Comprehensive Integration Test Suite for TLE92466ED Driver." alt="" coords="236,223,435,293"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="526,182,420,225,418,220,524,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="459,177,344,199,224,225,187,235,185,230,223,220,343,193,458,171"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="663,178,777,230,775,235,661,183"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="735,174,957,220,997,230,996,235,956,225,734,179"/>
 </map>

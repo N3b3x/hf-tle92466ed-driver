@@ -52,10 +52,15 @@
 <codeline><highlight class="normal">-<sp/>✅<sp/>**Six<sp/>Independent<sp/>Channels**:<sp/>Low-side<sp/>outputs<sp/>for<sp/>solenoid/inductive<sp/>load<sp/>control</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>✅<sp/>**Precision<sp/>Current<sp/>Control**:<sp/>15-bit<sp/>resolution<sp/>(0.061mA<sp/>steps),<sp/>0-2A<sp/>single<sp/>channel,<sp/>0-4A<sp/>parallel<sp/>mode</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>✅<sp/>**Integrated<sp/>Current<sp/>Controller<sp/>(ICC)**:<sp/>Automatic<sp/>current<sp/>regulation<sp/>with<sp/>configurable<sp/>PWM<sp/>frequency</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>✅<sp/>**ICC<sp/>Integrator<sp/>Tuning**:<sp/>Configurable<sp/>integrator<sp/>limits,<sp/>Ki<sp/>gain,<sp/>manual<sp/>on-time<sp/>mode,<sp/>and<sp/>threshold<sp/>seeding<sp/>from<sp/>live<sp/>feedback</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>✅<sp/>**Parallel<sp/>Operation**:<sp/>Channel<sp/>pairs<sp/>(0/3,<sp/>1/2,<sp/>4/5)<sp/>for<sp/>doubled<sp/>current<sp/>capability</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>✅<sp/>**Dither<sp/>Support**:<sp/>Configurable<sp/>amplitude<sp/>and<sp/>frequency<sp/>for<sp/>precise<sp/>current<sp/>shaping</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>✅<sp/>**Comprehensive<sp/>Diagnostics**:<sp/>Overcurrent,<sp/>overtemperature,<sp/>open<sp/>load,<sp/>short-to-ground<sp/>detection</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>✅<sp/>**Supply<sp/>Monitoring**:<sp/>VBAT,<sp/>VIO,<sp/>and<sp/>VDD<sp/>voltage<sp/>monitoring<sp/>with<sp/>configurable<sp/>thresholds</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>✅<sp/>**Dither<sp/>Support**:<sp/>Basic<sp/>and<sp/>advanced<sp/>dither<sp/>with<sp/>deep-dither,<sp/>sync-with-PWM/setpoint,<sp/>and<sp/>fast-measure<sp/>modes</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>✅<sp/>**Clock<sp/>Configuration**:<sp/>Internal<sp/>oscillator<sp/>or<sp/>external<sp/>clock<sp/>with<sp/>automatic<sp/>PLL<sp/>(REFDIV/FBDIV)<sp/>calculation<sp/>targeting<sp/>28<sp/>MHz<sp/>fSYS</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>✅<sp/>**Supply<sp/>Monitoring**:<sp/>VBAT,<sp/>VIO,<sp/>VDD<sp/>voltage<sp/>monitoring;<sp/>junction<sp/>temperature<sp/>readback;<sp/>supply-monitor<sp/>self-test</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>✅<sp/>**Comprehensive<sp/>Diagnostics**:<sp/>Overcurrent,<sp/>overtemperature,<sp/>open<sp/>load,<sp/>short-to-ground<sp/>detection;<sp/>OLSG<sp/>timeout;<sp/>off-state<sp/>diagnostic<sp/>injection;<sp/>SFF_BIST;<sp/>PIN_STAT<sp/>readback</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>✅<sp/>**Fault<sp/>Mask<sp/>Control**:<sp/>Per-source<sp/>enable/suppress<sp/>of<sp/>FAULTN<sp/>pin<sp/>contribution<sp/>via<sp/>FAULT_MASK0/1/2</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>✅<sp/>**Atomic<sp/>Channel<sp/>Feedback**:<sp/>Coherent<sp/>per-channel<sp/>snapshot<sp/>(avg<sp/>current,<sp/>duty<sp/>cycle,<sp/>VBAT,<sp/>IMIN/IMAX,<sp/>period<sp/>min/max,<sp/>integrator<sp/>threshold)<sp/>using<sp/>FB_FRZ/FB_UPD<sp/>handshake</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>✅<sp/>**Safe<sp/>Mission-Mode<sp/>Entry**:<sp/>`EnterMissionModeChecked()`<sp/>waits<sp/>for<sp/>settle<sp/>time<sp/>and<sp/>verifies<sp/>no<sp/>fault</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>✅<sp/>**Hardware<sp/>Agnostic**:<sp/>SPI<sp/>interface<sp/>for<sp/>platform<sp/>independence</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>✅<sp/>**Modern<sp/>C++20**:<sp/>Using<sp/>`tle::expected`<sp/>(polyfill<sp/>for<sp/>`std::expected`)<sp/>for<sp/>type-safe<sp/>error<sp/>handling<sp/>without<sp/>exceptions</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>✅<sp/>**Zero<sp/>Overhead**:<sp/>All<sp/>functions<sp/>`noexcept`,<sp/>freestanding-compatible</highlight></codeline>
@@ -107,9 +112,27 @@
 <codeline><highlight class="normal">|--------|-------------|</highlight></codeline>
 <codeline><highlight class="normal">|<sp/>`Init()`<sp/>|<sp/>Initialize<sp/>the<sp/>driver<sp/>and<sp/>hardware<sp/>|</highlight></codeline>
 <codeline><highlight class="normal">|<sp/>`EnterMissionMode()`<sp/>|<sp/>Enter<sp/>mission<sp/>mode<sp/>(enables<sp/>channel<sp/>control)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`EnterMissionModeChecked()`<sp/>|<sp/>Enter<sp/>mission<sp/>mode,<sp/>settle,<sp/>verify<sp/>no<sp/>fault<sp/>|</highlight></codeline>
 <codeline><highlight class="normal">|<sp/>`SetChannelMode()`<sp/>|<sp/>Set<sp/>channel<sp/>operation<sp/>mode<sp/>(ICC,<sp/>Direct<sp/>Drive,<sp/>etc.)<sp/>|</highlight></codeline>
 <codeline><highlight class="normal">|<sp/>`SetCurrentSetpoint()`<sp/>|<sp/>Set<sp/>current<sp/>setpoint<sp/>for<sp/>a<sp/>channel<sp/>|</highlight></codeline>
 <codeline><highlight class="normal">|<sp/>`EnableChannel()`<sp/>|<sp/>Enable<sp/>or<sp/>disable<sp/>a<sp/>channel<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`ConfigurePwmPeriod()`<sp/>|<sp/>Set<sp/>ICC<sp/>PWM<sp/>frequency<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`ConfigureDither()`<sp/>|<sp/>Set<sp/>dither<sp/>amplitude<sp/>and<sp/>frequency<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`SetDitherAdvanced()`<sp/>|<sp/>Full<sp/>dither<sp/>setup<sp/>including<sp/>deep-dither<sp/>and<sp/>fast-measure<sp/>mode<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`ConfigureClockSource()`<sp/>|<sp/>Select<sp/>internal<sp/>OSC<sp/>or<sp/>external<sp/>PLL<sp/>clock<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`ReadAllSupplyVoltages()`<sp/>|<sp/>Read<sp/>VBAT,<sp/>VIO,<sp/>VDD<sp/>(mV)<sp/>and<sp/>temperature<sp/>(°C)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`GetOperationState()`<sp/>|<sp/>Query<sp/>current<sp/>driver<sp/>state<sp/>(Reset/Config/Mission/CriticalFault)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`SetIntegratorLimits()`<sp/>|<sp/>Configure<sp/>ICC<sp/>integrator<sp/>absolute<sp/>and<sp/>auto-limit<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`SetPwmControllerKi()`<sp/>|<sp/>Set<sp/>ICC<sp/>Ki<sp/>gain<sp/>(4-bit)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`SetManualOnTimeMode()`<sp/>|<sp/>Set<sp/>manual<sp/>on-time<sp/>with<sp/>automatic<sp/>exponent<sp/>selection<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`SeedIntegratorThresholdFromFeedback()`<sp/>|<sp/>Warm-start<sp/>integrator<sp/>threshold<sp/>from<sp/>live<sp/>feedback<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`RunSffBist()`<sp/>|<sp/>Run<sp/>SFF_BIST<sp/>and<sp/>return<sp/>pass/fail<sp/>+<sp/>correctable/uncorrectable<sp/>error<sp/>flags<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`ReadPinStatus()`<sp/>|<sp/>Read<sp/>DRV0/DRV1/EN/FAULTN/FAULTN_FB<sp/>pin<sp/>states<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`SetFaultMask()`<sp/>|<sp/>Enable<sp/>or<sp/>suppress<sp/>a<sp/>fault<sp/>source<sp/>on<sp/>the<sp/>FAULTN<sp/>pin<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`SetOlsgTimeout()`<sp/>|<sp/>Configure<sp/>open-load/short-to-GND<sp/>detection<sp/>timeout<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`ReadChannelFeedback()`<sp/>|<sp/>Read<sp/>coherent<sp/>per-channel<sp/>snapshot<sp/>(avg<sp/>current,<sp/>duty,<sp/>VBAT,<sp/>IMIN/IMAX,<sp/>period)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`ReadAllChannelFeedback()`<sp/>|<sp/>Read<sp/>coherent<sp/>snapshot<sp/>for<sp/>all<sp/>6<sp/>channels<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`RunSupplyMonitorSelfTest()`<sp/>|<sp/>Execute<sp/>four-phase<sp/>supply-monitor<sp/>self-test<sp/>|</highlight></codeline>
 <codeline><highlight class="normal">|<sp/>`GetChannelDiagnostics()`<sp/>|<sp/>Get<sp/>channel<sp/>diagnostic<sp/>information<sp/>|</highlight></codeline>
 <codeline><highlight class="normal">|<sp/>`GetAllFaults()`<sp/>|<sp/>Get<sp/>comprehensive<sp/>fault<sp/>report<sp/>|</highlight></codeline>
 <codeline></codeline>
@@ -129,11 +152,11 @@
 <codeline></codeline>
 <codeline><highlight class="normal">|<sp/>Resource<sp/>|<sp/>Link<sp/>|</highlight></codeline>
 <codeline><highlight class="normal">|----------|------|</highlight></codeline>
-<codeline><highlight class="normal">|<sp/>Infineon<sp/>TLE92466ED<sp/>product<sp/>page<sp/>|<sp/>&lt;https://www.infineon.com/cms/en/product/power/motor-control-ics/intelligent-motor-control-ics/multi-half-bridge-ics/tle92466ed/&gt;<sp/>|</highlight></codeline>
-<codeline><highlight class="normal">|<sp/>TLE92466ED<sp/>datasheet<sp/>(Infineon)<sp/>|<sp/>&lt;https://www.infineon.com/dgdl/Infineon-TLE92466ED-DataSheet-v01_00-EN.pdf&gt;<sp/>|</highlight></codeline>
-<codeline><highlight class="normal">|<sp/>ESP-IDF<sp/>SPI<sp/>master<sp/>|<sp/>&lt;https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/peripherals/spi_master.html&gt;<sp/>|</highlight></codeline>
-<codeline><highlight class="normal">|<sp/>`std::expected`<sp/>(C++23)<sp/>reference<sp/>|<sp/>&lt;https://en.cppreference.com/w/cpp/utility/expected&gt;<sp/>|</highlight></codeline>
-<codeline><highlight class="normal">|<sp/>C++20<sp/>language<sp/>reference<sp/>|<sp/>&lt;https://en.cppreference.com/w/cpp/20&gt;<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Infineon<sp/>TLE92466ED<sp/>product<sp/>page<sp/>|<sp/>[Infineon<sp/>product<sp/>page](https://www.infineon.com/cms/en/product/power/motor-control-ics/intelligent-motor-control-ics/multi-half-bridge-ics/tle92466ed/)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>TLE92466ED<sp/>datasheet<sp/>(Infineon)<sp/>|<sp/>[Datasheet<sp/>PDF](https://www.infineon.com/dgdl/Infineon-TLE92466ED-DataSheet-v01_00-EN.pdf)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>ESP-IDF<sp/>SPI<sp/>master<sp/>|<sp/>[SPI<sp/>master<sp/>(ESP-IDF)](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/peripherals/spi_master.html)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`std::expected`<sp/>(C++23)<sp/>reference<sp/>|<sp/>[cppreference<sp/>—<sp/>`std::expected`](https://en.cppreference.com/w/cpp/utility/expected)<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>C++20<sp/>language<sp/>reference<sp/>|<sp/>[cppreference<sp/>—<sp/>C++20](https://en.cppreference.com/w/cpp/20)<sp/>|</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>🤝<sp/>Contributing</highlight></codeline>
 <codeline></codeline>

@@ -244,10 +244,10 @@ Variables</h2></td></tr>
 <div class="line">      RUN_TEST_IN_TASK(test_name, test_func, stack_size, priority);                                \</div>
 <div class="line">      flip_test_progress_indicator();                                                              \</div>
 <div class="line">    } <span class="keywordflow">else</span> {                                                                                       \</div>
-<div class="line">      ESP_LOGI(<a class="code hl_variable" href="driver__integration__test_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>, <span class="stringliteral">&quot;Test &#39;%s&#39; disabled by configuration&quot;</span>, test_name);                             \</div>
+<div class="line">      ESP_LOGI(<a class="code hl_variable" href="diagnostics__and__bist_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>, <span class="stringliteral">&quot;Test &#39;%s&#39; disabled by configuration&quot;</span>, test_name);                             \</div>
 <div class="line">    }                                                                                              \</div>
 <div class="line">  } <span class="keywordflow">while</span> (0)</div>
-<div class="ttc" id="adriver__integration__test_8cpp_html_a5a85b9c772bbeb480b209a3e6ea92b4c"><div class="ttname"><a href="driver__integration__test_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a></div><div class="ttdeci">static const char * TAG</div><div class="ttdef"><b>Definition</b> driver_integration_test.cpp:43</div></div>
+<div class="ttc" id="adiagnostics__and__bist_8cpp_html_a5a85b9c772bbeb480b209a3e6ea92b4c"><div class="ttname"><a href="diagnostics__and__bist_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a></div><div class="ttdeci">static const char * TAG</div><div class="ttdef"><b>Definition</b> diagnostics_and_bist.cpp:29</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -267,7 +267,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">do</span> {                                                                                             \</div>
 <div class="line">    ensure_gpio14_initialized();                                                                   \</div>
-<div class="line">    ESP_LOGI(<a class="code hl_variable" href="driver__integration__test_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>,                                                                                  \</div>
+<div class="line">    ESP_LOGI(<a class="code hl_variable" href="diagnostics__and__bist_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>,                                                                                  \</div>
 <div class="line">             <span class="stringliteral">&quot;\n&quot;</span>                                                                                  \</div>
 <div class="line">             <span class="stringliteral">&quot;╔══════════════════════════════════════════════════════════════════════════════╗\n&quot;</span>  \</div>
 <div class="line">             <span class="stringliteral">&quot;║ Running: &quot;</span> #test_func <span class="stringliteral">&quot;                                                     \n&quot;</span>    \</div>
@@ -278,9 +278,9 @@ Variables</h2></td></tr>
 <div class="line">    uint64_t execution_time = end_time - start_time;                                               \</div>
 <div class="line">    <a class="code hl_variable" href="driver__integration__test_8cpp.html#aaff89257c54366921eebb8ec1348b1fd">g_test_results</a>.<a class="code hl_function" href="structTestResults.html#a257eba3a9005a5c19c68ae27774948f7">add_result</a>(result, execution_time);                                             \</div>
 <div class="line">    if (result) {                                                                                  \</div>
-<div class="line">      ESP_LOGI(<a class="code hl_variable" href="driver__integration__test_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>, <span class="stringliteral">&quot;[SUCCESS] PASSED: &quot;</span> #test_func <span class="stringliteral">&quot; (%.2f ms)&quot;</span>, execution_time / 1000.0);        \</div>
+<div class="line">      ESP_LOGI(<a class="code hl_variable" href="diagnostics__and__bist_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>, <span class="stringliteral">&quot;[SUCCESS] PASSED: &quot;</span> #test_func <span class="stringliteral">&quot; (%.2f ms)&quot;</span>, execution_time / 1000.0);        \</div>
 <div class="line">    } <span class="keywordflow">else</span> {                                                                                       \</div>
-<div class="line">      ESP_LOGE(<a class="code hl_variable" href="driver__integration__test_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>, <span class="stringliteral">&quot;[FAILED] FAILED: &quot;</span> #test_func <span class="stringliteral">&quot; (%.2f ms)&quot;</span>, execution_time / 1000.0);         \</div>
+<div class="line">      ESP_LOGE(<a class="code hl_variable" href="diagnostics__and__bist_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>, <span class="stringliteral">&quot;[FAILED] FAILED: &quot;</span> #test_func <span class="stringliteral">&quot; (%.2f ms)&quot;</span>, execution_time / 1000.0);         \</div>
 <div class="line">    }                                                                                              \</div>
 <div class="line">    vTaskDelay(pdMS_TO_TICKS(100));                                                                \</div>
 <div class="line">  } <span class="keywordflow">while</span> (0)</div>
@@ -402,12 +402,12 @@ Variables</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">do</span> {                                                                                             \</div>
 <div class="line">    ensure_gpio14_initialized();                                                                   \</div>
 <div class="line">    if (define_name) {                                                                             \</div>
-<div class="line">      print_test_section_header(<a class="code hl_variable" href="driver__integration__test_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>, section_name, <span class="keyword">true</span>);                                          \</div>
+<div class="line">      print_test_section_header(<a class="code hl_variable" href="diagnostics__and__bist_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>, section_name, <span class="keyword">true</span>);                                          \</div>
 <div class="line">      __VA_ARGS__                                                                                  \</div>
-<div class="line">      print_test_section_footer(<a class="code hl_variable" href="driver__integration__test_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>, section_name, <span class="keyword">true</span>);                                          \</div>
+<div class="line">      print_test_section_footer(<a class="code hl_variable" href="diagnostics__and__bist_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>, section_name, <span class="keyword">true</span>);                                          \</div>
 <div class="line">    } <span class="keywordflow">else</span> {                                                                                       \</div>
-<div class="line">      print_test_section_header(<a class="code hl_variable" href="driver__integration__test_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>, section_name, <span class="keyword">false</span>);                                         \</div>
-<div class="line">      ESP_LOGI(<a class="code hl_variable" href="driver__integration__test_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>, <span class="stringliteral">&quot;Section disabled by configuration&quot;</span>);                                          \</div>
+<div class="line">      print_test_section_header(<a class="code hl_variable" href="diagnostics__and__bist_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>, section_name, <span class="keyword">false</span>);                                         \</div>
+<div class="line">      ESP_LOGI(<a class="code hl_variable" href="diagnostics__and__bist_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>, <span class="stringliteral">&quot;Section disabled by configuration&quot;</span>);                                          \</div>
 <div class="line">    }                                                                                              \</div>
 <div class="line">  } <span class="keywordflow">while</span> (0)</div>
 </div><!-- fragment -->
@@ -481,14 +481,14 @@ Variables</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">do</span> {                                                                                             \</div>
 <div class="line">    ensure_gpio14_initialized();                                                                   \</div>
 <div class="line">    if (define_name) {                                                                             \</div>
-<div class="line">      print_test_section_header(<a class="code hl_variable" href="driver__integration__test_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>, section_name, <span class="keyword">true</span>);                                          \</div>
+<div class="line">      print_test_section_header(<a class="code hl_variable" href="diagnostics__and__bist_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>, section_name, <span class="keyword">true</span>);                                          \</div>
 <div class="line">      output_section_indicator(blink_count); <span class="comment">/* Section start indicator */</span>                         \</div>
 <div class="line">      __VA_ARGS__                                                                                  \</div>
 <div class="line">      output_section_indicator(blink_count); <span class="comment">/* Section end indicator */</span>                           \</div>
-<div class="line">      print_test_section_footer(<a class="code hl_variable" href="driver__integration__test_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>, section_name, <span class="keyword">true</span>);                                          \</div>
+<div class="line">      print_test_section_footer(<a class="code hl_variable" href="diagnostics__and__bist_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>, section_name, <span class="keyword">true</span>);                                          \</div>
 <div class="line">    } <span class="keywordflow">else</span> {                                                                                       \</div>
-<div class="line">      print_test_section_header(<a class="code hl_variable" href="driver__integration__test_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>, section_name, <span class="keyword">false</span>);                                         \</div>
-<div class="line">      ESP_LOGI(<a class="code hl_variable" href="driver__integration__test_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>, <span class="stringliteral">&quot;Section disabled by configuration&quot;</span>);                                          \</div>
+<div class="line">      print_test_section_header(<a class="code hl_variable" href="diagnostics__and__bist_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>, section_name, <span class="keyword">false</span>);                                         \</div>
+<div class="line">      ESP_LOGI(<a class="code hl_variable" href="diagnostics__and__bist_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>, <span class="stringliteral">&quot;Section disabled by configuration&quot;</span>);                                          \</div>
 <div class="line">    }                                                                                              \</div>
 <div class="line">  } <span class="keywordflow">while</span> (0)</div>
 </div><!-- fragment -->
@@ -525,14 +525,14 @@ Variables</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">do</span> {                                                                                             \</div>
 <div class="line">    ensure_gpio14_initialized();                                                                   \</div>
 <div class="line">    if (define_name) {                                                                             \</div>
-<div class="line">      print_test_section_header(<a class="code hl_variable" href="driver__integration__test_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>, section_name, <span class="keyword">true</span>);                                          \</div>
+<div class="line">      print_test_section_header(<a class="code hl_variable" href="diagnostics__and__bist_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>, section_name, <span class="keyword">true</span>);                                          \</div>
 <div class="line">      __VA_ARGS__                                                                                  \</div>
 <div class="line">      if (progress_func)                                                                           \</div>
 <div class="line">        progress_func();                                                                           \</div>
-<div class="line">      print_test_section_footer(<a class="code hl_variable" href="driver__integration__test_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>, section_name, <span class="keyword">true</span>);                                          \</div>
+<div class="line">      print_test_section_footer(<a class="code hl_variable" href="diagnostics__and__bist_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>, section_name, <span class="keyword">true</span>);                                          \</div>
 <div class="line">    } <span class="keywordflow">else</span> {                                                                                       \</div>
-<div class="line">      print_test_section_header(<a class="code hl_variable" href="driver__integration__test_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>, section_name, <span class="keyword">false</span>);                                         \</div>
-<div class="line">      ESP_LOGI(<a class="code hl_variable" href="driver__integration__test_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>, <span class="stringliteral">&quot;Section disabled by configuration&quot;</span>);                                          \</div>
+<div class="line">      print_test_section_header(<a class="code hl_variable" href="diagnostics__and__bist_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>, section_name, <span class="keyword">false</span>);                                         \</div>
+<div class="line">      ESP_LOGI(<a class="code hl_variable" href="diagnostics__and__bist_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c">TAG</a>, <span class="stringliteral">&quot;Section disabled by configuration&quot;</span>);                                          \</div>
 <div class="line">    }                                                                                              \</div>
 <div class="line">  } <span class="keywordflow">while</span> (0)</div>
 </div><!-- fragment -->

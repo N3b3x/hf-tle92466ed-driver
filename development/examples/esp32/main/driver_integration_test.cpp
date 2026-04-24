@@ -1105,9 +1105,9 @@ static bool test_all_channels_telemetry() noexcept {
         
         // Test GetChannelDiagnostics
         if (auto diag = g_driver->GetChannelDiagnostics(channel); diag) {
-            ESP_LOGI(TAG, "    ✅ Diagnostics: Current=%u mA, Duty=%u, Min=%u, Max=%u",
+            ESP_LOGI(TAG, "    ✅ Diagnostics: Current=%u mA, Duty=%u, Min=%d mA, Max=%d mA",
                      diag->average_current, diag->duty_cycle,
-                     diag->min_current, diag->max_current);
+                     static_cast<int>(diag->min_current_mA), static_cast<int>(diag->max_current_mA));
             
             // Check for faults
             if (diag->overcurrent || diag->short_to_ground || diag->open_load ||
@@ -1253,8 +1253,8 @@ static bool test_telemetry_with_active_channel() noexcept {
         ESP_LOGI(TAG, "  Diagnostics:");
         ESP_LOGI(TAG, "    Average Current: %u mA", diag->average_current);
         ESP_LOGI(TAG, "    Duty Cycle: %u", diag->duty_cycle);
-        ESP_LOGI(TAG, "    Min Current: %u", diag->min_current);
-        ESP_LOGI(TAG, "    Max Current: %u", diag->max_current);
+        ESP_LOGI(TAG, "    Min Current: %d mA", static_cast<int>(diag->min_current_mA));
+        ESP_LOGI(TAG, "    Max Current: %d mA", static_cast<int>(diag->max_current_mA));
         ESP_LOGI(TAG, "    VBAT Feedback: %u", diag->vbat_feedback);
         
         if (diag->overcurrent || diag->short_to_ground || diag->open_load) {

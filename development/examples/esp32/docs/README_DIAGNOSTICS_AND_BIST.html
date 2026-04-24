@@ -1,0 +1,731 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link rel="stylesheet" href="/hf-tle92466ed-driver/development/assets/css/just-the-docs-default.css">
+
+  <link rel="stylesheet" href="/hf-tle92466ed-driver/development/assets/css/just-the-docs-head-nav.css" id="jtd-head-nav-stylesheet">
+
+  <style id="jtd-nav-activation">
+  
+
+    
+    .site-nav > ul.nav-list:first-child > li:not(:nth-child(2)) > a,
+    .site-nav > ul.nav-list:first-child > li > ul > li a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:not(:first-child) a,
+    .site-nav li.external a {
+      background-image: none;
+    }
+
+    .site-nav > ul.nav-list:first-child > li:nth-child(2) > a {
+      font-weight: 600;
+      text-decoration: none;
+    }.site-nav > ul.nav-list:first-child > li:nth-child(2) > button svg {
+      transform: rotate(-90deg);
+    }.site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(2) > ul.nav-list {
+      display: block;
+    }
+  </style>
+
+  
+
+  
+    <script src="/hf-tle92466ed-driver/development/assets/js/vendor/lunr.min.js"></script>
+  
+
+  <script src="/hf-tle92466ed-driver/development/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Diagnostics &amp; BIST Example — TLE92466ED | HardFOC TLE92466ED Driver - development</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Diagnostics &amp; BIST Example — TLE92466ED" />
+<meta name="author" content="N3b3x" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="C++20 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver IC with comprehensive SPI interface, current control, and diagnostics" />
+<meta property="og:description" content="C++20 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver IC with comprehensive SPI interface, current control, and diagnostics" />
+<link rel="canonical" href="https://n3b3x.github.io/hf-tle92466ed-driver/development/examples/esp32/docs/README_DIAGNOSTICS_AND_BIST.html" />
+<meta property="og:url" content="https://n3b3x.github.io/hf-tle92466ed-driver/development/examples/esp32/docs/README_DIAGNOSTICS_AND_BIST.html" />
+<meta property="og:site_name" content="HardFOC TLE92466ED Driver - development" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Diagnostics &amp; BIST Example — TLE92466ED" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"N3b3x","url":"https://github.com/n3b3x"},"description":"C++20 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver IC with comprehensive SPI interface, current control, and diagnostics","headline":"Diagnostics &amp; BIST Example — TLE92466ED","url":"https://n3b3x.github.io/hf-tle92466ed-driver/development/examples/esp32/docs/README_DIAGNOSTICS_AND_BIST.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- =============================================================================
+     Custom Head Content for HardFOC Driver Documentation
+     =============================================================================
+     This file is included in the <head> section of every page.
+     It loads custom CSS and JavaScript for enhanced functionality.
+     ============================================================================= -->
+
+<!-- Custom CSS for enhanced styling and fixes -->
+<link rel="stylesheet" href="/hf-tle92466ed-driver/development/assets/css/custom.css">
+
+<!-- Custom JavaScript for interactive features -->
+<script src="/hf-tle92466ed-driver/development/assets/js/custom.js" defer></script>
+
+
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewBox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewBox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewBox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewBox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"/>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  
+    <header class="side-bar">
+  <div class="site-header">
+    <a href="/hf-tle92466ed-driver/development/" class="site-title lh-tight">
+  HardFOC TLE92466ED Driver - development
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list"><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="HardFOC TLE92466ED Driver submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/hf-tle92466ed-driver/development/" class="nav-list-link">HardFOC TLE92466ED Driver</a><ul class="nav-list"><li class="nav-list-item"><button class="nav-list-expander btn-reset" aria-label="📚 Documentation submenu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+      </button><a href="/hf-tle92466ed-driver/development/docs/" class="nav-list-link">📚 Documentation</a><ul class="nav-list"><li class="nav-list-item"><a href="/hf-tle92466ed-driver/development/docs/installation/" class="nav-list-link">🛠️ Installation</a></li><li class="nav-list-item"><a href="/hf-tle92466ed-driver/development/docs/quickstart/" class="nav-list-link">⚡ Quick Start</a></li><li class="nav-list-item"><a href="/hf-tle92466ed-driver/development/docs/hardware_setup/" class="nav-list-link">🔌 Hardware Setup</a></li><li class="nav-list-item"><a href="/hf-tle92466ed-driver/development/docs/platform_integration/" class="nav-list-link">🔧 Platform Integration</a></li><li class="nav-list-item"><a href="/hf-tle92466ed-driver/development/docs/cmake_integration/" class="nav-list-link">⚙️ CMake Integration</a></li><li class="nav-list-item"><a href="/hf-tle92466ed-driver/development/docs/configuration/" class="nav-list-link">⚙️ Configuration</a></li><li class="nav-list-item"><a href="/hf-tle92466ed-driver/development/docs/api_reference/" class="nav-list-link">📖 API Reference</a></li><li class="nav-list-item"><a href="/hf-tle92466ed-driver/development/docs/examples/" class="nav-list-link">💡 Examples</a></li><li class="nav-list-item"><a href="/hf-tle92466ed-driver/development/docs/troubleshooting/" class="nav-list-link">Troubleshooting</a></li></ul></li></ul></li><li class="nav-list-item"><a href="/hf-tle92466ed-driver/development/examples/esp32/docs/README_DIAGNOSTICS_AND_BIST.html" class="nav-list-link">Diagnostics &amp; BIST Example — TLE92466ED</a></li><li class="nav-list-item"><a href="/hf-tle92466ed-driver/development/examples/esp32/docs/README_DRIVER_INTEGRATION_TEST.html" class="nav-list-link">Driver Integration Test Suite - TLE92466ED ESP32-C6</a></li><li class="nav-list-item"><a href="/hf-tle92466ed-driver/development/examples/esp32/docs/README_CONFIGURATION.html" class="nav-list-link">ESP32 Examples Configuration Guide</a></li><li class="nav-list-item"><a href="/hf-tle92466ed-driver/development/examples/esp32/docs/README_RESISTIVE_LOAD_BENCH.html" class="nav-list-link">Resistive-Load Bench Example — TLE92466ED</a></li><li class="nav-list-item"><a href="/hf-tle92466ed-driver/development/examples/esp32/docs/README_SOLENOID_CONTROL_TEST.html" class="nav-list-link">Solenoid Control Test - TLE92466ED ESP32-C6</a></li><li class="nav-list-item"><a href="/hf-tle92466ed-driver/development/examples/esp32/components/hf_tle92466ed/" class="nav-list-link">TLE92466ED ESP-IDF Component</a></li><li class="nav-list-item"><a href="/hf-tle92466ed-driver/development/examples/esp32/docs/" class="nav-list-link">TLE92466ED ESP32 Examples Documentation</a></li><li class="nav-list-item"><a href="/hf-tle92466ed-driver/development/examples/esp32/" class="nav-list-link">TLE92466ED ESP32-S3 Examples</a></li><li class="nav-list-item"><a href="/hf-tle92466ed-driver/development/examples/esp32/docs/README_TEST_FRAMEWORK.html" class="nav-list-link">TLE92466ED Test Framework Documentation</a></li></ul>
+  
+</nav>
+
+
+<div class="d-md-block d-none site-footer">
+  
+  
+    This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+  
+  </div>
+</header>
+
+  
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search HardFOC TLE92466ED Driver - development" autocomplete="off">
+    <label for="search-input" class="search-label">
+      <span class="sr-only">Search HardFOC TLE92466ED Driver - development</span>
+      <svg viewBox="0 0 24 24" class="search-icon" aria-hidden="true"><use xlink:href="#svg-search"></use></svg>
+    </label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+    <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+    
+      <li class="aux-nav-list-item">
+        <a href="/hf-tle92466ed-driver/development/api/index.html" class="site-button"
+          
+        >
+          📖 API Reference
+        </a>
+      </li>
+    
+      <li class="aux-nav-list-item">
+        <a href="https://github.com/n3b3x/hf-tle92466ed-driver" class="site-button"
+          
+        >
+          📚 GitHub Repository
+        </a>
+      </li>
+    
+      <li class="aux-nav-list-item">
+        <a href="https://github.com/n3b3x/hf-tle92466ed-driver/issues" class="site-button"
+          
+        >
+          🐛 Report Issues
+        </a>
+      </li>
+    
+      <li class="aux-nav-list-item">
+        <a href="https://github.com/n3b3x/hf-tle92466ed-driver/stargazers" class="site-button"
+          
+        >
+          ⭐ Star on GitHub
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+</div>
+
+    <div class="main-content-wrap">
+      
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="diagnostics--bist-example--tle92466ed">
+  
+  
+    <a href="#diagnostics--bist-example--tle92466ed" class="anchor-heading" aria-labelledby="diagnostics--bist-example--tle92466ed"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Diagnostics &amp; BIST Example — TLE92466ED
+  
+  
+</h1>
+    
+<h2 id="table-of-contents">
+  
+  
+    <a href="#table-of-contents" class="anchor-heading" aria-labelledby="table-of-contents"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Table of Contents
+  
+  
+</h2>
+    
+
+<ol>
+  <li><a href="#overview">Overview</a></li>
+  <li><a href="#purpose">Purpose</a></li>
+  <li><a href="#hardware-requirements">Hardware Requirements</a></li>
+  <li><a href="#apis-demonstrated">APIs Demonstrated</a></li>
+  <li><a href="#building-and-running">Building and Running</a></li>
+  <li><a href="#expected-output">Expected Output</a></li>
+  <li><a href="#test-phases">Test Phases</a></li>
+  <li><a href="#troubleshooting">Troubleshooting</a></li>
+  <li><a href="#related-documentation">Related Documentation</a></li>
+</ol><hr />
+<h2 id="overview">
+  
+  
+    <a href="#overview" class="anchor-heading" aria-labelledby="overview"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Overview
+  
+  
+</h2>
+    
+
+<p>The <strong>Diagnostics &amp; BIST</strong> example exercises all diagnostic, self-test, and fault-mask APIs added
+in Phase 5 of the driver refactor. No actual load is required — the example runs entirely from SPI
+communication and verifies that the on-chip built-in self-test infrastructure is reachable and
+returns sensible results.</p>
+
+<p>Because no hardware load is needed, this example is registered with <code class="language-plaintext highlighter-rouge">ci_enabled: true</code> in
+<code class="language-plaintext highlighter-rouge">app_config.yml</code> and runs automatically in the GitHub Actions CI matrix.</p><hr />
+<h2 id="purpose">
+  
+  
+    <a href="#purpose" class="anchor-heading" aria-labelledby="purpose"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Purpose
+  
+  
+</h2>
+    
+
+<ol>
+  <li><strong>Verify SFF_BIST</strong> reachability and correct decode of the DONE/PASS/UERR/CERR bits.</li>
+  <li><strong>Read PIN_STAT</strong> and print the actual DRV0/DRV1/EN/FAULTN/FAULTN_FB pin states.</li>
+  <li><strong>Inspect OperationState</strong> and map it to a human-readable string.</li>
+  <li><strong>Exercise RunSupplyMonitorSelfTest()</strong> through all four test phases.</li>
+  <li><strong>Demonstrate SetFaultMask()</strong> by suppressing then re-enabling a specific fault source.</li>
+</ol><hr />
+<h2 id="hardware-requirements">
+  
+  
+    <a href="#hardware-requirements" class="anchor-heading" aria-labelledby="hardware-requirements"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Hardware Requirements
+  
+  
+</h2>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Specification</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ESP32-S3 board</td>
+      <td>Any board matching <code class="language-plaintext highlighter-rouge">esp32_tle92466ed_test_config.hpp</code> pin map</td>
+    </tr>
+    <tr>
+      <td>TLE92466ED board</td>
+      <td>VIO = 3.3 V, VBAT any valid value (5.5–41 V)</td>
+    </tr>
+    <tr>
+      <td>Load</td>
+      <td><strong>Not required</strong> — all tests work without a connected load</td>
+    </tr>
+  </tbody>
+</table></div><hr />
+<h2 id="apis-demonstrated">
+  
+  
+    <a href="#apis-demonstrated" class="anchor-heading" aria-labelledby="apis-demonstrated"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> APIs Demonstrated
+  
+  
+</h2>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>API</th>
+      <th>Phase</th>
+      <th>Purpose in Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Init()</code></td>
+      <td>—</td>
+      <td>Initialize driver</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">EnterMissionModeChecked()</code></td>
+      <td>2</td>
+      <td>Safe mission-mode entry</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">GetOperationState()</code></td>
+      <td>2</td>
+      <td>Print current driver state</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReadPinStatus()</code></td>
+      <td>5</td>
+      <td>Decode DRV0/DRV1/EN/FAULTN/FAULTN_FB</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RunSffBist()</code></td>
+      <td>5</td>
+      <td>Trigger BIST, decode DONE/PASS/UERR/CERR</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RunSupplyMonitorSelfTest()</code></td>
+      <td>2</td>
+      <td>Four-phase supply-monitor self-test</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SetFaultMask()</code></td>
+      <td>5</td>
+      <td>Suppress then restore Ch0Error on FAULTN</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">HasAnyFault()</code></td>
+      <td>—</td>
+      <td>Verify fault state after each phase</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ClearFaults()</code></td>
+      <td>—</td>
+      <td>Clear transient faults between phases</td>
+    </tr>
+  </tbody>
+</table></div><hr />
+<h2 id="building-and-running">
+  
+  
+    <a href="#building-and-running" class="anchor-heading" aria-labelledby="building-and-running"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Building and Running
+  
+  
+</h2>
+    
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="c"># From the repo root</span>
+<span class="nb">cd </span>examples/esp32
+
+<span class="c"># Build</span>
+python3 scripts/build.py <span class="nt">--app</span> diagnostics_and_bist <span class="nt">--target</span> esp32s3 <span class="nt">--idf-version</span> release/v5.5
+
+<span class="c"># Flash + monitor</span>
+python3 scripts/flash.py <span class="nt">--app</span> diagnostics_and_bist <span class="nt">--port</span> /dev/ttyUSB0
+idf.py <span class="nt">-C</span> build-app-diagnostics_and_bist-type-Debug-target-esp32s3-idf-release_v5.5 monitor
+</pre></td></tr></tbody></table></div></code></pre></div></div><hr />
+<h2 id="expected-output">
+  
+  
+    <a href="#expected-output" class="anchor-heading" aria-labelledby="expected-output"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Expected Output
+  
+  
+</h2>
+    
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre></td><td class="rouge-code"><pre>[DIAG] === Diagnostics &amp; BIST Example ===
+
+[DIAG] --- OperationState ---
+[DIAG] State: Mission
+
+[DIAG] --- PIN_STAT snapshot ---
+[DIAG] DRV0=0  DRV1=0  EN=1  FAULTN=1  FAULTN_FB=1  raw=0x0030
+
+[DIAG] --- SFF_BIST ---
+[DIAG] BIST done=1  pass=1  UERR=0  CERR=0  [PASS]
+
+[DIAG] --- Supply Monitor Self-Test ---
+[DIAG] UV/OV swap:  PASS
+[DIAG] V1V5 UV:     PASS
+[DIAG] V1V5 OV:     PASS
+[DIAG] OT test:     PASS
+[DIAG] Overall:     PASS
+
+[DIAG] --- Fault Mask Demo ---
+[DIAG] Ch0Error suppressed on FAULTN  (mask bit cleared)
+[DIAG] Ch0Error re-enabled on FAULTN  (mask bit restored)
+
+[DIAG] All diagnostics completed successfully.
+</pre></td></tr></tbody></table></div></code></pre></div></div><hr />
+<h2 id="test-phases">
+  
+  
+    <a href="#test-phases" class="anchor-heading" aria-labelledby="test-phases"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Test Phases
+  
+  
+</h2>
+    
+<h3 id="phase-1--operationstate">
+  
+  
+    <a href="#phase-1--operationstate" class="anchor-heading" aria-labelledby="phase-1--operationstate"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Phase 1 — OperationState
+  
+  
+</h3>
+    
+
+<p>Calls <code class="language-plaintext highlighter-rouge">GetOperationState()</code> and maps the result to a string:</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th><code class="language-plaintext highlighter-rouge">OperationState</code></th>
+      <th>String</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Reset</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"Reset"</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Config</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"Config"</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Mission</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"Mission"</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CriticalFault</code></td>
+      <td><code class="language-plaintext highlighter-rouge">"CriticalFault"</code></td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="phase-2--pin_stat-snapshot">
+  
+  
+    <a href="#phase-2--pin_stat-snapshot" class="anchor-heading" aria-labelledby="phase-2--pin_stat-snapshot"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Phase 2 — PIN_STAT Snapshot
+  
+  
+</h3>
+    
+
+<p>Calls <code class="language-plaintext highlighter-rouge">ReadPinStatus()</code> and prints each decoded field. Useful for verifying that the EN and FAULTN
+wiring is correct before enabling channels.</p>
+<h3 id="phase-3--sff_bist">
+  
+  
+    <a href="#phase-3--sff_bist" class="anchor-heading" aria-labelledby="phase-3--sff_bist"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Phase 3 — SFF_BIST
+  
+  
+</h3>
+    
+
+<ol>
+  <li>Calls <code class="language-plaintext highlighter-rouge">RunSffBist(20)</code> (20 ms timeout).</li>
+  <li>Checks <code class="language-plaintext highlighter-rouge">result.done == true</code> — if not, the BIST did not complete within the window.</li>
+  <li>Checks <code class="language-plaintext highlighter-rouge">result.pass == true</code> — if not, the IC reported an internal register failure.</li>
+  <li>Logs UERR and CERR (uncorrectable / correctable register errors).</li>
+</ol>
+
+<blockquote>
+  <p><strong>Note</strong>: A failing SFF_BIST does not indicate a driver bug — it indicates a hardware fault in the
+IC’s register array. Replace the TLE92466ED if BIST fails repeatedly.</p>
+</blockquote>
+<h3 id="phase-4--supply-monitor-self-test">
+  
+  
+    <a href="#phase-4--supply-monitor-self-test" class="anchor-heading" aria-labelledby="phase-4--supply-monitor-self-test"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Phase 4 — Supply Monitor Self-Test
+  
+  
+</h3>
+    
+
+<p>Calls <code class="language-plaintext highlighter-rouge">RunSupplyMonitorSelfTest()</code> which internally executes four sub-tests by writing specific
+GLOBAL_CONFIG test-mode bits, waiting 1 ms, checking <code class="language-plaintext highlighter-rouge">HasAnyFault()</code>, then clearing and restoring
+the configuration. The returned <code class="language-plaintext highlighter-rouge">SupplyMonitorSelfTestResult</code> struct captures the pass/fail of each
+phase.</p>
+<h3 id="phase-5--fault-mask-demo">
+  
+  
+    <a href="#phase-5--fault-mask-demo" class="anchor-heading" aria-labelledby="phase-5--fault-mask-demo"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Phase 5 — Fault Mask Demo
+  
+  
+</h3>
+    
+
+<ol>
+  <li>Calls <code class="language-plaintext highlighter-rouge">SetFaultMask(MaskableFault::Ch0Error, false)</code> to suppress CH0 error contribution to
+FAULTN.</li>
+  <li>Logs the mask change.</li>
+  <li>Calls <code class="language-plaintext highlighter-rouge">SetFaultMask(MaskableFault::Ch0Error, true)</code> to restore default behavior.</li>
+</ol>
+
+<p>This pattern is useful in applications where a specific fault source is expected during a transient
+operating condition and should not trip the hardware FAULTN output.</p><hr />
+<h2 id="troubleshooting">
+  
+  
+    <a href="#troubleshooting" class="anchor-heading" aria-labelledby="troubleshooting"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Troubleshooting
+  
+  
+</h2>
+    
+<h3 id="runsffbist-returns-timeouterror">
+  
+  
+    <a href="#runsffbist-returns-timeouterror" class="anchor-heading" aria-labelledby="runsffbist-returns-timeouterror"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <code class="language-plaintext highlighter-rouge">RunSffBist()</code> returns <code class="language-plaintext highlighter-rouge">TimeoutError</code>
+  
+  
+</h3>
+    
+
+<ul>
+  <li>The BIST DONE bit did not assert within <code class="language-plaintext highlighter-rouge">timeout_ms</code>. The default 20 ms should be sufficient.</li>
+  <li>Check that VBAT and VIO are within spec. BIST requires valid power supplies.</li>
+  <li>Increase <code class="language-plaintext highlighter-rouge">timeout_ms</code> to 50 ms and retry.</li>
+</ul>
+<h3 id="runsffbist-returns-passfalse">
+  
+  
+    <a href="#runsffbist-returns-passfalse" class="anchor-heading" aria-labelledby="runsffbist-returns-passfalse"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <code class="language-plaintext highlighter-rouge">RunSffBist()</code> returns <code class="language-plaintext highlighter-rouge">pass=false</code>
+  
+  
+</h3>
+    
+
+<ul>
+  <li>The IC has an internal register memory fault. This is a hardware issue, not a driver issue.</li>
+  <li>Power-cycle and retry. If it persists, the device should be replaced.</li>
+</ul>
+<h3 id="runsupplymonitorselftest-returns-a-phase-as-failing">
+  
+  
+    <a href="#runsupplymonitorselftest-returns-a-phase-as-failing" class="anchor-heading" aria-labelledby="runsupplymonitorselftest-returns-a-phase-as-failing"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <code class="language-plaintext highlighter-rouge">RunSupplyMonitorSelfTest()</code> returns a phase as failing
+  
+  
+</h3>
+    
+
+<ul>
+  <li>Each sub-test injects a test condition and expects a fault. If no fault appears, the supply
+monitor circuit for that domain may be non-functional.</li>
+  <li>Verify VBAT and VIO are at nominal levels before running the self-test.</li>
+</ul>
+<h3 id="setfaultmask-has-no-effect-on-faultn-pin">
+  
+  
+    <a href="#setfaultmask-has-no-effect-on-faultn-pin" class="anchor-heading" aria-labelledby="setfaultmask-has-no-effect-on-faultn-pin"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <code class="language-plaintext highlighter-rouge">SetFaultMask()</code> has no effect on FAULTN pin
+  
+  
+</h3>
+    
+
+<ul>
+  <li>Some fault sources are always routed to FAULTN regardless of the mask (e.g., VDD undervoltage).
+See the FAULT_MASK0/1/2 register descriptions in the TLE92466ED datasheet for non-maskable faults.</li>
+</ul><hr />
+<h2 id="related-documentation">
+  
+  
+    <a href="#related-documentation" class="anchor-heading" aria-labelledby="related-documentation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Related Documentation
+  
+  
+</h2>
+    
+
+<ul>
+  <li><a href="../../docs/api_reference.md">API Reference</a></li>
+  <li><a href="../../docs/hardware_setup.md">Hardware Setup</a></li>
+  <li><a href="/hf-tle92466ed-driver/development/examples/esp32/docs/README_DRIVER_INTEGRATION_TEST.html">Driver Integration Test</a></li>
+  <li><a href="/hf-tle92466ed-driver/development/examples/esp32/docs/README_RESISTIVE_LOAD_BENCH.html">Resistive-Load Bench</a></li>
+</ul>
+
+          
+
+          
+            
+          
+        </main>
+        
+<hr>
+<footer>
+  
+
+  <!-- =============================================================================
+     Custom Footer Content for HardFOC Driver Documentation
+     =============================================================================
+     This footer is displayed at the bottom of every page.
+     ============================================================================= -->
+
+<footer class="site-footer">
+  <div class="site-footer-credits">
+    <p>Built with ❤️ using <a href="https://just-the-docs.github.io/just-the-docs/">Just the Docs</a></p>
+    <p>
+      <a href="https://github.com/n3b3x/hf-tle92466ed-driver/development/blob/main/LICENSE">GPL v3 License</a> • 
+      <a href="https://github.com/n3b3x/hf-tle92466ed-driver/development">View on GitHub</a>
+    </p>
+  </div>
+</footer>
+
+
+
+  <div class="d-md-none mt-4 fs-2">
+    
+    
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    
+  </div>
+</footer>
+
+      </div>
+    </div>
+    
+      
+<button id="search-button" class="search-button btn-reset" aria-label="Focus on search">
+  <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-search"></use></svg>
+</button>
+
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
+

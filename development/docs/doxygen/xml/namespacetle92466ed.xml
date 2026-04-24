@@ -6,6 +6,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="examples/esp32/main/driver_integration_test.cpp" line="41" column="1"/>
+    <location file="examples/esp32/main/diagnostics_and_bist.cpp" line="27" column="1"/>
   </compounddef>
 </doxygen>
