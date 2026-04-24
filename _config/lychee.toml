@@ -59,6 +59,9 @@ exclude = [
   '^https?://(www\.)?gnu\.org/licenses/.*',
   '^https?://img\.shields\.io/badge/License-.*',
   
+  # Manufacturer / IC vendor documentation URLs (frequently block automated crawlers)
+  '^https?://(www\.)?infineon\.com/',
+
   # GitHub Actions badge URLs (may not exist yet)
   '^https://github\.com/N3b3x/hf-tle92466ed-driver/actions/workflows/.*',
   
