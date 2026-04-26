@@ -325,7 +325,7 @@
 </listitem><listitem><para>the LM-Pro plunger physically moves in step with the ramp (audible / observable on the test rig).</para>
 </listitem></itemizedlist>
 </para>
-<para>Datasheet anchors (values cribbed from <computeroutput>WhValveCatalog::kSpecLMPro_24V</computeroutput>):<itemizedlist>
+<para>Datasheet anchors (values cribbed from <computeroutput>manifold_valves::kSpecLMPro_24V</computeroutput>):<itemizedlist>
 <listitem><para>Coil resistance ~148 Ω → ~115 mA at full open at 24 V</para>
 </listitem><listitem><para>Maximum PWM frequency on TLE92466ED: 4 kHz (datasheet limit). The chip cannot drive above 4 kHz, so the PWM is inherently audible. Use slew-rate-control + dither for the smoothest audible output you can get.</para>
 </listitem><listitem><para>No additional dither benefit from the LM-Pro coil itself (linear-motor design with low static friction).</para>
