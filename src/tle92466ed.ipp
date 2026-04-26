@@ -421,7 +421,7 @@ DriverResult<void> Driver<CommType>::EnableChannel(Channel channel, bool enabled
     return tle::unexpected(DriverError::InvalidChannel);
   }
 
-  comm_.Log(LogLevel::Info, "TLE92466ED", "Enabling channel: Channel=%s, Enabled=%s",
+  comm_.Log(LogLevel::Info, "TLE92466ED", "Set channel enable: Channel=%s, enabled=%s",
             ToString(channel), enabled ? "true" : "false");
 
   uint16_t mask = CH_CTRL::ChannelMask(ToIndex(channel));
@@ -456,7 +456,7 @@ DriverResult<void> Driver<CommType>::EnableChannels(uint8_t channel_mask) noexce
   channel_mask &= CH_CTRL::ALL_CH_MASK;
   channel_enable_cache_ = channel_mask;
 
-  comm_.Log(LogLevel::Info, "TLE92466ED", "Enabling channels: Mask=0x%02X (", channel_mask);
+  comm_.Log(LogLevel::Info, "TLE92466ED", "Set channel enable mask: 0x%02X (", channel_mask);
   bool first = true;
   for (uint8_t ch = 0; ch < 6; ++ch) {
     if ((channel_mask & (1 << ch)) != 0) {
@@ -2033,6 +2033,25 @@ DriverResult<void> Driver<CommType>::WriteRegister(uint16_t address, uint16_t va
         // current faults)
         known_issue = true;
         reason = "GLOBAL_DIAGx are write-1-to-clear, reads return current fault state";
+      } else if (address == CentralReg::DIAG_ERR_CHGR0 ||
+                 address == CentralReg::DIAG_ERR_CHGR1 ||
+                 address == CentralReg::DIAG_ERR_CHGR2) {
+        // Per-pair error diagnostics (datasheet §5.3.2.12): write-1-to-clear
+        // and read returns the current latched fault state for the channel
+        // pair. The driver clears these by writing 0xFFFF or per-bit OC masks
+        // — a read-back showing 0x0000 (no faults) or unrelated bits is
+        // expected behavior, not a bus failure.
+        known_issue = true;
+        reason = "DIAG_ERR_CHGRx are write-1-to-clear, reads return current fault state";
+      } else if (address == CentralReg::DIAG_WARN_CHGR0 ||
+                 address == CentralReg::DIAG_WARN_CHGR1 ||
+                 address == CentralReg::DIAG_WARN_CHGR2) {
+        // Per-pair warnings (datasheet §5.3.2.13). Same write-1-to-clear
+        // semantics. POR default is 0x1010 (OLSG_WARN_CHK_NOK set on both
+        // channels) — read-back of 0x1010 immediately after clearing is
+        // expected until at least one OLSG check window has run.
+        known_issue = true;
+        reason = "DIAG_WARN_CHGRx are write-1-to-clear, POR=0x1010 until first OLSG check";
       }
 
       if (read_value != value) {

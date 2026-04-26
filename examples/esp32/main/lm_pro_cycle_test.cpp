@@ -19,7 +19,7 @@
  *     * the LM-Pro plunger physically moves in step with the ramp
  *       (audible / observable on the test rig).
  *
- *   Datasheet anchors (values cribbed from `WhValveCatalog::kSpecLMPro_24V`):
+ *   Datasheet anchors (values cribbed from `manifold_valves::kSpecLMPro_24V`):
  *     * Coil resistance ~148 Ω  → ~115 mA at full open at 24 V
  *     * Maximum PWM frequency on TLE92466ED: 4 kHz (datasheet limit).
  *       The chip cannot drive above 4 kHz, so the PWM is inherently
