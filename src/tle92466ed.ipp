@@ -34,7 +34,8 @@ DriverResult<void> Driver<CommType>::Init() noexcept {
   // 2. Perform device reset sequence
   // RESN is active low: LOW = reset, HIGH = normal operation
   // EN is active high: HIGH = enabled, LOW = disabled
-  // We keep EN disabled during initialization - user must explicitly enable
+  // EN is held LOW only for the RESN pulse, then asserted HIGH before SPI
+  // identity (channels remain gated by CH_CTRL defaults after POR).
   comm_.Log(LogLevel::Info, "TLE92466ED", "Performing device reset sequence...");
 
   // Step 1: Ensure EN is LOW (disabled) during reset
@@ -70,8 +71,24 @@ DriverResult<void> Driver<CommType>::Init() noexcept {
     return tle::unexpected(DriverError::HardwareError);
   }
 
+  /* Step 6: Assert EN before SPI identity. EN only gates power stages (CH_CTRL
+   * defaults keep channels off after RESN); SPI works with EN high or low.
+   * Eval-board ENABLE LED tracks this pin — leaving EN low made bring-up look
+   * "dead" while FAULT stayed lit from RESN/UV. */
+  if (auto result = SetEnable(true); !result) {
+    comm_.Log(LogLevel::Warn, "TLE92466ED",
+              "Failed to set EN pin HIGH before SPI verify (error: %u)",
+              static_cast<unsigned>(result.error()));
+  } else {
+    comm_.Log(LogLevel::Info, "TLE92466ED",
+              "  EN set HIGH (outputs still gated by CH_CTRL defaults)");
+  }
+  if (auto result = comm_.Delay(1000); !result) { // 1 ms settle
+    return tle::unexpected(DriverError::HardwareError);
+  }
+
   comm_.Log(LogLevel::Info, "TLE92466ED",
-            "✅ Device reset sequence completed (EN remains disabled)");
+            "✅ Device reset sequence completed (RESN released, EN asserted)");
 
   // 3. Read and diagnose CLK_DIV register to check clock configuration
   // This helps diagnose clock-related critical faults early
