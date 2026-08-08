@@ -1900,8 +1900,8 @@ DriverResult<uint16_t> Driver<CommType>::GetIcVersion() noexcept {
     return tle::unexpected(result.error());
   }
 
-  /* Prefer a live read; fall back to the VerifyDevice latch when shared-bus
-   * Mode1 framing returns empty/shifted words after init (flying-wire). */
+  /* Prefer a live ICVID read; fall back to the value latched at VerifyDevice
+   * when a later shared-bus Mode1 sample is empty or bit-shifted. */
   if (auto live = ReadRegister(CentralReg::ICVID, false); live) {
     const uint16_t id = static_cast<uint16_t>(*live);
     if (DeviceID::IsValidDevice(id)) {

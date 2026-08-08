@@ -794,10 +794,10 @@ inline CommResult<uint32_t> SpiInterface<Derived>::Read(uint16_t address, bool v
     return tle::unexpected(multi.error());
   }
 
-  /* ICVID-only flying-wire aid: Saleae showed MOSI CRC-correct while MISO
-   * 0xC1 sat in bits[23:8] (e.g. 0x02C10000 → 0xC100). Do not apply to other
-   * registers — lane noise can false-match 0xC1xx. Also accept a 1-bit-early
-   * Mode1 phantom (0x82xx → treat as 0xC1xx>>1) that used to fail Verify. */
+  /* ICVID-only: recover a valid device ID from a misaligned 32-bit MISO word
+   * on long soft-CS / Mode1 buses (data may sit in bits[23:8], or appear one
+   * bit early as 0x82xx/0x80xx/0xC0xx). Restricted to ICVID so lane noise
+   * cannot false-match 0xC1xx inside other registers. */
   if (address == CentralReg::ICVID) {
     auto extract_icvid_candidate = [](uint32_t word) noexcept -> uint16_t {
       if (word == 0U || word == 0xFFFFFFFFU) {
@@ -815,7 +815,7 @@ inline CommResult<uint32_t> SpiInterface<Derived>::Read(uint16_t address, bool v
         if (DeviceID::IsValidDevice(c)) {
           return c;
         }
-        /* Phantom 1-bit-early Mode1: 0xC1xx → 0x82xx / 0x80xx / 0xC0xx. */
+        /* One-bit-early Mode1 phantoms of a real 0xC1xx ID. */
         if ((c & 0xFF00U) == 0x8200U || (c & 0xFF00U) == 0x8000U ||
             (c & 0xFF00U) == 0xC000U) {
           const uint16_t unshift =
