@@ -781,25 +781,73 @@ inline CommResult<uint32_t> SpiInterface<Derived>::Read(uint16_t address, bool v
   // Calculate and set CRC
   tx_frame.tx_fields.crc = CalculateFrameCrc(tx_frame);
 
-  // First transfer: Send command (device processes command, returns dummy/previous data)
-  auto first_result = static_cast<Derived*>(this)->Transfer32(tx_frame.word);
-  if (!first_result) {
-    return tle::unexpected(first_result.error());
-  }
-
-  // Second transfer: Send dummy command to receive response from first command
-  // Use a NOP read command (read from address 0) as dummy
+  // Pipelined SPI: command frame then dummy (response returns on 2nd CS).
+  // TransferMulti keeps ownership across both frames on shared multi-slave buses.
   SPIFrame dummy_frame = SPIFrame::MakeRead(0);
   dummy_frame.tx_fields.crc = CalculateFrameCrc(dummy_frame);
 
-  auto rx_result = static_cast<Derived*>(this)->Transfer32(dummy_frame.word);
-  if (!rx_result) {
-    return tle::unexpected(rx_result.error());
+  const uint32_t tx_words[2] = {tx_frame.word, dummy_frame.word};
+  uint32_t rx_words[2] = {};
+  auto multi = static_cast<Derived*>(this)->TransferMulti(
+      std::span<const uint32_t>{tx_words}, std::span<uint32_t>{rx_words});
+  if (!multi) {
+    return tle::unexpected(multi.error());
   }
 
-  // Parse response frame from second transfer
+  /* ICVID-only flying-wire aid: Saleae showed MOSI CRC-correct while MISO
+   * 0xC1 sat in bits[23:8] (e.g. 0x02C10000 → 0xC100). Do not apply to other
+   * registers — lane noise can false-match 0xC1xx. Also accept a 1-bit-early
+   * Mode1 phantom (0x82xx → treat as 0xC1xx>>1) that used to fail Verify. */
+  if (address == CentralReg::ICVID) {
+    auto extract_icvid_candidate = [](uint32_t word) noexcept -> uint16_t {
+      if (word == 0U || word == 0xFFFFFFFFU) {
+        return 0;
+      }
+      SPIFrame f{};
+      f.word = word;
+      const uint16_t cands[] = {
+          static_cast<uint16_t>(f.rx_16bit.data),
+          static_cast<uint16_t>((word >> 8) & 0xFFFFU),
+          static_cast<uint16_t>((word >> 16) & 0xFFFFU),
+          static_cast<uint16_t>(word & 0xFFFFU),
+      };
+      for (uint16_t c : cands) {
+        if (DeviceID::IsValidDevice(c)) {
+          return c;
+        }
+        /* Phantom 1-bit-early Mode1: 0xC1xx → 0x82xx / 0x80xx / 0xC0xx. */
+        if ((c & 0xFF00U) == 0x8200U || (c & 0xFF00U) == 0x8000U ||
+            (c & 0xFF00U) == 0xC000U) {
+          const uint16_t unshift =
+              static_cast<uint16_t>((static_cast<uint32_t>(c) << 1) & 0xFFFFU);
+          if (DeviceID::IsValidDevice(unshift)) {
+            return unshift;
+          }
+        }
+      }
+      return 0;
+    };
+    for (uint32_t word : {rx_words[1], rx_words[0]}) {
+      const uint16_t id = extract_icvid_candidate(word);
+      if (id != 0U) {
+        return static_cast<uint32_t>(id);
+      }
+    }
+  }
+
+  // Parse response: prefer 2nd CS (pipeline), fall back to 1st if 2nd empty.
   SPIFrame rx_frame{};
-  rx_frame.word = *rx_result;
+  rx_frame.word = rx_words[1];
+  if ((rx_frame.word == 0U || rx_frame.word == 0xFFFFFFFFU) &&
+      rx_words[0] != 0U && rx_words[0] != 0xFFFFFFFFU) {
+    rx_frame.word = rx_words[0];
+  }
+
+  /* Floating / undriven MISO (pull-up or stuck-low): surface as empty data so
+   * VerifyDevice can return DeviceNotResponding instead of HardwareError. */
+  if (rx_frame.word == 0U || rx_frame.word == 0xFFFFFFFFU) {
+    return static_cast<uint32_t>(rx_frame.word & 0xFFFFU);
+  }
 
   // Verify CRC if requested
   if (verify_crc && !VerifyFrameCrc(rx_frame)) {
@@ -818,7 +866,8 @@ inline CommResult<uint32_t> SpiInterface<Derived>::Read(uint16_t address, bool v
     return static_cast<uint32_t>(rx_frame.rx_22bit.data);
   }
   if (rx_frame.rx_common.reply_mode == 0x02) {
-    // Critical fault frame - this shouldn't happen during normal read
+    /* Critical fault frame (UV / clock / supplies). Still not a valid ICVID
+     * payload — treat as bus fault for the caller. */
     return tle::unexpected(CommError::BusError);
   }
   // Reserved/unknown reply mode
@@ -834,25 +883,20 @@ inline CommResult<void> SpiInterface<Derived>::Write(uint16_t address, uint16_t 
   // Calculate and set CRC
   tx_frame.tx_fields.crc = CalculateFrameCrc(tx_frame);
 
-  // First transfer: Send command (device processes command, returns dummy/previous data)
-  auto first_result = static_cast<Derived*>(this)->Transfer32(tx_frame.word);
-  if (!first_result) {
-    return tle::unexpected(first_result.error());
-  }
-
-  // Second transfer: Send dummy command to receive response from first command
-  // Use a NOP read command (read from address 0) as dummy
   SPIFrame dummy_frame = SPIFrame::MakeRead(0);
   dummy_frame.tx_fields.crc = CalculateFrameCrc(dummy_frame);
 
-  auto rx_result = static_cast<Derived*>(this)->Transfer32(dummy_frame.word);
-  if (!rx_result) {
-    return tle::unexpected(rx_result.error());
+  const uint32_t tx_words[2] = {tx_frame.word, dummy_frame.word};
+  uint32_t rx_words[2] = {};
+  auto multi = static_cast<Derived*>(this)->TransferMulti(
+      std::span<const uint32_t>{tx_words}, std::span<uint32_t>{rx_words});
+  if (!multi) {
+    return tle::unexpected(multi.error());
   }
 
   // Parse response frame from second transfer
   SPIFrame rx_frame{};
-  rx_frame.word = *rx_result;
+  rx_frame.word = rx_words[1];
 
   // Verify CRC if requested
   if (verify_crc && !VerifyFrameCrc(rx_frame)) {

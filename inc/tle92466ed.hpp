@@ -278,12 +278,16 @@ public:
    *
    * After init(), device is in Config Mode. Call enter_mission_mode() to enable outputs.
    *
+   * @param perform_hardware_reset When true (default), pulse RESN low then
+   *        release before SPI identity. When false, leave RESN released (HIGH)
+   *        and only re-run EN settle + SPI verify — used by shared-bus retries
+   *        so the eval RESET LED is not hammered every few hundred ms.
    * @return DriverResult<void> Success or error code
    * @retval DriverError::HardwareError CommInterface initialization failed
    * @retval DriverError::DeviceNotResponding No SPI response
    * @retval DriverError::WrongDeviceID Device ID mismatch
    */
-  [[nodiscard]] DriverResult<void> Init() noexcept;
+  [[nodiscard]] DriverResult<void> Init(bool perform_hardware_reset = true) noexcept;
 
   /**
    * @brief Enter Mission Mode (enables channel control)
@@ -1298,6 +1302,7 @@ private:
   bool vio_5v_mode_{false};       ///< VIO mode state (tracks GLOBAL_CONFIG::VIO_SEL, false=3.3V, true=5V)
   uint16_t ch_ctrl_cache_{0U}; ///< Cached CH_CTRL register value (reads return 0x0000)
   uint16_t channel_enable_cache_{0U};             ///< Cached channel enable state
+  uint16_t cached_icvid_{0U}; ///< ICVID latched at VerifyDevice (live re-read may flake)
   std::array<uint16_t, 6> channel_setpoints_; ///< Cached current setpoints
 };
 

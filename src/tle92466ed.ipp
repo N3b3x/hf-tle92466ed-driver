@@ -25,50 +25,61 @@ namespace tle92466ed {
 //==============================================================================
 
 template <typename CommType>
-DriverResult<void> Driver<CommType>::Init() noexcept {
+DriverResult<void> Driver<CommType>::Init(bool perform_hardware_reset) noexcept {
   // 1. Initialize CommInterface (GPIO and SPI bus only)
   if (auto result = comm_.Init(); !result) {
     return tle::unexpected(DriverError::HardwareError);
   }
 
-  // 2. Perform device reset sequence
+  // 2. Device reset sequence (optional on shared-bus retries)
   // RESN is active low: LOW = reset, HIGH = normal operation
   // EN is active high: HIGH = enabled, LOW = disabled
   // EN is held LOW only for the RESN pulse, then asserted HIGH before SPI
   // identity (channels remain gated by CH_CTRL defaults after POR).
-  comm_.Log(LogLevel::Info, "TLE92466ED", "Performing device reset sequence...");
+  if (perform_hardware_reset) {
+    comm_.Log(LogLevel::Info, "TLE92466ED", "Performing device reset sequence...");
 
-  // Step 1: Ensure EN is LOW (disabled) during reset
-  if (auto result = SetEnable(false); !result) {
-    comm_.Log(LogLevel::Warn, "TLE92466ED",
-              "Failed to set EN pin LOW (error: %u) - continuing anyway",
-              static_cast<unsigned>(result.error()));
-  }
+    // Step 1: Ensure EN is LOW (disabled) during reset
+    if (auto result = SetEnable(false); !result) {
+      comm_.Log(LogLevel::Warn, "TLE92466ED",
+                "Failed to set EN pin LOW (error: %u) - continuing anyway",
+                static_cast<unsigned>(result.error()));
+    }
 
-  // Step 2: Hold device in reset (LOW)
-  if (auto result = SetReset(true); !result) {
-    comm_.Log(LogLevel::Error, "TLE92466ED", "Failed to hold device in reset (error: %u)",
-              static_cast<unsigned>(result.error()));
-    return tle::unexpected(DriverError::HardwareError);
-  }
-  comm_.Log(LogLevel::Info, "TLE92466ED", "  RESN set LOW (device in reset)");
+    // Step 2: Hold device in reset (LOW)
+    if (auto result = SetReset(true); !result) {
+      comm_.Log(LogLevel::Error, "TLE92466ED", "Failed to hold device in reset (error: %u)",
+                static_cast<unsigned>(result.error()));
+      return tle::unexpected(DriverError::HardwareError);
+    }
+    comm_.Log(LogLevel::Info, "TLE92466ED", "  RESN set LOW (device in reset)");
 
-  // Step 3: Wait for reset pulse duration (minimum 10ms per datasheet)
-  if (auto result = comm_.Delay(10000); !result) { // 10ms = 10000 microseconds
-    return tle::unexpected(DriverError::HardwareError);
-  }
+    // Step 3: Wait for reset pulse duration (minimum 10ms per datasheet)
+    if (auto result = comm_.Delay(10000); !result) { // 10ms = 10000 microseconds
+      return tle::unexpected(DriverError::HardwareError);
+    }
 
-  // Step 4: Release reset (HIGH)
-  if (auto result = SetReset(false); !result) {
-    comm_.Log(LogLevel::Error, "TLE92466ED", "Failed to release device from reset (error: %u)",
-              static_cast<unsigned>(result.error()));
-    return tle::unexpected(DriverError::HardwareError);
-  }
-  comm_.Log(LogLevel::Info, "TLE92466ED", "  RESN set HIGH (device released from reset)");
+    // Step 4: Release reset (HIGH)
+    if (auto result = SetReset(false); !result) {
+      comm_.Log(LogLevel::Error, "TLE92466ED", "Failed to release device from reset (error: %u)",
+                static_cast<unsigned>(result.error()));
+      return tle::unexpected(DriverError::HardwareError);
+    }
+    comm_.Log(LogLevel::Info, "TLE92466ED", "  RESN set HIGH (device released from reset)");
 
-  // Step 5: Wait for device to stabilize after reset release (minimum 10ms per datasheet)
-  if (auto result = comm_.Delay(10000); !result) { // 10ms = 10000 microseconds
-    return tle::unexpected(DriverError::HardwareError);
+    // Step 5: Wait for device to stabilize after reset release (minimum 10ms per datasheet).
+    // Flying-wire + PCAL path: give VIO/+5V/VBAT more wall time before first CS.
+    if (auto result = comm_.Delay(50000); !result) { // 50ms
+      return tle::unexpected(DriverError::HardwareError);
+    }
+  } else {
+    /* Retry path: keep RESN released — do not re-assert (eval RESET LED). */
+    if (auto result = SetReset(false); !result) {
+      return tle::unexpected(DriverError::HardwareError);
+    }
+    if (auto result = comm_.Delay(2000); !result) {
+      return tle::unexpected(DriverError::HardwareError);
+    }
   }
 
   /* Step 6: Assert EN before SPI identity. EN only gates power stages (CH_CTRL
@@ -83,12 +94,21 @@ DriverResult<void> Driver<CommType>::Init() noexcept {
     comm_.Log(LogLevel::Info, "TLE92466ED",
               "  EN set HIGH (outputs still gated by CH_CTRL defaults)");
   }
-  if (auto result = comm_.Delay(1000); !result) { // 1 ms settle
+  if (auto result = comm_.Delay(5000); !result) { // 5 ms settle (PCAL + supplies)
     return tle::unexpected(DriverError::HardwareError);
   }
 
   comm_.Log(LogLevel::Info, "TLE92466ED",
-            "✅ Device reset sequence completed (RESN released, EN asserted)");
+            perform_hardware_reset
+                ? "✅ Device reset sequence completed (RESN released, EN asserted)"
+                : "✅ RESN held released; EN asserted (SPI identity retry)");
+
+  /* Step 6b: Discard one pipelined read — first post-RESN response is often
+   * empty/fault while the digital core finishes POR. */
+  (void)ReadRegister(CentralReg::ICVID, false);
+  if (auto result = comm_.Delay(500); !result) {
+    return tle::unexpected(DriverError::HardwareError);
+  }
 
   // 3. Read and diagnose CLK_DIV register to check clock configuration
   // This helps diagnose clock-related critical faults early
@@ -123,9 +143,12 @@ DriverResult<void> Driver<CommType>::Init() noexcept {
     return tle::unexpected(result.error());
   }
 
-  // 7. Clear any power-on reset flags (skip initialization check during Init)
+  // 7. Clear any power-on reset flags (skip initialization check during Init).
+  // Soft-fail: sticky GLOBAL_DIAG / noisy MISO must not block identity + rails.
   if (auto result = clearFaultsInternal(); !result) {
-    return tle::unexpected(result.error());
+    comm_.Log(LogLevel::Warn, "TLE92466ED",
+              "clearFaults during Init soft-failed (error: %u) — continuing",
+              static_cast<unsigned>(result.error()));
   }
 
   // 8. Initialize cached state
@@ -141,14 +164,14 @@ DriverResult<void> Driver<CommType>::Init() noexcept {
 
 template <typename CommType>
 DriverResult<void> Driver<CommType>::applyDefaultConfig() noexcept {
-  // Configure GLOBAL_CONFIG: Enable CRC and clock watchdog
-  // Note: SPI watchdog is DISABLED by default because it requires periodic reloading
-  //       If enabled without periodic reload, the device will timeout and enter Config Mode
-  //       User should enable SPI watchdog only if they can guarantee periodic reloading
-  // Note: VIO_SEL is NOT set (defaults to 0 = 3.3V mode) to match typical use case
-  // If user needs 5V mode, they should call ConfigureGlobal() with vio_5v=true
+  // Configure GLOBAL_CONFIG in two phases:
+  //   1) CLK_WD only — finish all POR default register writes without CRC_EN
+  //   2) CRC_EN last — once identity + defaults are on the wire
+  // Enabling CRC_EN before channel/VBAT defaults made Init fail with CRCError on
+  // long flying-wire MISO (ICVID already OK; first CRC-checked reply flaked).
+  // Note: SPI watchdog is DISABLED by default (needs periodic reload).
+  // Note: VIO_SEL is NOT set (defaults to 0 = 3.3V mode).
   uint16_t global_cfg =
-      GLOBAL_CONFIG::CRC_EN |
       // GLOBAL_CONFIG::SPI_WD_EN |  // Disabled by default - requires periodic reload
       GLOBAL_CONFIG::CLK_WD_EN;
   // VIO_SEL = 0 (3.3V mode) - bit 14 is NOT set, ensuring 3.3V mode
@@ -161,9 +184,7 @@ DriverResult<void> Driver<CommType>::applyDefaultConfig() noexcept {
   if (auto result = WriteRegister(CentralReg::GLOBAL_CONFIG, global_cfg, false); !result) {
     return tle::unexpected(result.error());
   }
-
-  // Update internal CRC enable state (CRC_EN is enabled in default config)
-  crc_enabled_ = true;
+  crc_enabled_ = false;
 
   // Set default VBAT thresholds (UV=7V, OV=40V)
   // Use internal version that doesn't check initialization (called during Init)
@@ -199,6 +220,13 @@ DriverResult<void> Driver<CommType>::applyDefaultConfig() noexcept {
   // Note: SPI watchdog is disabled by default, so no need to reload here
   // If user enables SPI watchdog via ConfigureGlobal(), they must call ReloadSpiWatchdog()
   // periodically
+
+  /* Leave CRC_EN off for Init + first bring-up reads. Turning CRC_EN on here
+   * (even after defaults) made clearFaultsInternal() return CRCError on
+   * flying-wire MISO while ICVID had already succeeded — tle_stage stuck at 2
+   * and VBAT/VIO/VDD telem never published. Enable CRC later via ConfigureGlobal
+   * when the bus is proven. MOSI frames still carry a computed CRC byte. */
+  crc_enabled_ = false;
 
   return {};
 }
@@ -1047,11 +1075,9 @@ DriverResult<DeviceStatus> Driver<CommType>::GetDeviceStatus() noexcept {
     status.init_done = (fb_stat & FB_STAT::INIT_DONE) != 0;
   }
 
-  // Read CH_CTRL to get mode
-  auto ch_ctrl_result = ReadRegister(CentralReg::CH_CTRL);
-  if (ch_ctrl_result) {
-    status.config_mode = (*ch_ctrl_result & CH_CTRL::OP_MODE) == 0;
-  }
+  /* CH_CTRL reads return 0x0000 on this silicon (write-only / sticky zero).
+   * Trust the driver cache from EnterMissionMode / EnterConfigMode. */
+  status.config_mode = !mission_mode_;
 
   // Read voltage feedbacks
   // FB_VOLTAGE1 contains VIO and VDD (22-bit reply frame)
@@ -1874,7 +1900,19 @@ DriverResult<uint16_t> Driver<CommType>::GetIcVersion() noexcept {
     return tle::unexpected(result.error());
   }
 
-  return ReadRegister(CentralReg::ICVID);
+  /* Prefer a live read; fall back to the VerifyDevice latch when shared-bus
+   * Mode1 framing returns empty/shifted words after init (flying-wire). */
+  if (auto live = ReadRegister(CentralReg::ICVID, false); live) {
+    const uint16_t id = static_cast<uint16_t>(*live);
+    if (DeviceID::IsValidDevice(id)) {
+      cached_icvid_ = id;
+      return id;
+    }
+  }
+  if (DeviceID::IsValidDevice(cached_icvid_)) {
+    return cached_icvid_;
+  }
+  return tle::unexpected(DriverError::DeviceNotResponding);
 }
 
 template <typename CommType>
@@ -1908,23 +1946,49 @@ DriverResult<std::array<uint16_t, 3>> Driver<CommType>::GetChipId() noexcept {
 
 template <typename CommType>
 DriverResult<bool> Driver<CommType>::VerifyDevice() noexcept {
-  // Read ICVID register to verify device is responding and check device type
-  auto id_result = ReadRegister(CentralReg::ICVID, false); // Don't verify CRC during init
-
-  if (!id_result) {
-    comm_.Log(LogLevel::Error, "TLE92466ED",
-              "Device verification failed: Failed to read ICVID register (error: %u)",
-              static_cast<unsigned>(id_result.error()));
-    return tle::unexpected(id_result.error());
+  // Read ICVID (no CRC during init). Retry — post-POR / shared-bus Mode1
+  // bring-up often returns data=0 on the first one or two pipelined reads.
+  uint16_t icvid = 0;
+  DriverError last_err = DriverError::HardwareError;
+  bool got_word = false;
+  for (unsigned attempt = 0; attempt < 5U; ++attempt) {
+    auto id_result = ReadRegister(CentralReg::ICVID, false);
+    if (!id_result) {
+      last_err = id_result.error();
+      comm_.Log(LogLevel::Warn, "TLE92466ED",
+                "ICVID read attempt %u failed (error: %u)", attempt + 1U,
+                static_cast<unsigned>(last_err));
+      (void)comm_.Delay(500);
+      continue;
+    }
+    got_word = true;
+    icvid = static_cast<uint16_t>(*id_result);
+    if (DeviceID::IsValidDevice(icvid)) {
+      break;
+    }
+    /* Non-zero garbage (bit-shift phantoms like 0x8000 / 0x0E00) must not
+     * freeze retries — keep sampling until 0xC1xx or attempts exhausted. */
+    comm_.Log(LogLevel::Warn, "TLE92466ED",
+              "ICVID attempt %u not 0xC1xx (0x%04X) — retry", attempt + 1U,
+              icvid);
+    (void)comm_.Delay(500);
   }
 
-  uint16_t icvid = *id_result;
+  if (!got_word) {
+    comm_.Log(LogLevel::Error, "TLE92466ED",
+              "Device verification failed: Failed to read ICVID register (error: %u)",
+              static_cast<unsigned>(last_err));
+    return tle::unexpected(last_err);
+  }
 
-  // Check if we got a valid response (not all zeros or all ones)
+  // All-zero / all-one MISO is "not on the bus" (floating / unpowered / held
+  // in reset), not a WrongDeviceID. Keep WrongDeviceID for real non-0xC1 types.
   if (icvid == 0x0000 || icvid == 0xFFFF) {
     comm_.Log(LogLevel::Error, "TLE92466ED",
-              "Device verification failed: Invalid ICVID response (0x%04X)", icvid);
-    return DriverResult<bool>{false};
+              "Device verification failed: no ICVID response (0x%04X) — check "
+              "VIO/+5V/RESN/CS/MISO",
+              icvid);
+    return tle::unexpected(DriverError::DeviceNotResponding);
   }
 
   // Validate device ID
@@ -1935,6 +1999,7 @@ DriverResult<bool> Driver<CommType>::VerifyDevice() noexcept {
   uint8_t revision = DeviceID::GetRevision(icvid);
 
   if (valid) {
+    cached_icvid_ = icvid;
     comm_.Log(LogLevel::Info, "TLE92466ED",
               "Device verified: ICVID=0x%04X, Type=0x%02X, Revision=0x%02X", icvid, device_type,
               revision);

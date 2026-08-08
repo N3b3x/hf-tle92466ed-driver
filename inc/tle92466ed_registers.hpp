@@ -2079,8 +2079,15 @@ enum class ParallelPair : uint8_t {
  * @brief Calculate CRC for SPI frame
  * @param frame SPI frame (CRC field should be 0)
  * @return Calculated CRC value
+ *
+ * @details Datasheet Rev 1.2 §5.1.2 fixes the CRC byte sequence as
+ * frame[7:0], then frame[15:8], then frame[23:16] — i.e. little-endian byte
+ * order, which is the *reverse* of the MSB-first wire order. On a
+ * little-endian target that is exactly bytes 0..2 of the frame word.
  */
 [[nodiscard]] inline uint8_t CalculateFrameCrc(const tle92466ed::SPIFrame& frame) noexcept {
+  static_assert(__BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__,
+                "CRC byte sequence (datasheet §5.1.2) assumes little-endian frame storage");
   // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast) - Required for hardware register byte access
   const auto* bytes = reinterpret_cast<const uint8_t*>(&frame);
   // Calculate CRC on bytes 0-2 (excluding CRC byte itself at position 3)
