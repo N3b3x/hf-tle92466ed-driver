@@ -192,27 +192,30 @@ DriverResult<void> Driver<CommType>::applyDefaultConfig() noexcept {
     return tle::unexpected(result.error());
   }
 
-  // Configure all channels with default settings (ICC mode, 1V/us slew, disabled)
+  // Configure all channels with default settings (ICC mode, 1V/us slew, disabled).
+  // Skip verify_write during Init — these are POR-default values being
+  // re-asserted; the real operational writes (ConfigureDither, SetCurrentSetpoint)
+  // use verified writes with retry in the control path.
   for (uint8_t ch = 0; ch < static_cast<uint8_t>(Channel::COUNT); ++ch) {
     auto channel = static_cast<Channel>(ch);
     uint16_t ch_base = GetChannelBase(channel);
 
-    // Set mode to ICC (0x0001)
     if (auto result = WriteRegister(ch_base + ChannelReg::MODE,
-                                    static_cast<uint16_t>(ChannelMode::ICC), false);
+                                    static_cast<uint16_t>(ChannelMode::ICC),
+                                    false, false);
         !result) {
       return tle::unexpected(result.error());
     }
 
-    // Set default CH_CONFIG (slew rate 2.5V/us, OL disabled)
     if (auto result =
-            WriteRegister(ch_base + ChannelReg::CH_CONFIG, CH_CONFIG::SLEWR_2V5_US, false);
+            WriteRegister(ch_base + ChannelReg::CH_CONFIG, CH_CONFIG::SLEWR_2V5_US,
+                          false, false);
         !result) {
       return tle::unexpected(result.error());
     }
 
-    // Set current setpoint to 0
-    if (auto result = WriteRegister(ch_base + ChannelReg::SETPOINT, 0, false); !result) {
+    if (auto result = WriteRegister(ch_base + ChannelReg::SETPOINT, 0, false, false);
+        !result) {
       return tle::unexpected(result.error());
     }
   }
@@ -411,7 +414,7 @@ DriverResult<void> Driver<CommType>::setVbatThresholdsInternal(float uv_voltage,
 
   uint16_t value = (static_cast<uint16_t>(ov_threshold) << 8) | uv_threshold;
   if (auto result = WriteRegister(CentralReg::VBAT_TH, value, false); !result) {
-    return result; // Don't verify CRC during init
+    return result;
   }
 
   // Clear VBAT fault flags when thresholds change (old fault state is no longer valid)
@@ -2145,16 +2148,15 @@ DriverResult<void> Driver<CommType>::WriteRegister(uint16_t address, uint16_t va
                     address, value, read_value, reason);
         } else {
           comm_.Log(LogLevel::Warn, "TLE92466ED",
-                    "Write verification failed: Address=0x%04X, Written=0x%04X, Read=0x%04X\n"
-                    "  (This may be normal for write-only or special registers)",
+                    "Write verification FAILED: Address=0x%04X, Written=0x%04X, Read=0x%04X",
                     address, value, read_value);
+          return tle::unexpected(DriverError::RegisterError);
         }
       } else {
         comm_.Log(LogLevel::Debug, "TLE92466ED", "Write verified: Address=0x%04X, Value=0x%04X",
                   address, value);
       }
     } else {
-      // Read failed - this might be expected for write-only registers
       comm_.Log(LogLevel::Debug, "TLE92466ED",
                 "Write verification read failed for address 0x%04X (may be write-only)", address);
     }
