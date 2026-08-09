@@ -644,7 +644,11 @@ DriverResult<void> Driver<CommType>::SetCurrentSetpoint(Channel channel, uint16_
             "Setting current setpoint: Channel=%s, Current=%u mA, Target=0x%04X, Parallel=%s",
             ToString(channel), current_ma, target, parallel_mode ? "true" : "false");
 
-  return WriteRegister(ch_addr, target);
+  /* Skip verify_write — channel SETPOINT readback is flaky on shared-SPI Mid
+   * (phantoms / sticky-zero). Hard verify turned every duty update into
+   * ValveReadbackFail→Disarm while ICVID/rails stayed healthy. ValvesManager
+   * still retries and accepts live-actuators without ±1 mA SPI match. */
+  return WriteRegister(ch_addr, target, false, false);
 }
 
 template <typename CommType>
@@ -816,7 +820,12 @@ DriverResult<void> Driver<CommType>::ConfigureDitherClock(Channel channel,
             reg_value);
 
   const uint16_t addr = GetChannelRegister(channel, ChannelReg::DITHER_CLK_DIV);
-  return WriteRegister(addr, reg_value);
+  /* Skip verify_write: shared-SPI Mid stand-in often returns Mode1 phantoms on
+   * channel-register readback (same class as CH_CTRL sticky-zero). A hard
+   * RegisterError here aborts ManualBench duty and trips ActuationReadbackFail
+   * even when the write landed. Trust the transfer; FB_I_AVG/dither probe is
+   * the functional check. */
+  return WriteRegister(addr, reg_value, false, false);
 }
 
 template <typename CommType>
@@ -931,13 +940,17 @@ DriverResult<void> Driver<CommType>::ConfigureDitherRaw(Channel channel, uint16_
 
   // Configure DITHER_CTRL (step size)
   uint16_t ctrl_value = step_size & DITHER_CTRL::STEP_SIZE_MASK;
-  if (auto result = WriteRegister(ch_base + ChannelReg::DITHER_CTRL, ctrl_value); !result) {
+  if (auto result =
+          WriteRegister(ch_base + ChannelReg::DITHER_CTRL, ctrl_value, false, false);
+      !result) {
     return tle::unexpected(result.error());
   }
 
   // Configure DITHER_STEP (steps and flat period)
   uint16_t step_value = flat_steps | (static_cast<uint16_t>(num_steps) << DITHER_STEP::STEPS_SHIFT);
-  if (auto result = WriteRegister(ch_base + ChannelReg::DITHER_STEP, step_value); !result) {
+  if (auto result =
+          WriteRegister(ch_base + ChannelReg::DITHER_STEP, step_value, false, false);
+      !result) {
     return tle::unexpected(result.error());
   }
 
