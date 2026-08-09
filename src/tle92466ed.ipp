@@ -73,7 +73,9 @@ DriverResult<void> Driver<CommType>::Init(bool perform_hardware_reset) noexcept 
       return tle::unexpected(DriverError::HardwareError);
     }
   } else {
-    /* Retry path: keep RESN released — do not re-assert (eval RESET LED). */
+    /* SPI-only retry: keep RESN released and leave EN alone. Re-driving EN
+     * every failed ICVID attempt made the ENABLE LED blink at bring-up rate
+     * on I2C-expander boards; EN was already asserted after the first pulse. */
     if (auto result = SetReset(false); !result) {
       return tle::unexpected(DriverError::HardwareError);
     }
@@ -82,20 +84,21 @@ DriverResult<void> Driver<CommType>::Init(bool perform_hardware_reset) noexcept 
     }
   }
 
-  /* Step 6: Assert EN before SPI identity. EN only gates power stages (CH_CTRL
-   * defaults keep channels off after RESN); SPI works with EN high or low.
-   * Eval-board ENABLE LED tracks this pin — leaving EN low made bring-up look
-   * "dead" while FAULT stayed lit from RESN/UV. */
-  if (auto result = SetEnable(true); !result) {
-    comm_.Log(LogLevel::Warn, "TLE92466ED",
-              "Failed to set EN pin HIGH before SPI verify (error: %u)",
-              static_cast<unsigned>(result.error()));
-  } else {
-    comm_.Log(LogLevel::Info, "TLE92466ED",
-              "  EN set HIGH (outputs still gated by CH_CTRL defaults)");
-  }
-  if (auto result = comm_.Delay(5000); !result) { // 5 ms settle (PCAL + supplies)
-    return tle::unexpected(DriverError::HardwareError);
+  /* Step 6: Assert EN before SPI identity — only on the HW-reset path.
+   * EN gates power stages (CH_CTRL defaults keep channels off after RESN);
+   * SPI works with EN high or low, but eval ENABLE LED tracks this pin. */
+  if (perform_hardware_reset) {
+    if (auto result = SetEnable(true); !result) {
+      comm_.Log(LogLevel::Warn, "TLE92466ED",
+                "Failed to set EN pin HIGH before SPI verify (error: %u)",
+                static_cast<unsigned>(result.error()));
+    } else {
+      comm_.Log(LogLevel::Info, "TLE92466ED",
+                "  EN set HIGH (outputs still gated by CH_CTRL defaults)");
+    }
+    if (auto result = comm_.Delay(5000); !result) { // 5 ms settle (PCAL + supplies)
+      return tle::unexpected(DriverError::HardwareError);
+    }
   }
 
   comm_.Log(LogLevel::Info, "TLE92466ED",
