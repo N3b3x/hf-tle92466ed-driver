@@ -68,14 +68,14 @@ DriverResult<void> Driver<CommType>::Init(bool perform_hardware_reset) noexcept 
     comm_.Log(LogLevel::Info, "TLE92466ED", "  RESN set HIGH (device released from reset)");
 
     // Step 5: Wait for device to stabilize after reset release (minimum 10ms per datasheet).
-    // Flying-wire + PCAL path: give VIO/+5V/VBAT more wall time before first CS.
+    // Extra margin when EN/rails are behind an I2C GPIO expander before first CS.
     if (auto result = comm_.Delay(50000); !result) { // 50ms
       return tle::unexpected(DriverError::HardwareError);
     }
   } else {
     /* SPI-only retry: keep RESN released and leave EN alone. Re-driving EN
-     * every failed ICVID attempt made the ENABLE LED blink at bring-up rate
-     * on I2C-expander boards; EN was already asserted after the first pulse. */
+     * on every failed ICVID attempt toggles the enable rail unnecessarily;
+     * EN was already asserted after the first pulse. */
     if (auto result = SetReset(false); !result) {
       return tle::unexpected(DriverError::HardwareError);
     }
@@ -86,7 +86,7 @@ DriverResult<void> Driver<CommType>::Init(bool perform_hardware_reset) noexcept 
 
   /* Step 6: Assert EN before SPI identity — only on the HW-reset path.
    * EN gates power stages (CH_CTRL defaults keep channels off after RESN);
-   * SPI works with EN high or low, but eval ENABLE LED tracks this pin. */
+   * SPI works with EN high or low. */
   if (perform_hardware_reset) {
     if (auto result = SetEnable(true); !result) {
       comm_.Log(LogLevel::Warn, "TLE92466ED",
@@ -96,7 +96,7 @@ DriverResult<void> Driver<CommType>::Init(bool perform_hardware_reset) noexcept 
       comm_.Log(LogLevel::Info, "TLE92466ED",
                 "  EN set HIGH (outputs still gated by CH_CTRL defaults)");
     }
-    if (auto result = comm_.Delay(5000); !result) { // 5 ms settle (PCAL + supplies)
+    if (auto result = comm_.Delay(5000); !result) { // 5 ms settle for rails/expander
       return tle::unexpected(DriverError::HardwareError);
     }
   }
@@ -171,7 +171,7 @@ DriverResult<void> Driver<CommType>::applyDefaultConfig() noexcept {
   //   1) CLK_WD only — finish all POR default register writes without CRC_EN
   //   2) CRC_EN last — once identity + defaults are on the wire
   // Enabling CRC_EN before channel/VBAT defaults made Init fail with CRCError on
-  // long flying-wire MISO (ICVID already OK; first CRC-checked reply flaked).
+  // long-lead / Mode1 MISO (ICVID already OK; first CRC-checked reply flaked).
   // Note: SPI watchdog is DISABLED by default (needs periodic reload).
   // Note: VIO_SEL is NOT set (defaults to 0 = 3.3V mode).
   uint16_t global_cfg =
@@ -229,9 +229,9 @@ DriverResult<void> Driver<CommType>::applyDefaultConfig() noexcept {
 
   /* Leave CRC_EN off for Init + first bring-up reads. Turning CRC_EN on here
    * (even after defaults) made clearFaultsInternal() return CRCError on
-   * flying-wire MISO while ICVID had already succeeded — tle_stage stuck at 2
-   * and VBAT/VIO/VDD telem never published. Enable CRC later via ConfigureGlobal
-   * when the bus is proven. MOSI frames still carry a computed CRC byte. */
+   * long-lead / Mode1 MISO while ICVID had already succeeded, blocking later
+   * rail telem reads. Enable CRC later via ConfigureGlobal when the bus is
+   * proven. MOSI frames still carry a computed CRC byte. */
   crc_enabled_ = false;
 
   return {};
@@ -644,10 +644,9 @@ DriverResult<void> Driver<CommType>::SetCurrentSetpoint(Channel channel, uint16_
             "Setting current setpoint: Channel=%s, Current=%u mA, Target=0x%04X, Parallel=%s",
             ToString(channel), current_ma, target, parallel_mode ? "true" : "false");
 
-  /* Skip verify_write — channel SETPOINT readback is flaky on shared-SPI Mid
-   * (phantoms / sticky-zero). Hard verify turned every duty update into
-   * ValveReadbackFail→Disarm while ICVID/rails stayed healthy. ValvesManager
-   * still retries and accepts live-actuators without ±1 mA SPI match. */
+  /* Skip verify_write — channel SETPOINT readback is unreliable on shared
+   * Mode1 soft-CS SPI (phantoms / sticky-zero). Hard verify rejected healthy
+   * duty updates while ICVID/rails stayed OK; upper layers retry as needed. */
   return WriteRegister(ch_addr, target, false, false);
 }
 
@@ -820,11 +819,10 @@ DriverResult<void> Driver<CommType>::ConfigureDitherClock(Channel channel,
             reg_value);
 
   const uint16_t addr = GetChannelRegister(channel, ChannelReg::DITHER_CLK_DIV);
-  /* Skip verify_write: shared-SPI Mid stand-in often returns Mode1 phantoms on
+  /* Skip verify_write: shared Mode1 soft-CS often returns phantoms on
    * channel-register readback (same class as CH_CTRL sticky-zero). A hard
-   * RegisterError here aborts ManualBench duty and trips ActuationReadbackFail
-   * even when the write landed. Trust the transfer; FB_I_AVG/dither probe is
-   * the functional check. */
+   * RegisterError aborts dither setup even when the write landed. Trust the
+   * transfer; FB_I_AVG/dither probe is the functional check. */
   return WriteRegister(addr, reg_value, false, false);
 }
 
@@ -880,7 +878,13 @@ DriverResult<void> Driver<CommType>::ConfigureDither(Channel channel, float ampl
   const float dither_period_us = 1'000'000.0F / frequency_hz;
   const float t_ref_clk_us     = dither_period_us / kPeriodUnits;
 
-  if (auto result = ConfigureDitherClock(channel, t_ref_clk_us); !result) {
+  /* Setpoint-sync restarts TDither/Tmeas on every SETPOINT write so FB_I_AVG
+   * begins a fresh averaging window after duty updates (datasheet §4.7.5).
+   * Without it, FB_* often stays at 0 on shared Mode1 buses. */
+  if (auto result = ConfigureDitherClock(channel, t_ref_clk_us,
+                                         /*dither_pwm_sync=*/false,
+                                         /*dither_setpoint_sync=*/true);
+      !result) {
     return result;
   }
 
