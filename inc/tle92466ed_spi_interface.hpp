@@ -4,10 +4,20 @@
  * @copyright Copyright (c) 2024-2025 HardFOC. All rights reserved.
  * 
  * @details
- * This file defines the hardware abstraction layer interface for the TLE92466ED
- * Six-Channel Low-Side Solenoid Driver IC. The CommInterface provides a polymorphic interface
- * that allows the driver to work with any hardware platform by implementing the
- * virtual transmission functions.
+ * This file defines the hardware abstraction layer (CRTP `SpiInterface`) for the
+ * TLE92466ED Six-Channel Low-Side Solenoid Driver IC. Platform adapters inherit
+ * from `SpiInterface<Derived>` and implement the required transfer and GPIO hooks.
+ *
+ * **Pipelined SPI reads:** register reads are a two-frame protocol. Frame 1 sends
+ * the read command; the chip latches the reply and presents it on MISO during
+ * frame 2 (a dummy transfer of the *same* address). `Read()` and `Write()` issue
+ * both frames through `TransferMulti()` so CS stays asserted and the bus stays
+ * owned across the pair. The dummy is a read of address 0; repeating the
+ * accessed address instead makes the part reply with a reserved reply-mode and
+ * identity never validates (bench 2026-08-12).
+ * On a shared multi-slave bus, an adapter that deasserts CS or releases the bus
+ * between the two frames allows another device's transaction to consume the
+ * pipeline slot — reads then return zeros or another slave's data.
  *
  * The TLE92466ED uses **32-bit SPI communication** with the following structure:
  * - MOSI: 32-bit frame (CRC[31:24] + Address[23:17] + R/W[16] + Data[15:0])
@@ -238,8 +248,11 @@ union SPIFrame {
    *             |            |  0=R   |
    * @endverbatim
    *
-   * Note: Only 7 bits of address are used (upper 7 bits, same as write frames).
-   * The address is encoded as (addr >> 3) to match write frame encoding.
+   * Note: read frames carry the FULL 16-bit address in bits [15:0]; bits
+   * [23:17] are don't-care (datasheet §5.2.3.2). This is deliberately
+   * different from the write frame, which has only a 7-bit address field.
+   * That asymmetry is why read-only status registers at 0x0200+ are
+   * reachable at all — they cannot be expressed in a write frame.
    */
   [[nodiscard]] static constexpr SPIFrame MakeRead(uint16_t addr) noexcept {
     SPIFrame frame{};
@@ -265,8 +278,11 @@ union SPIFrame {
    *             |            |  1=W   |
    * @endverbatim
    *
-   * Note: The 10-bit address is split with upper 7 bits in [23:17] and
-   * lower 3 bits are not used (address is encoded in upper 7 bits only).
+   * Note: the write address field is only 7 bits wide (datasheet §5.2.3.1),
+   * so `addr & 0x7F` is not a truncation — every writable register on this
+   * device lives at 0x000..0x07F (central config 0x00..0x3F, channel config
+   * CH4 0x20.. through CH3 0x70..0x7E). Registers at 0x0200+ are read-only
+   * by construction: they cannot be addressed by a write frame at all.
    */
   [[nodiscard]] static constexpr SPIFrame MakeWrite(uint16_t addr, uint16_t data) noexcept {
     SPIFrame frame{};
@@ -468,11 +484,13 @@ public:
   }
 
   /**
-   * @brief Transfer multiple 32-bit words via SPI
+   * @brief Transfer multiple 32-bit words via SPI in one CS assertion window
    *
    * @details
-   * Performs multiple consecutive SPI transfers efficiently. Useful for
-   * reading or writing multiple registers in sequence.
+   * Performs consecutive full-duplex 32-bit transfers while CS remains
+   * asserted. The driver relies on this for pipelined register access: each
+   * `Read()` / `Write()` passes exactly two words (command frame, then dummy
+   * frame that clocks out the latched reply).
    *
    * @param[in] tx_data Span of transmit data (32-bit words)
    * @param[out] rx_data Span to store received data (32-bit words)
@@ -482,6 +500,12 @@ public:
    *
    * @pre tx_data.size() == rx_data.size()
    * @pre Both spans must be valid for the duration of the transfer
+   *
+   * @warning **Platform requirement:** on shared SPI buses, the adapter must
+   *          keep CS asserted and must not yield bus ownership between the
+   *          command and dummy frames of a pipelined read. Releasing the bus
+   *          mid-pair is a common cause of all-zero or cross-slave corrupted
+   *          register values (including inflated feedback currents).
    */
   [[nodiscard]] CommResult<void> TransferMulti(std::span<const uint32_t> tx_data,
                                                std::span<uint32_t> rx_data) noexcept {
@@ -669,13 +693,13 @@ public:
    * - Parses the response based on reply mode
    * - Verifies CRC if requested
    *
-   * @note The TLE92466ED requires two SPI transfers: the first sends the command
-   *       and the second receives the response. This is a convenience function that
-   *       uses Transfer32() internally. Frame construction and CRC calculation are
-   *       handled automatically.
+   * @note **Pipelined reply:** frame 1 transmits the read command (MISO is not
+   *       yet valid for that address); frame 2 is a dummy read that clocks out
+   *       the latched reply. Both frames are sent via `TransferMulti()` in one
+   *       CS window — adapters must not split them on shared buses.
    *
-   * @note This is a public helper function for use by the Driver class.
-   *       External code should typically use the Driver API, but this method is
+   * @note Frame construction and CRC calculation are handled automatically.
+   *       External code should typically use the Driver API; this method is
    *       available for advanced use cases.
    */
   [[nodiscard]] CommResult<uint32_t> Read(uint16_t address, bool verify_crc = true) noexcept;
@@ -696,17 +720,37 @@ public:
    * - Performs second SPI transfer (sends dummy command, receives actual response)
    * - Verifies CRC if requested
    *
-   * @note The TLE92466ED requires two SPI transfers: the first sends the command
-   *       and the second receives the response. This is a convenience function that
-   *       uses Transfer32() internally. Frame construction and CRC calculation are
-   *       handled automatically.
+   * @note Writes use the same two-frame pipeline as reads: frame 1 sends the
+   *       write command; frame 2 clocks out the status reply. Both frames must
+   *       stay in one `TransferMulti()` CS window on shared buses.
    *
-   * @note This is a public helper function for use by the Driver class.
-   *       External code should typically use the Driver API, but this method is
-   *       available for advanced use cases.
+   * @note Frame construction and CRC calculation are handled automatically.
    */
   [[nodiscard]] CommResult<void> Write(uint16_t address, uint16_t value,
                                        bool verify_crc = true) noexcept;
+
+  /**
+   * @brief Fault byte from the most recent critical-fault reply frame.
+   *
+   * @details
+   * A reply with `reply_mode == 10B` is the device reporting that its own
+   * supplies/clocks are unusable; the payload byte says which (see
+   * @ref CriticalFaultFlags). `Read()` / `Write()` surface that as
+   * `CommError::BusError`, which on its own is indistinguishable from a bus
+   * glitch — this accessor preserves *why* the device refused to answer.
+   *
+   * @return Last fault byte, or 0 if no critical-fault frame has been seen.
+   * @note Zero is also a meaningful fault byte (all supply-OK bits clear);
+   *       pair with @ref SawCriticalFault.
+   */
+  [[nodiscard]] uint8_t LastCriticalFaultFlags() const noexcept {
+    return last_critical_fault_flags_;
+  }
+
+  /** @brief True once a critical-fault reply frame has been decoded. */
+  [[nodiscard]] bool SawCriticalFault() const noexcept {
+    return saw_critical_fault_;
+  }
 
   /**
    * @brief Prevent copying
@@ -728,6 +772,15 @@ protected:
    */
   SpiInterface(SpiInterface&&) noexcept = default;
   SpiInterface& operator=(SpiInterface&&) noexcept = default;
+
+  /** @brief Latch a critical-fault reply so callers can report the cause. */
+  void NoteCriticalFault(const SPIFrame& frame) noexcept {
+    last_critical_fault_flags_ = static_cast<uint8_t>(frame.rx_fault.fault_flags);
+    saw_critical_fault_ = true;
+  }
+
+  uint8_t last_critical_fault_flags_{0}; ///< @see LastCriticalFaultFlags
+  bool saw_critical_fault_{false};       ///< @see SawCriticalFault
 
   /**
    * @brief Protected destructor
@@ -781,18 +834,37 @@ inline CommResult<uint32_t> SpiInterface<Derived>::Read(uint16_t address, bool v
   // Calculate and set CRC
   tx_frame.tx_fields.crc = CalculateFrameCrc(tx_frame);
 
-  // Pipelined SPI: command frame then dummy (response returns on 2nd CS).
-  // TransferMulti keeps ownership across both frames on shared multi-slave buses.
+  /* Pipelined SPI: the reply to a command only appears on the NEXT CS window,
+   * so the device always has one reply outstanding. That makes a bare
+   * command+dummy pair depend on what the previous transaction left behind —
+   * one dropped or extra frame anywhere shifts every later read by one slot,
+   * and the caller silently gets the *previous* register's value (bench
+   * 2026-08-12: PIN_STAT returning CH_CTRL's 0x8000, FB_VOLTAGE2 returning 0).
+   *
+   * Sending a leading dummy makes the transaction self-synchronising: it
+   * absorbs whatever reply was outstanding, so the reply to `tx_frame` is
+   * always in the last slot regardless of prior bus state.
+   *
+   * The dummies address 0, NOT `address`. Re-sending the same read as the
+   * dummy queues a second reply and the part answers with a reserved
+   * reply-mode instead of the register (bench 2026-08-12: ICVID never
+   * validated, DriverError::SPIFrameError every attempt; MakeRead(0) restored
+   * identity on the same hardware). TransferMulti keeps one bus-ownership
+   * window across all three frames on shared multi-slave buses. */
   SPIFrame dummy_frame = SPIFrame::MakeRead(0);
   dummy_frame.tx_fields.crc = CalculateFrameCrc(dummy_frame);
 
-  const uint32_t tx_words[2] = {tx_frame.word, dummy_frame.word};
-  uint32_t rx_words[2] = {};
+  const uint32_t tx_words[3] = {dummy_frame.word, tx_frame.word,
+                                dummy_frame.word};
+  uint32_t rx_all[3] = {};
   auto multi = static_cast<Derived*>(this)->TransferMulti(
-      std::span<const uint32_t>{tx_words}, std::span<uint32_t>{rx_words});
+      std::span<const uint32_t>{tx_words}, std::span<uint32_t>{rx_all});
   if (!multi) {
     return tle::unexpected(multi.error());
   }
+  /* Slot 2 answers the command; slot 1 answers the flush dummy and is only
+   * kept as a fallback for the ICVID scan below. */
+  const uint32_t rx_words[2] = {rx_all[1], rx_all[2]};
 
   /* ICVID-only: recover a valid device ID from a misaligned 32-bit MISO word
    * on long soft-CS / Mode1 buses (data may sit in bits[23:8], or appear one
@@ -835,13 +907,12 @@ inline CommResult<uint32_t> SpiInterface<Derived>::Read(uint16_t address, bool v
     }
   }
 
-  // Parse response: prefer 2nd CS (pipeline), fall back to 1st if 2nd empty.
+  // Parse response from the dummy CS (pipeline slot). Do not fall back to
+  // frame 0: that word is the previous command's leftover (often CH_CTRL
+  // after a MakeRead(0) dummy, or FB_IMIN_IMAX after a diagnostics read).
+  // ICVID recovery above already scanned both frames.
   SPIFrame rx_frame{};
   rx_frame.word = rx_words[1];
-  if ((rx_frame.word == 0U || rx_frame.word == 0xFFFFFFFFU) &&
-      rx_words[0] != 0U && rx_words[0] != 0xFFFFFFFFU) {
-    rx_frame.word = rx_words[0];
-  }
 
   /* Floating / undriven MISO (pull-up or stuck-low): surface as empty data so
    * VerifyDevice can return DeviceNotResponding instead of HardwareError. */
@@ -867,7 +938,9 @@ inline CommResult<uint32_t> SpiInterface<Derived>::Read(uint16_t address, bool v
   }
   if (rx_frame.rx_common.reply_mode == 0x02) {
     /* Critical fault frame (UV / clock / supplies). Still not a valid ICVID
-     * payload — treat as bus fault for the caller. */
+     * payload — treat as bus fault for the caller, but keep the fault byte so
+     * the cause is recoverable (see LastCriticalFaultFlags). */
+    NoteCriticalFault(rx_frame);
     return tle::unexpected(CommError::BusError);
   }
   // Reserved/unknown reply mode
@@ -883,20 +956,25 @@ inline CommResult<void> SpiInterface<Derived>::Write(uint16_t address, uint16_t 
   // Calculate and set CRC
   tx_frame.tx_fields.crc = CalculateFrameCrc(tx_frame);
 
+  /* Leading flush dummy then a trailing dummy to clock the write response —
+   * same self-synchronising pattern as Read(), so the status bits checked
+   * below belong to this write and not to whatever ran before it. (See Read()
+   * for why the dummies must not repeat the accessed address.) */
   SPIFrame dummy_frame = SPIFrame::MakeRead(0);
   dummy_frame.tx_fields.crc = CalculateFrameCrc(dummy_frame);
 
-  const uint32_t tx_words[2] = {tx_frame.word, dummy_frame.word};
-  uint32_t rx_words[2] = {};
+  const uint32_t tx_words[3] = {dummy_frame.word, tx_frame.word,
+                                dummy_frame.word};
+  uint32_t rx_words[3] = {};
   auto multi = static_cast<Derived*>(this)->TransferMulti(
       std::span<const uint32_t>{tx_words}, std::span<uint32_t>{rx_words});
   if (!multi) {
     return tle::unexpected(multi.error());
   }
 
-  // Parse response frame from second transfer
+  // Response to the write frame lands in the last slot.
   SPIFrame rx_frame{};
-  rx_frame.word = rx_words[1];
+  rx_frame.word = rx_words[2];
 
   // Verify CRC if requested
   if (verify_crc && !VerifyFrameCrc(rx_frame)) {
@@ -911,7 +989,8 @@ inline CommResult<void> SpiInterface<Derived>::Write(uint16_t address, uint16_t 
       return tle::unexpected(CommError::TransferError);
     }
   } else if (rx_frame.rx_common.reply_mode == 0x02) {
-    // Critical fault frame
+    // Critical fault frame — keep the cause byte for the caller.
+    NoteCriticalFault(rx_frame);
     return tle::unexpected(CommError::BusError);
   }
 

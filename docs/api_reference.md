@@ -102,8 +102,8 @@ explicit Driver(CommType& comm) noexcept;
 |--------|-----------|----------|
 | `GetDeviceStatus()` | `DriverResult<DeviceStatus> GetDeviceStatus() noexcept` | [`inc/tle92466ed.hpp#L627`](../inc/tle92466ed.hpp#L627) |
 | `GetChannelDiagnostics()` | `DriverResult<ChannelDiagnostics> GetChannelDiagnostics(Channel channel) noexcept` | [`inc/tle92466ed.hpp#L635`](../inc/tle92466ed.hpp#L635) |
-| `GetAverageCurrent()` | `DriverResult<uint16_t> GetAverageCurrent(Channel channel, bool parallel_mode = false) noexcept` | [`inc/tle92466ed.hpp#L644`](../inc/tle92466ed.hpp#L644) |
-| `GetDutyCycle()` | `DriverResult<uint16_t> GetDutyCycle(Channel channel) noexcept` | [`inc/tle92466ed.hpp#L653`](../inc/tle92466ed.hpp#L653) |
+| `GetAverageCurrent()` | `DriverResult<uint16_t> GetAverageCurrent(Channel channel, bool parallel_mode = false) noexcept` | Decodes `FB_I_AVG`/`FB_DC` mantissa ratio; returns `DriverError::FeedbackNotReady` when `FB_FEEDBACK::HasValidMeasurementWindow()` is false |
+| `GetDutyCycle()` | `DriverResult<uint16_t> GetDutyCycle(Channel channel) noexcept` | [`inc/tle92466ed.hpp`](../inc/tle92466ed.hpp) |
 
 ### Voltage Monitoring
 
@@ -153,9 +153,9 @@ explicit Driver(CommType& comm) noexcept;
 
 | Method | Signature | Location |
 |--------|-----------|----------|
-| `ReadRegister()` | `DriverResult<uint32_t> ReadRegister(uint16_t address, uint8_t retries = 0) noexcept` | [`inc/tle92466ed.hpp#L911`](../inc/tle92466ed.hpp#L911) |
-| `WriteRegister()` | `DriverResult<void> WriteRegister(uint16_t address, uint16_t value, uint8_t retries = 0) noexcept` | [`inc/tle92466ed.hpp#L928`](../inc/tle92466ed.hpp#L928) |
-| `ModifyRegister()` | `DriverResult<void> ModifyRegister(uint16_t address, uint16_t mask, uint16_t value, uint8_t retries = 0) noexcept` | [`inc/tle92466ed.hpp#L940`](../inc/tle92466ed.hpp#L940) |
+| `ReadRegister()` | `DriverResult<uint32_t> ReadRegister(uint16_t address, bool verify_crc = false) noexcept` | [`inc/tle92466ed.hpp`](../inc/tle92466ed.hpp) |
+| `WriteRegister()` | `DriverResult<void> WriteRegister(uint16_t address, uint16_t value, bool verify_crc = false, bool verify_write = true) noexcept` | [`inc/tle92466ed.hpp`](../inc/tle92466ed.hpp) |
+| `ModifyRegister()` | `DriverResult<void> ModifyRegister(uint16_t address, uint16_t mask, uint16_t value) noexcept` | [`inc/tle92466ed.hpp`](../inc/tle92466ed.hpp) |
 
 ### System Control
 
@@ -178,8 +178,8 @@ These methods expose the full clock-configuration PLL, supply-voltage readback, 
 | `ReadAllSupplyVoltages()` | `DriverResult<SupplyVoltages> ReadAllSupplyVoltages() noexcept` | Read VBAT, VIO, VDD in mV and junction temperature in °C |
 | `GetCentralTemperatureCelsius()` | `DriverResult<float> GetCentralTemperatureCelsius() noexcept` | Read central die temperature in °C from ADC register |
 | `SetVioLevel()` | `DriverResult<void> SetVioLevel(VioLevel level) noexcept` | Switch GLOBAL_CONFIG VIO field between 3.3 V and 5.0 V |
-| `GetOperationState()` | `OperationState GetOperationState() const noexcept` | Inspect current driver state: Reset, Config, Mission, or CriticalFault |
-| `EnterMissionModeChecked()` | `DriverResult<void> EnterMissionModeChecked(uint32_t settle_ms = 10) noexcept` | Enter mission mode, wait `settle_ms`, verify no fault, return error if fault detected |
+| `GetOperationState()` | `DriverResult<OperationState> GetOperationState() noexcept` | Inspect current driver state: Reset, Config, Mission, or CriticalFault |
+| `EnterMissionModeChecked()` | `DriverResult<void> EnterMissionModeChecked(uint32_t timeout_ms = 10) noexcept` | Enter mission mode, poll `FB_STAT.INIT_DONE`, verify no fault |
 | `RunSupplyMonitorSelfTest()` | `DriverResult<SupplyMonitorSelfTestResult> RunSupplyMonitorSelfTest() noexcept` | Execute four-phase supply-monitor self-test (UV/OV swap, V1V5 UV/OV, OT_TEST); restores config on completion |
 
 ### ICC Integrator Tuning
@@ -214,9 +214,9 @@ Fine-grained control over the ICC integrator: limits, Ki gain, manual on-time mo
 
 | Method | Signature | Description |
 |--------|-----------|-------------|
-| `ReadChannelFeedback()` | `DriverResult<ChannelFeedback> ReadChannelFeedback(Channel ch, uint32_t timeout_ms = 5) noexcept` | Freeze feedback with FB_FRZ, poll FB_UPD every 200 µs until coherent snapshot, read DC/VBAT/I_AVG/IMIN_IMAX/PERIOD_MIN_MAX/INT_THRESH, release freeze |
-| `ReadAllChannelFeedback()` | `DriverResult<std::array<ChannelFeedback, 6>> ReadAllChannelFeedback(uint32_t timeout_ms = 5) noexcept` | Call `ReadChannelFeedback()` for all 6 channels, return array |
-| `GetCalibrationAvgCurrent_mA()` | `DriverResult<int32_t> GetCalibrationAvgCurrent_mA(Channel ch) noexcept` | Return only the average current field from `ReadChannelFeedback()` without allocating the full struct on the call stack |
+| `ReadChannelFeedback()` | `DriverResult<ChannelFeedback> ReadChannelFeedback(Channel ch, uint32_t timeout_ms = 10) noexcept` | Freeze feedback with FB_FRZ, poll FB_UPD, read coherent snapshot; avg current uses FB_I_AVG ratio (no FeedbackNotReady gate) |
+| `ReadAllChannelFeedback()` | `DriverResult<std::array<ChannelFeedback, 6>> ReadAllChannelFeedback(uint32_t timeout_ms = 20) noexcept` | Call `ReadChannelFeedback()` for all 6 channels |
+| `GetCalibrationAvgCurrent_mA()` | `DriverResult<int32_t> GetCalibrationAvgCurrent_mA(Channel ch) noexcept` | Reads `FB_I_AVG_s16` (17-bit signed path) — distinct from `GetAverageCurrent()` which uses compressed `FB_I_AVG` |
 
 ## Types
 
@@ -224,7 +224,7 @@ Fine-grained control over the ICC integrator: limits, Ki gain, manual on-time mo
 
 | Type | Values | Location |
 |------|--------|----------|
-| `DriverError` | `None`, `NotInitialized`, `HardwareError`, `InvalidChannel`, `InvalidParameter`, `DeviceNotResponding`, `WrongDeviceID`, `RegisterError`, `CRCError`, `FaultDetected`, `ConfigurationError`, `TimeoutError`, `WrongMode`, `SPIFrameError`, `WriteToReadOnly` | [`inc/tle92466ed.hpp#L79`](../inc/tle92466ed.hpp#L79) |
+| `DriverError` | `None`, `NotInitialized`, `HardwareError`, `InvalidChannel`, `InvalidParameter`, `DeviceNotResponding`, `WrongDeviceID`, `RegisterError`, `CRCError`, `FaultDetected`, `ConfigurationError`, `TimeoutError`, `WrongMode`, `SPIFrameError`, `WriteToReadOnly`, **`FeedbackNotReady`** | [`inc/tle92466ed.hpp`](../inc/tle92466ed.hpp) |
 | `Channel` | `CH0`, `CH1`, `CH2`, `CH3`, `CH4`, `CH5`, `COUNT` | [`inc/tle92466ed_registers.hpp#L1053`](../inc/tle92466ed_registers.hpp#L1053) |
 | `ChannelMode` | `OFF`, `ICC`, `DIRECT_DRIVE_SPI`, `DIRECT_DRIVE_DRV0`, `DIRECT_DRIVE_DRV1`, `FREE_RUN_MEAS` | [`inc/tle92466ed_registers.hpp#L1067`](../inc/tle92466ed_registers.hpp#L1067) |
 | `ParallelPair` | `NONE`, `CH0_CH3`, `CH1_CH2`, `CH4_CH5` | [`inc/tle92466ed_registers.hpp#L1099`](../inc/tle92466ed_registers.hpp#L1099) |
@@ -256,7 +256,15 @@ Fine-grained control over the ICC integrator: limits, Ki gain, manual on-time mo
 
 | Type | Definition | Location |
 |------|------------|----------|
-| `DriverResult<T>` | `std::expected<T, DriverError>` | [`inc/tle92466ed.hpp#L100`](../inc/tle92466ed.hpp#L100) |
+| `DriverResult<T>` | `tle::expected<T, DriverError>` | [`inc/tle92466ed.hpp`](../inc/tle92466ed.hpp) |
+
+### SPI Interface
+
+Register reads and writes use a **pipelined two-frame protocol** implemented in
+`SpiInterface::Read()` / `Write()` via `TransferMulti()`. Platform adapters must
+keep CS asserted across both frames on shared buses. See
+[`inc/tle92466ed_spi_interface.hpp`](../inc/tle92466ed_spi_interface.hpp) and
+[Platform Integration](platform_integration.md).
 
 ---
 

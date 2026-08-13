@@ -2,6 +2,12 @@
  * @file tle92466ed.ipp
  * @brief Template implementation of TLE92466ED driver class
  * @copyright Copyright (c) 2024-2025 HardFOC. All rights reserved.
+ *
+ * @details
+ * Included from `tle92466ed.hpp` after the `Driver` template declaration.
+ * Register access (`ReadRegister` / `WriteRegister`) delegates to
+ * `CommType::Read()` / `Write()`, which each perform the chip's two-frame
+ * pipelined SPI transaction via `TransferMulti()`.
  */
 #ifndef TLE92466ED_IMPL
 #define TLE92466ED_IMPL
@@ -19,6 +25,83 @@ namespace tle92466ed {
 
 // Note: When included from header, this file is processed inside namespace tle92466ed
 //       When compiled directly (shouldn't happen), we open the namespace here
+
+/**
+ * @brief Why @p address is not expected to read back the value just written.
+ *
+ * @param address Register address being verified.
+ * @return Human-readable reason, or @c nullptr when the register *is* expected
+ *         to be read-transparent (a mismatch there is a real defect).
+ *
+ * @details Used by @ref Driver::WriteRegister to decide whether a read-back
+ *          mismatch is a device property to log, or a fault to report. Keeping
+ *          the list in one place stops the retry loop from re-writing registers
+ *          that can never match.
+ */
+[[nodiscard]] inline const char* NonTransparentWriteReason(uint16_t address) noexcept {
+  if (address == CentralReg::CH_CTRL) {
+    /* Readable per datasheet, but returns 0x0000 in some states; the driver
+     * keeps ch_ctrl_cache_ as the authority for this reason. */
+    return "CH_CTRL may return 0x0000 on read (known device behavior, write succeeds)";
+  }
+  if (address == CentralReg::GLOBAL_CONFIG) {
+    return "GLOBAL_CONFIG is write-only, reads return default/previous value";
+  }
+  if (address == CentralReg::VBAT_TH) {
+    /* Bench A/B (Portenta Mid, 2026-08-12): writing 0xF72B (7 V / 40 V) read
+     * back 0x8E00, and writing 0xD81F (5 V / 35 V) read back 0x8000. Both were
+     * clean 16-bit replies (mode 00, status 0, CRC 0xA2) and neither written
+     * word appears anywhere in the 32-bit frame — a register property, not a
+     * bus fault. Thresholds are validated functionally instead: GLOBAL_DIAG0
+     * VBAT_UV/VBAT_OV assert against the programmed limits and FB_VOLTAGE2
+     * reports the measured rail (see TleFaultDiag). Failing Init here aborts
+     * every valve channel over an unreadable protection threshold. */
+    return "VBAT_TH is not read-transparent; verified via GLOBAL_DIAG0 UV/OV + FB_VOLTAGE2";
+  }
+  if (address == CentralReg::WD_RELOAD) {
+    return "WD_RELOAD counter decrements continuously (read value <= written value is expected)";
+  }
+  if (address == CentralReg::GLOBAL_DIAG0 || address == CentralReg::GLOBAL_DIAG1 ||
+      address == CentralReg::GLOBAL_DIAG2) {
+    return "GLOBAL_DIAGx are write-1-to-clear, reads return current fault state";
+  }
+  if (address == CentralReg::DIAG_ERR_CHGR0 || address == CentralReg::DIAG_ERR_CHGR1 ||
+      address == CentralReg::DIAG_ERR_CHGR2) {
+    /* Datasheet §5.3.2.12: write-1-to-clear per channel pair, so a read of
+     * 0x0000 (no faults) or unrelated latched bits is expected. */
+    return "DIAG_ERR_CHGRx are write-1-to-clear, reads return current fault state";
+  }
+  if (address == CentralReg::DIAG_WARN_CHGR0 || address == CentralReg::DIAG_WARN_CHGR1 ||
+      address == CentralReg::DIAG_WARN_CHGR2) {
+    /* Datasheet §5.3.2.13. POR default is 0x1010 (OLSG_WARN_CHK_NOK on both
+     * channels) and stays that way until the first OLSG check window runs. */
+    return "DIAG_WARN_CHGRx are write-1-to-clear, POR=0x1010 until first OLSG check";
+  }
+  /* Per-channel banks live at 0x20..0x7F in 0x10 steps (see ChannelBase; the
+   * order is CH4, CH5, CH0..CH3). Offsets above 0x0F are the 0x02xx feedback
+   * page, which is read-only and never written. */
+  const uint16_t bank = static_cast<uint16_t>(address & 0xFFF0u);
+  if (bank >= ChannelBase::CH4 && bank <= ChannelBase::CH3) {
+    switch (static_cast<uint16_t>(address & 0x000Fu)) {
+    case ChannelReg::MODE:
+    case ChannelReg::CH_CONFIG:
+      /* Bench A/B (Portenta Mid, 2026-08-12): writing MODE=0x0001 (ICC) and
+       * CH_CONFIG=0x0031 to CH5 both read back 0x0000, while PERIOD in the
+       * same bank round-tripped 0x05DB exactly on the same frames. Verifying
+       * these made ConfigureChannel fail on every channel, so the loop never
+       * reached ConfigurePwmPeriod and every channel kept PERIOD=0 — ICC with
+       * no PWM period, hence no measurement window and no output at all. */
+      return "per-channel MODE/CH_CONFIG are write-only, reads return 0x0000";
+    case ChannelReg::SETPOINT:
+      /* Reads return the controller's current target field, not the written
+       * word (0x0123 read back 0x0200), so an equality check is meaningless. */
+      return "per-channel SETPOINT reads the live target field, not the written word";
+    default:
+      break;
+    }
+  }
+  return nullptr;
+}
 
 //==============================================================================
 // INITIALIZATION
@@ -644,10 +727,44 @@ DriverResult<void> Driver<CommType>::SetCurrentSetpoint(Channel channel, uint16_
             "Setting current setpoint: Channel=%s, Current=%u mA, Target=0x%04X, Parallel=%s",
             ToString(channel), current_ma, target, parallel_mode ? "true" : "false");
 
-  /* Skip verify_write — channel SETPOINT readback is unreliable on shared
-   * Mode1 soft-CS SPI (phantoms / sticky-zero). Hard verify rejected healthy
-   * duty updates while ICVID/rails stayed OK; upper layers retry as needed. */
-  return WriteRegister(ch_addr, target, false, false);
+  /* Verify TARGET bits, not mA. Sticky-zero readback on Mid is still possible,
+   * so a zero read is retried rather than treated as RegisterError. A non-zero
+   * mismatch (HIL: 0x01FC / 31 mA vs 0x075C / 115 mA) is a real encode/clamp
+   * defect and must not be accepted. */
+  constexpr int kRetries = 3;
+  uint16_t last_got = 0;
+  for (int att = 0; att < kRetries; ++att) {
+    if (auto wr = WriteRegister(ch_addr, target, false, false); !wr) {
+      if (att + 1 == kRetries) {
+        return wr;
+      }
+      continue;
+    }
+    auto rd = ReadRegister(ch_addr, false);
+    if (!rd) {
+      if (att + 1 == kRetries) {
+        return tle::unexpected(rd.error());
+      }
+      continue;
+    }
+    last_got = static_cast<uint16_t>(*rd) & SETPOINT::TARGET_MASK;
+    const uint16_t want = target & SETPOINT::TARGET_MASK;
+    if (last_got == want) {
+      return {};
+    }
+    if (last_got == 0U && want != 0U) {
+      continue; /* sticky-zero — re-issue the write */
+    }
+  }
+  if (last_got == 0U) {
+    return {}; /* writes issued; upper layer retries on next tick */
+  }
+  comm_.Log(LogLevel::Warn, "TLE92466ED",
+            "SETPOINT TARGET mismatch: wrote 0x%04X read 0x%04X (%u mA vs %u mA)",
+            target & SETPOINT::TARGET_MASK, last_got,
+            SETPOINT::CalculateCurrent(target, parallel_mode),
+            SETPOINT::CalculateCurrent(last_got, parallel_mode));
+  return tle::unexpected(DriverError::RegisterError);
 }
 
 template <typename CommType>
@@ -1092,7 +1209,9 @@ DriverResult<DeviceStatus> Driver<CommType>::GetDeviceStatus() noexcept {
   // Read FB_STAT for additional status
   auto fb_stat_result = ReadRegister(CentralReg::FB_STAT);
   if (fb_stat_result) {
-    uint16_t fb_stat = *fb_stat_result;
+    /* 22-bit reply: narrowing to uint16_t drops INIT_DONE (21) and
+     * SPI_WD_ERR (20), which made init_done read 0 on a healthy device. */
+    const uint32_t fb_stat = *fb_stat_result;
     status.supply_nok_internal = (fb_stat & FB_STAT::SUP_NOK_INT) != 0;
     status.supply_nok_external = (fb_stat & FB_STAT::SUP_NOK_EXT) != 0;
     status.init_done = (fb_stat & FB_STAT::INIT_DONE) != 0;
@@ -1214,14 +1333,67 @@ DriverResult<uint16_t> Driver<CommType>::GetAverageCurrent(Channel channel, bool
   // Per datasheet §4.10.2:  Iavg = 4 A × <I_AVG_MANT> / <TP_MANT>
   // I_AVG_MANT lives in FB_I_AVG (22-bit reply, signed two's-complement)
   // TP_MANT lives in FB_DC (22-bit reply, unsigned)
-  // Both registers must be read for the same channel to compute Iavg.
+  // Both mantissas must describe the SAME measurement window, so the channel
+  // is frozen for the pair of reads. Reading them unfrozen let the averager
+  // advance between the two frames and paired a TP_MANT from one window with
+  // an I_AVG_MANT from the next; the ratio was then silently wrong. Freezing
+  // also gives FB_UPD, which is the only positive signal that a window has
+  // actually completed rather than the registers simply reading 0.
   const uint16_t i_avg_addr = GetChannelRegister(channel, ChannelReg::FB_I_AVG);
   const uint16_t fb_dc_addr = GetChannelRegister(channel, ChannelReg::FB_DC);
+  const uint16_t fb_bit = static_cast<uint16_t>(1u << ToIndex(channel));
 
-  auto i_avg_res = ReadRegister(i_avg_addr);
-  if (!i_avg_res) return tle::unexpected(i_avg_res.error());
-  auto fb_dc_res = ReadRegister(fb_dc_addr);
-  if (!fb_dc_res) return tle::unexpected(fb_dc_res.error());
+  if (auto w = WriteRegister(CentralReg::FB_FRZ, fb_bit, false, false); !w) {
+    return tle::unexpected(w.error());
+  }
+
+  /* Every exit below must clear FB_FRZ: a freeze left behind stops the chip
+   * updating that channel's feedback for good, which reads back exactly like
+   * a dead measurement window. */
+  auto release = [this]() noexcept {
+    (void)WriteRegister(CentralReg::FB_FRZ, 0, false, false);
+  };
+
+  // Bounded poll: this runs on the ~19 Hz diagnostics thread under the handler
+  // mutex, so the budget stays short enough not to stall peer SPI users.
+  constexpr uint32_t kPollStepUs = 200U;
+  constexpr uint32_t kPollSteps = 25U;  // ~5 ms
+  bool updated = false;
+  for (uint32_t i = 0; i < kPollSteps; ++i) {
+    auto upd = ReadRegister(CentralReg::FB_UPD, false);
+    if (!upd) {
+      release();
+      return tle::unexpected(upd.error());
+    }
+    if ((upd.value() & fb_bit) != 0U) {
+      updated = true;
+      break;
+    }
+    (void)comm_.Delay(kPollStepUs);
+  }
+  if (!updated) {
+    release();
+    return tle::unexpected(DriverError::FeedbackNotReady);
+  }
+
+  auto i_avg_res = ReadRegister(i_avg_addr, false);
+  if (!i_avg_res) {
+    release();
+    return tle::unexpected(i_avg_res.error());
+  }
+  auto fb_dc_res = ReadRegister(fb_dc_addr, false);
+  if (!fb_dc_res) {
+    release();
+    return tle::unexpected(fb_dc_res.error());
+  }
+  release();
+
+  // TP_MANT is the divisor; a near-zero value means the averaging window was
+  // never established (or the reply was spliced) and the ratio would be
+  // nonsense. Report that instead of publishing an invented current.
+  if (!FB_FEEDBACK::HasValidMeasurementWindow(*fb_dc_res)) {
+    return tle::unexpected(DriverError::FeedbackNotReady);
+  }
 
   // Decode mantissas and compute current in mA. Returns int32_t (signed)
   // so we can detect negative readings (recirculation current); clamp to
@@ -1998,6 +2170,23 @@ DriverResult<bool> Driver<CommType>::VerifyDevice() noexcept {
   }
 
   if (!got_word) {
+    if (last_err == DriverError::FaultDetected && comm_.SawCriticalFault()) {
+      /* The part answered, but only to say its own core supplies are dead —
+       * that is a rail problem on the board, not SPI wiring or CPOL/CPHA.
+       * Bits 7/6/5 are OK-flags (1 = OK), so 0x00 means 1V5, 2V5 and the ADC
+       * bandgap are all down: check the +5 V VDD feed before touching SPI. */
+      const uint8_t f = comm_.LastCriticalFaultFlags();
+      comm_.Log(LogLevel::Error, "TLE92466ED",
+                "Device verification failed: CRITICAL FAULT reply 0x%02X — "
+                "1V5=%s 2V5=%s bandgap=%s clk_slow=%u clk_fast=%u "
+                "wd_ref_clk=%s (check +5V VDD / VIO, not SPI mode)",
+                static_cast<unsigned>(f), (f & 0x80U) ? "OK" : "BAD",
+                (f & 0x40U) ? "OK" : "BAD", (f & 0x20U) ? "OK" : "BAD",
+                static_cast<unsigned>((f >> 4) & 1U),
+                static_cast<unsigned>((f >> 3) & 1U),
+                (f & 0x01U) ? "MISSING" : "OK");
+      return tle::unexpected(last_err);
+    }
     comm_.Log(LogLevel::Error, "TLE92466ED",
               "Device verification failed: Failed to read ICVID register (error: %u)",
               static_cast<unsigned>(last_err));
@@ -2050,18 +2239,22 @@ DriverResult<uint32_t> Driver<CommType>::ReadRegister(uint16_t address, bool ver
   // verify_crc=true allows override to force CRC verification
   bool should_verify_crc = verify_crc ? true : crc_enabled_;
 
-  // Use CommInterface Read function (handles frame construction, CRC, and transfer)
+  // Use CommInterface Read (two-frame pipelined transfer via TransferMulti)
   auto result = comm_.Read(address, should_verify_crc);
   if (!result) {
-    // Map CommInterface error to driver error
+    // Map CommInterface error to driver error. BusError/TransferError used to
+    // collapse into HardwareError, which made "the device reported a critical
+    // fault" (its own 1V5/2V5/bandgap are down) look identical to a bus glitch
+    // — the caller could not tell a supply problem from a wiring problem.
     switch (result.error()) {
     case CommError::Timeout:
       return tle::unexpected(DriverError::TimeoutError);
     case CommError::CRCError:
       return tle::unexpected(DriverError::CRCError);
     case CommError::BusError:
+      return tle::unexpected(DriverError::FaultDetected);
     case CommError::TransferError:
-      return tle::unexpected(DriverError::HardwareError);
+      return tle::unexpected(DriverError::SPIFrameError);
     default:
       return tle::unexpected(DriverError::HardwareError);
     }
@@ -2085,15 +2278,17 @@ DriverResult<void> Driver<CommType>::WriteRegister(uint16_t address, uint16_t va
   // Use CommInterface Write function (handles frame construction, CRC, and transfer)
   auto result = comm_.Write(address, value, should_verify_crc);
   if (!result) {
-    // Map CommInterface error to driver error
+    // Map CommInterface error to driver error (see ReadRegister for why
+    // BusError and TransferError are kept distinct from HardwareError).
     switch (result.error()) {
     case CommError::Timeout:
       return tle::unexpected(DriverError::TimeoutError);
     case CommError::CRCError:
       return tle::unexpected(DriverError::CRCError);
     case CommError::BusError:
+      return tle::unexpected(DriverError::FaultDetected);
     case CommError::TransferError:
-      return tle::unexpected(DriverError::HardwareError);
+      return tle::unexpected(DriverError::SPIFrameError);
     default:
       return tle::unexpected(DriverError::HardwareError);
     }
@@ -2101,63 +2296,33 @@ DriverResult<void> Driver<CommType>::WriteRegister(uint16_t address, uint16_t va
 
   // Read back register to verify write succeeded
   if (verify_write) {
-    // Small delay to ensure write has propagated (some registers may need time)
-    comm_.Delay(1); // 1ms delay
+    /* Let the write commit before reading it back. Delay() is microseconds, so
+     * the old Delay(1) was 1 us despite its "1ms delay" comment — the readback
+     * could be clocked before the register settled, which reads as a spurious
+     * RegisterError on an otherwise good write. */
+    (void)comm_.Delay(1000); // 1 ms
 
+    const char* reason = NonTransparentWriteReason(address);
+    const bool known_issue = (reason != nullptr);
+
+    /* Re-read (and re-issue the write) before condemning a register that is
+     * supposed to read back what was written. A single mangled reply on this
+     * bus used to fail Init outright, and the part then never reached Mission
+     * even though the write itself had landed. Registers that are known not to
+     * read back transparently skip the retry — re-writing them is pointless and
+     * only lengthens Init by the settle delay. */
+    constexpr unsigned kVerifyAttempts = 3U;
     auto read_result = ReadRegister(address, verify_crc);
+    for (unsigned att = 1U; !known_issue && att < kVerifyAttempts; ++att) {
+      if (read_result && static_cast<uint16_t>(*read_result) == value) {
+        break;
+      }
+      (void)comm_.Write(address, value, should_verify_crc);
+      (void)comm_.Delay(1000);
+      read_result = ReadRegister(address, verify_crc);
+    }
     if (read_result) {
       auto read_value = static_cast<uint16_t>(*read_result);
-
-      // Special handling for known problematic registers
-      // CH_CTRL (0x0000): Reads may return 0x0000 even after write due to device behavior
-      // GLOBAL_CONFIG (0x0002): Write-only, reads return default or previous value
-      // GLOBAL_DIAGx (0x0003-0x0005): Write-1-to-clear, reads return current fault state
-      bool known_issue = false;
-      const char* reason = nullptr;
-
-      if (address == CentralReg::CH_CTRL) {
-        // CH_CTRL is readable per datasheet, but may return 0x0000 in some cases
-        // This is a known device behavior - the write succeeds but read-back may not reflect it
-        // immediately We track CH_CTRL state in cache (ch_ctrl_cache_) for this reason
-        known_issue = true;
-        reason = "CH_CTRL may return 0x0000 on read (known device behavior, write succeeds)";
-      } else if (address == CentralReg::GLOBAL_CONFIG) {
-        known_issue = true;
-        reason = "GLOBAL_CONFIG is write-only, reads return default/previous value";
-      } else if (address == CentralReg::WD_RELOAD) {
-        // WD_RELOAD counter is constantly decremented by the watchdog timer
-        // Read value will be less than or equal to written value (may have decremented)
-        // This is expected behavior - the watchdog is actively counting down
-        known_issue = true;
-        reason =
-            "WD_RELOAD counter decrements continuously (read value <= written value is expected)";
-      } else if (address == CentralReg::GLOBAL_DIAG0 || address == CentralReg::GLOBAL_DIAG1 ||
-                 address == CentralReg::GLOBAL_DIAG2) {
-        // These are write-1-to-clear registers, reads return current fault state
-        // Mismatch is expected when clearing faults (writing 0xFFFF to clear, but read shows
-        // current faults)
-        known_issue = true;
-        reason = "GLOBAL_DIAGx are write-1-to-clear, reads return current fault state";
-      } else if (address == CentralReg::DIAG_ERR_CHGR0 ||
-                 address == CentralReg::DIAG_ERR_CHGR1 ||
-                 address == CentralReg::DIAG_ERR_CHGR2) {
-        // Per-pair error diagnostics (datasheet §5.3.2.12): write-1-to-clear
-        // and read returns the current latched fault state for the channel
-        // pair. The driver clears these by writing 0xFFFF or per-bit OC masks
-        // — a read-back showing 0x0000 (no faults) or unrelated bits is
-        // expected behavior, not a bus failure.
-        known_issue = true;
-        reason = "DIAG_ERR_CHGRx are write-1-to-clear, reads return current fault state";
-      } else if (address == CentralReg::DIAG_WARN_CHGR0 ||
-                 address == CentralReg::DIAG_WARN_CHGR1 ||
-                 address == CentralReg::DIAG_WARN_CHGR2) {
-        // Per-pair warnings (datasheet §5.3.2.13). Same write-1-to-clear
-        // semantics. POR default is 0x1010 (OLSG_WARN_CHK_NOK set on both
-        // channels) — read-back of 0x1010 immediately after clearing is
-        // expected until at least one OLSG check window has run.
-        known_issue = true;
-        reason = "DIAG_WARN_CHGRx are write-1-to-clear, POR=0x1010 until first OLSG check";
-      }
 
       if (read_value != value) {
         if (known_issue) {
@@ -2952,6 +3117,12 @@ Driver<CommType>::GetCalibrationAvgCurrent_mA(Channel channel) noexcept {
   if (!isValidChannelInternal(channel)) return tle::unexpected(DriverError::InvalidChannel);
   auto r = ReadRegister(GetChannelRegister(channel, ChannelReg::FB_I_AVG_s16), false);
   if (!r) return tle::unexpected(r.error());
+  // Mid-scale is the placeholder the frame carries before the measurement has
+  // settled. Decoding it yields a confident-looking 2000 mA, which is how a
+  // 115 mA valve reported 2 A on the bench.
+  if (FB_I_AVG_s16::IsSettlingFrame(r.value())) {
+    return tle::unexpected(DriverError::FeedbackNotReady);
+  }
   return FB_I_AVG_s16::ToMilliamps(r.value());
 }
 

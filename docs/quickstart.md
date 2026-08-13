@@ -24,20 +24,20 @@ Here's a complete working example:
 ```cpp
 #include "tle92466ed.hpp"
 
-// 1. Implement the SPI interface
+// 1. Implement the SPI interface (see platform_integration.md)
 class MySpi : public tle92466ed::SpiInterface<MySpi> {
 public:
-    auto spiTransfer(std::span<const uint8_t> txData, 
-                     std::span<uint8_t> rxData) noexcept 
-        -> std::expected<void, tle92466ed::CommError> override {
-        // Your SPI transfer implementation
-        // Assert CS, transfer 32-bit frames, deassert CS
+    tle92466ed::CommResult<uint32_t> Transfer32(uint32_t tx_data) noexcept {
+        // One 32-bit full-duplex frame; manage CS here
+        return rx_word;
+    }
+    tle92466ed::CommResult<void> TransferMulti(
+        std::span<const uint32_t> tx,
+        std::span<uint32_t> rx) noexcept {
+        // Keep CS asserted for all words (required for pipelined reads)
         return {};
     }
-    
-    void delayMicroseconds(uint32_t us) noexcept override {
-        // Your delay implementation
-    }
+    // ... Init, Delay, Configure, GpioSet, GpioRead, Log, etc.
 };
 
 // 2. Create instances
@@ -78,18 +78,17 @@ You need to implement the `SpiInterface` for your platform. See [Platform Integr
 ```cpp
 class MySpi : public tle92466ed::SpiInterface<MySpi> {
 public:
-    auto spiTransfer(std::span<const uint8_t> txData, 
-                     std::span<uint8_t> rxData) noexcept 
-        -> std::expected<void, tle92466ed::CommError> override {
-        // Implement 32-bit SPI frame transfer with CRC
+    tle92466ed::CommResult<uint32_t> Transfer32(uint32_t tx_data) noexcept {
+        return rx_word;
+    }
+    tle92466ed::CommResult<void> TransferMulti(
+        std::span<const uint32_t> tx,
+        std::span<uint32_t> rx) noexcept {
         return {};
     }
-    
-    void delayMicroseconds(uint32_t us) noexcept override {
-        // Implement microsecond delay
-    }
+    // ... remaining required methods
 };
-```cpp
+```
 
 ### Step 3: Create Driver Instance
 
@@ -189,7 +188,7 @@ Channel 0 current: 1500 mA
 
 If you encounter issues:
 
-- **Compilation errors**: Check that you've implemented the `spiTransfer()` method in your SPI interface
+- **Compilation errors**: Check that you've implemented all required `SpiInterface` methods (`Transfer32`, `TransferMulti`, `Init`, etc.)
 - **Initialization fails**: Verify SPI connections and hardware setup
 - **Channel not working**: Check channel configuration and enable state
 - **See**: [Troubleshooting](troubleshooting.md) for common issues

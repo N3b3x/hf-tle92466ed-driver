@@ -13,8 +13,9 @@ This guide explains how to implement the hardware abstraction interface for the 
 
 ## Understanding the SPI Interface
 
-The TLE92466ED driver uses a **polymorphic SPI interface** design for hardware abstraction.
-This design choice provides several critical benefits for embedded systems:
+The TLE92466ED driver uses a **CRTP SPI interface** (`SpiInterface<Derived>`) for
+hardware abstraction. Your platform adapter inherits from the template with itself
+as the type parameter — there is no virtual dispatch overhead.
 
 ### Why This Design?
 
@@ -22,11 +23,11 @@ This design choice provides several critical benefits for embedded systems:
 
 - Write driver code once, run on any platform
 - Easy migration between MCUs (ESP32, STM32, Arduino, etc.)
-- Platform-specific code isolated in one class
+- Platform-specific code isolated in one adapter class
 
 #### 2. **Type Safety**
 
-- Compile-time interface checking
+- Compile-time interface checking via CRTP and (optionally) `SpiInterfaceLike`
 - Clear contract for required methods
 - Catch implementation errors at compile time
 
@@ -36,57 +37,82 @@ This design choice provides several critical benefits for embedded systems:
 - All functions `noexcept` for embedded safety
 - Zero-overhead abstractions
 
+### Pipelined Register Reads (Critical)
+
+The TLE92466ED SPI protocol is **pipelined**: a read command's reply appears on MISO
+during the *next* chip-select window, not the command frame itself. Every register
+read therefore costs **two 32-bit frames**:
+
+1. **Command frame** — sends the read address (MISO is not yet the requested data)
+2. **Dummy frame** — clocks out the latched reply from frame 1
+
+The driver's `SpiInterface::Read()` and `Write()` helpers send both frames through
+`TransferMulti()` in **one CS assertion**. Your adapter must:
+
+- Keep CS asserted for the entire two-frame sequence
+- **Not** release bus ownership between frames on a shared multi-slave SPI bus
+
+If another slave's transaction lands between the command and dummy frames, the pipeline
+slot is consumed by the wrong device. Symptoms include all-zero reads, wrong register
+values, and grossly inflated feedback currents (a near-zero `TP_MANT` divisor once
+produced ~2000 mA on a ~115 mA channel).
+
+Implement `TransferMulti()` so consecutive words share one CS window. Use
+`Transfer32()` only for single-frame cases outside the driver's register helpers.
+
 ### How It Works
 
 ```cpp
-// Base interface class (from tle92466ed_spi_interface.hpp)
-class SpiInterface {
-public:
-    virtual auto spiTransfer(std::span<const uint8_t> txData, 
-                             std::span<uint8_t> rxData) noexcept 
-        -> std::expected<void, CommError> = 0;
-    
-    virtual void delayMicroseconds(uint32_t us) noexcept = 0;
-};
+#include "tle92466ed_spi_interface.hpp"
 
-// Your implementation
-class MySpi : public SpiInterface {
+class MySpi : public tle92466ed::SpiInterface<MySpi> {
 public:
-    auto spiTransfer(std::span<const uint8_t> txData, 
-                     std::span<uint8_t> rxData) noexcept 
-        -> std::expected<void, CommError> override {
-        // Your platform-specific SPI code
+    tle92466ed::CommResult<void> Init() noexcept { /* SPI + GPIO init */ return {}; }
+    tle92466ed::CommResult<void> Deinit() noexcept { return {}; }
+
+    tle92466ed::CommResult<uint32_t> Transfer32(uint32_t tx) noexcept {
+        // Single 32-bit full-duplex transfer with CS managed here
+        return rx_word;
+    }
+
+    tle92466ed::CommResult<void> TransferMulti(
+        std::span<const uint32_t> tx,
+        std::span<uint32_t> rx) noexcept {
+        // CS LOW → Transfer32 for each word → CS HIGH
+        // Required: both frames of a pipelined read stay in this window
         return {};
     }
-    
-    void delayMicroseconds(uint32_t us) noexcept override {
-        // Your delay implementation
+
+    tle92466ed::CommResult<void> Delay(uint32_t us) noexcept { return {}; }
+    tle92466ed::CommResult<void> Configure(const tle92466ed::SPIConfig& cfg) noexcept { return {}; }
+    bool IsReady() const noexcept { return true; }
+    tle92466ed::CommError GetLastError() const noexcept { return tle92466ed::CommError::None; }
+    tle92466ed::CommResult<void> ClearErrors() noexcept { return {}; }
+    tle92466ed::CommResult<void> GpioSet(tle92466ed::CtrlPin pin,
+                                         tle92466ed::GpioSignal sig) noexcept { return {}; }
+    tle92466ed::CommResult<tle92466ed::GpioSignal> GpioRead(tle92466ed::CtrlPin pin) noexcept {
+        return tle92466ed::GpioSignal::INACTIVE;
     }
+    void Log(tle92466ed::LogLevel level, const char* tag,
+             const char* fmt, va_list args) noexcept {}
 };
-```cpp
+```
 
 ## Interface Definition
 
-The TLE92466ED driver requires you to implement the following interface:
+Implement every method below on your `SpiInterface<Derived>` adapter:
 
-```cpp
-class SpiInterface {
-public:
-    // Required methods (implement all of these)
-    virtual auto spiTransfer(std::span<const uint8_t> txData, 
-                             std::span<uint8_t> rxData) noexcept 
-        -> std::expected<void, CommError> = 0;
-    
-    virtual void delayMicroseconds(uint32_t us) noexcept = 0;
-    
-    // Optional control pin methods
-    virtual auto GpioSet(CtrlPin pin, GpioSignal signal) noexcept 
-        -> std::expected<void, CommError>;
-    
-    virtual auto GpioRead(CtrlPin pin) noexcept 
-        -> std::expected<GpioSignal, CommError>;
-};
-```cpp
+| Method | Purpose |
+|--------|---------|
+| `Init()` / `Deinit()` | Initialize and release SPI + GPIO |
+| `Transfer32()` | One full-duplex 32-bit frame (CS managed by adapter) |
+| `TransferMulti()` | **Required:** consecutive frames in one CS window (pipelined reads) |
+| `Delay()` | Microsecond delay |
+| `Configure()` | Apply `SPIConfig` (Mode 1, up to 10 MHz) |
+| `IsReady()` | True when hardware is initialized |
+| `GetLastError()` / `ClearErrors()` | Error state |
+| `GpioSet()` / `GpioRead()` | RESN, EN, FAULTN control |
+| `Log()` | Optional printf-style logging hook |
 
 ## Implementation Steps
 
@@ -96,28 +122,24 @@ public:
 #include "tle92466ed_spi_interface.hpp"
 
 class MyPlatformSPI : public tle92466ed::SpiInterface<MyPlatformSPI> {
-private:
-    // Your platform-specific members
-    spi_device_handle_t spi_device_;  // Example for ESP32
-    
 public:
-    // Constructor
-    MyPlatformSPI(spi_device_handle_t device) : spi_device_(device) {}
-    
-    // Implement required methods
-    auto spiTransfer(std::span<const uint8_t> txData, 
-                     std::span<uint8_t> rxData) noexcept 
-        -> std::expected<void, tle92466ed::CommError> override {
-        // Your transfer code - must handle 32-bit frames
-        // TLE92466ED uses 32-bit SPI frames with CRC-8
+    tle92466ed::CommResult<uint32_t> Transfer32(uint32_t tx_data) noexcept {
+        // Assert CS, clock 32 bits full-duplex, deassert CS
+        return rx_word;
+    }
+
+    tle92466ed::CommResult<void> TransferMulti(
+        std::span<const uint32_t> tx_data,
+        std::span<uint32_t> rx_data) noexcept {
+        if (tx_data.size() != rx_data.size()) {
+            return tle::unexpected(tle92466ed::CommError::InvalidParameter);
+        }
+        // CS LOW — transfer each word without releasing CS — CS HIGH
         return {};
     }
-    
-    void delayMicroseconds(uint32_t us) noexcept override {
-        // Your delay implementation
-    }
+
+    // ... Init, Delay, Configure, GpioSet, GpioRead, Log, etc.
 };
-```cpp
 
 ### Step 2: Platform-Specific Examples
 
@@ -130,41 +152,44 @@ public:
 class Esp32SPIBus : public tle92466ed::SpiInterface<Esp32SPIBus> {
 private:
     spi_device_handle_t spi_device_;
-    gpio_num_t cs_pin_;
-    
+
 public:
-    Esp32SPIBus(spi_host_device_t host, const spi_device_interface_config_t& config, 
-                gpio_num_t cs) {
+    Esp32SPIBus(spi_host_device_t host, const spi_device_interface_config_t& config) {
         spi_bus_add_device(host, &config, &spi_device_);
-        cs_pin_ = cs;
     }
-    
-    auto spiTransfer(std::span<const uint8_t> txData, 
-                     std::span<uint8_t> rxData) noexcept 
-        -> std::expected<void, tle92466ed::CommError> override {
-        // TLE92466ED uses 32-bit frames
-        if (txData.size() < 4 || rxData.size() < 4) {
-            return tle::unexpected(tle92466ed::CommError::InvalidParameter);
-        }
-        
+
+    tle92466ed::CommResult<uint32_t> Transfer32(uint32_t tx_data) noexcept {
         spi_transaction_t trans = {};
-        trans.length = 32;  // 32 bits per frame
-        trans.tx_buffer = txData.data();
-        trans.rx_buffer = rxData.data();
-        
-        esp_err_t ret = spi_device_transmit(spi_device_, &trans);
-        if (ret != ESP_OK) {
+        trans.length = 32;
+        trans.tx_data = &tx_data;
+        uint32_t rx_data = 0;
+        trans.rx_data = &rx_data;
+        if (spi_device_transmit(spi_device_, &trans) != ESP_OK) {
             return tle::unexpected(tle92466ed::CommError::BusError);
         }
-        
+        return rx_data;
+    }
+
+    tle92466ed::CommResult<void> TransferMulti(
+        std::span<const uint32_t> tx_data,
+        std::span<uint32_t> rx_data) noexcept {
+        if (tx_data.size() != rx_data.size()) {
+            return tle::unexpected(tle92466ed::CommError::InvalidParameter);
+        }
+        for (size_t i = 0; i < tx_data.size(); ++i) {
+            auto r = Transfer32(tx_data[i]);
+            if (!r) return tle::unexpected(r.error());
+            rx_data[i] = *r;
+        }
         return {};
     }
-    
-    void delayMicroseconds(uint32_t us) noexcept override {
+
+    tle92466ed::CommResult<void> Delay(uint32_t us) noexcept {
         esp_rom_delay_us(us);
+        return {};
     }
+    // ... remaining SpiInterface methods
 };
-```cpp
 
 #### STM32 (HAL)
 
@@ -175,43 +200,40 @@ public:
 extern SPI_HandleTypeDef hspi1;
 
 class STM32SPIBus : public tle92466ed::SpiInterface<STM32SPIBus> {
-private:
-    GPIO_TypeDef* cs_port_;
-    uint16_t cs_pin_;
-    
 public:
-    STM32SPIBus(GPIO_TypeDef* cs_port, uint16_t cs_pin) 
-        : cs_port_(cs_port), cs_pin_(cs_pin) {}
-    
-    auto spiTransfer(std::span<const uint8_t> txData, 
-                     std::span<uint8_t> rxData) noexcept 
-        -> std::expected<void, tle92466ed::CommError> override {
-        // Assert CS
+    tle92466ed::CommResult<uint32_t> Transfer32(uint32_t tx_data) noexcept {
+        uint32_t rx_data = 0;
         HAL_GPIO_WritePin(cs_port_, cs_pin_, GPIO_PIN_RESET);
-        
-        // Transfer 32-bit frame (4 bytes)
-        HAL_StatusTypeDef status = HAL_SPI_TransmitReceive(&hspi1, 
-            const_cast<uint8_t*>(txData.data()), 
-            rxData.data(), 
-            4, 
-            100);
-        
-        // Deassert CS
+        HAL_StatusTypeDef status = HAL_SPI_TransmitReceive(
+            &hspi1, reinterpret_cast<uint8_t*>(&tx_data),
+            reinterpret_cast<uint8_t*>(&rx_data), 4, 100);
         HAL_GPIO_WritePin(cs_port_, cs_pin_, GPIO_PIN_SET);
-        
         if (status != HAL_OK) {
             return tle::unexpected(tle92466ed::CommError::BusError);
         }
-        
+        return rx_data;
+    }
+
+    tle92466ed::CommResult<void> TransferMulti(
+        std::span<const uint32_t> tx_data,
+        std::span<uint32_t> rx_data) noexcept {
+        HAL_GPIO_WritePin(cs_port_, cs_pin_, GPIO_PIN_RESET);
+        for (size_t i = 0; i < tx_data.size(); ++i) {
+            uint32_t rx_word = 0;
+            HAL_StatusTypeDef status = HAL_SPI_TransmitReceive(
+                &hspi1, reinterpret_cast<uint8_t*>(const_cast<uint32_t*>(&tx_data[i])),
+                reinterpret_cast<uint8_t*>(&rx_word), 4, 100);
+            if (status != HAL_OK) {
+                HAL_GPIO_WritePin(cs_port_, cs_pin_, GPIO_PIN_SET);
+                return tle::unexpected(tle92466ed::CommError::BusError);
+            }
+            rx_data[i] = rx_word;
+        }
+        HAL_GPIO_WritePin(cs_port_, cs_pin_, GPIO_PIN_SET);
         return {};
     }
-    
-    void delayMicroseconds(uint32_t us) noexcept override {
-        // STM32 HAL delay (approximate)
-        HAL_Delay((us + 999) / 1000);  // Convert to milliseconds
-    }
+    // ... remaining SpiInterface methods
 };
-```cpp
 
 #### Arduino
 
@@ -220,36 +242,50 @@ public:
 #include "tle92466ed_spi_interface.hpp"
 
 class ArduinoSPIBus : public tle92466ed::SpiInterface<ArduinoSPIBus> {
-private:
-    uint8_t cs_pin_;
-    
 public:
-    ArduinoSPIBus(uint8_t cs_pin) : cs_pin_(cs_pin) {
+    explicit ArduinoSPIBus(uint8_t cs_pin) : cs_pin_(cs_pin) {
         pinMode(cs_pin_, OUTPUT);
         digitalWrite(cs_pin_, HIGH);
         SPI.begin();
-        SPI.beginTransaction(SPISettings(1000000, MSBFIRST, SPI_MODE1));
     }
-    
-    auto spiTransfer(std::span<const uint8_t> txData, 
-                     std::span<uint8_t> rxData) noexcept 
-        -> std::expected<void, tle92466ed::CommError> override {
+
+    tle92466ed::CommResult<uint32_t> Transfer32(uint32_t tx_data) noexcept {
+        SPI.beginTransaction(SPISettings(1000000, MSBFIRST, SPI_MODE1));
         digitalWrite(cs_pin_, LOW);
-        
-        // Transfer 32-bit frame (4 bytes)
-        for (size_t i = 0; i < 4; i++) {
-            rxData[i] = SPI.transfer(txData[i]);
+        uint32_t rx_data = 0;
+        auto* tx_bytes = reinterpret_cast<uint8_t*>(&tx_data);
+        auto* rx_bytes = reinterpret_cast<uint8_t*>(&rx_data);
+        for (int i = 0; i < 4; ++i) {
+            rx_bytes[i] = SPI.transfer(tx_bytes[i]);
         }
-        
         digitalWrite(cs_pin_, HIGH);
+        SPI.endTransaction();
+        return rx_data;
+    }
+
+    tle92466ed::CommResult<void> TransferMulti(
+        std::span<const uint32_t> tx_data,
+        std::span<uint32_t> rx_data) noexcept {
+        if (tx_data.size() != rx_data.size()) {
+            return tle::unexpected(tle92466ed::CommError::InvalidParameter);
+        }
+        SPI.beginTransaction(SPISettings(1000000, MSBFIRST, SPI_MODE1));
+        digitalWrite(cs_pin_, LOW);
+        for (size_t i = 0; i < tx_data.size(); ++i) {
+            uint32_t rx_word = 0;
+            auto* tx_bytes = reinterpret_cast<const uint8_t*>(&tx_data[i]);
+            auto* rx_bytes = reinterpret_cast<uint8_t*>(&rx_word);
+            for (int b = 0; b < 4; ++b) {
+                rx_bytes[b] = SPI.transfer(tx_bytes[b]);
+            }
+            rx_data[i] = rx_word;
+        }
+        digitalWrite(cs_pin_, HIGH);
+        SPI.endTransaction();
         return {};
     }
-    
-    void delayMicroseconds(uint32_t us) noexcept override {
-        delayMicroseconds(us);
-    }
+    // ... remaining SpiInterface methods
 };
-```cpp
 
 ## SPI Frame Format
 
@@ -262,16 +298,32 @@ Bits 31-24 | Bits 23-17 | Bit 16 | Bits 15-0
 -----------+------------+--------+-----------
 CRC (8-bit)| Address(7) |  R/W   | Data (16)
            |            |  1=W   |
-```cpp
+```
 
 ### Read Frame Format
 
-```cpp
+```text
 Bits 31-24 | Bits 23-17 | Bit 16 | Bits 15-0
 -----------+------------+--------+-----------
 CRC (8-bit)| Don't Care |  R/W   | Address (16-bit)
            |            |  0=R   |
+```
+
+### Read / Write Pipeline
+
+Register access always uses **two consecutive 32-bit frames** per transaction:
+
 ```text
+CS ──┐                              ┌──
+     └─ Frame1 (command) ─ Frame2 (dummy/reply) ─┘
+              ↑                      ↑
+         MOSI: read addr         MOSI: don't care
+         MISO: not valid yet      MISO: latched reply
+```
+
+`TransferMulti()` must keep CS low across both frames. On a shared bus, do not call
+`Transfer32()` twice with CS toggling between them for driver register reads — use
+`TransferMulti()` or equivalent.
 
 ### SPI Configuration
 
@@ -310,24 +362,20 @@ auto GpioSet(tle92466ed::CtrlPin pin, tle92466ed::GpioSignal signal) noexcept
 
 ## Error Handling
 
-All methods return `std::expected<T, CommError>`. Handle errors like this:
+All methods return `tle::expected<T, CommError>`. Handle errors like this:
 
 ```cpp
-if (auto result = spi_interface.spiTransfer(tx, rx); !result) {
-    // Handle error
+if (auto result = spi.TransferMulti(tx_span, rx_span); !result) {
     switch (result.error()) {
         case tle92466ed::CommError::BusError:
-            // SPI bus error
             break;
         case tle92466ed::CommError::Timeout:
-            // Operation timeout
             break;
         default:
-            // Other errors
             break;
     }
 }
-```cpp
+```
 
 ## Testing Your Implementation
 

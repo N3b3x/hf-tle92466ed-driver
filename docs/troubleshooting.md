@@ -279,16 +279,54 @@ if (auto verified = driver.VerifyDevice(); verified && *verified) {
 4. **Parallel Mode Mismatch**: Forgetting to set `parallel_mode = true` when using parallel pairs
 5. **Current Out of Range**: Setting current above 2000mA in single mode
 
+---
+
+### Error: Feedback Not Ready
+
+**Symptoms:**
+
+- `GetAverageCurrent()` returns `DriverError::FeedbackNotReady`
+- Feedback registers read as zero or duty/current look nonsensical
+
+**Causes:**
+
+- `DITHER_CLK_DIV` still at POR value 0 — the averaged-feedback engine never runs
+- Feedback frozen via `FB_FRZ` (including a stuck freeze from an aborted `ReadChannelFeedback()`)
+- `TP_MANT` in `FB_DC` below `FB_FEEDBACK::kMinValidTpMant` (measurement window not established)
+- Pipelined SPI reply spliced on a shared bus (another slave consumed the dummy frame)
+
+**Solutions:**
+
+1. **Program dither clock**: call `ConfigureDither()` or `ConfigureDitherClock()` so `DITHER_CLK_DIV` has non-zero MANT/EXP before reading averaged feedback
+2. **Release freeze**: ensure `FB_FRZ` is cleared (0) if a prior snapshot read was interrupted
+3. **Wait for settling**: allow at least one full measurement period after enabling ICC before polling
+4. **Fix SPI adapter**: implement `TransferMulti()` so both frames of each read stay in one CS window on shared buses (see [Platform Integration](platform_integration.md))
+
+---
+
+### Error: Shared-Bus SPI — Corrupted Register Reads
+
+**Symptoms:**
+
+- Intermittent all-zero reads, wrong device ID, or inflated current readings
+- Works on a dedicated bus but fails when multiple SPI slaves share SCK/MISO/MOSI
+
+**Causes:**
+
+- Platform adapter deasserts CS or releases the SPI mutex between the command and dummy frames of a pipelined read
+- Another device's transaction consumes the pipeline slot
+
+**Solutions:**
+
+1. Implement `TransferMulti()` to clock all words with CS held low
+2. Do not call `Transfer32()` twice with CS toggling for driver register access
+3. See the pipelined-read section in [Platform Integration](platform_integration.md)
+
 ## Next Steps
 
 - Review [Hardware Setup](hardware_setup.md) for wiring verification
 - Check [Platform Integration](platform_integration.md) for SPI interface issues
 - See [Examples](examples.md) for working code samples
-
----
-
-**Navigation**
-⬅️ [Examples](examples.md) | [Back to Index](index.md)
 
 ---
 
@@ -356,7 +394,7 @@ if (auto verified = driver.VerifyDevice(); verified && *verified) {
 1. **Check supply voltages**: call `ReadAllSupplyVoltages()` *before* `EnterMissionModeChecked()` and verify VBAT is within your UV/OV window
 2. **Clear prior faults**: call `ClearFaults()` after power-on before attempting mission mode
 3. **Match VIO level**: ensure `SetVioLevel()` matches your hardware (default is `V3_3`)
-4. **Increase settle time**: pass a larger `settle_ms` (e.g. 50) to allow supplies to stabilize
+4. **Increase timeout**: pass a larger `timeout_ms` (e.g. 50) to allow supplies to stabilize
 
 ---
 
@@ -427,4 +465,4 @@ if (auto verified = driver.VerifyDevice(); verified && *verified) {
 ---
 
 **Navigation**
-?? Back to [Documentation Index](index.md)
+⬅️ [Examples](examples.md) | [Back to Index](index.md)

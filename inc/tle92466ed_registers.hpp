@@ -517,12 +517,35 @@ constexpr uint16_t CLEAR_ALL = 0xFFFF; ///< Clear all bits (write-to-clear)
  * @details
  * General feedback and status information.
  */
+/**
+ * @warning FB_STAT is a **22-bit** reply register. @c INIT_DONE (21) and
+ *          @c SPI_WD_ERR (20) sit above bit 15, so a caller that narrows the
+ *          @c ReadRegister result to @c uint16_t silently loses them and reads
+ *          @c INIT_DONE as 0 forever. Keep these masks 32-bit.
+ *
+ * Bit positions per datasheet Rev. 1.2 (2022-02-01) §5.3.2.21, Table 23.
+ * Reset value is 0x200638 — note @c INIT_DONE is set out of reset.
+ */
 namespace FB_STAT {
-constexpr uint16_t SUP_NOK_INT = (1 << 0);  ///< Internal supply fault
-constexpr uint16_t SUP_NOK_EXT = (1 << 1);  ///< External supply fault
-constexpr uint16_t EN_PROT = (1 << 2);      ///< Enable protection active
-constexpr uint16_t INIT_DONE = (1 << 3);    ///< Initialization done
-constexpr uint16_t CLK_NOK_STAT = (1 << 6); ///< Clock fault status
+constexpr uint32_t DIAG_WARN_CHGR0 = (1u << 0);  ///< DIAG_WARN_CHGR0 status
+constexpr uint32_t DIAG_WARN_CHGR1 = (1u << 1);  ///< DIAG_WARN_CHGR1 status
+constexpr uint32_t DIAG_WARN_CHGR2 = (1u << 2);  ///< DIAG_WARN_CHGR2 status
+constexpr uint32_t OLSG_WARN_CHK_NOK_CHGR0 = (1u << 3);  ///< OL/SG check group 0
+constexpr uint32_t OLSG_WARN_CHK_NOK_CHGR1 = (1u << 4);  ///< OL/SG check group 1
+constexpr uint32_t OLSG_WARN_CHK_NOK_CHGR2 = (1u << 5);  ///< OL/SG check group 2
+constexpr uint32_t CLK_NOK_STAT = (1u << 6);  ///< Clock fault status
+constexpr uint32_t COTERR = (1u << 7);        ///< Central overtemperature error
+constexpr uint32_t COTWARN = (1u << 8);       ///< Central overtemperature warning
+constexpr uint32_t RES_EVENT = (1u << 9);     ///< Reset event (RESN pin)
+constexpr uint32_t POR_EVENT = (1u << 10);    ///< Power-on reset event
+constexpr uint32_t DATA_ERR = (1u << 11);     ///< OTP_ECC_ERR / OTP_VIRGIN / HV_ADC_ERR
+constexpr uint32_t SUP_NOK_EXT = (1u << 12);  ///< VIO/VDD/VBAT UV or OV
+constexpr uint32_t SUP_NOK_INT = (1u << 13);  ///< Internal rail UV or OV
+constexpr uint32_t ERR_CHGR0 = (1u << 14);    ///< DIAG_ERR_CHGR1 status
+constexpr uint32_t ERR_CHGR1 = (1u << 15);    ///< DIAG_ERR_CHGR2 status
+constexpr uint32_t ERR_CHGR2 = (1u << 16);    ///< DIAG_ERR_CHGR3 status
+constexpr uint32_t SPI_WD_ERR = (1u << 20);   ///< SPI watchdog error status
+constexpr uint32_t INIT_DONE = (1u << 21);    ///< Chip initialization done
 } // namespace FB_STAT
 
 //==============================================================================
@@ -602,6 +625,16 @@ constexpr uint16_t MAX_TARGET = 0x6000;
   uint32_t current = (static_cast<uint32_t>(target & TARGET_MASK) * max_current + 16383) / 32767UL;
   return static_cast<uint16_t>(current);
 }
+
+// Datasheet §5.3.3.3: I_set = 2 A * TARGET / (2^15-1); 0x6000 saturates at 1.5 A.
+// A 9-bit TARGET (0x1FF) decodes as 31 mA — the HIL "clamped to 31 mA" signature
+// when SETPOINT readback is actually FB_IMIN (10-bit signed, max +511) or a
+// truncated field rather than the 15-bit TARGET. CH_CTRL 0x8020 (Mission+CH5)
+// decodes as 2 mA — the leftover from a MakeRead(0) dummy.
+static_assert(CalculateTarget(115) == 1884, "115 mA → TARGET 0x075C");
+static_assert(CalculateCurrent(1884) == 115, "TARGET 0x075C → 115 mA");
+static_assert(CalculateCurrent(0x01FF) == 31, "9-bit max TARGET decodes as 31 mA");
+static_assert(CalculateCurrent(0x0020) == 2, "CH_CTRL EN_CH5 leftover decodes as 2 mA");
 } // namespace SETPOINT
 
 //==============================================================================
@@ -1663,10 +1696,31 @@ constexpr float VBAT_FULL_SCALE_VOLTS = 41.47f;       ///< VBAT formula scale (4
 }
 
 /**
+ * @brief Smallest TP_MANT that makes the mantissa-ratio formula meaningful.
+ *
+ * The averaged current is `4000 mA x I_AVG_MANT / TP_MANT`, so TP_MANT is the
+ * divisor *and* sets the resolution: 4000/TP_MANT mA per I_AVG_MANT count. At
+ * 64 counts that is ~62 mA/count, already coarse; below it a single count of
+ * noise swings the result by hundreds of mA. TP_MANT lands in that range only
+ * when the measurement window never ran (DITHER_CLK_DIV at its POR value of 0,
+ * or feedback frozen by FB_FRZ) or when the reply frame was spliced on a
+ * shared bus — never during healthy operation.
+ */
+constexpr uint16_t kMinValidTpMant = 64u;
+
+/// True when FB_DC reports a measurement period usable for ratio decoding.
+[[nodiscard]] constexpr bool HasValidMeasurementWindow(uint32_t fb_dc_raw) noexcept {
+  return ExtractTpMant(fb_dc_raw) >= kMinValidTpMant;
+}
+
+/**
  * @brief Compute average current in mA (signed) from FB_I_AVG and FB_DC.
  * @param  fb_i_avg_raw  Raw 22-bit FB_I_AVG read (provides I_AVG_MANT)
  * @param  fb_dc_raw     Raw 22-bit FB_DC read    (provides TP_MANT for the divisor)
  * @return Average load current in mA (signed); returns 0 if TP_MANT is 0.
+ * @warning Callers should gate on @ref HasValidMeasurementWindow first; this
+ *          function only guards against division by zero, not against the
+ *          near-zero divisors that produce wildly overstated currents.
  */
 [[nodiscard]] inline int32_t ComputeAverageCurrent_mA(uint32_t fb_i_avg_raw,
                                                       uint32_t fb_dc_raw) noexcept {
@@ -1732,7 +1786,32 @@ constexpr int32_t  FULL_SCALE_COUNT   = 65535;
                               : static_cast<int32_t>(m);
 }
 
-/// Decode signed 17-bit raw to milliamps.
+/**
+ * @brief Raw code the frame carries before a measurement has settled.
+ *
+ * Exactly half of @ref FULL_SCALE_COUNT, so it decodes to a plausible-looking
+ * 2000 mA. Observed on a 115 mA proportional valve whenever this register was
+ * read before the channel had an established measurement window.
+ */
+constexpr uint32_t SETTLING_CODE = 0x8000u;
+
+/**
+ * @brief True when the frame is the pre-measurement placeholder.
+ *
+ * @warning Mid-scale is also the code an honest +2000 mA reading would use.
+ *          That is out of range for every channel on this product (full flow
+ *          is 115 mA), so rejecting it is correct here; a design driving loads
+ *          near 2 A must gate on the measurement window instead.
+ */
+[[nodiscard]] constexpr bool IsSettlingFrame(uint32_t reply_22bit) noexcept {
+  return (reply_22bit & I_AVG_MASK) == SETTLING_CODE;
+}
+
+/**
+ * @brief Decode signed 17-bit raw to milliamps.
+ * @warning Gate on @ref IsSettlingFrame first — this decoder cannot tell a
+ *          settled measurement from the power-on placeholder.
+ */
 [[nodiscard]] constexpr int32_t ToMilliamps(uint32_t reply_22bit) noexcept {
   const int32_t s = SignExtend17(reply_22bit);
   return (s * FULL_SCALE_mA) / FULL_SCALE_COUNT;
@@ -1820,7 +1899,7 @@ enum class Channel : uint8_t {
   CH4 = 4, ///< Channel 4
   CH5 = 5, ///< Channel 5
 
-  COUNT = 6 ///< Total number of channels
+  COUNT = 6 ///< Number of channels (not a valid channel selector)
 };
 
 /**
@@ -2178,15 +2257,15 @@ struct BistResult {
 };
 
 /**
- * @brief Snapshot returned by ReadPinStatus().
+ * @brief Snapshot returned by `ReadPinStatus()`.
  */
 struct PinStatus {
-  bool drv0{false};
-  bool drv1{false};
-  bool en{false};
-  bool faultn_driver{false};
-  bool faultn_fb{false};
-  uint16_t raw{0};
+  bool drv0{false};           ///< DRV0 input pin level (PIN_STAT bit 0)
+  bool drv1{false};           ///< DRV1 input pin level (PIN_STAT bit 1)
+  bool en{false};             ///< EN input pin level (PIN_STAT bit 4)
+  bool faultn_driver{false};  ///< FAULTN output as driven by the IC (PIN_STAT bit 5)
+  bool faultn_fb{false};      ///< External FAULTN line feedback (PIN_STAT bit 6)
+  uint16_t raw{0};            ///< Raw PIN_STAT register value
 };
 
 /**
@@ -2196,56 +2275,62 @@ struct PinStatus {
  * byte and the bit-mask within that register in the lower 16 bits.
  */
 enum class MaskableFault : uint32_t {
-  // FAULT_MASK0
-  Ch0Error          = (0u << 24) | (1u << 0),
-  Ch1Error          = (0u << 24) | (1u << 1),
-  Ch2Error          = (0u << 24) | (1u << 2),
-  Ch3Error          = (0u << 24) | (1u << 3),
-  Ch4Error          = (0u << 24) | (1u << 4),
-  Ch5Error          = (0u << 24) | (1u << 5),
-  EnPin             = (0u << 24) | (1u << 13),
-  SupplyNokInternal = (0u << 24) | (1u << 14),
-  SupplyNokExternal = (0u << 24) | (1u << 15),
-  // FAULT_MASK1
-  Ch0Warning        = (1u << 24) | (1u << 0),
-  Ch1Warning        = (1u << 24) | (1u << 1),
-  Ch2Warning        = (1u << 24) | (1u << 2),
-  Ch3Warning        = (1u << 24) | (1u << 3),
-  Ch4Warning        = (1u << 24) | (1u << 4),
-  Ch5Warning        = (1u << 24) | (1u << 5),
-  CentralOtWarning  = (1u << 24) | (1u << 12),
-  CentralOtError    = (1u << 24) | (1u << 13),
-  ClockLow          = (1u << 24) | (1u << 14),
-  // FAULT_MASK2
-  VbatUv            = (2u << 24) | (1u << 0),
-  VbatOv            = (2u << 24) | (1u << 1),
-  VioUv             = (2u << 24) | (1u << 2),
-  VioOv             = (2u << 24) | (1u << 3),
-  VddUv             = (2u << 24) | (1u << 4),
-  VddOv             = (2u << 24) | (1u << 5),
+  // FAULT_MASK0 — per-channel error contribution
+  Ch0Error          = (0u << 24) | (1u << 0),  ///< CH0 error → FAULTN
+  Ch1Error          = (0u << 24) | (1u << 1),  ///< CH1 error → FAULTN
+  Ch2Error          = (0u << 24) | (1u << 2),  ///< CH2 error → FAULTN
+  Ch3Error          = (0u << 24) | (1u << 3),  ///< CH3 error → FAULTN
+  Ch4Error          = (0u << 24) | (1u << 4),  ///< CH4 error → FAULTN
+  Ch5Error          = (0u << 24) | (1u << 5),  ///< CH5 error → FAULTN
+  EnPin             = (0u << 24) | (1u << 13), ///< EN pin fault → FAULTN
+  SupplyNokInternal = (0u << 24) | (1u << 14), ///< Internal supply NOK → FAULTN
+  SupplyNokExternal = (0u << 24) | (1u << 15), ///< External supply NOK → FAULTN
+  // FAULT_MASK1 — per-channel warning and system warnings
+  Ch0Warning        = (1u << 24) | (1u << 0),  ///< CH0 warning → FAULTN
+  Ch1Warning        = (1u << 24) | (1u << 1),  ///< CH1 warning → FAULTN
+  Ch2Warning        = (1u << 24) | (1u << 2),  ///< CH2 warning → FAULTN
+  Ch3Warning        = (1u << 24) | (1u << 3),  ///< CH3 warning → FAULTN
+  Ch4Warning        = (1u << 24) | (1u << 4),  ///< CH4 warning → FAULTN
+  Ch5Warning        = (1u << 24) | (1u << 5),  ///< CH5 warning → FAULTN
+  CentralOtWarning  = (1u << 24) | (1u << 12), ///< Central OT warning → FAULTN
+  CentralOtError    = (1u << 24) | (1u << 13), ///< Central OT error → FAULTN
+  ClockLow          = (1u << 24) | (1u << 14), ///< Clock too slow → FAULTN
+  // FAULT_MASK2 — supply UV/OV contribution
+  VbatUv            = (2u << 24) | (1u << 0),  ///< VBAT undervoltage → FAULTN
+  VbatOv            = (2u << 24) | (1u << 1),  ///< VBAT overvoltage → FAULTN
+  VioUv             = (2u << 24) | (1u << 2),  ///< VIO undervoltage → FAULTN
+  VioOv             = (2u << 24) | (1u << 3),  ///< VIO overvoltage → FAULTN
+  VddUv             = (2u << 24) | (1u << 4),  ///< VDD undervoltage → FAULTN
+  VddOv             = (2u << 24) | (1u << 5),  ///< VDD overvoltage → FAULTN
 };
 
+/** @brief Extract FAULT_MASK register index (0..2) from a `MaskableFault` value. */
 [[nodiscard]] constexpr uint8_t  FaultMaskIndex(MaskableFault f) noexcept {
   return static_cast<uint8_t>((static_cast<uint32_t>(f) >> 24) & 0x3u);
 }
+/** @brief Extract the bit mask within the target FAULT_MASK register. */
 [[nodiscard]] constexpr uint16_t FaultMaskBit(MaskableFault f) noexcept {
   return static_cast<uint16_t>(static_cast<uint32_t>(f) & 0xFFFFu);
 }
 
 /**
  * @brief High-resolution per-channel feedback snapshot (Phase 6).
+ *
+ * @details Populated by `ReadChannelFeedback()`. Average current uses the
+ *          `FB_I_AVG` mantissa ratio with `TP_MANT` from `FB_DC` — not
+ *          `FB_I_AVG_s16` (see `GetCalibrationAvgCurrent_mA()`).
  */
 struct ChannelFeedback {
-  int32_t  avg_current_mA{0};          ///< Average current (signed, mA)
-  uint16_t duty_cycle_permyriad{0};    ///< 0..10000
+  int32_t  avg_current_mA{0};          ///< Average current from FB_I_AVG/FB_DC ratio (mA, signed)
+  uint16_t duty_cycle_permyriad{0};    ///< Duty cycle 0..10000 (= 0.00..100.00 %)
   uint32_t avg_vbat_mV{0};             ///< Channel-referenced VBAT average (mV)
   int32_t  imin_mA{0};                 ///< Minimum current in measurement window (mA)
   int32_t  imax_mA{0};                 ///< Maximum current in measurement window (mA)
-  uint32_t period_min_us{0};           ///< Shortest PWM period observed (\u00b5s)
-  uint32_t period_max_us{0};           ///< Longest  PWM period observed (\u00b5s)
-  int16_t  int_thresh_seed{0};         ///< Current ICC integrator threshold
-  uint8_t  period_seq{0};              ///< Period sequence counter (MEAS_EXP path)
-  uint8_t  quad_seq{0};                ///< Quarter-period sequence counter
+  uint32_t period_min_us{0};           ///< Shortest PWM period observed (µs)
+  uint32_t period_max_us{0};           ///< Longest  PWM period observed (µs)
+  int16_t  int_thresh_seed{0};         ///< Current ICC integrator threshold readback
+  uint8_t  period_seq{0};              ///< Measurement exponent sequence (from FB_I_AVG EXP)
+  uint8_t  quad_seq{0};                ///< Quarter-period sequence counter (reserved)
 };
 
 /**

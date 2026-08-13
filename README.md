@@ -52,7 +52,7 @@ The driver uses a hardware-agnostic communication interface design, allowing it 
 - ✅ **Fault Mask Control**: Per-source enable/suppress of FAULTN pin contribution via FAULT_MASK0/1/2
 - ✅ **Atomic Channel Feedback**: Coherent per-channel snapshot (avg current, duty cycle, VBAT, IMIN/IMAX, period min/max, integrator threshold) using FB_FRZ/FB_UPD handshake
 - ✅ **Safe Mission-Mode Entry**: `EnterMissionModeChecked()` waits for settle time and verifies no fault
-- ✅ **Hardware Agnostic**: SPI interface for platform independence
+- ✅ **Hardware Agnostic**: CRTP SPI interface; pipelined two-frame reads via `TransferMulti()`
 - ✅ **Modern C++20**: Using `tle::expected` (polyfill for `std::expected`) for type-safe error handling without exceptions
 - ✅ **Zero Overhead**: All functions `noexcept`, freestanding-compatible
 
@@ -121,6 +121,8 @@ For detailed installation instructions, see [docs/installation.md](docs/installa
 | `ReadPinStatus()` | Read DRV0/DRV1/EN/FAULTN/FAULTN_FB pin states |
 | `SetFaultMask()` | Enable or suppress a fault source on the FAULTN pin |
 | `SetOlsgTimeout()` | Configure open-load/short-to-GND detection timeout |
+| `GetAverageCurrent()` | Average load current (mA); returns `FeedbackNotReady` if measurement window invalid |
+| `GetCalibrationAvgCurrent_mA()` | Signed calibration current from `FB_I_AVG_s16` |
 | `ReadChannelFeedback()` | Read coherent per-channel snapshot (avg current, duty, VBAT, IMIN/IMAX, period) |
 | `ReadAllChannelFeedback()` | Read coherent snapshot for all 6 channels |
 | `RunSupplyMonitorSelfTest()` | Execute four-phase supply-monitor self-test |

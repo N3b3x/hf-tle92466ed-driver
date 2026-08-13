@@ -31,8 +31,19 @@ enum class DriverError : uint8_t {
   TimeoutError,        ///< Operation timeout
   WrongMode,           ///< Operation not allowed in current mode
   SPIFrameError,       ///< SPI frame error from device
-  WriteToReadOnly      ///< Attempted write to read-only register
+  WriteToReadOnly,     ///< Attempted write to read-only register
+  FeedbackNotReady     ///< Averaged-feedback measurement window not established
 };
+
+/**
+ * @note `FeedbackNotReady` is returned by `GetAverageCurrent()` when
+ *       `FB_FEEDBACK::HasValidMeasurementWindow()` is false for the channel's
+ *       `FB_DC` read (see `FB_FEEDBACK::kMinValidTpMant`). Typical causes:
+ *       `DITHER_CLK_DIV` still at its POR value of 0 (so `Tmeas` never runs),
+ *       feedback frozen via `FB_FRZ`, or a pipelined reply spliced on a shared
+ *       bus. Reporting it explicitly stops a near-zero divisor from being
+ *       published as a plausible-looking current.
+ */
 
 /**
  * @brief Driver result type
@@ -115,9 +126,9 @@ struct ChannelDiagnostics {
   bool olsg_warning{false};               ///< OLSG warning (OLSG_WARN)
   bool olsg_check_not_performed{false};   ///< OLSG check not yet performed (OLSG_WARN_CHK_NOK; POR=1)
 
-  // Measurements
-  uint16_t average_current{0}; ///< Average current (raw FB_I_AVG 22-bit value)
-  uint16_t duty_cycle{0};      ///< PWM duty cycle (raw FB_DC 22-bit value)
+  // Measurements (raw 22-bit reply low halves unless noted)
+  uint16_t average_current{0}; ///< Raw FB_I_AVG bits — use GetAverageCurrent() for mA
+  uint16_t duty_cycle{0};      ///< Raw FB_DC bits — use GetDutyCycle() for permyriad
   int16_t  min_current_mA{0};  ///< Minimum load current in mA (signed; FB_IMIN_IMAX.IMIN)
   int16_t  max_current_mA{0};  ///< Maximum load current in mA (signed; FB_IMIN_IMAX.IMAX)
   uint16_t vbat_feedback{0};   ///< VBAT feedback (raw FB_VBAT)
@@ -640,20 +651,35 @@ public:
   /**
    * @brief Get average load current for a channel, in milliamps.
    *
-   * Reads the chip's compressed mantissa/exponent feedback path
-   * (FB_I_AVG and FB_DC, both 22-bit reply frames) and decodes
+   * @details
+   * Reads the compressed mantissa/exponent feedback path (`FB_I_AVG` and
+   * `FB_DC`, both 22-bit reply frames) and decodes
    * `Iavg = 4 A × <I_AVG_MANT> / <TP_MANT>` per datasheet §4.10.2.
-   * Issues two SPI reads per call (one for FB_I_AVG, one for FB_DC).
+   * Issues two pipelined SPI reads per register (four frames total).
+   *
+   * Before decoding, validates the measurement window via
+   * `FB_FEEDBACK::HasValidMeasurementWindow()` (minimum
+   * `FB_FEEDBACK::kMinValidTpMant` in `TP_MANT` from `FB_DC`).
    *
    * @param channel       Channel to query
    * @param parallel_mode Currently unused — the mantissa-ratio formula
    *                      is identical for parallel-paired channels;
    *                      kept for API stability.
-   * @return Average load current in mA (0 if the chip hasn't completed
-   *         its first measurement period yet, i.e. TP_MANT == 0). The
-   *         underlying I_AVG_MANT is signed two's-complement; negative
-   *         readings (recirculation current) are clamped to 0 in this
-   *         legacy unsigned return type.
+   * @return Average load current in mA on success.
+   * @retval DriverError::FeedbackNotReady `TP_MANT` too small for a
+   *         trustworthy mantissa ratio (averaging window not established,
+   *         feedback frozen, or corrupted pipelined reply).
+   * @retval DriverError::InvalidChannel Channel out of range.
+   * @retval DriverError::NotInitialized Driver not initialized.
+   *
+   * @note Uses `FB_I_AVG` (mantissa ratio with `TP_MANT` from `FB_DC`), not
+   *       `FB_I_AVG_s16`. For calibration-grade signed current see
+   *       `GetCalibrationAvgCurrent_mA()`.
+   *
+   * @note Negative load current (recirculation) is clamped to 0 in this
+   *       legacy unsigned return type.
+   *
+   * @see FB_FEEDBACK::kMinValidTpMant, FB_FEEDBACK::HasValidMeasurementWindow
    */
   [[nodiscard]] DriverResult<uint16_t> GetAverageCurrent(Channel channel,
                                                          bool parallel_mode = false) noexcept;
@@ -661,14 +687,18 @@ public:
   /**
    * @brief Get PWM duty cycle for a channel, in permyriad (0..10000).
    *
-   * Reads FB_DC (22-bit reply) and decodes `DC = <TO_MANT> / <TP_MANT>`
+   * @details
+   * Reads `FB_DC` (22-bit reply) and decodes `DC = <TO_MANT> / <TP_MANT>`
    * per datasheet §4.10.2, then scales to permyriad so the legacy
-   * uint16_t return type retains 0.01 % precision.
+   * `uint16_t` return type retains 0.01 % precision.
    *
    * @param channel Channel to query
    * @return Duty cycle in permyriad (0 = 0.00 %, 10000 = 100.00 %).
-   *         Returns 0 if TP_MANT is 0 (chip hasn't completed a
-   *         measurement period yet).
+   *
+   * @note Does not return `DriverError::FeedbackNotReady`. When `TP_MANT`
+   *       is 0 or the window is invalid, the decoded duty is 0 permyriad.
+   *       Use `GetAverageCurrent()` or `ReadChannelFeedback()` when an
+   *       explicit not-ready indication is required.
    */
   [[nodiscard]] DriverResult<uint16_t> GetDutyCycle(Channel channel) noexcept;
 
@@ -1101,27 +1131,62 @@ public:
   /**
    * @brief Read a coherent feedback snapshot for one channel.
    *
-   * Workflow (datasheet \u00a74.10.5):
-   *   1. Freeze feedback for this channel (FB_FRZ).
-   *   2. Poll FB_UPD for the update bit for this channel.
-   *   3. Read FB_DC / FB_VBAT / FB_I_AVG / FB_IMIN_IMAX /
-   *      FB_PERIOD_MIN_MAX / FB_INT_THRESH.
+   * @details
+   * Workflow (datasheet §4.10.5):
+   *   1. Freeze feedback for this channel (`FB_FRZ`).
+   *   2. Poll `FB_UPD` for the update bit for this channel.
+   *   3. Read `FB_DC` / `FB_VBAT` / `FB_I_AVG` / `FB_IMIN_IMAX` /
+   *      `FB_PERIOD_MIN_MAX` / `FB_INT_THRESH`.
    *   4. Release the freeze.
    *
+   * `avg_current_mA` is decoded from `FB_I_AVG` + `FB_DC` via the mantissa
+   * ratio (`FB_FEEDBACK::ComputeAverageCurrent_mA`). It does not gate on
+   * `HasValidMeasurementWindow()` — callers must interpret near-zero
+   * `TP_MANT` themselves or prefer `GetAverageCurrent()` for explicit
+   * `FeedbackNotReady` handling.
+   *
    * @param channel     Channel to read.
-   * @param timeout_ms  Maximum time to wait for FB_UPD.
+   * @param timeout_ms  Maximum time to wait for `FB_UPD`.
+   * @return Coherent `ChannelFeedback` snapshot or error.
+   * @retval DriverError::TimeoutError Update bit did not assert in time.
    */
   [[nodiscard]] DriverResult<ChannelFeedback> ReadChannelFeedback(Channel channel,
                                                                   uint32_t timeout_ms = 10U) noexcept;
 
   /**
    * @brief Read coherent feedback for all six channels in a single freeze window.
+   *
+   * @param timeout_ms Maximum time to wait for each channel's `FB_UPD` poll.
+   * @return Array of six `ChannelFeedback` structures or error.
    */
   [[nodiscard]] DriverResult<std::array<ChannelFeedback, 6>>
   ReadAllChannelFeedback(uint32_t timeout_ms = 20U) noexcept;
 
   /**
-   * @brief Calibration-grade signed average current (FB_I_AVG_s16).
+   * @brief Calibration-grade signed average current from `FB_I_AVG_s16`.
+   *
+   * @details
+   * Reads the per-channel `FB_I_AVG_s16` register (offset 0x0204) and
+   * decodes the 17-bit signed field via `FB_I_AVG_s16::ToMilliamps()`.
+   * This path is distinct from `GetAverageCurrent()`, which uses the
+   * compressed `FB_I_AVG` mantissa ratio with `TP_MANT` from `FB_DC`.
+   *
+   * @param channel Channel to query.
+   * @return Signed average current in mA, or error.
+   *
+   * @note `FB_I_AVG_s16` is intended for calibration workflows. The datasheet
+   *       notes the frame may not be valid while the channel is still settling,
+   *       so this returns `DriverError::FeedbackNotReady` when the register
+   *       still holds the mid-scale placeholder
+   *       (@ref FB_I_AVG_s16::IsSettlingFrame).
+   *
+   * @warning That placeholder check is the only validity gate here. Unlike
+   *          @ref GetAverageCurrent() this accessor does not confirm the
+   *          channel has an established measurement window, so prefer
+   *          `GetAverageCurrent()` for control and telemetry and keep this one
+   *          for calibration.
+   *
+   * @see FB_I_AVG_s16, GetAverageCurrent()
    */
   [[nodiscard]] DriverResult<int32_t>
   GetCalibrationAvgCurrent_mA(Channel channel) noexcept;
@@ -1203,6 +1268,10 @@ private:
 
   /**
    * @brief Transfer SPI frame with CRC calculation and verification
+   *
+   * @details Delegates to `comm_.Read()` / `comm_.Write()`, each of which
+   *          performs the chip's two-frame pipelined transaction via
+   *          `TransferMulti()`.
    */
   [[nodiscard]] DriverResult<SPIFrame> transferFrame(const SPIFrame& tx_frame,
                                                      bool verify_crc = true) noexcept;
@@ -1313,6 +1382,7 @@ private:
 #undef TLE92466ED_HEADER_INCLUDED
 
 // Public API: Get driver version string
+/** @brief Return the compiled driver version string (same as `Driver::GetDriverVersion()`). */
 inline const char* GetDriverVersion() noexcept {
   return HF_TLE92466ED_VERSION_STRING;
 }
