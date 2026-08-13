@@ -48,7 +48,7 @@
 </listitem><listitem><para>✅ <bold>Fault Mask Control</bold>: Per-source enable/suppress of FAULTN pin contribution via FAULT_MASK0/1/2</para>
 </listitem><listitem><para>✅ <bold>Atomic Channel Feedback</bold>: Coherent per-channel snapshot (avg current, duty cycle, VBAT, IMIN/IMAX, period min/max, integrator threshold) using FB_FRZ/FB_UPD handshake</para>
 </listitem><listitem><para>✅ <bold>Safe Mission-Mode Entry</bold>: <computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">EnterMissionModeChecked()</ref></computeroutput> waits for settle time and verifies no fault</para>
-</listitem><listitem><para>✅ <bold>Hardware Agnostic</bold>: SPI interface for platform independence</para>
+</listitem><listitem><para>✅ <bold>Hardware Agnostic</bold>: CRTP SPI interface; pipelined two-frame reads via <computeroutput>TransferMulti()</computeroutput></para>
 </listitem><listitem><para>✅ <bold>Modern C++20</bold>: Using <computeroutput>tle::expected</computeroutput> (polyfill for <computeroutput>std::expected</computeroutput>) for type-safe error handling without exceptions</para>
 </listitem><listitem><para>✅ <bold>Zero Overhead</bold>: All functions <computeroutput>noexcept</computeroutput>, freestanding-compatible</para>
 </listitem></itemizedlist>
@@ -92,7 +92,7 @@
 <para>For detailed installation instructions, see docs/installation.md.</para>
 </sect1>
 <sect1 id="index_1autotoc_md6">
-<title>📖 API Reference</title><para><table rows="26" cols="2"><row>
+<title>📖 API Reference</title><para><table rows="28" cols="2"><row>
 <entry thead="yes"><para>Method   </para>
 </entry><entry thead="yes"><para>Description    </para>
 </entry></row>
@@ -175,6 +175,14 @@
 <row>
 <entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">SetOlsgTimeout()</ref></computeroutput>   </para>
 </entry><entry thead="no"><para>Configure open-load/short-to-GND detection timeout    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">GetAverageCurrent()</ref></computeroutput>   </para>
+</entry><entry thead="no"><para>Average load current (mA); returns <computeroutput>FeedbackNotReady</computeroutput> if measurement window invalid    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">GetCalibrationAvgCurrent_mA()</ref></computeroutput>   </para>
+</entry><entry thead="no"><para>Signed calibration current from <computeroutput>FB_I_AVG_s16</computeroutput>    </para>
 </entry></row>
 <row>
 <entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">ReadChannelFeedback()</ref></computeroutput>   </para>

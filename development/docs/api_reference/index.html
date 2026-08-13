@@ -612,12 +612,12 @@ explicit Driver(CommType&amp; comm) noexcept;
     <tr>
       <td><code class="language-plaintext highlighter-rouge">GetAverageCurrent()</code></td>
       <td><code class="language-plaintext highlighter-rouge">DriverResult&lt;uint16_t&gt; GetAverageCurrent(Channel channel, bool parallel_mode = false) noexcept</code></td>
-      <td><a href="../inc/tle92466ed.hpp#L644"><code class="language-plaintext highlighter-rouge">inc/tle92466ed.hpp#L644</code></a></td>
+      <td>Decodes <code class="language-plaintext highlighter-rouge">FB_I_AVG</code>/<code class="language-plaintext highlighter-rouge">FB_DC</code> mantissa ratio; returns <code class="language-plaintext highlighter-rouge">DriverError::FeedbackNotReady</code> when <code class="language-plaintext highlighter-rouge">FB_FEEDBACK::HasValidMeasurementWindow()</code> is false</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">GetDutyCycle()</code></td>
       <td><code class="language-plaintext highlighter-rouge">DriverResult&lt;uint16_t&gt; GetDutyCycle(Channel channel) noexcept</code></td>
-      <td><a href="../inc/tle92466ed.hpp#L653"><code class="language-plaintext highlighter-rouge">inc/tle92466ed.hpp#L653</code></a></td>
+      <td><a href="../inc/tle92466ed.hpp"><code class="language-plaintext highlighter-rouge">inc/tle92466ed.hpp</code></a></td>
     </tr>
   </tbody>
 </table></div>
@@ -836,18 +836,18 @@ explicit Driver(CommType&amp; comm) noexcept;
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReadRegister()</code></td>
-      <td><code class="language-plaintext highlighter-rouge">DriverResult&lt;uint32_t&gt; ReadRegister(uint16_t address, uint8_t retries = 0) noexcept</code></td>
-      <td><a href="../inc/tle92466ed.hpp#L911"><code class="language-plaintext highlighter-rouge">inc/tle92466ed.hpp#L911</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">DriverResult&lt;uint32_t&gt; ReadRegister(uint16_t address, bool verify_crc = false) noexcept</code></td>
+      <td><a href="../inc/tle92466ed.hpp"><code class="language-plaintext highlighter-rouge">inc/tle92466ed.hpp</code></a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">WriteRegister()</code></td>
-      <td><code class="language-plaintext highlighter-rouge">DriverResult&lt;void&gt; WriteRegister(uint16_t address, uint16_t value, uint8_t retries = 0) noexcept</code></td>
-      <td><a href="../inc/tle92466ed.hpp#L928"><code class="language-plaintext highlighter-rouge">inc/tle92466ed.hpp#L928</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">DriverResult&lt;void&gt; WriteRegister(uint16_t address, uint16_t value, bool verify_crc = false, bool verify_write = true) noexcept</code></td>
+      <td><a href="../inc/tle92466ed.hpp"><code class="language-plaintext highlighter-rouge">inc/tle92466ed.hpp</code></a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ModifyRegister()</code></td>
-      <td><code class="language-plaintext highlighter-rouge">DriverResult&lt;void&gt; ModifyRegister(uint16_t address, uint16_t mask, uint16_t value, uint8_t retries = 0) noexcept</code></td>
-      <td><a href="../inc/tle92466ed.hpp#L940"><code class="language-plaintext highlighter-rouge">inc/tle92466ed.hpp#L940</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">DriverResult&lt;void&gt; ModifyRegister(uint16_t address, uint16_t mask, uint16_t value) noexcept</code></td>
+      <td><a href="../inc/tle92466ed.hpp"><code class="language-plaintext highlighter-rouge">inc/tle92466ed.hpp</code></a></td>
     </tr>
   </tbody>
 </table></div>
@@ -931,13 +931,13 @@ explicit Driver(CommType&amp; comm) noexcept;
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">GetOperationState()</code></td>
-      <td><code class="language-plaintext highlighter-rouge">OperationState GetOperationState() const noexcept</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DriverResult&lt;OperationState&gt; GetOperationState() noexcept</code></td>
       <td>Inspect current driver state: Reset, Config, Mission, or CriticalFault</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">EnterMissionModeChecked()</code></td>
-      <td><code class="language-plaintext highlighter-rouge">DriverResult&lt;void&gt; EnterMissionModeChecked(uint32_t settle_ms = 10) noexcept</code></td>
-      <td>Enter mission mode, wait <code class="language-plaintext highlighter-rouge">settle_ms</code>, verify no fault, return error if fault detected</td>
+      <td><code class="language-plaintext highlighter-rouge">DriverResult&lt;void&gt; EnterMissionModeChecked(uint32_t timeout_ms = 10) noexcept</code></td>
+      <td>Enter mission mode, poll <code class="language-plaintext highlighter-rouge">FB_STAT.INIT_DONE</code>, verify no fault</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RunSupplyMonitorSelfTest()</code></td>
@@ -1083,18 +1083,18 @@ explicit Driver(CommType&amp; comm) noexcept;
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReadChannelFeedback()</code></td>
-      <td><code class="language-plaintext highlighter-rouge">DriverResult&lt;ChannelFeedback&gt; ReadChannelFeedback(Channel ch, uint32_t timeout_ms = 5) noexcept</code></td>
-      <td>Freeze feedback with FB_FRZ, poll FB_UPD every 200 µs until coherent snapshot, read DC/VBAT/I_AVG/IMIN_IMAX/PERIOD_MIN_MAX/INT_THRESH, release freeze</td>
+      <td><code class="language-plaintext highlighter-rouge">DriverResult&lt;ChannelFeedback&gt; ReadChannelFeedback(Channel ch, uint32_t timeout_ms = 10) noexcept</code></td>
+      <td>Freeze feedback with FB_FRZ, poll FB_UPD, read coherent snapshot; avg current uses FB_I_AVG ratio (no FeedbackNotReady gate)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReadAllChannelFeedback()</code></td>
-      <td><code class="language-plaintext highlighter-rouge">DriverResult&lt;std::array&lt;ChannelFeedback, 6&gt;&gt; ReadAllChannelFeedback(uint32_t timeout_ms = 5) noexcept</code></td>
-      <td>Call <code class="language-plaintext highlighter-rouge">ReadChannelFeedback()</code> for all 6 channels, return array</td>
+      <td><code class="language-plaintext highlighter-rouge">DriverResult&lt;std::array&lt;ChannelFeedback, 6&gt;&gt; ReadAllChannelFeedback(uint32_t timeout_ms = 20) noexcept</code></td>
+      <td>Call <code class="language-plaintext highlighter-rouge">ReadChannelFeedback()</code> for all 6 channels</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">GetCalibrationAvgCurrent_mA()</code></td>
       <td><code class="language-plaintext highlighter-rouge">DriverResult&lt;int32_t&gt; GetCalibrationAvgCurrent_mA(Channel ch) noexcept</code></td>
-      <td>Return only the average current field from <code class="language-plaintext highlighter-rouge">ReadChannelFeedback()</code> without allocating the full struct on the call stack</td>
+      <td>Reads <code class="language-plaintext highlighter-rouge">FB_I_AVG_s16</code> (17-bit signed path) — distinct from <code class="language-plaintext highlighter-rouge">GetAverageCurrent()</code> which uses compressed <code class="language-plaintext highlighter-rouge">FB_I_AVG</code></td>
     </tr>
   </tbody>
 </table></div>
@@ -1126,8 +1126,8 @@ explicit Driver(CommType&amp; comm) noexcept;
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DriverError</code></td>
-      <td><code class="language-plaintext highlighter-rouge">None</code>, <code class="language-plaintext highlighter-rouge">NotInitialized</code>, <code class="language-plaintext highlighter-rouge">HardwareError</code>, <code class="language-plaintext highlighter-rouge">InvalidChannel</code>, <code class="language-plaintext highlighter-rouge">InvalidParameter</code>, <code class="language-plaintext highlighter-rouge">DeviceNotResponding</code>, <code class="language-plaintext highlighter-rouge">WrongDeviceID</code>, <code class="language-plaintext highlighter-rouge">RegisterError</code>, <code class="language-plaintext highlighter-rouge">CRCError</code>, <code class="language-plaintext highlighter-rouge">FaultDetected</code>, <code class="language-plaintext highlighter-rouge">ConfigurationError</code>, <code class="language-plaintext highlighter-rouge">TimeoutError</code>, <code class="language-plaintext highlighter-rouge">WrongMode</code>, <code class="language-plaintext highlighter-rouge">SPIFrameError</code>, <code class="language-plaintext highlighter-rouge">WriteToReadOnly</code></td>
-      <td><a href="../inc/tle92466ed.hpp#L79"><code class="language-plaintext highlighter-rouge">inc/tle92466ed.hpp#L79</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">None</code>, <code class="language-plaintext highlighter-rouge">NotInitialized</code>, <code class="language-plaintext highlighter-rouge">HardwareError</code>, <code class="language-plaintext highlighter-rouge">InvalidChannel</code>, <code class="language-plaintext highlighter-rouge">InvalidParameter</code>, <code class="language-plaintext highlighter-rouge">DeviceNotResponding</code>, <code class="language-plaintext highlighter-rouge">WrongDeviceID</code>, <code class="language-plaintext highlighter-rouge">RegisterError</code>, <code class="language-plaintext highlighter-rouge">CRCError</code>, <code class="language-plaintext highlighter-rouge">FaultDetected</code>, <code class="language-plaintext highlighter-rouge">ConfigurationError</code>, <code class="language-plaintext highlighter-rouge">TimeoutError</code>, <code class="language-plaintext highlighter-rouge">WrongMode</code>, <code class="language-plaintext highlighter-rouge">SPIFrameError</code>, <code class="language-plaintext highlighter-rouge">WriteToReadOnly</code>, <strong><code class="language-plaintext highlighter-rouge">FeedbackNotReady</code></strong></td>
+      <td><a href="../inc/tle92466ed.hpp"><code class="language-plaintext highlighter-rouge">inc/tle92466ed.hpp</code></a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Channel</code></td>
@@ -1276,11 +1276,25 @@ explicit Driver(CommType&amp; comm) noexcept;
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DriverResult&lt;T&gt;</code></td>
-      <td><code class="language-plaintext highlighter-rouge">std::expected&lt;T, DriverError&gt;</code></td>
-      <td><a href="../inc/tle92466ed.hpp#L100"><code class="language-plaintext highlighter-rouge">inc/tle92466ed.hpp#L100</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">tle::expected&lt;T, DriverError&gt;</code></td>
+      <td><a href="../inc/tle92466ed.hpp"><code class="language-plaintext highlighter-rouge">inc/tle92466ed.hpp</code></a></td>
     </tr>
   </tbody>
-</table></div><hr />
+</table></div>
+<h3 id="spi-interface">
+  
+  
+    <a href="#spi-interface" class="anchor-heading" aria-labelledby="spi-interface"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> SPI Interface
+  
+  
+</h3>
+    
+
+<p>Register reads and writes use a <strong>pipelined two-frame protocol</strong> implemented in
+<code class="language-plaintext highlighter-rouge">SpiInterface::Read()</code> / <code class="language-plaintext highlighter-rouge">Write()</code> via <code class="language-plaintext highlighter-rouge">TransferMulti()</code>. Platform adapters must
+keep CS asserted across both frames on shared buses. See
+<a href="../inc/tle92466ed_spi_interface.hpp"><code class="language-plaintext highlighter-rouge">inc/tle92466ed_spi_interface.hpp</code></a> and
+<a href="/hf-tle92466ed-driver/development/docs/platform_integration/">Platform Integration</a>.</p><hr />
 
 <p><strong>Navigation</strong>
 ⬅️ <a href="/hf-tle92466ed-driver/development/docs/configuration/">Configuration</a> | <a href="/hf-tle92466ed-driver/development/docs/examples/">Next: Examples ➡️</a> | <a href="/hf-tle92466ed-driver/development/docs/">Back to Index</a></p>

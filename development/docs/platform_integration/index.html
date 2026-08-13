@@ -282,8 +282,9 @@
 </h2>
     
 
-<p>The TLE92466ED driver uses a <strong>polymorphic SPI interface</strong> design for hardware abstraction.
-This design choice provides several critical benefits for embedded systems:</p>
+<p>The TLE92466ED driver uses a <strong>CRTP SPI interface</strong> (<code class="language-plaintext highlighter-rouge">SpiInterface&lt;Derived&gt;</code>) for
+hardware abstraction. Your platform adapter inherits from the template with itself
+as the type parameter — there is no virtual dispatch overhead.</p>
 <h3 id="why-this-design">
   
   
@@ -304,7 +305,7 @@ This design choice provides several critical benefits for embedded systems:</p>
 <ul>
   <li>Write driver code once, run on any platform</li>
   <li>Easy migration between MCUs (ESP32, STM32, Arduino, etc.)</li>
-  <li>Platform-specific code isolated in one class</li>
+  <li>Platform-specific code isolated in one adapter class</li>
 </ul>
 <h4 id="2-type-safety">
   
@@ -316,7 +317,7 @@ This design choice provides several critical benefits for embedded systems:</p>
     
 
 <ul>
-  <li>Compile-time interface checking</li>
+  <li>Compile-time interface checking via CRTP and (optionally) <code class="language-plaintext highlighter-rouge">SpiInterfaceLike</code></li>
   <li>Clear contract for required methods</li>
   <li>Catch implementation errors at compile time</li>
 </ul>
@@ -334,6 +335,39 @@ This design choice provides several critical benefits for embedded systems:</p>
   <li>All functions <code class="language-plaintext highlighter-rouge">noexcept</code> for embedded safety</li>
   <li>Zero-overhead abstractions</li>
 </ul>
+<h3 id="pipelined-register-reads-critical">
+  
+  
+    <a href="#pipelined-register-reads-critical" class="anchor-heading" aria-labelledby="pipelined-register-reads-critical"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Pipelined Register Reads (Critical)
+  
+  
+</h3>
+    
+
+<p>The TLE92466ED SPI protocol is <strong>pipelined</strong>: a read command’s reply appears on MISO
+during the <em>next</em> chip-select window, not the command frame itself. Every register
+read therefore costs <strong>two 32-bit frames</strong>:</p>
+
+<ol>
+  <li><strong>Command frame</strong> — sends the read address (MISO is not yet the requested data)</li>
+  <li><strong>Dummy frame</strong> — clocks out the latched reply from frame 1</li>
+</ol>
+
+<p>The driver’s <code class="language-plaintext highlighter-rouge">SpiInterface::Read()</code> and <code class="language-plaintext highlighter-rouge">Write()</code> helpers send both frames through
+<code class="language-plaintext highlighter-rouge">TransferMulti()</code> in <strong>one CS assertion</strong>. Your adapter must:</p>
+
+<ul>
+  <li>Keep CS asserted for the entire two-frame sequence</li>
+  <li><strong>Not</strong> release bus ownership between frames on a shared multi-slave SPI bus</li>
+</ul>
+
+<p>If another slave’s transaction lands between the command and dummy frames, the pipeline
+slot is consumed by the wrong device. Symptoms include all-zero reads, wrong register
+values, and grossly inflated feedback currents (a near-zero <code class="language-plaintext highlighter-rouge">TP_MANT</code> divisor once
+produced ~2000 mA on a ~115 mA channel).</p>
+
+<p>Implement <code class="language-plaintext highlighter-rouge">TransferMulti()</code> so consecutive words share one CS window. Use
+<code class="language-plaintext highlighter-rouge">Transfer32()</code> only for single-frame cases outside the driver’s register helpers.</p>
 <h3 id="how-it-works">
   
   
@@ -343,232 +377,7 @@ This design choice provides several critical benefits for embedded systems:</p>
 </h3>
     
 
-<p>```cpp
-// Base interface class (from tle92466ed_spi_interface.hpp)
-class SpiInterface {
-public:
-    virtual auto spiTransfer(std::span<const uint8_t=""> txData, 
-                             std::span<uint8_t> rxData) noexcept 
-        -&gt; std::expected&lt;void, CommError&gt; = 0;</uint8_t></const></p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>virtual void delayMicroseconds(uint32_t us) noexcept = 0; };
-</pre></td></tr></tbody></table></div></code></pre></div></div>
-
-<p>// Your implementation
-class MySpi : public SpiInterface {
-public:
-    auto spiTransfer(std::span<const uint8_t=""> txData, 
-                     std::span<uint8_t> rxData) noexcept 
-        -&gt; std::expected&lt;void, CommError&gt; override {
-        // Your platform-specific SPI code
-        return {};
-    }</uint8_t></const></p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre>void delayMicroseconds(uint32_t us) noexcept override {
-    // Your delay implementation
-} }; ```cpp
-</pre></td></tr></tbody></table></div></code></pre></div></div>
-<h2 id="interface-definition">
-  
-  
-    <a href="#interface-definition" class="anchor-heading" aria-labelledby="interface-definition"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Interface Definition
-  
-  
-</h2>
-    
-
-<p>The TLE92466ED driver requires you to implement the following interface:</p>
-
-<p>```cpp
-class SpiInterface {
-public:
-    // Required methods (implement all of these)
-    virtual auto spiTransfer(std::span<const uint8_t=""> txData, 
-                             std::span<uint8_t> rxData) noexcept 
-        -&gt; std::expected&lt;void, CommError&gt; = 0;</uint8_t></const></p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="rouge-code"><pre>virtual void delayMicroseconds(uint32_t us) noexcept = 0;
-
-// Optional control pin methods
-virtual auto GpioSet(CtrlPin pin, GpioSignal signal) noexcept 
-    -&gt; std::expected&lt;void, CommError&gt;;
-
-virtual auto GpioRead(CtrlPin pin) noexcept 
-    -&gt; std::expected&lt;GpioSignal, CommError&gt;; }; ```cpp
-</pre></td></tr></tbody></table></div></code></pre></div></div>
-<h2 id="implementation-steps">
-  
-  
-    <a href="#implementation-steps" class="anchor-heading" aria-labelledby="implementation-steps"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Implementation Steps
-  
-  
-</h2>
-    
-<h3 id="step-1-create-your-implementation-class">
-  
-  
-    <a href="#step-1-create-your-implementation-class" class="anchor-heading" aria-labelledby="step-1-create-your-implementation-class"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Step 1: Create Your Implementation Class
-  
-  
-</h3>
-    
-
-<p>```cpp
-#include “tle92466ed_spi_interface.hpp”</p>
-
-<p>class MyPlatformSPI : public tle92466ed::SpiInterface<MyPlatformSPI> {
-private:
-    // Your platform-specific members
-    spi_device_handle_t spi_device_;  // Example for ESP32</MyPlatformSPI></p>
-
-<p>public:
-    // Constructor
-    MyPlatformSPI(spi_device_handle_t device) : spi_device_(device) {}</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-</pre></td><td class="rouge-code"><pre>// Implement required methods
-auto spiTransfer(std::span&lt;const uint8_t&gt; txData, 
-                 std::span&lt;uint8_t&gt; rxData) noexcept 
-    -&gt; std::expected&lt;void, tle92466ed::CommError&gt; override {
-    // Your transfer code - must handle 32-bit frames
-    // TLE92466ED uses 32-bit SPI frames with CRC-8
-    return {};
-}
-
-void delayMicroseconds(uint32_t us) noexcept override {
-    // Your delay implementation
-} }; ```cpp
-</pre></td></tr></tbody></table></div></code></pre></div></div>
-<h3 id="step-2-platform-specific-examples">
-  
-  
-    <a href="#step-2-platform-specific-examples" class="anchor-heading" aria-labelledby="step-2-platform-specific-examples"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Step 2: Platform-Specific Examples
-  
-  
-</h3>
-    
-<h4 id="esp32-esp-idf">
-  
-  
-    <a href="#esp32-esp-idf" class="anchor-heading" aria-labelledby="esp32-esp-idf"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ESP32 (ESP-IDF)
-  
-  
-</h4>
-    
-
-<p>```cpp
-#include “driver/spi_master.h”
-#include “tle92466ed_spi_interface.hpp”</p>
-
-<p>class Esp32SPIBus : public tle92466ed::SpiInterface<Esp32SPIBus> {
-private:
-    spi_device_handle_t spi_device_;
-    gpio_num_t cs_pin_;</Esp32SPIBus></p>
-
-<p>public:
-    Esp32SPIBus(spi_host_device_t host, const spi_device_interface_config_t&amp; config, 
-                gpio_num_t cs) {
-        spi_bus_add_device(host, &amp;config, &amp;spi_device_);
-        cs_pin_ = cs;
-    }</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-</pre></td><td class="rouge-code"><pre>auto spiTransfer(std::span&lt;const uint8_t&gt; txData, 
-                 std::span&lt;uint8_t&gt; rxData) noexcept 
-    -&gt; std::expected&lt;void, tle92466ed::CommError&gt; override {
-    // TLE92466ED uses 32-bit frames
-    if (txData.size() &lt; 4 || rxData.size() &lt; 4) {
-        return tle::unexpected(tle92466ed::CommError::InvalidParameter);
-    }
-    
-    spi_transaction_t trans = {};
-    trans.length = 32;  // 32 bits per frame
-    trans.tx_buffer = txData.data();
-    trans.rx_buffer = rxData.data();
-    
-    esp_err_t ret = spi_device_transmit(spi_device_, &amp;trans);
-    if (ret != ESP_OK) {
-        return tle::unexpected(tle92466ed::CommError::BusError);
-    }
-    
-    return {};
-}
-
-void delayMicroseconds(uint32_t us) noexcept override {
-    esp_rom_delay_us(us);
-} }; ```cpp
-</pre></td></tr></tbody></table></div></code></pre></div></div>
-<h4 id="stm32-hal">
-  
-  
-    <a href="#stm32-hal" class="anchor-heading" aria-labelledby="stm32-hal"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> STM32 (HAL)
-  
-  
-</h4>
-    
-
-<p>```cpp
-#include “stm32f4xx_hal.h”
-#include “tle92466ed_spi_interface.hpp”</p>
-
-<p>extern SPI_HandleTypeDef hspi1;</p>
-
-<p>class STM32SPIBus : public tle92466ed::SpiInterface<STM32SPIBus> {
-private:
-    GPIO_TypeDef* cs_port_;
-    uint16_t cs_pin_;</STM32SPIBus></p>
-
-<p>public:
-    STM32SPIBus(GPIO_TypeDef* cs_port, uint16<em>t cs_pin) 
-        : cs_port</em>(cs_port), cs_pin_(cs_pin) {}</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -595,60 +404,121 @@ private:
 25
 26
 27
-</pre></td><td class="rouge-code"><pre>auto spiTransfer(std::span&lt;const uint8_t&gt; txData, 
-                 std::span&lt;uint8_t&gt; rxData) noexcept 
-    -&gt; std::expected&lt;void, tle92466ed::CommError&gt; override {
-    // Assert CS
-    HAL_GPIO_WritePin(cs_port_, cs_pin_, GPIO_PIN_RESET);
-    
-    // Transfer 32-bit frame (4 bytes)
-    HAL_StatusTypeDef status = HAL_SPI_TransmitReceive(&amp;hspi1, 
-        const_cast&lt;uint8_t*&gt;(txData.data()), 
-        rxData.data(), 
-        4, 
-        100);
-    
-    // Deassert CS
-    HAL_GPIO_WritePin(cs_port_, cs_pin_, GPIO_PIN_SET);
-    
-    if (status != HAL_OK) {
-        return tle::unexpected(tle92466ed::CommError::BusError);
-    }
-    
-    return {};
-}
+28
+29
+30
+31
+32
+33
+</pre></td><td class="rouge-code"><pre><span class="cp">#include</span> <span class="cpf">"tle92466ed_spi_interface.hpp"</span><span class="cp">
+</span>
+<span class="k">class</span> <span class="nc">MySpi</span> <span class="o">:</span> <span class="k">public</span> <span class="n">tle92466ed</span><span class="o">::</span><span class="n">SpiInterface</span><span class="o">&lt;</span><span class="n">MySpi</span><span class="o">&gt;</span> <span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="n">tle92466ed</span><span class="o">::</span><span class="n">CommResult</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="n">Init</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="cm">/* SPI + GPIO init */</span> <span class="k">return</span> <span class="p">{};</span> <span class="p">}</span>
+    <span class="n">tle92466ed</span><span class="o">::</span><span class="n">CommResult</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="n">Deinit</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="k">return</span> <span class="p">{};</span> <span class="p">}</span>
 
-void delayMicroseconds(uint32_t us) noexcept override {
-    // STM32 HAL delay (approximate)
-    HAL_Delay((us + 999) / 1000);  // Convert to milliseconds
-} }; ```cpp
+    <span class="n">tle92466ed</span><span class="o">::</span><span class="n">CommResult</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;</span> <span class="n">Transfer32</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">tx</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span>
+        <span class="c1">// Single 32-bit full-duplex transfer with CS managed here</span>
+        <span class="k">return</span> <span class="n">rx_word</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">tle92466ed</span><span class="o">::</span><span class="n">CommResult</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="n">TransferMulti</span><span class="p">(</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">span</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">uint32_t</span><span class="o">&gt;</span> <span class="n">tx</span><span class="p">,</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">span</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;</span> <span class="n">rx</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span>
+        <span class="c1">// CS LOW → Transfer32 for each word → CS HIGH</span>
+        <span class="c1">// Required: both frames of a pipelined read stay in this window</span>
+        <span class="k">return</span> <span class="p">{};</span>
+    <span class="p">}</span>
+
+    <span class="n">tle92466ed</span><span class="o">::</span><span class="n">CommResult</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="n">Delay</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">us</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="k">return</span> <span class="p">{};</span> <span class="p">}</span>
+    <span class="n">tle92466ed</span><span class="o">::</span><span class="n">CommResult</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="n">Configure</span><span class="p">(</span><span class="k">const</span> <span class="n">tle92466ed</span><span class="o">::</span><span class="n">SPIConfig</span><span class="o">&amp;</span> <span class="n">cfg</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="k">return</span> <span class="p">{};</span> <span class="p">}</span>
+    <span class="kt">bool</span> <span class="n">IsReady</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">true</span><span class="p">;</span> <span class="p">}</span>
+    <span class="n">tle92466ed</span><span class="o">::</span><span class="n">CommError</span> <span class="n">GetLastError</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="k">return</span> <span class="n">tle92466ed</span><span class="o">::</span><span class="n">CommError</span><span class="o">::</span><span class="n">None</span><span class="p">;</span> <span class="p">}</span>
+    <span class="n">tle92466ed</span><span class="o">::</span><span class="n">CommResult</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="n">ClearErrors</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="k">return</span> <span class="p">{};</span> <span class="p">}</span>
+    <span class="n">tle92466ed</span><span class="o">::</span><span class="n">CommResult</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="n">GpioSet</span><span class="p">(</span><span class="n">tle92466ed</span><span class="o">::</span><span class="n">CtrlPin</span> <span class="n">pin</span><span class="p">,</span>
+                                         <span class="n">tle92466ed</span><span class="o">::</span><span class="n">GpioSignal</span> <span class="n">sig</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="k">return</span> <span class="p">{};</span> <span class="p">}</span>
+    <span class="n">tle92466ed</span><span class="o">::</span><span class="n">CommResult</span><span class="o">&lt;</span><span class="n">tle92466ed</span><span class="o">::</span><span class="n">GpioSignal</span><span class="o">&gt;</span> <span class="n">GpioRead</span><span class="p">(</span><span class="n">tle92466ed</span><span class="o">::</span><span class="n">CtrlPin</span> <span class="n">pin</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">tle92466ed</span><span class="o">::</span><span class="n">GpioSignal</span><span class="o">::</span><span class="n">INACTIVE</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">void</span> <span class="n">Log</span><span class="p">(</span><span class="n">tle92466ed</span><span class="o">::</span><span class="n">LogLevel</span> <span class="n">level</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">tag</span><span class="p">,</span>
+             <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">fmt</span><span class="p">,</span> <span class="kt">va_list</span> <span class="n">args</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{}</span>
+<span class="p">};</span>
 </pre></td></tr></tbody></table></div></code></pre></div></div>
-<h4 id="arduino">
+<h2 id="interface-definition">
   
   
-    <a href="#arduino" class="anchor-heading" aria-labelledby="arduino"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Arduino
+    <a href="#interface-definition" class="anchor-heading" aria-labelledby="interface-definition"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Interface Definition
   
   
-</h4>
+</h2>
     
 
-<p>```cpp
-#include <SPI.h>
-#include "tle92466ed_spi_interface.hpp"</SPI.h></p>
+<p>Implement every method below on your <code class="language-plaintext highlighter-rouge">SpiInterface&lt;Derived&gt;</code> adapter:</p>
 
-<p>class ArduinoSPIBus : public tle92466ed::SpiInterface<ArduinoSPIBus> {
-private:
-    uint8_t cs_pin_;</ArduinoSPIBus></p>
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Init()</code> / <code class="language-plaintext highlighter-rouge">Deinit()</code></td>
+      <td>Initialize and release SPI + GPIO</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Transfer32()</code></td>
+      <td>One full-duplex 32-bit frame (CS managed by adapter)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TransferMulti()</code></td>
+      <td><strong>Required:</strong> consecutive frames in one CS window (pipelined reads)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Delay()</code></td>
+      <td>Microsecond delay</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Configure()</code></td>
+      <td>Apply <code class="language-plaintext highlighter-rouge">SPIConfig</code> (Mode 1, up to 10 MHz)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">IsReady()</code></td>
+      <td>True when hardware is initialized</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">GetLastError()</code> / <code class="language-plaintext highlighter-rouge">ClearErrors()</code></td>
+      <td>Error state</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">GpioSet()</code> / <code class="language-plaintext highlighter-rouge">GpioRead()</code></td>
+      <td>RESN, EN, FAULTN control</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Log()</code></td>
+      <td>Optional printf-style logging hook</td>
+    </tr>
+  </tbody>
+</table></div>
+<h2 id="implementation-steps">
+  
+  
+    <a href="#implementation-steps" class="anchor-heading" aria-labelledby="implementation-steps"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Implementation Steps
+  
+  
+</h2>
+    
+<h3 id="step-1-create-your-implementation-class">
+  
+  
+    <a href="#step-1-create-your-implementation-class" class="anchor-heading" aria-labelledby="step-1-create-your-implementation-class"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Step 1: Create Your Implementation Class
+  
+  
+</h3>
+    
 
-<p>public:
-    ArduinoSPIBus(uint8<em>t cs_pin) : cs_pin</em>(cs_pin) {
-        pinMode(cs_pin_, OUTPUT);
-        digitalWrite(cs_pin_, HIGH);
-        SPI.begin();
-        SPI.beginTransaction(SPISettings(1000000, MSBFIRST, SPI_MODE1));
-    }</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -665,49 +535,348 @@ private:
 15
 16
 17
-</pre></td><td class="rouge-code"><pre>auto spiTransfer(std::span&lt;const uint8_t&gt; txData, 
-                 std::span&lt;uint8_t&gt; rxData) noexcept 
-    -&gt; std::expected&lt;void, tle92466ed::CommError&gt; override {
-    digitalWrite(cs_pin_, LOW);
-    
-    // Transfer 32-bit frame (4 bytes)
-    for (size_t i = 0; i &lt; 4; i++) {
-        rxData[i] = SPI.transfer(txData[i]);
-    }
-    
-    digitalWrite(cs_pin_, HIGH);
-    return {};
-}
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+</pre></td><td class="rouge-code"><pre><span class="cp">#include</span> <span class="cpf">"tle92466ed_spi_interface.hpp"</span><span class="cp">
+</span>
+<span class="k">class</span> <span class="nc">MyPlatformSPI</span> <span class="o">:</span> <span class="k">public</span> <span class="n">tle92466ed</span><span class="o">::</span><span class="n">SpiInterface</span><span class="o">&lt;</span><span class="n">MyPlatformSPI</span><span class="o">&gt;</span> <span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="n">tle92466ed</span><span class="o">::</span><span class="n">CommResult</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;</span> <span class="n">Transfer32</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">tx_data</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span>
+        <span class="c1">// Assert CS, clock 32 bits full-duplex, deassert CS</span>
+        <span class="k">return</span> <span class="n">rx_word</span><span class="p">;</span>
+    <span class="p">}</span>
 
-void delayMicroseconds(uint32_t us) noexcept override {
-    delayMicroseconds(us);
-} }; ```cpp
+    <span class="n">tle92466ed</span><span class="o">::</span><span class="n">CommResult</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="n">TransferMulti</span><span class="p">(</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">span</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">uint32_t</span><span class="o">&gt;</span> <span class="n">tx_data</span><span class="p">,</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">span</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;</span> <span class="n">rx_data</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">tx_data</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">!=</span> <span class="n">rx_data</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">tle</span><span class="o">::</span><span class="n">unexpected</span><span class="p">(</span><span class="n">tle92466ed</span><span class="o">::</span><span class="n">CommError</span><span class="o">::</span><span class="n">InvalidParameter</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="c1">// CS LOW — transfer each word without releasing CS — CS HIGH</span>
+        <span class="k">return</span> <span class="p">{};</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ... Init, Delay, Configure, GpioSet, GpioRead, Log, etc.</span>
+<span class="p">};</span>
+
+<span class="cp">### Step 2: Platform-Specific Examples
+</span>
+<span class="cp">#### ESP32 (ESP-IDF)
+</span>
+<span class="err">```</span><span class="n">cpp</span>
+<span class="cp">#include</span> <span class="cpf">"driver/spi_master.h"</span><span class="cp">
+#include</span> <span class="cpf">"tle92466ed_spi_interface.hpp"</span><span class="cp">
+</span>
+<span class="k">class</span> <span class="nc">Esp32SPIBus</span> <span class="o">:</span> <span class="k">public</span> <span class="n">tle92466ed</span><span class="o">::</span><span class="n">SpiInterface</span><span class="o">&lt;</span><span class="n">Esp32SPIBus</span><span class="o">&gt;</span> <span class="p">{</span>
+<span class="nl">private:</span>
+    <span class="n">spi_device_handle_t</span> <span class="n">spi_device_</span><span class="p">;</span>
+
+<span class="nl">public:</span>
+    <span class="n">Esp32SPIBus</span><span class="p">(</span><span class="n">spi_host_device_t</span> <span class="n">host</span><span class="p">,</span> <span class="k">const</span> <span class="n">spi_device_interface_config_t</span><span class="o">&amp;</span> <span class="n">config</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">spi_bus_add_device</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">config</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">spi_device_</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">tle92466ed</span><span class="o">::</span><span class="n">CommResult</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;</span> <span class="n">Transfer32</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">tx_data</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span>
+        <span class="n">spi_transaction_t</span> <span class="n">trans</span> <span class="o">=</span> <span class="p">{};</span>
+        <span class="n">trans</span><span class="p">.</span><span class="n">length</span> <span class="o">=</span> <span class="mi">32</span><span class="p">;</span>
+        <span class="n">trans</span><span class="p">.</span><span class="n">tx_data</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">tx_data</span><span class="p">;</span>
+        <span class="kt">uint32_t</span> <span class="n">rx_data</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">trans</span><span class="p">.</span><span class="n">rx_data</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">rx_data</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">spi_device_transmit</span><span class="p">(</span><span class="n">spi_device_</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">trans</span><span class="p">)</span> <span class="o">!=</span> <span class="n">ESP_OK</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">tle</span><span class="o">::</span><span class="n">unexpected</span><span class="p">(</span><span class="n">tle92466ed</span><span class="o">::</span><span class="n">CommError</span><span class="o">::</span><span class="n">BusError</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">rx_data</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">tle92466ed</span><span class="o">::</span><span class="n">CommResult</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="n">TransferMulti</span><span class="p">(</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">span</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">uint32_t</span><span class="o">&gt;</span> <span class="n">tx_data</span><span class="p">,</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">span</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;</span> <span class="n">rx_data</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">tx_data</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">!=</span> <span class="n">rx_data</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">tle</span><span class="o">::</span><span class="n">unexpected</span><span class="p">(</span><span class="n">tle92466ed</span><span class="o">::</span><span class="n">CommError</span><span class="o">::</span><span class="n">InvalidParameter</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">tx_data</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">auto</span> <span class="n">r</span> <span class="o">=</span> <span class="n">Transfer32</span><span class="p">(</span><span class="n">tx_data</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">r</span><span class="p">)</span> <span class="k">return</span> <span class="n">tle</span><span class="o">::</span><span class="n">unexpected</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">error</span><span class="p">());</span>
+            <span class="n">rx_data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">*</span><span class="n">r</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="p">{};</span>
+    <span class="p">}</span>
+
+    <span class="n">tle92466ed</span><span class="o">::</span><span class="n">CommResult</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="n">Delay</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">us</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span>
+        <span class="n">esp_rom_delay_us</span><span class="p">(</span><span class="n">us</span><span class="p">);</span>
+        <span class="k">return</span> <span class="p">{};</span>
+    <span class="p">}</span>
+    <span class="c1">// ... remaining SpiInterface methods</span>
+<span class="p">};</span>
+
+<span class="cp">#### STM32 (HAL)
+</span>
+<span class="err">```</span><span class="n">cpp</span>
+<span class="cp">#include</span> <span class="cpf">"stm32f4xx_hal.h"</span><span class="cp">
+#include</span> <span class="cpf">"tle92466ed_spi_interface.hpp"</span><span class="cp">
+</span>
+<span class="k">extern</span> <span class="n">SPI_HandleTypeDef</span> <span class="n">hspi1</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">STM32SPIBus</span> <span class="o">:</span> <span class="k">public</span> <span class="n">tle92466ed</span><span class="o">::</span><span class="n">SpiInterface</span><span class="o">&lt;</span><span class="n">STM32SPIBus</span><span class="o">&gt;</span> <span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="n">tle92466ed</span><span class="o">::</span><span class="n">CommResult</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;</span> <span class="n">Transfer32</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">tx_data</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span>
+        <span class="kt">uint32_t</span> <span class="n">rx_data</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">HAL_GPIO_WritePin</span><span class="p">(</span><span class="n">cs_port_</span><span class="p">,</span> <span class="n">cs_pin_</span><span class="p">,</span> <span class="n">GPIO_PIN_RESET</span><span class="p">);</span>
+        <span class="n">HAL_StatusTypeDef</span> <span class="n">status</span> <span class="o">=</span> <span class="n">HAL_SPI_TransmitReceive</span><span class="p">(</span>
+            <span class="o">&amp;</span><span class="n">hspi1</span><span class="p">,</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tx_data</span><span class="p">),</span>
+            <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rx_data</span><span class="p">),</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+        <span class="n">HAL_GPIO_WritePin</span><span class="p">(</span><span class="n">cs_port_</span><span class="p">,</span> <span class="n">cs_pin_</span><span class="p">,</span> <span class="n">GPIO_PIN_SET</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">status</span> <span class="o">!=</span> <span class="n">HAL_OK</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">tle</span><span class="o">::</span><span class="n">unexpected</span><span class="p">(</span><span class="n">tle92466ed</span><span class="o">::</span><span class="n">CommError</span><span class="o">::</span><span class="n">BusError</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">rx_data</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">tle92466ed</span><span class="o">::</span><span class="n">CommResult</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="n">TransferMulti</span><span class="p">(</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">span</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">uint32_t</span><span class="o">&gt;</span> <span class="n">tx_data</span><span class="p">,</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">span</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;</span> <span class="n">rx_data</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span>
+        <span class="n">HAL_GPIO_WritePin</span><span class="p">(</span><span class="n">cs_port_</span><span class="p">,</span> <span class="n">cs_pin_</span><span class="p">,</span> <span class="n">GPIO_PIN_RESET</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">tx_data</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">uint32_t</span> <span class="n">rx_word</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="n">HAL_StatusTypeDef</span> <span class="n">status</span> <span class="o">=</span> <span class="n">HAL_SPI_TransmitReceive</span><span class="p">(</span>
+                <span class="o">&amp;</span><span class="n">hspi1</span><span class="p">,</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">*&gt;</span><span class="p">(</span><span class="k">const_cast</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tx_data</span><span class="p">[</span><span class="n">i</span><span class="p">])),</span>
+                <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rx_word</span><span class="p">),</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">status</span> <span class="o">!=</span> <span class="n">HAL_OK</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">HAL_GPIO_WritePin</span><span class="p">(</span><span class="n">cs_port_</span><span class="p">,</span> <span class="n">cs_pin_</span><span class="p">,</span> <span class="n">GPIO_PIN_SET</span><span class="p">);</span>
+                <span class="k">return</span> <span class="n">tle</span><span class="o">::</span><span class="n">unexpected</span><span class="p">(</span><span class="n">tle92466ed</span><span class="o">::</span><span class="n">CommError</span><span class="o">::</span><span class="n">BusError</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">rx_data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rx_word</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">HAL_GPIO_WritePin</span><span class="p">(</span><span class="n">cs_port_</span><span class="p">,</span> <span class="n">cs_pin_</span><span class="p">,</span> <span class="n">GPIO_PIN_SET</span><span class="p">);</span>
+        <span class="k">return</span> <span class="p">{};</span>
+    <span class="p">}</span>
+    <span class="c1">// ... remaining SpiInterface methods</span>
+<span class="p">};</span>
+
+<span class="cp">#### Arduino
+</span>
+<span class="err">```</span><span class="n">cpp</span>
+<span class="cp">#include</span> <span class="cpf">&lt;SPI.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">"tle92466ed_spi_interface.hpp"</span><span class="cp">
+</span>
+<span class="k">class</span> <span class="nc">ArduinoSPIBus</span> <span class="o">:</span> <span class="k">public</span> <span class="n">tle92466ed</span><span class="o">::</span><span class="n">SpiInterface</span><span class="o">&lt;</span><span class="n">ArduinoSPIBus</span><span class="o">&gt;</span> <span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="k">explicit</span> <span class="n">ArduinoSPIBus</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">cs_pin</span><span class="p">)</span> <span class="o">:</span> <span class="n">cs_pin_</span><span class="p">(</span><span class="n">cs_pin</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">pinMode</span><span class="p">(</span><span class="n">cs_pin_</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">cs_pin_</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+        <span class="n">SPI</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="n">tle92466ed</span><span class="o">::</span><span class="n">CommResult</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;</span> <span class="n">Transfer32</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">tx_data</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span>
+        <span class="n">SPI</span><span class="p">.</span><span class="n">beginTransaction</span><span class="p">(</span><span class="n">SPISettings</span><span class="p">(</span><span class="mi">1000000</span><span class="p">,</span> <span class="n">MSBFIRST</span><span class="p">,</span> <span class="n">SPI_MODE1</span><span class="p">));</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">cs_pin_</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+        <span class="kt">uint32_t</span> <span class="n">rx_data</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">auto</span><span class="o">*</span> <span class="n">tx_bytes</span> <span class="o">=</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tx_data</span><span class="p">);</span>
+        <span class="k">auto</span><span class="o">*</span> <span class="n">rx_bytes</span> <span class="o">=</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rx_data</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">rx_bytes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">SPI</span><span class="p">.</span><span class="n">transfer</span><span class="p">(</span><span class="n">tx_bytes</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">cs_pin_</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+        <span class="n">SPI</span><span class="p">.</span><span class="n">endTransaction</span><span class="p">();</span>
+        <span class="k">return</span> <span class="n">rx_data</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">tle92466ed</span><span class="o">::</span><span class="n">CommResult</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="n">TransferMulti</span><span class="p">(</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">span</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">uint32_t</span><span class="o">&gt;</span> <span class="n">tx_data</span><span class="p">,</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">span</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;</span> <span class="n">rx_data</span><span class="p">)</span> <span class="k">noexcept</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">tx_data</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">!=</span> <span class="n">rx_data</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">tle</span><span class="o">::</span><span class="n">unexpected</span><span class="p">(</span><span class="n">tle92466ed</span><span class="o">::</span><span class="n">CommError</span><span class="o">::</span><span class="n">InvalidParameter</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">SPI</span><span class="p">.</span><span class="n">beginTransaction</span><span class="p">(</span><span class="n">SPISettings</span><span class="p">(</span><span class="mi">1000000</span><span class="p">,</span> <span class="n">MSBFIRST</span><span class="p">,</span> <span class="n">SPI_MODE1</span><span class="p">));</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">cs_pin_</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">tx_data</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">uint32_t</span> <span class="n">rx_word</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="k">auto</span><span class="o">*</span> <span class="n">tx_bytes</span> <span class="o">=</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">uint8_t</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tx_data</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+            <span class="k">auto</span><span class="o">*</span> <span class="n">rx_bytes</span> <span class="o">=</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rx_word</span><span class="p">);</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="o">++</span><span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">rx_bytes</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="n">SPI</span><span class="p">.</span><span class="n">transfer</span><span class="p">(</span><span class="n">tx_bytes</span><span class="p">[</span><span class="n">b</span><span class="p">]);</span>
+            <span class="p">}</span>
+            <span class="n">rx_data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rx_word</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">cs_pin_</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+        <span class="n">SPI</span><span class="p">.</span><span class="n">endTransaction</span><span class="p">();</span>
+        <span class="k">return</span> <span class="p">{};</span>
+    <span class="p">}</span>
+    <span class="c1">// ... remaining SpiInterface methods</span>
+<span class="p">};</span>
+
+<span class="cp">## SPI Frame Format
+</span>
+<span class="n">The</span> <span class="n">TLE92466ED</span> <span class="n">uses</span> <span class="o">**</span><span class="mi">32</span><span class="o">-</span><span class="n">bit</span> <span class="n">SPI</span> <span class="n">frames</span><span class="o">**</span> <span class="n">with</span> <span class="n">CRC</span><span class="o">-</span><span class="mi">8</span> <span class="p">(</span><span class="n">SAE</span> <span class="n">J1850</span><span class="p">)</span><span class="o">:</span>
+
+<span class="cp">### Write Frame Format
+</span>
+<span class="err">```</span><span class="n">cpp</span>
+<span class="n">Bits</span> <span class="mi">31</span><span class="o">-</span><span class="mi">24</span> <span class="o">|</span> <span class="n">Bits</span> <span class="mi">23</span><span class="o">-</span><span class="mi">17</span> <span class="o">|</span> <span class="n">Bit</span> <span class="mi">16</span> <span class="o">|</span> <span class="n">Bits</span> <span class="mi">15</span><span class="o">-</span><span class="mi">0</span>
+<span class="o">-----------+------------+--------+-----------</span>
+<span class="n">CRC</span> <span class="p">(</span><span class="mi">8</span><span class="o">-</span><span class="n">bit</span><span class="p">)</span><span class="o">|</span> <span class="n">Address</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="o">|</span>  <span class="n">R</span><span class="o">/</span><span class="n">W</span>   <span class="o">|</span> <span class="n">Data</span> <span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+           <span class="o">|</span>            <span class="o">|</span>  <span class="mi">1</span><span class="o">=</span><span class="n">W</span>   <span class="o">|</span>
 </pre></td></tr></tbody></table></div></code></pre></div></div>
-<h2 id="spi-frame-format">
-  
-  
-    <a href="#spi-frame-format" class="anchor-heading" aria-labelledby="spi-frame-format"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> SPI Frame Format
-  
-  
-</h2>
-    
-
-<p>The TLE92466ED uses <strong>32-bit SPI frames</strong> with CRC-8 (SAE J1850):</p>
-<h3 id="write-frame-format">
-  
-  
-    <a href="#write-frame-format" class="anchor-heading" aria-labelledby="write-frame-format"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Write Frame Format
-  
-  
-</h3>
-    
-
-<p><code class="language-plaintext highlighter-rouge">cpp
-Bits 31-24 | Bits 23-17 | Bit 16 | Bits 15-0
------------+------------+--------+-----------
-CRC (8-bit)| Address(7) |  R/W   | Data (16)
-           |            |  1=W   |
-</code>cpp</p>
 <h3 id="read-frame-format">
   
   
@@ -717,12 +886,41 @@ CRC (8-bit)| Address(7) |  R/W   | Data (16)
 </h3>
     
 
-<p><code class="language-plaintext highlighter-rouge">cpp
-Bits 31-24 | Bits 23-17 | Bit 16 | Bits 15-0
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>Bits 31-24 | Bits 23-17 | Bit 16 | Bits 15-0
 -----------+------------+--------+-----------
 CRC (8-bit)| Don't Care |  R/W   | Address (16-bit)
            |            |  0=R   |
-</code>text</p>
+</pre></td></tr></tbody></table></div></code></pre></div></div>
+<h3 id="read--write-pipeline">
+  
+  
+    <a href="#read--write-pipeline" class="anchor-heading" aria-labelledby="read--write-pipeline"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Read / Write Pipeline
+  
+  
+</h3>
+    
+
+<p>Register access always uses <strong>two consecutive 32-bit frames</strong> per transaction:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>CS ──┐                              ┌──
+     └─ Frame1 (command) ─ Frame2 (dummy/reply) ─┘
+              ↑                      ↑
+         MOSI: read addr         MOSI: don't care
+         MISO: not valid yet      MISO: latched reply
+</pre></td></tr></tbody></table></div></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">TransferMulti()</code> must keep CS low across both frames. On a shared bus, do not call
+<code class="language-plaintext highlighter-rouge">Transfer32()</code> twice with CS toggling between them for driver register reads — use
+<code class="language-plaintext highlighter-rouge">TransferMulti()</code> or equivalent.</p>
 <h3 id="spi-configuration">
   
   
@@ -756,51 +954,73 @@ CRC (8-bit)| Don't Care |  R/W   | Address (16-bit)
   <li><strong>FAULTN</strong>: Active-low fault output (open drain)</li>
 </ul>
 
-<p><code class="language-plaintext highlighter-rouge">cpp
-auto GpioSet(tle92466ed::CtrlPin pin, tle92466ed::GpioSignal signal) noexcept 
-    -&gt; std::expected&lt;void, tle92466ed::CommError&gt; override {
-    switch (pin) {
-        case tle92466ed::CtrlPin::RESN:
-            // Set RESN pin (active low)
-            gpio_set_level(resn_pin_, signal == tle92466ed::GpioSignal::ACTIVE ? 0 : 1);
-            break;
-        case tle92466ed::CtrlPin::EN:
-            // Set EN pin (active high)
-            gpio_set_level(en_pin_, signal == tle92466ed::GpioSignal::ACTIVE ? 1 : 0);
-            break;
-        default:
-            return tle::unexpected(tle92466ed::CommError::InvalidParameter);
-    }
-    return {};
-}
-</code>cpp</p>
-<h2 id="error-handling">
-  
-  
-    <a href="#error-handling" class="anchor-heading" aria-labelledby="error-handling"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Error Handling
-  
-  
-</h2>
-    
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+</pre></td><td class="rouge-code"><pre><span class="k">auto</span> <span class="nf">GpioSet</span><span class="p">(</span><span class="n">tle92466ed</span><span class="o">::</span><span class="n">CtrlPin</span> <span class="n">pin</span><span class="p">,</span> <span class="n">tle92466ed</span><span class="o">::</span><span class="n">GpioSignal</span> <span class="n">signal</span><span class="p">)</span> <span class="k">noexcept</span> 
+    <span class="o">-&gt;</span> <span class="n">std</span><span class="o">::</span><span class="n">expected</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">,</span> <span class="n">tle92466ed</span><span class="o">::</span><span class="n">CommError</span><span class="o">&gt;</span> <span class="k">override</span> <span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">pin</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="n">tle92466ed</span><span class="o">::</span><span class="n">CtrlPin</span><span class="o">::</span><span class="n">RESN</span><span class="p">:</span>
+            <span class="c1">// Set RESN pin (active low)</span>
+            <span class="n">gpio_set_level</span><span class="p">(</span><span class="n">resn_pin_</span><span class="p">,</span> <span class="n">signal</span> <span class="o">==</span> <span class="n">tle92466ed</span><span class="o">::</span><span class="n">GpioSignal</span><span class="o">::</span><span class="n">ACTIVE</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="mi">1</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="n">tle92466ed</span><span class="o">::</span><span class="n">CtrlPin</span><span class="o">::</span><span class="n">EN</span><span class="p">:</span>
+            <span class="c1">// Set EN pin (active high)</span>
+            <span class="n">gpio_set_level</span><span class="p">(</span><span class="n">en_pin_</span><span class="p">,</span> <span class="n">signal</span> <span class="o">==</span> <span class="n">tle92466ed</span><span class="o">::</span><span class="n">GpioSignal</span><span class="o">::</span><span class="n">ACTIVE</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="nl">default:</span>
+            <span class="k">return</span> <span class="n">tle</span><span class="o">::</span><span class="n">unexpected</span><span class="p">(</span><span class="n">tle92466ed</span><span class="o">::</span><span class="n">CommError</span><span class="o">::</span><span class="n">InvalidParameter</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="p">{};</span>
+<span class="p">}</span>
+<span class="err">```</span><span class="n">cpp</span>
 
-<p>All methods return <code class="language-plaintext highlighter-rouge">std::expected&lt;T, CommError&gt;</code>. Handle errors like this:</p>
+<span class="cp">## Error Handling
+</span>
+<span class="n">All</span> <span class="n">methods</span> <span class="k">return</span> <span class="err">`</span><span class="n">tle</span><span class="o">::</span><span class="n">expected</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">CommError</span><span class="o">&gt;</span><span class="err">`</span><span class="p">.</span> <span class="n">Handle</span> <span class="n">errors</span> <span class="n">like</span> <span class="k">this</span><span class="o">:</span>
 
-<p><code class="language-plaintext highlighter-rouge">cpp
-if (auto result = spi_interface.spiTransfer(tx, rx); !result) {
-    // Handle error
-    switch (result.error()) {
-        case tle92466ed::CommError::BusError:
-            // SPI bus error
-            break;
-        case tle92466ed::CommError::Timeout:
-            // Operation timeout
-            break;
-        default:
-            // Other errors
-            break;
-    }
-}
-</code>cpp</p>
+<span class="err">```</span><span class="n">cpp</span>
+<span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="n">result</span> <span class="o">=</span> <span class="n">spi</span><span class="p">.</span><span class="n">TransferMulti</span><span class="p">(</span><span class="n">tx_span</span><span class="p">,</span> <span class="n">rx_span</span><span class="p">);</span> <span class="o">!</span><span class="n">result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">error</span><span class="p">())</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="n">tle92466ed</span><span class="o">::</span><span class="n">CommError</span><span class="o">::</span><span class="n">BusError</span><span class="p">:</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="n">tle92466ed</span><span class="o">::</span><span class="n">CommError</span><span class="o">::</span><span class="n">Timeout</span><span class="p">:</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="nl">default:</span>
+            <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></div></code></pre></div></div>
 <h2 id="testing-your-implementation">
   
   

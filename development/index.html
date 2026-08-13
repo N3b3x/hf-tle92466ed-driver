@@ -325,7 +325,7 @@ Interactive guides, examples, and step-by-step tutorials</p>
   <li>✅ <strong>Fault Mask Control</strong>: Per-source enable/suppress of FAULTN pin contribution via FAULT_MASK0/1/2</li>
   <li>✅ <strong>Atomic Channel Feedback</strong>: Coherent per-channel snapshot (avg current, duty cycle, VBAT, IMIN/IMAX, period min/max, integrator threshold) using FB_FRZ/FB_UPD handshake</li>
   <li>✅ <strong>Safe Mission-Mode Entry</strong>: <code class="language-plaintext highlighter-rouge">EnterMissionModeChecked()</code> waits for settle time and verifies no fault</li>
-  <li>✅ <strong>Hardware Agnostic</strong>: SPI interface for platform independence</li>
+  <li>✅ <strong>Hardware Agnostic</strong>: CRTP SPI interface; pipelined two-frame reads via <code class="language-plaintext highlighter-rouge">TransferMulti()</code></li>
   <li>✅ <strong>Modern C++20</strong>: Using <code class="language-plaintext highlighter-rouge">tle::expected</code> (polyfill for <code class="language-plaintext highlighter-rouge">std::expected</code>) for type-safe error handling without exceptions</li>
   <li>✅ <strong>Zero Overhead</strong>: All functions <code class="language-plaintext highlighter-rouge">noexcept</code>, freestanding-compatible</li>
 </ul>
@@ -502,6 +502,14 @@ Interactive guides, examples, and step-by-step tutorials</p>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SetOlsgTimeout()</code></td>
       <td>Configure open-load/short-to-GND detection timeout</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">GetAverageCurrent()</code></td>
+      <td>Average load current (mA); returns <code class="language-plaintext highlighter-rouge">FeedbackNotReady</code> if measurement window invalid</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">GetCalibrationAvgCurrent_mA()</code></td>
+      <td>Signed calibration current from <code class="language-plaintext highlighter-rouge">FB_I_AVG_s16</code></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReadChannelFeedback()</code></td>

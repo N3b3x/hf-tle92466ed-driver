@@ -136,7 +136,7 @@ $(function(){initNavTree('index.html',''); initResizable(); });
 <li>✅ <b>Fault Mask Control</b>: Per-source enable/suppress of FAULTN pin contribution via FAULT_MASK0/1/2</li>
 <li>✅ <b>Atomic Channel Feedback</b>: Coherent per-channel snapshot (avg current, duty cycle, VBAT, IMIN/IMAX, period min/max, integrator threshold) using FB_FRZ/FB_UPD handshake</li>
 <li>✅ <b>Safe Mission-Mode Entry</b>: <code>EnterMissionModeChecked()</code> waits for settle time and verifies no fault</li>
-<li>✅ <b>Hardware Agnostic</b>: SPI interface for platform independence</li>
+<li>✅ <b>Hardware Agnostic</b>: CRTP SPI interface; pipelined two-frame reads via <code>TransferMulti()</code></li>
 <li>✅ <b>Modern C++20</b>: Using <code>tle::expected</code> (polyfill for <code>std::expected</code>) for type-safe error handling without exceptions</li>
 <li>✅ <b>Zero Overhead</b>: All functions <code>noexcept</code>, freestanding-compatible</li>
 </ul>
@@ -220,6 +220,10 @@ $(function(){initNavTree('index.html',''); initResizable(); });
 <td class="markdownTableBodyNone"><code>SetFaultMask()</code>   </td><td class="markdownTableBodyNone">Enable or suppress a fault source on the FAULTN pin    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><code>SetOlsgTimeout()</code>   </td><td class="markdownTableBodyNone">Configure open-load/short-to-GND detection timeout    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>GetAverageCurrent()</code>   </td><td class="markdownTableBodyNone">Average load current (mA); returns <code>FeedbackNotReady</code> if measurement window invalid    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>GetCalibrationAvgCurrent_mA()</code>   </td><td class="markdownTableBodyNone">Signed calibration current from <code>FB_I_AVG_s16</code>    </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><code>ReadChannelFeedback()</code>   </td><td class="markdownTableBodyNone">Read coherent per-channel snapshot (avg current, duty, VBAT, IMIN/IMAX, period)    </td></tr>
 <tr class="markdownTableRowEven">

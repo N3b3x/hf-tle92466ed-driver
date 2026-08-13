@@ -61,7 +61,7 @@
 <codeline><highlight class="normal">-<sp/>✅<sp/>**Fault<sp/>Mask<sp/>Control**:<sp/>Per-source<sp/>enable/suppress<sp/>of<sp/>FAULTN<sp/>pin<sp/>contribution<sp/>via<sp/>FAULT_MASK0/1/2</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>✅<sp/>**Atomic<sp/>Channel<sp/>Feedback**:<sp/>Coherent<sp/>per-channel<sp/>snapshot<sp/>(avg<sp/>current,<sp/>duty<sp/>cycle,<sp/>VBAT,<sp/>IMIN/IMAX,<sp/>period<sp/>min/max,<sp/>integrator<sp/>threshold)<sp/>using<sp/>FB_FRZ/FB_UPD<sp/>handshake</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>✅<sp/>**Safe<sp/>Mission-Mode<sp/>Entry**:<sp/>`EnterMissionModeChecked()`<sp/>waits<sp/>for<sp/>settle<sp/>time<sp/>and<sp/>verifies<sp/>no<sp/>fault</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>✅<sp/>**Hardware<sp/>Agnostic**:<sp/>SPI<sp/>interface<sp/>for<sp/>platform<sp/>independence</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>✅<sp/>**Hardware<sp/>Agnostic**:<sp/>CRTP<sp/>SPI<sp/>interface;<sp/>pipelined<sp/>two-frame<sp/>reads<sp/>via<sp/>`TransferMulti()`</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>✅<sp/>**Modern<sp/>C++20**:<sp/>Using<sp/>`tle::expected`<sp/>(polyfill<sp/>for<sp/>`std::expected`)<sp/>for<sp/>type-safe<sp/>error<sp/>handling<sp/>without<sp/>exceptions</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>✅<sp/>**Zero<sp/>Overhead**:<sp/>All<sp/>functions<sp/>`noexcept`,<sp/>freestanding-compatible</highlight></codeline>
 <codeline></codeline>
@@ -130,6 +130,8 @@
 <codeline><highlight class="normal">|<sp/>`ReadPinStatus()`<sp/>|<sp/>Read<sp/>DRV0/DRV1/EN/FAULTN/FAULTN_FB<sp/>pin<sp/>states<sp/>|</highlight></codeline>
 <codeline><highlight class="normal">|<sp/>`SetFaultMask()`<sp/>|<sp/>Enable<sp/>or<sp/>suppress<sp/>a<sp/>fault<sp/>source<sp/>on<sp/>the<sp/>FAULTN<sp/>pin<sp/>|</highlight></codeline>
 <codeline><highlight class="normal">|<sp/>`SetOlsgTimeout()`<sp/>|<sp/>Configure<sp/>open-load/short-to-GND<sp/>detection<sp/>timeout<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`GetAverageCurrent()`<sp/>|<sp/>Average<sp/>load<sp/>current<sp/>(mA);<sp/>returns<sp/>`FeedbackNotReady`<sp/>if<sp/>measurement<sp/>window<sp/>invalid<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`GetCalibrationAvgCurrent_mA()`<sp/>|<sp/>Signed<sp/>calibration<sp/>current<sp/>from<sp/>`FB_I_AVG_s16`<sp/>|</highlight></codeline>
 <codeline><highlight class="normal">|<sp/>`ReadChannelFeedback()`<sp/>|<sp/>Read<sp/>coherent<sp/>per-channel<sp/>snapshot<sp/>(avg<sp/>current,<sp/>duty,<sp/>VBAT,<sp/>IMIN/IMAX,<sp/>period)<sp/>|</highlight></codeline>
 <codeline><highlight class="normal">|<sp/>`ReadAllChannelFeedback()`<sp/>|<sp/>Read<sp/>coherent<sp/>snapshot<sp/>for<sp/>all<sp/>6<sp/>channels<sp/>|</highlight></codeline>
 <codeline><highlight class="normal">|<sp/>`RunSupplyMonitorSelfTest()`<sp/>|<sp/>Execute<sp/>four-phase<sp/>supply-monitor<sp/>self-test<sp/>|</highlight></codeline>

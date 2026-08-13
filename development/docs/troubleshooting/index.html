@@ -709,6 +709,44 @@
 92
 93
 94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
 </pre></td><td class="rouge-code"><pre><span class="c1">// Enable driver logging (if supported by your SPI interface)</span>
 <span class="n">hal</span><span class="o">-&gt;</span><span class="n">SetLogLevel</span><span class="p">(</span><span class="n">tle92466ed</span><span class="o">::</span><span class="n">LogLevel</span><span class="o">::</span><span class="n">Debug</span><span class="p">);</span>
 <span class="err">```</span><span class="n">cpp</span>
@@ -749,16 +787,54 @@
 <span class="mf">4.</span> <span class="o">**</span><span class="n">Parallel</span> <span class="n">Mode</span> <span class="n">Mismatch</span><span class="o">**:</span> <span class="n">Forgetting</span> <span class="n">to</span> <span class="n">set</span> <span class="err">`</span><span class="n">parallel_mode</span> <span class="o">=</span> <span class="nb">true</span><span class="err">`</span> <span class="n">when</span> <span class="k">using</span> <span class="n">parallel</span> <span class="n">pairs</span>
 <span class="mf">5.</span> <span class="o">**</span><span class="n">Current</span> <span class="n">Out</span> <span class="n">of</span> <span class="n">Range</span><span class="o">**:</span> <span class="n">Setting</span> <span class="n">current</span> <span class="n">above</span> <span class="mi">2000</span><span class="n">mA</span> <span class="n">in</span> <span class="n">single</span> <span class="n">mode</span>
 
+<span class="o">---</span>
+
+<span class="cp">### Error: Feedback Not Ready
+</span>
+<span class="o">**</span><span class="n">Symptoms</span><span class="o">:**</span>
+
+<span class="o">-</span> <span class="err">`</span><span class="n">GetAverageCurrent</span><span class="p">()</span><span class="err">`</span> <span class="n">returns</span> <span class="err">`</span><span class="n">DriverError</span><span class="o">::</span><span class="n">FeedbackNotReady</span><span class="err">`</span>
+<span class="o">-</span> <span class="n">Feedback</span> <span class="n">registers</span> <span class="n">read</span> <span class="n">as</span> <span class="n">zero</span> <span class="n">or</span> <span class="n">duty</span><span class="o">/</span><span class="n">current</span> <span class="n">look</span> <span class="n">nonsensical</span>
+
+<span class="o">**</span><span class="n">Causes</span><span class="o">:**</span>
+
+<span class="o">-</span> <span class="err">`</span><span class="n">DITHER_CLK_DIV</span><span class="err">`</span> <span class="n">still</span> <span class="n">at</span> <span class="n">POR</span> <span class="n">value</span> <span class="mi">0</span> <span class="err">—</span> <span class="n">the</span> <span class="n">averaged</span><span class="o">-</span><span class="n">feedback</span> <span class="n">engine</span> <span class="n">never</span> <span class="n">runs</span>
+<span class="o">-</span> <span class="n">Feedback</span> <span class="n">frozen</span> <span class="n">via</span> <span class="err">`</span><span class="n">FB_FRZ</span><span class="err">`</span> <span class="p">(</span><span class="n">including</span> <span class="n">a</span> <span class="n">stuck</span> <span class="n">freeze</span> <span class="n">from</span> <span class="n">an</span> <span class="n">aborted</span> <span class="err">`</span><span class="n">ReadChannelFeedback</span><span class="p">()</span><span class="err">`</span><span class="p">)</span>
+<span class="o">-</span> <span class="err">`</span><span class="n">TP_MANT</span><span class="err">`</span> <span class="n">in</span> <span class="err">`</span><span class="n">FB_DC</span><span class="err">`</span> <span class="n">below</span> <span class="err">`</span><span class="n">FB_FEEDBACK</span><span class="o">::</span><span class="n">kMinValidTpMant</span><span class="err">`</span> <span class="p">(</span><span class="n">measurement</span> <span class="n">window</span> <span class="n">not</span> <span class="n">established</span><span class="p">)</span>
+<span class="o">-</span> <span class="n">Pipelined</span> <span class="n">SPI</span> <span class="n">reply</span> <span class="n">spliced</span> <span class="n">on</span> <span class="n">a</span> <span class="n">shared</span> <span class="n">bus</span> <span class="p">(</span><span class="n">another</span> <span class="n">slave</span> <span class="n">consumed</span> <span class="n">the</span> <span class="n">dummy</span> <span class="n">frame</span><span class="p">)</span>
+
+<span class="o">**</span><span class="n">Solutions</span><span class="o">:**</span>
+
+<span class="mf">1.</span> <span class="o">**</span><span class="n">Program</span> <span class="n">dither</span> <span class="n">clock</span><span class="o">**:</span> <span class="n">call</span> <span class="err">`</span><span class="n">ConfigureDither</span><span class="p">()</span><span class="err">`</span> <span class="n">or</span> <span class="err">`</span><span class="n">ConfigureDitherClock</span><span class="p">()</span><span class="err">`</span> <span class="n">so</span> <span class="err">`</span><span class="n">DITHER_CLK_DIV</span><span class="err">`</span> <span class="n">has</span> <span class="n">non</span><span class="o">-</span><span class="n">zero</span> <span class="n">MANT</span><span class="o">/</span><span class="n">EXP</span> <span class="n">before</span> <span class="n">reading</span> <span class="n">averaged</span> <span class="n">feedback</span>
+<span class="mf">2.</span> <span class="o">**</span><span class="n">Release</span> <span class="n">freeze</span><span class="o">**:</span> <span class="n">ensure</span> <span class="err">`</span><span class="n">FB_FRZ</span><span class="err">`</span> <span class="n">is</span> <span class="n">cleared</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="k">if</span> <span class="n">a</span> <span class="n">prior</span> <span class="n">snapshot</span> <span class="n">read</span> <span class="n">was</span> <span class="n">interrupted</span>
+<span class="mf">3.</span> <span class="o">**</span><span class="n">Wait</span> <span class="k">for</span> <span class="n">settling</span><span class="o">**:</span> <span class="n">allow</span> <span class="n">at</span> <span class="n">least</span> <span class="n">one</span> <span class="n">full</span> <span class="n">measurement</span> <span class="n">period</span> <span class="n">after</span> <span class="n">enabling</span> <span class="n">ICC</span> <span class="n">before</span> <span class="n">polling</span>
+<span class="mf">4.</span> <span class="o">**</span><span class="n">Fix</span> <span class="n">SPI</span> <span class="n">adapter</span><span class="o">**:</span> <span class="n">implement</span> <span class="err">`</span><span class="n">TransferMulti</span><span class="p">()</span><span class="err">`</span> <span class="n">so</span> <span class="n">both</span> <span class="n">frames</span> <span class="n">of</span> <span class="n">each</span> <span class="n">read</span> <span class="n">stay</span> <span class="n">in</span> <span class="n">one</span> <span class="n">CS</span> <span class="n">window</span> <span class="n">on</span> <span class="n">shared</span> <span class="n">buses</span> <span class="p">(</span><span class="n">see</span> <span class="p">[</span><span class="n">Platform</span> <span class="n">Integration</span><span class="p">](</span><span class="o">/</span><span class="n">hf</span><span class="o">-</span><span class="n">tle92466ed</span><span class="o">-</span><span class="n">driver</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">platform_integration</span><span class="o">/</span><span class="p">))</span>
+
+<span class="o">---</span>
+
+<span class="cp">### Error: Shared-Bus SPI — Corrupted Register Reads
+</span>
+<span class="o">**</span><span class="n">Symptoms</span><span class="o">:**</span>
+
+<span class="o">-</span> <span class="n">Intermittent</span> <span class="n">all</span><span class="o">-</span><span class="n">zero</span> <span class="n">reads</span><span class="p">,</span> <span class="n">wrong</span> <span class="n">device</span> <span class="n">ID</span><span class="p">,</span> <span class="n">or</span> <span class="n">inflated</span> <span class="n">current</span> <span class="n">readings</span>
+<span class="o">-</span> <span class="n">Works</span> <span class="n">on</span> <span class="n">a</span> <span class="n">dedicated</span> <span class="n">bus</span> <span class="n">but</span> <span class="n">fails</span> <span class="n">when</span> <span class="n">multiple</span> <span class="n">SPI</span> <span class="n">slaves</span> <span class="n">share</span> <span class="n">SCK</span><span class="o">/</span><span class="n">MISO</span><span class="o">/</span><span class="n">MOSI</span>
+
+<span class="o">**</span><span class="n">Causes</span><span class="o">:**</span>
+
+<span class="o">-</span> <span class="n">Platform</span> <span class="n">adapter</span> <span class="n">deasserts</span> <span class="n">CS</span> <span class="n">or</span> <span class="n">releases</span> <span class="n">the</span> <span class="n">SPI</span> <span class="n">mutex</span> <span class="n">between</span> <span class="n">the</span> <span class="n">command</span> <span class="n">and</span> <span class="n">dummy</span> <span class="n">frames</span> <span class="n">of</span> <span class="n">a</span> <span class="n">pipelined</span> <span class="n">read</span>
+<span class="o">-</span> <span class="n">Another</span> <span class="n">device</span><span class="err">'</span><span class="n">s</span> <span class="n">transaction</span> <span class="n">consumes</span> <span class="n">the</span> <span class="n">pipeline</span> <span class="n">slot</span>
+
+<span class="o">**</span><span class="n">Solutions</span><span class="o">:**</span>
+
+<span class="mf">1.</span> <span class="n">Implement</span> <span class="err">`</span><span class="n">TransferMulti</span><span class="p">()</span><span class="err">`</span> <span class="n">to</span> <span class="n">clock</span> <span class="n">all</span> <span class="n">words</span> <span class="n">with</span> <span class="n">CS</span> <span class="n">held</span> <span class="n">low</span>
+<span class="mf">2.</span> <span class="n">Do</span> <span class="n">not</span> <span class="n">call</span> <span class="err">`</span><span class="n">Transfer32</span><span class="p">()</span><span class="err">`</span> <span class="n">twice</span> <span class="n">with</span> <span class="n">CS</span> <span class="n">toggling</span> <span class="k">for</span> <span class="n">driver</span> <span class="k">register</span> <span class="n">access</span>
+<span class="mf">3.</span> <span class="n">See</span> <span class="n">the</span> <span class="n">pipelined</span><span class="o">-</span><span class="n">read</span> <span class="n">section</span> <span class="n">in</span> <span class="p">[</span><span class="n">Platform</span> <span class="n">Integration</span><span class="p">](</span><span class="o">/</span><span class="n">hf</span><span class="o">-</span><span class="n">tle92466ed</span><span class="o">-</span><span class="n">driver</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">platform_integration</span><span class="o">/</span><span class="p">)</span>
+
 <span class="cp">## Next Steps
 </span>
 <span class="o">-</span> <span class="n">Review</span> <span class="p">[</span><span class="n">Hardware</span> <span class="n">Setup</span><span class="p">](</span><span class="o">/</span><span class="n">hf</span><span class="o">-</span><span class="n">tle92466ed</span><span class="o">-</span><span class="n">driver</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">hardware_setup</span><span class="o">/</span><span class="p">)</span> <span class="k">for</span> <span class="n">wiring</span> <span class="n">verification</span>
 <span class="o">-</span> <span class="n">Check</span> <span class="p">[</span><span class="n">Platform</span> <span class="n">Integration</span><span class="p">](</span><span class="o">/</span><span class="n">hf</span><span class="o">-</span><span class="n">tle92466ed</span><span class="o">-</span><span class="n">driver</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">platform_integration</span><span class="o">/</span><span class="p">)</span> <span class="k">for</span> <span class="n">SPI</span> <span class="n">interface</span> <span class="n">issues</span>
 <span class="o">-</span> <span class="n">See</span> <span class="p">[</span><span class="n">Examples</span><span class="p">](</span><span class="o">/</span><span class="n">hf</span><span class="o">-</span><span class="n">tle92466ed</span><span class="o">-</span><span class="n">driver</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="p">)</span> <span class="k">for</span> <span class="n">working</span> <span class="n">code</span> <span class="n">samples</span>
-
-<span class="o">---</span>
-
-<span class="o">**</span><span class="n">Navigation</span><span class="o">**</span>
-<span class="err">⬅️</span> <span class="p">[</span><span class="n">Examples</span><span class="p">](</span><span class="o">/</span><span class="n">hf</span><span class="o">-</span><span class="n">tle92466ed</span><span class="o">-</span><span class="n">driver</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="p">)</span> <span class="o">|</span> <span class="p">[</span><span class="n">Back</span> <span class="n">to</span> <span class="n">Index</span><span class="p">](</span><span class="o">/</span><span class="n">hf</span><span class="o">-</span><span class="n">tle92466ed</span><span class="o">-</span><span class="n">driver</span><span class="o">/</span><span class="n">development</span><span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="p">)</span>
 
 <span class="o">---</span>
 
@@ -837,7 +913,7 @@
   <li><strong>Check supply voltages</strong>: call <code class="language-plaintext highlighter-rouge">ReadAllSupplyVoltages()</code> <em>before</em> <code class="language-plaintext highlighter-rouge">EnterMissionModeChecked()</code> and verify VBAT is within your UV/OV window</li>
   <li><strong>Clear prior faults</strong>: call <code class="language-plaintext highlighter-rouge">ClearFaults()</code> after power-on before attempting mission mode</li>
   <li><strong>Match VIO level</strong>: ensure <code class="language-plaintext highlighter-rouge">SetVioLevel()</code> matches your hardware (default is <code class="language-plaintext highlighter-rouge">V3_3</code>)</li>
-  <li><strong>Increase settle time</strong>: pass a larger <code class="language-plaintext highlighter-rouge">settle_ms</code> (e.g. 50) to allow supplies to stabilize</li>
+  <li><strong>Increase timeout</strong>: pass a larger <code class="language-plaintext highlighter-rouge">timeout_ms</code> (e.g. 50) to allow supplies to stabilize</li>
 </ol><hr />
 <h3 id="error-readchannelfeedback--timeout">
   
@@ -940,7 +1016,7 @@
 </ol><hr />
 
 <p><strong>Navigation</strong>
-?? Back to <a href="/hf-tle92466ed-driver/development/docs/">Documentation Index</a></p>
+⬅️ <a href="/hf-tle92466ed-driver/development/docs/examples/">Examples</a> | <a href="/hf-tle92466ed-driver/development/docs/">Back to Index</a></p>
 
           
 

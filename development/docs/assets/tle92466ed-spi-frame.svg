@@ -268,7 +268,7 @@
   <!-- ========================================================= -->
   <g>
     <text class="smallL" x="44" y="474">&#8226; All frames are 32 bits, MSB first (bit 31 transmitted first).</text>
-    <text class="smallL" x="44" y="488">&#8226; CRC is computed over bits [23:0] using the polynomial x&#8312; + x&#8309; + x&#179; + x&#178; + x + 1.</text>
+    <text class="smallL" x="44" y="488">&#8226; CRC-8 SAE J1850 over bits [23:0]: poly 0x1D, init 0xFF, XOR-out 0xFF; byte order frame[7:0], [15:8], [23:16] (datasheet Rev 1.2 &#167;5.1.2).</text>
     <text class="smallL" x="44" y="502">&#8226; MISO reply mode 00 = normal data reply; mode 10 = critical fault report.</text>
     <text class="smallL" x="44" y="516">&#8226; Fault flags are active-low: 0 = fault condition present.</text>
   </g>
