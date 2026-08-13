@@ -51,7 +51,16 @@ enum class CommError : uint8_t {
   HardwareNotReady, ///< Hardware not initialized or ready
   BufferOverflow,   ///< Buffer size exceeded
   CRCError,         ///< CRC mismatch error
-  UnknownError      ///< Unknown error occurred
+  /**
+   * @brief MISO carried no frame at all (all-zero or all-ones word).
+   *
+   * Distinct from @c CRCError so a disconnected or unpowered device is not
+   * reported as a corrupt one. Previously an empty word was returned as a
+   * *successful* read of value 0, which every caller then decoded as real
+   * register content.
+   */
+  NoReply,
+  UnknownError ///< Unknown error occurred
 };
 
 /**
@@ -698,6 +707,19 @@ public:
    *       the latched reply. Both frames are sent via `TransferMulti()` in one
    *       CS window — adapters must not split them on shared buses.
    *
+   * @note **Replies are validated, not trusted.** A reply is accepted only if
+   *       its CRC checks out *and* its reply mode matches the width the
+   *       register is defined to answer with (@ref ExpectedReplyFor). Reads
+   *       are retried until one qualifies. An unreadable register therefore
+   *       returns an error instead of a plausible-looking value.
+   *
+   * @warning @p verify_crc no longer disables validation; it is kept only for
+   *          API compatibility. Callers that passed `false` were the reason
+   *          corrupt and stale frames were decoded as register content.
+   *
+   * @retval CommError::CRCError Frames arrived but none were well formed.
+   * @retval CommError::NoReply  MISO was idle for every attempt.
+   *
    * @note Frame construction and CRC calculation are handled automatically.
    *       External code should typically use the Driver API; this method is
    *       available for advanced use cases.
@@ -856,15 +878,68 @@ inline CommResult<uint32_t> SpiInterface<Derived>::Read(uint16_t address, bool v
 
   const uint32_t tx_words[3] = {dummy_frame.word, tx_frame.word,
                                 dummy_frame.word};
+
+  /* A reply is only believed when it is well formed: CRC valid *and* the reply
+   * width the register is defined to answer with. Bench measurement (Portenta
+   * Mid, 2026-08-13, 150 frames) found 4 % of frames corrupt and 25 % of
+   * FB_STAT reads carrying the preceding ICVID reply — the latter with a valid
+   * CRC, so CRC alone does not reject it. Both used to be accepted as data,
+   * which is the origin of the "sticky-zero CH_CTRL", the impossible IMAX, the
+   * open-load reported on a fitted resistor, and INIT_DONE reading 0 on a
+   * healthy device. Retrying is what makes the bus usable; a malformed frame is
+   * transient, so the next attempt normally lands. */
+  constexpr uint8_t kReadAttempts = 4;
+  const ExpectedReply expected = ExpectedReplyFor(address);
   uint32_t rx_all[3] = {};
-  auto multi = static_cast<Derived*>(this)->TransferMulti(
-      std::span<const uint32_t>{tx_words}, std::span<uint32_t>{rx_all});
-  if (!multi) {
-    return tle::unexpected(multi.error());
+  uint32_t last_reply = 0;
+  uint32_t last_flush = 0;
+  bool saw_any_frame = false;
+
+  for (uint8_t attempt = 0; attempt < kReadAttempts; ++attempt) {
+    auto multi = static_cast<Derived*>(this)->TransferMulti(
+        std::span<const uint32_t>{tx_words}, std::span<uint32_t>{rx_all});
+    if (!multi) {
+      return tle::unexpected(multi.error());
+    }
+    /* Slot 2 answers the command; slot 1 answers the flush dummy and is only
+     * kept as a fallback for the ICVID scan below. */
+    last_reply = rx_all[2];
+    last_flush = rx_all[1];
+
+    SPIFrame candidate{};
+    candidate.word = last_reply;
+
+    /* Undriven MISO — nothing to validate, and retrying is pointless if the
+     * part is absent, but cheap if a single window was missed. */
+    if (last_reply == 0U || last_reply == 0xFFFFFFFFU) {
+      continue;
+    }
+    saw_any_frame = true;
+
+    if (!VerifyFrameCrc(candidate)) {
+      continue;
+    }
+
+    if (candidate.rx_common.reply_mode == 0x02) {
+      /* Critical fault frame (UV / clock / supplies). The device is answering
+       * truthfully that it cannot serve the read, so this is not retried. */
+      NoteCriticalFault(candidate);
+      return tle::unexpected(CommError::BusError);
+    }
+
+    const bool width_ok =
+        (expected == ExpectedReply::Bits22) ? (candidate.rx_common.reply_mode == 0x01)
+                                            : (candidate.rx_common.reply_mode == 0x00);
+    if (!width_ok) {
+      continue; /* Another register's reply landed in this slot. */
+    }
+
+    return (candidate.rx_common.reply_mode == 0x01)
+               ? static_cast<uint32_t>(candidate.rx_22bit.data)
+               : static_cast<uint32_t>(candidate.rx_16bit.data);
   }
-  /* Slot 2 answers the command; slot 1 answers the flush dummy and is only
-   * kept as a fallback for the ICVID scan below. */
-  const uint32_t rx_words[2] = {rx_all[1], rx_all[2]};
+
+  const uint32_t rx_words[2] = {last_flush, last_reply};
 
   /* ICVID-only: recover a valid device ID from a misaligned 32-bit MISO word
    * on long soft-CS / Mode1 buses (data may sit in bits[23:8], or appear one
@@ -907,44 +982,17 @@ inline CommResult<uint32_t> SpiInterface<Derived>::Read(uint16_t address, bool v
     }
   }
 
-  // Parse response from the dummy CS (pipeline slot). Do not fall back to
-  // frame 0: that word is the previous command's leftover (often CH_CTRL
-  // after a MakeRead(0) dummy, or FB_IMIN_IMAX after a diagnostics read).
-  // ICVID recovery above already scanned both frames.
-  SPIFrame rx_frame{};
-  rx_frame.word = rx_words[1];
-
-  /* Floating / undriven MISO (pull-up or stuck-low): surface as empty data so
-   * VerifyDevice can return DeviceNotResponding instead of HardwareError. */
-  if (rx_frame.word == 0U || rx_frame.word == 0xFFFFFFFFU) {
-    return static_cast<uint32_t>(rx_frame.word & 0xFFFFU);
-  }
-
-  // Verify CRC if requested
-  if (verify_crc && !VerifyFrameCrc(rx_frame)) {
-    return tle::unexpected(CommError::CRCError);
-  }
-
-  // Extract data from response based on reply mode
-  if (rx_frame.rx_common.reply_mode == 0x00) {
-    // 16-bit reply frame - data is 16 bits, zero-extend to uint32_t
-    // NOLINTNEXTLINE(bugprone-narrowing-conversions) - Bitfield extraction is safe, zero-extends to uint32_t
-    return static_cast<uint32_t>(rx_frame.rx_16bit.data);
-  }
-  if (rx_frame.rx_common.reply_mode == 0x01) {
-    // 22-bit reply frame - data is 22 bits, zero-extend to uint32_t
-    // NOLINTNEXTLINE(bugprone-narrowing-conversions) - Bitfield extraction is safe, zero-extends to uint32_t
-    return static_cast<uint32_t>(rx_frame.rx_22bit.data);
-  }
-  if (rx_frame.rx_common.reply_mode == 0x02) {
-    /* Critical fault frame (UV / clock / supplies). Still not a valid ICVID
-     * payload — treat as bus fault for the caller, but keep the fault byte so
-     * the cause is recoverable (see LastCriticalFaultFlags). */
-    NoteCriticalFault(rx_frame);
-    return tle::unexpected(CommError::BusError);
-  }
-  // Reserved/unknown reply mode
-  return tle::unexpected(CommError::TransferError);
+  /* Every attempt produced a frame that could not be trusted. Reporting the
+   * failure is the whole point: the caller can retry, hold its last known
+   * value, or degrade — all of which beat decoding a corrupt word as state.
+   *
+   * `verify_crc` no longer gates this. It used to let callers opt out of
+   * validation, and every diagnostic path did (`ReadRegister(addr, false)`),
+   * which is why corrupt and stale frames reached the decoders in the first
+   * place. The parameter is retained for API compatibility. */
+  (void)verify_crc;
+  return tle::unexpected(saw_any_frame ? CommError::CRCError
+                                       : CommError::NoReply);
 }
 
 template <typename Derived>

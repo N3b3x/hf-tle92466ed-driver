@@ -40,9 +40,13 @@ namespace tle92466ed {
  */
 [[nodiscard]] inline const char* NonTransparentWriteReason(uint16_t address) noexcept {
   if (address == CentralReg::CH_CTRL) {
-    /* Readable per datasheet, but returns 0x0000 in some states; the driver
-     * keeps ch_ctrl_cache_ as the authority for this reason. */
-    return "CH_CTRL may return 0x0000 on read (known device behavior, write succeeds)";
+    /* The "returns 0x0000 on read" behavior this tolerance was written for was
+     * not the device: reads were accepting corrupt/stale frames and truncating
+     * 22-bit replies. With replies validated (see SpiInterface::Read) CH_CTRL
+     * read back its true value 8/8 on the Mid bench, 2026-08-13. The tolerance
+     * is kept only because the same bench still drops whole frames; it is no
+     * longer evidence of a non-transparent register. */
+    return "CH_CTRL read-back tolerated while the bench SPI link drops frames";
   }
   if (address == CentralReg::GLOBAL_CONFIG) {
     return "GLOBAL_CONFIG is write-only, reads return default/previous value";
@@ -1217,8 +1221,10 @@ DriverResult<DeviceStatus> Driver<CommType>::GetDeviceStatus() noexcept {
     status.init_done = (fb_stat & FB_STAT::INIT_DONE) != 0;
   }
 
-  /* CH_CTRL reads return 0x0000 on this silicon (write-only / sticky zero).
-   * Trust the driver cache from EnterMissionMode / EnterConfigMode. */
+  /* Mode is taken from the driver cache rather than a CH_CTRL read. The cache
+   * is authoritative because it records what was written; the earlier reason
+   * given here — that CH_CTRL reads back as zero on this silicon — was an
+   * artifact of unvalidated SPI replies and no longer holds. */
   status.config_mode = !mission_mode_;
 
   // Read voltage feedbacks
@@ -2251,6 +2257,11 @@ DriverResult<uint32_t> Driver<CommType>::ReadRegister(uint16_t address, bool ver
       return tle::unexpected(DriverError::TimeoutError);
     case CommError::CRCError:
       return tle::unexpected(DriverError::CRCError);
+    case CommError::NoReply:
+      /* Idle MISO — an absent or unpowered part, not a corrupt one. Kept
+       * distinct so bring-up can tell "nothing is answering" from "the answer
+       * did not survive the bus". */
+      return tle::unexpected(DriverError::DeviceNotResponding);
     case CommError::BusError:
       return tle::unexpected(DriverError::FaultDetected);
     case CommError::TransferError:

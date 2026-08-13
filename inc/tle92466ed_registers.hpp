@@ -1994,6 +1994,56 @@ enum class ParallelPair : uint8_t {
 }
 
 /**
+ * @brief Reply-frame width a register is required to answer with.
+ * @see ExpectedReplyFor
+ */
+enum class ExpectedReply : uint8_t {
+  Bits16, ///< Reply mode 00B — 16-bit data plus a status field.
+  Bits22  ///< Reply mode 01B — 22-bit data, no status field.
+};
+
+/**
+ * @brief Reply width the device must use when answering a read of @p address.
+ *
+ * @param address Register address passed to a read.
+ * @return @c Bits22 for the feedback/status registers that answer in reply
+ *         mode 01B; @c Bits16 for everything else.
+ *
+ * @details The pipelined bus does not echo the address in a reply, so a reply
+ *          that arrives in the wrong slot is otherwise indistinguishable from
+ *          the register that was asked for — and it carries a **valid CRC**,
+ *          so CRC alone cannot reject it. Bench measurement (Portenta Mid,
+ *          2026-08-13) had 25 % of `FB_STAT` reads return the preceding
+ *          `ICVID` reply, which decoded as plausible-looking status bits.
+ *          Comparing the reply mode against this table catches the subset of
+ *          those where the two registers differ in width, which covers every
+ *          feedback register the current-control path depends on.
+ *
+ * @note Width is a necessary, not sufficient, check: a stale reply from
+ *       another register of the *same* width still passes. Reads are retried
+ *       until a well-formed reply arrives rather than trusted on first sight.
+ */
+[[nodiscard]] constexpr ExpectedReply ExpectedReplyFor(uint16_t address) noexcept {
+  if (address == CentralReg::FB_STAT || address == CentralReg::FB_VOLTAGE1 ||
+      address == CentralReg::FB_VOLTAGE2) {
+    return ExpectedReply::Bits22;
+  }
+  /* Per-channel feedback bank: base (0x20..0x70) + 0x200. FB_I_AVG_s16 (+4)
+   * and FB_INT_THRESH (+5) are 16-bit; the rest of the bank is 22-bit. */
+  if (address > CentralReg::FB_VOLTAGE2) {
+    const uint16_t base = static_cast<uint16_t>((address - 0x0200U) & 0x00F0U);
+    const uint16_t offset = static_cast<uint16_t>(address & 0x000FU);
+    const bool in_channel_bank =
+        (address >= 0x0220U) && (address <= 0x0276U) && (base >= 0x0020U) &&
+        (base <= 0x0070U) && (offset <= 0x0006U);
+    if (in_channel_bank && offset != 0x0004U && offset != 0x0005U) {
+      return ExpectedReply::Bits22;
+    }
+  }
+  return ExpectedReply::Bits16;
+}
+
+/**
  * @brief Convert channel to index
  */
 [[nodiscard]] constexpr uint8_t ToIndex(Channel ch) noexcept {
