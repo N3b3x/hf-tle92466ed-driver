@@ -573,11 +573,41 @@ DriverResult<void> Driver<CommType>::EnableChannel(Channel channel, bool enabled
   // Build full CH_CTRL value: preserve OP_MODE and parallel bits, update channel enable bits
   uint16_t ch_ctrl_value = ch_ctrl_cache_ & ~CH_CTRL::ALL_CH_MASK; // Clear channel bits
   ch_ctrl_value |= channel_enable_cache_; // Set channel enable bits from cache
-
-  // CH_CTRL write verification is disabled because reads return 0x0000 (known device behavior)
-  // We track state in ch_ctrl_cache_ and channel_enable_cache_ instead
   ch_ctrl_cache_ = ch_ctrl_value;
-  return WriteRegister(CentralReg::CH_CTRL, ch_ctrl_value, false, false);
+
+  /* CH_CTRL reads *do* work on this silicon (HIL: 0x8008/0x8009/0x800B).
+   * Writes of EN_CH4/EN_CH5 were previously fire-and-forget; SETPOINT could
+   * land while the output stage stayed off — silent LM-Pro. Verify the EN
+   * bit; sticky-zero readback retries like SETPOINT. */
+  constexpr int kRetries = 3;
+  for (int att = 0; att < kRetries; ++att) {
+    if (auto wr = WriteRegister(CentralReg::CH_CTRL, ch_ctrl_value, false, false);
+        !wr) {
+      if (att + 1 == kRetries) {
+        return wr;
+      }
+      continue;
+    }
+    auto rd = ReadRegister(CentralReg::CH_CTRL, false);
+    if (!rd) {
+      if (att + 1 == kRetries) {
+        return tle::unexpected(rd.error());
+      }
+      continue;
+    }
+    const uint16_t got = static_cast<uint16_t>(*rd & 0xFFFFu);
+    if (got == 0U) {
+      continue; /* sticky-zero */
+    }
+    const bool bit_on = (got & mask) != 0U;
+    if (((got & CH_CTRL::OP_MODE) != 0U) && (bit_on == enabled)) {
+      /* Confirm *this* bit only. Copying the whole enable field from the
+       * readback re-imported leftover EN_CH0 while walking CH1–CH5 and left
+       * the first 200 Ω load conducting for the rest of the sweep. */
+      return {};
+    }
+  }
+  return tle::unexpected(DriverError::RegisterError);
 }
 
 template <typename CommType>
@@ -607,14 +637,36 @@ DriverResult<void> Driver<CommType>::EnableChannels(uint8_t channel_mask) noexce
   }
   comm_.Log(LogLevel::Info, "TLE92466ED", ")");
 
-  // Build full CH_CTRL value: preserve OP_MODE and parallel bits, update channel enable bits
-  uint16_t ch_ctrl_value = ch_ctrl_cache_ & ~CH_CTRL::ALL_CH_MASK; // Clear channel bits
-  ch_ctrl_value |= channel_mask;                                   // Set new channel enable bits
-
-  // CH_CTRL write verification is disabled because reads return 0x0000 (known device behavior)
-  // We track state in ch_ctrl_cache_ and channel_enable_cache_ instead
+  uint16_t ch_ctrl_value = ch_ctrl_cache_ & ~CH_CTRL::ALL_CH_MASK;
+  ch_ctrl_value |= channel_mask;
   ch_ctrl_cache_ = ch_ctrl_value;
-  return WriteRegister(CentralReg::CH_CTRL, ch_ctrl_value, false, false);
+
+  constexpr int kRetries = 3;
+  for (int att = 0; att < kRetries; ++att) {
+    if (auto wr = WriteRegister(CentralReg::CH_CTRL, ch_ctrl_value, false, false);
+        !wr) {
+      if (att + 1 == kRetries) {
+        return wr;
+      }
+      continue;
+    }
+    auto rd = ReadRegister(CentralReg::CH_CTRL, false);
+    if (!rd) {
+      if (att + 1 == kRetries) {
+        return tle::unexpected(rd.error());
+      }
+      continue;
+    }
+    const uint16_t got = static_cast<uint16_t>(*rd & 0xFFFFu);
+    if (got == 0U) {
+      continue;
+    }
+    if (((got & CH_CTRL::OP_MODE) != 0U) &&
+        ((got & CH_CTRL::ALL_CH_MASK) == channel_mask)) {
+      return {};
+    }
+  }
+  return tle::unexpected(DriverError::RegisterError);
 }
 
 template <typename CommType>
@@ -751,7 +803,15 @@ DriverResult<void> Driver<CommType>::SetCurrentSetpoint(Channel channel, uint16_
       }
       continue;
     }
-    last_got = static_cast<uint16_t>(*rd) & SETPOINT::TARGET_MASK;
+    const uint16_t raw16 = static_cast<uint16_t>(*rd & 0xFFFFu);
+    /* Pipelined MISO often returns CH_CTRL (OP_MODE set, TARGET looks like
+     * EN_CHx). Masking off bit 15 used to turn 0x8008 into TARGET 8 and a
+     * hard RegisterError — CH4/CH5 SETPOINT then never retried. */
+    if ((raw16 & SETPOINT::AUTO_LIMIT_DIS) != 0U &&
+        (target & SETPOINT::AUTO_LIMIT_DIS) == 0U) {
+      continue;
+    }
+    last_got = raw16 & SETPOINT::TARGET_MASK;
     const uint16_t want = target & SETPOINT::TARGET_MASK;
     if (last_got == want) {
       return {};
@@ -1363,7 +1423,7 @@ DriverResult<uint16_t> Driver<CommType>::GetAverageCurrent(Channel channel, bool
   // Bounded poll: this runs on the ~19 Hz diagnostics thread under the handler
   // mutex, so the budget stays short enough not to stall peer SPI users.
   constexpr uint32_t kPollStepUs = 200U;
-  constexpr uint32_t kPollSteps = 25U;  // ~5 ms
+  constexpr uint32_t kPollSteps = 40U;  // ~8 ms; 200 Hz Tmeas ≈ 5 ms
   bool updated = false;
   for (uint32_t i = 0; i < kPollSteps; ++i) {
     auto upd = ReadRegister(CentralReg::FB_UPD, false);
