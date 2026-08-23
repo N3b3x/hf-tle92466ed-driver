@@ -216,15 +216,23 @@ DriverResult<void> Driver<CommType>::Init(bool perform_hardware_reset) noexcept 
   // 5. Device starts in Config Mode after power-up
   mission_mode_ = false;
 
-  // 5a. Fail-fast on uncalibrated / virgin silicon. Per datasheet \u00a75.3.2.11
-  //     p.66, GLOBAL_DIAG2.OTP_VIRGIN=1 means the device OTP trim is not
+  // 5a. Fail-fast on uncalibrated / virgin silicon. Per datasheet \u00a75.3.2.7
+  //     GLOBAL_DIAG2.OTP_VIRGIN=1 means the device OTP trim is not
   //     programmed, so all ICC current-regulation math is invalid. Refuse to
   //     initialize so downstream code doesn't silently drive garbage currents.
+  //     OTP_ECC_ERR is factory OTP damage, not a software program of OTP —
+  //     warn (FAULTN may stay low) but do not refuse: this Mid eval is known
+  //     sticky and REG_ECC_ERR is the bit that forces Config Mode.
   if (auto diag2_result = ReadRegister(CentralReg::GLOBAL_DIAG2); diag2_result) {
     if ((*diag2_result & GLOBAL_DIAG2::OTP_VIRGIN) != 0) {
       comm_.Log(LogLevel::Error, "TLE92466ED",
                 "OTP_VIRGIN=1 \u2014 device OTP trim not programmed; refusing to initialize");
       return tle::unexpected(DriverError::ConfigurationError);
+    }
+    if ((*diag2_result & GLOBAL_DIAG2::OTP_ECC_ERR) != 0) {
+      comm_.Log(LogLevel::Warn, "TLE92466ED",
+                "OTP_ECC_ERR sticky \u2014 factory OTP multi-bit flip; "
+                "FAULTN may stay low; not a host OTP write");
     }
   }
 

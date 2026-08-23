@@ -496,12 +496,21 @@ constexpr uint16_t PER_CHANNEL_MASK = 0x001Fu;
 //==============================================================================
 
 /**
- * @brief GLOBAL_DIAG2 register bit definitions
+ * @brief GLOBAL_DIAG2 register bit definitions (datasheet Rev 1.2 §5.3.2.7).
+ *
+ * @details TLE92466ED has **no** `OTP_ECC_WARN` / `REG_ECC_WARN` bits.
+ *          Successful single-bit ECC correction is silent. Only uncorrectable
+ *          multi-bit flips set the ERR bits.
+ *          - `REG_ECC_ERR` disables power stages and forces Config Mode (§4.9.7).
+ *          - `OTP_ECC_ERR` is factory OTP content; write-1-to-clear **twice**.
+ *            It re-asserts if the cells stay corrupt and does **not** by itself
+ *            force Config Mode.
+ *          - `OTP_VIRGIN` must always be 0 (1 = unprogrammed OTP address).
  */
 namespace GLOBAL_DIAG2 {
-constexpr uint16_t REG_ECC_ERR = (1 << 1); ///< Register ECC error
-constexpr uint16_t OTP_ECC_ERR = (1 << 3); ///< OTP ECC error
-constexpr uint16_t OTP_VIRGIN = (1 << 4);  ///< OTP virgin/unconfigured
+constexpr uint16_t REG_ECC_ERR = (1 << 1); ///< Multi-bit flip in a register
+constexpr uint16_t OTP_ECC_ERR = (1 << 3); ///< Non-repairable OTP multi-bit flip
+constexpr uint16_t OTP_VIRGIN = (1 << 4);  ///< 1 = virgin OTP address (must be 0)
 
 constexpr uint16_t DEFAULT = 0x0000;   ///< Default value
 constexpr uint16_t CLEAR_ALL = 0xFFFF; ///< Clear all bits (write-to-clear)
@@ -1130,13 +1139,16 @@ constexpr uint16_t DEFAULT      = 0x703Fu;
 } // namespace FAULT_MASK1
 
 namespace FAULT_MASK2 {
-constexpr uint16_t VBAT_UV_MASK = (1u << 0);
-constexpr uint16_t VBAT_OV_MASK = (1u << 1);
-constexpr uint16_t VIO_UV_MASK  = (1u << 2);
-constexpr uint16_t VIO_OV_MASK  = (1u << 3);
-constexpr uint16_t VDD_UV_MASK  = (1u << 4);
-constexpr uint16_t VDD_OV_MASK  = (1u << 5);
-constexpr uint16_t DEFAULT      = 0x003Fu;
+constexpr uint16_t VBAT_UV_MASK  = (1u << 0);
+constexpr uint16_t VBAT_OV_MASK  = (1u << 1);
+constexpr uint16_t VIO_UV_MASK   = (1u << 2);
+constexpr uint16_t VIO_OV_MASK   = (1u << 3);
+constexpr uint16_t VDD_UV_MASK   = (1u << 4);
+constexpr uint16_t VDD_OV_MASK   = (1u << 5);
+constexpr uint16_t DATA_ERR_MASK = (1u << 14); ///< FB_STAT.DATA_err → FAULTN
+constexpr uint16_t SPI_WD_MASK   = (1u << 15); ///< SPI watchdog → FAULTN
+/** Datasheet reset C000H: DATA_ERR + SPI_WD enabled; supply UV/OV bits 0. */
+constexpr uint16_t DEFAULT       = 0xC000u;
 } // namespace FAULT_MASK2
 
 //==============================================================================
@@ -2345,13 +2357,15 @@ enum class MaskableFault : uint32_t {
   CentralOtWarning  = (1u << 24) | (1u << 12), ///< Central OT warning → FAULTN
   CentralOtError    = (1u << 24) | (1u << 13), ///< Central OT error → FAULTN
   ClockLow          = (1u << 24) | (1u << 14), ///< Clock too slow → FAULTN
-  // FAULT_MASK2 — supply UV/OV contribution
+  // FAULT_MASK2 — supply UV/OV + POR-enabled DATA_ERR / SPI_WD
   VbatUv            = (2u << 24) | (1u << 0),  ///< VBAT undervoltage → FAULTN
   VbatOv            = (2u << 24) | (1u << 1),  ///< VBAT overvoltage → FAULTN
   VioUv             = (2u << 24) | (1u << 2),  ///< VIO undervoltage → FAULTN
   VioOv             = (2u << 24) | (1u << 3),  ///< VIO overvoltage → FAULTN
   VddUv             = (2u << 24) | (1u << 4),  ///< VDD undervoltage → FAULTN
   VddOv             = (2u << 24) | (1u << 5),  ///< VDD overvoltage → FAULTN
+  DataErr           = (2u << 24) | (1u << 14), ///< OTP/REG DATA_err → FAULTN (do not mask to hide LED)
+  SpiWatchdog       = (2u << 24) | (1u << 15), ///< SPI watchdog → FAULTN
 };
 
 /** @brief Extract FAULT_MASK register index (0..2) from a `MaskableFault` value. */
