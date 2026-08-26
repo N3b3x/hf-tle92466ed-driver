@@ -583,6 +583,15 @@ DriverResult<void> Driver<CommType>::EnableChannel(Channel channel, bool enabled
   ch_ctrl_value |= channel_enable_cache_; // Set channel enable bits from cache
   ch_ctrl_cache_ = ch_ctrl_value;
 
+  /* Disable is fire-and-forget: CH_CTRL sticky-zero readback retried
+   * 3 × Read (each CRC attempt × 3-frame TransferChain) per parked
+   * channel and AllOff of six PROP bits saturated InnerControl last_step
+   * at 65535 µs. EN off is the park; leftover TARGET cannot drive. Enable
+   * still verifies — silent LM-Pro on CH4/CH5 is worse than a slow enable. */
+  if (!enabled) {
+    return WriteRegister(CentralReg::CH_CTRL, ch_ctrl_value, false, false);
+  }
+
   /* CH_CTRL reads *do* work on this silicon (HIL: 0x8008/0x8009/0x800B).
    * Writes of EN_CH4/EN_CH5 were previously fire-and-forget; SETPOINT could
    * land while the output stage stayed off — silent LM-Pro. Prefer verifying

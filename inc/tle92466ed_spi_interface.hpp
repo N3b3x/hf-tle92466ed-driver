@@ -886,9 +886,11 @@ inline CommResult<uint32_t> SpiInterface<Derived>::Read(uint16_t address, bool v
    * CRC, so CRC alone does not reject it. Both used to be accepted as data,
    * which is the origin of the "sticky-zero CH_CTRL", the impossible IMAX, the
    * open-load reported on a fitted resistor, and INIT_DONE reading 0 on a
-   * healthy device. Retrying is what makes the bus usable; a malformed frame is
-   * transient, so the next attempt normally lands. */
-  constexpr uint8_t kReadAttempts = 4;
+   * healthy device. Two CRC attempts keep freeze-complete (2× FB_UPD +
+   * FB_I_AVG + FB_DC) inside the 2 ms InnerControl budget; four attempts ×
+   * Mode1 IdleAll+30 µs per frame ran last_step ~9–11 ms on hold ticks.
+   * ICVID Init has its own recovery path. */
+  constexpr uint8_t kReadAttempts = 2;
   const ExpectedReply expected = ExpectedReplyFor(address);
   uint32_t rx_all[3] = {};
   uint32_t last_reply = 0;
