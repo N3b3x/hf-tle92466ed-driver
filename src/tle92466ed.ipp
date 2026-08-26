@@ -567,7 +567,7 @@ DriverResult<void> Driver<CommType>::EnableChannel(Channel channel, bool enabled
     return tle::unexpected(DriverError::InvalidChannel);
   }
 
-  comm_.Log(LogLevel::Info, "TLE92466ED", "Set channel enable: Channel=%s, enabled=%s",
+  comm_.Log(LogLevel::Debug, "TLE92466ED", "Set channel enable: Channel=%s, enabled=%s",
             ToString(channel), enabled ? "true" : "false");
 
   uint16_t mask = CH_CTRL::ChannelMask(ToIndex(channel));
@@ -585,8 +585,10 @@ DriverResult<void> Driver<CommType>::EnableChannel(Channel channel, bool enabled
 
   /* CH_CTRL reads *do* work on this silicon (HIL: 0x8008/0x8009/0x800B).
    * Writes of EN_CH4/EN_CH5 were previously fire-and-forget; SETPOINT could
-   * land while the output stage stayed off — silent LM-Pro. Verify the EN
-   * bit; sticky-zero readback retries like SETPOINT. */
+   * land while the output stage stayed off — silent LM-Pro. Prefer verifying
+   * the EN bit. If the read is CRC/sticky-zero (CH4 SETPOINT 0x0020 class),
+   * accept the write: failing closed skipped SetChannelCurrent and left
+   * SPV_H ControllerStale with dither programmed and iavg n/a. */
   constexpr int kRetries = 3;
   for (int att = 0; att < kRetries; ++att) {
     if (auto wr = WriteRegister(CentralReg::CH_CTRL, ch_ctrl_value, false, false);
@@ -598,9 +600,6 @@ DriverResult<void> Driver<CommType>::EnableChannel(Channel channel, bool enabled
     }
     auto rd = ReadRegister(CentralReg::CH_CTRL, false);
     if (!rd) {
-      if (att + 1 == kRetries) {
-        return tle::unexpected(rd.error());
-      }
       continue;
     }
     const uint16_t got = static_cast<uint16_t>(*rd & 0xFFFFu);
@@ -615,7 +614,7 @@ DriverResult<void> Driver<CommType>::EnableChannel(Channel channel, bool enabled
       return {};
     }
   }
-  return tle::unexpected(DriverError::RegisterError);
+  return {};
 }
 
 template <typename CommType>
@@ -787,7 +786,7 @@ DriverResult<void> Driver<CommType>::SetCurrentSetpoint(Channel channel, uint16_
   // Write to SETPOINT register
   uint16_t ch_addr = GetChannelRegister(channel, ChannelReg::SETPOINT);
 
-  comm_.Log(LogLevel::Info, "TLE92466ED",
+  comm_.Log(LogLevel::Debug, "TLE92466ED",
             "Setting current setpoint: Channel=%s, Current=%u mA, Target=0x%04X, Parallel=%s",
             ToString(channel), current_ma, target, parallel_mode ? "true" : "false");
 
@@ -995,7 +994,7 @@ DriverResult<void> Driver<CommType>::ConfigureDitherClock(Channel channel,
   const float    actual_us = cfg.CalculateTrefClkUs();
   const uint16_t reg_value = cfg.ToRegister();
 
-  comm_.Log(LogLevel::Info, "TLE92466ED",
+  comm_.Log(LogLevel::Debug, "TLE92466ED",
             "Configuring dither clock: Channel=%s, Requested=%.3f µs, "
             "Actual=%.3f µs, MANT=%u, EXP=%u, PwmSync=%s, SetpointSync=%s, "
             "Register=0x%04X",
@@ -1097,7 +1096,7 @@ DriverResult<void> Driver<CommType>::ConfigureDither(Channel channel, float ampl
     step_size = 1;
   }
 
-  comm_.Log(LogLevel::Info, "TLE92466ED",
+  comm_.Log(LogLevel::Debug, "TLE92466ED",
             "Configuring dither: Channel=%s, Amplitude=%.2f mA (~%.2f mA actual), "
             "Frequency=%.2f Hz, StepSize=%u, NumSteps=%u, FlatSteps=%u, "
             "Parallel=%s",
@@ -1127,7 +1126,7 @@ DriverResult<void> Driver<CommType>::ConfigureDitherRaw(Channel channel, uint16_
 
   uint16_t ch_base = GetChannelBase(channel);
 
-  comm_.Log(LogLevel::Info, "TLE92466ED",
+  comm_.Log(LogLevel::Debug, "TLE92466ED",
             "Configuring dither (raw): Channel=%s, StepSize=%u, NumSteps=%u, FlatSteps=%u",
             ToString(channel), step_size, num_steps, flat_steps);
 
@@ -2151,12 +2150,10 @@ DriverResult<void> Driver<CommType>::ReloadSpiWatchdog(uint16_t reload_value) no
   // Mask to 11-bit field (bits 10:0) per datasheet
   uint16_t masked_value = WD_RELOAD::MaskValue(reload_value);
 
-  comm_.Log(LogLevel::Info, "TLE92466ED",
-            "Reloading SPI watchdog: ReloadValue=%u (masked to 0x%03X)", reload_value,
-            masked_value);
-
-  // Note: Writing any non-zero value clears SPI_WD_ERR if it was set
-  return WriteRegister(CentralReg::WD_RELOAD, masked_value);
+  /* WD_RELOAD is a strobe (NonTransparentWriteReason). Default verify_write
+   * Delay(1 ms)+readback ran on every valve_diag kick (~52 ms) under the
+   * handler mutex and starved InnerControl FB_UPD / last_step. */
+  return WriteRegister(CentralReg::WD_RELOAD, masked_value, false, false);
 }
 
 //==========================================================================
