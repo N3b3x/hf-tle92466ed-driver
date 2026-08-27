@@ -726,6 +726,46 @@ public:
    */
   [[nodiscard]] CommResult<uint32_t> Read(uint16_t address, bool verify_crc = true) noexcept;
 
+  /** @brief Largest burst @ref ReadMulti will issue in one CS-session chain. */
+  static constexpr size_t kMaxPipelinedReads = 12;
+
+  /**
+   * @brief Read several registers in ONE pipelined chain.
+   *
+   * @param[in]  addresses Register addresses, at most @ref kMaxPipelinedReads.
+   * @param[out] values    Decoded register contents, same length as @p addresses.
+   *                       Entries whose reply failed validation are left as 0.
+   * @param[out] valid_mask Bit @c i set when @p values[i] is trustworthy.
+   *                       Never null-checked away: callers must inspect it.
+   * @return Success when the chain transferred; individual replies may still
+   *         have been rejected, which @p valid_mask reports.
+   *
+   * @details
+   * The device answers each command on the NEXT CS window, so a burst of N
+   * reads needs N+2 frames — one leading dummy to absorb whatever reply was
+   * outstanding, the N commands, and one trailing dummy to clock out the last
+   * reply. Reply @c i therefore lands in frame @c i+2.
+   *
+   * That is the whole point of this call: @ref Read spends 3 frames per
+   * register because it opens and closes the pipeline every time, so N reads
+   * cost 3N frames. Here they cost N+2 — for the six-channel FB_DC/FB_I_AVG
+   * sweep that is 14 frames instead of 36, inside one bus-ownership window.
+   *
+   * Replies are validated exactly as in @ref Read (CRC plus the reply width
+   * @ref ExpectedReplyFor defines for that address). No retry is attempted:
+   * re-running the whole burst to recover one bad frame costs more than the
+   * caller re-reading that single register with @ref Read, and a desynchronised
+   * chain fails validation wholesale rather than returning plausible garbage.
+   *
+   * @warning The adapter's @c TransferMulti must keep one bus-ownership window
+   *          across the entire chain. An adapter that falls back to per-frame
+   *          transfers breaks the pipeline; the reply validation will reject
+   *          the results rather than let them through.
+   */
+  [[nodiscard]] CommResult<void> ReadMulti(std::span<const uint16_t> addresses,
+                                           std::span<uint32_t> values,
+                                           uint16_t& valid_mask) noexcept;
+
   /**
    * @brief Write a register to the TLE92466ED (High-Level API)
    *
@@ -995,6 +1035,70 @@ inline CommResult<uint32_t> SpiInterface<Derived>::Read(uint16_t address, bool v
   (void)verify_crc;
   return tle::unexpected(saw_any_frame ? CommError::CRCError
                                        : CommError::NoReply);
+}
+
+template <typename Derived>
+inline CommResult<void> SpiInterface<Derived>::ReadMulti(
+    std::span<const uint16_t> addresses, std::span<uint32_t> values,
+    uint16_t& valid_mask) noexcept {
+  valid_mask = 0U;
+  const size_t n = addresses.size();
+  if (n == 0U || n > kMaxPipelinedReads || values.size() != n) {
+    return tle::unexpected(CommError::InvalidParameter);
+  }
+
+  SPIFrame dummy_frame = SPIFrame::MakeRead(0);
+  dummy_frame.tx_fields.crc = CalculateFrameCrc(dummy_frame);
+
+  /* [flush dummy][cmd 0..n-1][trailing dummy]: the reply to command i is
+   * clocked out during frame i+2. See the ReadMulti doc comment. */
+  uint32_t tx_words[kMaxPipelinedReads + 2] = {};
+  uint32_t rx_words[kMaxPipelinedReads + 2] = {};
+  tx_words[0] = dummy_frame.word;
+  for (size_t i = 0; i < n; ++i) {
+    SPIFrame cmd = SPIFrame::MakeRead(addresses[i]);
+    cmd.tx_fields.crc = CalculateFrameCrc(cmd);
+    tx_words[i + 1] = cmd.word;
+    values[i] = 0U;
+  }
+  tx_words[n + 1] = dummy_frame.word;
+
+  const size_t frames = n + 2U;
+  auto multi = static_cast<Derived*>(this)->TransferMulti(
+      std::span<const uint32_t>{tx_words, frames},
+      std::span<uint32_t>{rx_words, frames});
+  if (!multi) {
+    return tle::unexpected(multi.error());
+  }
+
+  for (size_t i = 0; i < n; ++i) {
+    SPIFrame candidate{};
+    candidate.word = rx_words[i + 2U];
+    if (candidate.word == 0U || candidate.word == 0xFFFFFFFFU) {
+      continue; /* Undriven MISO. */
+    }
+    if (!VerifyFrameCrc(candidate)) {
+      continue;
+    }
+    if (candidate.rx_common.reply_mode == 0x02) {
+      /* Critical fault (UV / clock / supplies). The device is telling us it
+       * cannot serve any of these reads, so abandon the whole burst. */
+      NoteCriticalFault(candidate);
+      return tle::unexpected(CommError::BusError);
+    }
+    const ExpectedReply expected = ExpectedReplyFor(addresses[i]);
+    const bool width_ok = (expected == ExpectedReply::Bits22)
+                              ? (candidate.rx_common.reply_mode == 0x01)
+                              : (candidate.rx_common.reply_mode == 0x00);
+    if (!width_ok) {
+      continue; /* Another register's reply landed in this slot. */
+    }
+    values[i] = (candidate.rx_common.reply_mode == 0x01)
+                    ? static_cast<uint32_t>(candidate.rx_22bit.data)
+                    : static_cast<uint32_t>(candidate.rx_16bit.data);
+    valid_mask = static_cast<uint16_t>(valid_mask | (1U << i));
+  }
+  return {};
 }
 
 template <typename Derived>

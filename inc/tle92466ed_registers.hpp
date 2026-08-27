@@ -1770,17 +1770,31 @@ constexpr uint16_t kMinValidTpMant = 64u;
 //==============================================================================
 
 /**
- * @brief FB_I_AVG_s16 decoder.
+ * @brief FB_I_AVG_s16 decoder (calibration only — see the warning below).
  *
  * @details
- * Per datasheet \u00a75.3.3.21 p.104. Provides a high-resolution signed
- * average current for calibration workflows. Reply frame is 22-bit:
- *   bits 16:0   I_AVG_s16 (signed 17-bit)  I = 4000 mA * val / 65535
+ * Per datasheet Rev 1.2 §5.3.3.18 (register map) and §4.10.6 (semantics).
+ * Reply frame is 22-bit:
+ *   bits 16:0   I_AVG_s16 (two's complement)  Iavg16 = 4 A * val / (2^16 - 1)
  *   bits 21:20  TIME_STAMP (2-bit rolling counter, quad-seq in fast meas)
  *
- * NOTE: this is distinct from FB_I_AVG (offset 0x0202) which is compressed
- * mantissa/exponent. Use FB_I_AVG_s16 only for calibration since the
- * frame is not valid while the chip is still settling.
+ * Unlike FB_I_AVG (offset 0x0202) this is an absolute value — no TP_MANT
+ * divisor from FB_DC — averaged over a **free-running** window of 2^16 fSYS
+ * cycles (≈2.34 ms at 28 MHz) rather than the configured Tmeas. It is also
+ * **not** one of the registers FB_FRZ freezes (§4.10.5 lists FB_DC, FB_VBAT,
+ * FB_I_AVG, FB_PERIOD_MIN_MAX, FB_IMIN_IMAX), so a single unfrozen read yields
+ * a coherent current.
+ *
+ * @warning Do not use this for current supervision or closed-loop control.
+ *          §4.10.6, verbatim: "This value is not intended to be used while in
+ *          closed loop operation or for current supervision. The value is
+ *          provided as additional information and can be used for calibration
+ *          purposes." Every product channel runs in ICC closed loop and the
+ *          measured current feeds valve load classification, which gates a
+ *          safety hold — so the control and diagnostics paths must use the
+ *          FB_FRZ + FB_DC/FB_I_AVG mantissa ratio (§4.10.2, Figure 22) even
+ *          though it costs more SPI. Calibration and bench characterisation
+ *          may use this register.
  */
 namespace FB_I_AVG_s16 {
 constexpr uint32_t I_AVG_MASK         = 0x0001FFFFu; ///< 17-bit
@@ -2040,15 +2054,24 @@ enum class ExpectedReply : uint8_t {
       address == CentralReg::FB_VOLTAGE2) {
     return ExpectedReply::Bits22;
   }
-  /* Per-channel feedback bank: base (0x20..0x70) + 0x200. FB_I_AVG_s16 (+4)
-   * and FB_INT_THRESH (+5) are 16-bit; the rest of the bank is 22-bit. */
+  /* Per-channel feedback bank: base (0x20..0x70) + 0x200, offsets +0..+6.
+   * Every register in the bank answers in reply mode 01B.
+   *
+   * Datasheet Rev 1.2 §5.3.3.14–5.3.3.23 draws each of these with a bits-21:16
+   * row and a six-hex-digit reset value ("00 0000H"), the convention this
+   * document uses for 22-bit replies; true 16-bit registers (FB_FRZ 0x0007,
+   * FB_UPD 0x0008) stop at bit 15 and show "0000H". FB_I_AVG_s16 (+4) carries
+   * TIME_STAMP at 21:20 and FB_INT_THRESH (+5) reserves 21:16, so both are
+   * 22-bit. Listing them as 16-bit made every read of those two fail the
+   * reply-width check, burn its retry, and return an error — which is why the
+   * Iavg16 path looked unusable rather than merely unsuitable for control. */
   if (address > CentralReg::FB_VOLTAGE2) {
     const uint16_t base = static_cast<uint16_t>((address - 0x0200U) & 0x00F0U);
     const uint16_t offset = static_cast<uint16_t>(address & 0x000FU);
     const bool in_channel_bank =
         (address >= 0x0220U) && (address <= 0x0276U) && (base >= 0x0020U) &&
         (base <= 0x0070U) && (offset <= 0x0006U);
-    if (in_channel_bank && offset != 0x0004U && offset != 0x0005U) {
+    if (in_channel_bank) {
       return ExpectedReply::Bits22;
     }
   }

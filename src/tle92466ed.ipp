@@ -5,9 +5,9 @@
  *
  * @details
  * Included from `tle92466ed.hpp` after the `Driver` template declaration.
- * Register access (`ReadRegister` / `WriteRegister`) delegates to
- * `CommType::Read()` / `Write()`, which each perform the chip's two-frame
- * pipelined SPI transaction via `TransferMulti()`.
+ * Register access (`ReadRegister` / `WriteRegister` / `ReadRegisterMulti`)
+ * delegates to `CommType::Read()` / `Write()` / `ReadMulti()`. Single-register
+ * calls use a 3-frame pipeline; `ReadMulti` uses N+2 frames in one chain.
  */
 #ifndef TLE92466ED_IMPL
 #define TLE92466ED_IMPL
@@ -233,6 +233,30 @@ DriverResult<void> Driver<CommType>::Init(bool perform_hardware_reset) noexcept 
       comm_.Log(LogLevel::Warn, "TLE92466ED",
                 "OTP_ECC_ERR sticky \u2014 factory OTP multi-bit flip; "
                 "FAULTN may stay low; not a host OTP write");
+    }
+    /* REG_ECC_ERR is write-1-to-clear, so drop it here rather than leaving it
+     * latched for the whole boot where it would mask a later, real ECC event.
+     *
+     * This must NOT abort Init. Parts are in service whose OTP reload re-arms
+     * this bit every time it is cleared, and they configure, enter mission
+     * mode, and drive all six channels perfectly well. Treating a re-assert as
+     * fatal returned before step 6 below, so the default configuration,
+     * mission mode, and the output-stage enable never ran. The outputs then
+     * really were dark and every FB_DC read back TP_MANT=0 \u2014 which matches the
+     * datasheet's description of the fault so closely that it reads as a dead
+     * part rather than as an Init this driver refused to finish. */
+    if ((*diag2_result & GLOBAL_DIAG2::REG_ECC_ERR) != 0) {
+      comm_.Log(LogLevel::Warn, "TLE92466ED",
+                "REG_ECC_ERR set at Init \u2014 clearing; a sticky re-assert is "
+                "reported but does not block bring-up");
+      (void)WriteRegister(CentralReg::GLOBAL_DIAG2, GLOBAL_DIAG2::REG_ECC_ERR);
+      if (auto recheck = ReadRegister(CentralReg::GLOBAL_DIAG2); recheck) {
+        if ((*recheck & GLOBAL_DIAG2::REG_ECC_ERR) != 0) {
+          comm_.Log(LogLevel::Warn, "TLE92466ED",
+                    "REG_ECC_ERR re-asserts after clear \u2014 sticky; continuing "
+                    "to mission mode, state visible in GLOBAL_DIAG2");
+        }
+      }
     }
   }
 
@@ -1485,6 +1509,242 @@ DriverResult<uint16_t> Driver<CommType>::GetAverageCurrent(Channel channel, bool
   return static_cast<uint16_t>(i_clamped);
 }
 
+//==============================================================================
+// BATCHED NON-BLOCKING FEEDBACK (real-time control path)
+//==============================================================================
+
+template <typename CommType>
+DriverResult<uint8_t> Driver<CommType>::GetFeedbackUpdateMask() noexcept {
+  if (auto result = checkInitialized(); !result) {
+    return tle::unexpected(result.error());
+  }
+  auto upd = ReadRegister(CentralReg::FB_UPD, false);
+  if (!upd) {
+    return tle::unexpected(upd.error());
+  }
+  return static_cast<uint8_t>(*upd & 0x3FU);
+}
+
+template <typename CommType>
+DriverResult<void> Driver<CommType>::FreezeFeedback(uint8_t channel_mask) noexcept {
+  if (auto result = checkInitialized(); !result) {
+    return tle::unexpected(result.error());
+  }
+  return WriteRegister(CentralReg::FB_FRZ,
+                       static_cast<uint16_t>(channel_mask & 0x3FU), false, false);
+}
+
+template <typename CommType>
+DriverResult<void> Driver<CommType>::ReleaseFeedbackFreeze() noexcept {
+  if (auto result = checkInitialized(); !result) {
+    return tle::unexpected(result.error());
+  }
+  /* A freeze left behind stops Tmeas for that channel for good — FB_UPD
+   * never rises again and SampleChannelCurrents then skips it forever.
+   * FB_FRZ replies fail CRC often on this bus (console `tle reg 0x0007`
+   * is err=8), so a single failed write must not stick the freeze. */
+  DriverResult<void> last = tle::unexpected(DriverError::CRCError);
+  for (unsigned attempt = 0; attempt < 3U; ++attempt) {
+    last = WriteRegister(CentralReg::FB_FRZ, 0U, false, false);
+    if (last) {
+      return last;
+    }
+  }
+  return last;
+}
+
+template <typename CommType>
+DriverResult<CurrentFeedbackBatch>
+Driver<CommType>::SampleChannelCurrents(uint8_t channel_mask) noexcept {
+  if (auto result = checkInitialized(); !result) {
+    return tle::unexpected(result.error());
+  }
+  CurrentFeedbackBatch batch{};
+  batch.requested_mask = static_cast<uint8_t>(channel_mask & 0x3FU);
+  if (batch.requested_mask == 0U) {
+    return batch;
+  }
+
+  /* Datasheet Figure 22 step 1: ask the chip which windows finished. One
+   * central read answers for all six channels, so this does not scale with the
+   * size of the mask. */
+  auto upd = GetFeedbackUpdateMask();
+  if (!upd) {
+    return tle::unexpected(upd.error());
+  }
+  batch.update_mask = static_cast<uint8_t>(*upd & batch.requested_mask);
+  if (batch.update_mask == 0U) {
+    /* Nothing new. Freezing a channel whose FB_UPD bit is still clear aborts
+     * Tmeas (~5 ms) and is exactly how CH0 stayed n/a while CH5 (bit set)
+     * read Healthy. Leave the registers running; the next 8 ms tick picks
+     * the window up. */
+    return batch;
+  }
+
+  /* Step 2: freeze precisely the channels that have data. */
+  if (auto frz = FreezeFeedback(batch.update_mask); !frz) {
+    return tle::unexpected(frz.error());
+  }
+
+  /* The freeze write must retire before the pair of FB reads.
+   * GetAverageCurrent gets this for free because it polls FB_UPD (~200 µs+).
+   * Without that flush the first ReadRegister can still see the unfrozen
+   * window (torn 0 mA vs a later 36 mA on the same coil). One FB_FRZ read
+   * both confirms the bits and drains the pipeline. */
+  (void)ReadRegister(CentralReg::FB_FRZ, false);
+
+  /* Step 3: same register order as GetAverageCurrent (I_AVG then FB_DC).
+   * Self-synchronising 3-frame Read per register, not ReadMulti. The
+   * pipelined N+2 burst is faster but a single desynced slot fails the
+   * whole pair (valid_mask stays 0 → iavg n/a). Two 22-bit reads still
+   * fit the 8 ms stripe. */
+  for (uint8_t ch = 0; ch < 6U; ++ch) {
+    if ((batch.update_mask & static_cast<uint8_t>(1U << ch)) == 0U) {
+      continue;
+    }
+    const auto tch = static_cast<Channel>(ch);
+    auto fb_i_r = ReadRegister(GetChannelRegister(tch, ChannelReg::FB_I_AVG), false);
+    auto fb_dc_r = ReadRegister(GetChannelRegister(tch, ChannelReg::FB_DC), false);
+    if (!fb_dc_r || !fb_i_r) {
+      continue;
+    }
+    if (!FB_FEEDBACK::HasValidMeasurementWindow(*fb_dc_r)) {
+      continue;
+    }
+    /* TO_MANT is the last PWM cycle in the window, not the average. Dither
+     * at 200 Hz can freeze on a zero-crossing (TO=0) while I_AVG still
+     * holds the real window current. Gating on TO==0 made FRV/LSV go n/a
+     * after they had been 36 mA. Keep TO for telemetry; I_AVG is the
+     * measurement. */
+    auto& s = batch.channels[ch];
+    s.tp_mant = FB_FEEDBACK::ExtractTpMant(*fb_dc_r);
+    s.to_mant = FB_FEEDBACK::ExtractToMant(*fb_dc_r);
+    s.iavg_ma = FB_FEEDBACK::ComputeAverageCurrent_mA(*fb_i_r, *fb_dc_r);
+    s.window_valid = true;
+    batch.valid_mask = static_cast<uint8_t>(batch.valid_mask | (1U << ch));
+  }
+
+  /* Step 4: unfreeze immediately even when every read failed. A stuck
+   * FB_FRZ stops Tmeas for those channels. */
+  (void)ReleaseFeedbackFreeze();
+  return batch;
+}
+
+template <typename CommType>
+DriverResult<void> Driver<CommType>::ReadAllChannelErrorFlags(
+    std::array<ChannelErrorFlags, 6>& out) noexcept {
+  if (auto result = checkInitialized(); !result) {
+    return tle::unexpected(result.error());
+  }
+  out = {};
+
+  /* Three DIAG_ERR_CHGR groups cover all six channels (each holds a pair at
+   * bit offset 8*y). All are 16-bit replies, so one chain is legal. */
+  const uint16_t addresses[3] = {
+      DIAG_ERR_CHGR::AddressForChannel(0), DIAG_ERR_CHGR::AddressForChannel(2),
+      DIAG_ERR_CHGR::AddressForChannel(4)};
+  uint32_t values[3] = {};
+  uint16_t valid = 0U;
+  if (auto r = ReadRegisterMulti(std::span<const uint16_t>{addresses},
+                                 std::span<uint32_t>{values}, valid);
+      !r) {
+    return tle::unexpected(r.error());
+  }
+  if (valid != 0x7U) {
+    return tle::unexpected(DriverError::CRCError);
+  }
+
+  for (uint8_t ch = 0; ch < 6U; ++ch) {
+    const uint16_t raw = static_cast<uint16_t>(values[ch / 2U]);
+    auto& f = out[ch];
+    f.open_load_short_ground =
+        (raw & DIAG_ERR_CHGR::ChannelBitMask(ch, DIAG_ERR_CHGR::BIT_OLSG)) != 0U;
+    f.open_load =
+        (raw & DIAG_ERR_CHGR::ChannelBitMask(ch, DIAG_ERR_CHGR::BIT_OL)) != 0U;
+    f.overcurrent =
+        (raw & DIAG_ERR_CHGR::ChannelBitMask(ch, DIAG_ERR_CHGR::BIT_OC)) != 0U;
+    f.short_to_ground =
+        (raw & DIAG_ERR_CHGR::ChannelBitMask(ch, DIAG_ERR_CHGR::BIT_SG)) != 0U;
+    f.over_temperature =
+        (raw & DIAG_ERR_CHGR::ChannelBitMask(ch, DIAG_ERR_CHGR::BIT_OTE)) != 0U;
+  }
+  return {};
+}
+
+template <typename CommType>
+DriverResult<bool> Driver<CommType>::IsMeasurementClockRunning(Channel channel) noexcept {
+  if (auto result = checkInitialized(); !result) {
+    return tle::unexpected(result.error());
+  }
+  if (!isValidChannelInternal(channel)) {
+    return tle::unexpected(DriverError::InvalidChannel);
+  }
+  const uint16_t addr = GetChannelRegister(channel, ChannelReg::DITHER_CLK_DIV);
+  auto rb = ReadRegister(addr, false);
+  if (!rb) {
+    return tle::unexpected(rb.error());
+  }
+  const uint16_t v = static_cast<uint16_t>(*rb & 0xFFFFU);
+  const uint16_t mant = static_cast<uint16_t>(v & 0x03FFU);
+  const uint8_t exp = static_cast<uint8_t>((v >> 10) & 0x0FU);
+  /* POR is 0x0000 → tref_clk 0 → Tmeas never elapses. A mantissa this small
+   * cannot produce a usable window even if the field is technically non-zero. */
+  return (mant >= 64U) && (exp >= 1U);
+}
+
+template <typename CommType>
+DriverResult<bool> Driver<CommType>::EnsureDitherRunning(Channel channel,
+                                                         float amplitude_ma,
+                                                         float frequency_hz,
+                                                         uint8_t max_attempts) noexcept {
+  if (auto result = checkInitialized(); !result) {
+    return tle::unexpected(result.error());
+  }
+  if (!isValidChannelInternal(channel)) {
+    return tle::unexpected(DriverError::InvalidChannel);
+  }
+  if (amplitude_ma <= 0.0F || frequency_hz <= 0.0F) {
+    /* No dither requested: the caller is driving a channel whose feedback it
+     * does not intend to average. Nothing to confirm. */
+    return false;
+  }
+  if (max_attempts == 0U) {
+    max_attempts = 1U;
+  }
+  for (uint8_t attempt = 0; attempt < max_attempts; ++attempt) {
+    (void)ConfigureDither(channel, amplitude_ma, frequency_hz);
+    auto running = IsMeasurementClockRunning(channel);
+    if (running && *running) {
+      return true;
+    }
+  }
+  /* The clock may still be running from an earlier write this device's SPI
+   * read cannot confirm, so this is reported rather than treated as an error;
+   * the caller decides whether to trust feedback anyway. */
+  return false;
+}
+
+template <typename CommType>
+DriverResult<void> Driver<CommType>::SetFaultContributionMask(uint8_t channel_mask) noexcept {
+  if (auto result = checkInitialized(); !result) {
+    return tle::unexpected(result.error());
+  }
+  const uint16_t ch = static_cast<uint16_t>(channel_mask & 0x3FU);
+  /* Keep the supply/clock/temperature sources the reset value enables; only
+   * the per-channel contribution is caller-selected. An unpopulated channel
+   * left unmasked holds FAULTN low after every ClearFaults. */
+  const uint16_t mask0 = static_cast<uint16_t>(
+      (ch & FAULT_MASK0::CH_ERR_MASK) | FAULT_MASK0::SUP_NOK_INT_MASK |
+      FAULT_MASK0::SUP_NOK_EXT_MASK);
+  const uint16_t mask1 = static_cast<uint16_t>(
+      (ch & FAULT_MASK1::CH_WARN_MASK) | FAULT_MASK1::COTWARN_MASK |
+      FAULT_MASK1::COTERR_MASK | FAULT_MASK1::CLK_LOW_MASK);
+  if (auto w = WriteRegister(CentralReg::FAULT_MASK0, mask0, false, false); !w) {
+    return tle::unexpected(w.error());
+  }
+  return WriteRegister(CentralReg::FAULT_MASK1, mask1, false, false);
+}
+
 template <typename CommType>
 DriverResult<uint16_t> Driver<CommType>::GetDutyCycle(Channel channel) noexcept {
   if (auto result = checkInitialized(); !result) {
@@ -2346,6 +2606,40 @@ DriverResult<uint32_t> Driver<CommType>::ReadRegister(uint16_t address, bool ver
   }
 
   return *result;
+}
+
+template <typename CommType>
+DriverResult<void> Driver<CommType>::ReadRegisterMulti(
+    std::span<const uint16_t> addresses, std::span<uint32_t> values,
+    uint16_t& valid_mask) noexcept {
+  valid_mask = 0U;
+  if (!comm_.IsReady()) {
+    return tle::unexpected(DriverError::HardwareError);
+  }
+  if (addresses.empty() || addresses.size() != values.size()) {
+    return tle::unexpected(DriverError::InvalidParameter);
+  }
+
+  auto result = comm_.ReadMulti(addresses, values, valid_mask);
+  if (!result) {
+    switch (result.error()) {
+    case CommError::Timeout:
+      return tle::unexpected(DriverError::TimeoutError);
+    case CommError::CRCError:
+      return tle::unexpected(DriverError::CRCError);
+    case CommError::NoReply:
+      return tle::unexpected(DriverError::DeviceNotResponding);
+    case CommError::BusError:
+      return tle::unexpected(DriverError::FaultDetected);
+    case CommError::TransferError:
+      return tle::unexpected(DriverError::SPIFrameError);
+    case CommError::InvalidParameter:
+      return tle::unexpected(DriverError::InvalidParameter);
+    default:
+      return tle::unexpected(DriverError::HardwareError);
+    }
+  }
+  return {};
 }
 
 template <typename CommType>

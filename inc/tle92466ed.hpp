@@ -5,6 +5,7 @@
  */
 #pragma once
 #include <array>
+#include <span>
 
 #include "tle92466ed_expected.hpp"
 #include "tle92466ed_spi_interface.hpp"
@@ -132,6 +133,44 @@ struct ChannelDiagnostics {
   int16_t  min_current_mA{0};  ///< Minimum load current in mA (signed; FB_IMIN_IMAX.IMIN)
   int16_t  max_current_mA{0};  ///< Maximum load current in mA (signed; FB_IMIN_IMAX.IMAX)
   uint16_t vbat_feedback{0};   ///< VBAT feedback (raw FB_VBAT)
+};
+
+/**
+ * @brief Latched error bits for one channel (DIAG_ERR_CHGRx only).
+ *
+ * The error half of @ref ChannelDiagnostics without the warning registers or
+ * the four feedback reads, so a supervisory loop can refresh fault state for
+ * every channel in three register reads instead of thirty-six.
+ */
+struct ChannelErrorFlags {
+  bool open_load_short_ground{false}; ///< OLSG pre-check (latched)
+  bool open_load{false};              ///< OL
+  bool overcurrent{false};            ///< OC
+  bool short_to_ground{false};        ///< SG
+  bool over_temperature{false};       ///< OTE
+};
+
+/**
+ * @brief One channel's decoded average current from a batched freeze/read.
+ *
+ * @details Decoded from the FB_I_AVG / FB_DC mantissa ratio (datasheet
+ * Equation 22), which is the path §4.10.6 requires for current supervision.
+ */
+struct ChannelCurrentSample {
+  int32_t iavg_ma{0};        ///< Signed average load current, milliamps
+  uint16_t tp_mant{0};       ///< FB_DC TP_MANT — the measurement window itself
+  uint16_t to_mant{0};       ///< FB_DC TO_MANT — last PWM cycle on-time (not the average)
+  bool window_valid{false};  ///< Both reads succeeded and TP_MANT is credible
+};
+
+/**
+ * @brief Result of one @ref Tle92466edDriver::SampleChannelCurrents call.
+ */
+struct CurrentFeedbackBatch {
+  uint8_t requested_mask{0}; ///< Channels the caller asked for
+  uint8_t update_mask{0};    ///< FB_UPD: channels with a completed window
+  uint8_t valid_mask{0};     ///< Channels whose sample is trustworthy
+  std::array<ChannelCurrentSample, 6> channels{};
 };
 
 /**
@@ -679,7 +718,13 @@ public:
    * @note Negative load current (recirculation) is clamped to 0 in this
    *       legacy unsigned return type.
    *
+   * @warning This path freezes the channel and polls `FB_UPD` with
+   *          `Delay()` for up to ~8 ms. It is a diagnostic / console helper.
+   *          Real-time control must use @ref SampleChannelCurrents, which
+   *          never blocks.
+   *
    * @see FB_FEEDBACK::kMinValidTpMant, FB_FEEDBACK::HasValidMeasurementWindow
+   * @see SampleChannelCurrents
    */
   [[nodiscard]] DriverResult<uint16_t> GetAverageCurrent(Channel channel,
                                                          bool parallel_mode = false) noexcept;
@@ -1192,6 +1237,124 @@ public:
   GetCalibrationAvgCurrent_mA(Channel channel) noexcept;
 
   //==========================================================================
+  // BATCHED NON-BLOCKING FEEDBACK (real-time control path)
+  //==========================================================================
+
+  /**
+   * @brief Read FB_UPD — bit N set when channel N has a completed window.
+   *
+   * @details One central 16-bit read covers all six channels (datasheet
+   * §5.3.2.10). This is the chip's own "is the data fresh" signal and the
+   * first step of the Figure 22 readout; polling it beats guessing at Tmeas
+   * with a wall clock, and it costs one register access for the whole device.
+   */
+  [[nodiscard]] DriverResult<uint8_t> GetFeedbackUpdateMask() noexcept;
+
+  /**
+   * @brief Set FB_FRZ to @p channel_mask (bit N freezes channel N).
+   * @note Freezing holds FB_DC, FB_VBAT, FB_I_AVG, FB_PERIOD_MIN_MAX and
+   *       FB_IMIN_IMAX. FB_I_AVG_s16 is free-running and unaffected (§4.10.5).
+   */
+  [[nodiscard]] DriverResult<void> FreezeFeedback(uint8_t channel_mask) noexcept;
+
+  /**
+   * @brief Clear FB_FRZ for every channel, resuming feedback updates.
+   * @note Also clears the corresponding FB_UPD bits (§4.10.5).
+   */
+  [[nodiscard]] DriverResult<void> ReleaseFeedbackFreeze() noexcept;
+
+  /**
+   * @brief Coherent average current for several channels in one freeze window.
+   *
+   * @param channel_mask Bit N requests channel N (bits above 5 ignored).
+   * @return Batch with per-channel current and the masks describing what was
+   *         actually usable. Never blocks and never polls.
+   *
+   * @details
+   * Implements the datasheet Figure 22 readout for a *set* of channels rather
+   * than one at a time:
+   *   1. read FB_UPD once — which channels have a fresh window,
+   *   2. freeze exactly those channels,
+   *   3. one pipelined burst reading FB_DC + FB_I_AVG for each of them,
+   *   4. release the freeze.
+   *
+   * That is four bus transactions regardless of how many channels are in the
+   * mask, because step 3 is a single @c ReadMulti chain. Refreshing all six
+   * channels costs 4 transactions / 20 frames instead of the 24 transactions /
+   * 72 frames a per-channel loop needs.
+   *
+   * Channels whose FB_UPD bit is clear are skipped rather than reported as
+   * failures — no new window has completed, so the caller's previous sample is
+   * still the most recent truth.
+   *
+   * @warning Unlike @ref ReadChannelFeedback this does not wait for FB_UPD. It
+   *          is meant to be called at the control-loop rate: whatever is ready
+   *          is sampled, the rest is picked up next tick. That is what makes it
+   *          usable from a 2 ms thread that also owns actuator writes.
+   */
+  [[nodiscard]] DriverResult<CurrentFeedbackBatch>
+  SampleChannelCurrents(uint8_t channel_mask) noexcept;
+
+  /**
+   * @brief Latched error bits for all six channels.
+   *
+   * @details DIAG_ERR_CHGR0..2 each cover a channel pair, so this is one
+   * pipelined burst of three reads for the whole device.
+   *
+   * @warning Do not merge this into the same chain as the 22-bit feedback
+   *          registers. These are 16-bit replies; interleaving widths in one
+   *          pipeline desynchronised the reply slots on the bench and left
+   *          every isolated coil misclassified.
+   */
+  [[nodiscard]] DriverResult<void>
+  ReadAllChannelErrorFlags(std::array<ChannelErrorFlags, 6>& out) noexcept;
+
+  /**
+   * @brief True when DITHER_CLK_DIV encodes a running measurement clock.
+   *
+   * @details The POR value is 0, which makes tref_clk — and therefore Tmeas —
+   * zero, so FB_DC / FB_I_AVG / FB_VBAT never update. Confirming this before
+   * trusting feedback is a chip invariant, not caller policy.
+   */
+  [[nodiscard]] DriverResult<bool> IsMeasurementClockRunning(Channel channel) noexcept;
+
+  /**
+   * @brief Configure dither and confirm the measurement clock took.
+   *
+   * @param channel Channel to configure.
+   * @param amplitude_ma Dither amplitude; 0 skips dither programming.
+   * @param frequency_hz Dither frequency.
+   * @param max_attempts Configure/read-back attempts before giving up.
+   * @return true when DITHER_CLK_DIV read back as running; false when it never
+   *         confirmed (the caller decides whether to proceed anyway — the clock
+   *         may still be running from a POR or an earlier write that this
+   *         device's SPI read cannot confirm).
+   */
+  [[nodiscard]] DriverResult<bool> EnsureDitherRunning(Channel channel,
+                                                       float amplitude_ma,
+                                                       float frequency_hz,
+                                                       uint8_t max_attempts = 3U) noexcept;
+
+  /**
+   * @brief Last CH_CTRL value this driver wrote (OP_MODE + EN_CHx).
+   *
+   * @details CH_CTRL reads back as 0x0000 on some parts/buses, so the driver
+   * keeps an authoritative shadow. Callers must use this instead of keeping a
+   * second shadow of their own.
+   */
+  [[nodiscard]] uint16_t GetChannelControlShadow() const noexcept { return ch_ctrl_cache_; }
+
+  /**
+   * @brief Choose which channels may pull FAULTN via FAULT_MASK0/1.
+   *
+   * @param channel_mask Bit N = channel N contributes to FAULTN.
+   * @details Which channels are populated is product wiring, so the mask is an
+   *          argument; how that maps onto FAULT_MASK0/1 bit positions is chip
+   *          protocol and stays here.
+   */
+  [[nodiscard]] DriverResult<void> SetFaultContributionMask(uint8_t channel_mask) noexcept;
+
+  //==========================================================================
   // REGISTER ACCESS (Advanced)
   //==========================================================================
 
@@ -1207,6 +1370,26 @@ public:
    */
   [[nodiscard]] DriverResult<uint32_t> ReadRegister(uint16_t address,
                                                     bool verify_crc = false) noexcept;
+
+  /**
+   * @brief Read several registers in one pipelined chain.
+   *
+   * @param[in]  addresses Register addresses (at most @c CommType::kMaxPipelinedReads).
+   * @param[out] values    Decoded values; entries that failed validation are 0.
+   * @param[out] valid_mask Bit @c i set when @p values[i] is trustworthy.
+   *
+   * @details N reads cost N+2 SPI frames here instead of 3N, because the
+   * pipeline is opened once for the whole burst. Individual replies are still
+   * validated independently, so a single corrupt frame costs one entry rather
+   * than the batch.
+   *
+   * @warning Every address in one call must answer with the same reply width.
+   *          Mixing 16-bit and 22-bit registers in a single chain desynchronised
+   *          reply slots on the bench.
+   */
+  [[nodiscard]] DriverResult<void> ReadRegisterMulti(std::span<const uint16_t> addresses,
+                                                     std::span<uint32_t> values,
+                                                     uint16_t& valid_mask) noexcept;
 
   /**
    * @brief Write 16-bit register
