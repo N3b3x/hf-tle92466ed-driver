@@ -920,14 +920,14 @@ inline CommResult<uint32_t> SpiInterface<Derived>::Read(uint16_t address, bool v
                                 dummy_frame.word};
 
   /* A reply is only believed when it is well formed: CRC valid *and* the reply
-   * width the register is defined to answer with. Bench measurement (Portenta
-   * Mid, 2026-08-13, 150 frames) found 4 % of frames corrupt and 25 % of
+   * width the register is defined to answer with. Bench measurement
+   * (2026-08-13, 150 frames) found 4 % of frames corrupt and 25 % of
    * FB_STAT reads carrying the preceding ICVID reply — the latter with a valid
    * CRC, so CRC alone does not reject it. Both used to be accepted as data,
    * which is the origin of the "sticky-zero CH_CTRL", the impossible IMAX, the
    * open-load reported on a fitted resistor, and INIT_DONE reading 0 on a
    * healthy device. Two CRC attempts keep freeze-complete (2× FB_UPD +
-   * FB_I_AVG + FB_DC) inside the 2 ms InnerControl budget; four attempts ×
+   * FB_I_AVG + FB_DC) inside a 2 ms host control-loop budget; four attempts ×
    * Mode1 IdleAll+30 µs per frame ran last_step ~9–11 ms on hold ticks.
    * ICVID Init has its own recovery path. */
   constexpr uint8_t kReadAttempts = 2;

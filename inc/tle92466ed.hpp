@@ -170,6 +170,14 @@ struct CurrentFeedbackBatch {
   uint8_t requested_mask{0}; ///< Channels the caller asked for
   uint8_t update_mask{0};    ///< FB_UPD: channels with a completed window
   uint8_t valid_mask{0};     ///< Channels whose sample is trustworthy
+  /**
+   * @brief Read chains discarded because their reply anchors did not verify.
+   *
+   * Non-zero means the bus mis-ordered replies and the affected channels were
+   * reported as "no window" rather than decoded from another channel's data.
+   * A rising count is a bus-integrity signal, not a plant fault.
+   */
+  uint8_t rejected_chains{0};
   std::array<ChannelCurrentSample, 6> channels{};
 };
 

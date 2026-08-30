@@ -52,7 +52,7 @@ namespace tle92466ed {
     return "GLOBAL_CONFIG is write-only, reads return default/previous value";
   }
   if (address == CentralReg::VBAT_TH) {
-    /* Bench A/B (Portenta Mid, 2026-08-12): writing 0xF72B (7 V / 40 V) read
+    /* Bench A/B (2026-08-12): writing 0xF72B (7 V / 40 V) read
      * back 0x8E00, and writing 0xD81F (5 V / 35 V) read back 0x8000. Both were
      * clean 16-bit replies (mode 00, status 0, CRC 0xA2) and neither written
      * word appears anywhere in the 32-bit frame — a register property, not a
@@ -89,7 +89,7 @@ namespace tle92466ed {
     switch (static_cast<uint16_t>(address & 0x000Fu)) {
     case ChannelReg::MODE:
     case ChannelReg::CH_CONFIG:
-      /* Bench A/B (Portenta Mid, 2026-08-12): writing MODE=0x0001 (ICC) and
+      /* Bench A/B (2026-08-12): writing MODE=0x0001 (ICC) and
        * CH_CONFIG=0x0031 to CH5 both read back 0x0000, while PERIOD in the
        * same bank round-tripped 0x05DB exactly on the same frames. Verifying
        * these made ConfigureChannel fail on every channel, so the loop never
@@ -609,7 +609,7 @@ DriverResult<void> Driver<CommType>::EnableChannel(Channel channel, bool enabled
 
   /* Disable is fire-and-forget: CH_CTRL sticky-zero readback retried
    * 3 × Read (each CRC attempt × 3-frame TransferChain) per parked
-   * channel and AllOff of six PROP bits saturated InnerControl last_step
+   * channel and AllOff of six PROP bits saturated a 2 ms host-loop step
    * at 65535 µs. EN off is the park; leftover TARGET cannot drive. Enable
    * still verifies — silent LM-Pro on CH4/CH5 is worse than a slow enable. */
   if (!enabled) {
@@ -1593,35 +1593,99 @@ Driver<CommType>::SampleChannelCurrents(uint8_t channel_mask) noexcept {
    * both confirms the bits and drains the pipeline. */
   (void)ReadRegister(CentralReg::FB_FRZ, false);
 
-  /* Step 3: same register order as GetAverageCurrent (I_AVG then FB_DC).
-   * Self-synchronising 3-frame Read per register, not ReadMulti. The
-   * pipelined N+2 burst is faster but a single desynced slot fails the
-   * whole pair (valid_mask stays 0 → iavg n/a). Two 22-bit reads still
-   * fit the 8 ms stripe. */
+  /* Step 3: anchored pipelined chains, I_AVG then FB_DC per channel.
+   *
+   * Every register in the per-channel feedback bank answers in 22-bit reply
+   * mode, so ExpectedReplyFor cannot tell CH3's FB_I_AVG from CH4's. A reply
+   * that slips one slot carries a valid CRC *and* passes the width check, and
+   * is then decoded as this channel's current. Desk 2026-08-30: CH3 reported
+   * 65 mA Healthy with no coil on the connector — it was CH4's answer, and
+   * that is a false Healthy on a disconnected valve.
+   *
+   * ICVID is interleaved as an anchor: read-only, harmless to repeat, and the
+   * only register here that answers in 16-bit reply mode with a known constant
+   * (high byte 0xC1). Any slip drops a 22-bit feedback reply into an anchor
+   * slot, where the width check rejects it. A chain whose anchors do not all
+   * verify is discarded whole — none of its channels are accepted.
+   *
+   * Fail closed on purpose: reporting "no window" costs one 8 ms tick and the
+   * next tick picks the measurement up, whereas reporting a neighbour's
+   * current as this channel's is unrecoverable and silently wrong. */
+  constexpr size_t kChannelsPerChain = 3U; /* 3*3+1 = 10 reads = 12 frames */
+  constexpr size_t kChainReads = 3U * kChannelsPerChain + 1U;
+  static_assert(kChainReads <= CommType::kMaxPipelinedReads,
+                "anchored chain must fit one pipelined CS window");
+
+  uint8_t pending[6] = {};
+  size_t pending_n = 0U;
   for (uint8_t ch = 0; ch < 6U; ++ch) {
-    if ((batch.update_mask & static_cast<uint8_t>(1U << ch)) == 0U) {
+    if ((batch.update_mask & static_cast<uint8_t>(1U << ch)) != 0U) {
+      pending[pending_n++] = ch;
+    }
+  }
+
+  for (size_t start = 0U; start < pending_n; start += kChannelsPerChain) {
+    const size_t remaining = pending_n - start;
+    const size_t k =
+        (remaining < kChannelsPerChain) ? remaining : kChannelsPerChain;
+
+    uint16_t addrs[kChainReads] = {};
+    uint32_t vals[kChainReads] = {};
+    size_t n = 0U;
+    for (size_t j = 0U; j < k; ++j) {
+      const auto tch = static_cast<Channel>(pending[start + j]);
+      addrs[n++] = CentralReg::ICVID;
+      addrs[n++] = GetChannelRegister(tch, ChannelReg::FB_I_AVG);
+      addrs[n++] = GetChannelRegister(tch, ChannelReg::FB_DC);
+    }
+    addrs[n++] = CentralReg::ICVID;
+
+    uint16_t valid = 0U;
+    if (auto r = ReadRegisterMulti(std::span<const uint16_t>{addrs, n},
+                                   std::span<uint32_t>{vals, n}, valid);
+        !r) {
+      ++batch.rejected_chains;
       continue;
     }
-    const auto tch = static_cast<Channel>(ch);
-    auto fb_i_r = ReadRegister(GetChannelRegister(tch, ChannelReg::FB_I_AVG), false);
-    auto fb_dc_r = ReadRegister(GetChannelRegister(tch, ChannelReg::FB_DC), false);
-    if (!fb_dc_r || !fb_i_r) {
+
+    /* Anchors decide the whole chain before any payload is believed. */
+    bool anchors_ok = true;
+    for (size_t a = 0U; a <= 3U * k; a += 3U) {
+      if ((valid & static_cast<uint16_t>(1U << a)) == 0U ||
+          !DeviceID::IsValidDevice(static_cast<uint16_t>(vals[a]))) {
+        anchors_ok = false;
+        break;
+      }
+    }
+    if (!anchors_ok) {
+      ++batch.rejected_chains;
       continue;
     }
-    if (!FB_FEEDBACK::HasValidMeasurementWindow(*fb_dc_r)) {
-      continue;
+
+    for (size_t j = 0U; j < k; ++j) {
+      const size_t i_idx = 3U * j + 1U;
+      const size_t d_idx = 3U * j + 2U;
+      if ((valid & static_cast<uint16_t>(1U << i_idx)) == 0U ||
+          (valid & static_cast<uint16_t>(1U << d_idx)) == 0U) {
+        continue;
+      }
+      if (!FB_FEEDBACK::HasValidMeasurementWindow(vals[d_idx])) {
+        continue;
+      }
+      /* TO_MANT is the last PWM cycle in the window, not the average. Dither
+       * at 200 Hz can freeze on a zero-crossing (TO=0) while I_AVG still
+       * holds the real window current. Gating on TO==0 made FRV/LSV go n/a
+       * after they had been 36 mA. Keep TO for telemetry; I_AVG is the
+       * measurement. */
+      const uint8_t ch = pending[start + j];
+      auto& s = batch.channels[ch];
+      s.tp_mant = FB_FEEDBACK::ExtractTpMant(vals[d_idx]);
+      s.to_mant = FB_FEEDBACK::ExtractToMant(vals[d_idx]);
+      s.iavg_ma =
+          FB_FEEDBACK::ComputeAverageCurrent_mA(vals[i_idx], vals[d_idx]);
+      s.window_valid = true;
+      batch.valid_mask = static_cast<uint8_t>(batch.valid_mask | (1U << ch));
     }
-    /* TO_MANT is the last PWM cycle in the window, not the average. Dither
-     * at 200 Hz can freeze on a zero-crossing (TO=0) while I_AVG still
-     * holds the real window current. Gating on TO==0 made FRV/LSV go n/a
-     * after they had been 36 mA. Keep TO for telemetry; I_AVG is the
-     * measurement. */
-    auto& s = batch.channels[ch];
-    s.tp_mant = FB_FEEDBACK::ExtractTpMant(*fb_dc_r);
-    s.to_mant = FB_FEEDBACK::ExtractToMant(*fb_dc_r);
-    s.iavg_ma = FB_FEEDBACK::ComputeAverageCurrent_mA(*fb_i_r, *fb_dc_r);
-    s.window_valid = true;
-    batch.valid_mask = static_cast<uint8_t>(batch.valid_mask | (1U << ch));
   }
 
   /* Step 4: unfreeze immediately even when every read failed. A stuck
@@ -2421,7 +2485,7 @@ DriverResult<void> Driver<CommType>::ReloadSpiWatchdog(uint16_t reload_value) no
 
   /* WD_RELOAD is a strobe (NonTransparentWriteReason). Default verify_write
    * Delay(1 ms)+readback ran on every valve_diag kick (~52 ms) under the
-   * handler mutex and starved InnerControl FB_UPD / last_step. */
+   * handler mutex and starved host-loop FB_UPD / last_step. */
   return WriteRegister(CentralReg::WD_RELOAD, masked_value, false, false);
 }
 

@@ -2038,8 +2038,8 @@ enum class ExpectedReply : uint8_t {
  * @details The pipelined bus does not echo the address in a reply, so a reply
  *          that arrives in the wrong slot is otherwise indistinguishable from
  *          the register that was asked for — and it carries a **valid CRC**,
- *          so CRC alone cannot reject it. Bench measurement (Portenta Mid,
- *          2026-08-13) had 25 % of `FB_STAT` reads return the preceding
+ *          so CRC alone cannot reject it. Bench measurement
+ *          (2026-08-13) had 25 % of `FB_STAT` reads return the preceding
  *          `ICVID` reply, which decoded as plausible-looking status bits.
  *          Comparing the reply mode against this table catches the subset of
  *          those where the two registers differ in width, which covers every
