@@ -115,8 +115,8 @@
   <option  id='WARN_IF_UNDOCUMENTED' default='no' type='bool'><value>NO</value></option>
   <option  id='WARN_IF_DOC_ERROR' default='yes' type='bool'><value>YES</value></option>
   <option  id='WARN_IF_INCOMPLETE_DOC' default='yes' type='bool'><value>YES</value></option>
-  <option  id='WARN_NO_PARAMDOC' default='yes' type='bool'><value>NO</value></option>
-  <option  id='WARN_IF_UNDOC_ENUM_VAL' default='yes' type='bool'><value>NO</value></option>
+  <option  id='WARN_NO_PARAMDOC' default='no' type='bool'><value>YES</value></option>
+  <option  id='WARN_IF_UNDOC_ENUM_VAL' default='no' type='bool'><value>YES</value></option>
   <option  id='WARN_AS_ERROR' default='yes' type='string'><value>NO</value></option>
   <option  id='WARN_FORMAT' default='yes' type='string'><value><![CDATA["$file:$line: $text"]]></value></option>
   <option  id='WARN_LINE_FORMAT' default='yes' type='string'><value><![CDATA["at line $line of file $file"]]></value></option>
@@ -341,12 +341,12 @@
   <option  id='SKIP_FUNCTION_MACROS' default='yes' type='bool'><value>YES</value></option>
   <option  id='TAGFILES' default='yes' type='stringlist'>
   </option>
-  <option  id='GENERATE_TAGFILE' default='yes' type='string'><value><![CDATA[]]></value></option>
+  <option  id='GENERATE_TAGFILE' default='no' type='string'><value><![CDATA[docs/doxygen/html/hf-tle92466ed.tag]]></value></option>
   <option  id='ALLEXTERNALS' default='yes' type='bool'><value>NO</value></option>
   <option  id='EXTERNAL_GROUPS' default='yes' type='bool'><value>YES</value></option>
   <option  id='EXTERNAL_PAGES' default='yes' type='bool'><value>YES</value></option>
   <option  id='HIDE_UNDOC_RELATIONS' default='yes' type='bool'><value>YES</value></option>
-  <option  id='HAVE_DOT' default='no' type='bool'><value>YES</value></option>
+  <option  id='HAVE_DOT' default='yes' type='bool'><value>NO</value></option>
   <option  id='DOT_NUM_THREADS' default='yes' type='int'><value>0</value></option>
   <option  id='DOT_COMMON_ATTR' default='no' type='string'><value><![CDATA["fontname=Arial,fontsize=14"]]></value></option>
   <option  id='DOT_EDGE_ATTR' default='no' type='string'><value><![CDATA["labelfontname=Arial,labelfontsize=14"]]></value></option>
