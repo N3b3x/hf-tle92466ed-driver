@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1CH__MODE" kind="namespace" language="C++">
+    <compoundname>tle92466ed::CH_MODE</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__MODE_1a83bbec2b37ad13d7f3e1cf262f15b34d" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_MODE::OFF</definition>
+        <argsstring></argsstring>
+        <name>OFF</name>
+        <qualifiedname>tle92466ed::CH_MODE::OFF</qualifiedname>
+        <initializer>= 0x0000</initializer>
+        <briefdescription>
+<para>Channel off. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="907" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="907" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__MODE_1a314fb04ca584165fa0092dd9d8553da9" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_MODE::ICC_CURRENT_CTRL</definition>
+        <argsstring></argsstring>
+        <name>ICC_CURRENT_CTRL</name>
+        <qualifiedname>tle92466ed::CH_MODE::ICC_CURRENT_CTRL</qualifiedname>
+        <initializer>= 0x0001</initializer>
+        <briefdescription>
+<para>ICC current control. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="908" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="908" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__MODE_1a58768920e5c07083bb364129bf9e138d" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_MODE::DIRECT_DRIVE_SPI</definition>
+        <argsstring></argsstring>
+        <name>DIRECT_DRIVE_SPI</name>
+        <qualifiedname>tle92466ed::CH_MODE::DIRECT_DRIVE_SPI</qualifiedname>
+        <initializer>= 0x0002</initializer>
+        <briefdescription>
+<para>Direct drive via SPI. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="909" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="909" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__MODE_1a01cc3a0c39949fe0c9cf0c1909213ca7" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_MODE::DIRECT_DRIVE_DRV0</definition>
+        <argsstring></argsstring>
+        <name>DIRECT_DRIVE_DRV0</name>
+        <qualifiedname>tle92466ed::CH_MODE::DIRECT_DRIVE_DRV0</qualifiedname>
+        <initializer>= 0x0003</initializer>
+        <briefdescription>
+<para>Direct drive via DRV0 pin. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="910" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="910" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__MODE_1a60f42c2ed06555fd842aa3e7ec74ab71" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_MODE::DIRECT_DRIVE_DRV1</definition>
+        <argsstring></argsstring>
+        <name>DIRECT_DRIVE_DRV1</name>
+        <qualifiedname>tle92466ed::CH_MODE::DIRECT_DRIVE_DRV1</qualifiedname>
+        <initializer>= 0x0004</initializer>
+        <briefdescription>
+<para>Direct drive via DRV1 pin. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="911" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="911" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__MODE_1ab92ced1de807efb81b1fc4d6273c54ff" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_MODE::FREE_RUN_MEAS</definition>
+        <argsstring></argsstring>
+        <name>FREE_RUN_MEAS</name>
+        <qualifiedname>tle92466ed::CH_MODE::FREE_RUN_MEAS</qualifiedname>
+        <initializer>= 0x000C</initializer>
+        <briefdescription>
+<para>Free running measurement. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="912" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="912" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__MODE_1a01c1d15d71e9c4ff0e2649d0cf52fe1c" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_MODE::MODE_MASK</definition>
+        <argsstring></argsstring>
+        <name>MODE_MASK</name>
+        <qualifiedname>tle92466ed::CH_MODE::MODE_MASK</qualifiedname>
+        <initializer>= 0x000F</initializer>
+        <briefdescription>
+<para>Mode mask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="913" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="913" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__MODE_1a9cfb46afa1236375335c1c4273009894" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_MODE::DEFAULT</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT</name>
+        <qualifiedname>tle92466ed::CH_MODE::DEFAULT</qualifiedname>
+        <initializer>= <ref refid="namespacetle92466ed_1_1CH__MODE_1a83bbec2b37ad13d7f3e1cf262f15b34d" kindref="member">OFF</ref></initializer>
+        <briefdescription>
+<para>Default (off) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="915" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="915" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Channel MODE register bit definitions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Channel operation mode selection (write only in Config Mode).</para>
+<para><simplesect kind="par"><title>Bit Map:</title><para><verbatim>* Bits 3-0: CH_MODE - Channel operation mode
+* </verbatim> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="906" column="1"/>
+  </compounddef>
+</doxygen>

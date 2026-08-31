@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="structtle92466ed_1_1ChannelFeedback" kind="struct" language="C++" prot="public">
+    <compoundname>tle92466ed::ChannelFeedback</compoundname>
+    <includes refid="tle92466ed__registers_8hpp" local="no">tle92466ed_registers.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelFeedback_1adef390827f7b8f8222777dac552d536f" prot="public" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t tle92466ed::ChannelFeedback::avg_current_mA</definition>
+        <argsstring></argsstring>
+        <name>avg_current_mA</name>
+        <qualifiedname>tle92466ed::ChannelFeedback::avg_current_mA</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>Average current from FB_I_AVG/FB_DC ratio (mA, signed) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2411" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2411" bodyend="2411"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelFeedback_1a4e46252424655469681b58304b75a0a0" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t tle92466ed::ChannelFeedback::duty_cycle_permyriad</definition>
+        <argsstring></argsstring>
+        <name>duty_cycle_permyriad</name>
+        <qualifiedname>tle92466ed::ChannelFeedback::duty_cycle_permyriad</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>Duty cycle 0..10000 (= 0.00..100.00 %) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2412" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2412" bodyend="2412"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelFeedback_1a72443b5923fb6d27b0a42dc60561c740" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t tle92466ed::ChannelFeedback::avg_vbat_mV</definition>
+        <argsstring></argsstring>
+        <name>avg_vbat_mV</name>
+        <qualifiedname>tle92466ed::ChannelFeedback::avg_vbat_mV</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>Channel-referenced VBAT average (mV) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2413" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2413" bodyend="2413"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelFeedback_1a5e4d5cbce04e85b47748ca022dace868" prot="public" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t tle92466ed::ChannelFeedback::imin_mA</definition>
+        <argsstring></argsstring>
+        <name>imin_mA</name>
+        <qualifiedname>tle92466ed::ChannelFeedback::imin_mA</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>Minimum current in measurement window (mA) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2414" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2414" bodyend="2414"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelFeedback_1a5ef365c652b2a80c46e3d8ed2ae6a9c1" prot="public" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t tle92466ed::ChannelFeedback::imax_mA</definition>
+        <argsstring></argsstring>
+        <name>imax_mA</name>
+        <qualifiedname>tle92466ed::ChannelFeedback::imax_mA</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>Maximum current in measurement window (mA) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2415" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2415" bodyend="2415"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelFeedback_1a770d327284f2f6d300697f27831aba0f" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t tle92466ed::ChannelFeedback::period_min_us</definition>
+        <argsstring></argsstring>
+        <name>period_min_us</name>
+        <qualifiedname>tle92466ed::ChannelFeedback::period_min_us</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>Shortest PWM period observed (µs) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2416" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2416" bodyend="2416"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelFeedback_1af72ebdfd3670226e77745e02a39d6263" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t tle92466ed::ChannelFeedback::period_max_us</definition>
+        <argsstring></argsstring>
+        <name>period_max_us</name>
+        <qualifiedname>tle92466ed::ChannelFeedback::period_max_us</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>Longest PWM period observed (µs) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2417" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2417" bodyend="2417"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelFeedback_1a8596104225e0d9fc2ecd3694b6293e46" prot="public" static="no" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t tle92466ed::ChannelFeedback::int_thresh_seed</definition>
+        <argsstring></argsstring>
+        <name>int_thresh_seed</name>
+        <qualifiedname>tle92466ed::ChannelFeedback::int_thresh_seed</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>Current ICC integrator threshold readback. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2418" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2418" bodyend="2418"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelFeedback_1a60803ebaf7c36f89ecaa5c33f7731581" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t tle92466ed::ChannelFeedback::period_seq</definition>
+        <argsstring></argsstring>
+        <name>period_seq</name>
+        <qualifiedname>tle92466ed::ChannelFeedback::period_seq</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>Measurement exponent sequence (from FB_I_AVG EXP) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2419" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2419" bodyend="2419"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelFeedback_1ae1bdb157d38ea89567757377b97365e9" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t tle92466ed::ChannelFeedback::quad_seq</definition>
+        <argsstring></argsstring>
+        <name>quad_seq</name>
+        <qualifiedname>tle92466ed::ChannelFeedback::quad_seq</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>Quarter-period sequence counter (reserved) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2420" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2420" bodyend="2420"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>High-resolution per-channel feedback snapshot (Phase 6). </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Populated by <computeroutput>ReadChannelFeedback()</computeroutput>. Average current uses the <computeroutput>FB_I_AVG</computeroutput> mantissa ratio with <computeroutput>TP_MANT</computeroutput> from <computeroutput>FB_DC</computeroutput> — not <computeroutput><ref refid="namespacetle92466ed_1_1FB__I__AVG__s16" kindref="compound">FB_I_AVG_s16</ref></computeroutput> (see <computeroutput>GetCalibrationAvgCurrent_mA()</computeroutput>). </para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="2410" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2410" bodyend="2421"/>
+    <listofallmembers>
+      <member refid="structtle92466ed_1_1ChannelFeedback_1adef390827f7b8f8222777dac552d536f" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelFeedback</scope><name>avg_current_mA</name></member>
+      <member refid="structtle92466ed_1_1ChannelFeedback_1a72443b5923fb6d27b0a42dc60561c740" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelFeedback</scope><name>avg_vbat_mV</name></member>
+      <member refid="structtle92466ed_1_1ChannelFeedback_1a4e46252424655469681b58304b75a0a0" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelFeedback</scope><name>duty_cycle_permyriad</name></member>
+      <member refid="structtle92466ed_1_1ChannelFeedback_1a5ef365c652b2a80c46e3d8ed2ae6a9c1" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelFeedback</scope><name>imax_mA</name></member>
+      <member refid="structtle92466ed_1_1ChannelFeedback_1a5e4d5cbce04e85b47748ca022dace868" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelFeedback</scope><name>imin_mA</name></member>
+      <member refid="structtle92466ed_1_1ChannelFeedback_1a8596104225e0d9fc2ecd3694b6293e46" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelFeedback</scope><name>int_thresh_seed</name></member>
+      <member refid="structtle92466ed_1_1ChannelFeedback_1af72ebdfd3670226e77745e02a39d6263" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelFeedback</scope><name>period_max_us</name></member>
+      <member refid="structtle92466ed_1_1ChannelFeedback_1a770d327284f2f6d300697f27831aba0f" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelFeedback</scope><name>period_min_us</name></member>
+      <member refid="structtle92466ed_1_1ChannelFeedback_1a60803ebaf7c36f89ecaa5c33f7731581" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelFeedback</scope><name>period_seq</name></member>
+      <member refid="structtle92466ed_1_1ChannelFeedback_1ae1bdb157d38ea89567757377b97365e9" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelFeedback</scope><name>quad_seq</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

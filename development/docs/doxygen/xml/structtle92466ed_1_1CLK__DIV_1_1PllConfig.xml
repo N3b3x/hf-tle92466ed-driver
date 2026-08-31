@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="structtle92466ed_1_1CLK__DIV_1_1PllConfig" kind="struct" language="C++" prot="public">
+    <compoundname>tle92466ed::CLK_DIV::PllConfig</compoundname>
+    <includes refid="tle92466ed__registers_8hpp" local="no">tle92466ed_registers.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtle92466ed_1_1CLK__DIV_1_1PllConfig_1aa9c9deea696e9fd8565ef6845c39cee9" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t tle92466ed::CLK_DIV::PllConfig::refdiv</definition>
+        <argsstring></argsstring>
+        <name>refdiv</name>
+        <qualifiedname>tle92466ed::CLK_DIV::PllConfig::refdiv</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1050" column="24" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1050" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1CLK__DIV_1_1PllConfig_1abc9d0afe7ce2259bc1d48d795ad2d162" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t tle92466ed::CLK_DIV::PllConfig::fbdiv</definition>
+        <argsstring></argsstring>
+        <name>fbdiv</name>
+        <qualifiedname>tle92466ed::CLK_DIV::PllConfig::fbdiv</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1050" column="40" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1050" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1CLK__DIV_1_1PllConfig_1a3b71a45ca8e2f1e745068daf90825752" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t tle92466ed::CLK_DIV::PllConfig::actual_f_sys_hz</definition>
+        <argsstring></argsstring>
+        <name>actual_f_sys_hz</name>
+        <qualifiedname>tle92466ed::CLK_DIV::PllConfig::actual_f_sys_hz</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1050" column="55" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1050" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Compute the divider pair (R,N) for a given external fCLK aiming at 28 MHz. Simple heuristic: set R=0 (no reference division) and N=(28e6/fCLK)-1. Caller should check fCLK is in the supported 1\u20138 MHz range. </para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="1050" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1050" bodyend="1050"/>
+    <listofallmembers>
+      <member refid="structtle92466ed_1_1CLK__DIV_1_1PllConfig_1a3b71a45ca8e2f1e745068daf90825752" prot="public" virt="non-virtual"><scope>tle92466ed::CLK_DIV::PllConfig</scope><name>actual_f_sys_hz</name></member>
+      <member refid="structtle92466ed_1_1CLK__DIV_1_1PllConfig_1abc9d0afe7ce2259bc1d48d795ad2d162" prot="public" virt="non-virtual"><scope>tle92466ed::CLK_DIV::PllConfig</scope><name>fbdiv</name></member>
+      <member refid="structtle92466ed_1_1CLK__DIV_1_1PllConfig_1aa9c9deea696e9fd8565ef6845c39cee9" prot="public" virt="non-virtual"><scope>tle92466ed::CLK_DIV::PllConfig</scope><name>refdiv</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

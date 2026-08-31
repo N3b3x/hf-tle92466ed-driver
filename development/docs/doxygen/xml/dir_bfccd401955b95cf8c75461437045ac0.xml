@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="dir_bfccd401955b95cf8c75461437045ac0" kind="dir">
+    <compoundname>inc</compoundname>
+    <innerfile refid="tle92466ed_8hpp">tle92466ed.hpp</innerfile>
+    <innerfile refid="tle92466ed__expected_8hpp">tle92466ed_expected.hpp</innerfile>
+    <innerfile refid="tle92466ed__registers_8hpp">tle92466ed_registers.hpp</innerfile>
+    <innerfile refid="tle92466ed__spi__interface_8hpp">tle92466ed_spi_interface.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="inc/"/>
+  </compounddef>
+</doxygen>

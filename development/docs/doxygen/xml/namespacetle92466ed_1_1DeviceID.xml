@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1DeviceID" kind="namespace" language="C++">
+    <compoundname>tle92466ed::DeviceID</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DeviceID_1a084683c51ce2e8dc647402a5be7753eb" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::DeviceID::DEVICE_TYPE_MASK</definition>
+        <argsstring></argsstring>
+        <name>DEVICE_TYPE_MASK</name>
+        <qualifiedname>tle92466ed::DeviceID::DEVICE_TYPE_MASK</qualifiedname>
+        <initializer>= 0xFF00</initializer>
+        <briefdescription>
+<para>Device type mask [15:8]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="84" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DeviceID_1a41dcb2a19a64943177b58e3c4437dbba" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::DeviceID::REVISION_MASK</definition>
+        <argsstring></argsstring>
+        <name>REVISION_MASK</name>
+        <qualifiedname>tle92466ed::DeviceID::REVISION_MASK</qualifiedname>
+        <initializer>= 0x00FF</initializer>
+        <briefdescription>
+<para>Silicon revision mask [7:0]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="85" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DeviceID_1a9fbe784deebcfad38078426fefafebda" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint8_t</type>
+        <definition>constexpr uint8_t tle92466ed::DeviceID::EXPECTED_TYPE_92466ED</definition>
+        <argsstring></argsstring>
+        <name>EXPECTED_TYPE_92466ED</name>
+        <qualifiedname>tle92466ed::DeviceID::EXPECTED_TYPE_92466ED</qualifiedname>
+        <initializer>= 0xC1</initializer>
+        <briefdescription>
+<para>Expected manufacturer/type byte. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="91" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DeviceID_1a1edd5f958a6a3f1372687b360843d897" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint8_t</type>
+        <definition>constexpr uint8_t tle92466ed::DeviceID::MIN_REVISION</definition>
+        <argsstring></argsstring>
+        <name>MIN_REVISION</name>
+        <qualifiedname>tle92466ed::DeviceID::MIN_REVISION</qualifiedname>
+        <initializer>= 0x00</initializer>
+        <briefdescription>
+<para>Minimum silicon revision. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="94" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="94" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacetle92466ed_1_1DeviceID_1ad1b6c13b22a6bd28b5b756fa1dd43709" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr bool</type>
+        <definition>constexpr bool tle92466ed::DeviceID::IsValidDevice</definition>
+        <argsstring>(uint16_t icvid) noexcept</argsstring>
+        <name>IsValidDevice</name>
+        <qualifiedname>tle92466ed::DeviceID::IsValidDevice</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>icvid</declname>
+        </param>
+        <briefdescription>
+<para>Check if ICVID value is valid for TLE92466ED. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>icvid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value read from ICVID register. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if upper byte matches 0xC1 (any revision). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="101" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="101" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1DeviceID_1a2395329ba7b440491b0c22f7fbc44c82" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint8_t</type>
+        <definition>constexpr uint8_t tle92466ed::DeviceID::GetDeviceType</definition>
+        <argsstring>(uint16_t icvid) noexcept</argsstring>
+        <name>GetDeviceType</name>
+        <qualifiedname>tle92466ed::DeviceID::GetDeviceType</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>icvid</declname>
+        </param>
+        <briefdescription>
+<para>Extract device type from ICVID. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="111" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="111" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1DeviceID_1a0201a98e256ba5657365199dcdf56ed2" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint8_t</type>
+        <definition>constexpr uint8_t tle92466ed::DeviceID::GetRevision</definition>
+        <argsstring>(uint16_t icvid) noexcept</argsstring>
+        <name>GetRevision</name>
+        <qualifiedname>tle92466ed::DeviceID::GetRevision</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>icvid</declname>
+        </param>
+        <briefdescription>
+<para>Extract silicon revision from ICVID. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="118" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="118" bodyend="120"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Device identification and version information. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The ICVID register contains device type and silicon revision information. Format: [15:8] = Device Type, [7:0] = Silicon Revision</para>
+<para><simplesect kind="note"><para>Exact values should be verified against specific datasheet revision. The TLE92466ED family may have multiple device variants. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="83" column="1"/>
+  </compounddef>
+</doxygen>

@@ -137,22 +137,22 @@ $(function(){initNavTree('index.html',''); initResizable(); });
 <li>✅ <b>Atomic Channel Feedback</b>: Coherent per-channel snapshot (avg current, duty cycle, VBAT, IMIN/IMAX, period min/max, integrator threshold) using FB_FRZ/FB_UPD handshake</li>
 <li>✅ <b>Safe Mission-Mode Entry</b>: <code>EnterMissionModeChecked()</code> waits for settle time and verifies no fault</li>
 <li>✅ <b>Hardware Agnostic</b>: CRTP SPI interface; pipelined two-frame reads via <code>TransferMulti()</code></li>
-<li>✅ <b>Modern C++20</b>: Using <code>tle::expected</code> (polyfill for <code>std::expected</code>) for type-safe error handling without exceptions</li>
+<li>✅ <b>Modern C++20</b>: Using <code><a class="el" href="classtle_1_1expected.html" title="Expected type — holds either a value of type T or an error of type E.">tle::expected</a></code> (polyfill for <code>std::expected</code>) for type-safe error handling without exceptions</li>
 <li>✅ <b>Zero Overhead</b>: All functions <code>noexcept</code>, freestanding-compatible</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md4"></a>
 🚀 Quick Start</h1>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;inc/tle92466ed.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;inc/tle92466ed_spi_interface.hpp&quot;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="tle92466ed_8hpp.html">inc/tle92466ed.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="tle92466ed__spi__interface_8hpp.html">inc/tle92466ed_spi_interface.hpp</a>&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// 1. Implement the SPI interface (see platform_integration.md)</span></div>
-<div class="line"><span class="keyword">class </span>MySpi : <span class="keyword">public</span> tle92466ed::SpiInterface&lt;MySpi&gt; {</div>
+<div class="line"><span class="keyword">class </span>MySpi : <span class="keyword">public</span> <a class="code hl_class" href="classtle92466ed_1_1SpiInterface.html">tle92466ed::SpiInterface</a>&lt;MySpi&gt; {</div>
 <div class="line">    <span class="comment">// ... implement required methods</span></div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// 2. Create driver instance</span></div>
 <div class="line">MySpi spi;</div>
-<div class="line">tle92466ed::Driver driver(spi);</div>
+<div class="line"><a class="code hl_class" href="classtle92466ed_1_1Driver.html">tle92466ed::Driver</a> driver(spi);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// 3. Initialize and use</span></div>
 <div class="line"><span class="keywordflow">if</span> (<span class="keyword">auto</span> result = driver.Init(); !result) {</div>
@@ -161,16 +161,22 @@ $(function(){initNavTree('index.html',''); initResizable(); });
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line">driver.EnterMissionMode();</div>
-<div class="line">driver.SetChannelMode(tle92466ed::Channel::CH0, tle92466ed::ChannelMode::ICC);</div>
-<div class="line">driver.SetCurrentSetpoint(tle92466ed::Channel::CH0, 1500); <span class="comment">// 1.5A</span></div>
-<div class="line">driver.EnableChannel(tle92466ed::Channel::CH0, <span class="keyword">true</span>);</div>
+<div class="line">driver.SetChannelMode(<a class="code hl_enumvalue" href="namespacetle92466ed.html#adad08c8dc7d47ab5303ba67922bd0957a2264c6e9d8288b49bfcf8018d64bc4ec">tle92466ed::Channel::CH0</a>, <a class="code hl_enumvalue" href="namespacetle92466ed.html#a4354ef9226739c1ea8a59eb36e95760cab6b8d73d401b7611fac37ab11898f598">tle92466ed::ChannelMode::ICC</a>);</div>
+<div class="line">driver.SetCurrentSetpoint(<a class="code hl_enumvalue" href="namespacetle92466ed.html#adad08c8dc7d47ab5303ba67922bd0957a2264c6e9d8288b49bfcf8018d64bc4ec">tle92466ed::Channel::CH0</a>, 1500); <span class="comment">// 1.5A</span></div>
+<div class="line">driver.EnableChannel(<a class="code hl_enumvalue" href="namespacetle92466ed.html#adad08c8dc7d47ab5303ba67922bd0957a2264c6e9d8288b49bfcf8018d64bc4ec">tle92466ed::Channel::CH0</a>, <span class="keyword">true</span>);</div>
+<div class="ttc" id="aclasstle92466ed_1_1Driver_html"><div class="ttname"><a href="classtle92466ed_1_1Driver.html">tle92466ed::Driver</a></div><div class="ttdoc">Main TLE92466ED driver class.</div><div class="ttdef"><b>Definition</b> tle92466ed.hpp:291</div></div>
+<div class="ttc" id="aclasstle92466ed_1_1SpiInterface_html"><div class="ttname"><a href="classtle92466ed_1_1SpiInterface.html">tle92466ed::SpiInterface</a></div><div class="ttdoc">CRTP-based Communication Interface template class.</div><div class="ttdef"><b>Definition</b> tle92466ed_spi_interface.hpp:429</div></div>
+<div class="ttc" id="anamespacetle92466ed_html_a4354ef9226739c1ea8a59eb36e95760cab6b8d73d401b7611fac37ab11898f598"><div class="ttname"><a href="namespacetle92466ed.html#a4354ef9226739c1ea8a59eb36e95760cab6b8d73d401b7611fac37ab11898f598">tle92466ed::ChannelMode::ICC</a></div><div class="ttdeci">@ ICC</div><div class="ttdoc">Integrated Current Control.</div></div>
+<div class="ttc" id="anamespacetle92466ed_html_adad08c8dc7d47ab5303ba67922bd0957a2264c6e9d8288b49bfcf8018d64bc4ec"><div class="ttname"><a href="namespacetle92466ed.html#adad08c8dc7d47ab5303ba67922bd0957a2264c6e9d8288b49bfcf8018d64bc4ec">tle92466ed::Channel::CH0</a></div><div class="ttdeci">@ CH0</div><div class="ttdoc">Channel 0.</div></div>
+<div class="ttc" id="atle92466ed_8hpp_html"><div class="ttname"><a href="tle92466ed_8hpp.html">tle92466ed.hpp</a></div><div class="ttdoc">Main driver class for TLE92466ED Six-Channel Low-Side Solenoid Driver IC.</div></div>
+<div class="ttc" id="atle92466ed__spi__interface_8hpp_html"><div class="ttname"><a href="tle92466ed__spi__interface_8hpp.html">tle92466ed_spi_interface.hpp</a></div><div class="ttdoc">Communication Interface base class for TLE92466ED driver.</div></div>
 </div><!-- fragment --><p>For detailed setup, see Installation and Quick Start Guide.</p>
 <h1><a class="anchor" id="autotoc_md5"></a>
 🔧 Installation</h1>
 <ol type="1">
 <li><b>Clone or copy</b> the driver files into your project</li>
 <li><b>Implement the SPI interface</b> for your platform (see Platform Integration)</li>
-<li><b>Include the header</b> in your code: <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;inc/tle92466ed.hpp&quot;</span></div>
+<li><b>Include the header</b> in your code: <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="tle92466ed_8hpp.html">inc/tle92466ed.hpp</a>&quot;</span></div>
 </div><!-- fragment --></li>
 <li>Compile with a <b>C++20</b> or newer compiler</li>
 </ol>

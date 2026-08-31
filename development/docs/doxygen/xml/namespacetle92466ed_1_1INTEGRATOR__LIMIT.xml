@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1INTEGRATOR__LIMIT" kind="namespace" language="C++">
+    <compoundname>tle92466ed::INTEGRATOR_LIMIT</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1INTEGRATOR__LIMIT_1adbafe5d5b82d44363a32b653b08bc376" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::INTEGRATOR_LIMIT::LIM_VALUE_ABS_MASK</definition>
+        <argsstring></argsstring>
+        <name>LIM_VALUE_ABS_MASK</name>
+        <qualifiedname>tle92466ed::INTEGRATOR_LIMIT::LIM_VALUE_ABS_MASK</qualifiedname>
+        <initializer>= 0x03FFu</initializer>
+        <briefdescription>
+<para>10-bit </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="965" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="965" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1INTEGRATOR__LIMIT_1a778040724273a769f1dd64aea7f94109" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::INTEGRATOR_LIMIT::AUTO_LIM_VALUE_ABS_SHIFT</definition>
+        <argsstring></argsstring>
+        <name>AUTO_LIM_VALUE_ABS_SHIFT</name>
+        <qualifiedname>tle92466ed::INTEGRATOR_LIMIT::AUTO_LIM_VALUE_ABS_SHIFT</qualifiedname>
+        <initializer>= 10u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="966" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="966" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1INTEGRATOR__LIMIT_1aaf4d11038c49b85f40990a478b774a8b" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::INTEGRATOR_LIMIT::AUTO_LIM_VALUE_ABS_MASK</definition>
+        <argsstring></argsstring>
+        <name>AUTO_LIM_VALUE_ABS_MASK</name>
+        <qualifiedname>tle92466ed::INTEGRATOR_LIMIT::AUTO_LIM_VALUE_ABS_MASK</qualifiedname>
+        <initializer>= 0x7C00u</initializer>
+        <briefdescription>
+<para>5-bit </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="967" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="967" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1INTEGRATOR__LIMIT_1ad74283dd285a17993bf493aa9b4f3c47" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::INTEGRATOR_LIMIT::DEFAULT</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT</name>
+        <qualifiedname>tle92466ed::INTEGRATOR_LIMIT::DEFAULT</qualifiedname>
+        <initializer>= 0x0000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="969" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="969" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacetle92466ed_1_1INTEGRATOR__LIMIT_1a9210fad3be4929a4074f362766a4f6f5" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::INTEGRATOR_LIMIT::Build</definition>
+        <argsstring>(uint16_t lim_value_abs, uint8_t auto_lim_value_abs) noexcept</argsstring>
+        <name>Build</name>
+        <qualifiedname>tle92466ed::INTEGRATOR_LIMIT::Build</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>lim_value_abs</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>auto_lim_value_abs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="971" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="971" bodyend="976"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespacetle92466ed_1_1INTEGRATOR__LIMIT" kindref="compound">INTEGRATOR_LIMIT</ref> register bit definitions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Per datasheet \u00a75.3.3.4 p.89. Sets the ICC integrator clamp used when recovering from disturbances: bits 9:0 LIM_VALUE_ABS Primary integrator limit (|lim|) bits 14:10 AUTO_LIM_VALUE_ABS Auto-limit setpoint delta (|auto_lim|)</para>
+<para>Constraint (\u00a74.6.2.3): AUTO_LIM_VALUE_ABS must be greater than MIN_INT_THRESH+3 to avoid integrator windup on small setpoint changes. </para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="964" column="1"/>
+  </compounddef>
+</doxygen>

@@ -7,9 +7,12 @@
     <includes local="yes">freertos/FreeRTOS.h</includes>
     <includes local="yes">freertos/task.h</includes>
     <includes local="yes">esp_log.h</includes>
-    <includes local="yes">tle92466ed.hpp</includes>
+    <includes refid="tle92466ed_8hpp" local="yes">tle92466ed.hpp</includes>
     <includes refid="esp32__tle92466ed__bus_8hpp" local="yes">esp32_tle92466ed_bus.hpp</includes>
     <incdepgraph>
+      <node id="21">
+        <label>../src/tle92466ed.ipp</label>
+      </node>
       <node id="1">
         <label>examples/esp32/main/diagnostics_and_bist.cpp</label>
         <link refid="diagnostics__and__bist_8cpp"/>
@@ -25,61 +28,127 @@
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="22" relation="include">
         </childnode>
       </node>
-      <node id="8">
+      <node id="22">
         <label>esp32_tle92466ed_bus.hpp</label>
         <link refid="esp32__tle92466ed__bus_8hpp"/>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
         <childnode refid="14" relation="include">
         </childnode>
-        <childnode refid="15" relation="include">
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
-        <childnode refid="17" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="18" relation="include">
+        <childnode refid="16" relation="include">
         </childnode>
       </node>
-      <node id="10">
+      <node id="23">
         <label>esp32_tle92466ed_test_config.hpp</label>
         <link refid="esp32__tle92466ed__test__config_8hpp"/>
         <childnode refid="11" relation="include">
         </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>tle92466ed.hpp</label>
+        <link refid="tle92466ed_8hpp"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>tle92466ed_expected.hpp</label>
+        <link refid="tle92466ed__expected_8hpp"/>
+        <childnode refid="11" relation="include">
+        </childnode>
         <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
         </childnode>
       </node>
       <node id="16">
+        <label>tle92466ed_registers.hpp</label>
+        <link refid="tle92466ed__registers_8hpp"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>tle92466ed_spi_interface.hpp</label>
+        <link refid="tle92466ed__spi__interface_8hpp"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>algorithm</label>
+      </node>
+      <node id="8">
+        <label>array</label>
+      </node>
+      <node id="18">
+        <label>cmath</label>
+      </node>
+      <node id="15">
         <label>cstdarg</label>
+      </node>
+      <node id="19">
+        <label>cstddef</label>
       </node>
       <node id="11">
         <label>cstdint</label>
       </node>
-      <node id="14">
+      <node id="26">
         <label>driver/gpio.h</label>
       </node>
-      <node id="13">
+      <node id="25">
         <label>driver/spi_master.h</label>
       </node>
       <node id="6">
         <label>esp_log.h</label>
       </node>
-      <node id="15">
+      <node id="27">
         <label>esp_timer.h</label>
       </node>
       <node id="4">
@@ -91,26 +160,25 @@
       <node id="3">
         <label>memory</label>
       </node>
-      <node id="12">
+      <node id="24">
         <label>sdkconfig.h</label>
       </node>
-      <node id="17">
+      <node id="9">
         <label>span</label>
       </node>
       <node id="2">
         <label>stdio.h</label>
       </node>
-      <node id="7">
-        <label>tle92466ed.hpp</label>
+      <node id="20">
+        <label>tle92466ed_version.h</label>
       </node>
-      <node id="18">
-        <label>tle92466ed_registers.hpp</label>
+      <node id="12">
+        <label>type_traits</label>
       </node>
-      <node id="9">
-        <label>tle92466ed_spi_interface.hpp</label>
+      <node id="13">
+        <label>utility</label>
       </node>
     </incdepgraph>
-    <innernamespace refid="namespacetle92466ed">tle92466ed</innernamespace>
     <sectiondef kind="var">
       <memberdef kind="variable" id="diagnostics__and__bist_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" prot="public" static="yes" mutable="no">
         <type>const char *</type>
@@ -168,10 +236,10 @@
 <codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;freertos/task.h&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;esp_log.h&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="23"><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tle92466ed.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="tle92466ed_8hpp" kindref="compound">tle92466ed.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="esp32__tle92466ed__bus_8hpp" kindref="compound">esp32_tle92466ed_bus.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="26"><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">tle92466ed;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacetle92466ed" kindref="compound">tle92466ed</ref>;</highlight></codeline>
 <codeline lineno="28"><highlight class="normal"></highlight></codeline>
 <codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="diagnostics__and__bist_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;DiagBist&quot;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="30"><highlight class="normal"></highlight></codeline>

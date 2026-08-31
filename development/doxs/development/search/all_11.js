@@ -1,19 +1,8 @@
 var searchData=
 [
-  ['sample_5frate_5fhz_0',['SAMPLE_RATE_HZ',['../structADCConfig.html#a415709e661142f4d02963380147572bd',1,'ADCConfig']]],
-  ['sclk_1',['SCLK',['../structTLE92466ED__TestConfig_1_1SPIPins.html#a41782c91af07fc43521527f1ada311ef',1,'TLE92466ED_TestConfig::SPIPins']]],
-  ['sclk_5fpin_2',['sclk_pin',['../structEsp32Tle92466edSpiBus_1_1SPIConfig.html#ac7dcc7ffef89538e66b2c0af29f2f3ba',1,'Esp32Tle92466edSpiBus::SPIConfig']]],
-  ['set_5fsolenoids_5fenabled_3',['set_solenoids_enabled',['../solenoid__control__test_8cpp.html#a8beedbcdc4953c460d1e38286a1883ae',1,'solenoid_control_test.cpp']]],
-  ['single_5fchannel_5fmax_4',['SINGLE_CHANNEL_MAX',['../structTLE92466ED__TestConfig_1_1CurrentLimits.html#aa6e214ca2a7e8aae7fbf3ac68be1ee1d',1,'TLE92466ED_TestConfig::CurrentLimits']]],
-  ['single_5fchannel_5fmin_5',['SINGLE_CHANNEL_MIN',['../structTLE92466ED__TestConfig_1_1CurrentLimits.html#a8809a699bc2464e910742e10609e546a',1,'TLE92466ED_TestConfig::CurrentLimits']]],
-  ['solenoid1config_6',['Solenoid1Config',['../structSolenoid1Config.html',1,'']]],
-  ['solenoid2config_7',['Solenoid2Config',['../structSolenoid2Config.html',1,'']]],
-  ['solenoid_5fcontrol_5ftest_2ecpp_8',['solenoid_control_test.cpp',['../solenoid__control__test_8cpp.html',1,'']]],
-  ['spi_5fdevice_5f_9',['spi_device_',['../classEsp32Tle92466edSpiBus.html#aa2ade5d165ae594007a6e7c0f9a4ce4c',1,'Esp32Tle92466edSpiBus']]],
-  ['spiconfig_10',['SPIConfig',['../structEsp32Tle92466edSpiBus_1_1SPIConfig.html',1,'Esp32Tle92466edSpiBus']]],
-  ['spiparams_11',['SPIParams',['../structTLE92466ED__TestConfig_1_1SPIParams.html',1,'TLE92466ED_TestConfig']]],
-  ['spipins_12',['SPIPins',['../structTLE92466ED__TestConfig_1_1SPIPins.html',1,'TLE92466ED_TestConfig']]],
-  ['start_13',['🚀 Quick Start',['../index.html#autotoc_md4',1,'']]],
-  ['stats_5freport_5finterval_5fms_14',['STATS_REPORT_INTERVAL_MS',['../structTLE92466ED__TestConfig_1_1AppConfig.html#a73d040921dd27c8d9446c7aa0848c66f',1,'TLE92466ED_TestConfig::AppConfig']]],
-  ['supplyvoltage_15',['SupplyVoltage',['../structTLE92466ED__TestConfig_1_1SupplyVoltage.html',1,'TLE92466ED_TestConfig']]]
+  ['quad_5fseq_0',['quad_seq',['../structtle92466ed_1_1ChannelFeedback.html#ae1bdb157d38ea89567757377b97365e9',1,'tle92466ed::ChannelFeedback']]],
+  ['quarterperiod_1',['QuarterPeriod',['../namespacetle92466ed.html#a7a810a2ee5f3edef167c753d660af92fa9349e3688de3063353762253adbd6b27',1,'tle92466ed']]],
+  ['queue_5fsize_2',['QUEUE_SIZE',['../structTLE92466ED__TestConfig_1_1SPIParams.html#abf680fed7c43ef4c0e7397db7c5b1e26',1,'TLE92466ED_TestConfig::SPIParams']]],
+  ['queue_5fsize_3',['queue_size',['../structEsp32Tle92466edSpiBus_1_1SPIConfig.html#aae6a7225d624a36f917063a46184f619',1,'Esp32Tle92466edSpiBus::SPIConfig']]],
+  ['quick_20start_4',['🚀 Quick Start',['../index.html#autotoc_md4',1,'']]]
 ];

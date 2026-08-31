@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1DITHER__CLK__DIV" kind="namespace" language="C++">
+    <compoundname>tle92466ed::DITHER_CLK_DIV</compoundname>
+    <innerclass refid="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig" prot="public">tle92466ed::DITHER_CLK_DIV::ClkDivConfig</innerclass>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER__CLK__DIV_1aeac99e6ffff79c02db79fabd5727d883" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::DITHER_CLK_DIV::MANT_MASK</definition>
+        <argsstring></argsstring>
+        <name>MANT_MASK</name>
+        <qualifiedname>tle92466ed::DITHER_CLK_DIV::MANT_MASK</qualifiedname>
+        <initializer>= 0x03FFu</initializer>
+        <briefdescription>
+<para>10-bit mantissa mask </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1231" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1231" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER__CLK__DIV_1a73f984625db0b55a832977ab201f891e" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::DITHER_CLK_DIV::EXP_SHIFT</definition>
+        <argsstring></argsstring>
+        <name>EXP_SHIFT</name>
+        <qualifiedname>tle92466ed::DITHER_CLK_DIV::EXP_SHIFT</qualifiedname>
+        <initializer>= 10u</initializer>
+        <briefdescription>
+<para>Exponent bit position. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1232" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1232" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER__CLK__DIV_1a22b2ee45bd98b0e0116a24bcafb338d2" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::DITHER_CLK_DIV::EXP_MASK</definition>
+        <argsstring></argsstring>
+        <name>EXP_MASK</name>
+        <qualifiedname>tle92466ed::DITHER_CLK_DIV::EXP_MASK</qualifiedname>
+        <initializer>= 0x3C00u</initializer>
+        <briefdescription>
+<para>4-bit exponent mask </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1233" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1233" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER__CLK__DIV_1a602be6c15e8f13fe0895a04d2d9f8e95" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint8_t</type>
+        <definition>constexpr uint8_t tle92466ed::DITHER_CLK_DIV::EXP_VALUE_MASK</definition>
+        <argsstring></argsstring>
+        <name>EXP_VALUE_MASK</name>
+        <qualifiedname>tle92466ed::DITHER_CLK_DIV::EXP_VALUE_MASK</qualifiedname>
+        <initializer>= 0x0Fu</initializer>
+        <briefdescription>
+<para>Exponent value (4 bits) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1234" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1234" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER__CLK__DIV_1a0d2c452a8f2d0ab1c6d5289aa47ca963" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::DITHER_CLK_DIV::DITHER_PWM_SYNC_EN_BIT</definition>
+        <argsstring></argsstring>
+        <name>DITHER_PWM_SYNC_EN_BIT</name>
+        <qualifiedname>tle92466ed::DITHER_CLK_DIV::DITHER_PWM_SYNC_EN_BIT</qualifiedname>
+        <initializer>= (1u &lt;&lt; 14)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1235" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1235" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER__CLK__DIV_1a03d7f89ed67effd2ec937c1b81b42081" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::DITHER_CLK_DIV::DITHER_SETPOINT_SYNC_EN_BIT</definition>
+        <argsstring></argsstring>
+        <name>DITHER_SETPOINT_SYNC_EN_BIT</name>
+        <qualifiedname>tle92466ed::DITHER_CLK_DIV::DITHER_SETPOINT_SYNC_EN_BIT</qualifiedname>
+        <initializer>= (1u &lt;&lt; 15)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1236" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1236" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER__CLK__DIV_1a0dff7d40238549c2356a197b74883114" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::DITHER_CLK_DIV::F_SYS_HZ</definition>
+        <argsstring></argsstring>
+        <name>F_SYS_HZ</name>
+        <qualifiedname>tle92466ed::DITHER_CLK_DIV::F_SYS_HZ</qualifiedname>
+        <initializer>= 28&apos;000&apos;000UL</initializer>
+        <briefdescription>
+<para>System clock (28 MHz, §4.2.1) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1238" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1238" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER__CLK__DIV_1ada0938928c5e008360486c0ea590c0e3" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float tle92466ed::DITHER_CLK_DIV::F_SYS_PERIOD_US</definition>
+        <argsstring></argsstring>
+        <name>F_SYS_PERIOD_US</name>
+        <qualifiedname>tle92466ed::DITHER_CLK_DIV::F_SYS_PERIOD_US</qualifiedname>
+        <initializer>= 1.0F / 28.0F</initializer>
+        <briefdescription>
+<para>1 / fSYS (µs, ≈35.71 ns) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1239" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1239" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacetle92466ed_1_1DITHER__CLK__DIV_1a88d8da8e842acf48a2fe0e70277c39f3" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig" kindref="compound">ClkDivConfig</ref></type>
+        <definition>ClkDivConfig tle92466ed::DITHER_CLK_DIV::CalculateFromTrefClkUs</definition>
+        <argsstring>(float t_ref_clk_us) noexcept</argsstring>
+        <name>CalculateFromTrefClkUs</name>
+        <qualifiedname>tle92466ed::DITHER_CLK_DIV::CalculateFromTrefClkUs</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>t_ref_clk_us</declname>
+        </param>
+        <briefdescription>
+<para>Pick MANT/EXP that approximate a desired tref_clk in microseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Tries every exponent 0..15 and rounds MANT to the nearest valid value (1..1023). Returns the closest representable tref_clk.</para>
+<para><simplesect kind="note"><para>MANT is forced ≥ 1 (MANT=0 disables the chip&apos;s averager).</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t_ref_clk_us</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Desired reference clock period in microseconds. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig" kindref="compound">ClkDivConfig</ref> with the dither-sync flags zeroed; the caller can OR them on as needed. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1276" column="22" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1276" bodyend="1301"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespacetle92466ed_1_1DITHER__CLK__DIV" kindref="compound">DITHER_CLK_DIV</ref> register bitfield definitions and helpers. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Per datasheet §5.3.3.7 (Dither Clock Register, offset 0x0004):</para>
+<para>Bit 15 DITHER_SETPOINT_SYNC_EN (0 = disabled, 1 = enabled) Bit 14 DITHER_PWM_SYNC_EN (0 = disabled, 1 = enabled) Bits 13:10 EXP (4-bit exponent, 0..15) Bits 9:0 MANT (10-bit mantissa, 0..1023)</para>
+<para>The dither reference clock is <computeroutput>tref_clk = MANT × 2^EXP / fSYS</computeroutput>. From this, the dither period is <computeroutput>TDither = (4×STEPS + 2×FLAT) × tref_clk</computeroutput> and the averaged feedback measurement period is <computeroutput>Tmeas = TDither</computeroutput> in ICC mode (per §4.4.2 &quot;Channel Modes&quot;).</para>
+<para><bold>POR reset value is 0x0000</bold> which gives MANT=0, EXP=0 → tref_clk = 0, which means TDither = 0 and the per-channel feedback averager NEVER runs (FB_DC / FB_I_AVG / FB_VBAT stay at 0 forever). <ref refid="namespacetle92466ed_1_1DITHER__CLK__DIV" kindref="compound">DITHER_CLK_DIV</ref> must therefore be explicitly programmed before any channel feedback can be read back from those registers. </para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="1230" column="1"/>
+  </compounddef>
+</doxygen>

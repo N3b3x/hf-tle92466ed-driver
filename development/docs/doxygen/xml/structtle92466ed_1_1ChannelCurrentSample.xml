@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="structtle92466ed_1_1ChannelCurrentSample" kind="struct" language="C++" prot="public">
+    <compoundname>tle92466ed::ChannelCurrentSample</compoundname>
+    <includes refid="tle92466ed_8hpp" local="no">tle92466ed.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelCurrentSample_1ace84deb8ceb96da12535ff1107f72233" prot="public" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t tle92466ed::ChannelCurrentSample::iavg_ma</definition>
+        <argsstring></argsstring>
+        <name>iavg_ma</name>
+        <qualifiedname>tle92466ed::ChannelCurrentSample::iavg_ma</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>Signed average load current, milliamps. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="160" column="11" bodyfile="inc/tle92466ed.hpp" bodystart="160" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelCurrentSample_1aab544568c0af8a8d9aa76ccfd5f8c764" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t tle92466ed::ChannelCurrentSample::tp_mant</definition>
+        <argsstring></argsstring>
+        <name>tp_mant</name>
+        <qualifiedname>tle92466ed::ChannelCurrentSample::tp_mant</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>FB_DC TP_MANT — the measurement window itself. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="161" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="161" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelCurrentSample_1ad63bdd73902de3ab35585515c07db6b6" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t tle92466ed::ChannelCurrentSample::to_mant</definition>
+        <argsstring></argsstring>
+        <name>to_mant</name>
+        <qualifiedname>tle92466ed::ChannelCurrentSample::to_mant</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>FB_DC TO_MANT — last PWM cycle on-time (not the average) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="162" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="162" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelCurrentSample_1a72bc7cafb6b47ab5d125f298349f6793" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::ChannelCurrentSample::window_valid</definition>
+        <argsstring></argsstring>
+        <name>window_valid</name>
+        <qualifiedname>tle92466ed::ChannelCurrentSample::window_valid</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Both reads succeeded and TP_MANT is credible. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="163" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="163" bodyend="163"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>One channel&apos;s decoded average current from a batched freeze/read. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Decoded from the FB_I_AVG / FB_DC mantissa ratio (datasheet Equation 22), which is the path §4.10.6 requires for current supervision. </para>
+    </detaileddescription>
+    <location file="inc/tle92466ed.hpp" line="159" column="1" bodyfile="inc/tle92466ed.hpp" bodystart="159" bodyend="164"/>
+    <listofallmembers>
+      <member refid="structtle92466ed_1_1ChannelCurrentSample_1ace84deb8ceb96da12535ff1107f72233" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelCurrentSample</scope><name>iavg_ma</name></member>
+      <member refid="structtle92466ed_1_1ChannelCurrentSample_1ad63bdd73902de3ab35585515c07db6b6" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelCurrentSample</scope><name>to_mant</name></member>
+      <member refid="structtle92466ed_1_1ChannelCurrentSample_1aab544568c0af8a8d9aa76ccfd5f8c764" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelCurrentSample</scope><name>tp_mant</name></member>
+      <member refid="structtle92466ed_1_1ChannelCurrentSample_1a72bc7cafb6b47ab5d125f298349f6793" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelCurrentSample</scope><name>window_valid</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

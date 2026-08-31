@@ -1,0 +1,340 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="structtle92466ed_1_1DeviceStatus" kind="struct" language="C++" prot="public">
+    <compoundname>tle92466ed::DeviceStatus</compoundname>
+    <includes refid="tle92466ed_8hpp" local="no">tle92466ed.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1a3b5da820eb70c6213d23cb9cdc9d3e14" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::DeviceStatus::config_mode</definition>
+        <argsstring></argsstring>
+        <name>config_mode</name>
+        <qualifiedname>tle92466ed::DeviceStatus::config_mode</qualifiedname>
+        <initializer>{true}</initializer>
+        <briefdescription>
+<para>In config mode (vs mission mode) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="81" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="81" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1a3ab1fe0bcddd2efc648e36226e47e4ab" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::DeviceStatus::init_done</definition>
+        <argsstring></argsstring>
+        <name>init_done</name>
+        <qualifiedname>tle92466ed::DeviceStatus::init_done</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Initialization complete. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="82" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="82" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1a5843ad67772ad8392669203955791b22" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::DeviceStatus::any_fault</definition>
+        <argsstring></argsstring>
+        <name>any_fault</name>
+        <qualifiedname>tle92466ed::DeviceStatus::any_fault</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Any fault condition present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="83" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="83" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1a9a22f111782d4965d037b300d11f9985" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::DeviceStatus::vbat_uv</definition>
+        <argsstring></argsstring>
+        <name>vbat_uv</name>
+        <qualifiedname>tle92466ed::DeviceStatus::vbat_uv</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>VBAT undervoltage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="86" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="86" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1a73ee41566b9835685d550445c0be1a2a" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::DeviceStatus::vbat_ov</definition>
+        <argsstring></argsstring>
+        <name>vbat_ov</name>
+        <qualifiedname>tle92466ed::DeviceStatus::vbat_ov</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>VBAT overvoltage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="87" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="87" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1a2375a607590d38b69fa6e565d2887070" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::DeviceStatus::vio_uv</definition>
+        <argsstring></argsstring>
+        <name>vio_uv</name>
+        <qualifiedname>tle92466ed::DeviceStatus::vio_uv</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>VIO undervoltage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="88" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="88" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1aa94ecf0a7df62e9aaf83bbdd55611218" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::DeviceStatus::vio_ov</definition>
+        <argsstring></argsstring>
+        <name>vio_ov</name>
+        <qualifiedname>tle92466ed::DeviceStatus::vio_ov</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>VIO overvoltage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="89" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="89" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1a26e3ac654f38e9d250b18ba97a4b52cc" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::DeviceStatus::vdd_uv</definition>
+        <argsstring></argsstring>
+        <name>vdd_uv</name>
+        <qualifiedname>tle92466ed::DeviceStatus::vdd_uv</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>VDD undervoltage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="90" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="90" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1a1641d22d1ba761833fb910f89128e43e" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::DeviceStatus::vdd_ov</definition>
+        <argsstring></argsstring>
+        <name>vdd_ov</name>
+        <qualifiedname>tle92466ed::DeviceStatus::vdd_ov</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>VDD overvoltage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="91" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="91" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1a75a9546e210e00f9784902756f5cd27c" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::DeviceStatus::ot_warning</definition>
+        <argsstring></argsstring>
+        <name>ot_warning</name>
+        <qualifiedname>tle92466ed::DeviceStatus::ot_warning</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Over-temperature warning. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="94" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="94" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1a6bc02519bbe96ebcc7ad76872d3f5902" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::DeviceStatus::ot_error</definition>
+        <argsstring></argsstring>
+        <name>ot_error</name>
+        <qualifiedname>tle92466ed::DeviceStatus::ot_error</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Over-temperature error. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="95" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="95" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1a7f30580eb78da2fb4c3505edac89f552" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::DeviceStatus::clock_fault</definition>
+        <argsstring></argsstring>
+        <name>clock_fault</name>
+        <qualifiedname>tle92466ed::DeviceStatus::clock_fault</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Clock fault. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="98" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="98" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1a2df7e6abf2d0b940e09861153203aa16" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::DeviceStatus::spi_wd_error</definition>
+        <argsstring></argsstring>
+        <name>spi_wd_error</name>
+        <qualifiedname>tle92466ed::DeviceStatus::spi_wd_error</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>SPI watchdog error. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="99" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="99" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1a06e7f029d3e82fc19889027a04ad4bf8" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::DeviceStatus::por_event</definition>
+        <argsstring></argsstring>
+        <name>por_event</name>
+        <qualifiedname>tle92466ed::DeviceStatus::por_event</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Power-on reset occurred. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="100" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="100" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1ab46f83b6cb4987bc25bd70d30933726b" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::DeviceStatus::reset_event</definition>
+        <argsstring></argsstring>
+        <name>reset_event</name>
+        <qualifiedname>tle92466ed::DeviceStatus::reset_event</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>External reset occurred. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="101" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="101" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1ad158be28450aec0e21fa0fb323895021" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::DeviceStatus::supply_nok_internal</definition>
+        <argsstring></argsstring>
+        <name>supply_nok_internal</name>
+        <qualifiedname>tle92466ed::DeviceStatus::supply_nok_internal</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Internal supply fault. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="104" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="104" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1acc5df03f6e17cd712540214990e3c361" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::DeviceStatus::supply_nok_external</definition>
+        <argsstring></argsstring>
+        <name>supply_nok_external</name>
+        <qualifiedname>tle92466ed::DeviceStatus::supply_nok_external</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>External supply fault. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="105" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="105" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1ac78643fa043eff8a4067f525e8476fc6" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t tle92466ed::DeviceStatus::vbat_voltage</definition>
+        <argsstring></argsstring>
+        <name>vbat_voltage</name>
+        <qualifiedname>tle92466ed::DeviceStatus::vbat_voltage</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>VBAT voltage (raw value) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="108" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="108" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1a6feeedf58f723c1fbfece4dd3721a857" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t tle92466ed::DeviceStatus::vio_voltage</definition>
+        <argsstring></argsstring>
+        <name>vio_voltage</name>
+        <qualifiedname>tle92466ed::DeviceStatus::vio_voltage</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>VIO voltage (raw value) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="109" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="109" bodyend="109"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Global device status structure. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="inc/tle92466ed.hpp" line="80" column="1" bodyfile="inc/tle92466ed.hpp" bodystart="80" bodyend="110"/>
+    <listofallmembers>
+      <member refid="structtle92466ed_1_1DeviceStatus_1a5843ad67772ad8392669203955791b22" prot="public" virt="non-virtual"><scope>tle92466ed::DeviceStatus</scope><name>any_fault</name></member>
+      <member refid="structtle92466ed_1_1DeviceStatus_1a7f30580eb78da2fb4c3505edac89f552" prot="public" virt="non-virtual"><scope>tle92466ed::DeviceStatus</scope><name>clock_fault</name></member>
+      <member refid="structtle92466ed_1_1DeviceStatus_1a3b5da820eb70c6213d23cb9cdc9d3e14" prot="public" virt="non-virtual"><scope>tle92466ed::DeviceStatus</scope><name>config_mode</name></member>
+      <member refid="structtle92466ed_1_1DeviceStatus_1a3ab1fe0bcddd2efc648e36226e47e4ab" prot="public" virt="non-virtual"><scope>tle92466ed::DeviceStatus</scope><name>init_done</name></member>
+      <member refid="structtle92466ed_1_1DeviceStatus_1a6bc02519bbe96ebcc7ad76872d3f5902" prot="public" virt="non-virtual"><scope>tle92466ed::DeviceStatus</scope><name>ot_error</name></member>
+      <member refid="structtle92466ed_1_1DeviceStatus_1a75a9546e210e00f9784902756f5cd27c" prot="public" virt="non-virtual"><scope>tle92466ed::DeviceStatus</scope><name>ot_warning</name></member>
+      <member refid="structtle92466ed_1_1DeviceStatus_1a06e7f029d3e82fc19889027a04ad4bf8" prot="public" virt="non-virtual"><scope>tle92466ed::DeviceStatus</scope><name>por_event</name></member>
+      <member refid="structtle92466ed_1_1DeviceStatus_1ab46f83b6cb4987bc25bd70d30933726b" prot="public" virt="non-virtual"><scope>tle92466ed::DeviceStatus</scope><name>reset_event</name></member>
+      <member refid="structtle92466ed_1_1DeviceStatus_1a2df7e6abf2d0b940e09861153203aa16" prot="public" virt="non-virtual"><scope>tle92466ed::DeviceStatus</scope><name>spi_wd_error</name></member>
+      <member refid="structtle92466ed_1_1DeviceStatus_1acc5df03f6e17cd712540214990e3c361" prot="public" virt="non-virtual"><scope>tle92466ed::DeviceStatus</scope><name>supply_nok_external</name></member>
+      <member refid="structtle92466ed_1_1DeviceStatus_1ad158be28450aec0e21fa0fb323895021" prot="public" virt="non-virtual"><scope>tle92466ed::DeviceStatus</scope><name>supply_nok_internal</name></member>
+      <member refid="structtle92466ed_1_1DeviceStatus_1a73ee41566b9835685d550445c0be1a2a" prot="public" virt="non-virtual"><scope>tle92466ed::DeviceStatus</scope><name>vbat_ov</name></member>
+      <member refid="structtle92466ed_1_1DeviceStatus_1a9a22f111782d4965d037b300d11f9985" prot="public" virt="non-virtual"><scope>tle92466ed::DeviceStatus</scope><name>vbat_uv</name></member>
+      <member refid="structtle92466ed_1_1DeviceStatus_1ac78643fa043eff8a4067f525e8476fc6" prot="public" virt="non-virtual"><scope>tle92466ed::DeviceStatus</scope><name>vbat_voltage</name></member>
+      <member refid="structtle92466ed_1_1DeviceStatus_1a1641d22d1ba761833fb910f89128e43e" prot="public" virt="non-virtual"><scope>tle92466ed::DeviceStatus</scope><name>vdd_ov</name></member>
+      <member refid="structtle92466ed_1_1DeviceStatus_1a26e3ac654f38e9d250b18ba97a4b52cc" prot="public" virt="non-virtual"><scope>tle92466ed::DeviceStatus</scope><name>vdd_uv</name></member>
+      <member refid="structtle92466ed_1_1DeviceStatus_1aa94ecf0a7df62e9aaf83bbdd55611218" prot="public" virt="non-virtual"><scope>tle92466ed::DeviceStatus</scope><name>vio_ov</name></member>
+      <member refid="structtle92466ed_1_1DeviceStatus_1a2375a607590d38b69fa6e565d2887070" prot="public" virt="non-virtual"><scope>tle92466ed::DeviceStatus</scope><name>vio_uv</name></member>
+      <member refid="structtle92466ed_1_1DeviceStatus_1a6feeedf58f723c1fbfece4dd3721a857" prot="public" virt="non-virtual"><scope>tle92466ed::DeviceStatus</scope><name>vio_voltage</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

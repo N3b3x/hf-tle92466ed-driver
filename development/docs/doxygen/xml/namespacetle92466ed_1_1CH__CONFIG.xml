@@ -1,0 +1,486 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1CH__CONFIG" kind="namespace" language="C++">
+    <compoundname>tle92466ed::CH_CONFIG</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a16c6cd97b0d60f7834e0e54c7a2a2339" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CONFIG::SLEWR_1V0_US</definition>
+        <argsstring></argsstring>
+        <name>SLEWR_1V0_US</name>
+        <qualifiedname>tle92466ed::CH_CONFIG::SLEWR_1V0_US</qualifiedname>
+        <initializer>= 0b00</initializer>
+        <briefdescription>
+<para>1.0 V/µs </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="850" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="850" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1ade652be38a42233737a40f143465cad5" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CONFIG::SLEWR_2V5_US</definition>
+        <argsstring></argsstring>
+        <name>SLEWR_2V5_US</name>
+        <qualifiedname>tle92466ed::CH_CONFIG::SLEWR_2V5_US</qualifiedname>
+        <initializer>= 0b01</initializer>
+        <briefdescription>
+<para>2.5 V/µs </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="851" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="851" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a34910b7b77e10a8f703c52e454182714" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CONFIG::SLEWR_5V0_US</definition>
+        <argsstring></argsstring>
+        <name>SLEWR_5V0_US</name>
+        <qualifiedname>tle92466ed::CH_CONFIG::SLEWR_5V0_US</qualifiedname>
+        <initializer>= 0b10</initializer>
+        <briefdescription>
+<para>5.0 V/µs </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="852" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="852" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1ad2bffdcadfdc13fdca9f8e826f50a119" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CONFIG::SLEWR_10V0_US</definition>
+        <argsstring></argsstring>
+        <name>SLEWR_10V0_US</name>
+        <qualifiedname>tle92466ed::CH_CONFIG::SLEWR_10V0_US</qualifiedname>
+        <initializer>= 0b11</initializer>
+        <briefdescription>
+<para>10.0 V/µs </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="853" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="853" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a39a8d7bcbd54045fe0545595a2f26d61" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CONFIG::SLEWR_MASK</definition>
+        <argsstring></argsstring>
+        <name>SLEWR_MASK</name>
+        <qualifiedname>tle92466ed::CH_CONFIG::SLEWR_MASK</qualifiedname>
+        <initializer>= 0x0003</initializer>
+        <briefdescription>
+<para>Slew rate mask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="854" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="854" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a0fa94efb6deff9caf4e6bbbe47d8d53d" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CONFIG::I_DIAG_80UA</definition>
+        <argsstring></argsstring>
+        <name>I_DIAG_80UA</name>
+        <qualifiedname>tle92466ed::CH_CONFIG::I_DIAG_80UA</qualifiedname>
+        <initializer>= (0 &lt;&lt; 2)</initializer>
+        <briefdescription>
+<para>80 µA </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="857" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="857" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a1e93f168cd22a6fccf9c8922f378050b" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CONFIG::I_DIAG_190UA</definition>
+        <argsstring></argsstring>
+        <name>I_DIAG_190UA</name>
+        <qualifiedname>tle92466ed::CH_CONFIG::I_DIAG_190UA</qualifiedname>
+        <initializer>= (1 &lt;&lt; 2)</initializer>
+        <briefdescription>
+<para>190 µA </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="858" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="858" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a87b13f0a6758b12575eba5d03fe2716a" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CONFIG::I_DIAG_720UA</definition>
+        <argsstring></argsstring>
+        <name>I_DIAG_720UA</name>
+        <qualifiedname>tle92466ed::CH_CONFIG::I_DIAG_720UA</qualifiedname>
+        <initializer>= (2 &lt;&lt; 2)</initializer>
+        <briefdescription>
+<para>720 µA </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="859" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="859" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a9deb212ff8ce1d147652225a9dfb7d49" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CONFIG::I_DIAG_1250UA</definition>
+        <argsstring></argsstring>
+        <name>I_DIAG_1250UA</name>
+        <qualifiedname>tle92466ed::CH_CONFIG::I_DIAG_1250UA</qualifiedname>
+        <initializer>= (3 &lt;&lt; 2)</initializer>
+        <briefdescription>
+<para>1250 µA </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="860" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="860" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a7f5b53e9e012e078b010fcd09943d6ec" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CONFIG::I_DIAG_MASK</definition>
+        <argsstring></argsstring>
+        <name>I_DIAG_MASK</name>
+        <qualifiedname>tle92466ed::CH_CONFIG::I_DIAG_MASK</qualifiedname>
+        <initializer>= 0x000C</initializer>
+        <briefdescription>
+<para>I_DIAG mask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="861" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="861" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a9c1dbe265c408db743cdc1f47a15faeb" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CONFIG::OL_TH_DISABLED</definition>
+        <argsstring></argsstring>
+        <name>OL_TH_DISABLED</name>
+        <qualifiedname>tle92466ed::CH_CONFIG::OL_TH_DISABLED</qualifiedname>
+        <initializer>= (0 &lt;&lt; 4)</initializer>
+        <briefdescription>
+<para>OL detection disabled. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="864" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="864" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a690e82599097dc46926ddd8a34484c87" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CONFIG::OL_TH_1_8</definition>
+        <argsstring></argsstring>
+        <name>OL_TH_1_8</name>
+        <qualifiedname>tle92466ed::CH_CONFIG::OL_TH_1_8</qualifiedname>
+        <initializer>= (1 &lt;&lt; 4)</initializer>
+        <briefdescription>
+<para>1/8 of setpoint </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="865" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="865" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a08594f0ac8303243c11b7165266698ee" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CONFIG::OL_TH_2_8</definition>
+        <argsstring></argsstring>
+        <name>OL_TH_2_8</name>
+        <qualifiedname>tle92466ed::CH_CONFIG::OL_TH_2_8</qualifiedname>
+        <initializer>= (2 &lt;&lt; 4)</initializer>
+        <briefdescription>
+<para>2/8 of setpoint </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="866" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="866" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a974e34400087b6338bb26c3af2606759" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CONFIG::OL_TH_3_8</definition>
+        <argsstring></argsstring>
+        <name>OL_TH_3_8</name>
+        <qualifiedname>tle92466ed::CH_CONFIG::OL_TH_3_8</qualifiedname>
+        <initializer>= (3 &lt;&lt; 4)</initializer>
+        <briefdescription>
+<para>3/8 of setpoint </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="867" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="867" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a064775bf701028f988c987257d02dc51" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CONFIG::OL_TH_4_8</definition>
+        <argsstring></argsstring>
+        <name>OL_TH_4_8</name>
+        <qualifiedname>tle92466ed::CH_CONFIG::OL_TH_4_8</qualifiedname>
+        <initializer>= (4 &lt;&lt; 4)</initializer>
+        <briefdescription>
+<para>4/8 of setpoint </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="868" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="868" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a227069db43b14daf7c0799af83a761cb" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CONFIG::OL_TH_5_8</definition>
+        <argsstring></argsstring>
+        <name>OL_TH_5_8</name>
+        <qualifiedname>tle92466ed::CH_CONFIG::OL_TH_5_8</qualifiedname>
+        <initializer>= (5 &lt;&lt; 4)</initializer>
+        <briefdescription>
+<para>5/8 of setpoint </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="869" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="869" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a56abbb12e9aafd2e4a43029dbb668222" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CONFIG::OL_TH_6_8</definition>
+        <argsstring></argsstring>
+        <name>OL_TH_6_8</name>
+        <qualifiedname>tle92466ed::CH_CONFIG::OL_TH_6_8</qualifiedname>
+        <initializer>= (6 &lt;&lt; 4)</initializer>
+        <briefdescription>
+<para>6/8 of setpoint </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="870" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="870" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a7e03fa399daab04045b917570287d9b3" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CONFIG::OL_TH_7_8</definition>
+        <argsstring></argsstring>
+        <name>OL_TH_7_8</name>
+        <qualifiedname>tle92466ed::CH_CONFIG::OL_TH_7_8</qualifiedname>
+        <initializer>= (7 &lt;&lt; 4)</initializer>
+        <briefdescription>
+<para>7/8 of setpoint </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="871" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="871" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a5f93c3896a648962450e3c66d1704fe0" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CONFIG::OL_TH_MASK</definition>
+        <argsstring></argsstring>
+        <name>OL_TH_MASK</name>
+        <qualifiedname>tle92466ed::CH_CONFIG::OL_TH_MASK</qualifiedname>
+        <initializer>= 0x0070</initializer>
+        <briefdescription>
+<para>OL threshold mask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="872" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="872" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a436b95d7dc0d5175c5c4e8c35320d11a" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint8_t</type>
+        <definition>constexpr uint8_t tle92466ed::CH_CONFIG::OL_TH_VALUE_MASK</definition>
+        <argsstring></argsstring>
+        <name>OL_TH_VALUE_MASK</name>
+        <qualifiedname>tle92466ed::CH_CONFIG::OL_TH_VALUE_MASK</qualifiedname>
+        <initializer>= 0x07</initializer>
+        <briefdescription>
+<para>OL threshold value mask (3 bits: 0-7) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="873" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="873" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1ae160ffc4f0f7bd8eed9759cf0f694751" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint8_t</type>
+        <definition>constexpr uint8_t tle92466ed::CH_CONFIG::OL_TH_SHIFT</definition>
+        <argsstring></argsstring>
+        <name>OL_TH_SHIFT</name>
+        <qualifiedname>tle92466ed::CH_CONFIG::OL_TH_SHIFT</qualifiedname>
+        <initializer>= 4</initializer>
+        <briefdescription>
+<para>OL threshold shift in register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="874" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="874" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a1c00c7a0b292a6e2fcc0e4401125c007" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CONFIG::OL_TH_FIXED_SHIFT</definition>
+        <argsstring></argsstring>
+        <name>OL_TH_FIXED_SHIFT</name>
+        <qualifiedname>tle92466ed::CH_CONFIG::OL_TH_FIXED_SHIFT</qualifiedname>
+        <initializer>= 7</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="877" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="877" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a3b0c8fb8609b94224e76b8c05766d2ba" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CONFIG::OL_TH_FIXED_MASK</definition>
+        <argsstring></argsstring>
+        <name>OL_TH_FIXED_MASK</name>
+        <qualifiedname>tle92466ed::CH_CONFIG::OL_TH_FIXED_MASK</qualifiedname>
+        <initializer>= 0x1F80</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="878" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="878" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1af59a9b31f1146052e46fd9e2dc64985a" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CONFIG::OC_DIAG_EN</definition>
+        <argsstring></argsstring>
+        <name>OC_DIAG_EN</name>
+        <qualifiedname>tle92466ed::CH_CONFIG::OC_DIAG_EN</qualifiedname>
+        <initializer>= (1 &lt;&lt; 13)</initializer>
+        <briefdescription>
+<para>OC diag in OFF state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="880" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="880" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1afe2486291226f9d6b5313f1511f2df08" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CONFIG::OFF_DIAG_ENABLED</definition>
+        <argsstring></argsstring>
+        <name>OFF_DIAG_ENABLED</name>
+        <qualifiedname>tle92466ed::CH_CONFIG::OFF_DIAG_ENABLED</qualifiedname>
+        <initializer>= (0 &lt;&lt; 14)</initializer>
+        <briefdescription>
+<para>OFF diag enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="883" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="883" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1af9facb48c69637c8a03536aad8c3cb9c" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CONFIG::OFF_DIAG_LS_ONLY</definition>
+        <argsstring></argsstring>
+        <name>OFF_DIAG_LS_ONLY</name>
+        <qualifiedname>tle92466ed::CH_CONFIG::OFF_DIAG_LS_ONLY</qualifiedname>
+        <initializer>= (1 &lt;&lt; 14)</initializer>
+        <briefdescription>
+<para>Low side current only. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="884" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="884" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1acfdeca72325f8c01f9e7ebb3be42b0ba" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CONFIG::OFF_DIAG_HS_ONLY</definition>
+        <argsstring></argsstring>
+        <name>OFF_DIAG_HS_ONLY</name>
+        <qualifiedname>tle92466ed::CH_CONFIG::OFF_DIAG_HS_ONLY</qualifiedname>
+        <initializer>= (2 &lt;&lt; 14)</initializer>
+        <briefdescription>
+<para>High side current only. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="885" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="885" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a41f05fd357d1daf0fdb7e28d1ef72c45" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CONFIG::OFF_DIAG_MASK</definition>
+        <argsstring></argsstring>
+        <name>OFF_DIAG_MASK</name>
+        <qualifiedname>tle92466ed::CH_CONFIG::OFF_DIAG_MASK</qualifiedname>
+        <initializer>= 0xC000</initializer>
+        <briefdescription>
+<para>OFF diag mask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="886" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="886" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a5a76ae54e4549283a2ee3e5bb82a0e60" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CONFIG::DEFAULT</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT</name>
+        <qualifiedname>tle92466ed::CH_CONFIG::DEFAULT</qualifiedname>
+        <initializer>= 0x0003</initializer>
+        <briefdescription>
+<para>Default value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="888" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="888" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespacetle92466ed_1_1CH__CONFIG" kindref="compound">CH_CONFIG</ref> register bit definitions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Channel configuration for slew rate, diagnostics, and open load detection.</para>
+<para><simplesect kind="par"><title>Bit Map:</title><para><verbatim>* Bits 15-14: OFF_DIAG_CH  - OFF-state diagnostic control
+* Bit 13    : OC_DIAG_EN   - OC diagnosis in OFF-state
+* Bits 12-7 : OL_TH_FIXED  - Fixed open load threshold
+* Bits 6-4  : OL_TH        - Relative open load threshold
+* Bits 3-2  : I_DIAG       - OFF-state diagnostic current
+* Bits 1-0  : SLEWR        - Slew rate control
+* </verbatim></para>
+</simplesect>
+Default: 0x0003 </para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="848" column="1"/>
+  </compounddef>
+</doxygen>

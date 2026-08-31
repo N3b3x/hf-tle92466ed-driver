@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['parallelpair_0',['ParallelPair',['../namespaceTLE92466ED.html#aa1fa8e45dfa0d762330e89dae1ad3de2',1,'TLE92466ED']]]
+  ['fastmeasuremode_0',['FastMeasureMode',['../namespacetle92466ed.html#a7a810a2ee5f3edef167c753d660af92f',1,'tle92466ed']]]
 ];

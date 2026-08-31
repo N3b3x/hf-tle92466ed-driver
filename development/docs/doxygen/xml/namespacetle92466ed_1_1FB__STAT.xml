@@ -1,0 +1,321 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1FB__STAT" kind="namespace" language="C++">
+    <compoundname>tle92466ed::FB_STAT</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__STAT_1a6f8caf6d7854db4afd4afccdf9e7b461" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_STAT::DIAG_WARN_CHGR0</definition>
+        <argsstring></argsstring>
+        <name>DIAG_WARN_CHGR0</name>
+        <qualifiedname>tle92466ed::FB_STAT::DIAG_WARN_CHGR0</qualifiedname>
+        <initializer>= (1u &lt;&lt; 0)</initializer>
+        <briefdescription>
+<para>DIAG_WARN_CHGR0 status. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="539" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="539" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__STAT_1a062242c3fa5aa21d418f56bf2e322ee9" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_STAT::DIAG_WARN_CHGR1</definition>
+        <argsstring></argsstring>
+        <name>DIAG_WARN_CHGR1</name>
+        <qualifiedname>tle92466ed::FB_STAT::DIAG_WARN_CHGR1</qualifiedname>
+        <initializer>= (1u &lt;&lt; 1)</initializer>
+        <briefdescription>
+<para>DIAG_WARN_CHGR1 status. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="540" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="540" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__STAT_1a105aa87d9aae85a7eab7ed081fc3366c" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_STAT::DIAG_WARN_CHGR2</definition>
+        <argsstring></argsstring>
+        <name>DIAG_WARN_CHGR2</name>
+        <qualifiedname>tle92466ed::FB_STAT::DIAG_WARN_CHGR2</qualifiedname>
+        <initializer>= (1u &lt;&lt; 2)</initializer>
+        <briefdescription>
+<para>DIAG_WARN_CHGR2 status. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="541" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="541" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__STAT_1a549fe52040b7839aea446c191a4c6b58" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_STAT::OLSG_WARN_CHK_NOK_CHGR0</definition>
+        <argsstring></argsstring>
+        <name>OLSG_WARN_CHK_NOK_CHGR0</name>
+        <qualifiedname>tle92466ed::FB_STAT::OLSG_WARN_CHK_NOK_CHGR0</qualifiedname>
+        <initializer>= (1u &lt;&lt; 3)</initializer>
+        <briefdescription>
+<para>OL/SG check group 0. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="542" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="542" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__STAT_1a2b55be1a736c00f46eb5018c0cb732e2" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_STAT::OLSG_WARN_CHK_NOK_CHGR1</definition>
+        <argsstring></argsstring>
+        <name>OLSG_WARN_CHK_NOK_CHGR1</name>
+        <qualifiedname>tle92466ed::FB_STAT::OLSG_WARN_CHK_NOK_CHGR1</qualifiedname>
+        <initializer>= (1u &lt;&lt; 4)</initializer>
+        <briefdescription>
+<para>OL/SG check group 1. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="543" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="543" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__STAT_1a83e7def6d207d487cc87bfa385a111a9" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_STAT::OLSG_WARN_CHK_NOK_CHGR2</definition>
+        <argsstring></argsstring>
+        <name>OLSG_WARN_CHK_NOK_CHGR2</name>
+        <qualifiedname>tle92466ed::FB_STAT::OLSG_WARN_CHK_NOK_CHGR2</qualifiedname>
+        <initializer>= (1u &lt;&lt; 5)</initializer>
+        <briefdescription>
+<para>OL/SG check group 2. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="544" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="544" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__STAT_1a4f72aa0e5b7cfd84651ad93eef1e7b35" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_STAT::CLK_NOK_STAT</definition>
+        <argsstring></argsstring>
+        <name>CLK_NOK_STAT</name>
+        <qualifiedname>tle92466ed::FB_STAT::CLK_NOK_STAT</qualifiedname>
+        <initializer>= (1u &lt;&lt; 6)</initializer>
+        <briefdescription>
+<para>Clock fault status. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="545" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="545" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__STAT_1af36eee12c24ba448e478aa045374a00c" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_STAT::COTERR</definition>
+        <argsstring></argsstring>
+        <name>COTERR</name>
+        <qualifiedname>tle92466ed::FB_STAT::COTERR</qualifiedname>
+        <initializer>= (1u &lt;&lt; 7)</initializer>
+        <briefdescription>
+<para>Central overtemperature error. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="546" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="546" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__STAT_1a66542c4c5daf8f6edae2fbe4c85ebe07" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_STAT::COTWARN</definition>
+        <argsstring></argsstring>
+        <name>COTWARN</name>
+        <qualifiedname>tle92466ed::FB_STAT::COTWARN</qualifiedname>
+        <initializer>= (1u &lt;&lt; 8)</initializer>
+        <briefdescription>
+<para>Central overtemperature warning. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="547" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="547" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__STAT_1ae5f3ee636be9fe76c29cd91437bf8bc6" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_STAT::RES_EVENT</definition>
+        <argsstring></argsstring>
+        <name>RES_EVENT</name>
+        <qualifiedname>tle92466ed::FB_STAT::RES_EVENT</qualifiedname>
+        <initializer>= (1u &lt;&lt; 9)</initializer>
+        <briefdescription>
+<para>Reset event (RESN pin) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="548" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="548" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__STAT_1a263d92c6270d0b51d5a1e36a161fe1ab" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_STAT::POR_EVENT</definition>
+        <argsstring></argsstring>
+        <name>POR_EVENT</name>
+        <qualifiedname>tle92466ed::FB_STAT::POR_EVENT</qualifiedname>
+        <initializer>= (1u &lt;&lt; 10)</initializer>
+        <briefdescription>
+<para>Power-on reset event. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="549" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="549" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__STAT_1a67d648167a7a9aebc507ada6e54b2cec" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_STAT::DATA_ERR</definition>
+        <argsstring></argsstring>
+        <name>DATA_ERR</name>
+        <qualifiedname>tle92466ed::FB_STAT::DATA_ERR</qualifiedname>
+        <initializer>= (1u &lt;&lt; 11)</initializer>
+        <briefdescription>
+<para>OTP_ECC_ERR / OTP_VIRGIN / HV_ADC_ERR. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="550" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="550" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__STAT_1a853080c02be51fdb630103d64f321e01" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_STAT::SUP_NOK_EXT</definition>
+        <argsstring></argsstring>
+        <name>SUP_NOK_EXT</name>
+        <qualifiedname>tle92466ed::FB_STAT::SUP_NOK_EXT</qualifiedname>
+        <initializer>= (1u &lt;&lt; 12)</initializer>
+        <briefdescription>
+<para>VIO/VDD/VBAT UV or OV. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="551" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="551" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__STAT_1a41ca82e1089d50d493736116fcab5bbf" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_STAT::SUP_NOK_INT</definition>
+        <argsstring></argsstring>
+        <name>SUP_NOK_INT</name>
+        <qualifiedname>tle92466ed::FB_STAT::SUP_NOK_INT</qualifiedname>
+        <initializer>= (1u &lt;&lt; 13)</initializer>
+        <briefdescription>
+<para>Internal rail UV or OV. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="552" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="552" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__STAT_1a39c6ad8c3b65aea401b7798652a1343c" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_STAT::ERR_CHGR0</definition>
+        <argsstring></argsstring>
+        <name>ERR_CHGR0</name>
+        <qualifiedname>tle92466ed::FB_STAT::ERR_CHGR0</qualifiedname>
+        <initializer>= (1u &lt;&lt; 14)</initializer>
+        <briefdescription>
+<para>DIAG_ERR_CHGR1 status. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="553" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="553" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__STAT_1af34938a59bae410645ef92f6bdfb6fcb" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_STAT::ERR_CHGR1</definition>
+        <argsstring></argsstring>
+        <name>ERR_CHGR1</name>
+        <qualifiedname>tle92466ed::FB_STAT::ERR_CHGR1</qualifiedname>
+        <initializer>= (1u &lt;&lt; 15)</initializer>
+        <briefdescription>
+<para>DIAG_ERR_CHGR2 status. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="554" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="554" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__STAT_1a7822d54190bc741f41cc547b9cdc2778" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_STAT::ERR_CHGR2</definition>
+        <argsstring></argsstring>
+        <name>ERR_CHGR2</name>
+        <qualifiedname>tle92466ed::FB_STAT::ERR_CHGR2</qualifiedname>
+        <initializer>= (1u &lt;&lt; 16)</initializer>
+        <briefdescription>
+<para>DIAG_ERR_CHGR3 status. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="555" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="555" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__STAT_1a4b53c8312e177e28e11b2eb2ceb99747" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_STAT::SPI_WD_ERR</definition>
+        <argsstring></argsstring>
+        <name>SPI_WD_ERR</name>
+        <qualifiedname>tle92466ed::FB_STAT::SPI_WD_ERR</qualifiedname>
+        <initializer>= (1u &lt;&lt; 20)</initializer>
+        <briefdescription>
+<para>SPI watchdog error status. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="556" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="556" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__STAT_1a1c4d0c779ee8eaf985434e2ecc2928d5" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_STAT::INIT_DONE</definition>
+        <argsstring></argsstring>
+        <name>INIT_DONE</name>
+        <qualifiedname>tle92466ed::FB_STAT::INIT_DONE</qualifiedname>
+        <initializer>= (1u &lt;&lt; 21)</initializer>
+        <briefdescription>
+<para>Chip initialization done. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="557" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="557" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespacetle92466ed_1_1FB__STAT" kindref="compound">FB_STAT</ref> register bit definitions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>General feedback and status information. <simplesect kind="warning"><para><ref refid="namespacetle92466ed_1_1FB__STAT" kindref="compound">FB_STAT</ref> is a <bold>22-bit</bold> reply register. <computeroutput>INIT_DONE</computeroutput> (21) and <computeroutput>SPI_WD_ERR</computeroutput> (20) sit above bit 15, so a caller that narrows the <computeroutput>ReadRegister</computeroutput> result to <computeroutput>uint16_t</computeroutput> silently loses them and reads <computeroutput>INIT_DONE</computeroutput> as 0 forever. Keep these masks 32-bit.</para>
+</simplesect>
+Bit positions per datasheet Rev. 1.2 (2022-02-01) §5.3.2.21, Table 23. Reset value is 0x200638 — note <computeroutput>INIT_DONE</computeroutput> is set out of reset. </para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="538" column="1"/>
+  </compounddef>
+</doxygen>

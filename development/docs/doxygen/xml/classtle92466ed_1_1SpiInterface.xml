@@ -1,0 +1,1128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="classtle92466ed_1_1SpiInterface" kind="class" language="C++" prot="public">
+    <compoundname>tle92466ed::SpiInterface</compoundname>
+    <includes refid="tle92466ed__spi__interface_8hpp" local="no">tle92466ed_spi_interface.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename Derived</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classtle92466ed_1_1SpiInterface_1a20687f8951efeaa6cd7d7b40922b9c13" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t tle92466ed::SpiInterface&lt; Derived &gt;::kMaxPipelinedReads</definition>
+        <argsstring></argsstring>
+        <name>kMaxPipelinedReads</name>
+        <qualifiedname>tle92466ed::SpiInterface::kMaxPipelinedReads</qualifiedname>
+        <initializer>= 12</initializer>
+        <briefdescription>
+<para>Largest burst <ref refid="classtle92466ed_1_1SpiInterface_1a7304d96b475520cf4fa9aacd6caaf8e0" kindref="member">ReadMulti</ref> will issue in one CS-session chain. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="730" column="27" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="730" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classtle92466ed_1_1SpiInterface_1a397ed0830fad6afe541163c91b78c965" prot="protected" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t tle92466ed::SpiInterface&lt; Derived &gt;::last_critical_fault_flags_</definition>
+        <argsstring></argsstring>
+        <name>last_critical_fault_flags_</name>
+        <qualifiedname>tle92466ed::SpiInterface::last_critical_fault_flags_</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classtle92466ed_1_1SpiInterface_1aaf8fc2c71e6a9649771d7b434301f14c" kindref="member">LastCriticalFaultFlags</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="844" column="11" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="844" bodyend="844"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtle92466ed_1_1SpiInterface_1a126fd7bd4ac2afb6d0f5752a8a505240" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::SpiInterface&lt; Derived &gt;::saw_critical_fault_</definition>
+        <argsstring></argsstring>
+        <name>saw_critical_fault_</name>
+        <qualifiedname>tle92466ed::SpiInterface::saw_critical_fault_</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classtle92466ed_1_1SpiInterface_1ae6a5b71e43580d66d2e4027499a73c81" kindref="member">SawCriticalFault</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="845" column="8" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="845" bodyend="845"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classtle92466ed_1_1SpiInterface_1aa68b021917632b21f8c9f2b0ac0cf665" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="namespacetle92466ed_1a21f593ab13bf03c108a99ea2f0e3ee31" kindref="member">CommResult</ref>&lt; void &gt;</type>
+        <definition>CommResult&lt; void &gt; tle92466ed::SpiInterface&lt; Derived &gt;::Init</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>Init</name>
+        <qualifiedname>tle92466ed::SpiInterface::Init</qualifiedname>
+        <briefdescription>
+<para>Initialize the hardware interface. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function should initialize the SPI peripheral, configure GPIO pins, and prepare the hardware for communication. It should be called before any other CommInterface functions.</para>
+<para><simplesect kind="return"><para>CommResult&lt;void&gt; Success or error code </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aa6adf97f83acf6453d4a6a4b1070f3754" kindref="member">CommError::None</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization successful </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aa257b0abd705d3c26ae57e58f6732eb0a" kindref="member">CommError::HardwareNotReady</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Hardware initialization failed </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aa627251310d3384b591e4138be21145d5" kindref="member">CommError::InvalidParameter</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Invalid configuration </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="445" column="15" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="445" bodyend="447"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle92466ed_1_1SpiInterface_1a63683e3410c3773ac311037215ef34ef" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="namespacetle92466ed_1a21f593ab13bf03c108a99ea2f0e3ee31" kindref="member">CommResult</ref>&lt; void &gt;</type>
+        <definition>CommResult&lt; void &gt; tle92466ed::SpiInterface&lt; Derived &gt;::Deinit</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>Deinit</name>
+        <qualifiedname>tle92466ed::SpiInterface::Deinit</qualifiedname>
+        <briefdescription>
+<para>Deinitialize the hardware interface. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Releases hardware resources and disables the SPI peripheral. Should be called when the driver is no longer needed.</para>
+<para><simplesect kind="return"><para>CommResult&lt;void&gt; Success or error code </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="458" column="15" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="458" bodyend="460"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle92466ed_1_1SpiInterface_1a402b215387796d2dd36d429c46d92b11" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="namespacetle92466ed_1a21f593ab13bf03c108a99ea2f0e3ee31" kindref="member">CommResult</ref>&lt; uint32_t &gt;</type>
+        <definition>CommResult&lt; uint32_t &gt; tle92466ed::SpiInterface&lt; Derived &gt;::Transfer32</definition>
+        <argsstring>(uint32_t tx_data) noexcept</argsstring>
+        <name>Transfer32</name>
+        <qualifiedname>tle92466ed::SpiInterface::Transfer32</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>tx_data</declname>
+        </param>
+        <briefdescription>
+<para>Transfer 32-bit data via SPI (full-duplex) </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Performs a full-duplex SPI transaction, simultaneously sending and receiving 32 bits of data. This is the primary communication method for the TLE92466ED.</para>
+<para>The TLE92466ED requires 32-bit SPI frames with the following format:<itemizedlist>
+<listitem><para>Bits [31:24]: CRC-8 (SAE J1850)</para>
+</listitem><listitem><para>Bits [23:17]: Register address (7 bits of 10-bit address)</para>
+</listitem><listitem><para>Bit [16]: R/W (1=Write, 0=Read)</para>
+</listitem><listitem><para>Bits [15:0]: Data (16 bits)</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">tx_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The 32-bit data to transmit </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>CommResult&lt;uint32_t&gt; Received 32-bit data or error </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aab36f64f307472d2304bafef8bebc15a9" kindref="member">CommError::TransferError</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SPI transfer failed </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aac85a251cc457840f1e032f1b733e9398" kindref="member">CommError::Timeout</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Transfer timeout</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="par"><title>Timing Requirements:</title><para><itemizedlist>
+<listitem><para>CS must be asserted (low) before transfer and deasserted (high) after</para>
+</listitem><listitem><para>CS must be held low during entire 32-bit transfer</para>
+</listitem><listitem><para>Minimum CS inactive time between transfers: 100ns</para>
+</listitem><listitem><para>Data sampled on rising edge (CPHA=1)</para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+<simplesect kind="note"><para>Chip select (CS) management must be handled internally by this function. The implementation should assert CS before the transfer and deassert it after. CRC calculation is handled by the driver layer, not CommInterface. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="491" column="15" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="491" bodyend="493"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle92466ed_1_1SpiInterface_1ac638c7e316d2be23f240c482619e2433" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="namespacetle92466ed_1a21f593ab13bf03c108a99ea2f0e3ee31" kindref="member">CommResult</ref>&lt; void &gt;</type>
+        <definition>CommResult&lt; void &gt; tle92466ed::SpiInterface&lt; Derived &gt;::TransferMulti</definition>
+        <argsstring>(std::span&lt; const uint32_t &gt; tx_data, std::span&lt; uint32_t &gt; rx_data) noexcept</argsstring>
+        <name>TransferMulti</name>
+        <qualifiedname>tle92466ed::SpiInterface::TransferMulti</qualifiedname>
+        <param>
+          <type>std::span&lt; const uint32_t &gt;</type>
+          <declname>tx_data</declname>
+        </param>
+        <param>
+          <type>std::span&lt; uint32_t &gt;</type>
+          <declname>rx_data</declname>
+        </param>
+        <briefdescription>
+<para>Transfer multiple 32-bit words via SPI in one CS assertion window. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Performs consecutive full-duplex 32-bit transfers while CS remains asserted. The driver relies on this for pipelined register access: each <computeroutput><ref refid="classtle92466ed_1_1SpiInterface_1a499995340062b2a3018af8638982316a" kindref="member">Read()</ref></computeroutput> / <computeroutput><ref refid="classtle92466ed_1_1SpiInterface_1aac5543c7a64a50838af7de423bc0afa5" kindref="member">Write()</ref></computeroutput> passes exactly two words (command frame, then dummy frame that clocks out the latched reply).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">tx_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Span of transmit data (32-bit words) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">rx_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Span to store received data (32-bit words) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>CommResult&lt;void&gt; Success or error code </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aa627251310d3384b591e4138be21145d5" kindref="member">CommError::InvalidParameter</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Buffer size mismatch </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aab36f64f307472d2304bafef8bebc15a9" kindref="member">CommError::TransferError</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Transfer failed</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="pre"><para>tx_data.size() == rx_data.size() </para>
+</simplesect>
+<simplesect kind="pre"><para>Both spans must be valid for the duration of the transfer</para>
+</simplesect>
+<simplesect kind="warning"><para><bold>Platform requirement:</bold> on shared SPI buses, the adapter must keep CS asserted and must not yield bus ownership between the command and dummy frames of a pipelined read. Releasing the bus mid-pair is a common cause of all-zero or cross-slave corrupted register values (including inflated feedback currents). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="519" column="15" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="519" bodyend="522"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle92466ed_1_1SpiInterface_1ab94ea9f452febbe30c0a44e1e00f911c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="namespacetle92466ed_1a21f593ab13bf03c108a99ea2f0e3ee31" kindref="member">CommResult</ref>&lt; void &gt;</type>
+        <definition>CommResult&lt; void &gt; tle92466ed::SpiInterface&lt; Derived &gt;::Delay</definition>
+        <argsstring>(uint32_t microseconds) noexcept</argsstring>
+        <name>Delay</name>
+        <qualifiedname>tle92466ed::SpiInterface::Delay</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>microseconds</declname>
+        </param>
+        <briefdescription>
+<para>Delay for specified duration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Provides a hardware-specific delay implementation. Required for timing constraints such as reset pulse width and power-up delays.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">microseconds</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Duration to delay in microseconds </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>CommResult&lt;void&gt; Success or error code</para>
+</simplesect>
+<simplesect kind="par"><title>Timing Requirements:</title><para><itemizedlist>
+<listitem><para>Reset pulse width: minimum 1µs</para>
+</listitem><listitem><para>Power-up delay: minimum 1ms </para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="538" column="15" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="538" bodyend="540"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle92466ed_1_1SpiInterface_1a0629ce233e0aa304d7faaf6aebf083e5" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="namespacetle92466ed_1a21f593ab13bf03c108a99ea2f0e3ee31" kindref="member">CommResult</ref>&lt; void &gt;</type>
+        <definition>CommResult&lt; void &gt; tle92466ed::SpiInterface&lt; Derived &gt;::Configure</definition>
+        <argsstring>(const SPIConfig &amp;config) noexcept</argsstring>
+        <name>Configure</name>
+        <qualifiedname>tle92466ed::SpiInterface::Configure</qualifiedname>
+        <param>
+          <type>const <ref refid="structtle92466ed_1_1SPIConfig" kindref="compound">SPIConfig</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Configure SPI parameters. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Updates the SPI configuration. Can be called at runtime to adjust communication parameters.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>New SPI configuration </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>CommResult&lt;void&gt; Success or error code </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aa627251310d3384b591e4138be21145d5" kindref="member">CommError::InvalidParameter</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Invalid configuration</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="par"><title>TLE92466ED SPI Requirements:</title><para><itemizedlist>
+<listitem><para>Frequency: 100 kHz - 10 MHz</para>
+</listitem><listitem><para>Mode: 1 (CPOL=0, CPHA=1) - Data sampled on falling edge of SCK, shifted on rising edge</para>
+</listitem><listitem><para>Bit order: MSB first</para>
+</listitem><listitem><para>Frame size: 32 bits (4 bytes) </para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="559" column="15" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="559" bodyend="561"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle92466ed_1_1SpiInterface_1ac9625b7265238ef71cc3d8081fd944b3" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool tle92466ed::SpiInterface&lt; Derived &gt;::IsReady</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>IsReady</name>
+        <qualifiedname>tle92466ed::SpiInterface::IsReady</qualifiedname>
+        <briefdescription>
+<para>Check if hardware is ready for communication. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Verifies that the hardware interface is initialized and ready for SPI transactions.</para>
+<para><simplesect kind="return"><para>true if ready, false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="572" column="9" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="572" bodyend="574"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle92466ed_1_1SpiInterface_1ab95fc99a3717ccbf9de96d69a10cf5b4" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4a" kindref="member">CommError</ref></type>
+        <definition>CommError tle92466ed::SpiInterface&lt; Derived &gt;::GetLastError</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>GetLastError</name>
+        <qualifiedname>tle92466ed::SpiInterface::GetLastError</qualifiedname>
+        <briefdescription>
+<para>Get the last error that occurred. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Retrieves the most recent error code. Useful for debugging and error recovery.</para>
+<para><simplesect kind="return"><para>CommError The last error code </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="585" column="14" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="585" bodyend="587"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle92466ed_1_1SpiInterface_1aa236926f38300295cc4b82fdd137db37" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="namespacetle92466ed_1a21f593ab13bf03c108a99ea2f0e3ee31" kindref="member">CommResult</ref>&lt; void &gt;</type>
+        <definition>CommResult&lt; void &gt; tle92466ed::SpiInterface&lt; Derived &gt;::ClearErrors</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>ClearErrors</name>
+        <qualifiedname>tle92466ed::SpiInterface::ClearErrors</qualifiedname>
+        <briefdescription>
+<para>Clear any pending errors. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Resets the error state. Should be called after handling an error condition and before retrying operations.</para>
+<para><simplesect kind="return"><para>CommResult&lt;void&gt; Success or error code </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="598" column="15" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="598" bodyend="600"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle92466ed_1_1SpiInterface_1ab542050209c981cc40f597aa1049044e" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="namespacetle92466ed_1a21f593ab13bf03c108a99ea2f0e3ee31" kindref="member">CommResult</ref>&lt; void &gt;</type>
+        <definition>CommResult&lt; void &gt; tle92466ed::SpiInterface&lt; Derived &gt;::GpioSet</definition>
+        <argsstring>(CtrlPin pin, GpioSignal signal) noexcept</argsstring>
+        <name>GpioSet</name>
+        <qualifiedname>tle92466ed::SpiInterface::GpioSet</qualifiedname>
+        <param>
+          <type><ref refid="namespacetle92466ed_1a42eacb1b3fd11b3412b6aef4b0d2e1d8" kindref="member">CtrlPin</ref></type>
+          <declname>pin</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacetle92466ed_1a3e575e91f20807f25c8de6922b3def9d" kindref="member">GpioSignal</ref></type>
+          <declname>signal</declname>
+        </param>
+        <briefdescription>
+<para>Set GPIO control pin signal state (output control). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Controls the state of TLE92466ED control pins (RESN, EN). The implementation must map ACTIVE/INACTIVE to the appropriate physical levels based on board design.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Control pin to set (RESN or EN) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>signal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The desired signal state (ACTIVE or INACTIVE) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>CommResult&lt;void&gt; Success or error code </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aa627251310d3384b591e4138be21145d5" kindref="member">CommError::InvalidParameter</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Invalid pin or signal </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aa257b0abd705d3c26ae57e58f6732eb0a" kindref="member">CommError::HardwareNotReady</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Hardware not initialized</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="par"><title>Pin Behavior:</title><para><itemizedlist>
+<listitem><para>RESN (active low): ACTIVE = not in reset (GPIO HIGH), INACTIVE = in reset (GPIO LOW)</para>
+</listitem><listitem><para>EN (active high): ACTIVE = enabled (GPIO HIGH), INACTIVE = disabled (GPIO LOW)</para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+<simplesect kind="note"><para>RESN must be ACTIVE for SPI communication to work. </para>
+</simplesect>
+<simplesect kind="note"><para>EN only affects output channels, not SPI communication. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="623" column="15" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="623" bodyend="625"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle92466ed_1_1SpiInterface_1a2d653db43a17168a1e3b758ec624f099" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="namespacetle92466ed_1a21f593ab13bf03c108a99ea2f0e3ee31" kindref="member">CommResult</ref>&lt; <ref refid="namespacetle92466ed_1a3e575e91f20807f25c8de6922b3def9d" kindref="member">GpioSignal</ref> &gt;</type>
+        <definition>CommResult&lt; GpioSignal &gt; tle92466ed::SpiInterface&lt; Derived &gt;::GpioRead</definition>
+        <argsstring>(CtrlPin pin) noexcept</argsstring>
+        <name>GpioRead</name>
+        <qualifiedname>tle92466ed::SpiInterface::GpioRead</qualifiedname>
+        <param>
+          <type><ref refid="namespacetle92466ed_1a42eacb1b3fd11b3412b6aef4b0d2e1d8" kindref="member">CtrlPin</ref></type>
+          <declname>pin</declname>
+        </param>
+        <briefdescription>
+<para>Read GPIO control pin signal state (input state). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads the current state of TLE92466ED control pins (FAULTN). The implementation must map physical levels to ACTIVE/INACTIVE based on board design.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Control pin to read (FAULTN) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>CommResult&lt;GpioSignal&gt; Pin signal state (ACTIVE or INACTIVE) or error </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aa627251310d3384b591e4138be21145d5" kindref="member">CommError::InvalidParameter</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Invalid pin (only FAULTN can be read) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aa257b0abd705d3c26ae57e58f6732eb0a" kindref="member">CommError::HardwareNotReady</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Hardware not initialized</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="par"><title>Pin Behavior:</title><para><itemizedlist>
+<listitem><para>FAULTN (active low): ACTIVE = fault detected (GPIO LOW), INACTIVE = no fault (GPIO HIGH)</para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+<simplesect kind="note"><para>Only FAULTN can be read. RESN and EN are output-only. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="645" column="15" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="645" bodyend="647"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle92466ed_1_1SpiInterface_1abb0cde5946fe750c68999f06dc156122" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="namespacetle92466ed_1a21f593ab13bf03c108a99ea2f0e3ee31" kindref="member">CommResult</ref>&lt; void &gt;</type>
+        <definition>CommResult&lt; void &gt; tle92466ed::SpiInterface&lt; Derived &gt;::GpioSetActive</definition>
+        <argsstring>(CtrlPin pin) noexcept</argsstring>
+        <name>GpioSetActive</name>
+        <qualifiedname>tle92466ed::SpiInterface::GpioSetActive</qualifiedname>
+        <param>
+          <type><ref refid="namespacetle92466ed_1a42eacb1b3fd11b3412b6aef4b0d2e1d8" kindref="member">CtrlPin</ref></type>
+          <declname>pin</declname>
+        </param>
+        <briefdescription>
+<para>Set GPIO pin to active state (convenience method). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The control pin to set active </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>CommResult&lt;void&gt; Success or error code </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="654" column="15" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="654" bodyend="656"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle92466ed_1_1SpiInterface_1a60b6e281ad9b45cce384a3da91ab8c1b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="namespacetle92466ed_1a21f593ab13bf03c108a99ea2f0e3ee31" kindref="member">CommResult</ref>&lt; void &gt;</type>
+        <definition>CommResult&lt; void &gt; tle92466ed::SpiInterface&lt; Derived &gt;::GpioSetInactive</definition>
+        <argsstring>(CtrlPin pin) noexcept</argsstring>
+        <name>GpioSetInactive</name>
+        <qualifiedname>tle92466ed::SpiInterface::GpioSetInactive</qualifiedname>
+        <param>
+          <type><ref refid="namespacetle92466ed_1a42eacb1b3fd11b3412b6aef4b0d2e1d8" kindref="member">CtrlPin</ref></type>
+          <declname>pin</declname>
+        </param>
+        <briefdescription>
+<para>Set GPIO pin to inactive state (convenience method). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The control pin to set inactive </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>CommResult&lt;void&gt; Success or error code </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="663" column="15" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="663" bodyend="665"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle92466ed_1_1SpiInterface_1a39597910309873f982f3ac2a9a9a9560" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void tle92466ed::SpiInterface&lt; Derived &gt;::Log</definition>
+        <argsstring>(LogLevel level, const char *tag, const char *format,...) noexcept</argsstring>
+        <name>Log</name>
+        <qualifiedname>tle92466ed::SpiInterface::Log</qualifiedname>
+        <param>
+          <type><ref refid="namespacetle92466ed_1ae9d7e11b24ee920250df1e83b0f98509" kindref="member">LogLevel</ref></type>
+          <declname>level</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>tag</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+<para>Log a message with specified severity level and tag. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Platform-specific logging implementation. The driver uses this to log diagnostic information, errors, warnings, and debug messages.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>level</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Log severity level </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Tag/component name for the log message (e.g., &quot;TLE92466ED&quot;) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>format</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Format string (printf-style) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>...</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Variable arguments for format string</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Implementations should use platform-specific logging (e.g., ESP_LOG for ESP32) </para>
+</simplesect>
+<simplesect kind="note"><para>The format string and arguments follow printf-style formatting </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="682" column="8" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="682" bodyend="687"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle92466ed_1_1SpiInterface_1a499995340062b2a3018af8638982316a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="namespacetle92466ed_1a21f593ab13bf03c108a99ea2f0e3ee31" kindref="member">CommResult</ref>&lt; uint32_t &gt;</type>
+        <definition>CommResult&lt; uint32_t &gt; tle92466ed::SpiInterface&lt; Derived &gt;::Read</definition>
+        <argsstring>(uint16_t address, bool verify_crc=true) noexcept</argsstring>
+        <name>Read</name>
+        <qualifiedname>tle92466ed::SpiInterface::Read</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>verify_crc</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Read a register from the TLE92466ED (High-Level API) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Register address (10-bit, 0x000-0x3FF) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>verify_crc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If true, verify CRC in response (default: true) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>CommResult&lt;uint32_t&gt; Register value (16-bit or 22-bit depending on reply mode) or error</para>
+</simplesect>
+This function handles the complete read operation:<itemizedlist>
+<listitem><para>Constructs the read frame with address</para>
+</listitem><listitem><para>Calculates and adds CRC</para>
+</listitem><listitem><para>Performs first SPI transfer (sends command, receives dummy data)</para>
+</listitem><listitem><para>Performs second SPI transfer (sends dummy command, receives actual response)</para>
+</listitem><listitem><para>Parses the response based on reply mode</para>
+</listitem><listitem><para>Verifies CRC if requested</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="note"><para><bold>Pipelined reply:</bold> frame 1 transmits the read command (MISO is not yet valid for that address); frame 2 is a dummy read that clocks out the latched reply. Both frames are sent via <computeroutput><ref refid="classtle92466ed_1_1SpiInterface_1ac638c7e316d2be23f240c482619e2433" kindref="member">TransferMulti()</ref></computeroutput> in one CS window — adapters must not split them on shared buses.</para>
+</simplesect>
+<simplesect kind="note"><para><bold>Replies are validated, not trusted.</bold> A reply is accepted only if its CRC checks out <emphasis>and</emphasis> its reply mode matches the width the register is defined to answer with (<ref refid="namespacetle92466ed_1acbbba5a918710a5ac5da8fd514035c3b" kindref="member">ExpectedReplyFor</ref>). Reads are retried until one qualifies. An unreadable register therefore returns an error instead of a plausible-looking value.</para>
+</simplesect>
+<simplesect kind="warning"><para><computeroutput>verify_crc</computeroutput> no longer disables validation; it is kept only for API compatibility. Callers that passed <computeroutput>false</computeroutput> were the reason corrupt and stale frames were decoded as register content.</para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aa8717c18fa957be6f62f14404ce4c014b" kindref="member">CommError::CRCError</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Frames arrived but none were well formed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aaa7d7b6f9bcf9382faedac781806df3dc" kindref="member">CommError::NoReply</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>MISO was idle for every attempt.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Frame construction and CRC calculation are handled automatically. External code should typically use the <ref refid="classtle92466ed_1_1Driver" kindref="compound">Driver</ref> API; this method is available for advanced use cases. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="727" column="15" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="892" bodyend="1038"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle92466ed_1_1SpiInterface_1a7304d96b475520cf4fa9aacd6caaf8e0" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="namespacetle92466ed_1a21f593ab13bf03c108a99ea2f0e3ee31" kindref="member">CommResult</ref>&lt; void &gt;</type>
+        <definition>CommResult&lt; void &gt; tle92466ed::SpiInterface&lt; Derived &gt;::ReadMulti</definition>
+        <argsstring>(std::span&lt; const uint16_t &gt; addresses, std::span&lt; uint32_t &gt; values, uint16_t &amp;valid_mask) noexcept</argsstring>
+        <name>ReadMulti</name>
+        <qualifiedname>tle92466ed::SpiInterface::ReadMulti</qualifiedname>
+        <param>
+          <type>std::span&lt; const uint16_t &gt;</type>
+          <declname>addresses</declname>
+        </param>
+        <param>
+          <type>std::span&lt; uint32_t &gt;</type>
+          <declname>values</declname>
+        </param>
+        <param>
+          <type>uint16_t &amp;</type>
+          <declname>valid_mask</declname>
+        </param>
+        <briefdescription>
+<para>Read several registers in ONE pipelined chain. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">addresses</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Register addresses, at most <ref refid="classtle92466ed_1_1SpiInterface_1a20687f8951efeaa6cd7d7b40922b9c13" kindref="member">kMaxPipelinedReads</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">values</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Decoded register contents, same length as <computeroutput>addresses</computeroutput>. Entries whose reply failed validation are left as 0. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">valid_mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bit <computeroutput>i</computeroutput> set when <computeroutput>values</computeroutput>[i] is trustworthy. Never null-checked away: callers must inspect it. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Success when the chain transferred; individual replies may still have been rejected, which <computeroutput>valid_mask</computeroutput> reports.</para>
+</simplesect>
+The device answers each command on the NEXT CS window, so a burst of N reads needs N+2 frames — one leading dummy to absorb whatever reply was outstanding, the N commands, and one trailing dummy to clock out the last reply. Reply <computeroutput>i</computeroutput> therefore lands in frame <computeroutput>i+2</computeroutput>.</para>
+<para>That is the whole point of this call: <ref refid="classtle92466ed_1_1SpiInterface_1a499995340062b2a3018af8638982316a" kindref="member">Read</ref> spends 3 frames per register because it opens and closes the pipeline every time, so N reads cost 3N frames. Here they cost N+2 — for the six-channel FB_DC/FB_I_AVG sweep that is 14 frames instead of 36, inside one bus-ownership window.</para>
+<para>Replies are validated exactly as in <ref refid="classtle92466ed_1_1SpiInterface_1a499995340062b2a3018af8638982316a" kindref="member">Read</ref> (CRC plus the reply width <ref refid="namespacetle92466ed_1acbbba5a918710a5ac5da8fd514035c3b" kindref="member">ExpectedReplyFor</ref> defines for that address). No retry is attempted: re-running the whole burst to recover one bad frame costs more than the caller re-reading that single register with <ref refid="classtle92466ed_1_1SpiInterface_1a499995340062b2a3018af8638982316a" kindref="member">Read</ref>, and a desynchronised chain fails validation wholesale rather than returning plausible garbage.</para>
+<para><simplesect kind="warning"><para>The adapter&apos;s <computeroutput>TransferMulti</computeroutput> must keep one bus-ownership window across the entire chain. An adapter that falls back to per-frame transfers breaks the pipeline; the reply validation will reject the results rather than let them through. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="765" column="15" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="1041" bodyend="1102"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle92466ed_1_1SpiInterface_1aac5543c7a64a50838af7de423bc0afa5" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="namespacetle92466ed_1a21f593ab13bf03c108a99ea2f0e3ee31" kindref="member">CommResult</ref>&lt; void &gt;</type>
+        <definition>CommResult&lt; void &gt; tle92466ed::SpiInterface&lt; Derived &gt;::Write</definition>
+        <argsstring>(uint16_t address, uint16_t value, bool verify_crc=true) noexcept</argsstring>
+        <name>Write</name>
+        <qualifiedname>tle92466ed::SpiInterface::Write</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>verify_crc</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Write a register to the TLE92466ED (High-Level API) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Register address (10-bit, 0x000-0x3FF) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data value to write (16-bit) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>verify_crc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If true, verify CRC in response (default: true) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>CommResult&lt;void&gt; Success or error</para>
+</simplesect>
+This function handles the complete write operation:<itemizedlist>
+<listitem><para>Constructs the write frame with address and data</para>
+</listitem><listitem><para>Calculates and adds CRC</para>
+</listitem><listitem><para>Performs first SPI transfer (sends command, receives dummy data)</para>
+</listitem><listitem><para>Performs second SPI transfer (sends dummy command, receives actual response)</para>
+</listitem><listitem><para>Verifies CRC if requested</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="note"><para>Writes use the same two-frame pipeline as reads: frame 1 sends the write command; frame 2 clocks out the status reply. Both frames must stay in one <computeroutput><ref refid="classtle92466ed_1_1SpiInterface_1ac638c7e316d2be23f240c482619e2433" kindref="member">TransferMulti()</ref></computeroutput> CS window on shared buses.</para>
+</simplesect>
+<simplesect kind="note"><para>Frame construction and CRC calculation are handled automatically. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="791" column="15" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="1105" bodyend="1152"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle92466ed_1_1SpiInterface_1aaf8fc2c71e6a9649771d7b434301f14c" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t tle92466ed::SpiInterface&lt; Derived &gt;::LastCriticalFaultFlags</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>LastCriticalFaultFlags</name>
+        <qualifiedname>tle92466ed::SpiInterface::LastCriticalFaultFlags</qualifiedname>
+        <briefdescription>
+<para>Fault byte from the most recent critical-fault reply frame. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A reply with <computeroutput>reply_mode == 10B</computeroutput> is the device reporting that its own supplies/clocks are unusable; the payload byte says which (see <ref refid="structtle92466ed_1_1CriticalFaultFlags" kindref="compound">CriticalFaultFlags</ref>). <computeroutput><ref refid="classtle92466ed_1_1SpiInterface_1a499995340062b2a3018af8638982316a" kindref="member">Read()</ref></computeroutput> / <computeroutput><ref refid="classtle92466ed_1_1SpiInterface_1aac5543c7a64a50838af7de423bc0afa5" kindref="member">Write()</ref></computeroutput> surface that as <computeroutput><ref refid="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aa062b178ecb015aa2e6324dffd1b4f5f2" kindref="member">CommError::BusError</ref></computeroutput>, which on its own is indistinguishable from a bus glitch — this accessor preserves <emphasis>why</emphasis> the device refused to answer.</para>
+<para><simplesect kind="return"><para>Last fault byte, or 0 if no critical-fault frame has been seen. </para>
+</simplesect>
+<simplesect kind="note"><para>Zero is also a meaningful fault byte (all supply-OK bits clear); pair with <ref refid="classtle92466ed_1_1SpiInterface_1ae6a5b71e43580d66d2e4027499a73c81" kindref="member">SawCriticalFault</ref>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="808" column="12" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="808" bodyend="810"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle92466ed_1_1SpiInterface_1ae6a5b71e43580d66d2e4027499a73c81" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool tle92466ed::SpiInterface&lt; Derived &gt;::SawCriticalFault</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>SawCriticalFault</name>
+        <qualifiedname>tle92466ed::SpiInterface::SawCriticalFault</qualifiedname>
+        <briefdescription>
+<para>True once a critical-fault reply frame has been decoded. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="813" column="9" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="813" bodyend="815"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle92466ed_1_1SpiInterface_1a2482b560740049f6ecb95f09c92b6617" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>tle92466ed::SpiInterface&lt; Derived &gt;::SpiInterface</definition>
+        <argsstring>(const SpiInterface &amp;)=delete</argsstring>
+        <name>SpiInterface</name>
+        <qualifiedname>tle92466ed::SpiInterface::SpiInterface</qualifiedname>
+        <param>
+          <type>const <ref refid="classtle92466ed_1_1SpiInterface" kindref="compound">SpiInterface</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Prevent copying. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="820" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle92466ed_1_1SpiInterface_1a238f0e5a2d9d1de916621c07d0f98b46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classtle92466ed_1_1SpiInterface" kindref="compound">SpiInterface</ref> &amp;</type>
+        <definition>SpiInterface &amp; tle92466ed::SpiInterface&lt; Derived &gt;::operator=</definition>
+        <argsstring>(const SpiInterface &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>tle92466ed::SpiInterface::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classtle92466ed_1_1SpiInterface" kindref="compound">SpiInterface</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="821" column="16"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classtle92466ed_1_1SpiInterface_1afff56a5b049483311b255e19db2b4823" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>tle92466ed::SpiInterface&lt; Derived &gt;::SpiInterface</definition>
+        <argsstring>()=default</argsstring>
+        <name>SpiInterface</name>
+        <qualifiedname>tle92466ed::SpiInterface::SpiInterface</qualifiedname>
+        <briefdescription>
+<para>Protected constructor to prevent direct instantiation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This class can only be instantiated through derived classes. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="830" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle92466ed_1_1SpiInterface_1a5f2b6268b54a0417c7f9d8b1f5dd4fbd" prot="protected" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>tle92466ed::SpiInterface&lt; Derived &gt;::SpiInterface</definition>
+        <argsstring>(SpiInterface &amp;&amp;) noexcept=default</argsstring>
+        <name>SpiInterface</name>
+        <qualifiedname>tle92466ed::SpiInterface::SpiInterface</qualifiedname>
+        <param>
+          <type><ref refid="classtle92466ed_1_1SpiInterface" kindref="compound">SpiInterface</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+<para>Allow moving. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="835" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle92466ed_1_1SpiInterface_1aaebb9bbf0c619b67975c7ee3c622b5a9" prot="protected" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classtle92466ed_1_1SpiInterface" kindref="compound">SpiInterface</ref> &amp;</type>
+        <definition>SpiInterface &amp; tle92466ed::SpiInterface&lt; Derived &gt;::operator=</definition>
+        <argsstring>(SpiInterface &amp;&amp;) noexcept=default</argsstring>
+        <name>operator=</name>
+        <qualifiedname>tle92466ed::SpiInterface::operator=</qualifiedname>
+        <param>
+          <type><ref refid="classtle92466ed_1_1SpiInterface" kindref="compound">SpiInterface</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="836" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle92466ed_1_1SpiInterface_1a4ed9a296bc8ca57da8a4aadc0e0ca8ac" prot="protected" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void tle92466ed::SpiInterface&lt; Derived &gt;::NoteCriticalFault</definition>
+        <argsstring>(const SPIFrame &amp;frame) noexcept</argsstring>
+        <name>NoteCriticalFault</name>
+        <qualifiedname>tle92466ed::SpiInterface::NoteCriticalFault</qualifiedname>
+        <param>
+          <type>const <ref refid="uniontle92466ed_1_1SPIFrame" kindref="compound">SPIFrame</ref> &amp;</type>
+          <declname>frame</declname>
+        </param>
+        <briefdescription>
+<para>Latch a critical-fault reply so callers can report the cause. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="839" column="8" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="839" bodyend="842"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle92466ed_1_1SpiInterface_1a5febc3318592905b3b17118f229763d6" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>tle92466ed::SpiInterface&lt; Derived &gt;::~SpiInterface</definition>
+        <argsstring>()=default</argsstring>
+        <name>~SpiInterface</name>
+        <qualifiedname>tle92466ed::SpiInterface::~SpiInterface</qualifiedname>
+        <briefdescription>
+<para>Protected destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Derived classes can have public destructors </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="851" column="3"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>CRTP-based Communication Interface template class. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This template class provides a hardware-agnostic interface for SPI communication using the CRTP (Curiously Recurring Template Pattern) for compile-time polymorphism. Platform-specific implementations should inherit from this template with themselves as the template parameter.</para>
+<para>Benefits of CRTP:<itemizedlist>
+<listitem><para>Compile-time polymorphism (no virtual function overhead)</para>
+</listitem><listitem><para>Static dispatch instead of dynamic dispatch</para>
+</listitem><listitem><para>Better optimization opportunities for the compiler</para>
+</listitem></itemizedlist>
+</para>
+<para>The CommInterface uses modern C++20/23 features including:<itemizedlist>
+<listitem><para>Concepts for compile-time constraints</para>
+</listitem><listitem><para>std::span for safe array access</para>
+</listitem><listitem><para>std::expected for error handling</para>
+</listitem><listitem><para>uint32_t for time management (microseconds)</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="par"><title>32-Bit SPI Communication:</title><para>The TLE92466ED requires 32-bit SPI frames. Implementations must:<itemizedlist>
+<listitem><para>Transfer 4 bytes (32 bits) per transaction</para>
+</listitem><listitem><para>Maintain MSB-first byte order</para>
+</listitem><listitem><para>Support full-duplex operation</para>
+</listitem><listitem><para>Calculate and verify CRC-8 (SAE J1850)</para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+<simplesect kind="par"><title>Example Implementation:</title><para><programlisting filename=".cpp"><codeline><highlight class="keyword">class<sp/></highlight><highlight class="normal">MyPlatformCommInterface<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classtle92466ed_1_1SpiInterface" kindref="compound">tle92466ed::SpiInterface</ref>&lt;MyPlatformCommInterface&gt;<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>CommResult&lt;uint32_t&gt;<sp/>Transfer32(uint32_t<sp/>data)<sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/>result<sp/>=<sp/>spi_transfer_32bit(data);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(spi_error())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacetle_1a6937ee0e699154f80408081b2ae947a2" kindref="member">tle::unexpected</ref>(CommError::TransferError);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>...<sp/>implement<sp/>other<sp/>required<sp/>methods</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+</programlisting></para>
+</simplesect>
+<simplesect kind="par"><title>Thread Safety:</title><para>Implementations must ensure thread-safety for multi-threaded environments.</para>
+</simplesect>
+<simplesect kind="par"><title>Hardware Requirements:</title><para><itemizedlist>
+<listitem><para>SPI peripheral capable of 32-bit transfers (or 4x 8-bit)</para>
+</listitem><listitem><para>Minimum frequency: 100 kHz</para>
+</listitem><listitem><para>Maximum frequency: 10 MHz</para>
+</listitem><listitem><para>Support for SPI Mode 1 (CPOL=0, CPHA=1)</para>
+</listitem><listitem><para>CRC calculation capability (hardware or software)</para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+<parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Derived</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The derived class type (CRTP pattern) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_spi_interface.hpp" line="429" column="1" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="429" bodyend="852"/>
+    <listofallmembers>
+      <member refid="classtle92466ed_1_1SpiInterface_1aa236926f38300295cc4b82fdd137db37" prot="public" virt="non-virtual"><scope>tle92466ed::SpiInterface</scope><name>ClearErrors</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1a0629ce233e0aa304d7faaf6aebf083e5" prot="public" virt="non-virtual"><scope>tle92466ed::SpiInterface</scope><name>Configure</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1a63683e3410c3773ac311037215ef34ef" prot="public" virt="non-virtual"><scope>tle92466ed::SpiInterface</scope><name>Deinit</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1ab94ea9f452febbe30c0a44e1e00f911c" prot="public" virt="non-virtual"><scope>tle92466ed::SpiInterface</scope><name>Delay</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1ab95fc99a3717ccbf9de96d69a10cf5b4" prot="public" virt="non-virtual"><scope>tle92466ed::SpiInterface</scope><name>GetLastError</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1a2d653db43a17168a1e3b758ec624f099" prot="public" virt="non-virtual"><scope>tle92466ed::SpiInterface</scope><name>GpioRead</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1ab542050209c981cc40f597aa1049044e" prot="public" virt="non-virtual"><scope>tle92466ed::SpiInterface</scope><name>GpioSet</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1abb0cde5946fe750c68999f06dc156122" prot="public" virt="non-virtual"><scope>tle92466ed::SpiInterface</scope><name>GpioSetActive</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1a60b6e281ad9b45cce384a3da91ab8c1b" prot="public" virt="non-virtual"><scope>tle92466ed::SpiInterface</scope><name>GpioSetInactive</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1aa68b021917632b21f8c9f2b0ac0cf665" prot="public" virt="non-virtual"><scope>tle92466ed::SpiInterface</scope><name>Init</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1ac9625b7265238ef71cc3d8081fd944b3" prot="public" virt="non-virtual"><scope>tle92466ed::SpiInterface</scope><name>IsReady</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1a20687f8951efeaa6cd7d7b40922b9c13" prot="public" virt="non-virtual"><scope>tle92466ed::SpiInterface</scope><name>kMaxPipelinedReads</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1a397ed0830fad6afe541163c91b78c965" prot="protected" virt="non-virtual"><scope>tle92466ed::SpiInterface</scope><name>last_critical_fault_flags_</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1aaf8fc2c71e6a9649771d7b434301f14c" prot="public" virt="non-virtual"><scope>tle92466ed::SpiInterface</scope><name>LastCriticalFaultFlags</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1a39597910309873f982f3ac2a9a9a9560" prot="public" virt="non-virtual"><scope>tle92466ed::SpiInterface</scope><name>Log</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1a4ed9a296bc8ca57da8a4aadc0e0ca8ac" prot="protected" virt="non-virtual"><scope>tle92466ed::SpiInterface</scope><name>NoteCriticalFault</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1a238f0e5a2d9d1de916621c07d0f98b46" prot="public" virt="non-virtual"><scope>tle92466ed::SpiInterface</scope><name>operator=</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1aaebb9bbf0c619b67975c7ee3c622b5a9" prot="protected" virt="non-virtual"><scope>tle92466ed::SpiInterface</scope><name>operator=</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1a499995340062b2a3018af8638982316a" prot="public" virt="non-virtual"><scope>tle92466ed::SpiInterface</scope><name>Read</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1a7304d96b475520cf4fa9aacd6caaf8e0" prot="public" virt="non-virtual"><scope>tle92466ed::SpiInterface</scope><name>ReadMulti</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1a126fd7bd4ac2afb6d0f5752a8a505240" prot="protected" virt="non-virtual"><scope>tle92466ed::SpiInterface</scope><name>saw_critical_fault_</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1ae6a5b71e43580d66d2e4027499a73c81" prot="public" virt="non-virtual"><scope>tle92466ed::SpiInterface</scope><name>SawCriticalFault</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1a2482b560740049f6ecb95f09c92b6617" prot="public" virt="non-virtual"><scope>tle92466ed::SpiInterface</scope><name>SpiInterface</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1afff56a5b049483311b255e19db2b4823" prot="protected" virt="non-virtual"><scope>tle92466ed::SpiInterface</scope><name>SpiInterface</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1a5f2b6268b54a0417c7f9d8b1f5dd4fbd" prot="protected" virt="non-virtual"><scope>tle92466ed::SpiInterface</scope><name>SpiInterface</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1a402b215387796d2dd36d429c46d92b11" prot="public" virt="non-virtual"><scope>tle92466ed::SpiInterface</scope><name>Transfer32</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1ac638c7e316d2be23f240c482619e2433" prot="public" virt="non-virtual"><scope>tle92466ed::SpiInterface</scope><name>TransferMulti</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1aac5543c7a64a50838af7de423bc0afa5" prot="public" virt="non-virtual"><scope>tle92466ed::SpiInterface</scope><name>Write</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1a5febc3318592905b3b17118f229763d6" prot="protected" virt="non-virtual"><scope>tle92466ed::SpiInterface</scope><name>~SpiInterface</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

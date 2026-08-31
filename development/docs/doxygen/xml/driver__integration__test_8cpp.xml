@@ -9,24 +9,27 @@
     <includes local="yes">freertos/task.h</includes>
     <includes local="yes">esp_log.h</includes>
     <includes local="yes">esp_system.h</includes>
-    <includes local="yes">tle92466ed.hpp</includes>
+    <includes refid="tle92466ed_8hpp" local="yes">tle92466ed.hpp</includes>
     <includes refid="esp32__tle92466ed__bus_8hpp" local="yes">esp32_tle92466ed_bus.hpp</includes>
     <includes refid="TestFramework_8h" local="yes">TestFramework.h</includes>
     <incdepgraph>
-      <node id="21">
+      <node id="22">
+        <label>../src/tle92466ed.ipp</label>
+      </node>
+      <node id="29">
         <label>TestFramework.h</label>
         <link refid="TestFramework_8h"/>
         <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="17" relation="include">
+        <childnode refid="28" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
+        <childnode refid="27" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="22" relation="include">
+        <childnode refid="30" relation="include">
         </childnode>
-        <childnode refid="23" relation="include">
+        <childnode refid="31" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
@@ -50,60 +53,123 @@
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
+        <childnode refid="23" relation="include">
         </childnode>
-        <childnode refid="21" relation="include">
+        <childnode refid="29" relation="include">
         </childnode>
       </node>
-      <node id="10">
+      <node id="23">
         <label>esp32_tle92466ed_bus.hpp</label>
         <link refid="esp32__tle92466ed__bus_8hpp"/>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
         <childnode refid="15" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
+        <childnode refid="24" relation="include">
         </childnode>
-        <childnode refid="17" relation="include">
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="18" relation="include">
+        <childnode refid="16" relation="include">
         </childnode>
-        <childnode refid="19" relation="include">
+        <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="20" relation="include">
+        <childnode refid="17" relation="include">
         </childnode>
       </node>
-      <node id="12">
+      <node id="24">
         <label>esp32_tle92466ed_test_config.hpp</label>
         <link refid="esp32__tle92466ed__test__config_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>tle92466ed.hpp</label>
+        <link refid="tle92466ed_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>tle92466ed_expected.hpp</label>
+        <link refid="tle92466ed__expected_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
         <childnode refid="13" relation="include">
         </childnode>
         <childnode refid="14" relation="include">
         </childnode>
       </node>
+      <node id="17">
+        <label>tle92466ed_registers.hpp</label>
+        <link refid="tle92466ed__registers_8hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>tle92466ed_spi_interface.hpp</label>
+        <link refid="tle92466ed__spi__interface_8hpp"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>algorithm</label>
+      </node>
       <node id="4">
         <label>array</label>
       </node>
-      <node id="18">
-        <label>cstdarg</label>
-      </node>
-      <node id="13">
-        <label>cstdint</label>
+      <node id="19">
+        <label>cmath</label>
       </node>
       <node id="16">
+        <label>cstdarg</label>
+      </node>
+      <node id="20">
+        <label>cstddef</label>
+      </node>
+      <node id="12">
+        <label>cstdint</label>
+      </node>
+      <node id="27">
         <label>driver/gpio.h</label>
       </node>
-      <node id="15">
+      <node id="26">
         <label>driver/spi_master.h</label>
       </node>
       <node id="7">
@@ -112,16 +178,16 @@
       <node id="8">
         <label>esp_system.h</label>
       </node>
-      <node id="17">
+      <node id="28">
         <label>esp_timer.h</label>
       </node>
       <node id="5">
         <label>freertos/FreeRTOS.h</label>
       </node>
-      <node id="22">
+      <node id="30">
         <label>freertos/queue.h</label>
       </node>
-      <node id="23">
+      <node id="31">
         <label>freertos/semphr.h</label>
       </node>
       <node id="6">
@@ -130,23 +196,23 @@
       <node id="3">
         <label>memory</label>
       </node>
-      <node id="14">
+      <node id="25">
         <label>sdkconfig.h</label>
       </node>
-      <node id="19">
+      <node id="10">
         <label>span</label>
       </node>
       <node id="2">
         <label>stdio.h</label>
       </node>
-      <node id="9">
-        <label>tle92466ed.hpp</label>
+      <node id="21">
+        <label>tle92466ed_version.h</label>
       </node>
-      <node id="20">
-        <label>tle92466ed_registers.hpp</label>
+      <node id="13">
+        <label>type_traits</label>
       </node>
-      <node id="11">
-        <label>tle92466ed_spi_interface.hpp</label>
+      <node id="14">
+        <label>utility</label>
       </node>
     </incdepgraph>
     <sectiondef kind="define">
@@ -347,7 +413,7 @@
         <location file="examples/esp32/main/driver_integration_test.cpp" line="72" column="24" bodyfile="examples/esp32/main/driver_integration_test.cpp" bodystart="72" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="driver__integration__test_8cpp_1a3373634be9233201d6554eb7cc7a2da6" prot="public" static="yes" mutable="no">
-        <type>tle92466ed::Driver&lt; <ref refid="classEsp32Tle92466edSpiBus" kindref="compound">Esp32Tle92466edSpiBus</ref> &gt; *</type>
+        <type><ref refid="classtle92466ed_1_1Driver" kindref="compound">tle92466ed::Driver</ref>&lt; <ref refid="classEsp32Tle92466edSpiBus" kindref="compound">Esp32Tle92466edSpiBus</ref> &gt; *</type>
         <definition>tle92466ed::Driver&lt;Esp32Tle92466edSpiBus&gt;* g_driver</definition>
         <argsstring></argsstring>
         <name>g_driver</name>
@@ -396,7 +462,7 @@
         <argsstring>(const DeviceStatus &amp;status) noexcept</argsstring>
         <name>print_device_status</name>
         <param>
-          <type>const DeviceStatus &amp;</type>
+          <type>const <ref refid="structtle92466ed_1_1DeviceStatus" kindref="compound">DeviceStatus</ref> &amp;</type>
           <declname>status</declname>
         </param>
         <briefdescription>
@@ -414,11 +480,11 @@
         <argsstring>(Channel channel, const ChannelDiagnostics &amp;diag) noexcept</argsstring>
         <name>print_channel_diagnostics</name>
         <param>
-          <type>Channel</type>
+          <type><ref refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957" kindref="member">Channel</ref></type>
           <declname>channel</declname>
         </param>
         <param>
-          <type>const ChannelDiagnostics &amp;</type>
+          <type>const <ref refid="structtle92466ed_1_1ChannelDiagnostics" kindref="compound">ChannelDiagnostics</ref> &amp;</type>
           <declname>diag</declname>
         </param>
         <briefdescription>
@@ -988,11 +1054,11 @@
 <codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;esp_log.h&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;esp_system.h&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="36"><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tle92466ed.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="tle92466ed_8hpp" kindref="compound">tle92466ed.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="esp32__tle92466ed__bus_8hpp" kindref="compound">esp32_tle92466ed_bus.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="TestFramework_8h" kindref="compound">TestFramework.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="40"><highlight class="normal"></highlight></codeline>
-<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">tle92466ed;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacetle92466ed" kindref="compound">tle92466ed</ref>;</highlight></codeline>
 <codeline lineno="42"><highlight class="normal"></highlight></codeline>
 <codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;TLE92466ED_Test&quot;</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="44"><highlight class="normal"></highlight></codeline>
@@ -1024,7 +1090,7 @@
 <codeline lineno="70"><highlight class="normal"></highlight><highlight class="comment">//=============================================================================</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="71"><highlight class="normal"></highlight></codeline>
 <codeline lineno="72"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::unique_ptr&lt;Esp32Tle92466edSpiBus&gt;<sp/><ref refid="driver__integration__test_8cpp_1a98e7328ae9e7016a8df9584e5fbea942" kindref="member">g_hal</ref>;</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>tle92466ed::Driver&lt;Esp32Tle92466edSpiBus&gt;*<sp/><ref refid="driver__integration__test_8cpp_1a3373634be9233201d6554eb7cc7a2da6" kindref="member">g_driver</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classtle92466ed_1_1Driver" kindref="compound">tle92466ed::Driver&lt;Esp32Tle92466edSpiBus&gt;</ref>*<sp/><ref refid="driver__integration__test_8cpp_1a3373634be9233201d6554eb7cc7a2da6" kindref="member">g_driver</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="74"><highlight class="normal"></highlight></codeline>
 <codeline lineno="75"><highlight class="normal"></highlight><highlight class="comment">//=============================================================================</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="76"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TEST<sp/>HELPER<sp/>FUNCTIONS</highlight><highlight class="normal"></highlight></codeline>
@@ -1056,7 +1122,7 @@
 <codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="109"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="110"><highlight class="normal"></highlight></codeline>
-<codeline lineno="114"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="driver__integration__test_8cpp_1a80233776e6e686d797ce641472542b03" kindref="member">print_device_status</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>DeviceStatus&amp;<sp/>status)<sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="driver__integration__test_8cpp_1a80233776e6e686d797ce641472542b03" kindref="member">print_device_status</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structtle92466ed_1_1DeviceStatus" kindref="compound">DeviceStatus</ref>&amp;<sp/>status)<sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal"><sp/>{</highlight></codeline>
 <codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>Device<sp/>Status:&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/><sp/><sp/>Mode:<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>status.config_mode<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;Config&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;Mission&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/><sp/><sp/>Init<sp/>Done:<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>status.init_done<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;Yes&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;No&quot;</highlight><highlight class="normal">);</highlight></codeline>
@@ -1071,8 +1137,8 @@
 <codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="127"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="128"><highlight class="normal"></highlight></codeline>
-<codeline lineno="132"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="driver__integration__test_8cpp_1ab1392a0ca089a059fb3dfd7fddac69ba" kindref="member">print_channel_diagnostics</ref>(Channel<sp/>channel,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ChannelDiagnostics&amp;<sp/>diag)<sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>Channel<sp/>%s<sp/>Diagnostics:&quot;</highlight><highlight class="normal">,<sp/>ToString(channel));</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="driver__integration__test_8cpp_1ab1392a0ca089a059fb3dfd7fddac69ba" kindref="member">print_channel_diagnostics</ref>(<ref refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957" kindref="member">Channel</ref><sp/>channel,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structtle92466ed_1_1ChannelDiagnostics" kindref="compound">ChannelDiagnostics</ref>&amp;<sp/>diag)<sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>Channel<sp/>%s<sp/>Diagnostics:&quot;</highlight><highlight class="normal">,<sp/><ref refid="namespacetle92466ed_1a28e33fd2cf2d9987c0caf0b12324a8bc" kindref="member">ToString</ref>(channel));</highlight></codeline>
 <codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/><sp/><sp/>Average<sp/>Current:<sp/>%u<sp/>(raw)&quot;</highlight><highlight class="normal">,<sp/>diag.average_current);</highlight></codeline>
 <codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/><sp/><sp/>Duty<sp/>Cycle:<sp/>%u<sp/>(raw)&quot;</highlight><highlight class="normal">,<sp/>diag.duty_cycle);</highlight></codeline>
 <codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
@@ -1126,7 +1192,7 @@
 <codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Creating<sp/>TLE92466ED<sp/>driver<sp/>instance...&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="driver__integration__test_8cpp_1a3373634be9233201d6554eb7cc7a2da6" kindref="member">g_driver</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>tle92466ed::Driver&lt;Esp32Tle92466edSpiBus&gt;(*<ref refid="driver__integration__test_8cpp_1a98e7328ae9e7016a8df9584e5fbea942" kindref="member">g_hal</ref>);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="driver__integration__test_8cpp_1a3373634be9233201d6554eb7cc7a2da6" kindref="member">g_driver</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classtle92466ed_1_1Driver" kindref="compound">tle92466ed::Driver&lt;Esp32Tle92466edSpiBus&gt;</ref>(*<ref refid="driver__integration__test_8cpp_1a98e7328ae9e7016a8df9584e5fbea942" kindref="member">g_hal</ref>);</highlight></codeline>
 <codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="driver__integration__test_8cpp_1a3373634be9233201d6554eb7cc7a2da6" kindref="member">g_driver</ref>)<sp/>{</highlight></codeline>
 <codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGE(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>create<sp/>driver<sp/>instance&quot;</highlight><highlight class="normal">);</highlight></codeline>
@@ -1388,8 +1454,8 @@
 <codeline lineno="479"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="480"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Testing<sp/>global<sp/>configuration...&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="481"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="482"><highlight class="normal"><sp/><sp/><sp/><sp/>GlobalConfig<sp/>config{};</highlight></codeline>
-<codeline lineno="483"><highlight class="normal"><sp/><sp/><sp/><sp/>config.crc_enabled<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="482"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structtle92466ed_1_1GlobalConfig" kindref="compound">GlobalConfig</ref><sp/>config{};</highlight></codeline>
+<codeline lineno="483"><highlight class="normal"><sp/><sp/><sp/><sp/>config.<ref refid="structtle92466ed_1_1GlobalConfig_1a841ab2a4ec8a97261a698ff16f344cc0" kindref="member">crc_enabled</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="484"><highlight class="normal"><sp/><sp/><sp/><sp/>config.spi_watchdog_enabled<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/><sp/></highlight><highlight class="comment">//<sp/>Disabled<sp/>-<sp/>requires<sp/>periodic<sp/>reloading</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="485"><highlight class="normal"><sp/><sp/><sp/><sp/>config.clock_watchdog_enabled<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="486"><highlight class="normal"><sp/><sp/><sp/><sp/>config.vio_5v<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/><sp/></highlight><highlight class="comment">//<sp/>3.3V</highlight><highlight class="normal"></highlight></codeline>
@@ -1440,25 +1506,25 @@
 <codeline lineno="534"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="535"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="536"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="537"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Channel<sp/>channel<sp/>=<sp/>Channel::CH0;</highlight></codeline>
+<codeline lineno="537"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957" kindref="member">Channel</ref><sp/>channel<sp/>=<sp/>Channel::CH0;</highlight></codeline>
 <codeline lineno="538"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="539"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Enable<sp/>channel</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="540"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Enabling<sp/>channel<sp/>%s...&quot;</highlight><highlight class="normal">,<sp/>ToString(channel));</highlight></codeline>
+<codeline lineno="540"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Enabling<sp/>channel<sp/>%s...&quot;</highlight><highlight class="normal">,<sp/><ref refid="namespacetle92466ed_1a28e33fd2cf2d9987c0caf0b12324a8bc" kindref="member">ToString</ref>(channel));</highlight></codeline>
 <codeline lineno="541"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>result<sp/>=<sp/><ref refid="driver__integration__test_8cpp_1a3373634be9233201d6554eb7cc7a2da6" kindref="member">g_driver</ref>-&gt;EnableChannel(channel,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);<sp/>!result)<sp/>{</highlight></codeline>
-<codeline lineno="542"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGE(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;❌<sp/>Failed<sp/>to<sp/>enable<sp/>channel<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>ToString(channel));</highlight></codeline>
+<codeline lineno="542"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGE(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;❌<sp/>Failed<sp/>to<sp/>enable<sp/>channel<sp/>%s&quot;</highlight><highlight class="normal">,<sp/><ref refid="namespacetle92466ed_1a28e33fd2cf2d9987c0caf0b12324a8bc" kindref="member">ToString</ref>(channel));</highlight></codeline>
 <codeline lineno="543"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="544"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="545"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;✅<sp/>Channel<sp/>%s<sp/>enabled&quot;</highlight><highlight class="normal">,<sp/>ToString(channel));</highlight></codeline>
+<codeline lineno="545"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;✅<sp/>Channel<sp/>%s<sp/>enabled&quot;</highlight><highlight class="normal">,<sp/><ref refid="namespacetle92466ed_1a28e33fd2cf2d9987c0caf0b12324a8bc" kindref="member">ToString</ref>(channel));</highlight></codeline>
 <codeline lineno="546"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="547"><highlight class="normal"><sp/><sp/><sp/><sp/>vTaskDelay(pdMS_TO_TICKS(500));</highlight></codeline>
 <codeline lineno="548"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="549"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Disable<sp/>channel</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="550"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Disabling<sp/>channel<sp/>%s...&quot;</highlight><highlight class="normal">,<sp/>ToString(channel));</highlight></codeline>
+<codeline lineno="550"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Disabling<sp/>channel<sp/>%s...&quot;</highlight><highlight class="normal">,<sp/><ref refid="namespacetle92466ed_1a28e33fd2cf2d9987c0caf0b12324a8bc" kindref="member">ToString</ref>(channel));</highlight></codeline>
 <codeline lineno="551"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>result<sp/>=<sp/><ref refid="driver__integration__test_8cpp_1a3373634be9233201d6554eb7cc7a2da6" kindref="member">g_driver</ref>-&gt;EnableChannel(channel,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);<sp/>!result)<sp/>{</highlight></codeline>
-<codeline lineno="552"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGE(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;❌<sp/>Failed<sp/>to<sp/>disable<sp/>channel<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>ToString(channel));</highlight></codeline>
+<codeline lineno="552"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGE(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;❌<sp/>Failed<sp/>to<sp/>disable<sp/>channel<sp/>%s&quot;</highlight><highlight class="normal">,<sp/><ref refid="namespacetle92466ed_1a28e33fd2cf2d9987c0caf0b12324a8bc" kindref="member">ToString</ref>(channel));</highlight></codeline>
 <codeline lineno="553"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="554"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="555"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;✅<sp/>Channel<sp/>%s<sp/>disabled&quot;</highlight><highlight class="normal">,<sp/>ToString(channel));</highlight></codeline>
+<codeline lineno="555"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;✅<sp/>Channel<sp/>%s<sp/>disabled&quot;</highlight><highlight class="normal">,<sp/><ref refid="namespacetle92466ed_1a28e33fd2cf2d9987c0caf0b12324a8bc" kindref="member">ToString</ref>(channel));</highlight></codeline>
 <codeline lineno="556"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="557"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="558"><highlight class="normal">}</highlight></codeline>
@@ -1547,12 +1613,12 @@
 <codeline lineno="650"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="651"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="652"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="653"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Channel<sp/>channel<sp/>=<sp/>Channel::CH0;</highlight></codeline>
+<codeline lineno="653"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957" kindref="member">Channel</ref><sp/>channel<sp/>=<sp/>Channel::CH0;</highlight></codeline>
 <codeline lineno="654"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="655"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Testing<sp/>channel<sp/>mode<sp/>configuration<sp/>for<sp/>%s...&quot;</highlight><highlight class="normal">,<sp/>ToString(channel));</highlight></codeline>
+<codeline lineno="655"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Testing<sp/>channel<sp/>mode<sp/>configuration<sp/>for<sp/>%s...&quot;</highlight><highlight class="normal">,<sp/><ref refid="namespacetle92466ed_1a28e33fd2cf2d9987c0caf0b12324a8bc" kindref="member">ToString</ref>(channel));</highlight></codeline>
 <codeline lineno="656"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="657"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Test<sp/>all<sp/>channel<sp/>modes</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="658"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ChannelMode<sp/>modes[]<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="658"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacetle92466ed_1a4354ef9226739c1ea8a59eb36e95760c" kindref="member">ChannelMode</ref><sp/>modes[]<sp/>=<sp/>{</highlight></codeline>
 <codeline lineno="659"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ChannelMode::OFF,</highlight></codeline>
 <codeline lineno="660"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ChannelMode::ICC,</highlight></codeline>
 <codeline lineno="661"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ChannelMode::DIRECT_DRIVE_SPI,</highlight></codeline>
@@ -1561,13 +1627,13 @@
 <codeline lineno="664"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ChannelMode::FREE_RUN_MEAS</highlight></codeline>
 <codeline lineno="665"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="666"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="667"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(ChannelMode<sp/>mode<sp/>:<sp/>modes)<sp/>{</highlight></codeline>
-<codeline lineno="668"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Setting<sp/>mode<sp/>to<sp/>%s...&quot;</highlight><highlight class="normal">,<sp/>ToString(mode));</highlight></codeline>
+<codeline lineno="667"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="namespacetle92466ed_1a4354ef9226739c1ea8a59eb36e95760c" kindref="member">ChannelMode</ref><sp/>mode<sp/>:<sp/>modes)<sp/>{</highlight></codeline>
+<codeline lineno="668"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Setting<sp/>mode<sp/>to<sp/>%s...&quot;</highlight><highlight class="normal">,<sp/><ref refid="namespacetle92466ed_1a28e33fd2cf2d9987c0caf0b12324a8bc" kindref="member">ToString</ref>(mode));</highlight></codeline>
 <codeline lineno="669"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>result<sp/>=<sp/><ref refid="driver__integration__test_8cpp_1a3373634be9233201d6554eb7cc7a2da6" kindref="member">g_driver</ref>-&gt;SetChannelMode(channel,<sp/>mode);<sp/>!result)<sp/>{</highlight></codeline>
-<codeline lineno="670"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGE(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;❌<sp/>Failed<sp/>to<sp/>set<sp/>mode<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>ToString(mode));</highlight></codeline>
+<codeline lineno="670"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGE(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;❌<sp/>Failed<sp/>to<sp/>set<sp/>mode<sp/>%s&quot;</highlight><highlight class="normal">,<sp/><ref refid="namespacetle92466ed_1a28e33fd2cf2d9987c0caf0b12324a8bc" kindref="member">ToString</ref>(mode));</highlight></codeline>
 <codeline lineno="671"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="672"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="673"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;✅<sp/>Mode<sp/>set<sp/>to<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>ToString(mode));</highlight></codeline>
+<codeline lineno="673"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;✅<sp/>Mode<sp/>set<sp/>to<sp/>%s&quot;</highlight><highlight class="normal">,<sp/><ref refid="namespacetle92466ed_1a28e33fd2cf2d9987c0caf0b12324a8bc" kindref="member">ToString</ref>(mode));</highlight></codeline>
 <codeline lineno="674"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vTaskDelay(pdMS_TO_TICKS(100));</highlight></codeline>
 <codeline lineno="675"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="676"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
@@ -1599,7 +1665,7 @@
 <codeline lineno="705"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="706"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="707"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="708"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Channel<sp/>channel<sp/>=<sp/>Channel::CH0;</highlight></codeline>
+<codeline lineno="708"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957" kindref="member">Channel</ref><sp/>channel<sp/>=<sp/>Channel::CH0;</highlight></codeline>
 <codeline lineno="709"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="710"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Enable<sp/>channel</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="711"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>result<sp/>=<sp/><ref refid="driver__integration__test_8cpp_1a3373634be9233201d6554eb7cc7a2da6" kindref="member">g_driver</ref>-&gt;EnableChannel(channel,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);<sp/>!result)<sp/>{</highlight></codeline>
@@ -1647,7 +1713,7 @@
 <codeline lineno="756"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="757"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="758"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="759"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Channel<sp/>channel<sp/>=<sp/>Channel::CH0;</highlight></codeline>
+<codeline lineno="759"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957" kindref="member">Channel</ref><sp/>channel<sp/>=<sp/>Channel::CH0;</highlight></codeline>
 <codeline lineno="760"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="761"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Enable<sp/>channel</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="762"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>result<sp/>=<sp/><ref refid="driver__integration__test_8cpp_1a3373634be9233201d6554eb7cc7a2da6" kindref="member">g_driver</ref>-&gt;EnableChannel(channel,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);<sp/>!result)<sp/>{</highlight></codeline>
@@ -1696,9 +1762,9 @@
 <codeline lineno="808"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="809"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="810"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="811"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Channel<sp/>channel<sp/>=<sp/>Channel::CH0;</highlight></codeline>
+<codeline lineno="811"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957" kindref="member">Channel</ref><sp/>channel<sp/>=<sp/>Channel::CH0;</highlight></codeline>
 <codeline lineno="812"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="813"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Testing<sp/>PWM<sp/>period<sp/>configuration<sp/>for<sp/>%s...&quot;</highlight><highlight class="normal">,<sp/>ToString(channel));</highlight></codeline>
+<codeline lineno="813"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Testing<sp/>PWM<sp/>period<sp/>configuration<sp/>for<sp/>%s...&quot;</highlight><highlight class="normal">,<sp/><ref refid="namespacetle92466ed_1a28e33fd2cf2d9987c0caf0b12324a8bc" kindref="member">ToString</ref>(channel));</highlight></codeline>
 <codeline lineno="814"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="815"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>test_periods[]<sp/>=<sp/>{10.0f,<sp/>50.0f,<sp/>100.0f,<sp/>500.0f,<sp/>1000.0f,<sp/>5000.0f};</highlight></codeline>
 <codeline lineno="816"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
@@ -1725,9 +1791,9 @@
 <codeline lineno="840"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="841"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="842"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="843"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Channel<sp/>channel<sp/>=<sp/>Channel::CH0;</highlight></codeline>
+<codeline lineno="843"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957" kindref="member">Channel</ref><sp/>channel<sp/>=<sp/>Channel::CH0;</highlight></codeline>
 <codeline lineno="844"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="845"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Testing<sp/>PWM<sp/>period<sp/>raw<sp/>configuration<sp/>for<sp/>%s...&quot;</highlight><highlight class="normal">,<sp/>ToString(channel));</highlight></codeline>
+<codeline lineno="845"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Testing<sp/>PWM<sp/>period<sp/>raw<sp/>configuration<sp/>for<sp/>%s...&quot;</highlight><highlight class="normal">,<sp/><ref refid="namespacetle92466ed_1a28e33fd2cf2d9987c0caf0b12324a8bc" kindref="member">ToString</ref>(channel));</highlight></codeline>
 <codeline lineno="846"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="847"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Test<sp/>different<sp/>mantissa/exponent<sp/>combinations</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="848"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
@@ -1770,9 +1836,9 @@
 <codeline lineno="888"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="889"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="890"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="891"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Channel<sp/>channel<sp/>=<sp/>Channel::CH0;</highlight></codeline>
+<codeline lineno="891"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957" kindref="member">Channel</ref><sp/>channel<sp/>=<sp/>Channel::CH0;</highlight></codeline>
 <codeline lineno="892"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="893"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Testing<sp/>dither<sp/>configuration<sp/>for<sp/>%s...&quot;</highlight><highlight class="normal">,<sp/>ToString(channel));</highlight></codeline>
+<codeline lineno="893"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Testing<sp/>dither<sp/>configuration<sp/>for<sp/>%s...&quot;</highlight><highlight class="normal">,<sp/><ref refid="namespacetle92466ed_1a28e33fd2cf2d9987c0caf0b12324a8bc" kindref="member">ToString</ref>(channel));</highlight></codeline>
 <codeline lineno="894"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="895"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
 <codeline lineno="896"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>amplitude_ma;</highlight></codeline>
@@ -1808,9 +1874,9 @@
 <codeline lineno="929"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="930"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="931"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="932"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Channel<sp/>channel<sp/>=<sp/>Channel::CH0;</highlight></codeline>
+<codeline lineno="932"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957" kindref="member">Channel</ref><sp/>channel<sp/>=<sp/>Channel::CH0;</highlight></codeline>
 <codeline lineno="933"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="934"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Testing<sp/>dither<sp/>raw<sp/>configuration<sp/>for<sp/>%s...&quot;</highlight><highlight class="normal">,<sp/>ToString(channel));</highlight></codeline>
+<codeline lineno="934"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Testing<sp/>dither<sp/>raw<sp/>configuration<sp/>for<sp/>%s...&quot;</highlight><highlight class="normal">,<sp/><ref refid="namespacetle92466ed_1a28e33fd2cf2d9987c0caf0b12324a8bc" kindref="member">ToString</ref>(channel));</highlight></codeline>
 <codeline lineno="935"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="936"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
 <codeline lineno="937"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/>step_size;</highlight></codeline>
@@ -1864,9 +1930,9 @@
 <codeline lineno="991"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="992"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="993"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="994"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Channel<sp/>channel<sp/>=<sp/>Channel::CH0;</highlight></codeline>
+<codeline lineno="994"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957" kindref="member">Channel</ref><sp/>channel<sp/>=<sp/>Channel::CH0;</highlight></codeline>
 <codeline lineno="995"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="996"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Reading<sp/>channel<sp/>diagnostics<sp/>for<sp/>%s...&quot;</highlight><highlight class="normal">,<sp/>ToString(channel));</highlight></codeline>
+<codeline lineno="996"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Reading<sp/>channel<sp/>diagnostics<sp/>for<sp/>%s...&quot;</highlight><highlight class="normal">,<sp/><ref refid="namespacetle92466ed_1a28e33fd2cf2d9987c0caf0b12324a8bc" kindref="member">ToString</ref>(channel));</highlight></codeline>
 <codeline lineno="997"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>diag<sp/>=<sp/><ref refid="driver__integration__test_8cpp_1a3373634be9233201d6554eb7cc7a2da6" kindref="member">g_driver</ref>-&gt;GetChannelDiagnostics(channel);<sp/>diag)<sp/>{</highlight></codeline>
 <codeline lineno="998"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;✅<sp/>Channel<sp/>diagnostics<sp/>read<sp/>successfully&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="999"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="driver__integration__test_8cpp_1ab1392a0ca089a059fb3dfd7fddac69ba" kindref="member">print_channel_diagnostics</ref>(channel,<sp/>*diag);</highlight></codeline>
@@ -1906,9 +1972,9 @@
 <codeline lineno="1039"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="1040"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="1041"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="1042"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Channel<sp/>channel<sp/>=<sp/>Channel::CH0;</highlight></codeline>
+<codeline lineno="1042"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957" kindref="member">Channel</ref><sp/>channel<sp/>=<sp/>Channel::CH0;</highlight></codeline>
 <codeline lineno="1043"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="1044"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Reading<sp/>current<sp/>measurements<sp/>for<sp/>%s...&quot;</highlight><highlight class="normal">,<sp/>ToString(channel));</highlight></codeline>
+<codeline lineno="1044"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Reading<sp/>current<sp/>measurements<sp/>for<sp/>%s...&quot;</highlight><highlight class="normal">,<sp/><ref refid="namespacetle92466ed_1a28e33fd2cf2d9987c0caf0b12324a8bc" kindref="member">ToString</ref>(channel));</highlight></codeline>
 <codeline lineno="1045"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="1046"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>current<sp/>=<sp/><ref refid="driver__integration__test_8cpp_1a3373634be9233201d6554eb7cc7a2da6" kindref="member">g_driver</ref>-&gt;GetAverageCurrent(channel);<sp/>current)<sp/>{</highlight></codeline>
 <codeline lineno="1047"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;✅<sp/>Average<sp/>current:<sp/>%u<sp/>mA&quot;</highlight><highlight class="normal">,<sp/>*current);</highlight></codeline>
@@ -1933,15 +1999,15 @@
 <codeline lineno="1069"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="1070"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Testing<sp/>telemetry<sp/>for<sp/>all<sp/>channels...&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1071"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="1072"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Channel<sp/>channels[]<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="1072"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957" kindref="member">Channel</ref><sp/>channels[]<sp/>=<sp/>{</highlight></codeline>
 <codeline lineno="1073"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Channel::CH0,<sp/>Channel::CH1,<sp/>Channel::CH2,</highlight></codeline>
 <codeline lineno="1074"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Channel::CH3,<sp/>Channel::CH4,<sp/>Channel::CH5</highlight></codeline>
 <codeline lineno="1075"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="1076"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="1077"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>all_passed<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="1078"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="1079"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(Channel<sp/>channel<sp/>:<sp/>channels)<sp/>{</highlight></codeline>
-<codeline lineno="1080"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>Testing<sp/>%s<sp/>telemetry...&quot;</highlight><highlight class="normal">,<sp/>ToString(channel));</highlight></codeline>
+<codeline lineno="1079"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957" kindref="member">Channel</ref><sp/>channel<sp/>:<sp/>channels)<sp/>{</highlight></codeline>
+<codeline lineno="1080"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>Testing<sp/>%s<sp/>telemetry...&quot;</highlight><highlight class="normal">,<sp/><ref refid="namespacetle92466ed_1a28e33fd2cf2d9987c0caf0b12324a8bc" kindref="member">ToString</ref>(channel));</highlight></codeline>
 <codeline lineno="1081"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="1082"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Test<sp/>GetCurrentSetpoint</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="1083"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>setpoint<sp/>=<sp/><ref refid="driver__integration__test_8cpp_1a3373634be9233201d6554eb7cc7a2da6" kindref="member">g_driver</ref>-&gt;GetCurrentSetpoint(channel,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);<sp/>setpoint)<sp/>{</highlight></codeline>
@@ -2065,10 +2131,10 @@
 <codeline lineno="1207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="1208"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="1209"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="1210"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Channel<sp/>channel<sp/>=<sp/>Channel::CH0;</highlight></codeline>
+<codeline lineno="1210"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957" kindref="member">Channel</ref><sp/>channel<sp/>=<sp/>Channel::CH0;</highlight></codeline>
 <codeline lineno="1211"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint16_t<sp/>test_current<sp/>=<sp/>500;<sp/></highlight><highlight class="comment">//<sp/>500mA</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="1212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="1213"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Testing<sp/>telemetry<sp/>with<sp/>active<sp/>channel<sp/>%s<sp/>at<sp/>%u<sp/>mA...&quot;</highlight><highlight class="normal">,<sp/>ToString(channel),<sp/>test_current);</highlight></codeline>
+<codeline lineno="1213"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Testing<sp/>telemetry<sp/>with<sp/>active<sp/>channel<sp/>%s<sp/>at<sp/>%u<sp/>mA...&quot;</highlight><highlight class="normal">,<sp/><ref refid="namespacetle92466ed_1a28e33fd2cf2d9987c0caf0b12324a8bc" kindref="member">ToString</ref>(channel),<sp/>test_current);</highlight></codeline>
 <codeline lineno="1214"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="1215"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>current</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="1216"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>result<sp/>=<sp/><ref refid="driver__integration__test_8cpp_1a3373634be9233201d6554eb7cc7a2da6" kindref="member">g_driver</ref>-&gt;SetCurrentSetpoint(channel,<sp/>test_current);<sp/>!result)<sp/>{</highlight></codeline>
@@ -2351,17 +2417,17 @@
 <codeline lineno="1511"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="1512"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Testing<sp/>all<sp/>channels<sp/>individually...&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1513"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="1514"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Channel<sp/>channels[]<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="1514"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957" kindref="member">Channel</ref><sp/>channels[]<sp/>=<sp/>{</highlight></codeline>
 <codeline lineno="1515"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Channel::CH0,<sp/>Channel::CH1,<sp/>Channel::CH2,</highlight></codeline>
 <codeline lineno="1516"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Channel::CH3,<sp/>Channel::CH4,<sp/>Channel::CH5</highlight></codeline>
 <codeline lineno="1517"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="1518"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="1519"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(Channel<sp/>channel<sp/>:<sp/>channels)<sp/>{</highlight></codeline>
-<codeline lineno="1520"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Testing<sp/>channel<sp/>%s...&quot;</highlight><highlight class="normal">,<sp/>ToString(channel));</highlight></codeline>
+<codeline lineno="1519"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957" kindref="member">Channel</ref><sp/>channel<sp/>:<sp/>channels)<sp/>{</highlight></codeline>
+<codeline lineno="1520"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Testing<sp/>channel<sp/>%s...&quot;</highlight><highlight class="normal">,<sp/><ref refid="namespacetle92466ed_1a28e33fd2cf2d9987c0caf0b12324a8bc" kindref="member">ToString</ref>(channel));</highlight></codeline>
 <codeline lineno="1521"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="1522"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Enable</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="1523"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>result<sp/>=<sp/><ref refid="driver__integration__test_8cpp_1a3373634be9233201d6554eb7cc7a2da6" kindref="member">g_driver</ref>-&gt;EnableChannel(channel,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);<sp/>!result)<sp/>{</highlight></codeline>
-<codeline lineno="1524"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGE(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;❌<sp/>Failed<sp/>to<sp/>enable<sp/>channel<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>ToString(channel));</highlight></codeline>
+<codeline lineno="1524"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGE(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;❌<sp/>Failed<sp/>to<sp/>enable<sp/>channel<sp/>%s&quot;</highlight><highlight class="normal">,<sp/><ref refid="namespacetle92466ed_1a28e33fd2cf2d9987c0caf0b12324a8bc" kindref="member">ToString</ref>(channel));</highlight></codeline>
 <codeline lineno="1525"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="1526"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="1527"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>✅<sp/>Enabled&quot;</highlight><highlight class="normal">);</highlight></codeline>
@@ -2370,7 +2436,7 @@
 <codeline lineno="1530"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="1531"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>current</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="1532"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>result<sp/>=<sp/><ref refid="driver__integration__test_8cpp_1a3373634be9233201d6554eb7cc7a2da6" kindref="member">g_driver</ref>-&gt;SetCurrentSetpoint(channel,<sp/>500);<sp/>!result)<sp/>{</highlight></codeline>
-<codeline lineno="1533"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGE(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;❌<sp/>Failed<sp/>to<sp/>set<sp/>current<sp/>for<sp/>channel<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>ToString(channel));</highlight></codeline>
+<codeline lineno="1533"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGE(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;❌<sp/>Failed<sp/>to<sp/>set<sp/>current<sp/>for<sp/>channel<sp/>%s&quot;</highlight><highlight class="normal">,<sp/><ref refid="namespacetle92466ed_1a28e33fd2cf2d9987c0caf0b12324a8bc" kindref="member">ToString</ref>(channel));</highlight></codeline>
 <codeline lineno="1534"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="1535"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="1536"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>✅<sp/>Current<sp/>set<sp/>to<sp/>500mA&quot;</highlight><highlight class="normal">);</highlight></codeline>
@@ -2379,7 +2445,7 @@
 <codeline lineno="1539"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="1540"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Disable</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="1541"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>result<sp/>=<sp/><ref refid="driver__integration__test_8cpp_1a3373634be9233201d6554eb7cc7a2da6" kindref="member">g_driver</ref>-&gt;EnableChannel(channel,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);<sp/>!result)<sp/>{</highlight></codeline>
-<codeline lineno="1542"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGE(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;❌<sp/>Failed<sp/>to<sp/>disable<sp/>channel<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>ToString(channel));</highlight></codeline>
+<codeline lineno="1542"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGE(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;❌<sp/>Failed<sp/>to<sp/>disable<sp/>channel<sp/>%s&quot;</highlight><highlight class="normal">,<sp/><ref refid="namespacetle92466ed_1a28e33fd2cf2d9987c0caf0b12324a8bc" kindref="member">ToString</ref>(channel));</highlight></codeline>
 <codeline lineno="1543"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="1544"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="1545"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>✅<sp/>Disabled&quot;</highlight><highlight class="normal">);</highlight></codeline>
@@ -2407,19 +2473,19 @@
 <codeline lineno="1570"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="1571"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Testing<sp/>parallel<sp/>operation<sp/>configuration...&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1572"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="1573"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ParallelPair<sp/>pairs[]<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="1573"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacetle92466ed_1aaf5177696585d9100c7e4e73000b48c1" kindref="member">ParallelPair</ref><sp/>pairs[]<sp/>=<sp/>{</highlight></codeline>
 <codeline lineno="1574"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ParallelPair::CH0_CH3,</highlight></codeline>
 <codeline lineno="1575"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ParallelPair::CH1_CH2,</highlight></codeline>
 <codeline lineno="1576"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ParallelPair::CH4_CH5</highlight></codeline>
 <codeline lineno="1577"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="1578"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="1579"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(ParallelPair<sp/>pair<sp/>:<sp/>pairs)<sp/>{</highlight></codeline>
-<codeline lineno="1580"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Testing<sp/>parallel<sp/>pair<sp/>%s...&quot;</highlight><highlight class="normal">,<sp/>ToString(pair));</highlight></codeline>
+<codeline lineno="1579"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="namespacetle92466ed_1aaf5177696585d9100c7e4e73000b48c1" kindref="member">ParallelPair</ref><sp/>pair<sp/>:<sp/>pairs)<sp/>{</highlight></codeline>
+<codeline lineno="1580"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Testing<sp/>parallel<sp/>pair<sp/>%s...&quot;</highlight><highlight class="normal">,<sp/><ref refid="namespacetle92466ed_1a28e33fd2cf2d9987c0caf0b12324a8bc" kindref="member">ToString</ref>(pair));</highlight></codeline>
 <codeline lineno="1581"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="1582"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Enable<sp/>parallel<sp/>operation</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="1583"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>Enabling<sp/>parallel<sp/>operation...&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1584"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>result<sp/>=<sp/><ref refid="driver__integration__test_8cpp_1a3373634be9233201d6554eb7cc7a2da6" kindref="member">g_driver</ref>-&gt;SetParallelOperation(pair,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);<sp/>!result)<sp/>{</highlight></codeline>
-<codeline lineno="1585"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGE(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;❌<sp/>Failed<sp/>to<sp/>enable<sp/>parallel<sp/>operation<sp/>for<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>ToString(pair));</highlight></codeline>
+<codeline lineno="1585"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGE(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;❌<sp/>Failed<sp/>to<sp/>enable<sp/>parallel<sp/>operation<sp/>for<sp/>%s&quot;</highlight><highlight class="normal">,<sp/><ref refid="namespacetle92466ed_1a28e33fd2cf2d9987c0caf0b12324a8bc" kindref="member">ToString</ref>(pair));</highlight></codeline>
 <codeline lineno="1586"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="1587"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="1588"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>✅<sp/>Parallel<sp/>operation<sp/>enabled&quot;</highlight><highlight class="normal">);</highlight></codeline>
@@ -2429,7 +2495,7 @@
 <codeline lineno="1592"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Disable<sp/>parallel<sp/>operation</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="1593"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>Disabling<sp/>parallel<sp/>operation...&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1594"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>result<sp/>=<sp/><ref refid="driver__integration__test_8cpp_1a3373634be9233201d6554eb7cc7a2da6" kindref="member">g_driver</ref>-&gt;SetParallelOperation(pair,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);<sp/>!result)<sp/>{</highlight></codeline>
-<codeline lineno="1595"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGE(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;❌<sp/>Failed<sp/>to<sp/>disable<sp/>parallel<sp/>operation<sp/>for<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>ToString(pair));</highlight></codeline>
+<codeline lineno="1595"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGE(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;❌<sp/>Failed<sp/>to<sp/>disable<sp/>parallel<sp/>operation<sp/>for<sp/>%s&quot;</highlight><highlight class="normal">,<sp/><ref refid="namespacetle92466ed_1a28e33fd2cf2d9987c0caf0b12324a8bc" kindref="member">ToString</ref>(pair));</highlight></codeline>
 <codeline lineno="1596"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="1597"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="1598"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>✅<sp/>Parallel<sp/>operation<sp/>disabled&quot;</highlight><highlight class="normal">);</highlight></codeline>
@@ -2478,7 +2544,7 @@
 <codeline lineno="1644"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="1645"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Test:<sp/>Try<sp/>to<sp/>configure<sp/>global<sp/>settings<sp/>in<sp/>Mission<sp/>Mode<sp/>(should<sp/>fail)</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="1646"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Testing<sp/>global<sp/>config<sp/>in<sp/>Mission<sp/>Mode<sp/>(should<sp/>fail)...&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="1647"><highlight class="normal"><sp/><sp/><sp/><sp/>GlobalConfig<sp/>config{};</highlight></codeline>
+<codeline lineno="1647"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structtle92466ed_1_1GlobalConfig" kindref="compound">GlobalConfig</ref><sp/>config{};</highlight></codeline>
 <codeline lineno="1648"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>result<sp/>=<sp/><ref refid="driver__integration__test_8cpp_1a3373634be9233201d6554eb7cc7a2da6" kindref="member">g_driver</ref>-&gt;ConfigureGlobal(config);<sp/>result)<sp/>{</highlight></codeline>
 <codeline lineno="1649"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGE(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;❌<sp/>Global<sp/>config<sp/>should<sp/>fail<sp/>in<sp/>Mission<sp/>Mode&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1650"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
@@ -2497,7 +2563,7 @@
 <codeline lineno="1663"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;║<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TLE92466ED<sp/>COMPREHENSIVE<sp/>INTEGRATION<sp/>TEST<sp/>SUITE<sp/>-<sp/>ESP32-S3<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>║&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1664"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;║<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>HardFOC<sp/>Core<sp/>Drivers<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>║&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="1665"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;╚══════════════════════════════════════════════════════════════════════════════╝&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="1666"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Driver<sp/>version:<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>tle92466ed::GetDriverVersion());</highlight></codeline>
+<codeline lineno="1666"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Driver<sp/>version:<sp/>%s&quot;</highlight><highlight class="normal">,<sp/><ref refid="namespacetle92466ed_1a433f2be56bcad43648e509e6bdafaf15" kindref="member">tle92466ed::GetDriverVersion</ref>());</highlight></codeline>
 <codeline lineno="1667"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="1668"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Target:<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>CONFIG_IDF_TARGET);</highlight></codeline>
 <codeline lineno="1669"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(<ref refid="driver__integration__test_8cpp_1a5a85b9c772bbeb480b209a3e6ea92b4c" kindref="member">TAG</ref>,<sp/></highlight><highlight class="stringliteral">&quot;ESP-IDF<sp/>Version:<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>esp_get_idf_version());</highlight></codeline>

@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="structtle92466ed_1_1SupplyMonitorSelfTestResult" kind="struct" language="C++" prot="public">
+    <compoundname>tle92466ed::SupplyMonitorSelfTestResult</compoundname>
+    <includes refid="tle92466ed__registers_8hpp" local="no">tle92466ed_registers.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtle92466ed_1_1SupplyMonitorSelfTestResult_1ad441a920b0fce3a67445fb81f49b9acc" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::SupplyMonitorSelfTestResult::uv_ov_swap_ok</definition>
+        <argsstring></argsstring>
+        <name>uv_ov_swap_ok</name>
+        <qualifiedname>tle92466ed::SupplyMonitorSelfTestResult::uv_ov_swap_ok</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2427" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2427" bodyend="2427"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1SupplyMonitorSelfTestResult_1afaf4ce03db3a06877e923ad956ec530b" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::SupplyMonitorSelfTestResult::v1v5_uv_ok</definition>
+        <argsstring></argsstring>
+        <name>v1v5_uv_ok</name>
+        <qualifiedname>tle92466ed::SupplyMonitorSelfTestResult::v1v5_uv_ok</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2428" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2428" bodyend="2428"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1SupplyMonitorSelfTestResult_1a88a1898f274d52fcd13114a0e49311c6" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::SupplyMonitorSelfTestResult::v1v5_ov_ok</definition>
+        <argsstring></argsstring>
+        <name>v1v5_ov_ok</name>
+        <qualifiedname>tle92466ed::SupplyMonitorSelfTestResult::v1v5_ov_ok</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2429" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2429" bodyend="2429"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1SupplyMonitorSelfTestResult_1afd1f1119b50e63b5946567d76ad5f9ae" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::SupplyMonitorSelfTestResult::ot_test_ok</definition>
+        <argsstring></argsstring>
+        <name>ot_test_ok</name>
+        <qualifiedname>tle92466ed::SupplyMonitorSelfTestResult::ot_test_ok</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2430" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2430" bodyend="2430"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1SupplyMonitorSelfTestResult_1a9e0ee2ef8cf3a444a09f75ef52e22673" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::SupplyMonitorSelfTestResult::overall_pass</definition>
+        <argsstring></argsstring>
+        <name>overall_pass</name>
+        <qualifiedname>tle92466ed::SupplyMonitorSelfTestResult::overall_pass</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2431" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2431" bodyend="2431"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Result of RunSupplyMonitorSelfTest(). </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="2426" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2426" bodyend="2432"/>
+    <listofallmembers>
+      <member refid="structtle92466ed_1_1SupplyMonitorSelfTestResult_1afd1f1119b50e63b5946567d76ad5f9ae" prot="public" virt="non-virtual"><scope>tle92466ed::SupplyMonitorSelfTestResult</scope><name>ot_test_ok</name></member>
+      <member refid="structtle92466ed_1_1SupplyMonitorSelfTestResult_1a9e0ee2ef8cf3a444a09f75ef52e22673" prot="public" virt="non-virtual"><scope>tle92466ed::SupplyMonitorSelfTestResult</scope><name>overall_pass</name></member>
+      <member refid="structtle92466ed_1_1SupplyMonitorSelfTestResult_1ad441a920b0fce3a67445fb81f49b9acc" prot="public" virt="non-virtual"><scope>tle92466ed::SupplyMonitorSelfTestResult</scope><name>uv_ov_swap_ok</name></member>
+      <member refid="structtle92466ed_1_1SupplyMonitorSelfTestResult_1a88a1898f274d52fcd13114a0e49311c6" prot="public" virt="non-virtual"><scope>tle92466ed::SupplyMonitorSelfTestResult</scope><name>v1v5_ov_ok</name></member>
+      <member refid="structtle92466ed_1_1SupplyMonitorSelfTestResult_1afaf4ce03db3a06877e923ad956ec530b" prot="public" virt="non-virtual"><scope>tle92466ed::SupplyMonitorSelfTestResult</scope><name>v1v5_uv_ok</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

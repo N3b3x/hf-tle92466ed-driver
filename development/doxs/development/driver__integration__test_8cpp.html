@@ -111,7 +111,7 @@ $(function(){initNavTree('driver__integration__test_8cpp.html',''); initResizabl
 <code>#include &quot;freertos/task.h&quot;</code><br />
 <code>#include &quot;esp_log.h&quot;</code><br />
 <code>#include &quot;esp_system.h&quot;</code><br />
-<code>#include &quot;tle92466ed.hpp&quot;</code><br />
+<code>#include &quot;<a class="el" href="tle92466ed_8hpp_source.html">tle92466ed.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="esp32__tle92466ed__bus_8hpp_source.html">esp32_tle92466ed_bus.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="TestFramework_8h_source.html">TestFramework.h</a>&quot;</code><br />
 </div><table class="memberdecls">
@@ -154,10 +154,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a6a1a43d07287e49047f360bf0faedac8" id="r_a6a1a43d07287e49047f360bf0faedac8"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a1a43d07287e49047f360bf0faedac8">ensure_mission_mode</a> () noexcept</td></tr>
 <tr class="memdesc:a6a1a43d07287e49047f360bf0faedac8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ensure device is in Mission Mode.  <br /></td></tr>
 <tr class="separator:a6a1a43d07287e49047f360bf0faedac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80233776e6e686d797ce641472542b03" id="r_a80233776e6e686d797ce641472542b03"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a80233776e6e686d797ce641472542b03">print_device_status</a> (const DeviceStatus &amp;status) noexcept</td></tr>
+<tr class="memitem:a80233776e6e686d797ce641472542b03" id="r_a80233776e6e686d797ce641472542b03"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a80233776e6e686d797ce641472542b03">print_device_status</a> (const <a class="el" href="structtle92466ed_1_1DeviceStatus.html">DeviceStatus</a> &amp;status) noexcept</td></tr>
 <tr class="memdesc:a80233776e6e686d797ce641472542b03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print device status.  <br /></td></tr>
 <tr class="separator:a80233776e6e686d797ce641472542b03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1392a0ca089a059fb3dfd7fddac69ba" id="r_ab1392a0ca089a059fb3dfd7fddac69ba"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1392a0ca089a059fb3dfd7fddac69ba">print_channel_diagnostics</a> (Channel channel, const ChannelDiagnostics &amp;diag) noexcept</td></tr>
+<tr class="memitem:ab1392a0ca089a059fb3dfd7fddac69ba" id="r_ab1392a0ca089a059fb3dfd7fddac69ba"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1392a0ca089a059fb3dfd7fddac69ba">print_channel_diagnostics</a> (<a class="el" href="namespacetle92466ed.html#adad08c8dc7d47ab5303ba67922bd0957">Channel</a> channel, const <a class="el" href="structtle92466ed_1_1ChannelDiagnostics.html">ChannelDiagnostics</a> &amp;diag) noexcept</td></tr>
 <tr class="memdesc:ab1392a0ca089a059fb3dfd7fddac69ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print channel diagnostics.  <br /></td></tr>
 <tr class="separator:ab1392a0ca089a059fb3dfd7fddac69ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb4b230389c72bfdce3ec626624637d7" id="r_abb4b230389c72bfdce3ec626624637d7"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb4b230389c72bfdce3ec626624637d7">test_hal_initialization</a> () noexcept</td></tr>
@@ -279,7 +279,7 @@ Variables</h2></td></tr>
 <tr class="separator:aaff89257c54366921eebb8ec1348b1fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98e7328ae9e7016a8df9584e5fbea942" id="r_a98e7328ae9e7016a8df9584e5fbea942"><td class="memItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="classEsp32Tle92466edSpiBus.html">Esp32Tle92466edSpiBus</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a98e7328ae9e7016a8df9584e5fbea942">g_hal</a></td></tr>
 <tr class="separator:a98e7328ae9e7016a8df9584e5fbea942"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3373634be9233201d6554eb7cc7a2da6" id="r_a3373634be9233201d6554eb7cc7a2da6"><td class="memItemLeft" align="right" valign="top">static tle92466ed::Driver&lt; <a class="el" href="classEsp32Tle92466edSpiBus.html">Esp32Tle92466edSpiBus</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3373634be9233201d6554eb7cc7a2da6">g_driver</a> = nullptr</td></tr>
+<tr class="memitem:a3373634be9233201d6554eb7cc7a2da6" id="r_a3373634be9233201d6554eb7cc7a2da6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classtle92466ed_1_1Driver.html">tle92466ed::Driver</a>&lt; <a class="el" href="classEsp32Tle92466edSpiBus.html">Esp32Tle92466edSpiBus</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3373634be9233201d6554eb7cc7a2da6">g_driver</a> = nullptr</td></tr>
 <tr class="separator:a3373634be9233201d6554eb7cc7a2da6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -585,12 +585,12 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">static void print_channel_diagnostics </td>
           <td>(</td>
-          <td class="paramtype">Channel</td>          <td class="paramname"><span class="paramname"><em>channel</em>, </span></td>
+          <td class="paramtype"><a class="el" href="namespacetle92466ed.html#adad08c8dc7d47ab5303ba67922bd0957">Channel</a></td>          <td class="paramname"><span class="paramname"><em>channel</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const ChannelDiagnostics &amp;</td>          <td class="paramname"><span class="paramname"><em>diag</em></span>&#160;)</td>
+          <td class="paramtype">const <a class="el" href="structtle92466ed_1_1ChannelDiagnostics.html">ChannelDiagnostics</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>diag</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -616,7 +616,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">static void print_device_status </td>
           <td>(</td>
-          <td class="paramtype">const DeviceStatus &amp;</td>          <td class="paramname"><span class="paramname"><em>status</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="structtle92466ed_1_1DeviceStatus.html">DeviceStatus</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>status</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1614,7 +1614,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">tle92466ed::Driver&lt;<a class="el" href="classEsp32Tle92466edSpiBus.html">Esp32Tle92466edSpiBus</a>&gt;* g_driver = nullptr</td>
+          <td class="memname"><a class="el" href="classtle92466ed_1_1Driver.html">tle92466ed::Driver</a>&lt;<a class="el" href="classEsp32Tle92466edSpiBus.html">Esp32Tle92466edSpiBus</a>&gt;* g_driver = nullptr</td>
         </tr>
       </table>
   </td>

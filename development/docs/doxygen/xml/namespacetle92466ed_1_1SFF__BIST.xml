@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1SFF__BIST" kind="namespace" language="C++">
+    <compoundname>tle92466ed::SFF_BIST</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1SFF__BIST_1a3b6cdd94b261d70f1e2433df573ecd9d" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::SFF_BIST::EN</definition>
+        <argsstring></argsstring>
+        <name>EN</name>
+        <qualifiedname>tle92466ed::SFF_BIST::EN</qualifiedname>
+        <initializer>= (1u &lt;&lt; 0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1080" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1080" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1SFF__BIST_1a81abf23cfded65423486469531b96cf5" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::SFF_BIST::DONE</definition>
+        <argsstring></argsstring>
+        <name>DONE</name>
+        <qualifiedname>tle92466ed::SFF_BIST::DONE</qualifiedname>
+        <initializer>= (1u &lt;&lt; 1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1081" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1081" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1SFF__BIST_1a7a189b6c7b02c50cf52f7409f28a0f79" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::SFF_BIST::FAIL</definition>
+        <argsstring></argsstring>
+        <name>FAIL</name>
+        <qualifiedname>tle92466ed::SFF_BIST::FAIL</qualifiedname>
+        <initializer>= (1u &lt;&lt; 2)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1082" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1082" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1SFF__BIST_1ab2372cec5f8963fac1c508c5aa851511" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::SFF_BIST::UERR</definition>
+        <argsstring></argsstring>
+        <name>UERR</name>
+        <qualifiedname>tle92466ed::SFF_BIST::UERR</qualifiedname>
+        <initializer>= (1u &lt;&lt; 3)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1083" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1083" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1SFF__BIST_1ac12ab06b31dc7a80c5413982774f2f94" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::SFF_BIST::CERR</definition>
+        <argsstring></argsstring>
+        <name>CERR</name>
+        <qualifiedname>tle92466ed::SFF_BIST::CERR</qualifiedname>
+        <initializer>= (1u &lt;&lt; 4)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1084" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1084" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1SFF__BIST_1a3ba3f4376ae29768da6973f98cb6ca6e" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::SFF_BIST::DEFAULT</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT</name>
+        <qualifiedname>tle92466ed::SFF_BIST::DEFAULT</qualifiedname>
+        <initializer>= 0x0000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1086" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1086" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespacetle92466ed_1_1SFF__BIST" kindref="compound">SFF_BIST</ref> bit definitions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Per datasheet \u00a75.3.2.18 p.74. Triggers the built-in safe-state logic-BIST and surfaces the result status: bit 0 SFF_BIST_EN Start / run BIST (write 1 to trigger) bit 1 SFF_BIST_DONE 1 = BIST completed bit 2 SFF_BIST_FAIL 1 = BIST detected a stuck-at / logic fault bit 3 SFF_BIST_UERR 1 = Uncorrectable register error during BIST bit 4 SFF_BIST_CERR 1 = Correctable register error during BIST </para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="1079" column="1"/>
+  </compounddef>
+</doxygen>

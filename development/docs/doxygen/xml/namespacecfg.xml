@@ -4,7 +4,7 @@
     <compoundname>cfg</compoundname>
     <sectiondef kind="var">
       <memberdef kind="variable" id="namespacecfg_1a9c5a8fcfe81843af260050da6e18171a" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>constexpr Channel</type>
+        <type>constexpr <ref refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957" kindref="member">Channel</ref></type>
         <definition>constexpr Channel cfg::kChannel</definition>
         <argsstring></argsstring>
         <name>kChannel</name>

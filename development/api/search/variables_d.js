@@ -1,6 +1,30 @@
 var searchData=
 [
-  ['operating_5fmax_0',['OPERATING_MAX',['../structTLE92466ED__TestConfig_1_1Temperature.html#a675c3168bd5d45619d2855e5a221e89b',1,'TLE92466ED_TestConfig::Temperature']]],
-  ['operating_5fmin_1',['OPERATING_MIN',['../structTLE92466ED__TestConfig_1_1Temperature.html#a9401801f59fc0d49016785d352b55e0d',1,'TLE92466ED_TestConfig::Temperature']]],
-  ['overcurrent_5fthreshold_5fma_2',['OVERCURRENT_THRESHOLD_MA',['../structTLE92466ED__TestConfig_1_1Diagnostics.html#a49d34cf3a8b44272e2311ad052dfc618',1,'TLE92466ED_TestConfig::Diagnostics']]]
+  ['mant11_5fmask_0',['MANT11_MASK',['../namespacetle92466ed_1_1FB__FEEDBACK.html#af0a762c34fad86b43cce32aae54cd132',1,'tle92466ed::FB_FEEDBACK']]],
+  ['mant_5fmask_1',['MANT_MASK',['../namespacetle92466ed_1_1PERIOD.html#a3eb03139b8303e847bd1b8a598963caf',1,'tle92466ed::PERIOD::MANT_MASK'],['../namespacetle92466ed_1_1DITHER__CLK__DIV.html#aeac99e6ffff79c02db79fabd5727d883',1,'tle92466ed::DITHER_CLK_DIV::MANT_MASK']]],
+  ['mantissa_2',['mantissa',['../structtle92466ed_1_1PERIOD_1_1PeriodConfig.html#af3d24a510c6baf03719bef03c2478fa0',1,'tle92466ed::PERIOD::PeriodConfig::mantissa'],['../structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig.html#a520c50a316c9e94e227e35fcca2772ba',1,'tle92466ed::DITHER_CLK_DIV::ClkDivConfig::mantissa']]],
+  ['max_5fcurrent_5fma_3',['MAX_CURRENT_MA',['../structSolenoid1Config.html#a06d69ab3525f9550ec1b8809d8fc5732',1,'Solenoid1Config::MAX_CURRENT_MA'],['../structSolenoid2Config.html#a769dee9f1a7b1ab87d8fb850020ca52c',1,'Solenoid2Config::MAX_CURRENT_MA']]],
+  ['max_5fcurrent_5fma_4',['max_current_mA',['../structtle92466ed_1_1ChannelDiagnostics.html#a2c6d2cf1587bfa8cc3ea02134cfcd9f4',1,'tle92466ed::ChannelDiagnostics']]],
+  ['max_5ferror_5fcount_5',['MAX_ERROR_COUNT',['../structTLE92466ED__TestConfig_1_1AppConfig.html#a8e6b4f9371f9d222d1c605f03c7b5408',1,'TLE92466ED_TestConfig::AppConfig']]],
+  ['max_5fretry_5fcount_6',['MAX_RETRY_COUNT',['../structTLE92466ED__TestConfig_1_1Diagnostics.html#abf82767c10606d39ed9b9bed9fe90463',1,'TLE92466ED_TestConfig::Diagnostics']]],
+  ['max_5ftarget_7',['MAX_TARGET',['../namespacetle92466ed_1_1SETPOINT.html#ac593d7592e4b120ad42cad54558f142d',1,'tle92466ed::SETPOINT']]],
+  ['max_5fvoltage_8',['MAX_VOLTAGE',['../structTLE92466ED__TestConfig_1_1ADCConfig.html#a352a535854228395d51108ce1b43fc48',1,'TLE92466ED_TestConfig::ADCConfig::MAX_VOLTAGE'],['../namespacetle92466ed_1_1VBAT__THRESHOLD.html#a50b0e62e17aabf420693c082a190540a',1,'tle92466ed::VBAT_THRESHOLD::MAX_VOLTAGE']]],
+  ['meas_5fexp_5fmask_9',['MEAS_EXP_MASK',['../namespacetle92466ed_1_1FB__FEEDBACK.html#a78fed74bbbad44d2c6ab8caec4dcb166',1,'tle92466ed::FB_FEEDBACK']]],
+  ['meas_5fexp_5fshift_10',['MEAS_EXP_SHIFT',['../namespacetle92466ed_1_1FB__FEEDBACK.html#ab185748d8944d1a8352a7f1f6f629ca5',1,'tle92466ed::FB_FEEDBACK']]],
+  ['min_5fcurrent_5fma_11',['MIN_CURRENT_MA',['../structSolenoid1Config.html#a9c17ae1815213f221eb86543606f1cc5',1,'Solenoid1Config::MIN_CURRENT_MA'],['../structSolenoid2Config.html#af40e677922499514c02c5e0ebd14b604',1,'Solenoid2Config::MIN_CURRENT_MA']]],
+  ['min_5fcurrent_5fma_12',['min_current_mA',['../structtle92466ed_1_1ChannelDiagnostics.html#a344be3d05074192bcd2ea96b866ba00b',1,'tle92466ed::ChannelDiagnostics']]],
+  ['min_5fint_5fthresh_5fmask_13',['MIN_INT_THRESH_MASK',['../namespacetle92466ed_1_1CH__CTRL__REG.html#a4546d2f98485d1e179146fb36f0b99b0',1,'tle92466ed::CH_CTRL_REG']]],
+  ['min_5frevision_14',['MIN_REVISION',['../namespacetle92466ed_1_1DeviceID.html#a1edd5f958a6a3f1372687b360843d897',1,'tle92466ed::DeviceID']]],
+  ['min_5fvoltage_15',['MIN_VOLTAGE',['../structTLE92466ED__TestConfig_1_1ADCConfig.html#af89c3e12e2d1a8f4d676ea5d1da3a38d',1,'TLE92466ED_TestConfig::ADCConfig::MIN_VOLTAGE'],['../namespacetle92466ed_1_1VBAT__THRESHOLD.html#a2b0f389cd833ee70e8a4d0f231c052ad',1,'tle92466ed::VBAT_THRESHOLD::MIN_VOLTAGE']]],
+  ['miso_16',['MISO',['../structTLE92466ED__TestConfig_1_1SPIPins.html#aaa01c05c5f0c174720cda8b260674790',1,'TLE92466ED_TestConfig::SPIPins']]],
+  ['miso_5fpin_17',['miso_pin',['../structEsp32Tle92466edSpiBus_1_1SPIConfig.html#ae57c8f8891ecc7c47447f64ac07d1f9d',1,'Esp32Tle92466edSpiBus::SPIConfig']]],
+  ['mission_5fmode_18',['MISSION_MODE',['../namespacetle92466ed_1_1CH__CTRL.html#aa5aca68a194172b9c995a0da46758436',1,'tle92466ed::CH_CTRL']]],
+  ['mission_5fmode_5f_19',['mission_mode_',['../classtle92466ed_1_1Driver.html#a40b991c5159034c3893361314a801def',1,'tle92466ed::Driver']]],
+  ['mode_20',['MODE',['../structTLE92466ED__TestConfig_1_1SPIParams.html#a719af124eb343a53918944b959526fb3',1,'TLE92466ED_TestConfig::SPIParams']]],
+  ['mode_21',['mode',['../structtle92466ed_1_1ChannelConfig.html#a2939c054f58c386082af866edf62d0d7',1,'tle92466ed::ChannelConfig::mode'],['../structtle92466ed_1_1SPIConfig.html#a641d1540074e45b2d5c51e40660da90f',1,'tle92466ed::SPIConfig::mode'],['../structEsp32Tle92466edSpiBus_1_1SPIConfig.html#ab060102cef7010598049c4f014b95af1',1,'Esp32Tle92466edSpiBus::SPIConfig::mode']]],
+  ['mode_22',['MODE',['../namespacetle92466ed_1_1ChannelReg.html#af3f64d829458a25feac1f85de989813d',1,'tle92466ed::ChannelReg']]],
+  ['mode_5fmask_23',['MODE_MASK',['../namespacetle92466ed_1_1CH__MODE.html#a01c1d15d71e9c4ff0e2649d0cf52fe1c',1,'tle92466ed::CH_MODE']]],
+  ['mosi_24',['MOSI',['../structTLE92466ED__TestConfig_1_1SPIPins.html#a3ec17eeead4339e61eb8d9855d71c7e4',1,'TLE92466ED_TestConfig::SPIPins']]],
+  ['mosi_5fpin_25',['mosi_pin',['../structEsp32Tle92466edSpiBus_1_1SPIConfig.html#a3ba55352bead873278e1940f12f8e89b',1,'Esp32Tle92466edSpiBus::SPIConfig']]],
+  ['msb_5ffirst_26',['msb_first',['../structtle92466ed_1_1SPIConfig.html#acdf2341e4a255df0dcbda3182bb66ec7',1,'tle92466ed::SPIConfig']]]
 ];

@@ -20,6 +20,7 @@
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -30,7 +31,7 @@
   <td id="projectalign">
    <div id="projectname">TLE92466ED Driver<span id="projectnumber">&#160;0.1.0-dev</span>
    </div>
-   <div id="projectbrief">Modern C++23 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver</div>
+   <div id="projectbrief">Modern C++20 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver</div>
   </td>
  </tr>
  </tbody>
@@ -96,20 +97,42 @@ $(function(){initNavTree('functions_r.html',''); initResizable(); });
 <div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
 
 <h3><a id="index_r" name="index_r"></a>- r -</h3><ul>
-<li>RAMP_STEP_DELAY_MS&#160;:&#160;<a class="el" href="structTLE92466ED__Config_1_1TestConfig.html#a2037d67e8f41b1d7f060cf3fd9b066a4">TLE92466ED_Config::TestConfig</a></li>
-<li>RAMP_STEP_MA&#160;:&#160;<a class="el" href="structTLE92466ED__Config_1_1TestConfig.html#a5a32a8d45eff78951d8d2d32792b193f">TLE92466ED_Config::TestConfig</a></li>
-<li>read_register()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#af88748dc8bfb5ce8e0c4f8101e21025c">TLE92466ED::Driver</a></li>
-<li>reload_spi_watchdog()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#a54dff731678d5e7d646f1b71aec0e4b4">TLE92466ED::Driver</a></li>
-<li>reply_mode&#160;:&#160;<a class="el" href="unionTLE92466ED_1_1SPIFrame.html#a0abf74cc126986f0d6ba9ca0f2e22d87">TLE92466ED::SPIFrame</a></li>
-<li>RESET_DELAY_MS&#160;:&#160;<a class="el" href="structTLE92466ED__Config_1_1Timing.html#a0dfa27fab7743a88209e1c356987c0b0">TLE92466ED_Config::Timing</a></li>
-<li>reset_event&#160;:&#160;<a class="el" href="structTLE92466ED_1_1DeviceStatus.html#a607b297962e4bb9c3806b331b6b8f165">TLE92466ED::DeviceStatus</a></li>
-<li>resetDevice()&#160;:&#160;<a class="el" href="classArduino__HAL.html#a71d3e0beaae96edb13ca2bb88d47b4e3">Arduino_HAL</a></li>
-<li>resn_pin&#160;:&#160;<a class="el" href="structArduino__HAL_1_1SPIConfig.html#a7cfff9b0d70fe6020626cef0e58cedf7">Arduino_HAL::SPIConfig</a></li>
-<li>RESOLUTION&#160;:&#160;<a class="el" href="structTLE92466ED__Config_1_1CurrentLimits.html#a2db219eb949589dda3dcdc1105eec4a9">TLE92466ED_Config::CurrentLimits</a></li>
+<li>RAMP_STEP_DELAY_MS&#160;:&#160;<a class="el" href="structTLE92466ED__TestConfig_1_1TestConfig.html#aa61db0bd87a2c7ceeea0c5a27ee9c228">TLE92466ED_TestConfig::TestConfig</a></li>
+<li>RAMP_STEP_MA&#160;:&#160;<a class="el" href="structTLE92466ED__TestConfig_1_1TestConfig.html#ad2a6e6656f915d99b58a64ab706b80cb">TLE92466ED_TestConfig::TestConfig</a></li>
+<li>raw&#160;:&#160;<a class="el" href="structtle92466ed_1_1BistResult.html#ae4656a44295a1d3af204cddca92bba76">tle92466ed::BistResult</a>, <a class="el" href="structtle92466ed_1_1PinStatus.html#a4badbf79387f305d43312ae8bf47fbe9">tle92466ed::PinStatus</a></li>
+<li>Read()&#160;:&#160;<a class="el" href="classtle92466ed_1_1SpiInterface.html#a499995340062b2a3018af8638982316a">tle92466ed::SpiInterface&lt; Derived &gt;</a></li>
+<li>ReadAllChannelErrorFlags()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#ad6a57264f1df64ca68fe440f2f682abe">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>ReadAllChannelFeedback()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a5608193112f762f6f9cfb5f8844389da">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>ReadAllSupplyVoltages()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a92f4cc12b0122216da43d222c4b4e5c2">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>ReadChannelFeedback()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#af98615b33b6627795636089b3fe96b95">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>ReadMulti()&#160;:&#160;<a class="el" href="classtle92466ed_1_1SpiInterface.html#a7304d96b475520cf4fa9aacd6caaf8e0">tle92466ed::SpiInterface&lt; Derived &gt;</a></li>
+<li>ReadPinStatus()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a440b892255536d4b7694bd39e2d25f30">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>ReadRegister()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#aab98d70715f7a21f4853f861d0a70071">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>ReadRegisterMulti()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a1959bc6629542a6afc303a460ab0cfc3">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>ref_ov&#160;:&#160;<a class="el" href="structtle92466ed_1_1FaultReport.html#a89054d85eab2cd8dcfabaec3ef46aa03">tle92466ed::FaultReport</a></li>
+<li>ref_uv&#160;:&#160;<a class="el" href="structtle92466ed_1_1FaultReport.html#a971f6300f44c28106af237635951923c">tle92466ed::FaultReport</a></li>
+<li>refdiv&#160;:&#160;<a class="el" href="structtle92466ed_1_1CLK__DIV_1_1PllConfig.html#aa9c9deea696e9fd8565ef6845c39cee9">tle92466ed::CLK_DIV::PllConfig</a></li>
+<li>reg_ecc_err&#160;:&#160;<a class="el" href="structtle92466ed_1_1FaultReport.html#ace85713f00ab3868d1ff51ce7bfef7ab">tle92466ed::FaultReport</a></li>
+<li>rejected_chains&#160;:&#160;<a class="el" href="structtle92466ed_1_1CurrentFeedbackBatch.html#ab6f2bcaf12c71813540aac57b70f41d7">tle92466ed::CurrentFeedbackBatch</a></li>
+<li>ReleaseFeedbackFreeze()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a2c12c9859df430cecf0bc0bf787008d3">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>ReleaseReset()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#ae15cb007edc9a429027684f3965fa9ee">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>ReloadSpiWatchdog()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#ad4ae8ff2403ad0a4e49171f22b8e5a14">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>reply_mode&#160;:&#160;<a class="el" href="uniontle92466ed_1_1SPIFrame.html#a35e47b9b98ad1b21fdb3238de04ba6da">tle92466ed::SPIFrame</a></li>
+<li>requested_mask&#160;:&#160;<a class="el" href="structtle92466ed_1_1CurrentFeedbackBatch.html#a959f101547e9b658895b624a2291055a">tle92466ed::CurrentFeedbackBatch</a></li>
+<li>RESET_DELAY_MS&#160;:&#160;<a class="el" href="structTLE92466ED__TestConfig_1_1Timing.html#aba1378da52ce221954d8958323003953">TLE92466ED_TestConfig::Timing</a></li>
+<li>reset_event&#160;:&#160;<a class="el" href="structtle92466ed_1_1DeviceStatus.html#ab46f83b6cb4987bc25bd70d30933726b">tle92466ed::DeviceStatus</a>, <a class="el" href="structtle92466ed_1_1FaultReport.html#ab6b86486bef397dd0b730f9ac127d3b2">tle92466ed::FaultReport</a></li>
+<li>RESN&#160;:&#160;<a class="el" href="structTLE92466ED__TestConfig_1_1ControlPins.html#a4ecb4cfcaf908b1a16bbb436093c268b">TLE92466ED_TestConfig::ControlPins</a></li>
+<li>resn_pin&#160;:&#160;<a class="el" href="structEsp32Tle92466edSpiBus_1_1SPIConfig.html#a6535550fb1c7e19ae540f17d83749c29">Esp32Tle92466edSpiBus::SPIConfig</a></li>
+<li>RESOLUTION&#160;:&#160;<a class="el" href="structTLE92466ED__TestConfig_1_1CurrentLimits.html#a62d49ba58d58330a2007f5632c4d18c2">TLE92466ED_TestConfig::CurrentLimits</a></li>
 <li>results&#160;:&#160;<a class="el" href="structTestTaskContext.html#a1c97680bd267a35637278ea10a3fae0e">TestTaskContext</a></li>
-<li>rw&#160;:&#160;<a class="el" href="unionTLE92466ED_1_1SPIFrame.html#a21e21ff576c43b5b7bcbb449b1df5f14">TLE92466ED::SPIFrame</a></li>
-<li>rw_echo&#160;:&#160;<a class="el" href="unionTLE92466ED_1_1SPIFrame.html#a4ce45894dccd8e2de8b5c1755d3bc4bb">TLE92466ED::SPIFrame</a></li>
-<li>rx_fields&#160;:&#160;<a class="el" href="unionTLE92466ED_1_1SPIFrame.html#a42599562bb1735501e9b9282de4154b6">TLE92466ED::SPIFrame</a></li>
+<li>RunSffBist()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#aac32fb6d4b7dca0b0d953d1d26518825">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>RunSupplyMonitorSelfTest()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#ab9852925d252ba2b6daded98720fac27">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>rw&#160;:&#160;<a class="el" href="uniontle92466ed_1_1SPIFrame.html#ac5ff7ca3d05c579224f041f78807dd39">tle92466ed::SPIFrame</a></li>
+<li>rw_echo&#160;:&#160;<a class="el" href="uniontle92466ed_1_1SPIFrame.html#a6f210670a4936ff0d7b0d20dca1f26be">tle92466ed::SPIFrame</a></li>
+<li>rx_16bit&#160;:&#160;<a class="el" href="uniontle92466ed_1_1SPIFrame.html#abba229d3f6ad6ba601a619cbd7c37dfe">tle92466ed::SPIFrame</a></li>
+<li>rx_22bit&#160;:&#160;<a class="el" href="uniontle92466ed_1_1SPIFrame.html#afe4ad4bcfe361f1c85498deb39aeadb2">tle92466ed::SPIFrame</a></li>
+<li>rx_common&#160;:&#160;<a class="el" href="uniontle92466ed_1_1SPIFrame.html#a0cabc0548dbc9536e1030ae76e65bfae">tle92466ed::SPIFrame</a></li>
+<li>rx_fault&#160;:&#160;<a class="el" href="uniontle92466ed_1_1SPIFrame.html#ac1f49ea7e227d3b6d1729d99dc2a8a42">tle92466ed::SPIFrame</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

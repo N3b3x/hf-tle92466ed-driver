@@ -1,19 +1,10 @@
 var searchData=
 [
-  ['pair_0',['PAIR',['../structSolenoid2Config.html#a6acad435513fc810413b6ef7798f9ab4',1,'Solenoid2Config']]],
-  ['parallel_5fchannel_5fmax_1',['PARALLEL_CHANNEL_MAX',['../structTLE92466ED__TestConfig_1_1CurrentLimits.html#a5f5b2f3b210b4d67252cb7642d9e7090',1,'TLE92466ED_TestConfig::CurrentLimits']]],
-  ['parallel_5fmode_2',['PARALLEL_MODE',['../structSolenoid1Config.html#a9c997115be102f6fa179821485844680',1,'Solenoid1Config::PARALLEL_MODE'],['../structSolenoid2Config.html#a4e4a6ac8ec60d7da4d74a3e0b54e94c5',1,'Solenoid2Config::PARALLEL_MODE']]],
-  ['passed_5ftests_3',['passed_tests',['../structTestResults.html#a55b5f813fe7b5863b46e03f2c7f761ea',1,'TestResults']]],
-  ['pin_4',['PIN',['../structTLE92466ED__TestConfig_1_1ADCConfig.html#a47c51ee1182fcb7bebc014c0db817846',1,'TLE92466ED_TestConfig::ADCConfig']]],
-  ['poll_5finterval_5fms_5',['POLL_INTERVAL_MS',['../structTLE92466ED__TestConfig_1_1Diagnostics.html#ad09514c1c6265b7427e1b87380f9f294',1,'TLE92466ED_TestConfig::Diagnostics']]],
-  ['power_5fon_5fdelay_5fms_6',['POWER_ON_DELAY_MS',['../structTLE92466ED__TestConfig_1_1Timing.html#a1f88aa3a269db676482a797545b65476',1,'TLE92466ED_TestConfig::Timing']]],
-  ['primary_5fchannel_7',['PRIMARY_CHANNEL',['../structSolenoid2Config.html#a66d95aa4da24c15cf5b7c7b71d0ca51c',1,'Solenoid2Config']]],
-  ['print_5fchannel_5fdiagnostics_8',['print_channel_diagnostics',['../driver__integration__test_8cpp.html#ab1392a0ca089a059fb3dfd7fddac69ba',1,'driver_integration_test.cpp']]],
-  ['print_5fdevice_5fstatus_9',['print_device_status',['../driver__integration__test_8cpp.html#a80233776e6e686d797ce641472542b03',1,'driver_integration_test.cpp']]],
-  ['print_5fdevice_5ftelemetry_10',['print_device_telemetry',['../solenoid__control__test_8cpp.html#adec0a6b3616c9e4cabb444bff299ac8e',1,'solenoid_control_test.cpp']]],
-  ['print_5fsolenoid_5ftelemetry_11',['print_solenoid_telemetry',['../solenoid__control__test_8cpp.html#a17ca04cd9442f88cbb4e8b981742280f',1,'solenoid_control_test.cpp']]],
-  ['print_5ftest_5fsection_5ffooter_12',['print_test_section_footer',['../TestFramework_8h.html#a5fe4d7658c49a1f3999cd09c0db952c0',1,'TestFramework.h']]],
-  ['print_5ftest_5fsection_5fheader_13',['print_test_section_header',['../TestFramework_8h.html#a5c46ab8dc59b071f0843bc287145d5f1',1,'TestFramework.h']]],
-  ['print_5ftest_5fsection_5fstatus_14',['print_test_section_status',['../TestFramework_8h.html#a200bb35a3a48c625b9cb8d2511d6bd87',1,'TestFramework.h']]],
-  ['print_5ftest_5fsummary_15',['print_test_summary',['../TestFramework_8h.html#ab7e4c076755ecdf2ad6212cb8f6578ab',1,'TestFramework.h']]]
+  ['no_5ferror_0',['NO_ERROR',['../namespacetle92466ed.html#a3e7c32ed41f7fc9b6bf02262c584a53fad306b6fdee05fe87455110ddf6501e6c',1,'tle92466ed']]],
+  ['none_1',['NONE',['../namespacetle92466ed.html#aaf5177696585d9100c7e4e73000b48c1ab50339a10e1de285ac99d4c3990b8693',1,'tle92466ed']]],
+  ['none_2',['None',['../namespacetle92466ed.html#a42072777d6f7c0e70bf0067c99027693a6adf97f83acf6453d4a6a4b1070f3754',1,'tle92466ed::None'],['../namespacetle92466ed.html#aa2dd28a51f522fa021dc03e744b51a4aa6adf97f83acf6453d4a6a4b1070f3754',1,'tle92466ed::None']]],
+  ['noreply_3',['NoReply',['../namespacetle92466ed.html#aa2dd28a51f522fa021dc03e744b51a4aaa7d7b6f9bcf9382faedac781806df3dc',1,'tle92466ed']]],
+  ['notecriticalfault_4',['NoteCriticalFault',['../classtle92466ed_1_1SpiInterface.html#a4ed9a296bc8ca57da8a4aadc0e0ca8ac',1,'tle92466ed::SpiInterface']]],
+  ['notinitialized_5',['NotInitialized',['../namespacetle92466ed.html#a42072777d6f7c0e70bf0067c99027693a9646ad3a1c3e708b4fa8b4b4270fbab6',1,'tle92466ed']]],
+  ['num_5fsteps_6',['num_steps',['../structtle92466ed_1_1DITHER_1_1DitherConfig.html#aa03ae82b94696313f9635bd2fdbed9c7',1,'tle92466ed::DITHER::DitherConfig']]]
 ];

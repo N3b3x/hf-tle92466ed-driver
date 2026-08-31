@@ -1,8 +1,24 @@
 var searchData=
 [
-  ['vbat_5fmax_0',['VBAT_MAX',['../structTLE92466ED__TestConfig_1_1SupplyVoltage.html#a282fd518667fd1a9ea43a71e571fe7b0',1,'TLE92466ED_TestConfig::SupplyVoltage']]],
-  ['vbat_5fmin_1',['VBAT_MIN',['../structTLE92466ED__TestConfig_1_1SupplyVoltage.html#a394e7be9e053e324ccbaef9b337448d7',1,'TLE92466ED_TestConfig::SupplyVoltage']]],
-  ['vbat_5fnom_2',['VBAT_NOM',['../structTLE92466ED__TestConfig_1_1SupplyVoltage.html#aed8c289d6b0161bd6209df05f6ac76ac',1,'TLE92466ED_TestConfig::SupplyVoltage']]],
-  ['vdd_5fnom_3',['VDD_NOM',['../structTLE92466ED__TestConfig_1_1SupplyVoltage.html#a8138a20d65edeb17a743fb0ae469cfa4',1,'TLE92466ED_TestConfig::SupplyVoltage']]],
-  ['vref_5fmv_4',['VREF_MV',['../structTLE92466ED__TestConfig_1_1ADCConfig.html#a7ac6b7505fdbf0bce8c0dcb793651779',1,'TLE92466ED_TestConfig::ADCConfig::VREF_MV'],['../structADCConfig.html#aad0972dc88daba8224b38370ea860adb',1,'ADCConfig::VREF_MV']]]
+  ['tag_0',['tag',['../structTestTaskContext.html#ae51f49c33ea802bc7f8bdde560a27304',1,'TestTaskContext']]],
+  ['tag_1',['TAG',['../classEsp32Tle92466edSpiBus.html#a600e90229e8b9a5adb891ed7acf1a6bb',1,'Esp32Tle92466edSpiBus::TAG'],['../diagnostics__and__bist_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c',1,'TAG:&#160;diagnostics_and_bist.cpp'],['../driver__integration__test_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c',1,'TAG:&#160;driver_integration_test.cpp'],['../lm__pro__cycle__test_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c',1,'TAG:&#160;lm_pro_cycle_test.cpp'],['../resistive__load__bench_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c',1,'TAG:&#160;resistive_load_bench.cpp'],['../solenoid__control__test_8cpp.html#a5a85b9c772bbeb480b209a3e6ea92b4c',1,'TAG:&#160;solenoid_control_test.cpp']]],
+  ['target_5fmask_2',['TARGET_MASK',['../namespacetle92466ed_1_1SETPOINT.html#a73de3c116b68a99982840c2609e29f00',1,'tle92466ed::SETPOINT']]],
+  ['temperature_5fc_3',['temperature_c',['../structtle92466ed_1_1SupplyVoltages.html#a9f21b99d3705007fb3ba444b0a87b824',1,'tle92466ed::SupplyVoltages']]],
+  ['test_5fduration_5fms_4',['TEST_DURATION_MS',['../structTLE92466ED__TestConfig_1_1TestConfig.html#a0bfc6f1c08f4ab5603e90d8c3fed98a5',1,'TLE92466ED_TestConfig::TestConfig']]],
+  ['test_5ffunc_5',['test_func',['../structTestTaskContext.html#aa72faa223fd0ff992772b12458f62ec8',1,'TestTaskContext']]],
+  ['test_5fname_6',['test_name',['../structTestTaskContext.html#abcf19d2762ab98990c3fdc1eacf86130',1,'TestTaskContext']]],
+  ['test_5fprogress_5fpin_7',['TEST_PROGRESS_PIN',['../TestFramework_8h.html#a0897f1535fcbb73063a032f07550b12e',1,'TestFramework.h']]],
+  ['tick_5fcycles_8',['TICK_CYCLES',['../namespacetle92466ed_1_1FB__PERIOD__MIN__MAX.html#a00b485f1987c872ed712c3274eb7b949',1,'tle92466ed::FB_PERIOD_MIN_MAX']]],
+  ['time_5fstamp_5fmask_9',['TIME_STAMP_MASK',['../namespacetle92466ed_1_1FB__I__AVG__s16.html#a1fce60ae20df9c824e8a4940d9e911fc',1,'tle92466ed::FB_I_AVG_s16']]],
+  ['time_5fstamp_5fshift_10',['TIME_STAMP_SHIFT',['../namespacetle92466ed_1_1FB__I__AVG__s16.html#a14c3d6f02348b4e64c9efb0b09ccd3ce',1,'tle92466ed::FB_I_AVG_s16']]],
+  ['timeout_5fms_11',['timeout_ms',['../structtle92466ed_1_1SPIConfig.html#afeb4a866b925db68fb05d4fa1cfa2815',1,'tle92466ed::SPIConfig']]],
+  ['to_5fmant_12',['to_mant',['../structtle92466ed_1_1ChannelCurrentSample.html#ad63bdd73902de3ab35585515c07db6b6',1,'tle92466ed::ChannelCurrentSample']]],
+  ['to_5fmant_5fshift_13',['TO_MANT_SHIFT',['../namespacetle92466ed_1_1FB__FEEDBACK.html#acae811446bb7cf36eefbc0468f60ba48',1,'tle92466ed::FB_FEEDBACK']]],
+  ['ton_14',['TON',['../namespacetle92466ed_1_1ChannelReg.html#ab5855a061885c7e8f740c4ffabd49ca6',1,'tle92466ed::ChannelReg']]],
+  ['ton_5fmant_5fmask_15',['TON_MANT_MASK',['../namespacetle92466ed_1_1TON.html#aca6a0f06a586b7ae522b6544526ac6ea',1,'tle92466ed::TON']]],
+  ['total_5fexecution_5ftime_5fus_16',['total_execution_time_us',['../structTestResults.html#a7eddc258a4288ac5f0a36a1008c9d014',1,'TestResults']]],
+  ['total_5ftests_17',['total_tests',['../structTestResults.html#afe20b168a13950ffca7296c0c56d4359',1,'TestResults']]],
+  ['tp_5fmant_18',['tp_mant',['../structtle92466ed_1_1ChannelCurrentSample.html#aab544568c0af8a8d9aa76ccfd5f8c764',1,'tle92466ed::ChannelCurrentSample']]],
+  ['tp_5fmant_5fshift_19',['TP_MANT_SHIFT',['../namespacetle92466ed_1_1FB__FEEDBACK.html#a25ad93b3d6daea916f7ec7f0c123a187',1,'tle92466ed::FB_FEEDBACK']]],
+  ['tx_5ffields_20',['tx_fields',['../uniontle92466ed_1_1SPIFrame.html#a725fd5d3491ccd0120b22f9357b767bb',1,'tle92466ed::SPIFrame']]]
 ];

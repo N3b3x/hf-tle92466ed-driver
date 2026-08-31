@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['fast_5f5v0_5fus_0',['FAST_5V0_US',['../namespaceTLE92466ED.html#aa7a63a8ffb21e78b6d650a9574115ccba8bcffcbc78276caf12d0022bf8a638fe',1,'TLE92466ED']]],
-  ['fastest_5f10v0_5fus_1',['FASTEST_10V0_US',['../namespaceTLE92466ED.html#aa7a63a8ffb21e78b6d650a9574115ccbab64d2fd61ffbc4476d28e6d792ea875e',1,'TLE92466ED']]],
-  ['faultdetected_2',['FaultDetected',['../namespaceTLE92466ED.html#a575be450839f70a2517e896131f37ad6a11efe260e52c20b0d4c8ebd2da844862',1,'TLE92466ED']]],
-  ['free_5frun_5fmeas_3',['FREE_RUN_MEAS',['../namespaceTLE92466ED.html#a057b583027ebf8bcb8d65949cd12a7a5a2e898746eeac1ff8dbf048e5a5343855',1,'TLE92466ED']]]
+  ['dataerr_0',['DataErr',['../namespacetle92466ed.html#a81b2a3f148467a21945b66f2e93297fda523b7a06ac3f2f09352744db109b9941',1,'tle92466ed']]],
+  ['debug_1',['Debug',['../namespacetle92466ed.html#ae9d7e11b24ee920250df1e83b0f98509aa603905470e2a5b8c13e96b579ef0dba',1,'tle92466ed']]],
+  ['devicenotresponding_2',['DeviceNotResponding',['../namespacetle92466ed.html#a42072777d6f7c0e70bf0067c99027693a203bb9823df0c54c271585d4bfb69762',1,'tle92466ed']]],
+  ['direct_5fdrive_5fdrv0_3',['DIRECT_DRIVE_DRV0',['../namespacetle92466ed.html#a4354ef9226739c1ea8a59eb36e95760ca01972e7fc9ec5c902670e0798df618dc',1,'tle92466ed']]],
+  ['direct_5fdrive_5fdrv1_4',['DIRECT_DRIVE_DRV1',['../namespacetle92466ed.html#a4354ef9226739c1ea8a59eb36e95760ca0509d9148c57b323fdd295712d4c8d47',1,'tle92466ed']]],
+  ['direct_5fdrive_5fspi_5',['DIRECT_DRIVE_SPI',['../namespacetle92466ed.html#a4354ef9226739c1ea8a59eb36e95760ca97d0fb8fdfbdfa81cdd928907b35ed40',1,'tle92466ed']]]
 ];

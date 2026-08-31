@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1GLOBAL__DIAG1" kind="namespace" language="C++">
+    <compoundname>tle92466ed::GLOBAL_DIAG1</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__DIAG1_1a9e8b6e006032a0d9440b5e5866112672" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_DIAG1::VR_IREF_UV</definition>
+        <argsstring></argsstring>
+        <name>VR_IREF_UV</name>
+        <qualifiedname>tle92466ed::GLOBAL_DIAG1::VR_IREF_UV</qualifiedname>
+        <initializer>= (1 &lt;&lt; 0)</initializer>
+        <briefdescription>
+<para>Bias current UV. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="384" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="384" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__DIAG1_1a193a3cd474f8499eeacffb9c20c56a77" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_DIAG1::VR_IREF_OV</definition>
+        <argsstring></argsstring>
+        <name>VR_IREF_OV</name>
+        <qualifiedname>tle92466ed::GLOBAL_DIAG1::VR_IREF_OV</qualifiedname>
+        <initializer>= (1 &lt;&lt; 1)</initializer>
+        <briefdescription>
+<para>Bias current OV. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="385" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="385" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__DIAG1_1a64b432db5b5494f6a9417d10cb948cda" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_DIAG1::VDD2V5_UV</definition>
+        <argsstring></argsstring>
+        <name>VDD2V5_UV</name>
+        <qualifiedname>tle92466ed::GLOBAL_DIAG1::VDD2V5_UV</qualifiedname>
+        <initializer>= (1 &lt;&lt; 2)</initializer>
+        <briefdescription>
+<para>2.5V supply UV </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="386" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="386" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__DIAG1_1ab6f48c390d99eb36ff2a17b3aae52975" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_DIAG1::VDD2V5_OV</definition>
+        <argsstring></argsstring>
+        <name>VDD2V5_OV</name>
+        <qualifiedname>tle92466ed::GLOBAL_DIAG1::VDD2V5_OV</qualifiedname>
+        <initializer>= (1 &lt;&lt; 3)</initializer>
+        <briefdescription>
+<para>2.5V supply OV </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="387" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="387" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__DIAG1_1a6e46a0f5546dc05aa11e016724b82aad" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_DIAG1::REF_UV</definition>
+        <argsstring></argsstring>
+        <name>REF_UV</name>
+        <qualifiedname>tle92466ed::GLOBAL_DIAG1::REF_UV</qualifiedname>
+        <initializer>= (1 &lt;&lt; 4)</initializer>
+        <briefdescription>
+<para>Reference UV. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="388" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="388" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__DIAG1_1acebe75a44f2b52907e4bc86cdf2a6c9d" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_DIAG1::REF_OV</definition>
+        <argsstring></argsstring>
+        <name>REF_OV</name>
+        <qualifiedname>tle92466ed::GLOBAL_DIAG1::REF_OV</qualifiedname>
+        <initializer>= (1 &lt;&lt; 5)</initializer>
+        <briefdescription>
+<para>Reference OV. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="389" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="389" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__DIAG1_1a3f09cb8d4293068fd9e031fa951f65e0" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_DIAG1::VPRE_OV</definition>
+        <argsstring></argsstring>
+        <name>VPRE_OV</name>
+        <qualifiedname>tle92466ed::GLOBAL_DIAG1::VPRE_OV</qualifiedname>
+        <initializer>= (1 &lt;&lt; 6)</initializer>
+        <briefdescription>
+<para>Pre-reg OV. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="390" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="390" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__DIAG1_1a70a3ce52bc1f15ea718a75079ecf70ac" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_DIAG1::HVADC_ERR</definition>
+        <argsstring></argsstring>
+        <name>HVADC_ERR</name>
+        <qualifiedname>tle92466ed::GLOBAL_DIAG1::HVADC_ERR</qualifiedname>
+        <initializer>= (1 &lt;&lt; 15)</initializer>
+        <briefdescription>
+<para>HV ADC error. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="391" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="391" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__DIAG1_1aea859edbbce93739a9c609981adb31f4" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_DIAG1::DEFAULT</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT</name>
+        <qualifiedname>tle92466ed::GLOBAL_DIAG1::DEFAULT</qualifiedname>
+        <initializer>= 0x0000</initializer>
+        <briefdescription>
+<para>Default value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="393" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="393" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__DIAG1_1ab31bb110b5cd6db4daea924f45e7188f" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_DIAG1::CLEAR_ALL</definition>
+        <argsstring></argsstring>
+        <name>CLEAR_ALL</name>
+        <qualifiedname>tle92466ed::GLOBAL_DIAG1::CLEAR_ALL</qualifiedname>
+        <initializer>= 0xFFFF</initializer>
+        <briefdescription>
+<para>Clear all bits (write-to-clear) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="394" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="394" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespacetle92466ed_1_1GLOBAL__DIAG1" kindref="compound">GLOBAL_DIAG1</ref> register bit definitions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Internal voltage and reference diagnostics.</para>
+<para><simplesect kind="par"><title>Bit Map:</title><para><verbatim>* Bit 15  : HVADC_ERR   - HV ADC error
+* Bit 6   : VPRE_OV     - Pre-regulator overvoltage
+* Bit 5   : REF_OV      - Reference overvoltage
+* Bit 4   : REF_UV      - Reference undervoltage
+* Bit 3   : VDD2V5_OV   - 2.5V supply overvoltage
+* Bit 2   : VDD2V5_UV   - 2.5V supply undervoltage
+* Bit 1   : VR_IREF_OV  - Bias current overvoltage
+* Bit 0   : VR_IREF_UV  - Bias current undervoltage
+* </verbatim></para>
+</simplesect>
+Default: 0x0000 </para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="383" column="1"/>
+  </compounddef>
+</doxygen>

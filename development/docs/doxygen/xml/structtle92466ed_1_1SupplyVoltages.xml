@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="structtle92466ed_1_1SupplyVoltages" kind="struct" language="C++" prot="public">
+    <compoundname>tle92466ed::SupplyVoltages</compoundname>
+    <includes refid="tle92466ed__registers_8hpp" local="no">tle92466ed_registers.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtle92466ed_1_1SupplyVoltages_1a76463a4196c4bd50c1794aac68f8f632" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t tle92466ed::SupplyVoltages::vbat_mV</definition>
+        <argsstring></argsstring>
+        <name>vbat_mV</name>
+        <qualifiedname>tle92466ed::SupplyVoltages::vbat_mV</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>Battery supply in millivolts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2296" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2296" bodyend="2296"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1SupplyVoltages_1a79cd908ab874bef8f78c9a15b01885db" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t tle92466ed::SupplyVoltages::vio_mV</definition>
+        <argsstring></argsstring>
+        <name>vio_mV</name>
+        <qualifiedname>tle92466ed::SupplyVoltages::vio_mV</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>Logic supply in millivolts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2297" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2297" bodyend="2297"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1SupplyVoltages_1a148fa21e4b2947418b9f7180a821b888" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t tle92466ed::SupplyVoltages::vdd_mV</definition>
+        <argsstring></argsstring>
+        <name>vdd_mV</name>
+        <qualifiedname>tle92466ed::SupplyVoltages::vdd_mV</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>Internal analog supply in millivolts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2298" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2298" bodyend="2298"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1SupplyVoltages_1a9f21b99d3705007fb3ba444b0a87b824" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float tle92466ed::SupplyVoltages::temperature_c</definition>
+        <argsstring></argsstring>
+        <name>temperature_c</name>
+        <qualifiedname>tle92466ed::SupplyVoltages::temperature_c</qualifiedname>
+        <initializer>{0.0F}</initializer>
+        <briefdescription>
+<para>Central die temperature in \u00b0C. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2299" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2299" bodyend="2299"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>High-level supply-voltage snapshot returned by ReadAllSupplyVoltages(). </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="2295" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2295" bodyend="2300"/>
+    <listofallmembers>
+      <member refid="structtle92466ed_1_1SupplyVoltages_1a9f21b99d3705007fb3ba444b0a87b824" prot="public" virt="non-virtual"><scope>tle92466ed::SupplyVoltages</scope><name>temperature_c</name></member>
+      <member refid="structtle92466ed_1_1SupplyVoltages_1a76463a4196c4bd50c1794aac68f8f632" prot="public" virt="non-virtual"><scope>tle92466ed::SupplyVoltages</scope><name>vbat_mV</name></member>
+      <member refid="structtle92466ed_1_1SupplyVoltages_1a148fa21e4b2947418b9f7180a821b888" prot="public" virt="non-virtual"><scope>tle92466ed::SupplyVoltages</scope><name>vdd_mV</name></member>
+      <member refid="structtle92466ed_1_1SupplyVoltages_1a79cd908ab874bef8f78c9a15b01885db" prot="public" virt="non-virtual"><scope>tle92466ed::SupplyVoltages</scope><name>vio_mV</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

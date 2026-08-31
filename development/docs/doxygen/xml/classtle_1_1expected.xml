@@ -1,0 +1,500 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="classtle_1_1expected" kind="class" language="C++" prot="public">
+    <compoundname>tle::expected</compoundname>
+    <includes refid="tle92466ed__expected_8hpp" local="no">tle92466ed_expected.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type><ref refid="classtle_1_1expected" kindref="compound">typename</ref> <ref refid="classtle_1_1expected" kindref="compound">T</ref></type>
+      </param>
+      <param>
+        <type><ref refid="classtle_1_1expected" kindref="compound">typename</ref> <ref refid="classtle_1_1expected" kindref="compound">E</ref></type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classtle_1_1expected_1aa02e14620f46bafd53d7ce8afa010af1" prot="private" static="no" mutable="no">
+        <type><ref refid="classtle_1_1expected" kindref="compound">T</ref></type>
+        <definition>T tle::expected&lt; T, E &gt;::value_</definition>
+        <argsstring></argsstring>
+        <name>value_</name>
+        <qualifiedname>tle::expected::value_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="83" column="5" bodyfile="inc/tle92466ed_expected.hpp" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtle_1_1expected_1a946004e95041162b6c048b15580d08cb" prot="private" static="no" mutable="no">
+        <type><ref refid="classtle_1_1expected" kindref="compound">E</ref></type>
+        <definition>E tle::expected&lt; T, E &gt;::error_</definition>
+        <argsstring></argsstring>
+        <name>error_</name>
+        <qualifiedname>tle::expected::error_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="84" column="5" bodyfile="inc/tle92466ed_expected.hpp" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtle_1_1expected_1a4d95a0a5e49604ff9e649e74a23d9e20" prot="private" static="no" mutable="no">
+        <type><ref refid="classtle_1_1expected" kindref="compound">bool</ref></type>
+        <definition>bool tle::expected&lt; T, E &gt;::has_value_</definition>
+        <argsstring></argsstring>
+        <name>has_value_</name>
+        <qualifiedname>tle::expected::has_value_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="85" column="8" bodyfile="inc/tle92466ed_expected.hpp" bodystart="85" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classtle_1_1expected_1a6412b9dfc76f62d61d207f50f494b06b" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classtle_1_1expected" kindref="compound">constexpr</ref></type>
+        <definition>constexpr tle::expected&lt; T, E &gt;::expected</definition>
+        <argsstring>(const T &amp;v) noexcept</argsstring>
+        <name>expected</name>
+        <qualifiedname>tle::expected::expected</qualifiedname>
+        <param>
+          <type><ref refid="classtle_1_1expected" kindref="compound">const</ref> <ref refid="classtle_1_1expected" kindref="compound">T</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="89" column="13" bodyfile="inc/tle92466ed_expected.hpp" bodystart="89" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle_1_1expected_1aab6f6ef310bf6f8d40d144db5dfa1757" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classtle_1_1expected" kindref="compound">constexpr</ref></type>
+        <definition>constexpr tle::expected&lt; T, E &gt;::expected</definition>
+        <argsstring>(T &amp;&amp;v) noexcept</argsstring>
+        <name>expected</name>
+        <qualifiedname>tle::expected::expected</qualifiedname>
+        <param>
+          <type><ref refid="classtle_1_1expected" kindref="compound">T</ref> &amp;&amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="92" column="13" bodyfile="inc/tle92466ed_expected.hpp" bodystart="92" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle_1_1expected_1adc2e1484ab186d70ca7a48377d04fa21" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classtle_1_1expected" kindref="compound">constexpr</ref></type>
+        <definition>constexpr tle::expected&lt; T, E &gt;::expected</definition>
+        <argsstring>(const unexpected&lt; E &gt; &amp;u) noexcept</argsstring>
+        <name>expected</name>
+        <qualifiedname>tle::expected::expected</qualifiedname>
+        <param>
+          <type><ref refid="classtle_1_1expected" kindref="compound">const</ref> <ref refid="classtle_1_1unexpected" kindref="compound">unexpected</ref>&lt; <ref refid="classtle_1_1expected" kindref="compound">E</ref> &gt; &amp;</type>
+          <declname>u</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="96" column="13" bodyfile="inc/tle92466ed_expected.hpp" bodystart="96" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle_1_1expected_1a8edcb81c8a2fa42ac72874dcecb5d7b5" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classtle_1_1expected" kindref="compound">constexpr</ref></type>
+        <definition>constexpr tle::expected&lt; T, E &gt;::expected</definition>
+        <argsstring>(unexpected&lt; E &gt; &amp;&amp;u) noexcept</argsstring>
+        <name>expected</name>
+        <qualifiedname>tle::expected::expected</qualifiedname>
+        <param>
+          <type><ref refid="classtle_1_1unexpected" kindref="compound">unexpected</ref>&lt; <ref refid="classtle_1_1expected" kindref="compound">E</ref> &gt; &amp;&amp;</type>
+          <declname>u</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="100" column="13" bodyfile="inc/tle92466ed_expected.hpp" bodystart="100" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle_1_1expected_1a5bf384bbb8a81d1f12a80f15dbd532fc" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classtle_1_1expected" kindref="compound">constexpr</ref></type>
+        <definition>constexpr tle::expected&lt; T, E &gt;::expected</definition>
+        <argsstring>(const expected &amp;) noexcept=default</argsstring>
+        <name>expected</name>
+        <qualifiedname>tle::expected::expected</qualifiedname>
+        <param>
+          <type><ref refid="classtle_1_1expected" kindref="compound">const</ref> <ref refid="classtle_1_1expected" kindref="compound">expected</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="105" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle_1_1expected_1a65a518bd1e87da850021d79e78d8ec2d" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classtle_1_1expected" kindref="compound">constexpr</ref></type>
+        <definition>constexpr tle::expected&lt; T, E &gt;::expected</definition>
+        <argsstring>(expected &amp;&amp;) noexcept=default</argsstring>
+        <name>expected</name>
+        <qualifiedname>tle::expected::expected</qualifiedname>
+        <param>
+          <type><ref refid="classtle_1_1expected" kindref="compound">expected</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="106" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle_1_1expected_1a30fd2a788d8406d4d734ec5b98fdc320" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classtle_1_1expected" kindref="compound">constexpr</ref> <ref refid="classtle_1_1expected" kindref="compound">expected</ref> &amp;</type>
+        <definition>constexpr expected &amp; tle::expected&lt; T, E &gt;::operator=</definition>
+        <argsstring>(const expected &amp;) noexcept=default</argsstring>
+        <name>operator=</name>
+        <qualifiedname>tle::expected::operator=</qualifiedname>
+        <param>
+          <type><ref refid="classtle_1_1expected" kindref="compound">const</ref> <ref refid="classtle_1_1expected" kindref="compound">expected</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="107" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle_1_1expected_1a719a31d56f03cda54df303096fd2afbd" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classtle_1_1expected" kindref="compound">constexpr</ref> <ref refid="classtle_1_1expected" kindref="compound">expected</ref> &amp;</type>
+        <definition>constexpr expected &amp; tle::expected&lt; T, E &gt;::operator=</definition>
+        <argsstring>(expected &amp;&amp;) noexcept=default</argsstring>
+        <name>operator=</name>
+        <qualifiedname>tle::expected::operator=</qualifiedname>
+        <param>
+          <type><ref refid="classtle_1_1expected" kindref="compound">expected</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="108" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle_1_1expected_1a0ef46eb65f419a8b1a8544afca4defd2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>tle::expected&lt; T, E &gt;::~expected</definition>
+        <argsstring>()=default</argsstring>
+        <name>~expected</name>
+        <qualifiedname>tle::expected::~expected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="109" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle_1_1expected_1acdf932e070827abb8bf123cefe004112" prot="public" static="no" constexpr="yes" const="yes" explicit="yes" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classtle_1_1expected" kindref="compound">constexpr</ref></type>
+        <definition>constexpr tle::expected&lt; T, E &gt;::operator bool</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>operator bool</name>
+        <qualifiedname>tle::expected::operator bool</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="112" column="23" bodyfile="inc/tle92466ed_expected.hpp" bodystart="112" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle_1_1expected_1a5356570ff773361ef802f8cf97bef78f" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classtle_1_1expected" kindref="compound">constexpr</ref> <ref refid="classtle_1_1expected" kindref="compound">bool</ref></type>
+        <definition>constexpr bool tle::expected&lt; T, E &gt;::has_value</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>has_value</name>
+        <qualifiedname>tle::expected::has_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="115" column="19" bodyfile="inc/tle92466ed_expected.hpp" bodystart="115" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle_1_1expected_1a355a52bfbcd842447f275e018d536f8a" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" refqual="lvalue" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classtle_1_1expected" kindref="compound">constexpr</ref> <ref refid="classtle_1_1expected" kindref="compound">T</ref> &amp;</type>
+        <definition>constexpr T &amp; tle::expected&lt; T, E &gt;::value</definition>
+        <argsstring>() &amp;noexcept</argsstring>
+        <name>value</name>
+        <qualifiedname>tle::expected::value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="119" column="16" bodyfile="inc/tle92466ed_expected.hpp" bodystart="119" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle_1_1expected_1acb929d98776d42c2b3868fbf31b1614c" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" refqual="lvalue" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classtle_1_1expected" kindref="compound">constexpr</ref> <ref refid="classtle_1_1expected" kindref="compound">const</ref> <ref refid="classtle_1_1expected" kindref="compound">T</ref> &amp;</type>
+        <definition>constexpr const T &amp; tle::expected&lt; T, E &gt;::value</definition>
+        <argsstring>() const &amp;noexcept</argsstring>
+        <name>value</name>
+        <qualifiedname>tle::expected::value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="120" column="22" bodyfile="inc/tle92466ed_expected.hpp" bodystart="120" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle_1_1expected_1a1f366ac2ad4f08bdf9f3b2b4f9135805" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" refqual="rvalue" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classtle_1_1expected" kindref="compound">constexpr</ref> <ref refid="classtle_1_1expected" kindref="compound">T</ref> &amp;&amp;</type>
+        <definition>constexpr T &amp;&amp; tle::expected&lt; T, E &gt;::value</definition>
+        <argsstring>() &amp;&amp;noexcept</argsstring>
+        <name>value</name>
+        <qualifiedname>tle::expected::value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="121" column="16" bodyfile="inc/tle92466ed_expected.hpp" bodystart="121" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle_1_1expected_1ac34a44a1e737eea3d7fb1b4375f641f7" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" refqual="lvalue" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classtle_1_1expected" kindref="compound">constexpr</ref> <ref refid="classtle_1_1expected" kindref="compound">E</ref> &amp;</type>
+        <definition>constexpr E &amp; tle::expected&lt; T, E &gt;::error</definition>
+        <argsstring>() &amp;noexcept</argsstring>
+        <name>error</name>
+        <qualifiedname>tle::expected::error</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="125" column="16" bodyfile="inc/tle92466ed_expected.hpp" bodystart="125" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle_1_1expected_1a3952e1f410f7242bc25eec71230966c0" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" refqual="lvalue" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classtle_1_1expected" kindref="compound">constexpr</ref> <ref refid="classtle_1_1expected" kindref="compound">const</ref> <ref refid="classtle_1_1expected" kindref="compound">E</ref> &amp;</type>
+        <definition>constexpr const E &amp; tle::expected&lt; T, E &gt;::error</definition>
+        <argsstring>() const &amp;noexcept</argsstring>
+        <name>error</name>
+        <qualifiedname>tle::expected::error</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="126" column="22" bodyfile="inc/tle92466ed_expected.hpp" bodystart="126" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle_1_1expected_1ac51c970d4964e701a1fd96c484ab235d" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" refqual="rvalue" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classtle_1_1expected" kindref="compound">constexpr</ref> <ref refid="classtle_1_1expected" kindref="compound">E</ref> &amp;&amp;</type>
+        <definition>constexpr E &amp;&amp; tle::expected&lt; T, E &gt;::error</definition>
+        <argsstring>() &amp;&amp;noexcept</argsstring>
+        <name>error</name>
+        <qualifiedname>tle::expected::error</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="127" column="16" bodyfile="inc/tle92466ed_expected.hpp" bodystart="127" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle_1_1expected_1a7364f52278ec70fb916fab4e6609cfb0" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" refqual="lvalue" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classtle_1_1expected" kindref="compound">constexpr</ref> <ref refid="classtle_1_1expected" kindref="compound">T</ref> &amp;</type>
+        <definition>constexpr T &amp; tle::expected&lt; T, E &gt;::operator*</definition>
+        <argsstring>() &amp;noexcept</argsstring>
+        <name>operator*</name>
+        <qualifiedname>tle::expected::operator*</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="131" column="16" bodyfile="inc/tle92466ed_expected.hpp" bodystart="131" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle_1_1expected_1a2907a9695cecd7f894f77d786f6f0c47" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" refqual="lvalue" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classtle_1_1expected" kindref="compound">constexpr</ref> <ref refid="classtle_1_1expected" kindref="compound">const</ref> <ref refid="classtle_1_1expected" kindref="compound">T</ref> &amp;</type>
+        <definition>constexpr const T &amp; tle::expected&lt; T, E &gt;::operator*</definition>
+        <argsstring>() const &amp;noexcept</argsstring>
+        <name>operator*</name>
+        <qualifiedname>tle::expected::operator*</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="132" column="22" bodyfile="inc/tle92466ed_expected.hpp" bodystart="132" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle_1_1expected_1a1143f683f915ebde853744c40dfe773c" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" refqual="rvalue" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classtle_1_1expected" kindref="compound">constexpr</ref> <ref refid="classtle_1_1expected" kindref="compound">T</ref> &amp;&amp;</type>
+        <definition>constexpr T &amp;&amp; tle::expected&lt; T, E &gt;::operator*</definition>
+        <argsstring>() &amp;&amp;noexcept</argsstring>
+        <name>operator*</name>
+        <qualifiedname>tle::expected::operator*</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="135" column="16" bodyfile="inc/tle92466ed_expected.hpp" bodystart="135" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle_1_1expected_1a86ddf268a99a2f128fac89de8c2da8de" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classtle_1_1expected" kindref="compound">constexpr</ref> <ref refid="classtle_1_1expected" kindref="compound">T</ref> *</type>
+        <definition>constexpr T * tle::expected&lt; T, E &gt;::operator-&gt;</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>operator-&gt;</name>
+        <qualifiedname>tle::expected::operator-&gt;</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="139" column="16" bodyfile="inc/tle92466ed_expected.hpp" bodystart="139" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle_1_1expected_1abdaacd5955c80dfff385652ec2b38eb1" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classtle_1_1expected" kindref="compound">constexpr</ref> <ref refid="classtle_1_1expected" kindref="compound">const</ref> <ref refid="classtle_1_1expected" kindref="compound">T</ref> *</type>
+        <definition>constexpr const T * tle::expected&lt; T, E &gt;::operator-&gt;</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>operator-&gt;</name>
+        <qualifiedname>tle::expected::operator-&gt;</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="140" column="22" bodyfile="inc/tle92466ed_expected.hpp" bodystart="140" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle_1_1expected_1a5a0a10a4edab938c6a50e6b8c32b12cf" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" refqual="lvalue" noexcept="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type><ref refid="classtle_1_1expected" kindref="compound">typename</ref> <ref refid="classtle_1_1expected" kindref="compound">U</ref></type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classtle_1_1expected" kindref="compound">constexpr</ref> <ref refid="classtle_1_1expected" kindref="compound">T</ref></type>
+        <definition>constexpr T tle::expected&lt; T, E &gt;::value_or</definition>
+        <argsstring>(U &amp;&amp;default_val) const &amp;noexcept</argsstring>
+        <name>value_or</name>
+        <qualifiedname>tle::expected::value_or</qualifiedname>
+        <param>
+          <type><ref refid="classtle_1_1expected" kindref="compound">U</ref> &amp;&amp;</type>
+          <declname>default_val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="146" column="16" bodyfile="inc/tle92466ed_expected.hpp" bodystart="146" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle_1_1expected_1a888a2a6d12f7a46d91d1638ea9e78fbf" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type><ref refid="classtle_1_1expected" kindref="compound">typename</ref> <ref refid="classtle_1_1expected" kindref="compound">U</ref></type>
+          </param>
+          <param>
+            <type><ref refid="classtle_1_1expected" kindref="compound">typename</ref></type>
+            <defval>std::enable_if_t&lt;!std::is_same_v&lt;<ref refid="classtle_1_1expected" kindref="compound">U</ref>, <ref refid="classtle_1_1expected" kindref="compound">T</ref>&gt; &amp;&amp;                                         std::is_convertible_v&lt;<ref refid="classtle_1_1expected" kindref="compound">U</ref>, <ref refid="classtle_1_1expected" kindref="compound">T</ref>&gt;&gt;</defval>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classtle_1_1expected" kindref="compound">constexpr</ref></type>
+        <definition>constexpr tle::expected&lt; T, E &gt;::expected</definition>
+        <argsstring>(const expected&lt; U, E &gt; &amp;other) noexcept</argsstring>
+        <name>expected</name>
+        <qualifiedname>tle::expected::expected</qualifiedname>
+        <param>
+          <type><ref refid="classtle_1_1expected" kindref="compound">const</ref> <ref refid="classtle_1_1expected" kindref="compound">expected</ref>&lt; <ref refid="classtle_1_1expected" kindref="compound">U</ref>, <ref refid="classtle_1_1expected" kindref="compound">E</ref> &gt; &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="154" column="13" bodyfile="inc/tle92466ed_expected.hpp" bodystart="154" bodyend="158"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Expected type — holds either a value of type T or an error of type E. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value type </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>E</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error type</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Stores both members (like tmc51x0::Result&lt;T&gt;). This is acceptable because all types used in this driver are small and trivially copyable. </para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_expected.hpp" line="82" column="14" bodyfile="inc/tle92466ed_expected.hpp" bodystart="82" bodyend="159"/>
+    <listofallmembers>
+      <member refid="classtle_1_1expected_1ac34a44a1e737eea3d7fb1b4375f641f7" prot="public" virt="non-virtual"><scope>tle::expected</scope><name>error</name></member>
+      <member refid="classtle_1_1expected_1a3952e1f410f7242bc25eec71230966c0" prot="public" virt="non-virtual"><scope>tle::expected</scope><name>error</name></member>
+      <member refid="classtle_1_1expected_1ac51c970d4964e701a1fd96c484ab235d" prot="public" virt="non-virtual"><scope>tle::expected</scope><name>error</name></member>
+      <member refid="classtle_1_1expected_1a946004e95041162b6c048b15580d08cb" prot="private" virt="non-virtual"><scope>tle::expected</scope><name>error_</name></member>
+      <member refid="classtle_1_1expected_1a6412b9dfc76f62d61d207f50f494b06b" prot="public" virt="non-virtual"><scope>tle::expected</scope><name>expected</name></member>
+      <member refid="classtle_1_1expected_1aab6f6ef310bf6f8d40d144db5dfa1757" prot="public" virt="non-virtual"><scope>tle::expected</scope><name>expected</name></member>
+      <member refid="classtle_1_1expected_1adc2e1484ab186d70ca7a48377d04fa21" prot="public" virt="non-virtual"><scope>tle::expected</scope><name>expected</name></member>
+      <member refid="classtle_1_1expected_1a8edcb81c8a2fa42ac72874dcecb5d7b5" prot="public" virt="non-virtual"><scope>tle::expected</scope><name>expected</name></member>
+      <member refid="classtle_1_1expected_1a5bf384bbb8a81d1f12a80f15dbd532fc" prot="public" virt="non-virtual"><scope>tle::expected</scope><name>expected</name></member>
+      <member refid="classtle_1_1expected_1a65a518bd1e87da850021d79e78d8ec2d" prot="public" virt="non-virtual"><scope>tle::expected</scope><name>expected</name></member>
+      <member refid="classtle_1_1expected_1a888a2a6d12f7a46d91d1638ea9e78fbf" prot="public" virt="non-virtual"><scope>tle::expected</scope><name>expected</name></member>
+      <member refid="classtle_1_1expected_1a5356570ff773361ef802f8cf97bef78f" prot="public" virt="non-virtual"><scope>tle::expected</scope><name>has_value</name></member>
+      <member refid="classtle_1_1expected_1a4d95a0a5e49604ff9e649e74a23d9e20" prot="private" virt="non-virtual"><scope>tle::expected</scope><name>has_value_</name></member>
+      <member refid="classtle_1_1expected_1acdf932e070827abb8bf123cefe004112" prot="public" virt="non-virtual"><scope>tle::expected</scope><name>operator bool</name></member>
+      <member refid="classtle_1_1expected_1a7364f52278ec70fb916fab4e6609cfb0" prot="public" virt="non-virtual"><scope>tle::expected</scope><name>operator*</name></member>
+      <member refid="classtle_1_1expected_1a2907a9695cecd7f894f77d786f6f0c47" prot="public" virt="non-virtual"><scope>tle::expected</scope><name>operator*</name></member>
+      <member refid="classtle_1_1expected_1a1143f683f915ebde853744c40dfe773c" prot="public" virt="non-virtual"><scope>tle::expected</scope><name>operator*</name></member>
+      <member refid="classtle_1_1expected_1a86ddf268a99a2f128fac89de8c2da8de" prot="public" virt="non-virtual"><scope>tle::expected</scope><name>operator-&gt;</name></member>
+      <member refid="classtle_1_1expected_1abdaacd5955c80dfff385652ec2b38eb1" prot="public" virt="non-virtual"><scope>tle::expected</scope><name>operator-&gt;</name></member>
+      <member refid="classtle_1_1expected_1a30fd2a788d8406d4d734ec5b98fdc320" prot="public" virt="non-virtual"><scope>tle::expected</scope><name>operator=</name></member>
+      <member refid="classtle_1_1expected_1a719a31d56f03cda54df303096fd2afbd" prot="public" virt="non-virtual"><scope>tle::expected</scope><name>operator=</name></member>
+      <member refid="classtle_1_1expected_1a355a52bfbcd842447f275e018d536f8a" prot="public" virt="non-virtual"><scope>tle::expected</scope><name>value</name></member>
+      <member refid="classtle_1_1expected_1acb929d98776d42c2b3868fbf31b1614c" prot="public" virt="non-virtual"><scope>tle::expected</scope><name>value</name></member>
+      <member refid="classtle_1_1expected_1a1f366ac2ad4f08bdf9f3b2b4f9135805" prot="public" virt="non-virtual"><scope>tle::expected</scope><name>value</name></member>
+      <member refid="classtle_1_1expected_1aa02e14620f46bafd53d7ce8afa010af1" prot="private" virt="non-virtual"><scope>tle::expected</scope><name>value_</name></member>
+      <member refid="classtle_1_1expected_1a5a0a10a4edab938c6a50e6b8c32b12cf" prot="public" virt="non-virtual"><scope>tle::expected</scope><name>value_or</name></member>
+      <member refid="classtle_1_1expected_1a0ef46eb65f419a8b1a8544afca4defd2" prot="public" virt="non-virtual"><scope>tle::expected</scope><name>~expected</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -20,6 +20,7 @@
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -30,7 +31,7 @@
   <td id="projectalign">
    <div id="projectname">TLE92466ED Driver<span id="projectnumber">&#160;0.1.0-dev</span>
    </div>
-   <div id="projectbrief">Modern C++23 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver</div>
+   <div id="projectbrief">Modern C++20 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver</div>
   </td>
  </tr>
  </tbody>
@@ -96,21 +97,23 @@ $(function(){initNavTree('functions_p.html',''); initResizable(); });
 <div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
 
 <h3><a id="index_p" name="index_p"></a>- p -</h3><ul>
-<li>PAIR_0_CH_A&#160;:&#160;<a class="el" href="structTLE92466ED__Config_1_1ChannelPairs.html#a6d7c27f55a1db6a5e3ba91321a01104f">TLE92466ED_Config::ChannelPairs</a></li>
-<li>PAIR_0_CH_B&#160;:&#160;<a class="el" href="structTLE92466ED__Config_1_1ChannelPairs.html#a34084a19eb99c32ddc1a1c7754f05eac">TLE92466ED_Config::ChannelPairs</a></li>
-<li>PAIR_1_CH_A&#160;:&#160;<a class="el" href="structTLE92466ED__Config_1_1ChannelPairs.html#a650fc9f110acf829d92e7a2d5f309eff">TLE92466ED_Config::ChannelPairs</a></li>
-<li>PAIR_1_CH_B&#160;:&#160;<a class="el" href="structTLE92466ED__Config_1_1ChannelPairs.html#a05e64db387c9544f030fe0e698cda8be">TLE92466ED_Config::ChannelPairs</a></li>
-<li>PAIR_2_CH_A&#160;:&#160;<a class="el" href="structTLE92466ED__Config_1_1ChannelPairs.html#a329b179d18964622bd1050cfd18abf00">TLE92466ED_Config::ChannelPairs</a></li>
-<li>PAIR_2_CH_B&#160;:&#160;<a class="el" href="structTLE92466ED__Config_1_1ChannelPairs.html#abf6d883cf20900de8bdae99d8cfcafb5">TLE92466ED_Config::ChannelPairs</a></li>
-<li>PARALLEL_CHANNEL_MAX&#160;:&#160;<a class="el" href="structTLE92466ED__Config_1_1CurrentLimits.html#a1e7e33a854c9c3cb2e7046eb4e29ae68">TLE92466ED_Config::CurrentLimits</a></li>
+<li>PAIR&#160;:&#160;<a class="el" href="structSolenoid2Config.html#a6acad435513fc810413b6ef7798f9ab4">Solenoid2Config</a></li>
+<li>PARALLEL_CHANNEL_MAX&#160;:&#160;<a class="el" href="structTLE92466ED__TestConfig_1_1CurrentLimits.html#a5f5b2f3b210b4d67252cb7642d9e7090">TLE92466ED_TestConfig::CurrentLimits</a></li>
+<li>PARALLEL_MODE&#160;:&#160;<a class="el" href="structSolenoid1Config.html#a9c997115be102f6fa179821485844680">Solenoid1Config</a>, <a class="el" href="structSolenoid2Config.html#a4e4a6ac8ec60d7da4d74a3e0b54e94c5">Solenoid2Config</a></li>
+<li>pass&#160;:&#160;<a class="el" href="structtle92466ed_1_1BistResult.html#a8bf17aa75c7579b88684d610bba91336">tle92466ed::BistResult</a></li>
 <li>passed_tests&#160;:&#160;<a class="el" href="structTestResults.html#a55b5f813fe7b5863b46e03f2c7f761ea">TestResults</a></li>
-<li>POLL_INTERVAL_MS&#160;:&#160;<a class="el" href="structTLE92466ED__Config_1_1Diagnostics.html#a1b7f0796c570226570644a76e6e73215">TLE92466ED_Config::Diagnostics</a></li>
-<li>por_event&#160;:&#160;<a class="el" href="structTLE92466ED_1_1DeviceStatus.html#abf80bb1f372b95dbcfa416a9735f5020">TLE92466ED::DeviceStatus</a></li>
-<li>POWER_ON_DELAY_MS&#160;:&#160;<a class="el" href="structTLE92466ED__Config_1_1Timing.html#a29fdf0c53105932747e8d5864a3b06b5">TLE92466ED_Config::Timing</a></li>
-<li>print_summary()&#160;:&#160;<a class="el" href="structTestResults.html#a630453426a26294b000f09ecc9063329">TestResults</a></li>
-<li>pwm_period_exponent&#160;:&#160;<a class="el" href="structTLE92466ED_1_1ChannelConfig.html#a89fb6bad6b4b922e6ea27f15f9f4fa7d">TLE92466ED::ChannelConfig</a></li>
-<li>pwm_period_mantissa&#160;:&#160;<a class="el" href="structTLE92466ED_1_1ChannelConfig.html#adf7d0d490de03758401b9e5c8e3a4cab">TLE92466ED::ChannelConfig</a></li>
-<li>pwm_regulation_warning&#160;:&#160;<a class="el" href="structTLE92466ED_1_1ChannelDiagnostics.html#a79fab283b9c0198a78599856226254fc">TLE92466ED::ChannelDiagnostics</a></li>
+<li>period_max_us&#160;:&#160;<a class="el" href="structtle92466ed_1_1ChannelFeedback.html#af72ebdfd3670226e77745e02a39d6263">tle92466ed::ChannelFeedback</a></li>
+<li>period_min_us&#160;:&#160;<a class="el" href="structtle92466ed_1_1ChannelFeedback.html#a770d327284f2f6d300697f27831aba0f">tle92466ed::ChannelFeedback</a></li>
+<li>period_seq&#160;:&#160;<a class="el" href="structtle92466ed_1_1ChannelFeedback.html#a60803ebaf7c36f89ecaa5c33f7731581">tle92466ed::ChannelFeedback</a></li>
+<li>PIN&#160;:&#160;<a class="el" href="structTLE92466ED__TestConfig_1_1ADCConfig.html#a47c51ee1182fcb7bebc014c0db817846">TLE92466ED_TestConfig::ADCConfig</a></li>
+<li>POLL_INTERVAL_MS&#160;:&#160;<a class="el" href="structTLE92466ED__TestConfig_1_1Diagnostics.html#ad09514c1c6265b7427e1b87380f9f294">TLE92466ED_TestConfig::Diagnostics</a></li>
+<li>por_event&#160;:&#160;<a class="el" href="structtle92466ed_1_1DeviceStatus.html#a06e7f029d3e82fc19889027a04ad4bf8">tle92466ed::DeviceStatus</a>, <a class="el" href="structtle92466ed_1_1FaultReport.html#aa2c83c8c95e6ad639c71cc54baaae99f">tle92466ed::FaultReport</a></li>
+<li>POWER_ON_DELAY_MS&#160;:&#160;<a class="el" href="structTLE92466ED__TestConfig_1_1Timing.html#a1f88aa3a269db676482a797545b65476">TLE92466ED_TestConfig::Timing</a></li>
+<li>PRIMARY_CHANNEL&#160;:&#160;<a class="el" href="structSolenoid2Config.html#a66d95aa4da24c15cf5b7c7b71d0ca51c">Solenoid2Config</a></li>
+<li>PrintAllFaults()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a22da64e691adf43d5d93be1280e9dabe">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>pwm_period_exponent&#160;:&#160;<a class="el" href="structtle92466ed_1_1ChannelConfig.html#ae27ee46252295dbc1272f695c8074a12">tle92466ed::ChannelConfig</a></li>
+<li>pwm_period_mantissa&#160;:&#160;<a class="el" href="structtle92466ed_1_1ChannelConfig.html#a7c9a0e39f54763a3ffb926a6fb9189fe">tle92466ed::ChannelConfig</a></li>
+<li>pwm_regulation_warning&#160;:&#160;<a class="el" href="structtle92466ed_1_1ChannelDiagnostics.html#a558ddb13f9c9dd85e8cbe2d306c3e25d">tle92466ed::ChannelDiagnostics</a>, <a class="el" href="structtle92466ed_1_1FaultReport_1_1ChannelFaults.html#a9222e4128fffe7417677ed533ee70b59">tle92466ed::FaultReport::ChannelFaults</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,0 +1,396 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1PERIOD" kind="namespace" language="C++">
+    <compoundname>tle92466ed::PERIOD</compoundname>
+    <innerclass refid="structtle92466ed_1_1PERIOD_1_1PeriodConfig" prot="public">tle92466ed::PERIOD::PeriodConfig</innerclass>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1PERIOD_1a3eb03139b8303e847bd1b8a598963caf" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::PERIOD::MANT_MASK</definition>
+        <argsstring></argsstring>
+        <name>MANT_MASK</name>
+        <qualifiedname>tle92466ed::PERIOD::MANT_MASK</qualifiedname>
+        <initializer>= 0x00FF</initializer>
+        <briefdescription>
+<para>Mantissa mask (bits 7:0) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="673" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="673" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1PERIOD_1a61729a67de4003b0f93f94a36f3afab9" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::PERIOD::EXP_MASK</definition>
+        <argsstring></argsstring>
+        <name>EXP_MASK</name>
+        <qualifiedname>tle92466ed::PERIOD::EXP_MASK</qualifiedname>
+        <initializer>= 0x0700</initializer>
+        <briefdescription>
+<para>Exponent mask (bits 10:8) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="674" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="674" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1PERIOD_1a4fd1e621c78f960da566ed94ab83cc55" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::PERIOD::EXP_SHIFT</definition>
+        <argsstring></argsstring>
+        <name>EXP_SHIFT</name>
+        <qualifiedname>tle92466ed::PERIOD::EXP_SHIFT</qualifiedname>
+        <initializer>= 8</initializer>
+        <briefdescription>
+<para>Exponent shift. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="675" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="675" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1PERIOD_1a84a1d9bc8ff89644ee5c08b7209a59c1" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint8_t</type>
+        <definition>constexpr uint8_t tle92466ed::PERIOD::EXP_VALUE_MASK</definition>
+        <argsstring></argsstring>
+        <name>EXP_VALUE_MASK</name>
+        <qualifiedname>tle92466ed::PERIOD::EXP_VALUE_MASK</qualifiedname>
+        <initializer>= 0x07</initializer>
+        <briefdescription>
+<para>Exponent value mask (3 bits: 0-7) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="676" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="676" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1PERIOD_1a0a3e1ee2a3f50ec24dfdc307ad802138" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::PERIOD::LOW_FREQ_BIT</definition>
+        <argsstring></argsstring>
+        <name>LOW_FREQ_BIT</name>
+        <qualifiedname>tle92466ed::PERIOD::LOW_FREQ_BIT</qualifiedname>
+        <initializer>= (1 &lt;&lt; 11)</initializer>
+        <briefdescription>
+<para>Low frequency range bit. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="677" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="677" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1PERIOD_1a170194d1f3a07eefb8ab01da2610f5b5" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::PERIOD::PWM_CTRL_PARAM_SHIFT</definition>
+        <argsstring></argsstring>
+        <name>PWM_CTRL_PARAM_SHIFT</name>
+        <qualifiedname>tle92466ed::PERIOD::PWM_CTRL_PARAM_SHIFT</qualifiedname>
+        <initializer>= 12</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>PWM controller proportional gain lives in bits [15:12] of <ref refid="namespacetle92466ed_1_1PERIOD" kindref="compound">PERIOD</ref> per datasheet \u00a75.3.3.3. 4-bit KI value. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="681" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="681" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1PERIOD_1ad67ca04e4ca4b8f9c1a046755ef178ad" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::PERIOD::PWM_CTRL_PARAM_MASK</definition>
+        <argsstring></argsstring>
+        <name>PWM_CTRL_PARAM_MASK</name>
+        <qualifiedname>tle92466ed::PERIOD::PWM_CTRL_PARAM_MASK</qualifiedname>
+        <initializer>= 0xF000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="682" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="682" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1PERIOD_1af42d77787910f06ce9662d1a0bd74d2d" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::PERIOD::F_SYS_HZ</definition>
+        <argsstring></argsstring>
+        <name>F_SYS_HZ</name>
+        <qualifiedname>tle92466ed::PERIOD::F_SYS_HZ</qualifiedname>
+        <initializer>= 28&apos;000&apos;000UL</initializer>
+        <briefdescription>
+<para>System clock frequency (28 MHz) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="684" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="684" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1PERIOD_1a42acfc67e1e6628778a9a29b15236c9b" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float tle92466ed::PERIOD::F_SYS_PERIOD_US</definition>
+        <argsstring></argsstring>
+        <name>F_SYS_PERIOD_US</name>
+        <qualifiedname>tle92466ed::PERIOD::F_SYS_PERIOD_US</qualifiedname>
+        <initializer>= 1.0F / 28.0F</initializer>
+        <briefdescription>
+<para>System clock period (≈35.71 ns) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="685" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="685" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1PERIOD_1a2d28e2824c23997ea4d84e28c88c0f38" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float tle92466ed::PERIOD::kSpecMinFrequency_Hz</definition>
+        <argsstring></argsstring>
+        <name>kSpecMinFrequency_Hz</name>
+        <qualifiedname>tle92466ed::PERIOD::kSpecMinFrequency_Hz</qualifiedname>
+        <initializer>= 110.0F</initializer>
+        <briefdescription>
+<para>Datasheet minimum f_PWM. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="703" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="703" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1PERIOD_1a5eb97902e948debef6a7515d11fe456a" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float tle92466ed::PERIOD::kSpecMaxFrequency_Hz</definition>
+        <argsstring></argsstring>
+        <name>kSpecMaxFrequency_Hz</name>
+        <qualifiedname>tle92466ed::PERIOD::kSpecMaxFrequency_Hz</qualifiedname>
+        <initializer>= 4000.0F</initializer>
+        <briefdescription>
+<para>Datasheet maximum f_PWM. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="704" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="704" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1PERIOD_1a202d165178bfb96cc013278f2c4effd8" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float tle92466ed::PERIOD::kSpecMinPeriod_us</definition>
+        <argsstring></argsstring>
+        <name>kSpecMinPeriod_us</name>
+        <qualifiedname>tle92466ed::PERIOD::kSpecMinPeriod_us</qualifiedname>
+        <initializer>= 1.0e6F / <ref refid="namespacetle92466ed_1_1PERIOD_1a5eb97902e948debef6a7515d11fe456a" kindref="member">kSpecMaxFrequency_Hz</ref></initializer>
+        <briefdescription>
+<para>250 µs </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="705" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="705" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1PERIOD_1aa4614d11f975ffdd39a3c2bff6baa96d" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float tle92466ed::PERIOD::kSpecMaxPeriod_us</definition>
+        <argsstring></argsstring>
+        <name>kSpecMaxPeriod_us</name>
+        <qualifiedname>tle92466ed::PERIOD::kSpecMaxPeriod_us</qualifiedname>
+        <initializer>= 1.0e6F / <ref refid="namespacetle92466ed_1_1PERIOD_1a2d28e2824c23997ea4d84e28c88c0f38" kindref="member">kSpecMinFrequency_Hz</ref></initializer>
+        <briefdescription>
+<para>9090.9 µs </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="706" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="706" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1PERIOD_1a0b8678422f2798b9dd6687c506555551" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float tle92466ed::PERIOD::kSpecLowRangeMinFreq_Hz</definition>
+        <argsstring></argsstring>
+        <name>kSpecLowRangeMinFreq_Hz</name>
+        <qualifiedname>tle92466ed::PERIOD::kSpecLowRangeMinFreq_Hz</qualifiedname>
+        <initializer>= <ref refid="namespacetle92466ed_1_1PERIOD_1a2d28e2824c23997ea4d84e28c88c0f38" kindref="member">kSpecMinFrequency_Hz</ref> / 8.0F</initializer>
+        <briefdescription>
+<para>13.75 Hz </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="708" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="708" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1PERIOD_1a767827431fd9d97030b14f3f7746324b" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float tle92466ed::PERIOD::kSpecLowRangeMaxFreq_Hz</definition>
+        <argsstring></argsstring>
+        <name>kSpecLowRangeMaxFreq_Hz</name>
+        <qualifiedname>tle92466ed::PERIOD::kSpecLowRangeMaxFreq_Hz</qualifiedname>
+        <initializer>= <ref refid="namespacetle92466ed_1_1PERIOD_1a5eb97902e948debef6a7515d11fe456a" kindref="member">kSpecMaxFrequency_Hz</ref> / 8.0F</initializer>
+        <briefdescription>
+<para>500 Hz </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="709" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="709" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1PERIOD_1a8d3c26fb778180c746fcb9a0ae24fc35" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float tle92466ed::PERIOD::kSpecLowRangeMinPeriod_us</definition>
+        <argsstring></argsstring>
+        <name>kSpecLowRangeMinPeriod_us</name>
+        <qualifiedname>tle92466ed::PERIOD::kSpecLowRangeMinPeriod_us</qualifiedname>
+        <initializer>=
+    1.0e6F / <ref refid="namespacetle92466ed_1_1PERIOD_1a767827431fd9d97030b14f3f7746324b" kindref="member">kSpecLowRangeMaxFreq_Hz</ref></initializer>
+        <briefdescription>
+<para>2000 µs </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="710" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="710" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1PERIOD_1afffed0beee96db0202facce6b822a1e0" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float tle92466ed::PERIOD::kSpecLowRangeMaxPeriod_us</definition>
+        <argsstring></argsstring>
+        <name>kSpecLowRangeMaxPeriod_us</name>
+        <qualifiedname>tle92466ed::PERIOD::kSpecLowRangeMaxPeriod_us</qualifiedname>
+        <initializer>=
+    1.0e6F / <ref refid="namespacetle92466ed_1_1PERIOD_1a0b8678422f2798b9dd6687c506555551" kindref="member">kSpecLowRangeMinFreq_Hz</ref></initializer>
+        <briefdescription>
+<para>72727 µs </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="712" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="712" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1PERIOD_1a8a78f49b6c1afb55512b52ef281693aa" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float tle92466ed::PERIOD::kSpecCombinedMinPeriod_us</definition>
+        <argsstring></argsstring>
+        <name>kSpecCombinedMinPeriod_us</name>
+        <qualifiedname>tle92466ed::PERIOD::kSpecCombinedMinPeriod_us</qualifiedname>
+        <initializer>= <ref refid="namespacetle92466ed_1_1PERIOD_1a202d165178bfb96cc013278f2c4effd8" kindref="member">kSpecMinPeriod_us</ref></initializer>
+        <briefdescription>
+<para>Combined min period across both ranges (250 µs). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="716" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="716" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1PERIOD_1ad32250f6190d145d9af511982529bd38" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float tle92466ed::PERIOD::kSpecCombinedMaxPeriod_us</definition>
+        <argsstring></argsstring>
+        <name>kSpecCombinedMaxPeriod_us</name>
+        <qualifiedname>tle92466ed::PERIOD::kSpecCombinedMaxPeriod_us</qualifiedname>
+        <initializer>= <ref refid="namespacetle92466ed_1_1PERIOD_1afffed0beee96db0202facce6b822a1e0" kindref="member">kSpecLowRangeMaxPeriod_us</ref></initializer>
+        <briefdescription>
+<para>Combined max period across both ranges (low-range 72.7 ms). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="718" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="718" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacetle92466ed_1_1PERIOD_1a5d2442ac87c2fd898bab99110afdc91a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtle92466ed_1_1PERIOD_1_1PeriodConfig" kindref="compound">PeriodConfig</ref></type>
+        <definition>PeriodConfig tle92466ed::PERIOD::CalculateFromPeriodUs</definition>
+        <argsstring>(float period_us) noexcept</argsstring>
+        <name>CalculateFromPeriodUs</name>
+        <qualifiedname>tle92466ed::PERIOD::CalculateFromPeriodUs</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>period_us</declname>
+        </param>
+        <briefdescription>
+<para>Calculate period configuration from desired period in microseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>period_us</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Desired PWM period in microseconds </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="structtle92466ed_1_1PERIOD_1_1PeriodConfig" kindref="compound">PeriodConfig</ref> structure, or invalid if period is out of range </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="754" column="22" bodyfile="inc/tle92466ed_registers.hpp" bodystart="754" bodyend="788"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1PERIOD_1a14413595d919a502cb94e1a008061cda" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::PERIOD::BuildRegisterValue</definition>
+        <argsstring>(const PeriodConfig &amp;config) noexcept</argsstring>
+        <name>BuildRegisterValue</name>
+        <qualifiedname>tle92466ed::PERIOD::BuildRegisterValue</qualifiedname>
+        <param>
+          <type>const <ref refid="structtle92466ed_1_1PERIOD_1_1PeriodConfig" kindref="compound">PeriodConfig</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Build <ref refid="namespacetle92466ed_1_1PERIOD" kindref="compound">PERIOD</ref> register value from configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Period configuration </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Register value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="795" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="795" bodyend="798"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespacetle92466ed_1_1PERIOD" kindref="compound">PERIOD</ref> register bit definitions and helper functions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>PWM period configuration for ICC mode.</para>
+<para><simplesect kind="par"><title>Bit Map:</title><para><verbatim>* Bit 11   : LOW_FREQ - Low frequency range (8x multiplier)
+* Bits 10-8: PERIOD_EXP - Period exponent (0-7)
+* Bits 7-0 : PERIOD_MANT - Period mantissa (0-255)
+* </verbatim></para>
+</simplesect>
+<bold>Formulas</bold>:<itemizedlist>
+<listitem><para>Standard: T_pwm = PERIOD_MANT × 2^PERIOD_EXP × (1/f_sys)</para>
+</listitem><listitem><para>Low Freq: T_pwm = PERIOD_MANT × 8 × 2^PERIOD_EXP × (1/f_sys)</para>
+</listitem><listitem><para>Where f_sys = 28 MHz (PLL-stabilized, see datasheet §4.2.1 Table 10 p.16), so 1/f_sys ≈ 35.714 ns (≈ 1/28 µs). </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="672" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="structtle92466ed_1_1SPIConfig" kind="struct" language="C++" prot="public">
+    <compoundname>tle92466ed::SPIConfig</compoundname>
+    <includes refid="tle92466ed__spi__interface_8hpp" local="no">tle92466ed_spi_interface.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtle92466ed_1_1SPIConfig_1ad079f04bb56f0411b3ade232e4faceba" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t tle92466ed::SPIConfig::frequency</definition>
+        <argsstring></argsstring>
+        <name>frequency</name>
+        <qualifiedname>tle92466ed::SPIConfig::frequency</qualifiedname>
+        <initializer>{1&apos;000&apos;000}</initializer>
+        <briefdescription>
+<para>SPI clock frequency in Hz (max 10 MHz for TLE92466ED) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="132" column="12" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="132" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1SPIConfig_1a641d1540074e45b2d5c51e40660da90f" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t tle92466ed::SPIConfig::mode</definition>
+        <argsstring></argsstring>
+        <name>mode</name>
+        <qualifiedname>tle92466ed::SPIConfig::mode</qualifiedname>
+        <initializer>{1}</initializer>
+        <briefdescription>
+<para>SPI mode (CPOL=0, CPHA=1 for TLE92466ED) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="133" column="11" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="133" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1SPIConfig_1acdf2341e4a255df0dcbda3182bb66ec7" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::SPIConfig::msb_first</definition>
+        <argsstring></argsstring>
+        <name>msb_first</name>
+        <qualifiedname>tle92466ed::SPIConfig::msb_first</qualifiedname>
+        <initializer>{true}</initializer>
+        <briefdescription>
+<para>MSB first transmission. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="134" column="8" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="134" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1SPIConfig_1afeb4a866b925db68fb05d4fa1cfa2815" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t tle92466ed::SPIConfig::timeout_ms</definition>
+        <argsstring></argsstring>
+        <name>timeout_ms</name>
+        <qualifiedname>tle92466ed::SPIConfig::timeout_ms</qualifiedname>
+        <initializer>{100}</initializer>
+        <briefdescription>
+<para>Transaction timeout in milliseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="135" column="12" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="135" bodyend="135"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>SPI transaction configuration. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Defines the configuration parameters for SPI communication. CPOL=0, CPHA=1 (SPI Mode 1) for TLE92466ED</para>
+<para>From TLE92466ED datasheet: &quot;The falling edge of CSN indicates the beginning of a data access.
+Data is sampled in on line SI at the falling edge of SCK and shifted out
+on line SO at the rising edge of SCK. Each
+access must be terminated by a rising edge of CSN.&quot; </para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_spi_interface.hpp" line="131" column="1" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="131" bodyend="136"/>
+    <listofallmembers>
+      <member refid="structtle92466ed_1_1SPIConfig_1ad079f04bb56f0411b3ade232e4faceba" prot="public" virt="non-virtual"><scope>tle92466ed::SPIConfig</scope><name>frequency</name></member>
+      <member refid="structtle92466ed_1_1SPIConfig_1a641d1540074e45b2d5c51e40660da90f" prot="public" virt="non-virtual"><scope>tle92466ed::SPIConfig</scope><name>mode</name></member>
+      <member refid="structtle92466ed_1_1SPIConfig_1acdf2341e4a255df0dcbda3182bb66ec7" prot="public" virt="non-virtual"><scope>tle92466ed::SPIConfig</scope><name>msb_first</name></member>
+      <member refid="structtle92466ed_1_1SPIConfig_1afeb4a866b925db68fb05d4fa1cfa2815" prot="public" virt="non-virtual"><scope>tle92466ed::SPIConfig</scope><name>timeout_ms</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

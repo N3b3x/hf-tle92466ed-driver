@@ -1,0 +1,239 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="structtle92466ed_1_1ChannelConfig" kind="struct" language="C++" prot="public">
+    <compoundname>tle92466ed::ChannelConfig</compoundname>
+    <includes refid="tle92466ed_8hpp" local="no">tle92466ed.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelConfig_1a2939c054f58c386082af866edf62d0d7" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacetle92466ed_1a4354ef9226739c1ea8a59eb36e95760c" kindref="member">ChannelMode</ref></type>
+        <definition>ChannelMode tle92466ed::ChannelConfig::mode</definition>
+        <argsstring></argsstring>
+        <name>mode</name>
+        <qualifiedname>tle92466ed::ChannelConfig::mode</qualifiedname>
+        <initializer>{<ref refid="namespacetle92466ed_1a4354ef9226739c1ea8a59eb36e95760cab6b8d73d401b7611fac37ab11898f598" kindref="member">ChannelMode::ICC</ref>}</initializer>
+        <briefdescription>
+<para>Channel operation mode. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="62" column="15" bodyfile="inc/tle92466ed.hpp" bodystart="62" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelConfig_1a7b2c513434fb9719009e394f71969f67" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t tle92466ed::ChannelConfig::current_setpoint_ma</definition>
+        <argsstring></argsstring>
+        <name>current_setpoint_ma</name>
+        <qualifiedname>tle92466ed::ChannelConfig::current_setpoint_ma</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>Current setpoint in mA (0-2000 or 0-4000) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="63" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="63" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelConfig_1aa75bfb4c1919661eb6fe2ed396837c65" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacetle92466ed_1ae03b3b5991ee6faf1e97fed34ef2b78d" kindref="member">SlewRate</ref></type>
+        <definition>SlewRate tle92466ed::ChannelConfig::slew_rate</definition>
+        <argsstring></argsstring>
+        <name>slew_rate</name>
+        <qualifiedname>tle92466ed::ChannelConfig::slew_rate</qualifiedname>
+        <initializer>{<ref refid="namespacetle92466ed_1ae03b3b5991ee6faf1e97fed34ef2b78dad03b5aab26bc0ac73e100adfd1572602" kindref="member">SlewRate::MEDIUM_2V5_US</ref>}</initializer>
+        <briefdescription>
+<para>Output slew rate. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="64" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="64" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelConfig_1ae6d8633829367e22a24f64b6d2aaee24" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacetle92466ed_1ac478d8027f99bfc8e6a985fb3b4b5e9d" kindref="member">DiagCurrent</ref></type>
+        <definition>DiagCurrent tle92466ed::ChannelConfig::diag_current</definition>
+        <argsstring></argsstring>
+        <name>diag_current</name>
+        <qualifiedname>tle92466ed::ChannelConfig::diag_current</qualifiedname>
+        <initializer>{<ref refid="namespacetle92466ed_1ac478d8027f99bfc8e6a985fb3b4b5e9dabf8a2e7e31b6227326246d4e841a0af1" kindref="member">DiagCurrent::I_80UA</ref>}</initializer>
+        <briefdescription>
+<para>OFF-state diagnostic current. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="65" column="15" bodyfile="inc/tle92466ed.hpp" bodystart="65" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelConfig_1a87f7bfbad88755a0c78ea08345eaeb10" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t tle92466ed::ChannelConfig::open_load_threshold</definition>
+        <argsstring></argsstring>
+        <name>open_load_threshold</name>
+        <qualifiedname>tle92466ed::ChannelConfig::open_load_threshold</qualifiedname>
+        <initializer>{3}</initializer>
+        <briefdescription>
+<para>OL threshold (0=disabled, 1-7 = 1/8 to 7/8) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="66" column="11" bodyfile="inc/tle92466ed.hpp" bodystart="66" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelConfig_1a7c9a0e39f54763a3ffb926a6fb9189fe" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t tle92466ed::ChannelConfig::pwm_period_mantissa</definition>
+        <argsstring></argsstring>
+        <name>pwm_period_mantissa</name>
+        <qualifiedname>tle92466ed::ChannelConfig::pwm_period_mantissa</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>PWM period mantissa. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="67" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="67" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelConfig_1ae27ee46252295dbc1272f695c8074a12" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t tle92466ed::ChannelConfig::pwm_period_exponent</definition>
+        <argsstring></argsstring>
+        <name>pwm_period_exponent</name>
+        <qualifiedname>tle92466ed::ChannelConfig::pwm_period_exponent</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>PWM period exponent. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="68" column="11" bodyfile="inc/tle92466ed.hpp" bodystart="68" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelConfig_1a5f96dca09375a0488479f1ff7610a5c8" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::ChannelConfig::auto_limit_disabled</definition>
+        <argsstring></argsstring>
+        <name>auto_limit_disabled</name>
+        <qualifiedname>tle92466ed::ChannelConfig::auto_limit_disabled</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Disable auto-limit feature. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="69" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="69" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelConfig_1abb7e956bfc48868d79181f227896241a" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::ChannelConfig::olsg_warning_enabled</definition>
+        <argsstring></argsstring>
+        <name>olsg_warning_enabled</name>
+        <qualifiedname>tle92466ed::ChannelConfig::olsg_warning_enabled</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Enable OLSG warning. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="70" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="70" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelConfig_1abcf20f9f10c92540cce5e506d2e671ea" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::ChannelConfig::deep_dither_enabled</definition>
+        <argsstring></argsstring>
+        <name>deep_dither_enabled</name>
+        <qualifiedname>tle92466ed::ChannelConfig::deep_dither_enabled</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Enable deep dither. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="71" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="71" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelConfig_1abe9757f70f407163c930ebdc1e4161f7" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t tle92466ed::ChannelConfig::dither_step_size</definition>
+        <argsstring></argsstring>
+        <name>dither_step_size</name>
+        <qualifiedname>tle92466ed::ChannelConfig::dither_step_size</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>Dither amplitude step size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="72" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="72" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelConfig_1abdf47c355b3b1504ff75da6f6dffc96c" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t tle92466ed::ChannelConfig::dither_steps</definition>
+        <argsstring></argsstring>
+        <name>dither_steps</name>
+        <qualifiedname>tle92466ed::ChannelConfig::dither_steps</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>Number of dither steps. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="73" column="11" bodyfile="inc/tle92466ed.hpp" bodystart="73" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelConfig_1a72303925f471090d675b07e5f70ac7e2" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t tle92466ed::ChannelConfig::dither_flat</definition>
+        <argsstring></argsstring>
+        <name>dither_flat</name>
+        <qualifiedname>tle92466ed::ChannelConfig::dither_flat</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>Flat period steps. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="74" column="11" bodyfile="inc/tle92466ed.hpp" bodystart="74" bodyend="74"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Channel configuration structure. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Contains all configurable parameters for an output channel. </para>
+    </detaileddescription>
+    <location file="inc/tle92466ed.hpp" line="61" column="1" bodyfile="inc/tle92466ed.hpp" bodystart="61" bodyend="75"/>
+    <listofallmembers>
+      <member refid="structtle92466ed_1_1ChannelConfig_1a5f96dca09375a0488479f1ff7610a5c8" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelConfig</scope><name>auto_limit_disabled</name></member>
+      <member refid="structtle92466ed_1_1ChannelConfig_1a7b2c513434fb9719009e394f71969f67" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelConfig</scope><name>current_setpoint_ma</name></member>
+      <member refid="structtle92466ed_1_1ChannelConfig_1abcf20f9f10c92540cce5e506d2e671ea" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelConfig</scope><name>deep_dither_enabled</name></member>
+      <member refid="structtle92466ed_1_1ChannelConfig_1ae6d8633829367e22a24f64b6d2aaee24" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelConfig</scope><name>diag_current</name></member>
+      <member refid="structtle92466ed_1_1ChannelConfig_1a72303925f471090d675b07e5f70ac7e2" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelConfig</scope><name>dither_flat</name></member>
+      <member refid="structtle92466ed_1_1ChannelConfig_1abe9757f70f407163c930ebdc1e4161f7" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelConfig</scope><name>dither_step_size</name></member>
+      <member refid="structtle92466ed_1_1ChannelConfig_1abdf47c355b3b1504ff75da6f6dffc96c" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelConfig</scope><name>dither_steps</name></member>
+      <member refid="structtle92466ed_1_1ChannelConfig_1a2939c054f58c386082af866edf62d0d7" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelConfig</scope><name>mode</name></member>
+      <member refid="structtle92466ed_1_1ChannelConfig_1abb7e956bfc48868d79181f227896241a" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelConfig</scope><name>olsg_warning_enabled</name></member>
+      <member refid="structtle92466ed_1_1ChannelConfig_1a87f7bfbad88755a0c78ea08345eaeb10" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelConfig</scope><name>open_load_threshold</name></member>
+      <member refid="structtle92466ed_1_1ChannelConfig_1ae27ee46252295dbc1272f695c8074a12" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelConfig</scope><name>pwm_period_exponent</name></member>
+      <member refid="structtle92466ed_1_1ChannelConfig_1a7c9a0e39f54763a3ffb926a6fb9189fe" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelConfig</scope><name>pwm_period_mantissa</name></member>
+      <member refid="structtle92466ed_1_1ChannelConfig_1aa75bfb4c1919661eb6fe2ed396837c65" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelConfig</scope><name>slew_rate</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

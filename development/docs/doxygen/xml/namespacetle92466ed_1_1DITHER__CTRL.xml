@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1DITHER__CTRL" kind="namespace" language="C++">
+    <compoundname>tle92466ed::DITHER_CTRL</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER__CTRL_1a333e276ae515f6b28e16a3ace67c42c5" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::DITHER_CTRL::STEP_SIZE_MASK</definition>
+        <argsstring></argsstring>
+        <name>STEP_SIZE_MASK</name>
+        <qualifiedname>tle92466ed::DITHER_CTRL::STEP_SIZE_MASK</qualifiedname>
+        <initializer>= 0x0FFF</initializer>
+        <briefdescription>
+<para>Step size mask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1169" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER__CTRL_1a223d523acbbd61abaaefa8e52137f715" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::DITHER_CTRL::DEEP_DITHER</definition>
+        <argsstring></argsstring>
+        <name>DEEP_DITHER</name>
+        <qualifiedname>tle92466ed::DITHER_CTRL::DEEP_DITHER</qualifiedname>
+        <initializer>= (1 &lt;&lt; 13)</initializer>
+        <briefdescription>
+<para>Deep dither enable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1170" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER__CTRL_1a12d2efd615abf3917f4f4e6fb9b14562" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::DITHER_CTRL::FAST_MEAS_DITH</definition>
+        <argsstring></argsstring>
+        <name>FAST_MEAS_DITH</name>
+        <qualifiedname>tle92466ed::DITHER_CTRL::FAST_MEAS_DITH</qualifiedname>
+        <initializer>= (0 &lt;&lt; 14)</initializer>
+        <briefdescription>
+<para>Dither period. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1171" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER__CTRL_1a9e55be1ada548d1cf918f7a6724c45e6" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::DITHER_CTRL::FAST_MEAS_HALF</definition>
+        <argsstring></argsstring>
+        <name>FAST_MEAS_HALF</name>
+        <qualifiedname>tle92466ed::DITHER_CTRL::FAST_MEAS_HALF</qualifiedname>
+        <initializer>= (1 &lt;&lt; 14)</initializer>
+        <briefdescription>
+<para>Half dither period. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1172" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER__CTRL_1aedc4ce2daf046bc7cb2448de02206077" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::DITHER_CTRL::FAST_MEAS_QUAD</definition>
+        <argsstring></argsstring>
+        <name>FAST_MEAS_QUAD</name>
+        <qualifiedname>tle92466ed::DITHER_CTRL::FAST_MEAS_QUAD</qualifiedname>
+        <initializer>= (2 &lt;&lt; 14)</initializer>
+        <briefdescription>
+<para>Quarter dither period. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1173" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER__CTRL_1a68601978d6a97311666cdb276e8a8439" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::DITHER_CTRL::FAST_MEAS_MASK</definition>
+        <argsstring></argsstring>
+        <name>FAST_MEAS_MASK</name>
+        <qualifiedname>tle92466ed::DITHER_CTRL::FAST_MEAS_MASK</qualifiedname>
+        <initializer>= 0xC000</initializer>
+        <briefdescription>
+<para>Fast meas mask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1174" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER__CTRL_1ac4b0a9faeb699116385b849487679a41" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::DITHER_CTRL::DEFAULT</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT</name>
+        <qualifiedname>tle92466ed::DITHER_CTRL::DEFAULT</qualifiedname>
+        <initializer>= 0x0000</initializer>
+        <briefdescription>
+<para>Default value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1176" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1176" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespacetle92466ed_1_1DITHER__CTRL" kindref="compound">DITHER_CTRL</ref> register bit definitions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="par"><title>Bit Map:</title><para><verbatim>* Bits 15-14: FAST_MEAS   - Fast measurement period
+* Bit 13    : DEEP_DITHER - Deep dither feature
+* Bits 11-0 : STEP_SIZE   - Dither step size
+* </verbatim> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="1168" column="1"/>
+  </compounddef>
+</doxygen>

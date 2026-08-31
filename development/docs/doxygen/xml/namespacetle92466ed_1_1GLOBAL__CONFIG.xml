@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1GLOBAL__CONFIG" kind="namespace" language="C++">
+    <compoundname>tle92466ed::GLOBAL_CONFIG</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__CONFIG_1a9f85c5ae7aaf6dd67ca06b9c65a9eea9" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_CONFIG::CLK_WD_EN</definition>
+        <argsstring></argsstring>
+        <name>CLK_WD_EN</name>
+        <qualifiedname>tle92466ed::GLOBAL_CONFIG::CLK_WD_EN</qualifiedname>
+        <initializer>= (1 &lt;&lt; 0)</initializer>
+        <briefdescription>
+<para>Clock watchdog enable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="259" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="259" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__CONFIG_1af66a7dee653e4e50efa94065d007dfc8" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_CONFIG::SPI_WD_EN</definition>
+        <argsstring></argsstring>
+        <name>SPI_WD_EN</name>
+        <qualifiedname>tle92466ed::GLOBAL_CONFIG::SPI_WD_EN</qualifiedname>
+        <initializer>= (1 &lt;&lt; 1)</initializer>
+        <briefdescription>
+<para>SPI watchdog enable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="260" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="260" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__CONFIG_1aafe4071ebd8a51e4c0eaad5e3ae22520" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_CONFIG::CRC_EN</definition>
+        <argsstring></argsstring>
+        <name>CRC_EN</name>
+        <qualifiedname>tle92466ed::GLOBAL_CONFIG::CRC_EN</qualifiedname>
+        <initializer>= (1 &lt;&lt; 2)</initializer>
+        <briefdescription>
+<para>CRC check enable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="261" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="261" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__CONFIG_1aa3865108a83ebf179ba0b79f170d0fbf" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_CONFIG::V1V5_UV_TEST</definition>
+        <argsstring></argsstring>
+        <name>V1V5_UV_TEST</name>
+        <qualifiedname>tle92466ed::GLOBAL_CONFIG::V1V5_UV_TEST</qualifiedname>
+        <initializer>= (1 &lt;&lt; 4)</initializer>
+        <briefdescription>
+<para>1.5V UV test </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="262" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="262" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__CONFIG_1a56af825bd9aa58730602f788941b9f05" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_CONFIG::V1V5_OV_TEST</definition>
+        <argsstring></argsstring>
+        <name>V1V5_OV_TEST</name>
+        <qualifiedname>tle92466ed::GLOBAL_CONFIG::V1V5_OV_TEST</qualifiedname>
+        <initializer>= (1 &lt;&lt; 5)</initializer>
+        <briefdescription>
+<para>1.5V OV test </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="263" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="263" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__CONFIG_1ab5cff77fdebc80e9c2ea929b80512703" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_CONFIG::OT_TEST</definition>
+        <argsstring></argsstring>
+        <name>OT_TEST</name>
+        <qualifiedname>tle92466ed::GLOBAL_CONFIG::OT_TEST</qualifiedname>
+        <initializer>= (1 &lt;&lt; 12)</initializer>
+        <briefdescription>
+<para>Over-temp test. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="264" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="264" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__CONFIG_1ac2289675b5c32868ba5b286b5585ab13" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_CONFIG::UV_OV_SWAP</definition>
+        <argsstring></argsstring>
+        <name>UV_OV_SWAP</name>
+        <qualifiedname>tle92466ed::GLOBAL_CONFIG::UV_OV_SWAP</qualifiedname>
+        <initializer>= (1 &lt;&lt; 13)</initializer>
+        <briefdescription>
+<para>UV/OV swap test. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="265" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="265" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__CONFIG_1a4aec2e49c545fe93f70d5ee9bc4baa38" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_CONFIG::VIO_SEL</definition>
+        <argsstring></argsstring>
+        <name>VIO_SEL</name>
+        <qualifiedname>tle92466ed::GLOBAL_CONFIG::VIO_SEL</qualifiedname>
+        <initializer>= (1 &lt;&lt; 14)</initializer>
+        <briefdescription>
+<para>VIO select (0=3.3V, 1=5V) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="266" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="266" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__CONFIG_1a5f3ba024e11a478276228c6eb7fccd8a" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_CONFIG::DEFAULT</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT</name>
+        <qualifiedname>tle92466ed::GLOBAL_CONFIG::DEFAULT</qualifiedname>
+        <initializer>= 0x4005</initializer>
+        <briefdescription>
+<para>Default value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="268" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="268" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespacetle92466ed_1_1GLOBAL__CONFIG" kindref="compound">GLOBAL_CONFIG</ref> register bit definitions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Global configuration register (write only in Config Mode).</para>
+<para><simplesect kind="par"><title>Bit Map:</title><para><verbatim>* Bit 14  : VIO_SEL        - VIO voltage selection (0=3.3V, 1=5.0V)
+* Bit 13  : UV_OV_SWAP     - UV/OV swap test
+* Bit 12  : OT_TEST        - Over-temperature test
+* Bit 5   : V1V5_OV_TEST   - 1.5V overvoltage test
+* Bit 4   : V1V5_UV_TEST   - 1.5V undervoltage test
+* Bit 2   : CRC_EN         - CRC check enable
+* Bit 1   : SPI_WD_EN      - SPI watchdog enable
+* Bit 0   : CLK_WD_EN      - Clock watchdog enable
+* </verbatim></para>
+</simplesect>
+Default: 0x4005 </para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="258" column="1"/>
+  </compounddef>
+</doxygen>

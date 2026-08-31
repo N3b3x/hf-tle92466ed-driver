@@ -1,0 +1,302 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1ChannelReg" kind="namespace" language="C++">
+    <compoundname>tle92466ed::ChannelReg</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1ChannelReg_1abbdec09f36053037b181f579671c5cdf" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::ChannelReg::SETPOINT</definition>
+        <argsstring></argsstring>
+        <name>SETPOINT</name>
+        <qualifiedname>tle92466ed::ChannelReg::SETPOINT</qualifiedname>
+        <initializer>= 0x0000</initializer>
+        <briefdescription>
+<para>Current Setpoint Register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="155" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1ChannelReg_1aefc3aebba864e47cd81a27d8a3026185" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::ChannelReg::CTRL</definition>
+        <argsstring></argsstring>
+        <name>CTRL</name>
+        <qualifiedname>tle92466ed::ChannelReg::CTRL</qualifiedname>
+        <initializer>= 0x0001</initializer>
+        <briefdescription>
+<para>Control Register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="156" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1ChannelReg_1a62ce51a241fd5c365f1cf0efd5cb1928" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::ChannelReg::PERIOD</definition>
+        <argsstring></argsstring>
+        <name>PERIOD</name>
+        <qualifiedname>tle92466ed::ChannelReg::PERIOD</qualifiedname>
+        <initializer>= 0x0002</initializer>
+        <briefdescription>
+<para>ICC PWM Frequency Controller. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="157" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1ChannelReg_1a339b9d5b25c2d0d92d43454f8a0c6c76" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::ChannelReg::INTEGRATOR_LIMIT</definition>
+        <argsstring></argsstring>
+        <name>INTEGRATOR_LIMIT</name>
+        <qualifiedname>tle92466ed::ChannelReg::INTEGRATOR_LIMIT</qualifiedname>
+        <initializer>= 0x0003</initializer>
+        <briefdescription>
+<para>ICC Integrator Limitation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="158" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1ChannelReg_1ac091e8a9a968247a7b20c7515a302ccb" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::ChannelReg::DITHER_CLK_DIV</definition>
+        <argsstring></argsstring>
+        <name>DITHER_CLK_DIV</name>
+        <qualifiedname>tle92466ed::ChannelReg::DITHER_CLK_DIV</qualifiedname>
+        <initializer>= 0x0004</initializer>
+        <briefdescription>
+<para>Dither Clock Register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="159" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="159" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1ChannelReg_1a330c46bcc423f4b55f9511446f2b764a" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::ChannelReg::DITHER_STEP</definition>
+        <argsstring></argsstring>
+        <name>DITHER_STEP</name>
+        <qualifiedname>tle92466ed::ChannelReg::DITHER_STEP</qualifiedname>
+        <initializer>= 0x0005</initializer>
+        <briefdescription>
+<para>Dither Step Register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="160" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1ChannelReg_1a515f426b93b3cdfcfbc03180b04e9b86" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::ChannelReg::DITHER_CTRL</definition>
+        <argsstring></argsstring>
+        <name>DITHER_CTRL</name>
+        <qualifiedname>tle92466ed::ChannelReg::DITHER_CTRL</qualifiedname>
+        <initializer>= 0x0006</initializer>
+        <briefdescription>
+<para>Dither Control Register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="161" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1ChannelReg_1a66c5a447a6b3d351b2cee1fc5cb1edeb" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::ChannelReg::CH_CONFIG</definition>
+        <argsstring></argsstring>
+        <name>CH_CONFIG</name>
+        <qualifiedname>tle92466ed::ChannelReg::CH_CONFIG</qualifiedname>
+        <initializer>= 0x0007</initializer>
+        <briefdescription>
+<para>Channel Configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="162" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1ChannelReg_1af3f64d829458a25feac1f85de989813d" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::ChannelReg::MODE</definition>
+        <argsstring></argsstring>
+        <name>MODE</name>
+        <qualifiedname>tle92466ed::ChannelReg::MODE</qualifiedname>
+        <initializer>= 0x000C</initializer>
+        <briefdescription>
+<para>Channel Mode Register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="163" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1ChannelReg_1ab5855a061885c7e8f740c4ffabd49ca6" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::ChannelReg::TON</definition>
+        <argsstring></argsstring>
+        <name>TON</name>
+        <qualifiedname>tle92466ed::ChannelReg::TON</qualifiedname>
+        <initializer>= 0x000D</initializer>
+        <briefdescription>
+<para>On-Time Register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="164" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1ChannelReg_1a7ceff049371743b9e2671d9ff826e77e" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::ChannelReg::CTRL_INT_THRESH</definition>
+        <argsstring></argsstring>
+        <name>CTRL_INT_THRESH</name>
+        <qualifiedname>tle92466ed::ChannelReg::CTRL_INT_THRESH</qualifiedname>
+        <initializer>= 0x000E</initializer>
+        <briefdescription>
+<para>ICC Integrator Threshold. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="165" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1ChannelReg_1aa0aa7093ffec7ca9881c94fca713fd71" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::ChannelReg::FB_DC</definition>
+        <argsstring></argsstring>
+        <name>FB_DC</name>
+        <qualifiedname>tle92466ed::ChannelReg::FB_DC</qualifiedname>
+        <initializer>= 0x0200</initializer>
+        <briefdescription>
+<para>Feedback Duty Cycle. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="166" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1ChannelReg_1a55b2a76ecccf74e2f60fd26a95486812" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::ChannelReg::FB_VBAT</definition>
+        <argsstring></argsstring>
+        <name>FB_VBAT</name>
+        <qualifiedname>tle92466ed::ChannelReg::FB_VBAT</qualifiedname>
+        <initializer>= 0x0201</initializer>
+        <briefdescription>
+<para>Feedback Average VBAT. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="167" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1ChannelReg_1abe9227084ac4510a634fb84747c225b2" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::ChannelReg::FB_I_AVG</definition>
+        <argsstring></argsstring>
+        <name>FB_I_AVG</name>
+        <qualifiedname>tle92466ed::ChannelReg::FB_I_AVG</qualifiedname>
+        <initializer>= 0x0202</initializer>
+        <briefdescription>
+<para>Feedback Average Current. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="168" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1ChannelReg_1a268314fe1df66390c9a20a79630a1b8e" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::ChannelReg::FB_IMIN_IMAX</definition>
+        <argsstring></argsstring>
+        <name>FB_IMIN_IMAX</name>
+        <qualifiedname>tle92466ed::ChannelReg::FB_IMIN_IMAX</qualifiedname>
+        <initializer>= 0x0203</initializer>
+        <briefdescription>
+<para>Feedback Min/Max Current. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="169" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1ChannelReg_1a018f587a57299d044d7e2badfa9caafc" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::ChannelReg::FB_I_AVG_s16</definition>
+        <argsstring></argsstring>
+        <name>FB_I_AVG_s16</name>
+        <qualifiedname>tle92466ed::ChannelReg::FB_I_AVG_s16</qualifiedname>
+        <initializer>= 0x0204</initializer>
+        <briefdescription>
+<para>Feedback signed Current (16-bit) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="170" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1ChannelReg_1af2275dc73afa24e0c50a5cb3df9512a9" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::ChannelReg::FB_INT_THRESH</definition>
+        <argsstring></argsstring>
+        <name>FB_INT_THRESH</name>
+        <qualifiedname>tle92466ed::ChannelReg::FB_INT_THRESH</qualifiedname>
+        <initializer>= 0x0205</initializer>
+        <briefdescription>
+<para>Feedback ICC Integrator Threshold. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="171" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1ChannelReg_1aeb47051701a51b51e4dba69440f2d976" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::ChannelReg::FB_PERIOD_MIN_MAX</definition>
+        <argsstring></argsstring>
+        <name>FB_PERIOD_MIN_MAX</name>
+        <qualifiedname>tle92466ed::ChannelReg::FB_PERIOD_MIN_MAX</qualifiedname>
+        <initializer>= 0x0206</initializer>
+        <briefdescription>
+<para>Feedback Min/Max PWM Period. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="172" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="172" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Per-channel register offsets (add to channel base address) </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="154" column="1"/>
+  </compounddef>
+</doxygen>

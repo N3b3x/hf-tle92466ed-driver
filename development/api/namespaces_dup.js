@@ -16,6 +16,8 @@ var namespaces_dup =
       [ "kStepDwell_ms", "namespacecfg.html#abf7df546d184c8d6778fab1683e968e0", null ],
       [ "kTelemetryPeriod_ms", "namespacecfg.html#ae6874d737cfb7e9425a7b2684a757f70", null ]
     ] ],
+    [ "tle", "namespacetle.html", "namespacetle" ],
+    [ "tle92466ed", "namespacetle92466ed.html", "namespacetle92466ed" ],
     [ "TLE92466ED_TestConfig", "namespaceTLE92466ED__TestConfig.html", "namespaceTLE92466ED__TestConfig" ],
     [ "track", "namespacetrack.html", [
       [ "kBandPercent", "namespacetrack.html#a62ace4dd20a39887a31c2988c9f40c16", null ],

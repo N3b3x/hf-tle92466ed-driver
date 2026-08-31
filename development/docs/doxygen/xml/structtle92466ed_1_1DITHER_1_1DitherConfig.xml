@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="structtle92466ed_1_1DITHER_1_1DitherConfig" kind="struct" language="C++" prot="public">
+    <compoundname>tle92466ed::DITHER::DitherConfig</compoundname>
+    <includes refid="tle92466ed__registers_8hpp" local="no">tle92466ed_registers.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtle92466ed_1_1DITHER_1_1DitherConfig_1ae94e19e3ddd4038153f8fac985b2e91e" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t tle92466ed::DITHER::DitherConfig::step_size</definition>
+        <argsstring></argsstring>
+        <name>step_size</name>
+        <qualifiedname>tle92466ed::DITHER::DitherConfig::step_size</qualifiedname>
+        <briefdescription>
+<para>Dither step size (0-4095) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1330" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1330" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1DITHER_1_1DitherConfig_1aa03ae82b94696313f9635bd2fdbed9c7" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t tle92466ed::DITHER::DitherConfig::num_steps</definition>
+        <argsstring></argsstring>
+        <name>num_steps</name>
+        <qualifiedname>tle92466ed::DITHER::DitherConfig::num_steps</qualifiedname>
+        <briefdescription>
+<para>Number of steps in quarter period (0-255) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1331" column="11" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1331" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1DITHER_1_1DitherConfig_1a605229f9af2a0527aa8e19e12e123c12" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t tle92466ed::DITHER::DitherConfig::flat_steps</definition>
+        <argsstring></argsstring>
+        <name>flat_steps</name>
+        <qualifiedname>tle92466ed::DITHER::DitherConfig::flat_steps</qualifiedname>
+        <briefdescription>
+<para>Flat period steps at top/bottom (0-255) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1332" column="11" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1332" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structtle92466ed_1_1DITHER_1_1DitherConfig_1a89e67b6e8fb997dabba748a732b5370c" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>constexpr float</type>
+        <definition>constexpr float tle92466ed::DITHER::DitherConfig::CalculateAmplitudeMa</definition>
+        <argsstring>(bool parallel_mode=false) const noexcept</argsstring>
+        <name>CalculateAmplitudeMa</name>
+        <qualifiedname>tle92466ed::DITHER::DitherConfig::CalculateAmplitudeMa</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>parallel_mode</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Calculate dither amplitude in mA. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>parallel_mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true if channel is in parallel mode </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Dither amplitude in milliamperes </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1339" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1339" bodyend="1345"/>
+      </memberdef>
+      <memberdef kind="function" id="structtle92466ed_1_1DITHER_1_1DitherConfig_1aca193fe202148c797393d5cf40fde116" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>constexpr float</type>
+        <definition>constexpr float tle92466ed::DITHER::DitherConfig::CalculatePeriodUs</definition>
+        <argsstring>(float t_ref_clk_us=DEFAULT_T_REF_CLK_US) const noexcept</argsstring>
+        <name>CalculatePeriodUs</name>
+        <qualifiedname>tle92466ed::DITHER::DitherConfig::CalculatePeriodUs</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>t_ref_clk_us</declname>
+          <defval><ref refid="namespacetle92466ed_1_1DITHER_1a1885577a7252f1053c51da9ff288773f" kindref="member">DEFAULT_T_REF_CLK_US</ref></defval>
+        </param>
+        <briefdescription>
+<para>Calculate dither period in microseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t_ref_clk_us</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reference clock period in microseconds (default: 0.125 µs) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Dither period in microseconds </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1352" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1352" bodyend="1356"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Dither configuration structure. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="1329" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1329" bodyend="1357"/>
+    <listofallmembers>
+      <member refid="structtle92466ed_1_1DITHER_1_1DitherConfig_1a89e67b6e8fb997dabba748a732b5370c" prot="public" virt="non-virtual"><scope>tle92466ed::DITHER::DitherConfig</scope><name>CalculateAmplitudeMa</name></member>
+      <member refid="structtle92466ed_1_1DITHER_1_1DitherConfig_1aca193fe202148c797393d5cf40fde116" prot="public" virt="non-virtual"><scope>tle92466ed::DITHER::DitherConfig</scope><name>CalculatePeriodUs</name></member>
+      <member refid="structtle92466ed_1_1DITHER_1_1DitherConfig_1a605229f9af2a0527aa8e19e12e123c12" prot="public" virt="non-virtual"><scope>tle92466ed::DITHER::DitherConfig</scope><name>flat_steps</name></member>
+      <member refid="structtle92466ed_1_1DITHER_1_1DitherConfig_1aa03ae82b94696313f9635bd2fdbed9c7" prot="public" virt="non-virtual"><scope>tle92466ed::DITHER::DitherConfig</scope><name>num_steps</name></member>
+      <member refid="structtle92466ed_1_1DITHER_1_1DitherConfig_1ae94e19e3ddd4038153f8fac985b2e91e" prot="public" virt="non-virtual"><scope>tle92466ed::DITHER::DitherConfig</scope><name>step_size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

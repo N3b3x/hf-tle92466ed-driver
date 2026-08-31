@@ -1,0 +1,498 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="uniontle92466ed_1_1SPIFrame" kind="union" language="C++" prot="public">
+    <compoundname>tle92466ed::SPIFrame</compoundname>
+    <includes refid="tle92466ed__spi__interface_8hpp" local="no">tle92466ed_spi_interface.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="uniontle92466ed_1_1SPIFrame_1adc1289f427ff9416cbbc2831ed166b7a" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t tle92466ed::SPIFrame::word</definition>
+        <argsstring></argsstring>
+        <name>word</name>
+        <qualifiedname>tle92466ed::SPIFrame::word</qualifiedname>
+        <briefdescription>
+<para>Complete 32-bit frame. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="201" column="12" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="201" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="uniontle92466ed_1_1SPIFrame_1a115b217a35657afadb256c7a0e2d77b1" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t tle92466ed::SPIFrame::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <qualifiedname>tle92466ed::SPIFrame::data</qualifiedname>
+        <bitfield> 16</bitfield>
+        <briefdescription>
+<para>Data field [15:0]. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>22-bit data [21:0] </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="205" column="14" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="205" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="uniontle92466ed_1_1SPIFrame_1ac5ff7ca3d05c579224f041f78807dd39" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t tle92466ed::SPIFrame::rw</definition>
+        <argsstring></argsstring>
+        <name>rw</name>
+        <qualifiedname>tle92466ed::SPIFrame::rw</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+<para>Read/Write bit [16] (1=Write, 0=Read) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="206" column="14" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="206" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="uniontle92466ed_1_1SPIFrame_1a35c3a46f07634e2b5b12692e8f9298b8" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t tle92466ed::SPIFrame::address</definition>
+        <argsstring></argsstring>
+        <name>address</name>
+        <qualifiedname>tle92466ed::SPIFrame::address</qualifiedname>
+        <bitfield> 7</bitfield>
+        <briefdescription>
+<para>Register address [23:17]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="207" column="14" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="207" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="uniontle92466ed_1_1SPIFrame_1a2ac8d6092d1bf23b1f892e177f1ed769" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t tle92466ed::SPIFrame::crc</definition>
+        <argsstring></argsstring>
+        <name>crc</name>
+        <qualifiedname>tle92466ed::SPIFrame::crc</qualifiedname>
+        <bitfield> 8</bitfield>
+        <briefdescription>
+<para>CRC-8 SAE J1850 [31:24]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="208" column="14" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="208" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="uniontle92466ed_1_1SPIFrame_1a725fd5d3491ccd0120b22f9357b767bb" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="uniontle92466ed_1_1SPIFrame" kindref="compound">tle92466ed::SPIFrame</ref></type>
+        <definition>struct tle92466ed::SPIFrame tle92466ed::SPIFrame::tx_fields</definition>
+        <argsstring></argsstring>
+        <name>tx_fields</name>
+        <qualifiedname>tle92466ed::SPIFrame::tx_fields</qualifiedname>
+        <briefdescription>
+<para>MOSI (Transmit) frame structure. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="209" column="13"/>
+      </memberdef>
+      <memberdef kind="variable" id="uniontle92466ed_1_1SPIFrame_1ab3681800e8c3bf636598f4ebafe9bbcd" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t tle92466ed::SPIFrame::_data_low</definition>
+        <argsstring></argsstring>
+        <name>_data_low</name>
+        <qualifiedname>tle92466ed::SPIFrame::_data_low</qualifiedname>
+        <bitfield> 16</bitfield>
+        <briefdescription>
+<para>Lower data bits [15:0] (interpretation depends on reply mode) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="213" column="14" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="213" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="uniontle92466ed_1_1SPIFrame_1a06fad1273b6669645eda92782c4c9797" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t tle92466ed::SPIFrame::_field_16</definition>
+        <argsstring></argsstring>
+        <name>_field_16</name>
+        <qualifiedname>tle92466ed::SPIFrame::_field_16</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+<para>Field at bit 16 (interpretation depends on reply mode) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="214" column="14" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="214" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="uniontle92466ed_1_1SPIFrame_1ac9087a50d92ba9f71cd2d409c5be5dc7" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t tle92466ed::SPIFrame::_field_17_21</definition>
+        <argsstring></argsstring>
+        <name>_field_17_21</name>
+        <qualifiedname>tle92466ed::SPIFrame::_field_17_21</qualifiedname>
+        <bitfield> 5</bitfield>
+        <briefdescription>
+<para>Fields at bits 21:17 (interpretation depends on reply mode) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="215" column="14" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="215" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="uniontle92466ed_1_1SPIFrame_1a35e47b9b98ad1b21fdb3238de04ba6da" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t tle92466ed::SPIFrame::reply_mode</definition>
+        <argsstring></argsstring>
+        <name>reply_mode</name>
+        <qualifiedname>tle92466ed::SPIFrame::reply_mode</qualifiedname>
+        <bitfield> 2</bitfield>
+        <briefdescription>
+<para>Reply mode [23:22] - determines frame type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Reply mode [23:22] = 10B.</para>
+<para>Reply mode [23:22] = 01B.</para>
+<para>Reply mode [23:22] = 00B. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="216" column="14" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="216" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="uniontle92466ed_1_1SPIFrame_1a0cabc0548dbc9536e1030ae76e65bfae" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="uniontle92466ed_1_1SPIFrame" kindref="compound">tle92466ed::SPIFrame</ref></type>
+        <definition>struct tle92466ed::SPIFrame tle92466ed::SPIFrame::rx_common</definition>
+        <argsstring></argsstring>
+        <name>rx_common</name>
+        <qualifiedname>tle92466ed::SPIFrame::rx_common</qualifiedname>
+        <briefdescription>
+<para>MISO (Receive) frame structure - common fields. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="218" column="13"/>
+      </memberdef>
+      <memberdef kind="variable" id="uniontle92466ed_1_1SPIFrame_1a6f210670a4936ff0d7b0d20dca1f26be" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t tle92466ed::SPIFrame::rw_echo</definition>
+        <argsstring></argsstring>
+        <name>rw_echo</name>
+        <qualifiedname>tle92466ed::SPIFrame::rw_echo</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+<para>R/W bit echoed [16]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="223" column="14" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="223" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="uniontle92466ed_1_1SPIFrame_1accf7056933484218fa5a7260822e0ed5" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t tle92466ed::SPIFrame::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <qualifiedname>tle92466ed::SPIFrame::status</qualifiedname>
+        <bitfield> 5</bitfield>
+        <briefdescription>
+<para>Status bits [21:17]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="224" column="14" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="224" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="uniontle92466ed_1_1SPIFrame_1abba229d3f6ad6ba601a619cbd7c37dfe" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="uniontle92466ed_1_1SPIFrame" kindref="compound">tle92466ed::SPIFrame</ref></type>
+        <definition>struct tle92466ed::SPIFrame tle92466ed::SPIFrame::rx_16bit</definition>
+        <argsstring></argsstring>
+        <name>rx_16bit</name>
+        <qualifiedname>tle92466ed::SPIFrame::rx_16bit</qualifiedname>
+        <briefdescription>
+<para>MISO 16-bit Reply Frame (Reply Mode = 00B) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="227" column="12"/>
+      </memberdef>
+      <memberdef kind="variable" id="uniontle92466ed_1_1SPIFrame_1afe4ad4bcfe361f1c85498deb39aeadb2" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="uniontle92466ed_1_1SPIFrame" kindref="compound">tle92466ed::SPIFrame</ref></type>
+        <definition>struct tle92466ed::SPIFrame tle92466ed::SPIFrame::rx_22bit</definition>
+        <argsstring></argsstring>
+        <name>rx_22bit</name>
+        <qualifiedname>tle92466ed::SPIFrame::rx_22bit</qualifiedname>
+        <briefdescription>
+<para>MISO 22-bit Reply Frame (Reply Mode = 01B) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="234" column="12"/>
+      </memberdef>
+      <memberdef kind="variable" id="uniontle92466ed_1_1SPIFrame_1a18d4ecba825b8262074b7b108b68d65f" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t tle92466ed::SPIFrame::fault_flags</definition>
+        <argsstring></argsstring>
+        <name>fault_flags</name>
+        <qualifiedname>tle92466ed::SPIFrame::fault_flags</qualifiedname>
+        <bitfield> 8</bitfield>
+        <briefdescription>
+<para>Fault flags [7:0]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="238" column="14" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="238" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="uniontle92466ed_1_1SPIFrame_1a5d61a30c9689123b6f065502ea0c92c0" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t tle92466ed::SPIFrame::_reserved</definition>
+        <argsstring></argsstring>
+        <name>_reserved</name>
+        <qualifiedname>tle92466ed::SPIFrame::_reserved</qualifiedname>
+        <bitfield> 8</bitfield>
+        <briefdescription>
+<para>Reserved/Don&apos;t care [15:8]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="239" column="14" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="239" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="uniontle92466ed_1_1SPIFrame_1a1d8123ecb5ca33993aa411e93827736c" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t tle92466ed::SPIFrame::_reserved2</definition>
+        <argsstring></argsstring>
+        <name>_reserved2</name>
+        <qualifiedname>tle92466ed::SPIFrame::_reserved2</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+<para>Reserved/Don&apos;t care [16]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="240" column="14" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="240" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="uniontle92466ed_1_1SPIFrame_1a9f31256b75f7251e631ba1bd291ce8e7" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t tle92466ed::SPIFrame::_reserved3</definition>
+        <argsstring></argsstring>
+        <name>_reserved3</name>
+        <qualifiedname>tle92466ed::SPIFrame::_reserved3</qualifiedname>
+        <bitfield> 5</bitfield>
+        <briefdescription>
+<para>Reserved/Don&apos;t care [21:17]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="241" column="14" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="241" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="uniontle92466ed_1_1SPIFrame_1a82f7080b9b33ace4ed9bce06fa7969b5" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t tle92466ed::SPIFrame::_dont_care</definition>
+        <argsstring></argsstring>
+        <name>_dont_care</name>
+        <qualifiedname>tle92466ed::SPIFrame::_dont_care</qualifiedname>
+        <bitfield> 8</bitfield>
+        <briefdescription>
+<para>Don&apos;t care [31:24] (not CRC in fault frames) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="243" column="14" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="243" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="uniontle92466ed_1_1SPIFrame_1ac1f49ea7e227d3b6d1729d99dc2a8a42" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="uniontle92466ed_1_1SPIFrame" kindref="compound">tle92466ed::SPIFrame</ref></type>
+        <definition>struct tle92466ed::SPIFrame tle92466ed::SPIFrame::rx_fault</definition>
+        <argsstring></argsstring>
+        <name>rx_fault</name>
+        <qualifiedname>tle92466ed::SPIFrame::rx_fault</qualifiedname>
+        <briefdescription>
+<para>MISO Critical Fault Frame (Reply Mode = 10B) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="244" column="12"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="uniontle92466ed_1_1SPIFrame_1ae5c5a3b7ad3cc6083b4168f1035ceb1a" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>constexpr <ref refid="uniontle92466ed_1_1SPIFrame" kindref="compound">SPIFrame</ref></type>
+        <definition>static constexpr SPIFrame tle92466ed::SPIFrame::MakeRead</definition>
+        <argsstring>(uint16_t addr) noexcept</argsstring>
+        <name>MakeRead</name>
+        <qualifiedname>tle92466ed::SPIFrame::MakeRead</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>addr</declname>
+        </param>
+        <briefdescription>
+<para>Construct read frame (without CRC - must be calculated separately) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Register address (10-bit actual address, 0x000-0x3FF) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="uniontle92466ed_1_1SPIFrame" kindref="compound">SPIFrame</ref> configured for read operation (CRC = 0)</para>
+</simplesect>
+Read frame format per datasheet: <verbatim>*  Bits 31-24 | Bits 23-17 | Bit 16 | Bits 15-0
+* ------------+------------+--------+-----------
+*  CRC (8-bit)| Don&apos;t Care |  R/W   | Address (7-bit)
+*             |            |  0=R   |
+* </verbatim></para>
+<para>Note: read frames carry the FULL 16-bit address in bits [15:0]; bits [23:17] are don&apos;t-care (datasheet §5.2.3.2). This is deliberately different from the write frame, which has only a 7-bit address field. That asymmetry is why read-only status registers at 0x0200+ are reachable at all — they cannot be expressed in a write frame. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="266" column="30" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="266" bodyend="273"/>
+      </memberdef>
+      <memberdef kind="function" id="uniontle92466ed_1_1SPIFrame_1aec6903aac37ef52ecfea43c68d372e6d" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>constexpr <ref refid="uniontle92466ed_1_1SPIFrame" kindref="compound">SPIFrame</ref></type>
+        <definition>static constexpr SPIFrame tle92466ed::SPIFrame::MakeWrite</definition>
+        <argsstring>(uint16_t addr, uint16_t data) noexcept</argsstring>
+        <name>MakeWrite</name>
+        <qualifiedname>tle92466ed::SPIFrame::MakeWrite</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>addr</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Construct write frame (without CRC - must be calculated separately) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Register address (10-bit actual address, 0x000-0x3FF) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data word to write (16-bit) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="uniontle92466ed_1_1SPIFrame" kindref="compound">SPIFrame</ref> configured for write operation (CRC = 0)</para>
+</simplesect>
+Write frame format per datasheet: <verbatim>*  Bits 31-24 | Bits 23-17 | Bit 16 | Bits 15-0
+* ------------+------------+--------+-----------
+*  CRC (8-bit)| Address(7) |  R/W   | Data (16)
+*             |            |  1=W   |
+* </verbatim></para>
+<para>Note: the write address field is only 7 bits wide (datasheet §5.2.3.1), so <computeroutput>addr &amp; 0x7F</computeroutput> is not a truncation — every writable register on this device lives at 0x000..0x07F (central config 0x00..0x3F, channel config CH4 0x20.. through CH3 0x70..0x7E). Registers at 0x0200+ are read-only by construction: they cannot be addressed by a write frame at all. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="296" column="30" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="296" bodyend="303"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>32-bit SPI frame structure for TLE92466ED communication </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The TLE92466ED uses 32-bit SPI frames with the following format:</para>
+<para>MOSI (Write) Frame: <verbatim>*  Bits 31-24 | Bits 23-17 | Bit 16 | Bits 15-0
+* ------------+------------+--------+-----------
+*  CRC (8-bit)| Address(7) |  R/W   | Data (16)
+*             |            |  1=W   |
+* </verbatim></para>
+<para>MOSI (Read) Frame: <verbatim>*  Bits 31-24 | Bits 23-17 | Bit 16 | Bits 15-0
+* ------------+------------+--------+-----------
+*  CRC (8-bit)| Don&apos;t Care |  R/W   | Address (16-bit)
+*             |            |  0=R   |
+* </verbatim></para>
+<para>Note: Full 16-bit address is placed in bits [15:0] for read operations.</para>
+<para>MISO (Reply) Frame - 16-bit Reply (Reply Mode = 00B): <verbatim>*  Bits 31-24 | Bits 23-22 | Bits 21-17 | Bit 16 | Bits 15-0
+* ------------+------------+------------+--------+-----------
+*  CRC (8-bit)| Reply Mode | Status (5) | R/W    | Data (16)
+*             |    00B     |            | Echo   |
+* </verbatim></para>
+<para>MISO (Reply) Frame - 22-bit Reply (Reply Mode = 01B): <verbatim>*  Bits 31-24 | Bits 23-22 | Bits 21-0
+* ------------+------------+-----------
+*  CRC (8-bit)| Reply Mode | Data (22-bit)
+*             |    01B     |
+* </verbatim></para>
+<para>MISO (Reply) Frame - Critical Fault (Reply Mode = 10B): <verbatim>*  Bits 31-24 | Bits 23-22 | Bits 21-8 | Bits 7-0
+* ------------+------------+----------+----------
+*  Don&apos;t Care | Reply Mode | Don&apos;t    | Fault
+*             |    10B     | Care     | Flags
+* </verbatim></para>
+<para>Fault Flags (bits 7:0):<itemizedlist>
+<listitem><para>Bit 7: 1V5 supply (1=OK, 0=NOT OK)</para>
+</listitem><listitem><para>Bit 6: 2V5 supply (1=OK, 0=NOT OK)</para>
+</listitem><listitem><para>Bit 5: ADC Bandgap (1=OK, 0=NOT OK)</para>
+</listitem><listitem><para>Bit 4: CLK_TOO_SLOW (1=YES, 0=NO)</para>
+</listitem><listitem><para>Bit 3: CLK_TOO_FAST (1=YES, 0=NO)</para>
+</listitem><listitem><para>Bit 2: DIG_CLK_TOO_SLOW (1=YES, 0=NO)</para>
+</listitem><listitem><para>Bit 1: DIG_CLK_TOO_FAST (1=YES, 0=NO)</para>
+</listitem><listitem><para>Bit 0: WD_REF_CLK (1=MISSING, 0=OK) </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_spi_interface.hpp" line="200" column="1" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="200" bodyend="304"/>
+    <listofallmembers>
+      <member refid="uniontle92466ed_1_1SPIFrame_1ab3681800e8c3bf636598f4ebafe9bbcd" prot="public" virt="non-virtual"><scope>tle92466ed::SPIFrame</scope><name>_data_low</name></member>
+      <member refid="uniontle92466ed_1_1SPIFrame_1a82f7080b9b33ace4ed9bce06fa7969b5" prot="public" virt="non-virtual"><scope>tle92466ed::SPIFrame</scope><name>_dont_care</name></member>
+      <member refid="uniontle92466ed_1_1SPIFrame_1a06fad1273b6669645eda92782c4c9797" prot="public" virt="non-virtual"><scope>tle92466ed::SPIFrame</scope><name>_field_16</name></member>
+      <member refid="uniontle92466ed_1_1SPIFrame_1ac9087a50d92ba9f71cd2d409c5be5dc7" prot="public" virt="non-virtual"><scope>tle92466ed::SPIFrame</scope><name>_field_17_21</name></member>
+      <member refid="uniontle92466ed_1_1SPIFrame_1a5d61a30c9689123b6f065502ea0c92c0" prot="public" virt="non-virtual"><scope>tle92466ed::SPIFrame</scope><name>_reserved</name></member>
+      <member refid="uniontle92466ed_1_1SPIFrame_1a1d8123ecb5ca33993aa411e93827736c" prot="public" virt="non-virtual"><scope>tle92466ed::SPIFrame</scope><name>_reserved2</name></member>
+      <member refid="uniontle92466ed_1_1SPIFrame_1a9f31256b75f7251e631ba1bd291ce8e7" prot="public" virt="non-virtual"><scope>tle92466ed::SPIFrame</scope><name>_reserved3</name></member>
+      <member refid="uniontle92466ed_1_1SPIFrame_1a35c3a46f07634e2b5b12692e8f9298b8" prot="public" virt="non-virtual"><scope>tle92466ed::SPIFrame</scope><name>address</name></member>
+      <member refid="uniontle92466ed_1_1SPIFrame_1a2ac8d6092d1bf23b1f892e177f1ed769" prot="public" virt="non-virtual"><scope>tle92466ed::SPIFrame</scope><name>crc</name></member>
+      <member refid="uniontle92466ed_1_1SPIFrame_1a115b217a35657afadb256c7a0e2d77b1" prot="public" virt="non-virtual"><scope>tle92466ed::SPIFrame</scope><name>data</name></member>
+      <member refid="uniontle92466ed_1_1SPIFrame_1a18d4ecba825b8262074b7b108b68d65f" prot="public" virt="non-virtual"><scope>tle92466ed::SPIFrame</scope><name>fault_flags</name></member>
+      <member refid="uniontle92466ed_1_1SPIFrame_1ae5c5a3b7ad3cc6083b4168f1035ceb1a" prot="public" virt="non-virtual"><scope>tle92466ed::SPIFrame</scope><name>MakeRead</name></member>
+      <member refid="uniontle92466ed_1_1SPIFrame_1aec6903aac37ef52ecfea43c68d372e6d" prot="public" virt="non-virtual"><scope>tle92466ed::SPIFrame</scope><name>MakeWrite</name></member>
+      <member refid="uniontle92466ed_1_1SPIFrame_1a35e47b9b98ad1b21fdb3238de04ba6da" prot="public" virt="non-virtual"><scope>tle92466ed::SPIFrame</scope><name>reply_mode</name></member>
+      <member refid="uniontle92466ed_1_1SPIFrame_1ac5ff7ca3d05c579224f041f78807dd39" prot="public" virt="non-virtual"><scope>tle92466ed::SPIFrame</scope><name>rw</name></member>
+      <member refid="uniontle92466ed_1_1SPIFrame_1a6f210670a4936ff0d7b0d20dca1f26be" prot="public" virt="non-virtual"><scope>tle92466ed::SPIFrame</scope><name>rw_echo</name></member>
+      <member refid="uniontle92466ed_1_1SPIFrame_1abba229d3f6ad6ba601a619cbd7c37dfe" prot="public" virt="non-virtual"><scope>tle92466ed::SPIFrame</scope><name>rx_16bit</name></member>
+      <member refid="uniontle92466ed_1_1SPIFrame_1afe4ad4bcfe361f1c85498deb39aeadb2" prot="public" virt="non-virtual"><scope>tle92466ed::SPIFrame</scope><name>rx_22bit</name></member>
+      <member refid="uniontle92466ed_1_1SPIFrame_1a0cabc0548dbc9536e1030ae76e65bfae" prot="public" virt="non-virtual"><scope>tle92466ed::SPIFrame</scope><name>rx_common</name></member>
+      <member refid="uniontle92466ed_1_1SPIFrame_1ac1f49ea7e227d3b6d1729d99dc2a8a42" prot="public" virt="non-virtual"><scope>tle92466ed::SPIFrame</scope><name>rx_fault</name></member>
+      <member refid="uniontle92466ed_1_1SPIFrame_1accf7056933484218fa5a7260822e0ed5" prot="public" virt="non-virtual"><scope>tle92466ed::SPIFrame</scope><name>status</name></member>
+      <member refid="uniontle92466ed_1_1SPIFrame_1a725fd5d3491ccd0120b22f9357b767bb" prot="public" virt="non-virtual"><scope>tle92466ed::SPIFrame</scope><name>tx_fields</name></member>
+      <member refid="uniontle92466ed_1_1SPIFrame_1adc1289f427ff9416cbbc2831ed166b7a" prot="public" virt="non-virtual"><scope>tle92466ed::SPIFrame</scope><name>word</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

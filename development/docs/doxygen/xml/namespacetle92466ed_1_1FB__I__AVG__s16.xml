@@ -1,0 +1,215 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1FB__I__AVG__s16" kind="namespace" language="C++">
+    <compoundname>tle92466ed::FB_I_AVG_s16</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__I__AVG__s16_1a30bb06f8595f069fc9f507904b9768f2" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_I_AVG_s16::I_AVG_MASK</definition>
+        <argsstring></argsstring>
+        <name>I_AVG_MASK</name>
+        <qualifiedname>tle92466ed::FB_I_AVG_s16::I_AVG_MASK</qualifiedname>
+        <initializer>= 0x0001FFFFu</initializer>
+        <briefdescription>
+<para>17-bit </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1800" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1800" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__I__AVG__s16_1a14d7b748adf07fc0e9aa73f3cf96db94" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_I_AVG_s16::I_AVG_SIGN_BIT</definition>
+        <argsstring></argsstring>
+        <name>I_AVG_SIGN_BIT</name>
+        <qualifiedname>tle92466ed::FB_I_AVG_s16::I_AVG_SIGN_BIT</qualifiedname>
+        <initializer>= (1u &lt;&lt; 16)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1801" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1801" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__I__AVG__s16_1a14c3d6f02348b4e64c9efb0b09ccd3ce" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_I_AVG_s16::TIME_STAMP_SHIFT</definition>
+        <argsstring></argsstring>
+        <name>TIME_STAMP_SHIFT</name>
+        <qualifiedname>tle92466ed::FB_I_AVG_s16::TIME_STAMP_SHIFT</qualifiedname>
+        <initializer>= 20u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1802" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1802" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__I__AVG__s16_1a1fce60ae20df9c824e8a4940d9e911fc" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_I_AVG_s16::TIME_STAMP_MASK</definition>
+        <argsstring></argsstring>
+        <name>TIME_STAMP_MASK</name>
+        <qualifiedname>tle92466ed::FB_I_AVG_s16::TIME_STAMP_MASK</qualifiedname>
+        <initializer>= 0x00300000u</initializer>
+        <briefdescription>
+<para>2-bit </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1803" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1803" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__I__AVG__s16_1a0459bbcb639a6883cb8bf5e980473ffd" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr int32_t</type>
+        <definition>constexpr int32_t tle92466ed::FB_I_AVG_s16::FULL_SCALE_mA</definition>
+        <argsstring></argsstring>
+        <name>FULL_SCALE_mA</name>
+        <qualifiedname>tle92466ed::FB_I_AVG_s16::FULL_SCALE_mA</qualifiedname>
+        <initializer>= 4000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1805" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1805" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__I__AVG__s16_1a29e93117f5b79ea08957254f5c03a27d" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr int32_t</type>
+        <definition>constexpr int32_t tle92466ed::FB_I_AVG_s16::FULL_SCALE_COUNT</definition>
+        <argsstring></argsstring>
+        <name>FULL_SCALE_COUNT</name>
+        <qualifiedname>tle92466ed::FB_I_AVG_s16::FULL_SCALE_COUNT</qualifiedname>
+        <initializer>= 65535</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1806" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1806" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__I__AVG__s16_1a89143e1c995f7ecc38ad8e8648d1868c" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_I_AVG_s16::SETTLING_CODE</definition>
+        <argsstring></argsstring>
+        <name>SETTLING_CODE</name>
+        <qualifiedname>tle92466ed::FB_I_AVG_s16::SETTLING_CODE</qualifiedname>
+        <initializer>= 0x8000u</initializer>
+        <briefdescription>
+<para>Raw code the frame carries before a measurement has settled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Exactly half of <ref refid="namespacetle92466ed_1_1FB__I__AVG__s16_1a29e93117f5b79ea08957254f5c03a27d" kindref="member">FULL_SCALE_COUNT</ref>, so it decodes to a plausible-looking 2000 mA. Observed on a 115 mA proportional valve whenever this register was read before the channel had an established measurement window. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1822" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1822" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacetle92466ed_1_1FB__I__AVG__s16_1a6c862d28cba092b58758647d14f95ee9" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr int32_t</type>
+        <definition>constexpr int32_t tle92466ed::FB_I_AVG_s16::SignExtend17</definition>
+        <argsstring>(uint32_t raw17) noexcept</argsstring>
+        <name>SignExtend17</name>
+        <qualifiedname>tle92466ed::FB_I_AVG_s16::SignExtend17</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>raw17</declname>
+        </param>
+        <briefdescription>
+<para>Sign-extend the 17-bit signed field. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1809" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1809" bodyend="1813"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1FB__I__AVG__s16_1abae50e1218736238f255240b3bd03985" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr bool</type>
+        <definition>constexpr bool tle92466ed::FB_I_AVG_s16::IsSettlingFrame</definition>
+        <argsstring>(uint32_t reply_22bit) noexcept</argsstring>
+        <name>IsSettlingFrame</name>
+        <qualifiedname>tle92466ed::FB_I_AVG_s16::IsSettlingFrame</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>reply_22bit</declname>
+        </param>
+        <briefdescription>
+<para>True when the frame is the pre-measurement placeholder. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>Mid-scale is also the code an honest +2000 mA reading would use. That is out of range for every channel on this product (full flow is 115 mA), so rejecting it is correct here; a design driving loads near 2 A must gate on the measurement window instead. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1832" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1832" bodyend="1834"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1FB__I__AVG__s16_1a8dac4efc29e4d20efa65bb5b11d416a9" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr int32_t</type>
+        <definition>constexpr int32_t tle92466ed::FB_I_AVG_s16::ToMilliamps</definition>
+        <argsstring>(uint32_t reply_22bit) noexcept</argsstring>
+        <name>ToMilliamps</name>
+        <qualifiedname>tle92466ed::FB_I_AVG_s16::ToMilliamps</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>reply_22bit</declname>
+        </param>
+        <briefdescription>
+<para>Decode signed 17-bit raw to milliamps. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>Gate on <ref refid="namespacetle92466ed_1_1FB__I__AVG__s16_1abae50e1218736238f255240b3bd03985" kindref="member">IsSettlingFrame</ref> first — this decoder cannot tell a settled measurement from the power-on placeholder. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1841" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1841" bodyend="1844"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1FB__I__AVG__s16_1ae8f3e5304972eed115b0d4e137dd880d" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint8_t</type>
+        <definition>constexpr uint8_t tle92466ed::FB_I_AVG_s16::ExtractTimestamp</definition>
+        <argsstring>(uint32_t reply_22bit) noexcept</argsstring>
+        <name>ExtractTimestamp</name>
+        <qualifiedname>tle92466ed::FB_I_AVG_s16::ExtractTimestamp</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>reply_22bit</declname>
+        </param>
+        <briefdescription>
+<para>Extract the 2-bit rolling timestamp. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1847" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1847" bodyend="1849"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespacetle92466ed_1_1FB__I__AVG__s16" kindref="compound">FB_I_AVG_s16</ref> decoder (calibration only — see the warning below). </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Per datasheet Rev 1.2 §5.3.3.18 (register map) and §4.10.6 (semantics). Reply frame is 22-bit: bits 16:0 I_AVG_s16 (two&apos;s complement) Iavg16 = 4 A * val / (2^16 - 1) bits 21:20 TIME_STAMP (2-bit rolling counter, quad-seq in fast meas)</para>
+<para>Unlike FB_I_AVG (offset 0x0202) this is an absolute value — no TP_MANT divisor from FB_DC — averaged over a <bold>free-running</bold> window of 2^16 fSYS cycles (≈2.34 ms at 28 MHz) rather than the configured Tmeas. It is also <bold>not</bold> one of the registers FB_FRZ freezes (§4.10.5 lists FB_DC, FB_VBAT, FB_I_AVG, <ref refid="namespacetle92466ed_1_1FB__PERIOD__MIN__MAX" kindref="compound">FB_PERIOD_MIN_MAX</ref>, <ref refid="namespacetle92466ed_1_1FB__IMIN__IMAX" kindref="compound">FB_IMIN_IMAX</ref>), so a single unfrozen read yields a coherent current.</para>
+<para><simplesect kind="warning"><para>Do not use this for current supervision or closed-loop control. §4.10.6, verbatim: &quot;This value is not intended to be used while in
+         closed loop operation or for current supervision. The value is
+         provided as additional information and can be used for calibration
+         purposes.&quot; Every product channel runs in ICC closed loop and the measured current feeds valve load classification, which gates a safety hold — so the control and diagnostics paths must use the FB_FRZ + FB_DC/FB_I_AVG mantissa ratio (§4.10.2, Figure 22) even though it costs more SPI. Calibration and bench characterisation may use this register. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="1799" column="1"/>
+  </compounddef>
+</doxygen>

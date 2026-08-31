@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1CTRL__INT__THRESH" kind="namespace" language="C++">
+    <compoundname>tle92466ed::CTRL_INT_THRESH</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CTRL__INT__THRESH_1a2c116a9d5232f9587c3ba543c83f0efe" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CTRL_INT_THRESH::INT_THRESH_MASK</definition>
+        <argsstring></argsstring>
+        <name>INT_THRESH_MASK</name>
+        <qualifiedname>tle92466ed::CTRL_INT_THRESH::INT_THRESH_MASK</qualifiedname>
+        <initializer>= 0x00FFu</initializer>
+        <briefdescription>
+<para>signed 8-bit </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="996" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="996" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CTRL__INT__THRESH_1a0451953ab7362af21458ac686579929a" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CTRL_INT_THRESH::PERIOD_MANT_SHIFT</definition>
+        <argsstring></argsstring>
+        <name>PERIOD_MANT_SHIFT</name>
+        <qualifiedname>tle92466ed::CTRL_INT_THRESH::PERIOD_MANT_SHIFT</qualifiedname>
+        <initializer>= 8u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="997" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="997" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CTRL__INT__THRESH_1a30c4116c37eb56509e50d987c2c8f267" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CTRL_INT_THRESH::PERIOD_MANT_MASK</definition>
+        <argsstring></argsstring>
+        <name>PERIOD_MANT_MASK</name>
+        <qualifiedname>tle92466ed::CTRL_INT_THRESH::PERIOD_MANT_MASK</qualifiedname>
+        <initializer>= 0xFF00u</initializer>
+        <briefdescription>
+<para>upper 8 bits of period_mant </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="998" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="998" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CTRL__INT__THRESH_1a1a112aa98414f3c99b686a8c84c01f44" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CTRL_INT_THRESH::DEFAULT</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT</name>
+        <qualifiedname>tle92466ed::CTRL_INT_THRESH::DEFAULT</qualifiedname>
+        <initializer>= 0x0000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1000" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1000" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacetle92466ed_1_1CTRL__INT__THRESH_1a2011977311468e0dafa3b6f27d83ad85" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CTRL_INT_THRESH::Build</definition>
+        <argsstring>(int8_t int_thresh, uint8_t period_mant_hi) noexcept</argsstring>
+        <name>Build</name>
+        <qualifiedname>tle92466ed::CTRL_INT_THRESH::Build</qualifiedname>
+        <param>
+          <type>int8_t</type>
+          <declname>int_thresh</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>period_mant_hi</declname>
+        </param>
+        <briefdescription>
+<para>Build raw value. int_thresh is signed (int8_t range). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1003" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1003" bodyend="1007"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespacetle92466ed_1_1CTRL__INT__THRESH" kindref="compound">CTRL_INT_THRESH</ref> register bit definitions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Per datasheet \u00a75.3.3.13 p.97. Seeds the integrator + latches the current PWM period mantissa for fast transient response. bits 15:8 PERIOD_MANT 11-bit mantissa (only 8 fit here; the extra bits live in PERIOD.MANT; setting PERIOD_MANT=0 switches the channel to manual on-time mode using TON.TON_MANT.) bits 7:0 INT_THRESH Signed 8-bit integrator seed value. </para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="995" column="1"/>
+  </compounddef>
+</doxygen>

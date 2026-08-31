@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1DITHER__STEP" kind="namespace" language="C++">
+    <compoundname>tle92466ed::DITHER_STEP</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER__STEP_1aaef73e20564e99ac42964cb2f23fa36b" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::DITHER_STEP::FLAT_MASK</definition>
+        <argsstring></argsstring>
+        <name>FLAT_MASK</name>
+        <qualifiedname>tle92466ed::DITHER_STEP::FLAT_MASK</qualifiedname>
+        <initializer>= 0x00FF</initializer>
+        <briefdescription>
+<para>Flat period mask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1193" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1193" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER__STEP_1a623602621836561e4be9cc25a550aa10" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::DITHER_STEP::STEPS_SHIFT</definition>
+        <argsstring></argsstring>
+        <name>STEPS_SHIFT</name>
+        <qualifiedname>tle92466ed::DITHER_STEP::STEPS_SHIFT</qualifiedname>
+        <initializer>= 8</initializer>
+        <briefdescription>
+<para>Steps shift. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1194" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1194" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER__STEP_1a1ba5ad73a78c832394c1b59c1a5ba878" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::DITHER_STEP::STEPS_MASK</definition>
+        <argsstring></argsstring>
+        <name>STEPS_MASK</name>
+        <qualifiedname>tle92466ed::DITHER_STEP::STEPS_MASK</qualifiedname>
+        <initializer>= 0xFF00</initializer>
+        <briefdescription>
+<para>Steps mask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1195" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1195" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER__STEP_1a2dece67210f26bf9490591ae6162e83c" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::DITHER_STEP::DEFAULT</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT</name>
+        <qualifiedname>tle92466ed::DITHER_STEP::DEFAULT</qualifiedname>
+        <initializer>= 0x0000</initializer>
+        <briefdescription>
+<para>Default value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1197" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1197" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespacetle92466ed_1_1DITHER__STEP" kindref="compound">DITHER_STEP</ref> register bit definitions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="par"><title>Bit Map:</title><para><verbatim>* Bits 15-8: STEPS - Number of dither steps
+* Bits 7-0 : FLAT  - Flat period on top/bottom
+* </verbatim> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="1192" column="1"/>
+  </compounddef>
+</doxygen>

@@ -2,10 +2,1781 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
   <compounddef id="namespacetle92466ed" kind="namespace" language="C++">
     <compoundname>tle92466ed</compoundname>
+    <innerclass refid="structtle92466ed_1_1BistResult" prot="public">tle92466ed::BistResult</innerclass>
+    <innerclass refid="structtle92466ed_1_1ChannelConfig" prot="public">tle92466ed::ChannelConfig</innerclass>
+    <innerclass refid="structtle92466ed_1_1ChannelCurrentSample" prot="public">tle92466ed::ChannelCurrentSample</innerclass>
+    <innerclass refid="structtle92466ed_1_1ChannelDiagnostics" prot="public">tle92466ed::ChannelDiagnostics</innerclass>
+    <innerclass refid="structtle92466ed_1_1ChannelErrorFlags" prot="public">tle92466ed::ChannelErrorFlags</innerclass>
+    <innerclass refid="structtle92466ed_1_1ChannelFeedback" prot="public">tle92466ed::ChannelFeedback</innerclass>
+    <innerclass refid="structtle92466ed_1_1CriticalFaultFlags" prot="public">tle92466ed::CriticalFaultFlags</innerclass>
+    <innerclass refid="structtle92466ed_1_1CurrentFeedbackBatch" prot="public">tle92466ed::CurrentFeedbackBatch</innerclass>
+    <innerclass refid="structtle92466ed_1_1DeviceStatus" prot="public">tle92466ed::DeviceStatus</innerclass>
+    <innerclass refid="structtle92466ed_1_1DitherSetup" prot="public">tle92466ed::DitherSetup</innerclass>
+    <innerclass refid="classtle92466ed_1_1Driver" prot="public">tle92466ed::Driver</innerclass>
+    <innerclass refid="structtle92466ed_1_1FaultReport" prot="public">tle92466ed::FaultReport</innerclass>
+    <innerclass refid="structtle92466ed_1_1GlobalConfig" prot="public">tle92466ed::GlobalConfig</innerclass>
+    <innerclass refid="structtle92466ed_1_1PinStatus" prot="public">tle92466ed::PinStatus</innerclass>
+    <innerclass refid="structtle92466ed_1_1SPIConfig" prot="public">tle92466ed::SPIConfig</innerclass>
+    <innerclass refid="uniontle92466ed_1_1SPIFrame" prot="public">tle92466ed::SPIFrame</innerclass>
+    <innerclass refid="classtle92466ed_1_1SpiInterface" prot="public">tle92466ed::SpiInterface</innerclass>
+    <innerclass refid="structtle92466ed_1_1SupplyMonitorSelfTestResult" prot="public">tle92466ed::SupplyMonitorSelfTestResult</innerclass>
+    <innerclass refid="structtle92466ed_1_1SupplyVoltages" prot="public">tle92466ed::SupplyVoltages</innerclass>
+    <innernamespace refid="namespacetle92466ed_1_1CentralReg">tle92466ed::CentralReg</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1CH__CONFIG">tle92466ed::CH_CONFIG</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1CH__CTRL">tle92466ed::CH_CTRL</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1CH__CTRL__REG">tle92466ed::CH_CTRL_REG</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1CH__MODE">tle92466ed::CH_MODE</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1ChannelBase">tle92466ed::ChannelBase</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1ChannelReg">tle92466ed::ChannelReg</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1CLK__DIV">tle92466ed::CLK_DIV</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1CTRL__INT__THRESH">tle92466ed::CTRL_INT_THRESH</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1DeviceID">tle92466ed::DeviceID</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1DIAG__ERR__CHGR">tle92466ed::DIAG_ERR_CHGR</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1DIAG__WARN__CHGR">tle92466ed::DIAG_WARN_CHGR</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1DITHER">tle92466ed::DITHER</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1DITHER__CLK__DIV">tle92466ed::DITHER_CLK_DIV</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1DITHER__CTRL">tle92466ed::DITHER_CTRL</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1DITHER__STEP">tle92466ed::DITHER_STEP</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1FAULT__MASK0">tle92466ed::FAULT_MASK0</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1FAULT__MASK1">tle92466ed::FAULT_MASK1</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1FAULT__MASK2">tle92466ed::FAULT_MASK2</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1FB__FEEDBACK">tle92466ed::FB_FEEDBACK</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1FB__I__AVG__s16">tle92466ed::FB_I_AVG_s16</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1FB__IMIN__IMAX">tle92466ed::FB_IMIN_IMAX</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1FB__INT__THRESH">tle92466ed::FB_INT_THRESH</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1FB__PERIOD__MIN__MAX">tle92466ed::FB_PERIOD_MIN_MAX</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1FB__STAT">tle92466ed::FB_STAT</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1GLOBAL__CONFIG">tle92466ed::GLOBAL_CONFIG</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1GLOBAL__DIAG0">tle92466ed::GLOBAL_DIAG0</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1GLOBAL__DIAG1">tle92466ed::GLOBAL_DIAG1</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1GLOBAL__DIAG2">tle92466ed::GLOBAL_DIAG2</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1INTEGRATOR__LIMIT">tle92466ed::INTEGRATOR_LIMIT</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1PERIOD">tle92466ed::PERIOD</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1PIN__STAT">tle92466ed::PIN_STAT</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1SETPOINT">tle92466ed::SETPOINT</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1SFF__BIST">tle92466ed::SFF_BIST</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1TON">tle92466ed::TON</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1VBAT__THRESHOLD">tle92466ed::VBAT_THRESHOLD</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1VOLTAGE__FEEDBACK">tle92466ed::VOLTAGE_FEEDBACK</innernamespace>
+    <innernamespace refid="namespacetle92466ed_1_1WD__RELOAD">tle92466ed::WD_RELOAD</innernamespace>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693" prot="public" static="no" strong="yes">
+        <type>uint8_t</type>
+        <name>DriverError</name>
+        <qualifiedname>tle92466ed::DriverError</qualifiedname>
+        <enumvalue id="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693a6adf97f83acf6453d4a6a4b1070f3754" prot="public">
+          <name>None</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>No error. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693a9646ad3a1c3e708b4fa8b4b4270fbab6" prot="public">
+          <name>NotInitialized</name>
+          <briefdescription>
+<para><ref refid="classtle92466ed_1_1Driver" kindref="compound">Driver</ref> not initialized. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693a4852946e074a1f48ed7de9a024b10c03" prot="public">
+          <name>HardwareError</name>
+          <briefdescription>
+<para>Communication interface error. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693a94a9e4213f08b322090d83fa5a8be5e4" prot="public">
+          <name>InvalidChannel</name>
+          <briefdescription>
+<para>Invalid channel number. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693a627251310d3384b591e4138be21145d5" prot="public">
+          <name>InvalidParameter</name>
+          <briefdescription>
+<para>Invalid parameter value. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693a203bb9823df0c54c271585d4bfb69762" prot="public">
+          <name>DeviceNotResponding</name>
+          <briefdescription>
+<para>Device not responding to SPI. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693a7edfebe0f108ca457da80a3d0b64fdd4" prot="public">
+          <name>WrongDeviceID</name>
+          <briefdescription>
+<para>Incorrect device ID read. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693a1228b94748cada1774376467864079ac" prot="public">
+          <name>RegisterError</name>
+          <briefdescription>
+<para>Register read/write error. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693a8717c18fa957be6f62f14404ce4c014b" prot="public">
+          <name>CRCError</name>
+          <briefdescription>
+<para>CRC mismatch in SPI communication. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693a11efe260e52c20b0d4c8ebd2da844862" prot="public">
+          <name>FaultDetected</name>
+          <briefdescription>
+<para>Device fault detected. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693a05f6ffa53682f5ecd6164f8a3524733a" prot="public">
+          <name>ConfigurationError</name>
+          <briefdescription>
+<para>Configuration failed. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693a2ce01afd7e833fc13c63448689ea762a" prot="public">
+          <name>TimeoutError</name>
+          <briefdescription>
+<para>Operation timeout. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693add498c17cdbac13335b3810f8265f1a4" prot="public">
+          <name>WrongMode</name>
+          <briefdescription>
+<para>Operation not allowed in current mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693a168c342f0736ad372d2a7483a82a2f4a" prot="public">
+          <name>SPIFrameError</name>
+          <briefdescription>
+<para>SPI frame error from device. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693ab8add73778549df4bf6ffc5a72acddcd" prot="public">
+          <name>WriteToReadOnly</name>
+          <briefdescription>
+<para>Attempted write to read-only register. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693ab78ca7889a18f8d7430ee3663183aa13" prot="public">
+          <name>FeedbackNotReady</name>
+          <briefdescription>
+<para>Averaged-feedback measurement window not established. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para><ref refid="classtle92466ed_1_1Driver" kindref="compound">Driver</ref> error codes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="20" column="1" bodyfile="inc/tle92466ed.hpp" bodystart="20" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957" prot="public" static="no" strong="yes">
+        <type>uint8_t</type>
+        <name>Channel</name>
+        <qualifiedname>tle92466ed::Channel</qualifiedname>
+        <enumvalue id="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957a2264c6e9d8288b49bfcf8018d64bc4ec" prot="public">
+          <name>CH0</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>Channel 0. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957ae36fe09eceee9fa8f63747109d31cac5" prot="public">
+          <name>CH1</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+<para>Channel 1. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957a79a66be7a0427b4ce07a201d58f80d0c" prot="public">
+          <name>CH2</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+<para>Channel 2. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957a6c88494b48501a9de03abd4b7056cd33" prot="public">
+          <name>CH3</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+<para>Channel 3. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957aec9eb60d9c94f6b9ca2ecd6db52e158c" prot="public">
+          <name>CH4</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+<para>Channel 4. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957a9906695eb33d2d71b9fcc9a693bc1c68" prot="public">
+          <name>CH5</name>
+          <initializer>= 5</initializer>
+          <briefdescription>
+<para>Channel 5. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957a4905ac9d6a22bdfc1ae096094ce6248d" prot="public">
+          <name>COUNT</name>
+          <initializer>= 6</initializer>
+          <briefdescription>
+<para>Number of channels (not a valid channel selector) </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Channel enumeration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1920" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1920" bodyend="1929"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacetle92466ed_1a4354ef9226739c1ea8a59eb36e95760c" prot="public" static="no" strong="yes">
+        <type>uint8_t</type>
+        <name>ChannelMode</name>
+        <qualifiedname>tle92466ed::ChannelMode</qualifiedname>
+        <enumvalue id="namespacetle92466ed_1a4354ef9226739c1ea8a59eb36e95760ca88559a0cfd8250c9d65970cc145c92d4" prot="public">
+          <name>OFF</name>
+          <initializer>= 0x0</initializer>
+          <briefdescription>
+<para>Channel off. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a4354ef9226739c1ea8a59eb36e95760cab6b8d73d401b7611fac37ab11898f598" prot="public">
+          <name>ICC</name>
+          <initializer>= 0x1</initializer>
+          <briefdescription>
+<para>Integrated Current Control. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a4354ef9226739c1ea8a59eb36e95760ca97d0fb8fdfbdfa81cdd928907b35ed40" prot="public">
+          <name>DIRECT_DRIVE_SPI</name>
+          <initializer>= 0x2</initializer>
+          <briefdescription>
+<para>Direct drive via SPI <ref refid="namespacetle92466ed_1_1TON" kindref="compound">TON</ref> register. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a4354ef9226739c1ea8a59eb36e95760ca01972e7fc9ec5c902670e0798df618dc" prot="public">
+          <name>DIRECT_DRIVE_DRV0</name>
+          <initializer>= 0x3</initializer>
+          <briefdescription>
+<para>Direct drive via DRV0 pin. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a4354ef9226739c1ea8a59eb36e95760ca0509d9148c57b323fdd295712d4c8d47" prot="public">
+          <name>DIRECT_DRIVE_DRV1</name>
+          <initializer>= 0x4</initializer>
+          <briefdescription>
+<para>Direct drive via DRV1 pin. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a4354ef9226739c1ea8a59eb36e95760ca2e898746eeac1ff8dbf048e5a5343855" prot="public">
+          <name>FREE_RUN_MEAS</name>
+          <initializer>= 0xC</initializer>
+          <briefdescription>
+<para>Free running measurement mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Channel operation mode. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1934" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1934" bodyend="1941"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacetle92466ed_1ae03b3b5991ee6faf1e97fed34ef2b78d" prot="public" static="no" strong="yes">
+        <type>uint8_t</type>
+        <name>SlewRate</name>
+        <qualifiedname>tle92466ed::SlewRate</qualifiedname>
+        <enumvalue id="namespacetle92466ed_1ae03b3b5991ee6faf1e97fed34ef2b78da98ab2e3497ba33c02228b42f9713b8af" prot="public">
+          <name>SLOW_1V0_US</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>1.0 V/µs </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1ae03b3b5991ee6faf1e97fed34ef2b78dad03b5aab26bc0ac73e100adfd1572602" prot="public">
+          <name>MEDIUM_2V5_US</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+<para>2.5 V/µs </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1ae03b3b5991ee6faf1e97fed34ef2b78da8bcffcbc78276caf12d0022bf8a638fe" prot="public">
+          <name>FAST_5V0_US</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+<para>5.0 V/µs </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1ae03b3b5991ee6faf1e97fed34ef2b78dab64d2fd61ffbc4476d28e6d792ea875e" prot="public">
+          <name>FASTEST_10V0_US</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+<para>10.0 V/µs </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Slew rate enumeration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1946" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1946" bodyend="1951"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacetle92466ed_1ac478d8027f99bfc8e6a985fb3b4b5e9d" prot="public" static="no" strong="yes">
+        <type>uint8_t</type>
+        <name>DiagCurrent</name>
+        <qualifiedname>tle92466ed::DiagCurrent</qualifiedname>
+        <enumvalue id="namespacetle92466ed_1ac478d8027f99bfc8e6a985fb3b4b5e9dabf8a2e7e31b6227326246d4e841a0af1" prot="public">
+          <name>I_80UA</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>80 µA </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1ac478d8027f99bfc8e6a985fb3b4b5e9dad9072c91edbaa9467e784093e4cf3a82" prot="public">
+          <name>I_190UA</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+<para>190 µA </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1ac478d8027f99bfc8e6a985fb3b4b5e9dab9723da541cfdb951a6464b3131f0376" prot="public">
+          <name>I_720UA</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+<para>720 µA </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1ac478d8027f99bfc8e6a985fb3b4b5e9dafabad8c26f1d6f2dd67f43017cdd55ae" prot="public">
+          <name>I_1250UA</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+<para>1250 µA </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>OFF-state diagnostic current. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1956" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1956" bodyend="1961"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacetle92466ed_1aaf5177696585d9100c7e4e73000b48c1" prot="public" static="no" strong="yes">
+        <type>uint8_t</type>
+        <name>ParallelPair</name>
+        <qualifiedname>tle92466ed::ParallelPair</qualifiedname>
+        <enumvalue id="namespacetle92466ed_1aaf5177696585d9100c7e4e73000b48c1ab50339a10e1de285ac99d4c3990b8693" prot="public">
+          <name>NONE</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>No parallel operation. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1aaf5177696585d9100c7e4e73000b48c1ac97e7cdf859b2e97096e4801cfa3d6cf" prot="public">
+          <name>CH0_CH3</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+<para>Channels 0 and 3 paralleled. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1aaf5177696585d9100c7e4e73000b48c1a791da23111807f9fb0734d20e9acc425" prot="public">
+          <name>CH1_CH2</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+<para>Channels 1 and 2 paralleled. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1aaf5177696585d9100c7e4e73000b48c1a592c5a822b3e86ff8c39b8ae0c343e5c" prot="public">
+          <name>CH4_CH5</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+<para>Channels 4 and 5 paralleled. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Parallel operation pairs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1966" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1966" bodyend="1971"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacetle92466ed_1a877a95a1cb5667aab7bd7c1b0f14d7dc" prot="public" static="no" strong="yes">
+        <type>uint8_t</type>
+        <name>ExpectedReply</name>
+        <qualifiedname>tle92466ed::ExpectedReply</qualifiedname>
+        <enumvalue id="namespacetle92466ed_1a877a95a1cb5667aab7bd7c1b0f14d7dca02d5ba53dbd26550a12ad57f712d3b1f" prot="public">
+          <name>Bits16</name>
+          <briefdescription>
+<para>Reply mode 00B — 16-bit data plus a status field. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a877a95a1cb5667aab7bd7c1b0f14d7dcad21b15cb38606a9cb2960e82b8f58db8" prot="public">
+          <name>Bits22</name>
+          <briefdescription>
+<para>Reply mode 01B — 22-bit data, no status field. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Reply-frame width a register is required to answer with. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="namespacetle92466ed_1acbbba5a918710a5ac5da8fd514035c3b" kindref="member">ExpectedReplyFor</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2026" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2026" bodyend="2029"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacetle92466ed_1a9a8012917941cbbda8d79fb78358448a" prot="public" static="no" strong="yes">
+        <type>uint8_t</type>
+        <name>ClockSource</name>
+        <qualifiedname>tle92466ed::ClockSource</qualifiedname>
+        <enumvalue id="namespacetle92466ed_1a9a8012917941cbbda8d79fb78358448aa57cf41087a32235b2cfbc1c90f7efc4f" prot="public">
+          <name>InternalOscillator</name>
+          <briefdescription>
+<para>Use internal ring oscillator (fSYS \u2248 28 MHz \u00b1 10 %) </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a9a8012917941cbbda8d79fb78358448aa6a55574eba65341700b99a841545aeb2" prot="public">
+          <name>ExternalClockPll</name>
+          <briefdescription>
+<para>Use external clock on DRV0 or dedicated pin, synth via PLL. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Clock source selection for ConfigureClockSource(). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2282" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2282" bodyend="2285"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacetle92466ed_1a9409c3094f465ef557b3f1400aa3443c" prot="public" static="no" strong="yes">
+        <type>uint8_t</type>
+        <name>VioLevel</name>
+        <qualifiedname>tle92466ed::VioLevel</qualifiedname>
+        <enumvalue id="namespacetle92466ed_1a9409c3094f465ef557b3f1400aa3443caf869fb390f575744d7e1a3845efec815" prot="public">
+          <name>V3_3</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a9409c3094f465ef557b3f1400aa3443caa4ab6982e01b0554d528038974fc1cc3" prot="public">
+          <name>V5_0</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>VIO voltage-level selection for SetVioLevel(). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2290" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2290" bodyend="2290"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacetle92466ed_1a9b1173fa43c42134c90627f9f0a21229" prot="public" static="no" strong="yes">
+        <type>uint8_t</type>
+        <name>OperationState</name>
+        <qualifiedname>tle92466ed::OperationState</qualifiedname>
+        <enumvalue id="namespacetle92466ed_1a9b1173fa43c42134c90627f9f0a21229a526d688f37a86d3c3f27d0c5016eb71d" prot="public">
+          <name>Reset</name>
+          <briefdescription>
+<para>Held in reset (RESN low) </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a9b1173fa43c42134c90627f9f0a21229afa535ffb25e1fd20341652f9be21e06e" prot="public">
+          <name>Config</name>
+          <briefdescription>
+<para>Powered and initialized, but not in mission mode. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a9b1173fa43c42134c90627f9f0a21229a70d529695c253d17e992cb9265abc57f" prot="public">
+          <name>Mission</name>
+          <briefdescription>
+<para>Outputs operational. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a9b1173fa43c42134c90627f9f0a21229a3305c164bf8a79dccc6ac712d7aa2132" prot="public">
+          <name>CriticalFault</name>
+          <briefdescription>
+<para>Critical-fault reply flag set; requires reset/clear. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Coarse operational state returned by GetOperationState(). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2305" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2305" bodyend="2310"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacetle92466ed_1a7a810a2ee5f3edef167c753d660af92f" prot="public" static="no" strong="yes">
+        <type>uint8_t</type>
+        <name>FastMeasureMode</name>
+        <qualifiedname>tle92466ed::FastMeasureMode</qualifiedname>
+        <enumvalue id="namespacetle92466ed_1a7a810a2ee5f3edef167c753d660af92fabbc6cbc1503ff58ccc2914e373280842" prot="public">
+          <name>FullPeriod</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>Measurement window = full dither period. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a7a810a2ee5f3edef167c753d660af92fa96bba6638f6f12ef033c5dbb525ad057" prot="public">
+          <name>HalfPeriod</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+<para>Measurement window = half dither period. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a7a810a2ee5f3edef167c753d660af92fa9349e3688de3063353762253adbd6b27" prot="public">
+          <name>QuarterPeriod</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+<para>Measurement window = quarter dither period. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Fast-measurement mode for dither-synchronous feedback. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2315" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2315" bodyend="2319"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fd" prot="public" static="no" strong="yes">
+        <type>uint32_t</type>
+        <name>MaskableFault</name>
+        <qualifiedname>tle92466ed::MaskableFault</qualifiedname>
+        <enumvalue id="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda496b1c33ac1ece9a88e8402035f459f1" prot="public">
+          <name>Ch0Error</name>
+          <initializer>= (0u &lt;&lt; 24) | (1u &lt;&lt; 0)</initializer>
+          <briefdescription>
+<para>CH0 error → FAULTN. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda3f3b0689bbdcaaad413cfe89468e000d" prot="public">
+          <name>Ch1Error</name>
+          <initializer>= (0u &lt;&lt; 24) | (1u &lt;&lt; 1)</initializer>
+          <briefdescription>
+<para>CH1 error → FAULTN. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda4c10a51333bb1e9856ae0f0bc8a95b5c" prot="public">
+          <name>Ch2Error</name>
+          <initializer>= (0u &lt;&lt; 24) | (1u &lt;&lt; 2)</initializer>
+          <briefdescription>
+<para>CH2 error → FAULTN. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fdaaecb342e7acf2a1c16740f3d02882bc5" prot="public">
+          <name>Ch3Error</name>
+          <initializer>= (0u &lt;&lt; 24) | (1u &lt;&lt; 3)</initializer>
+          <briefdescription>
+<para>CH3 error → FAULTN. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fdaaab8abeabb845fe1472392990571b3e1" prot="public">
+          <name>Ch4Error</name>
+          <initializer>= (0u &lt;&lt; 24) | (1u &lt;&lt; 4)</initializer>
+          <briefdescription>
+<para>CH4 error → FAULTN. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda24da0e86e9f0969be7b80a4b471326a9" prot="public">
+          <name>Ch5Error</name>
+          <initializer>= (0u &lt;&lt; 24) | (1u &lt;&lt; 5)</initializer>
+          <briefdescription>
+<para>CH5 error → FAULTN. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda258d8699f517f9931fff4124fcc62eea" prot="public">
+          <name>EnPin</name>
+          <initializer>= (0u &lt;&lt; 24) | (1u &lt;&lt; 13)</initializer>
+          <briefdescription>
+<para>EN pin fault → FAULTN. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fdada668dc34b509b10272c18be40abed9d" prot="public">
+          <name>SupplyNokInternal</name>
+          <initializer>= (0u &lt;&lt; 24) | (1u &lt;&lt; 14)</initializer>
+          <briefdescription>
+<para>Internal supply NOK → FAULTN. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda4dcb390d336cda06ea189f9a124bcd56" prot="public">
+          <name>SupplyNokExternal</name>
+          <initializer>= (0u &lt;&lt; 24) | (1u &lt;&lt; 15)</initializer>
+          <briefdescription>
+<para>External supply NOK → FAULTN. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda5e988b9157a27a55581ce4ee6b2a61d9" prot="public">
+          <name>Ch0Warning</name>
+          <initializer>= (1u &lt;&lt; 24) | (1u &lt;&lt; 0)</initializer>
+          <briefdescription>
+<para>CH0 warning → FAULTN. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda12dd56c3aaa64b2fb3303f8d7611d6b4" prot="public">
+          <name>Ch1Warning</name>
+          <initializer>= (1u &lt;&lt; 24) | (1u &lt;&lt; 1)</initializer>
+          <briefdescription>
+<para>CH1 warning → FAULTN. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fdaf63064c8c4cf292548c209b64d4ff995" prot="public">
+          <name>Ch2Warning</name>
+          <initializer>= (1u &lt;&lt; 24) | (1u &lt;&lt; 2)</initializer>
+          <briefdescription>
+<para>CH2 warning → FAULTN. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda72259fc2a56b21a0d1396d862c1ea66f" prot="public">
+          <name>Ch3Warning</name>
+          <initializer>= (1u &lt;&lt; 24) | (1u &lt;&lt; 3)</initializer>
+          <briefdescription>
+<para>CH3 warning → FAULTN. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fdada1e0e2689f4865c69b2909357fc9960" prot="public">
+          <name>Ch4Warning</name>
+          <initializer>= (1u &lt;&lt; 24) | (1u &lt;&lt; 4)</initializer>
+          <briefdescription>
+<para>CH4 warning → FAULTN. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda5935cc2e282376b7e839669aeed7f7e4" prot="public">
+          <name>Ch5Warning</name>
+          <initializer>= (1u &lt;&lt; 24) | (1u &lt;&lt; 5)</initializer>
+          <briefdescription>
+<para>CH5 warning → FAULTN. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fdaadfc4e7b9b7b2c8e54f77e0a2f51ffc3" prot="public">
+          <name>CentralOtWarning</name>
+          <initializer>= (1u &lt;&lt; 24) | (1u &lt;&lt; 12)</initializer>
+          <briefdescription>
+<para>Central OT warning → FAULTN. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda0487632d3fd3a5f42fa49d3f904a9530" prot="public">
+          <name>CentralOtError</name>
+          <initializer>= (1u &lt;&lt; 24) | (1u &lt;&lt; 13)</initializer>
+          <briefdescription>
+<para>Central OT error → FAULTN. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda8be0ebfbcd9ab228d764fd52b5099c88" prot="public">
+          <name>ClockLow</name>
+          <initializer>= (1u &lt;&lt; 24) | (1u &lt;&lt; 14)</initializer>
+          <briefdescription>
+<para>Clock too slow → FAULTN. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda5ae93a45ffe10457408e6fd5b69fdf79" prot="public">
+          <name>VbatUv</name>
+          <initializer>= (2u &lt;&lt; 24) | (1u &lt;&lt; 0)</initializer>
+          <briefdescription>
+<para>VBAT undervoltage → FAULTN. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fdaa110243d921712cdf10f15941e43d4ba" prot="public">
+          <name>VbatOv</name>
+          <initializer>= (2u &lt;&lt; 24) | (1u &lt;&lt; 1)</initializer>
+          <briefdescription>
+<para>VBAT overvoltage → FAULTN. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fdab062e84ecefa677e622e3f0d6232f097" prot="public">
+          <name>VioUv</name>
+          <initializer>= (2u &lt;&lt; 24) | (1u &lt;&lt; 2)</initializer>
+          <briefdescription>
+<para>VIO undervoltage → FAULTN. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fdafee0f9535f89ba0f406bf1335dd8fdee" prot="public">
+          <name>VioOv</name>
+          <initializer>= (2u &lt;&lt; 24) | (1u &lt;&lt; 3)</initializer>
+          <briefdescription>
+<para>VIO overvoltage → FAULTN. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda958305dcc7f35cfadb6e3f3206d14296" prot="public">
+          <name>VddUv</name>
+          <initializer>= (2u &lt;&lt; 24) | (1u &lt;&lt; 4)</initializer>
+          <briefdescription>
+<para>VDD undervoltage → FAULTN. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda5ffca3c13db3b359af49b9611f3a4445" prot="public">
+          <name>VddOv</name>
+          <initializer>= (2u &lt;&lt; 24) | (1u &lt;&lt; 5)</initializer>
+          <briefdescription>
+<para>VDD overvoltage → FAULTN. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda523b7a06ac3f2f09352744db109b9941" prot="public">
+          <name>DataErr</name>
+          <initializer>= (2u &lt;&lt; 24) | (1u &lt;&lt; 14)</initializer>
+          <briefdescription>
+<para>OTP/REG DATA_err → FAULTN (do not mask to hide LED) </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fdab732c5f7f79ae3a906f1f5bcd610e8d1" prot="public">
+          <name>SpiWatchdog</name>
+          <initializer>= (2u &lt;&lt; 24) | (1u &lt;&lt; 15)</initializer>
+          <briefdescription>
+<para>SPI watchdog → FAULTN. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Maskable fault sources for SetFaultMask(). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Each enumerator packs a FAULT_MASK register index (0/1/2) in the upper byte and the bit-mask within that register in the lower 16 bits. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2362" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2362" bodyend="2392"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4a" prot="public" static="no" strong="yes">
+        <type>uint8_t</type>
+        <name>CommError</name>
+        <qualifiedname>tle92466ed::CommError</qualifiedname>
+        <enumvalue id="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aa6adf97f83acf6453d4a6a4b1070f3754" prot="public">
+          <name>None</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>No error occurred. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aa062b178ecb015aa2e6324dffd1b4f5f2" prot="public">
+          <name>BusError</name>
+          <briefdescription>
+<para>SPI bus communication error. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aac85a251cc457840f1e032f1b733e9398" prot="public">
+          <name>Timeout</name>
+          <briefdescription>
+<para>Operation timed out. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aa627251310d3384b591e4138be21145d5" prot="public">
+          <name>InvalidParameter</name>
+          <briefdescription>
+<para>Invalid parameter passed to function. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aab36f64f307472d2304bafef8bebc15a9" prot="public">
+          <name>TransferError</name>
+          <briefdescription>
+<para>Data transfer failed. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aa257b0abd705d3c26ae57e58f6732eb0a" prot="public">
+          <name>HardwareNotReady</name>
+          <briefdescription>
+<para>Hardware not initialized or ready. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aa68ec6e62c5fcbbb68b5ce093bdd60717" prot="public">
+          <name>BufferOverflow</name>
+          <briefdescription>
+<para>Buffer size exceeded. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aa8717c18fa957be6f62f14404ce4c014b" prot="public">
+          <name>CRCError</name>
+          <briefdescription>
+<para>CRC mismatch error. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aaa7d7b6f9bcf9382faedac781806df3dc" prot="public">
+          <name>NoReply</name>
+          <briefdescription>
+<para>MISO carried no frame at all (all-zero or all-ones word). </para>
+          </briefdescription>
+          <detaileddescription>
+<para>Distinct from <computeroutput>CRCError</computeroutput> so a disconnected or unpowered device is not reported as a corrupt one. Previously an empty word was returned as a <emphasis>successful</emphasis> read of value 0, which every caller then decoded as real register content. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aabfaef30f1c8011c5cefa38ae470fb7aa" prot="public">
+          <name>UnknownError</name>
+          <briefdescription>
+<para>Unknown error occurred. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Error codes for communication interface operations. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This enumeration defines all possible error conditions that can occur during hardware communication with the TLE92466ED IC. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="45" column="1" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="45" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacetle92466ed_1a42eacb1b3fd11b3412b6aef4b0d2e1d8" prot="public" static="no" strong="yes">
+        <type>uint8_t</type>
+        <name>CtrlPin</name>
+        <qualifiedname>tle92466ed::CtrlPin</qualifiedname>
+        <enumvalue id="namespacetle92466ed_1a42eacb1b3fd11b3412b6aef4b0d2e1d8a46ef2575e05f89865ad2e173e52fc95c" prot="public">
+          <name>RESN</name>
+          <briefdescription>
+<para>Reset pin (active low) - Must be HIGH for device operation. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a42eacb1b3fd11b3412b6aef4b0d2e1d8aaa85f1840e282d8a8304dbc2c0d7c9b2" prot="public">
+          <name>EN</name>
+          <briefdescription>
+<para>Enable pin (active high) - Enables/disables output channels. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a42eacb1b3fd11b3412b6aef4b0d2e1d8a8a08cd30efd24033555d0244cfce27a7" prot="public">
+          <name>FAULTN</name>
+          <briefdescription>
+<para>Fault pin (active low) - Indicates device fault condition. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Control pin enumeration for TLE92466ED. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>These pins are used for device control and status monitoring. The naming convention matches the standardized GPIO interface used across all HardFOC drivers. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="73" column="1" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="73" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacetle92466ed_1a3e575e91f20807f25c8de6922b3def9d" prot="public" static="no" strong="yes">
+        <type>uint8_t</type>
+        <name>GpioSignal</name>
+        <qualifiedname>tle92466ed::GpioSignal</qualifiedname>
+        <enumvalue id="namespacetle92466ed_1a3e575e91f20807f25c8de6922b3def9da6b273343c454f9c53dcfc9c4ccf171d2" prot="public">
+          <name>INACTIVE</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>Inactive signal state (logical inactive) </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a3e575e91f20807f25c8de6922b3def9da18ff74f43da410c5529f7d6fca84f115" prot="public">
+          <name>ACTIVE</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+<para>Active signal state (logical active) </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>GPIO signal states with board-agnostic naming. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Defines the logical active/inactive state of control pins. The actual HIGH/LOW GPIO level depends on whether the pin is active-high or active-low.</para>
+<para><simplesect kind="note"><para>This represents the logical state (active/inactive), not the physical GPIO level. The CommInterface implementation handles the active-high vs active-low conversion. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="88" column="1" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="88" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacetle92466ed_1ae9d7e11b24ee920250df1e83b0f98509" prot="public" static="no" strong="yes">
+        <type>uint8_t</type>
+        <name>LogLevel</name>
+        <qualifiedname>tle92466ed::LogLevel</qualifiedname>
+        <enumvalue id="namespacetle92466ed_1ae9d7e11b24ee920250df1e83b0f98509a902b0d55fddef6f8d651fe1035b7d4bd" prot="public">
+          <name>Error</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>Error messages (highest severity) </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1ae9d7e11b24ee920250df1e83b0f98509a56525ae64d370c0b448ac0d60710ef17" prot="public">
+          <name>Warn</name>
+          <briefdescription>
+<para>Warning messages. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1ae9d7e11b24ee920250df1e83b0f98509a4059b0251f66a18cb56f544728796875" prot="public">
+          <name>Info</name>
+          <briefdescription>
+<para>Informational messages. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1ae9d7e11b24ee920250df1e83b0f98509aa603905470e2a5b8c13e96b579ef0dba" prot="public">
+          <name>Debug</name>
+          <briefdescription>
+<para>Debug messages (lowest severity) </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1ae9d7e11b24ee920250df1e83b0f98509ad4a9fa383ab700c5bdd6f31cf7df0faf" prot="public">
+          <name>Verbose</name>
+          <briefdescription>
+<para>Verbose messages (lowest severity, most detailed) </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Log severity levels for driver logging. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Defines the severity levels for logging messages from the driver. Implementations should map these to their platform-specific logging systems. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="99" column="1" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="99" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacetle92466ed_1aa8a8d673ba02bbca9770978491fce143" prot="public" static="no" strong="yes">
+        <type>uint8_t</type>
+        <name>ReplyMode</name>
+        <qualifiedname>tle92466ed::ReplyMode</qualifiedname>
+        <enumvalue id="namespacetle92466ed_1aa8a8d673ba02bbca9770978491fce143a1aaedee3b7ce4f8b3b49bb5ae5510c40" prot="public">
+          <name>REPLY_16BIT</name>
+          <initializer>= 0b00</initializer>
+          <briefdescription>
+<para>16-bit reply frame </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1aa8a8d673ba02bbca9770978491fce143a4f3a163255b23c62e33f1600850bc955" prot="public">
+          <name>REPLY_22BIT</name>
+          <initializer>= 0b01</initializer>
+          <briefdescription>
+<para>22-bit reply frame (extended data) </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1aa8a8d673ba02bbca9770978491fce143a8ab5dedd5c8767859380101c259c22de" prot="public">
+          <name>CRITICAL_FAULT</name>
+          <initializer>= 0b10</initializer>
+          <briefdescription>
+<para>Critical fault frame. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1aa8a8d673ba02bbca9770978491fce143a83c7f2aa8c3ac10ed8beb75cad162827" prot="public">
+          <name>RESERVED</name>
+          <initializer>= 0b11</initializer>
+          <briefdescription>
+<para>Reserved. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>SPI Reply Mode enumeration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="356" column="1" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="356" bodyend="361"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacetle92466ed_1a3e7c32ed41f7fc9b6bf02262c584a53f" prot="public" static="no" strong="yes">
+        <type>uint8_t</type>
+        <name>SPIStatus</name>
+        <qualifiedname>tle92466ed::SPIStatus</qualifiedname>
+        <enumvalue id="namespacetle92466ed_1a3e7c32ed41f7fc9b6bf02262c584a53fad306b6fdee05fe87455110ddf6501e6c" prot="public">
+          <name>NO_ERROR</name>
+          <initializer>= 0b00000</initializer>
+          <briefdescription>
+<para>No error. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a3e7c32ed41f7fc9b6bf02262c584a53faa55177fdde536953ec9e9dcc74edc1bb" prot="public">
+          <name>SPI_FRAME_ERROR</name>
+          <initializer>= 0b00001</initializer>
+          <briefdescription>
+<para>SPI frame error. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a3e7c32ed41f7fc9b6bf02262c584a53fafde7dcbac92720d696e3ef02bf6435db" prot="public">
+          <name>CRC_ERROR</name>
+          <initializer>= 0b00010</initializer>
+          <briefdescription>
+<para>Parity/CRC error. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a3e7c32ed41f7fc9b6bf02262c584a53fac1918c879d3aaafa7752515f7425a411" prot="public">
+          <name>WRITE_RO_REG</name>
+          <initializer>= 0b00011</initializer>
+          <briefdescription>
+<para>Write to read-only register. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacetle92466ed_1a3e7c32ed41f7fc9b6bf02262c584a53fab2706b5ce3bc1944e76b8b31344e3818" prot="public">
+          <name>INTERNAL_BUS_FAULT</name>
+          <initializer>= 0b00100</initializer>
+          <briefdescription>
+<para>Internal bus fault. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>SPI Status codes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="366" column="1" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="366" bodyend="372"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classtle_1_1expected" kindref="compound">tle::expected</ref>&lt; T, <ref refid="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693" kindref="member">DriverError</ref> &gt;</type>
+        <definition>using tle92466ed::DriverResult =  tle::expected&lt;T, DriverError&gt;</definition>
+        <argsstring></argsstring>
+        <name>DriverResult</name>
+        <qualifiedname>tle92466ed::DriverResult</qualifiedname>
+        <briefdescription>
+<para><ref refid="classtle92466ed_1_1Driver" kindref="compound">Driver</ref> result type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para><computeroutput>FeedbackNotReady</computeroutput> is returned by <computeroutput>GetAverageCurrent()</computeroutput> when <computeroutput><ref refid="namespacetle92466ed_1_1FB__FEEDBACK_1a3f046aea7a3b4d2c4cdee8ab2a0c2391" kindref="member">FB_FEEDBACK::HasValidMeasurementWindow()</ref></computeroutput> is false for the channel&apos;s <computeroutput>FB_DC</computeroutput> read (see <computeroutput><ref refid="namespacetle92466ed_1_1FB__FEEDBACK_1aacbfe9c9f4bdb12665d413a32840140e" kindref="member">FB_FEEDBACK::kMinValidTpMant</ref></computeroutput>). Typical causes: <computeroutput><ref refid="namespacetle92466ed_1_1DITHER__CLK__DIV" kindref="compound">DITHER_CLK_DIV</ref></computeroutput> still at its POR value of 0 (so <computeroutput>Tmeas</computeroutput> never runs), feedback frozen via <computeroutput>FB_FRZ</computeroutput>, or a pipelined reply spliced on a shared bus. Reporting it explicitly stops a near-zero divisor from being published as a plausible-looking current. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="53" column="1" bodyfile="inc/tle92466ed.hpp" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacetle92466ed_1a21f593ab13bf03c108a99ea2f0e3ee31" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classtle_1_1expected" kindref="compound">tle::expected</ref>&lt; T, <ref refid="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4a" kindref="member">CommError</ref> &gt;</type>
+        <definition>using tle92466ed::CommResult =  tle::expected&lt;T, CommError&gt;</definition>
+        <argsstring></argsstring>
+        <name>CommResult</name>
+        <qualifiedname>tle92466ed::CommResult</qualifiedname>
+        <briefdescription>
+<para>Result type for communication interface operations. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The success type</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+This provides a modern, safe way to return either a success value or an error. Uses std::expected on C++23, or a lightweight polyfill on C++20. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_spi_interface.hpp" line="116" column="1" bodyfile="inc/tle92466ed_spi_interface.hpp" bodystart="116" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacetle92466ed_1a433f2be56bcad43648e509e6bdafaf15" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * tle92466ed::GetDriverVersion</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>GetDriverVersion</name>
+        <qualifiedname>tle92466ed::GetDriverVersion</qualifiedname>
+        <briefdescription>
+<para>Return the compiled driver version string (same as <computeroutput><ref refid="classtle92466ed_1_1Driver_1a3e7fff62addb9553240dd0f7884e2c10" kindref="member">Driver::GetDriverVersion()</ref></computeroutput>). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="1577" column="19" bodyfile="inc/tle92466ed.hpp" bodystart="1577" bodyend="1579"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1a7770b0284ed6c00667ff46dc97d7fc7d" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GetChannelBase</definition>
+        <argsstring>(Channel channel) noexcept</argsstring>
+        <name>GetChannelBase</name>
+        <qualifiedname>tle92466ed::GetChannelBase</qualifiedname>
+        <param>
+          <type><ref refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957" kindref="member">Channel</ref></type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Get channel base address. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel number (0-5) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Base address for channel registers</para>
+</simplesect>
+Per datasheet Table 25, channel base addresses are:<itemizedlist>
+<listitem><para>CH0: 0x0040</para>
+</listitem><listitem><para>CH1: 0x0050</para>
+</listitem><listitem><para>CH2: 0x0060</para>
+</listitem><listitem><para>CH3: 0x0070</para>
+</listitem><listitem><para>CH4: 0x0020</para>
+</listitem><listitem><para>CH5: 0x0030</para>
+</listitem></itemizedlist>
+</para>
+<para>Note: Channels are NOT in sequential order, so we use a lookup table. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1993" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1993" bodyend="2010"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1a1fab0aa5ce62f60a43acdcb8820baf5a" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GetChannelRegister</definition>
+        <argsstring>(Channel channel, uint16_t offset) noexcept</argsstring>
+        <name>GetChannelRegister</name>
+        <qualifiedname>tle92466ed::GetChannelRegister</qualifiedname>
+        <param>
+          <type><ref refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957" kindref="member">Channel</ref></type>
+          <declname>channel</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+<para>Get channel register address. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel number </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Register offset from channel base </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Complete register address </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2018" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2018" bodyend="2020"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1acbbba5a918710a5ac5da8fd514035c3b" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr <ref refid="namespacetle92466ed_1a877a95a1cb5667aab7bd7c1b0f14d7dc" kindref="member">ExpectedReply</ref></type>
+        <definition>constexpr ExpectedReply tle92466ed::ExpectedReplyFor</definition>
+        <argsstring>(uint16_t address) noexcept</argsstring>
+        <name>ExpectedReplyFor</name>
+        <qualifiedname>tle92466ed::ExpectedReplyFor</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+<para>Reply width the device must use when answering a read of <computeroutput>address</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Register address passed to a read. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>Bits22</computeroutput> for the feedback/status registers that answer in reply mode 01B; <computeroutput>Bits16</computeroutput> for everything else.</para>
+</simplesect>
+The pipelined bus does not echo the address in a reply, so a reply that arrives in the wrong slot is otherwise indistinguishable from the register that was asked for — and it carries a <bold>valid CRC</bold>, so CRC alone cannot reject it. Bench measurement (2026-08-13) had 25 % of <computeroutput><ref refid="namespacetle92466ed_1_1FB__STAT" kindref="compound">FB_STAT</ref></computeroutput> reads return the preceding <computeroutput>ICVID</computeroutput> reply, which decoded as plausible-looking status bits. Comparing the reply mode against this table catches the subset of those where the two registers differ in width, which covers every feedback register the current-control path depends on.</para>
+<para><simplesect kind="note"><para>Width is a necessary, not sufficient, check: a stale reply from another register of the <emphasis>same</emphasis> width still passes. Reads are retried until a well-formed reply arrives rather than trusted on first sight. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2052" column="26" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2052" bodyend="2079"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1a14b526442cab0b973a367d32828d7a21" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint8_t</type>
+        <definition>constexpr uint8_t tle92466ed::ToIndex</definition>
+        <argsstring>(Channel ch) noexcept</argsstring>
+        <name>ToIndex</name>
+        <qualifiedname>tle92466ed::ToIndex</qualifiedname>
+        <param>
+          <type><ref refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957" kindref="member">Channel</ref></type>
+          <declname>ch</declname>
+        </param>
+        <briefdescription>
+<para>Convert channel to index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2084" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2084" bodyend="2086"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1a28e33fd2cf2d9987c0caf0b12324a8bc" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * tle92466ed::ToString</definition>
+        <argsstring>(ChannelMode mode) noexcept</argsstring>
+        <name>ToString</name>
+        <qualifiedname>tle92466ed::ToString</qualifiedname>
+        <param>
+          <type><ref refid="namespacetle92466ed_1a4354ef9226739c1ea8a59eb36e95760c" kindref="member">ChannelMode</ref></type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+<para>Convert ChannelMode enum to string. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel mode </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>String representation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2097" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2097" bodyend="2114"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1a90f1e6b60d34e1f37ef5519a56e6c001" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * tle92466ed::ToString</definition>
+        <argsstring>(SlewRate rate) noexcept</argsstring>
+        <name>ToString</name>
+        <qualifiedname>tle92466ed::ToString</qualifiedname>
+        <param>
+          <type><ref refid="namespacetle92466ed_1ae03b3b5991ee6faf1e97fed34ef2b78d" kindref="member">SlewRate</ref></type>
+          <declname>rate</declname>
+        </param>
+        <briefdescription>
+<para>Convert SlewRate enum to string. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Slew rate </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>String representation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2121" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2121" bodyend="2134"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1afc84eecf6f861304cdc62128c829960e" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * tle92466ed::ToString</definition>
+        <argsstring>(DiagCurrent current) noexcept</argsstring>
+        <name>ToString</name>
+        <qualifiedname>tle92466ed::ToString</qualifiedname>
+        <param>
+          <type><ref refid="namespacetle92466ed_1ac478d8027f99bfc8e6a985fb3b4b5e9d" kindref="member">DiagCurrent</ref></type>
+          <declname>current</declname>
+        </param>
+        <briefdescription>
+<para>Convert DiagCurrent enum to string. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>current</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Diagnostic current </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>String representation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2141" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2141" bodyend="2154"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1ad5c5440d12149543e03c438c68201ed4" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * tle92466ed::ToString</definition>
+        <argsstring>(ParallelPair pair) noexcept</argsstring>
+        <name>ToString</name>
+        <qualifiedname>tle92466ed::ToString</qualifiedname>
+        <param>
+          <type><ref refid="namespacetle92466ed_1aaf5177696585d9100c7e4e73000b48c1" kindref="member">ParallelPair</ref></type>
+          <declname>pair</declname>
+        </param>
+        <briefdescription>
+<para>Convert ParallelPair enum to string. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pair</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Parallel pair </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>String representation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2161" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2161" bodyend="2174"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1ab5de7ba482757f61b229f6c232c15324" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * tle92466ed::ToString</definition>
+        <argsstring>(Channel channel) noexcept</argsstring>
+        <name>ToString</name>
+        <qualifiedname>tle92466ed::ToString</qualifiedname>
+        <param>
+          <type><ref refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957" kindref="member">Channel</ref></type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Convert Channel enum to string. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>String representation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2181" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2181" bodyend="2198"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1a77dea1b15da97f920f588cd3264857a7" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr bool</type>
+        <definition>constexpr bool tle92466ed::IsValidChannel</definition>
+        <argsstring>(Channel ch) noexcept</argsstring>
+        <name>IsValidChannel</name>
+        <qualifiedname>tle92466ed::IsValidChannel</qualifiedname>
+        <param>
+          <type><ref refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957" kindref="member">Channel</ref></type>
+          <declname>ch</declname>
+        </param>
+        <briefdescription>
+<para>Validate channel number. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2203" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2203" bodyend="2205"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1ab6ec2b61fed36cbfc9fdf6fbe64ee5c0" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint8_t</type>
+        <definition>constexpr uint8_t tle92466ed::CalculateCrc8J1850</definition>
+        <argsstring>(const uint8_t *data, std::size_t length) noexcept</argsstring>
+        <name>CalculateCrc8J1850</name>
+        <qualifiedname>tle92466ed::CalculateCrc8J1850</qualifiedname>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+<para>Calculate SAE J1850 CRC-8. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Polynomial: 0x1D (x^8 + x^4 + x^3 + x^2 + 1) Initial value: 0xFF Final XOR: 0xFF</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to data bytes </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>CRC-8 value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2223" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2223" bodyend="2240"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1ad7fe2b874158dd8a66bd93f43bd85ddd" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t tle92466ed::CalculateFrameCrc</definition>
+        <argsstring>(const tle92466ed::SPIFrame &amp;frame) noexcept</argsstring>
+        <name>CalculateFrameCrc</name>
+        <qualifiedname>tle92466ed::CalculateFrameCrc</qualifiedname>
+        <param>
+          <type>const <ref refid="uniontle92466ed_1_1SPIFrame" kindref="compound">tle92466ed::SPIFrame</ref> &amp;</type>
+          <declname>frame</declname>
+        </param>
+        <briefdescription>
+<para>Calculate CRC for SPI frame. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SPI frame (CRC field should be 0) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Calculated CRC value</para>
+</simplesect>
+Datasheet Rev 1.2 §5.1.2 fixes the CRC byte sequence as frame[7:0], then frame[15:8], then frame[23:16] — i.e. little-endian byte order, which is the <emphasis>reverse</emphasis> of the MSB-first wire order. On a little-endian target that is exactly bytes 0..2 of the frame word. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2252" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2252" bodyend="2259"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1a6bdc721f40f29b3d22ae1696478f544c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool tle92466ed::VerifyFrameCrc</definition>
+        <argsstring>(const tle92466ed::SPIFrame &amp;frame) noexcept</argsstring>
+        <name>VerifyFrameCrc</name>
+        <qualifiedname>tle92466ed::VerifyFrameCrc</qualifiedname>
+        <param>
+          <type>const <ref refid="uniontle92466ed_1_1SPIFrame" kindref="compound">tle92466ed::SPIFrame</ref> &amp;</type>
+          <declname>frame</declname>
+        </param>
+        <briefdescription>
+<para>Verify CRC in received frame. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Received SPI frame </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if CRC is valid </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2266" column="14" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2266" bodyend="2273"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1aacc402d67ba0cbf4bd7474f4f40151c6" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint8_t</type>
+        <definition>constexpr uint8_t tle92466ed::FaultMaskIndex</definition>
+        <argsstring>(MaskableFault f) noexcept</argsstring>
+        <name>FaultMaskIndex</name>
+        <qualifiedname>tle92466ed::FaultMaskIndex</qualifiedname>
+        <param>
+          <type><ref refid="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fd" kindref="member">MaskableFault</ref></type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+<para>Extract FAULT_MASK register index (0..2) from a <computeroutput>MaskableFault</computeroutput> value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2395" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2395" bodyend="2397"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1ae118315b166480f9ded637fd23db0de9" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::FaultMaskBit</definition>
+        <argsstring>(MaskableFault f) noexcept</argsstring>
+        <name>FaultMaskBit</name>
+        <qualifiedname>tle92466ed::FaultMaskBit</qualifiedname>
+        <param>
+          <type><ref refid="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fd" kindref="member">MaskableFault</ref></type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+<para>Extract the bit mask within the target FAULT_MASK register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2399" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2399" bodyend="2401"/>
+      </memberdef>
+    </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="examples/esp32/main/diagnostics_and_bist.cpp" line="27" column="1"/>
+    <location file="inc/tle92466ed.hpp" line="15" column="1"/>
   </compounddef>
 </doxygen>

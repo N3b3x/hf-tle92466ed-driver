@@ -1,18 +1,23 @@
-warning: ignoring unsupported tag 'PAGE_OUTLINE_PANEL' at line 1709, file /tmp/doxyfile.Pz94Vd
-warning: Tag 'DOT_FONTNAME' at line 2708 of file '/tmp/doxyfile.Pz94Vd' has become obsolete.
+warning: ignoring unsupported tag 'PAGE_OUTLINE_PANEL' at line 1709, file /tmp/doxyfile.OrQlCb
+warning: Tag 'DOT_FONTNAME' at line 2708 of file '/tmp/doxyfile.OrQlCb' has become obsolete.
          To avoid this warning please remove this line from your configuration file or upgrade it using "doxygen -u"
-warning: Tag 'DOT_FONTSIZE' at line 2709 of file '/tmp/doxyfile.Pz94Vd' has become obsolete.
+warning: Tag 'DOT_FONTSIZE' at line 2709 of file '/tmp/doxyfile.OrQlCb' has become obsolete.
          To avoid this warning please remove this line from your configuration file or upgrade it using "doxygen -u"
-warning: Tag 'DOT_TRANSPARENT' at line 2712 of file '/tmp/doxyfile.Pz94Vd' has become obsolete.
+warning: Tag 'DOT_TRANSPARENT' at line 2712 of file '/tmp/doxyfile.OrQlCb' has become obsolete.
          To avoid this warning please remove this line from your configuration file or upgrade it using "doxygen -u"
 warning: tag INCLUDE_PATH: include path 'inc/mcu/esp32/' does not exist
 warning: tag INCLUDE_PATH: include path 'inc/utils/' does not exist
-warning: tag INPUT: input source 'include/' does not exist
 warning: source 'inc/mcu/esp32/' is not a readable file or directory... skipping.
 warning: source 'inc/utils/' is not a readable file or directory... skipping.
-warning: source 'include' is not a readable file or directory... skipping.
 /home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/examples/esp32/main/esp32_tle92466ed_test_config.hpp:2: warning: the name 'tle92466ed_test_config.hpp' supplied as the argument in the \file statement is not an input file
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:2283: warning: Found unknown command '\u2248'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:2283: warning: Found unknown command '\u00b1'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1538: warning: Found unknown command '\u00b0C'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:1036: warning: Found unknown command '\u00b0C'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1558: warning: Found unknown command '\u00b0C'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:167: warning: unable to resolve reference to 'Tle92466edDriver::SampleChannelCurrents' for \ref command
 /home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/examples/esp32/main/resistive_load_bench.cpp:4: warning: Found unknown command '\u03a9'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:2299: warning: Found unknown command '\u00b0C'
 /home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/examples/esp32/main/resistive_load_bench.cpp:4: warning: Found unknown command '\u03a9'
 /home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/examples/esp32/main/resistive_load_bench.cpp:4: warning: Found unknown command '\u03a9'
 /home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/examples/esp32/main/resistive_load_bench.cpp:8: warning: Found unknown command '\u2248'
@@ -29,6 +34,71 @@ warning: source 'include' is not a readable file or directory... skipping.
   parameter 'tag'
 /home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/examples/esp32/main/TestFramework.h:321: warning: The following parameter of print_test_summary(const TestResults &test_results, const char *test_suite_name, const char *tag) is not documented:
   parameter 'tag'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:167: warning: unable to resolve reference to 'Tle92466edDriver::SampleChannelCurrents' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1538: warning: Found unknown command '\u00b0C'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1558: warning: Found unknown command '\u00b0C'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:167: warning: unable to resolve reference to 'Tle92466edDriver::SampleChannelCurrents' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:2283: warning: Found unknown command '\u2248'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:2283: warning: Found unknown command '\u00b1'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:167: warning: unable to resolve reference to 'Tle92466edDriver::SampleChannelCurrents' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:167: warning: unable to resolve reference to 'Tle92466edDriver::SampleChannelCurrents' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:1036: warning: Found unknown command '\u00b0C'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:1010: warning: Found unknown command '\u20138'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:1010: warning: Found unknown command '\u00a74'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:1014: warning: Found unknown command '\u2248500'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:1014: warning: Found unknown command '\u00b5s'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:1036: warning: Found unknown command '\u00b0C'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:1078: warning: Found unknown command '\u20131023'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:1079: warning: Found unknown command '\u201331'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:1159: warning: Found unknown command '\u201363'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:1149: warning: Found unknown command '\u201363'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:1093: warning: Found unknown command '\u201315'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:2299: warning: Found unknown command '\u00b0C'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:2299: warning: Found unknown command '\u00b0C'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1018: warning: Found unknown command '\u00a75'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1025: warning: Found unknown command '\u00b1'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1049: warning: Found unknown command '\u20138'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:987: warning: Found unknown command '\u00a75'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:405: warning: Found unknown command '\u00a75'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:460: warning: Found unknown command '\u00a75'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1121: warning: Found unknown command '\u00a75'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1573: warning: Found unknown command '\u00a75'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1576: warning: Unsupported xml/html tag <IMIN> found
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1576: warning: Found unknown command '\u00b7'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1576: warning: Found unknown command '\u2212'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1576: warning: Unsupported xml/html tag <IMIN> found
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1576: warning: Found unknown command '\u00b7'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1577: warning: Unsupported xml/html tag <IMAX> found
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1577: warning: Found unknown command '\u00b7'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1580: warning: Found unknown command '\u00b14'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1580: warning: Found unknown command '\u2026'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1580: warning: Found unknown command '\u22121'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1581: warning: Found unknown command '\u22124'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1581: warning: Found unknown command '\u2026'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1860: warning: Found unknown command '\u00a75'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1880: warning: Found unknown command '\u00a75'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:956: warning: Found unknown command '\u00a75'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:961: warning: Found unknown command '\u00a74'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:680: warning: Found unknown command '\u00a75'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1097: warning: Found unknown command '\u00a75'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1071: warning: Found unknown command '\u00a75'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:926: warning: Found unknown command '\u00a75'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1538: warning: Found unknown command '\u00b0C'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1558: warning: Found unknown command '\u00b0C'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1472: warning: Unsupported xml/html tag <VIO> found
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1473: warning: Unsupported xml/html tag <VDD> found
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1476: warning: Unsupported xml/html tag <VBAT> found
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1477: warning: Unsupported xml/html tag <VBAT> found
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1558: warning: Found unknown command '\u00b0C'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1538: warning: Found unknown command '\u00b0C'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1541: warning: Found unknown command '\u00a75'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1542: warning: Unsupported xml/html tag <TEMP_VALUE> found
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1542: warning: Found unknown command '\u00b7'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1542: warning: Found unknown command '\u2212'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1542: warning: Found unknown command '\u22120'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1542: warning: Found unknown command '\u00b0C'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:337: warning: Unsupported xml/html tag <WD_TIME> found
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:340: warning: Unsupported xml/html tag <WD_TIME> found
 </home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/examples/esp32/main/>:2: warning: Found unknown command '\u03a9'
 /home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:12: warning: unable to resolve reference to '-overview' for \ref command
 /home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:13: warning: unable to resolve reference to '-features' for \ref command
@@ -47,7 +117,66 @@ warning: source 'include' is not a readable file or directory... skipping.
 /home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:125: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/api_reference.md' for \ref command
 /home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:131: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/examples.md' for \ref command
 /home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:135: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/index.md' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:167: warning: unable to resolve reference to 'Tle92466edDriver::SampleChannelCurrents' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:167: warning: unable to resolve reference to 'Tle92466edDriver::SampleChannelCurrents' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:167: warning: unable to resolve reference to 'Tle92466edDriver::SampleChannelCurrents' for \ref command
 /home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/examples/esp32/main/resistive_load_bench.cpp:4: warning: Found unknown command '\u03a9'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:167: warning: unable to resolve reference to 'Tle92466edDriver::SampleChannelCurrents' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:1010: warning: Found unknown command '\u20138'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:1010: warning: Found unknown command '\u00a74'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:1014: warning: Found unknown command '\u2248500'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:1014: warning: Found unknown command '\u00b5s'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:1036: warning: Found unknown command '\u00b0C'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:1078: warning: Found unknown command '\u20131023'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:1079: warning: Found unknown command '\u201331'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:1093: warning: Found unknown command '\u201315'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:1149: warning: Found unknown command '\u201363'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed.hpp:1159: warning: Found unknown command '\u201363'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1049: warning: Found unknown command '\u20138'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:2299: warning: Found unknown command '\u00b0C'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:2283: warning: Found unknown command '\u2248'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:2283: warning: Found unknown command '\u00b1'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1018: warning: Found unknown command '\u00a75'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1025: warning: Found unknown command '\u00b1'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:987: warning: Found unknown command '\u00a75'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:405: warning: Found unknown command '\u00a75'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:460: warning: Found unknown command '\u00a75'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1121: warning: Found unknown command '\u00a75'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1573: warning: Found unknown command '\u00a75'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1576: warning: Unsupported xml/html tag <IMIN> found
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1576: warning: Found unknown command '\u00b7'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1576: warning: Found unknown command '\u2212'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1576: warning: Unsupported xml/html tag <IMIN> found
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1576: warning: Found unknown command '\u00b7'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1577: warning: Unsupported xml/html tag <IMAX> found
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1577: warning: Found unknown command '\u00b7'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1580: warning: Found unknown command '\u00b14'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1580: warning: Found unknown command '\u2026'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1580: warning: Found unknown command '\u22121'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1581: warning: Found unknown command '\u22124'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1581: warning: Found unknown command '\u2026'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1860: warning: Found unknown command '\u00a75'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1880: warning: Found unknown command '\u00a75'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:956: warning: Found unknown command '\u00a75'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:961: warning: Found unknown command '\u00a74'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:680: warning: Found unknown command '\u00a75'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1097: warning: Found unknown command '\u00a75'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1071: warning: Found unknown command '\u00a75'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:926: warning: Found unknown command '\u00a75'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1538: warning: Found unknown command '\u00b0C'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1541: warning: Found unknown command '\u00a75'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1542: warning: Unsupported xml/html tag <TEMP_VALUE> found
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1542: warning: Found unknown command '\u00b7'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1542: warning: Found unknown command '\u2212'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1542: warning: Found unknown command '\u22120'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1542: warning: Found unknown command '\u00b0C'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1558: warning: Found unknown command '\u00b0C'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1472: warning: Unsupported xml/html tag <VIO> found
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1473: warning: Unsupported xml/html tag <VDD> found
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1476: warning: Unsupported xml/html tag <VBAT> found
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:1477: warning: Unsupported xml/html tag <VBAT> found
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:337: warning: Unsupported xml/html tag <WD_TIME> found
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/inc/tle92466ed_registers.hpp:340: warning: Unsupported xml/html tag <WD_TIME> found
 /home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/examples/esp32/main/resistive_load_bench.cpp:4: warning: Found unknown command '\u03a9'
 /home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/examples/esp32/main/resistive_load_bench.cpp:8: warning: Found unknown command '\u2248'
 /home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/examples/esp32/main/resistive_load_bench.cpp:9: warning: Found unknown command '\u03a9'
@@ -63,6 +192,16 @@ warning: source 'include' is not a readable file or directory... skipping.
   parameter 'tag'
 /home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/examples/esp32/main/TestFramework.h:383: warning: The following parameter of print_test_section_footer(const char *tag, const char *section_name, bool enabled=true) is not documented:
   parameter 'tag'
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:12: warning: unable to resolve reference to '-overview' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:13: warning: unable to resolve reference to '-features' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:14: warning: unable to resolve reference to '-quick-start' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:15: warning: unable to resolve reference to '-installation' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:16: warning: unable to resolve reference to '-api-reference' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:17: warning: unable to resolve reference to '-examples' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:18: warning: unable to resolve reference to '-documentation' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:19: warning: unable to resolve reference to '-references' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:20: warning: unable to resolve reference to '-contributing' for \ref command
+/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:21: warning: unable to resolve reference to '-license' for \ref command
 /home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:79: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/installation.md' for \ref command
 /home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:79: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/quickstart.md' for \ref command
 /home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/README.md:84: warning: unable to resolve reference to '/home/runner/work/hf-tle92466ed-driver/hf-tle92466ed-driver/docs/platform_integration.md' for \ref command

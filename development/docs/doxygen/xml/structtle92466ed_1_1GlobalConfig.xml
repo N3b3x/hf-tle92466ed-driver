@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="structtle92466ed_1_1GlobalConfig" kind="struct" language="C++" prot="public">
+    <compoundname>tle92466ed::GlobalConfig</compoundname>
+    <includes refid="tle92466ed_8hpp" local="no">tle92466ed.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtle92466ed_1_1GlobalConfig_1a841ab2a4ec8a97261a698ff16f344cc0" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::GlobalConfig::crc_enabled</definition>
+        <argsstring></argsstring>
+        <name>crc_enabled</name>
+        <qualifiedname>tle92466ed::GlobalConfig::crc_enabled</qualifiedname>
+        <initializer>{true}</initializer>
+        <briefdescription>
+<para>Enable CRC checking. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="254" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="254" bodyend="254"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1GlobalConfig_1a0d0adb40f145dfeb51a48eb4de9e84d1" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::GlobalConfig::spi_watchdog_enabled</definition>
+        <argsstring></argsstring>
+        <name>spi_watchdog_enabled</name>
+        <qualifiedname>tle92466ed::GlobalConfig::spi_watchdog_enabled</qualifiedname>
+        <initializer>{true}</initializer>
+        <briefdescription>
+<para>Enable SPI watchdog. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="255" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="255" bodyend="255"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1GlobalConfig_1a2b70b6f18d3243e0c0e42a76e34208bc" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::GlobalConfig::clock_watchdog_enabled</definition>
+        <argsstring></argsstring>
+        <name>clock_watchdog_enabled</name>
+        <qualifiedname>tle92466ed::GlobalConfig::clock_watchdog_enabled</qualifiedname>
+        <initializer>{true}</initializer>
+        <briefdescription>
+<para>Enable clock watchdog. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="256" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="256" bodyend="256"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1GlobalConfig_1a29845a8839a8e84a7f7ecf4c46653949" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::GlobalConfig::vio_5v</definition>
+        <argsstring></argsstring>
+        <name>vio_5v</name>
+        <qualifiedname>tle92466ed::GlobalConfig::vio_5v</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>VIO voltage (false=3.3V, true=5.0V) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="257" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="257" bodyend="257"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1GlobalConfig_1a47f1ed6a4bf77d0337f77d00e4abe624" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float tle92466ed::GlobalConfig::vbat_uv_voltage</definition>
+        <argsstring></argsstring>
+        <name>vbat_uv_voltage</name>
+        <qualifiedname>tle92466ed::GlobalConfig::vbat_uv_voltage</qualifiedname>
+        <initializer>{4.0F}</initializer>
+        <briefdescription>
+<para>VBAT UV threshold voltage in volts (default: ~4V) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="258" column="9" bodyfile="inc/tle92466ed.hpp" bodystart="258" bodyend="258"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1GlobalConfig_1a635ea48eba6cb16098db9161676ced07" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float tle92466ed::GlobalConfig::vbat_ov_voltage</definition>
+        <argsstring></argsstring>
+        <name>vbat_ov_voltage</name>
+        <qualifiedname>tle92466ed::GlobalConfig::vbat_ov_voltage</qualifiedname>
+        <initializer>{41.0F}</initializer>
+        <briefdescription>
+<para>VBAT OV threshold voltage in volts (default: ~41V) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="259" column="9" bodyfile="inc/tle92466ed.hpp" bodystart="259" bodyend="259"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1GlobalConfig_1af17a04f51c93cd83e0687f3d6665bffe" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t tle92466ed::GlobalConfig::spi_watchdog_reload</definition>
+        <argsstring></argsstring>
+        <name>spi_watchdog_reload</name>
+        <qualifiedname>tle92466ed::GlobalConfig::spi_watchdog_reload</qualifiedname>
+        <initializer>{1000}</initializer>
+        <briefdescription>
+<para>SPI watchdog reload value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="260" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="260" bodyend="260"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Global configuration structure. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="inc/tle92466ed.hpp" line="253" column="1" bodyfile="inc/tle92466ed.hpp" bodystart="253" bodyend="261"/>
+    <listofallmembers>
+      <member refid="structtle92466ed_1_1GlobalConfig_1a2b70b6f18d3243e0c0e42a76e34208bc" prot="public" virt="non-virtual"><scope>tle92466ed::GlobalConfig</scope><name>clock_watchdog_enabled</name></member>
+      <member refid="structtle92466ed_1_1GlobalConfig_1a841ab2a4ec8a97261a698ff16f344cc0" prot="public" virt="non-virtual"><scope>tle92466ed::GlobalConfig</scope><name>crc_enabled</name></member>
+      <member refid="structtle92466ed_1_1GlobalConfig_1a0d0adb40f145dfeb51a48eb4de9e84d1" prot="public" virt="non-virtual"><scope>tle92466ed::GlobalConfig</scope><name>spi_watchdog_enabled</name></member>
+      <member refid="structtle92466ed_1_1GlobalConfig_1af17a04f51c93cd83e0687f3d6665bffe" prot="public" virt="non-virtual"><scope>tle92466ed::GlobalConfig</scope><name>spi_watchdog_reload</name></member>
+      <member refid="structtle92466ed_1_1GlobalConfig_1a635ea48eba6cb16098db9161676ced07" prot="public" virt="non-virtual"><scope>tle92466ed::GlobalConfig</scope><name>vbat_ov_voltage</name></member>
+      <member refid="structtle92466ed_1_1GlobalConfig_1a47f1ed6a4bf77d0337f77d00e4abe624" prot="public" virt="non-virtual"><scope>tle92466ed::GlobalConfig</scope><name>vbat_uv_voltage</name></member>
+      <member refid="structtle92466ed_1_1GlobalConfig_1a29845a8839a8e84a7f7ecf4c46653949" prot="public" virt="non-virtual"><scope>tle92466ed::GlobalConfig</scope><name>vio_5v</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

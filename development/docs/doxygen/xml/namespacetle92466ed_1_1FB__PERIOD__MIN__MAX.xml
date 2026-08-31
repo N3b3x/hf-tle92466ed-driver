@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1FB__PERIOD__MIN__MAX" kind="namespace" language="C++">
+    <compoundname>tle92466ed::FB_PERIOD_MIN_MAX</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__PERIOD__MIN__MAX_1a46517c28a4f7de4b68cef2bae66f2847" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_PERIOD_MIN_MAX::PERIOD_MIN_MASK</definition>
+        <argsstring></argsstring>
+        <name>PERIOD_MIN_MASK</name>
+        <qualifiedname>tle92466ed::FB_PERIOD_MIN_MAX::PERIOD_MIN_MASK</qualifiedname>
+        <initializer>= 0x000003FFu</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1887" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1887" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__PERIOD__MIN__MAX_1a4e7b5eee130811a8267c44f89d222645" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_PERIOD_MIN_MAX::PERIOD_MAX_SHIFT</definition>
+        <argsstring></argsstring>
+        <name>PERIOD_MAX_SHIFT</name>
+        <qualifiedname>tle92466ed::FB_PERIOD_MIN_MAX::PERIOD_MAX_SHIFT</qualifiedname>
+        <initializer>= 10u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1888" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1888" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__PERIOD__MIN__MAX_1a0f875c6441313476bb282114f4e74bc1" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_PERIOD_MIN_MAX::PERIOD_MAX_MASK</definition>
+        <argsstring></argsstring>
+        <name>PERIOD_MAX_MASK</name>
+        <qualifiedname>tle92466ed::FB_PERIOD_MIN_MAX::PERIOD_MAX_MASK</qualifiedname>
+        <initializer>= 0x000FFC00u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1889" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1889" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__PERIOD__MIN__MAX_1a00b485f1987c872ed712c3274eb7b949" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_PERIOD_MIN_MAX::TICK_CYCLES</definition>
+        <argsstring></argsstring>
+        <name>TICK_CYCLES</name>
+        <qualifiedname>tle92466ed::FB_PERIOD_MIN_MAX::TICK_CYCLES</qualifiedname>
+        <initializer>= 256u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1890" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1890" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacetle92466ed_1_1FB__PERIOD__MIN__MAX_1a2218f35bc88a0f64c34a230010028715" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_PERIOD_MIN_MAX::ToMicroseconds</definition>
+        <argsstring>(uint16_t raw_count) noexcept</argsstring>
+        <name>ToMicroseconds</name>
+        <qualifiedname>tle92466ed::FB_PERIOD_MIN_MAX::ToMicroseconds</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>raw_count</declname>
+        </param>
+        <briefdescription>
+<para>Convert a raw 10-bit count to microseconds (fSYS = 28 MHz). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1893" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1893" bodyend="1896"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1FB__PERIOD__MIN__MAX_1aa5db5bfb16c6439987bbae975b093eef" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::FB_PERIOD_MIN_MAX::ExtractMin</definition>
+        <argsstring>(uint32_t reply_22bit) noexcept</argsstring>
+        <name>ExtractMin</name>
+        <qualifiedname>tle92466ed::FB_PERIOD_MIN_MAX::ExtractMin</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>reply_22bit</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1898" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1898" bodyend="1900"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1FB__PERIOD__MIN__MAX_1a0b62b3985b49e71c13963a017df580ad" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::FB_PERIOD_MIN_MAX::ExtractMax</definition>
+        <argsstring>(uint32_t reply_22bit) noexcept</argsstring>
+        <name>ExtractMax</name>
+        <qualifiedname>tle92466ed::FB_PERIOD_MIN_MAX::ExtractMax</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>reply_22bit</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1901" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1901" bodyend="1903"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1FB__PERIOD__MIN__MAX_1a84c3226db33066ce08354ae40c7c3dec" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_PERIOD_MIN_MAX::PeriodMinMicroseconds</definition>
+        <argsstring>(uint32_t reply_22bit) noexcept</argsstring>
+        <name>PeriodMinMicroseconds</name>
+        <qualifiedname>tle92466ed::FB_PERIOD_MIN_MAX::PeriodMinMicroseconds</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>reply_22bit</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1905" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1905" bodyend="1907"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1FB__PERIOD__MIN__MAX_1ae7fd1ec0a35e3fef3e976a63acf2e43f" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_PERIOD_MIN_MAX::PeriodMaxMicroseconds</definition>
+        <argsstring>(uint32_t reply_22bit) noexcept</argsstring>
+        <name>PeriodMaxMicroseconds</name>
+        <qualifiedname>tle92466ed::FB_PERIOD_MIN_MAX::PeriodMaxMicroseconds</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>reply_22bit</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1908" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1908" bodyend="1910"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespacetle92466ed_1_1FB__PERIOD__MIN__MAX" kindref="compound">FB_PERIOD_MIN_MAX</ref> decoder. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Per datasheet \u00a75.3.3.23 p.106. Reports the minimum and maximum PWM period observed during the last measurement window in 256-cycle units of fSYS: bits 9:0 PERIOD_MIN T_MIN = PERIOD_MIN * 256 / fSYS bits 19:10 PERIOD_MAX T_MAX = PERIOD_MAX * 256 / fSYS </para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="1886" column="1"/>
+  </compounddef>
+</doxygen>

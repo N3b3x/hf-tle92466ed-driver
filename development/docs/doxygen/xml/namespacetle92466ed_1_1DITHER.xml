@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1DITHER" kind="namespace" language="C++">
+    <compoundname>tle92466ed::DITHER</compoundname>
+    <innerclass refid="structtle92466ed_1_1DITHER_1_1DitherConfig" prot="public">tle92466ed::DITHER::DitherConfig</innerclass>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER_1afa5140dc9bc2fd4464ef836d9fe90e41" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float tle92466ed::DITHER::F_SYS_HZ</definition>
+        <argsstring></argsstring>
+        <name>F_SYS_HZ</name>
+        <qualifiedname>tle92466ed::DITHER::F_SYS_HZ</qualifiedname>
+        <initializer>= 28&apos;000&apos;000.0F</initializer>
+        <briefdescription>
+<para>System clock frequency (28 MHz) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1323" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1323" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER_1a1885577a7252f1053c51da9ff288773f" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float tle92466ed::DITHER::DEFAULT_T_REF_CLK_US</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT_T_REF_CLK_US</name>
+        <qualifiedname>tle92466ed::DITHER::DEFAULT_T_REF_CLK_US</qualifiedname>
+        <initializer>= 1.0F / 28.0F</initializer>
+        <briefdescription>
+<para>tref_clk at MANT=1, EXP=0 (≈35.71 ns) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1324" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1324" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacetle92466ed_1_1DITHER_1a73f754e8580f34adc95cfa3493c0e03f" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtle92466ed_1_1DITHER_1_1DitherConfig" kindref="compound">DitherConfig</ref></type>
+        <definition>DitherConfig tle92466ed::DITHER::CalculateFromAmplitudeFrequency</definition>
+        <argsstring>(float amplitude_ma, float frequency_hz, bool parallel_mode=false, float t_ref_clk_us=DEFAULT_T_REF_CLK_US) noexcept</argsstring>
+        <name>CalculateFromAmplitudeFrequency</name>
+        <qualifiedname>tle92466ed::DITHER::CalculateFromAmplitudeFrequency</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>amplitude_ma</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>frequency_hz</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>parallel_mode</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t_ref_clk_us</declname>
+          <defval><ref refid="namespacetle92466ed_1_1DITHER_1a1885577a7252f1053c51da9ff288773f" kindref="member">DEFAULT_T_REF_CLK_US</ref></defval>
+        </param>
+        <briefdescription>
+<para>Calculate dither configuration from amplitude and frequency. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>amplitude_ma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Desired dither amplitude in milliamperes </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>frequency_hz</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Desired dither frequency in Hz </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>parallel_mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true if channel is in parallel mode </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>t_ref_clk_us</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reference clock period in microseconds (default: 0.125 µs) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="structtle92466ed_1_1DITHER_1_1DitherConfig" kindref="compound">DitherConfig</ref> structure</para>
+</simplesect>
+Automatically calculates step_size, num_steps, and flat_steps to achieve the desired amplitude and frequency. Uses reasonable defaults for steps and flat period if not specified. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1373" column="22" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1373" bodyend="1414"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Dither configuration helper functions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Provides high-level functions to calculate dither parameters from user-friendly values.</para>
+<para><bold>Formulas</bold>:<itemizedlist>
+<listitem><para>I_dither = STEPS × STEP_SIZE × 2A / 32767</para>
+</listitem><listitem><para>T_dither = [4×STEPS + 2×FLAT] × t_ref_clk</para>
+</listitem></itemizedlist>
+</para>
+<para>Where t_ref_clk is set by the per-channel <ref refid="namespacetle92466ed_1_1DITHER__CLK__DIV" kindref="compound">DITHER_CLK_DIV</ref> register (see <ref refid="namespacetle92466ed_1_1DITHER__CLK__DIV" kindref="compound">DITHER_CLK_DIV</ref> namespace above). The chip&apos;s POR default of <ref refid="namespacetle92466ed_1_1DITHER__CLK__DIV" kindref="compound">DITHER_CLK_DIV</ref> = 0x0000 makes t_ref_clk = 0, so any channel that needs feedback values populated MUST have <ref refid="namespacetle92466ed_1_1DITHER__CLK__DIV" kindref="compound">DITHER_CLK_DIV</ref> programmed to a non-zero MANT/EXP combination first. </para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="1322" column="1"/>
+  </compounddef>
+</doxygen>

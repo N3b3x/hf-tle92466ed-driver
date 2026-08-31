@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="structtle92466ed_1_1ChannelErrorFlags" kind="struct" language="C++" prot="public">
+    <compoundname>tle92466ed::ChannelErrorFlags</compoundname>
+    <includes refid="tle92466ed_8hpp" local="no">tle92466ed.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelErrorFlags_1ac599e9bd4dcd7487e6941d0727700357" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::ChannelErrorFlags::open_load_short_ground</definition>
+        <argsstring></argsstring>
+        <name>open_load_short_ground</name>
+        <qualifiedname>tle92466ed::ChannelErrorFlags::open_load_short_ground</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>OLSG pre-check (latched) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="146" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="146" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelErrorFlags_1a1ec98beb0c39ec343aea71f8548debac" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::ChannelErrorFlags::open_load</definition>
+        <argsstring></argsstring>
+        <name>open_load</name>
+        <qualifiedname>tle92466ed::ChannelErrorFlags::open_load</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>OL. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="147" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="147" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelErrorFlags_1af178b1d02f6dac8fc5bc0dc5bb49ff93" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::ChannelErrorFlags::overcurrent</definition>
+        <argsstring></argsstring>
+        <name>overcurrent</name>
+        <qualifiedname>tle92466ed::ChannelErrorFlags::overcurrent</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>OC. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="148" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="148" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelErrorFlags_1ad6e688bad3b166cb11f7eb23ede2003c" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::ChannelErrorFlags::short_to_ground</definition>
+        <argsstring></argsstring>
+        <name>short_to_ground</name>
+        <qualifiedname>tle92466ed::ChannelErrorFlags::short_to_ground</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>SG. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="149" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="149" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelErrorFlags_1abedb60895e5e0c53457eaaf82d22e146" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::ChannelErrorFlags::over_temperature</definition>
+        <argsstring></argsstring>
+        <name>over_temperature</name>
+        <qualifiedname>tle92466ed::ChannelErrorFlags::over_temperature</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>OTE. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="150" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="150" bodyend="150"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Latched error bits for one channel (DIAG_ERR_CHGRx only). </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The error half of <ref refid="structtle92466ed_1_1ChannelDiagnostics" kindref="compound">ChannelDiagnostics</ref> without the warning registers or the four feedback reads, so a supervisory loop can refresh fault state for every channel in three register reads instead of thirty-six. </para>
+    </detaileddescription>
+    <location file="inc/tle92466ed.hpp" line="145" column="1" bodyfile="inc/tle92466ed.hpp" bodystart="145" bodyend="151"/>
+    <listofallmembers>
+      <member refid="structtle92466ed_1_1ChannelErrorFlags_1a1ec98beb0c39ec343aea71f8548debac" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelErrorFlags</scope><name>open_load</name></member>
+      <member refid="structtle92466ed_1_1ChannelErrorFlags_1ac599e9bd4dcd7487e6941d0727700357" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelErrorFlags</scope><name>open_load_short_ground</name></member>
+      <member refid="structtle92466ed_1_1ChannelErrorFlags_1abedb60895e5e0c53457eaaf82d22e146" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelErrorFlags</scope><name>over_temperature</name></member>
+      <member refid="structtle92466ed_1_1ChannelErrorFlags_1af178b1d02f6dac8fc5bc0dc5bb49ff93" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelErrorFlags</scope><name>overcurrent</name></member>
+      <member refid="structtle92466ed_1_1ChannelErrorFlags_1ad6e688bad3b166cb11f7eb23ede2003c" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelErrorFlags</scope><name>short_to_ground</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

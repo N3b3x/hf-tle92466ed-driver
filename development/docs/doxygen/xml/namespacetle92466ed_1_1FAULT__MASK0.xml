@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1FAULT__MASK0" kind="namespace" language="C++">
+    <compoundname>tle92466ed::FAULT_MASK0</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FAULT__MASK0_1a60a3bdeec39ca504d12aa1c12de3dac3" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::FAULT_MASK0::CH_ERR_MASK</definition>
+        <argsstring></argsstring>
+        <name>CH_ERR_MASK</name>
+        <qualifiedname>tle92466ed::FAULT_MASK0::CH_ERR_MASK</qualifiedname>
+        <initializer>= 0x003Fu</initializer>
+        <briefdescription>
+<para>Per-channel error (CH0..5) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1126" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FAULT__MASK0_1ac7f32fea4328481f608084fae85361a6" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::FAULT_MASK0::EN_PIN_MASK</definition>
+        <argsstring></argsstring>
+        <name>EN_PIN_MASK</name>
+        <qualifiedname>tle92466ed::FAULT_MASK0::EN_PIN_MASK</qualifiedname>
+        <initializer>= (1u &lt;&lt; 13)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1127" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FAULT__MASK0_1a43b908b17140c3b085899df85798eff9" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::FAULT_MASK0::SUP_NOK_INT_MASK</definition>
+        <argsstring></argsstring>
+        <name>SUP_NOK_INT_MASK</name>
+        <qualifiedname>tle92466ed::FAULT_MASK0::SUP_NOK_INT_MASK</qualifiedname>
+        <initializer>= (1u &lt;&lt; 14)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1128" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FAULT__MASK0_1aee3f20a0b0e5f87f58f65d38d96a48d9" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::FAULT_MASK0::SUP_NOK_EXT_MASK</definition>
+        <argsstring></argsstring>
+        <name>SUP_NOK_EXT_MASK</name>
+        <qualifiedname>tle92466ed::FAULT_MASK0::SUP_NOK_EXT_MASK</qualifiedname>
+        <initializer>= (1u &lt;&lt; 15)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1129" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FAULT__MASK0_1a337c670bbe56618a2719cb8abd7e6e9d" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::FAULT_MASK0::DEFAULT</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT</name>
+        <qualifiedname>tle92466ed::FAULT_MASK0::DEFAULT</qualifiedname>
+        <initializer>= 0xC03Fu</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1130" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1130" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>FAULT_MASK bit definitions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Per datasheet \u00a75.3.2.14-5.3.2.17 p.69-72. Bit=1 means the condition pulls FAULTN low; bit=0 masks it out. Organized across three registers for error/warn/supply domains. </para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="1125" column="1"/>
+  </compounddef>
+</doxygen>

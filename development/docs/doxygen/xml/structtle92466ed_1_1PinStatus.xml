@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="structtle92466ed_1_1PinStatus" kind="struct" language="C++" prot="public">
+    <compoundname>tle92466ed::PinStatus</compoundname>
+    <includes refid="tle92466ed__registers_8hpp" local="no">tle92466ed_registers.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtle92466ed_1_1PinStatus_1a8113a63b7cd3a7df58f3788ab7b9a490" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::PinStatus::drv0</definition>
+        <argsstring></argsstring>
+        <name>drv0</name>
+        <qualifiedname>tle92466ed::PinStatus::drv0</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>DRV0 input pin level (<ref refid="namespacetle92466ed_1_1PIN__STAT" kindref="compound">PIN_STAT</ref> bit 0) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2348" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2348" bodyend="2348"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1PinStatus_1a79175067bd31c3edf86f9145af51396e" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::PinStatus::drv1</definition>
+        <argsstring></argsstring>
+        <name>drv1</name>
+        <qualifiedname>tle92466ed::PinStatus::drv1</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>DRV1 input pin level (<ref refid="namespacetle92466ed_1_1PIN__STAT" kindref="compound">PIN_STAT</ref> bit 1) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2349" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2349" bodyend="2349"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1PinStatus_1ae2156b37eb648cfae815c211048c155f" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::PinStatus::en</definition>
+        <argsstring></argsstring>
+        <name>en</name>
+        <qualifiedname>tle92466ed::PinStatus::en</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>EN input pin level (<ref refid="namespacetle92466ed_1_1PIN__STAT" kindref="compound">PIN_STAT</ref> bit 4) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2350" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2350" bodyend="2350"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1PinStatus_1a5e1a0144e26e2853688b3fec45c5edff" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::PinStatus::faultn_driver</definition>
+        <argsstring></argsstring>
+        <name>faultn_driver</name>
+        <qualifiedname>tle92466ed::PinStatus::faultn_driver</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>FAULTN output as driven by the IC (<ref refid="namespacetle92466ed_1_1PIN__STAT" kindref="compound">PIN_STAT</ref> bit 5) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2351" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2351" bodyend="2351"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1PinStatus_1a7699ff72132b529a974311f2a58d7cb9" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::PinStatus::faultn_fb</definition>
+        <argsstring></argsstring>
+        <name>faultn_fb</name>
+        <qualifiedname>tle92466ed::PinStatus::faultn_fb</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>External FAULTN line feedback (<ref refid="namespacetle92466ed_1_1PIN__STAT" kindref="compound">PIN_STAT</ref> bit 6) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2352" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2352" bodyend="2352"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1PinStatus_1a4badbf79387f305d43312ae8bf47fbe9" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t tle92466ed::PinStatus::raw</definition>
+        <argsstring></argsstring>
+        <name>raw</name>
+        <qualifiedname>tle92466ed::PinStatus::raw</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>Raw <ref refid="namespacetle92466ed_1_1PIN__STAT" kindref="compound">PIN_STAT</ref> register value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2353" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2353" bodyend="2353"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Snapshot returned by <computeroutput>ReadPinStatus()</computeroutput>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="2347" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2347" bodyend="2354"/>
+    <listofallmembers>
+      <member refid="structtle92466ed_1_1PinStatus_1a8113a63b7cd3a7df58f3788ab7b9a490" prot="public" virt="non-virtual"><scope>tle92466ed::PinStatus</scope><name>drv0</name></member>
+      <member refid="structtle92466ed_1_1PinStatus_1a79175067bd31c3edf86f9145af51396e" prot="public" virt="non-virtual"><scope>tle92466ed::PinStatus</scope><name>drv1</name></member>
+      <member refid="structtle92466ed_1_1PinStatus_1ae2156b37eb648cfae815c211048c155f" prot="public" virt="non-virtual"><scope>tle92466ed::PinStatus</scope><name>en</name></member>
+      <member refid="structtle92466ed_1_1PinStatus_1a5e1a0144e26e2853688b3fec45c5edff" prot="public" virt="non-virtual"><scope>tle92466ed::PinStatus</scope><name>faultn_driver</name></member>
+      <member refid="structtle92466ed_1_1PinStatus_1a7699ff72132b529a974311f2a58d7cb9" prot="public" virt="non-virtual"><scope>tle92466ed::PinStatus</scope><name>faultn_fb</name></member>
+      <member refid="structtle92466ed_1_1PinStatus_1a4badbf79387f305d43312ae8bf47fbe9" prot="public" virt="non-virtual"><scope>tle92466ed::PinStatus</scope><name>raw</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

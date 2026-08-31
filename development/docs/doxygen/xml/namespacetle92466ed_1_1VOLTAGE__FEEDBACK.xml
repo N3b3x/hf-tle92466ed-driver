@@ -1,0 +1,317 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1VOLTAGE__FEEDBACK" kind="namespace" language="C++">
+    <compoundname>tle92466ed::VOLTAGE_FEEDBACK</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1a42ce9d02d4d7c8172c0b291877f975be" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float tle92466ed::VOLTAGE_FEEDBACK::VIO_VDD_LSB_VOLTAGE</definition>
+        <argsstring></argsstring>
+        <name>VIO_VDD_LSB_VOLTAGE</name>
+        <qualifiedname>tle92466ed::VOLTAGE_FEEDBACK::VIO_VDD_LSB_VOLTAGE</qualifiedname>
+        <initializer>= 0.0034534F</initializer>
+        <briefdescription>
+<para>Voltage per LSB for VIO/VDD (0.0034534V) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1484" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1484" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1ac9af663ba09130277335651418297a4d" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::VOLTAGE_FEEDBACK::VIO_VDD_MASK</definition>
+        <argsstring></argsstring>
+        <name>VIO_VDD_MASK</name>
+        <qualifiedname>tle92466ed::VOLTAGE_FEEDBACK::VIO_VDD_MASK</qualifiedname>
+        <initializer>= 0x7FF</initializer>
+        <briefdescription>
+<para>11-bit mask (bits 10:0) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1485" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1485" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1a30fb016ad70d581ee6fc5ff93680a64c" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::VOLTAGE_FEEDBACK::VDD_SHIFT</definition>
+        <argsstring></argsstring>
+        <name>VDD_SHIFT</name>
+        <qualifiedname>tle92466ed::VOLTAGE_FEEDBACK::VDD_SHIFT</qualifiedname>
+        <initializer>= 11</initializer>
+        <briefdescription>
+<para>VDD is in bits [21:11]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1486" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1486" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1aaee2aaad06ca9987b839694d7a47be09" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float tle92466ed::VOLTAGE_FEEDBACK::VBAT_MAX_VOLTAGE</definition>
+        <argsstring></argsstring>
+        <name>VBAT_MAX_VOLTAGE</name>
+        <qualifiedname>tle92466ed::VOLTAGE_FEEDBACK::VBAT_MAX_VOLTAGE</qualifiedname>
+        <initializer>= 41.47F</initializer>
+        <briefdescription>
+<para>Maximum VBAT voltage (41.47V) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1489" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1489" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1ae2a9cf0d21080c5470d39c1323358e03" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::VOLTAGE_FEEDBACK::VBAT_MAX_COUNT</definition>
+        <argsstring></argsstring>
+        <name>VBAT_MAX_COUNT</name>
+        <qualifiedname>tle92466ed::VOLTAGE_FEEDBACK::VBAT_MAX_COUNT</qualifiedname>
+        <initializer>= 2047</initializer>
+        <briefdescription>
+<para>Maximum count (2^11 - 1) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1490" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1490" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1ae9278f7b479c8c4d8035736c85c65eb9" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::VOLTAGE_FEEDBACK::VBAT_MASK</definition>
+        <argsstring></argsstring>
+        <name>VBAT_MASK</name>
+        <qualifiedname>tle92466ed::VOLTAGE_FEEDBACK::VBAT_MASK</qualifiedname>
+        <initializer>= 0x7FF</initializer>
+        <briefdescription>
+<para>11-bit mask (bits 10:0) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1491" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1491" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1a41c308d116696362472a37f8de3ab87e" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::VOLTAGE_FEEDBACK::VBAT_SHIFT</definition>
+        <argsstring></argsstring>
+        <name>VBAT_SHIFT</name>
+        <qualifiedname>tle92466ed::VOLTAGE_FEEDBACK::VBAT_SHIFT</qualifiedname>
+        <initializer>= 11</initializer>
+        <briefdescription>
+<para>VBAT is in bits [21:11]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1492" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1492" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1a7c30b65cbc9632c59bc17d63230dad5b" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::VOLTAGE_FEEDBACK::ExtractVioMillivolts</definition>
+        <argsstring>(uint32_t register_value) noexcept</argsstring>
+        <name>ExtractVioMillivolts</name>
+        <qualifiedname>tle92466ed::VOLTAGE_FEEDBACK::ExtractVioMillivolts</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>register_value</declname>
+        </param>
+        <briefdescription>
+<para>Extract VIO voltage from FB_VOLTAGE1 register (22-bit value) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>register_value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>22-bit register value from FB_VOLTAGE1 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>VIO voltage in millivolts </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1499" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1499" bodyend="1503"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1a4866924104905fd8764d7b489e8c8347" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::VOLTAGE_FEEDBACK::ExtractVddMillivolts</definition>
+        <argsstring>(uint32_t register_value) noexcept</argsstring>
+        <name>ExtractVddMillivolts</name>
+        <qualifiedname>tle92466ed::VOLTAGE_FEEDBACK::ExtractVddMillivolts</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>register_value</declname>
+        </param>
+        <briefdescription>
+<para>Extract VDD voltage from FB_VOLTAGE1 register (22-bit value) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>register_value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>22-bit register value from FB_VOLTAGE1 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>VDD voltage in millivolts </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1510" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1510" bodyend="1514"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1a9c64f9811307f812855e3af87bef0bbc" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::VOLTAGE_FEEDBACK::ExtractVbatMillivolts</definition>
+        <argsstring>(uint32_t register_value) noexcept</argsstring>
+        <name>ExtractVbatMillivolts</name>
+        <qualifiedname>tle92466ed::VOLTAGE_FEEDBACK::ExtractVbatMillivolts</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>register_value</declname>
+        </param>
+        <briefdescription>
+<para>Extract VBAT voltage from FB_VOLTAGE2 register (22-bit value) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>register_value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>22-bit register value from FB_VOLTAGE2 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>VBAT voltage in millivolts </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1521" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1521" bodyend="1526"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1ab9c879e1c7414ae4d052a4e4cbcad919" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::VOLTAGE_FEEDBACK::ExtractTemperatureRaw</definition>
+        <argsstring>(uint32_t register_value) noexcept</argsstring>
+        <name>ExtractTemperatureRaw</name>
+        <qualifiedname>tle92466ed::VOLTAGE_FEEDBACK::ExtractTemperatureRaw</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>register_value</declname>
+        </param>
+        <briefdescription>
+<para>Extract temperature value from FB_VOLTAGE2 register (22-bit value) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>register_value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>22-bit register value from FB_VOLTAGE2 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Temperature raw value (bits [10:0]) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1533" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1533" bodyend="1535"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1a3b6f713c72ed72af558bc3baf92a07a2" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr float</type>
+        <definition>constexpr float tle92466ed::VOLTAGE_FEEDBACK::TemperatureCelsiusFromRaw</definition>
+        <argsstring>(uint16_t temp_value) noexcept</argsstring>
+        <name>TemperatureCelsiusFromRaw</name>
+        <qualifiedname>tle92466ed::VOLTAGE_FEEDBACK::TemperatureCelsiusFromRaw</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>temp_value</declname>
+        </param>
+        <briefdescription>
+<para>Convert a raw TEMP_VALUE (11-bit) to die temperature in \u00b0C. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Per datasheet \u00a75.3.2.22 p.79 (FB_VOLTAGE2, TEMP_VALUE): TFB_Central = (&lt;TEMP_VALUE&gt; \u00b7 0.000593 V \u2212 0.819 V) / \u22120.0016 V/\u00b0C</para>
+<para>The slope is negative, so a larger raw value yields a lower temperature.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>temp_value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Raw 11-bit TEMP_VALUE field from FB_VOLTAGE2[10:0]. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Central die temperature in degrees Celsius (can be negative). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1549" column="18" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1549" bodyend="1555"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1ac8ae8c80756a3e9c9e6fa41f63e808c5" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr float</type>
+        <definition>constexpr float tle92466ed::VOLTAGE_FEEDBACK::TemperatureCelsiusFromFbVoltage2</definition>
+        <argsstring>(uint32_t register_value) noexcept</argsstring>
+        <name>TemperatureCelsiusFromFbVoltage2</name>
+        <qualifiedname>tle92466ed::VOLTAGE_FEEDBACK::TemperatureCelsiusFromFbVoltage2</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>register_value</declname>
+        </param>
+        <briefdescription>
+<para>Convert a raw 22-bit FB_VOLTAGE2 read to die temperature in \u00b0C. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1560" column="18" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1560" bodyend="1562"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Voltage feedback helper functions for FB_VOLTAGE1 and FB_VOLTAGE2. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>FB_VOLTAGE1 (0x0203) contains VIO and VDD measurements (22-bit reply frame):<itemizedlist>
+<listitem><para>VIO: bits [10:0] (11 bits) - Formula: V_IO = 0.0034534 V × &lt;VIO&gt;</para>
+</listitem><listitem><para>VDD: bits [21:11] (11 bits) - Formula: V_DD = 0.0034534 V × &lt;VDD&gt;</para>
+</listitem></itemizedlist>
+</para>
+<para>FB_VOLTAGE2 (0x0204) contains VBAT and temperature (22-bit reply frame):<itemizedlist>
+<listitem><para>VBAT: bits [21:11] (11 bits) - Formula: V_BAT = 41.47 V × &lt;VBAT&gt;/(2^11-1) = 41.47 V × &lt;VBAT&gt;/2047</para>
+</listitem><listitem><para>TEMP_VALUE: bits [10:0] (11 bits) - Temperature feedback</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="note"><para>These registers return 22-bit reply frames, so the full 22-bit value must be extracted. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="1482" column="1"/>
+  </compounddef>
+</doxygen>

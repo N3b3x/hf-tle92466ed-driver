@@ -24,6 +24,90 @@
     <member refid="structTLE92466ED__TestConfig_1_1AppConfig_1a3ef17aa73f6bc44607cc2f83bf3c7745" kind="variable"><name>ENABLE_AUTO_RECOVERY</name></member>
     <member refid="structTLE92466ED__TestConfig_1_1AppConfig_1a8e6b4f9371f9d222d1c605f03c7b5408" kind="variable"><name>MAX_ERROR_COUNT</name></member>
   </compound>
+  <compound refid="structtle92466ed_1_1BistResult" kind="struct"><name>tle92466ed::BistResult</name>
+    <member refid="structtle92466ed_1_1BistResult_1ace615fe635e425a15c8c1cdb50b65582" kind="variable"><name>done</name></member>
+    <member refid="structtle92466ed_1_1BistResult_1a8bf17aa75c7579b88684d610bba91336" kind="variable"><name>pass</name></member>
+    <member refid="structtle92466ed_1_1BistResult_1a6351f4c6a467cab01b5bacd5e370aabc" kind="variable"><name>uncorrectable_reg_err</name></member>
+    <member refid="structtle92466ed_1_1BistResult_1ab0cf36d9483dd7d91d57b7ff92b1ec39" kind="variable"><name>correctable_reg_err</name></member>
+    <member refid="structtle92466ed_1_1BistResult_1ae4656a44295a1d3af204cddca92bba76" kind="variable"><name>raw</name></member>
+  </compound>
+  <compound refid="structtle92466ed_1_1ChannelConfig" kind="struct"><name>tle92466ed::ChannelConfig</name>
+    <member refid="structtle92466ed_1_1ChannelConfig_1a2939c054f58c386082af866edf62d0d7" kind="variable"><name>mode</name></member>
+    <member refid="structtle92466ed_1_1ChannelConfig_1a7b2c513434fb9719009e394f71969f67" kind="variable"><name>current_setpoint_ma</name></member>
+    <member refid="structtle92466ed_1_1ChannelConfig_1aa75bfb4c1919661eb6fe2ed396837c65" kind="variable"><name>slew_rate</name></member>
+    <member refid="structtle92466ed_1_1ChannelConfig_1ae6d8633829367e22a24f64b6d2aaee24" kind="variable"><name>diag_current</name></member>
+    <member refid="structtle92466ed_1_1ChannelConfig_1a87f7bfbad88755a0c78ea08345eaeb10" kind="variable"><name>open_load_threshold</name></member>
+    <member refid="structtle92466ed_1_1ChannelConfig_1a7c9a0e39f54763a3ffb926a6fb9189fe" kind="variable"><name>pwm_period_mantissa</name></member>
+    <member refid="structtle92466ed_1_1ChannelConfig_1ae27ee46252295dbc1272f695c8074a12" kind="variable"><name>pwm_period_exponent</name></member>
+    <member refid="structtle92466ed_1_1ChannelConfig_1a5f96dca09375a0488479f1ff7610a5c8" kind="variable"><name>auto_limit_disabled</name></member>
+    <member refid="structtle92466ed_1_1ChannelConfig_1abb7e956bfc48868d79181f227896241a" kind="variable"><name>olsg_warning_enabled</name></member>
+    <member refid="structtle92466ed_1_1ChannelConfig_1abcf20f9f10c92540cce5e506d2e671ea" kind="variable"><name>deep_dither_enabled</name></member>
+    <member refid="structtle92466ed_1_1ChannelConfig_1abe9757f70f407163c930ebdc1e4161f7" kind="variable"><name>dither_step_size</name></member>
+    <member refid="structtle92466ed_1_1ChannelConfig_1abdf47c355b3b1504ff75da6f6dffc96c" kind="variable"><name>dither_steps</name></member>
+    <member refid="structtle92466ed_1_1ChannelConfig_1a72303925f471090d675b07e5f70ac7e2" kind="variable"><name>dither_flat</name></member>
+  </compound>
+  <compound refid="structtle92466ed_1_1ChannelCurrentSample" kind="struct"><name>tle92466ed::ChannelCurrentSample</name>
+    <member refid="structtle92466ed_1_1ChannelCurrentSample_1ace84deb8ceb96da12535ff1107f72233" kind="variable"><name>iavg_ma</name></member>
+    <member refid="structtle92466ed_1_1ChannelCurrentSample_1aab544568c0af8a8d9aa76ccfd5f8c764" kind="variable"><name>tp_mant</name></member>
+    <member refid="structtle92466ed_1_1ChannelCurrentSample_1ad63bdd73902de3ab35585515c07db6b6" kind="variable"><name>to_mant</name></member>
+    <member refid="structtle92466ed_1_1ChannelCurrentSample_1a72bc7cafb6b47ab5d125f298349f6793" kind="variable"><name>window_valid</name></member>
+  </compound>
+  <compound refid="structtle92466ed_1_1ChannelDiagnostics" kind="struct"><name>tle92466ed::ChannelDiagnostics</name>
+    <member refid="structtle92466ed_1_1ChannelDiagnostics_1ac69237d943d626beca5f13b9f3add335" kind="variable"><name>overcurrent</name></member>
+    <member refid="structtle92466ed_1_1ChannelDiagnostics_1a209ffb2cf9cf8979b0235956b1ae1a5b" kind="variable"><name>short_to_ground</name></member>
+    <member refid="structtle92466ed_1_1ChannelDiagnostics_1a8cacc75843ea4c29ce4ee9da0bca79db" kind="variable"><name>open_load</name></member>
+    <member refid="structtle92466ed_1_1ChannelDiagnostics_1a44b917b5954cbfd8ef641c2f7542709a" kind="variable"><name>over_temperature</name></member>
+    <member refid="structtle92466ed_1_1ChannelDiagnostics_1a87d81edac85c7c452bd60f106cd63f02" kind="variable"><name>open_load_short_ground</name></member>
+    <member refid="structtle92466ed_1_1ChannelDiagnostics_1a1adeb4824d25703c9be6fc57e8b439b9" kind="variable"><name>ot_warning</name></member>
+    <member refid="structtle92466ed_1_1ChannelDiagnostics_1ae0f53cfe04b3e5b4a70b818f4cd340c9" kind="variable"><name>current_regulation_warning</name></member>
+    <member refid="structtle92466ed_1_1ChannelDiagnostics_1a558ddb13f9c9dd85e8cbe2d306c3e25d" kind="variable"><name>pwm_regulation_warning</name></member>
+    <member refid="structtle92466ed_1_1ChannelDiagnostics_1a5efa1a8379e2097cae5c55cdcb29119f" kind="variable"><name>olsg_warning</name></member>
+    <member refid="structtle92466ed_1_1ChannelDiagnostics_1ae81facf6eab49abf961be9a892187bc4" kind="variable"><name>olsg_check_not_performed</name></member>
+    <member refid="structtle92466ed_1_1ChannelDiagnostics_1af5e7e651adc3768048c785ff41a9a86e" kind="variable"><name>average_current</name></member>
+    <member refid="structtle92466ed_1_1ChannelDiagnostics_1acee3dc25873b6c6f5319edca39ae69fb" kind="variable"><name>duty_cycle</name></member>
+    <member refid="structtle92466ed_1_1ChannelDiagnostics_1a344be3d05074192bcd2ea96b866ba00b" kind="variable"><name>min_current_mA</name></member>
+    <member refid="structtle92466ed_1_1ChannelDiagnostics_1a2c6d2cf1587bfa8cc3ea02134cfcd9f4" kind="variable"><name>max_current_mA</name></member>
+    <member refid="structtle92466ed_1_1ChannelDiagnostics_1a39dd23c72c86686ac20d12ba1aa42847" kind="variable"><name>vbat_feedback</name></member>
+  </compound>
+  <compound refid="structtle92466ed_1_1ChannelErrorFlags" kind="struct"><name>tle92466ed::ChannelErrorFlags</name>
+    <member refid="structtle92466ed_1_1ChannelErrorFlags_1ac599e9bd4dcd7487e6941d0727700357" kind="variable"><name>open_load_short_ground</name></member>
+    <member refid="structtle92466ed_1_1ChannelErrorFlags_1a1ec98beb0c39ec343aea71f8548debac" kind="variable"><name>open_load</name></member>
+    <member refid="structtle92466ed_1_1ChannelErrorFlags_1af178b1d02f6dac8fc5bc0dc5bb49ff93" kind="variable"><name>overcurrent</name></member>
+    <member refid="structtle92466ed_1_1ChannelErrorFlags_1ad6e688bad3b166cb11f7eb23ede2003c" kind="variable"><name>short_to_ground</name></member>
+    <member refid="structtle92466ed_1_1ChannelErrorFlags_1abedb60895e5e0c53457eaaf82d22e146" kind="variable"><name>over_temperature</name></member>
+  </compound>
+  <compound refid="structtle92466ed_1_1FaultReport_1_1ChannelFaults" kind="struct"><name>tle92466ed::FaultReport::ChannelFaults</name>
+    <member refid="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1a8f59a19a97066fca51558ee9314f23eb" kind="variable"><name>has_fault</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1a62ac3b0e93118dcfd2f1753066641def" kind="variable"><name>overcurrent</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1a1d11d612b600e40969307ccd05ce1281" kind="variable"><name>short_to_ground</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1ac96d23535ed772c95982d15ef7bf43ca" kind="variable"><name>open_load</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1a78061b124127fe10d17893ec139c3d3e" kind="variable"><name>over_temperature</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1a39d451a2be45323a13c1176124d8e3b0" kind="variable"><name>open_load_short_ground</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1afa5d7feb3000ec999d31471950b9c143" kind="variable"><name>ot_warning</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1acf7ef97645a607962e0028de8c87a26f" kind="variable"><name>current_regulation_warning</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1a9222e4128fffe7417677ed533ee70b59" kind="variable"><name>pwm_regulation_warning</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1acbe1826b900feb00cc844ce4f8684bc0" kind="variable"><name>olsg_warning</name></member>
+  </compound>
+  <compound refid="structtle92466ed_1_1ChannelFeedback" kind="struct"><name>tle92466ed::ChannelFeedback</name>
+    <member refid="structtle92466ed_1_1ChannelFeedback_1adef390827f7b8f8222777dac552d536f" kind="variable"><name>avg_current_mA</name></member>
+    <member refid="structtle92466ed_1_1ChannelFeedback_1a4e46252424655469681b58304b75a0a0" kind="variable"><name>duty_cycle_permyriad</name></member>
+    <member refid="structtle92466ed_1_1ChannelFeedback_1a72443b5923fb6d27b0a42dc60561c740" kind="variable"><name>avg_vbat_mV</name></member>
+    <member refid="structtle92466ed_1_1ChannelFeedback_1a5e4d5cbce04e85b47748ca022dace868" kind="variable"><name>imin_mA</name></member>
+    <member refid="structtle92466ed_1_1ChannelFeedback_1a5ef365c652b2a80c46e3d8ed2ae6a9c1" kind="variable"><name>imax_mA</name></member>
+    <member refid="structtle92466ed_1_1ChannelFeedback_1a770d327284f2f6d300697f27831aba0f" kind="variable"><name>period_min_us</name></member>
+    <member refid="structtle92466ed_1_1ChannelFeedback_1af72ebdfd3670226e77745e02a39d6263" kind="variable"><name>period_max_us</name></member>
+    <member refid="structtle92466ed_1_1ChannelFeedback_1a8596104225e0d9fc2ecd3694b6293e46" kind="variable"><name>int_thresh_seed</name></member>
+    <member refid="structtle92466ed_1_1ChannelFeedback_1a60803ebaf7c36f89ecaa5c33f7731581" kind="variable"><name>period_seq</name></member>
+    <member refid="structtle92466ed_1_1ChannelFeedback_1ae1bdb157d38ea89567757377b97365e9" kind="variable"><name>quad_seq</name></member>
+  </compound>
+  <compound refid="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig" kind="struct"><name>tle92466ed::DITHER_CLK_DIV::ClkDivConfig</name>
+    <member refid="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig_1a520c50a316c9e94e227e35fcca2772ba" kind="variable"><name>mantissa</name></member>
+    <member refid="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig_1ade1a70fd47c8053600814775d176a05c" kind="variable"><name>exponent</name></member>
+    <member refid="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig_1a06b3154f42cab2c6d435d0f7ad51ba06" kind="variable"><name>dither_pwm_sync_en</name></member>
+    <member refid="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig_1ab3cb86b4de95aed272777e47c0be3cb0" kind="variable"><name>dither_setpoint_sync_en</name></member>
+    <member refid="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig_1a51042c302c1aecc24a0c1db52fe14f30" kind="function"><name>CalculateTrefClkUs</name></member>
+    <member refid="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig_1abbbb5220c2cd5224f620d6679902a045" kind="function"><name>ToRegister</name></member>
+  </compound>
   <compound refid="structTLE92466ED__TestConfig_1_1ControlPins" kind="struct"><name>TLE92466ED_TestConfig::ControlPins</name>
     <member refid="structTLE92466ED__TestConfig_1_1ControlPins_1a4ecb4cfcaf908b1a16bbb436093c268b" kind="variable"><name>RESN</name></member>
     <member refid="structTLE92466ED__TestConfig_1_1ControlPins_1a9d17758f1c459951f04a5e932f6b9157" kind="variable"><name>EN</name></member>
@@ -31,16 +115,186 @@
     <member refid="structTLE92466ED__TestConfig_1_1ControlPins_1a2d22c523fac2c084d1821d7dcdf3d78a" kind="variable"><name>DRV0</name></member>
     <member refid="structTLE92466ED__TestConfig_1_1ControlPins_1aea4b6762eaab6ac731f1f22b207d2f9a" kind="variable"><name>DRV1</name></member>
   </compound>
+  <compound refid="structtle92466ed_1_1CriticalFaultFlags" kind="struct"><name>tle92466ed::CriticalFaultFlags</name>
+    <member refid="structtle92466ed_1_1CriticalFaultFlags_1ae44a4677aa9f46dd23546e8d72cdc6a3" kind="variable"><name>wd_ref_clk_missing</name></member>
+    <member refid="structtle92466ed_1_1CriticalFaultFlags_1a266b3d230b9910c2f28a73eacdd1555f" kind="variable"><name>dig_clk_too_fast</name></member>
+    <member refid="structtle92466ed_1_1CriticalFaultFlags_1a8d54e196eda91e21a0a7dc8a9cfaebdb" kind="variable"><name>dig_clk_too_slow</name></member>
+    <member refid="structtle92466ed_1_1CriticalFaultFlags_1a3d6b5694de42765b48d6872e80c82d98" kind="variable"><name>clk_too_fast</name></member>
+    <member refid="structtle92466ed_1_1CriticalFaultFlags_1ae4365f734f6db1b00ce16ab45e56995b" kind="variable"><name>clk_too_slow</name></member>
+    <member refid="structtle92466ed_1_1CriticalFaultFlags_1afa68a52267c6f467fbc8f6db682ab4de" kind="variable"><name>adc_bandgap_ok</name></member>
+    <member refid="structtle92466ed_1_1CriticalFaultFlags_1a5150d1f9cea61a91e0ed82f477a8578e" kind="variable"><name>supply_2v5_ok</name></member>
+    <member refid="structtle92466ed_1_1CriticalFaultFlags_1aaa9f7ea68449a020d119627d983967a6" kind="variable"><name>supply_1v5_ok</name></member>
+    <member refid="structtle92466ed_1_1CriticalFaultFlags_1a2790657fc4d6c9dbe678a3a0d20d7553" kind="function"><name>Extract</name></member>
+  </compound>
+  <compound refid="structtle92466ed_1_1CurrentFeedbackBatch" kind="struct"><name>tle92466ed::CurrentFeedbackBatch</name>
+    <member refid="structtle92466ed_1_1CurrentFeedbackBatch_1a959f101547e9b658895b624a2291055a" kind="variable"><name>requested_mask</name></member>
+    <member refid="structtle92466ed_1_1CurrentFeedbackBatch_1a1a47cc38a15e3885f0c8fd80a44548a1" kind="variable"><name>update_mask</name></member>
+    <member refid="structtle92466ed_1_1CurrentFeedbackBatch_1a83fcc81d9ed8432dd2ec6acc3cc627f6" kind="variable"><name>valid_mask</name></member>
+    <member refid="structtle92466ed_1_1CurrentFeedbackBatch_1ab6f2bcaf12c71813540aac57b70f41d7" kind="variable"><name>rejected_chains</name></member>
+    <member refid="structtle92466ed_1_1CurrentFeedbackBatch_1a6dee9b77a9a433e52cef9e7c78a522ca" kind="variable"><name>channels</name></member>
+  </compound>
   <compound refid="structTLE92466ED__TestConfig_1_1CurrentLimits" kind="struct"><name>TLE92466ED_TestConfig::CurrentLimits</name>
     <member refid="structTLE92466ED__TestConfig_1_1CurrentLimits_1a8809a699bc2464e910742e10609e546a" kind="variable"><name>SINGLE_CHANNEL_MIN</name></member>
     <member refid="structTLE92466ED__TestConfig_1_1CurrentLimits_1aa6e214ca2a7e8aae7fbf3ac68be1ee1d" kind="variable"><name>SINGLE_CHANNEL_MAX</name></member>
     <member refid="structTLE92466ED__TestConfig_1_1CurrentLimits_1a5f5b2f3b210b4d67252cb7642d9e7090" kind="variable"><name>PARALLEL_CHANNEL_MAX</name></member>
     <member refid="structTLE92466ED__TestConfig_1_1CurrentLimits_1a62d49ba58d58330a2007f5632c4d18c2" kind="variable"><name>RESOLUTION</name></member>
   </compound>
+  <compound refid="structtle92466ed_1_1DeviceStatus" kind="struct"><name>tle92466ed::DeviceStatus</name>
+    <member refid="structtle92466ed_1_1DeviceStatus_1a3b5da820eb70c6213d23cb9cdc9d3e14" kind="variable"><name>config_mode</name></member>
+    <member refid="structtle92466ed_1_1DeviceStatus_1a3ab1fe0bcddd2efc648e36226e47e4ab" kind="variable"><name>init_done</name></member>
+    <member refid="structtle92466ed_1_1DeviceStatus_1a5843ad67772ad8392669203955791b22" kind="variable"><name>any_fault</name></member>
+    <member refid="structtle92466ed_1_1DeviceStatus_1a9a22f111782d4965d037b300d11f9985" kind="variable"><name>vbat_uv</name></member>
+    <member refid="structtle92466ed_1_1DeviceStatus_1a73ee41566b9835685d550445c0be1a2a" kind="variable"><name>vbat_ov</name></member>
+    <member refid="structtle92466ed_1_1DeviceStatus_1a2375a607590d38b69fa6e565d2887070" kind="variable"><name>vio_uv</name></member>
+    <member refid="structtle92466ed_1_1DeviceStatus_1aa94ecf0a7df62e9aaf83bbdd55611218" kind="variable"><name>vio_ov</name></member>
+    <member refid="structtle92466ed_1_1DeviceStatus_1a26e3ac654f38e9d250b18ba97a4b52cc" kind="variable"><name>vdd_uv</name></member>
+    <member refid="structtle92466ed_1_1DeviceStatus_1a1641d22d1ba761833fb910f89128e43e" kind="variable"><name>vdd_ov</name></member>
+    <member refid="structtle92466ed_1_1DeviceStatus_1a75a9546e210e00f9784902756f5cd27c" kind="variable"><name>ot_warning</name></member>
+    <member refid="structtle92466ed_1_1DeviceStatus_1a6bc02519bbe96ebcc7ad76872d3f5902" kind="variable"><name>ot_error</name></member>
+    <member refid="structtle92466ed_1_1DeviceStatus_1a7f30580eb78da2fb4c3505edac89f552" kind="variable"><name>clock_fault</name></member>
+    <member refid="structtle92466ed_1_1DeviceStatus_1a2df7e6abf2d0b940e09861153203aa16" kind="variable"><name>spi_wd_error</name></member>
+    <member refid="structtle92466ed_1_1DeviceStatus_1a06e7f029d3e82fc19889027a04ad4bf8" kind="variable"><name>por_event</name></member>
+    <member refid="structtle92466ed_1_1DeviceStatus_1ab46f83b6cb4987bc25bd70d30933726b" kind="variable"><name>reset_event</name></member>
+    <member refid="structtle92466ed_1_1DeviceStatus_1ad158be28450aec0e21fa0fb323895021" kind="variable"><name>supply_nok_internal</name></member>
+    <member refid="structtle92466ed_1_1DeviceStatus_1acc5df03f6e17cd712540214990e3c361" kind="variable"><name>supply_nok_external</name></member>
+    <member refid="structtle92466ed_1_1DeviceStatus_1ac78643fa043eff8a4067f525e8476fc6" kind="variable"><name>vbat_voltage</name></member>
+    <member refid="structtle92466ed_1_1DeviceStatus_1a6feeedf58f723c1fbfece4dd3721a857" kind="variable"><name>vio_voltage</name></member>
+  </compound>
   <compound refid="structTLE92466ED__TestConfig_1_1Diagnostics" kind="struct"><name>TLE92466ED_TestConfig::Diagnostics</name>
     <member refid="structTLE92466ED__TestConfig_1_1Diagnostics_1a49d34cf3a8b44272e2311ad052dfc618" kind="variable"><name>OVERCURRENT_THRESHOLD_MA</name></member>
     <member refid="structTLE92466ED__TestConfig_1_1Diagnostics_1ad09514c1c6265b7427e1b87380f9f294" kind="variable"><name>POLL_INTERVAL_MS</name></member>
     <member refid="structTLE92466ED__TestConfig_1_1Diagnostics_1abf82767c10606d39ed9b9bed9fe90463" kind="variable"><name>MAX_RETRY_COUNT</name></member>
+  </compound>
+  <compound refid="structtle92466ed_1_1DITHER_1_1DitherConfig" kind="struct"><name>tle92466ed::DITHER::DitherConfig</name>
+    <member refid="structtle92466ed_1_1DITHER_1_1DitherConfig_1ae94e19e3ddd4038153f8fac985b2e91e" kind="variable"><name>step_size</name></member>
+    <member refid="structtle92466ed_1_1DITHER_1_1DitherConfig_1aa03ae82b94696313f9635bd2fdbed9c7" kind="variable"><name>num_steps</name></member>
+    <member refid="structtle92466ed_1_1DITHER_1_1DitherConfig_1a605229f9af2a0527aa8e19e12e123c12" kind="variable"><name>flat_steps</name></member>
+    <member refid="structtle92466ed_1_1DITHER_1_1DitherConfig_1a89e67b6e8fb997dabba748a732b5370c" kind="function"><name>CalculateAmplitudeMa</name></member>
+    <member refid="structtle92466ed_1_1DITHER_1_1DitherConfig_1aca193fe202148c797393d5cf40fde116" kind="function"><name>CalculatePeriodUs</name></member>
+  </compound>
+  <compound refid="structtle92466ed_1_1DitherSetup" kind="struct"><name>tle92466ed::DitherSetup</name>
+    <member refid="structtle92466ed_1_1DitherSetup_1a73b403ea772af05595d2a15bb9e0fd07" kind="variable"><name>amplitude_mA</name></member>
+    <member refid="structtle92466ed_1_1DitherSetup_1ad3cf5eb2a33d91dccc4b1bd37676cfa6" kind="variable"><name>frequency_Hz</name></member>
+    <member refid="structtle92466ed_1_1DitherSetup_1a2fca8729472dff4666903434fa040f0e" kind="variable"><name>sync_with_pwm</name></member>
+    <member refid="structtle92466ed_1_1DitherSetup_1a908d6e95beb4c6a1650fb14eda660e5d" kind="variable"><name>sync_with_setpoint</name></member>
+    <member refid="structtle92466ed_1_1DitherSetup_1a28fc75d8fdb53cc19f18554c311dbaf6" kind="variable"><name>deep_dither</name></member>
+    <member refid="structtle92466ed_1_1DitherSetup_1a04f5443bf7bd96b8e20adb6b9e09289d" kind="variable"><name>fast_measure</name></member>
+  </compound>
+  <compound refid="classtle92466ed_1_1Driver" kind="class"><name>tle92466ed::Driver</name>
+    <member refid="classtle92466ed_1_1Driver_1ac72df6322286a7525df5f95b732c550d" kind="variable"><name>comm_</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a47951e9f709f5128d6367fca15d13091" kind="variable"><name>initialized_</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a40b991c5159034c3893361314a801def" kind="variable"><name>mission_mode_</name></member>
+    <member refid="classtle92466ed_1_1Driver_1aef6b4ace86c70c9636203e452fca5474" kind="variable"><name>crc_enabled_</name></member>
+    <member refid="classtle92466ed_1_1Driver_1aec91000356a2c59b14a7633a41845024" kind="variable"><name>vio_5v_mode_</name></member>
+    <member refid="classtle92466ed_1_1Driver_1ad09de11b9b6854c81e260648bff0e4b6" kind="variable"><name>ch_ctrl_cache_</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a846d9b9f5963e52e5dc9c4d83f8ae638" kind="variable"><name>channel_enable_cache_</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a87fd6e22ad75b9e52b3f4f41217a5431" kind="variable"><name>cached_icvid_</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a4f841209018bbb0d1da2cf65a341140a" kind="variable"><name>channel_setpoints_</name></member>
+    <member refid="classtle92466ed_1_1Driver_1aa146de0469bf888d66d831328f218f19" kind="function"><name>Driver</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a1a47af332b6a8d64a4a8c24ff3e98567" kind="function"><name>~Driver</name></member>
+    <member refid="classtle92466ed_1_1Driver_1afac6fae75e54966084a120c47f286d47" kind="function"><name>Driver</name></member>
+    <member refid="classtle92466ed_1_1Driver_1ad017c574e029c55b7fe64fda7a244882" kind="function"><name>operator=</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a9be435d733715ce71dd2bf332a807684" kind="function"><name>Driver</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a8025434e8497ae406bf0d18da1e8ff3e" kind="function"><name>operator=</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a30d209f519943c70f69a160179fc8bf6" kind="function"><name>Init</name></member>
+    <member refid="classtle92466ed_1_1Driver_1ad9a9c48d2b66db9cba5536cf99b63a6d" kind="function"><name>EnterMissionMode</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a4faef014ee789d7a08209177cd6310c9" kind="function"><name>EnterConfigMode</name></member>
+    <member refid="classtle92466ed_1_1Driver_1adb3fe0e3319c8a1456e670123a45279d" kind="function"><name>IsMissionMode</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a50f87c21f3550f2e719a86f7292b5e60" kind="function"><name>IsConfigMode</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a772a3298100180ceb69a4e6fd2f230a5" kind="function"><name>ConfigureGlobal</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a51e567341fb7d100bc4886b4bc36fd46" kind="function"><name>SetCrcEnabled</name></member>
+    <member refid="classtle92466ed_1_1Driver_1ab1dd73e9b7d0d3ca7bc30cac29b4e573" kind="function"><name>SetVbatThresholds</name></member>
+    <member refid="classtle92466ed_1_1Driver_1ac254a11d5cf49459bd6e8396c42c4f2a" kind="function"><name>SetVbatThresholdsRaw</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a9046b6dbfc83a4d3d9e1615fbfaaace6" kind="function"><name>EnableChannel</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a2129eaf5c179a3e7916eaeae77eda278" kind="function"><name>EnableChannels</name></member>
+    <member refid="classtle92466ed_1_1Driver_1aa0df97823a8e3974a79b37c724c9094c" kind="function"><name>EnableAllChannels</name></member>
+    <member refid="classtle92466ed_1_1Driver_1ae2d390d7acca1096e570f85df8f82fc9" kind="function"><name>DisableAllChannels</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a528db488107d7118493de023ac4e8883" kind="function"><name>SetChannelMode</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a046218a7d74808eb4e82c266e404b738" kind="function"><name>SetParallelOperation</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a4a93317fec0a31a89d0318d8598fd1cb" kind="function"><name>SetCurrentSetpoint</name></member>
+    <member refid="classtle92466ed_1_1Driver_1aecfdbdd6f2232bd011a273098c78b42d" kind="function"><name>GetCurrentSetpoint</name></member>
+    <member refid="classtle92466ed_1_1Driver_1acab3b4ba7466937c84c2f9f94b70e5df" kind="function"><name>ConfigurePwmPeriod</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a549c24ab6f54047ec82243d7a37a0fa1" kind="function"><name>ConfigurePwmPeriodRaw</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a8eb16ab00cb03f99a15620663d058e65" kind="function"><name>ConfigureDither</name></member>
+    <member refid="classtle92466ed_1_1Driver_1ad3a91c4c6a52197ebf7c99b7007e8903" kind="function"><name>ConfigureDitherRaw</name></member>
+    <member refid="classtle92466ed_1_1Driver_1ab44b690cd47cfc576e7583eb08a1ec0f" kind="function"><name>ConfigureDitherClock</name></member>
+    <member refid="classtle92466ed_1_1Driver_1acdf69b750381f25cd56bebc655932dde" kind="function"><name>ConfigureChannel</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a3877d72aa85902217f443a7b7cb4e796" kind="function"><name>GetDeviceStatus</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a1edd8296661ee6f56103bdc7d8b4798b" kind="function"><name>GetChannelDiagnostics</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a4e64d39d457faa626180bf06289ab5d4" kind="function"><name>GetAverageCurrent</name></member>
+    <member refid="classtle92466ed_1_1Driver_1aed676fc09bee1e64faeac4fad677b9c4" kind="function"><name>GetDutyCycle</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a863779c097ad50ad68a00d484efb71fb" kind="function"><name>GetVbatVoltage</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a412fd06745172c4eefdf4a88d272cd65" kind="function"><name>GetVioVoltage</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a4a31b1468d0f896c9cbe6b0a90220c63" kind="function"><name>GetVddVoltage</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a5c963243d040147d83a3fa73e4a7efc2" kind="function"><name>GetVbatThresholds</name></member>
+    <member refid="classtle92466ed_1_1Driver_1adef98b992a4de30b6089733616e30053" kind="function"><name>ClearFaults</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a3f2bca409ef8d5b00a0a57e1ee1b18b6" kind="function"><name>HasAnyFault</name></member>
+    <member refid="classtle92466ed_1_1Driver_1aa7c959f39be3651418ff60cfd8d5df7b" kind="function"><name>GetAllFaults</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a22da64e691adf43d5d93be1280e9dabe" kind="function"><name>PrintAllFaults</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a783995930de5507ab37877386c384536" kind="function"><name>SoftwareReset</name></member>
+    <member refid="classtle92466ed_1_1Driver_1ad4ae8ff2403ad0a4e49171f22b8e5a14" kind="function"><name>ReloadSpiWatchdog</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a1113b778e16a4b383ab6b691f4dc966a" kind="function"><name>GetIcVersion</name></member>
+    <member refid="classtle92466ed_1_1Driver_1af4fdaad502211d337255fe8c13380c98" kind="function"><name>GetChipId</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a998031c8c4766a2b84d2cf92482c32bb" kind="function"><name>VerifyDevice</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a253a5b94877a1df932ed8e2ba036c879" kind="function"><name>IsInitialized</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a5522257381016829a19208dc05aa01bd" kind="function"><name>SetReset</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a70ba9c46b7740a5a5c18496a84e8dc9d" kind="function"><name>HoldReset</name></member>
+    <member refid="classtle92466ed_1_1Driver_1ae15cb007edc9a429027684f3965fa9ee" kind="function"><name>ReleaseReset</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a298572f287a74674b2cbc99a32de7dac" kind="function"><name>SetEnable</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a973b3f4b7e576a21648486595a4974b7" kind="function"><name>Enable</name></member>
+    <member refid="classtle92466ed_1_1Driver_1ac78fe02ef77f4776ac765494b82912f9" kind="function"><name>Disable</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a77658657535cc943e6ef5486e605a95e" kind="function"><name>IsFault</name></member>
+    <member refid="classtle92466ed_1_1Driver_1aa78284a05e1c23791b4eae97dabab3d3" kind="function"><name>ConfigureClockSource</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a92f4cc12b0122216da43d222c4b4e5c2" kind="function"><name>ReadAllSupplyVoltages</name></member>
+    <member refid="classtle92466ed_1_1Driver_1adf3480d13b580f6f8539fb11f25dc3ff" kind="function"><name>GetCentralTemperatureCelsius</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a4e8438f30f3ed2719220051ab0f67d89" kind="function"><name>SetVioLevel</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a266399a10e9af00eb734265f2be30f7a" kind="function"><name>GetOperationState</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a27f0adf7f7dd939f2c55aac88afe283f" kind="function"><name>EnterMissionModeChecked</name></member>
+    <member refid="classtle92466ed_1_1Driver_1ab9852925d252ba2b6daded98720fac27" kind="function"><name>RunSupplyMonitorSelfTest</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a8d3f663f92a36fe60677ba828905099a" kind="function"><name>SetIntegratorLimits</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a35f6bcc2ed2e033d54a822f275ff5b32" kind="function"><name>SetPwmControllerKi</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a7e2c658849cad3ef64e8f7dcc1494d33" kind="function"><name>SetMinIntegratorThreshold</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a47c6e737e69d9926477a0e28fa1e740e" kind="function"><name>SetManualOnTimeMode</name></member>
+    <member refid="classtle92466ed_1_1Driver_1ace6602a2863b29b1be9bbc4d0bc40d95" kind="function"><name>SeedIntegratorThresholdFromFeedback</name></member>
+    <member refid="classtle92466ed_1_1Driver_1aa72fd92c607a8cf8944a31a9e7b943be" kind="function"><name>SetDitherAdvanced</name></member>
+    <member refid="classtle92466ed_1_1Driver_1ab743323d6d19b377ea4a4563ecaa1424" kind="function"><name>SetOlsgTimeout</name></member>
+    <member refid="classtle92466ed_1_1Driver_1ab0590f1749e403127427afcc639ee877" kind="function"><name>SetOffStateDiagnostics</name></member>
+    <member refid="classtle92466ed_1_1Driver_1aac32fb6d4b7dca0b0d953d1d26518825" kind="function"><name>RunSffBist</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a440b892255536d4b7694bd39e2d25f30" kind="function"><name>ReadPinStatus</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a359b4c3fab1c5d04fea115244e1e2479" kind="function"><name>SetFaultMask</name></member>
+    <member refid="classtle92466ed_1_1Driver_1af98615b33b6627795636089b3fe96b95" kind="function"><name>ReadChannelFeedback</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a5608193112f762f6f9cfb5f8844389da" kind="function"><name>ReadAllChannelFeedback</name></member>
+    <member refid="classtle92466ed_1_1Driver_1af662285eb7af800cde98e2e77109b9dc" kind="function"><name>GetCalibrationAvgCurrent_mA</name></member>
+    <member refid="classtle92466ed_1_1Driver_1ac45d17a7ffd172f149c32cd491bc2fea" kind="function"><name>GetFeedbackUpdateMask</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a37e150c3f47afa70330a63a93ef2bc20" kind="function"><name>FreezeFeedback</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a2c12c9859df430cecf0bc0bf787008d3" kind="function"><name>ReleaseFeedbackFreeze</name></member>
+    <member refid="classtle92466ed_1_1Driver_1ab57fa0d97b4712b9160d91f0ca17bdf3" kind="function"><name>SampleChannelCurrents</name></member>
+    <member refid="classtle92466ed_1_1Driver_1ad6a57264f1df64ca68fe440f2f682abe" kind="function"><name>ReadAllChannelErrorFlags</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a1c409cc2305d747e3aefdca8b6fe5a44" kind="function"><name>IsMeasurementClockRunning</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a314b3fd9e723097a93814aca43e05ded" kind="function"><name>EnsureDitherRunning</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a8f50392a7991793e49d2847b224637ef" kind="function"><name>GetChannelControlShadow</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a4c101da82ad2c7a6c2a11888daee4026" kind="function"><name>SetFaultContributionMask</name></member>
+    <member refid="classtle92466ed_1_1Driver_1aab98d70715f7a21f4853f861d0a70071" kind="function"><name>ReadRegister</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a1959bc6629542a6afc303a460ab0cfc3" kind="function"><name>ReadRegisterMulti</name></member>
+    <member refid="classtle92466ed_1_1Driver_1ac4a0ed8918427219d56778bbd2b9a6cf" kind="function"><name>WriteRegister</name></member>
+    <member refid="classtle92466ed_1_1Driver_1ae878b4c487d7d6e7a0547accb2f2916e" kind="function"><name>ModifyRegister</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a6c259045c0fde048c41457610dde60b6" kind="function"><name>GetSystemClockHz</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a3e7fff62addb9553240dd0f7884e2c10" kind="function"><name>GetDriverVersion</name></member>
+    <member refid="classtle92466ed_1_1Driver_1af43a8f9b508b9dc402fe4d9184614ef3" kind="function"><name>GetDriverVersionMajor</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a907df64599237464fa9de46b293ae3ad" kind="function"><name>GetDriverVersionMinor</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a12ae4a9ebb8761034850bfd6b642cced" kind="function"><name>GetDriverVersionPatch</name></member>
+    <member refid="classtle92466ed_1_1Driver_1ab7ff2747c5b38d3c02fec42e94f005cd" kind="function"><name>transferFrame</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a177980ae6820e7339e150a457d9329c5" kind="function"><name>isValidChannelInternal</name></member>
+    <member refid="classtle92466ed_1_1Driver_1ab2894233752ec76e246ec823764ec45d" kind="function"><name>checkInitialized</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a9b11b99a6c20b1903a54666f736df6aa" kind="function"><name>checkMissionMode</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a50757519190df91afb7207cd162c63c5" kind="function"><name>checkConfigMode</name></member>
+    <member refid="classtle92466ed_1_1Driver_1acd7bd9bb9639ef3ca963a91ae4a773ef" kind="function"><name>applyDefaultConfig</name></member>
+    <member refid="classtle92466ed_1_1Driver_1abf81ffb528844010e6db8dafc104d287" kind="function"><name>clearFaultsInternal</name></member>
+    <member refid="classtle92466ed_1_1Driver_1ad88c75adc854247b08362057789f8aed" kind="function"><name>setVbatThresholdsInternal</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a530670d94708b1e603d108cf45e44f70" kind="function"><name>checkSpiStatus</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a29a466a41e96d8d6eb35a22b65f8a312" kind="function"><name>isChannelParallel</name></member>
+    <member refid="classtle92466ed_1_1Driver_1a3963e901350df139bb429f3c5fd89264" kind="function"><name>isSlaveChannel</name></member>
+    <member refid="classtle92466ed_1_1Driver_1ae2ee1778a8454e715ce893d019dc1e9d" kind="function"><name>diagnoseClockConfiguration</name></member>
   </compound>
   <compound refid="classEsp32Tle92466edSpiBus" kind="class"><name>Esp32Tle92466edSpiBus</name>
     <member refid="classEsp32Tle92466edSpiBus_1a982bcaa9045a6a4c5336f6867015d208" kind="variable"><name>config_</name></member>
@@ -68,6 +322,109 @@
     <member refid="classEsp32Tle92466edSpiBus_1ae017c339fbd0d40607ad84eeba91aecf" kind="function"><name>initializeGPIO</name></member>
     <member refid="classEsp32Tle92466edSpiBus_1a3ab0c7e560efec4561c7940538e4cceb" kind="function"><name>initializeSPI</name></member>
     <member refid="classEsp32Tle92466edSpiBus_1aeed7f6eaa33189a9520bc0b34c332734" kind="function"><name>addSPIDevice</name></member>
+  </compound>
+  <compound refid="classtle_1_1expected" kind="class"><name>tle::expected</name>
+    <member refid="classtle_1_1expected_1aa02e14620f46bafd53d7ce8afa010af1" kind="variable"><name>value_</name></member>
+    <member refid="classtle_1_1expected_1a946004e95041162b6c048b15580d08cb" kind="variable"><name>error_</name></member>
+    <member refid="classtle_1_1expected_1a4d95a0a5e49604ff9e649e74a23d9e20" kind="variable"><name>has_value_</name></member>
+    <member refid="classtle_1_1expected_1a6412b9dfc76f62d61d207f50f494b06b" kind="function"><name>expected</name></member>
+    <member refid="classtle_1_1expected_1aab6f6ef310bf6f8d40d144db5dfa1757" kind="function"><name>expected</name></member>
+    <member refid="classtle_1_1expected_1adc2e1484ab186d70ca7a48377d04fa21" kind="function"><name>expected</name></member>
+    <member refid="classtle_1_1expected_1a8edcb81c8a2fa42ac72874dcecb5d7b5" kind="function"><name>expected</name></member>
+    <member refid="classtle_1_1expected_1a5bf384bbb8a81d1f12a80f15dbd532fc" kind="function"><name>expected</name></member>
+    <member refid="classtle_1_1expected_1a65a518bd1e87da850021d79e78d8ec2d" kind="function"><name>expected</name></member>
+    <member refid="classtle_1_1expected_1a30fd2a788d8406d4d734ec5b98fdc320" kind="function"><name>operator=</name></member>
+    <member refid="classtle_1_1expected_1a719a31d56f03cda54df303096fd2afbd" kind="function"><name>operator=</name></member>
+    <member refid="classtle_1_1expected_1a0ef46eb65f419a8b1a8544afca4defd2" kind="function"><name>~expected</name></member>
+    <member refid="classtle_1_1expected_1acdf932e070827abb8bf123cefe004112" kind="function"><name>operator bool</name></member>
+    <member refid="classtle_1_1expected_1a5356570ff773361ef802f8cf97bef78f" kind="function"><name>has_value</name></member>
+    <member refid="classtle_1_1expected_1a355a52bfbcd842447f275e018d536f8a" kind="function"><name>value</name></member>
+    <member refid="classtle_1_1expected_1acb929d98776d42c2b3868fbf31b1614c" kind="function"><name>value</name></member>
+    <member refid="classtle_1_1expected_1a1f366ac2ad4f08bdf9f3b2b4f9135805" kind="function"><name>value</name></member>
+    <member refid="classtle_1_1expected_1ac34a44a1e737eea3d7fb1b4375f641f7" kind="function"><name>error</name></member>
+    <member refid="classtle_1_1expected_1a3952e1f410f7242bc25eec71230966c0" kind="function"><name>error</name></member>
+    <member refid="classtle_1_1expected_1ac51c970d4964e701a1fd96c484ab235d" kind="function"><name>error</name></member>
+    <member refid="classtle_1_1expected_1a7364f52278ec70fb916fab4e6609cfb0" kind="function"><name>operator*</name></member>
+    <member refid="classtle_1_1expected_1a2907a9695cecd7f894f77d786f6f0c47" kind="function"><name>operator*</name></member>
+    <member refid="classtle_1_1expected_1a1143f683f915ebde853744c40dfe773c" kind="function"><name>operator*</name></member>
+    <member refid="classtle_1_1expected_1a86ddf268a99a2f128fac89de8c2da8de" kind="function"><name>operator-&gt;</name></member>
+    <member refid="classtle_1_1expected_1abdaacd5955c80dfff385652ec2b38eb1" kind="function"><name>operator-&gt;</name></member>
+    <member refid="classtle_1_1expected_1a5a0a10a4edab938c6a50e6b8c32b12cf" kind="function"><name>value_or</name></member>
+    <member refid="classtle_1_1expected_1a888a2a6d12f7a46d91d1638ea9e78fbf" kind="function"><name>expected</name></member>
+  </compound>
+  <compound refid="classtle_1_1expected_3_01void_00_01E_01_4" kind="class"><name>tle::expected&lt; void, E &gt;</name>
+    <member refid="classtle_1_1expected_3_01void_00_01E_01_4_1a5fd2fce81a068c580af5f7a0281698f3" kind="variable"><name>error_</name></member>
+    <member refid="classtle_1_1expected_3_01void_00_01E_01_4_1adda10f9c7f8a3f28b7d592836010c93b" kind="variable"><name>has_value_</name></member>
+    <member refid="classtle_1_1expected_3_01void_00_01E_01_4_1a78a647f5d355754a94d960ee6a225b75" kind="function"><name>expected</name></member>
+    <member refid="classtle_1_1expected_3_01void_00_01E_01_4_1a95c22725324e268e05fc7f62b598bd4a" kind="function"><name>expected</name></member>
+    <member refid="classtle_1_1expected_3_01void_00_01E_01_4_1a06de0eeeea9c80e67bbf5fa6005e10b9" kind="function"><name>expected</name></member>
+    <member refid="classtle_1_1expected_3_01void_00_01E_01_4_1a1866bb5926243a14f8ad62936dc0cfd4" kind="function"><name>expected</name></member>
+    <member refid="classtle_1_1expected_3_01void_00_01E_01_4_1aefeef7838fe153077f4b34f3c60bf9fb" kind="function"><name>expected</name></member>
+    <member refid="classtle_1_1expected_3_01void_00_01E_01_4_1a7617a0d8bccd798a91ae0e89d2920848" kind="function"><name>operator=</name></member>
+    <member refid="classtle_1_1expected_3_01void_00_01E_01_4_1ad6829fff104731bfd46b119dfb2a071a" kind="function"><name>operator=</name></member>
+    <member refid="classtle_1_1expected_3_01void_00_01E_01_4_1a06ea49ad6b37ca9adeb8af6adfb2c0dc" kind="function"><name>~expected</name></member>
+    <member refid="classtle_1_1expected_3_01void_00_01E_01_4_1abe357163262623fb1a6f2f7ffb26c0cb" kind="function"><name>operator bool</name></member>
+    <member refid="classtle_1_1expected_3_01void_00_01E_01_4_1a049e5accdd1637d8d4d3814467f41896" kind="function"><name>has_value</name></member>
+    <member refid="classtle_1_1expected_3_01void_00_01E_01_4_1a247c02e28e998fde956b8053c1abe1cc" kind="function"><name>error</name></member>
+    <member refid="classtle_1_1expected_3_01void_00_01E_01_4_1af63ed52ded83964b6081d9b5f41653ce" kind="function"><name>error</name></member>
+    <member refid="classtle_1_1expected_3_01void_00_01E_01_4_1a9865262424f6ba47c161bbf81ee97584" kind="function"><name>error</name></member>
+  </compound>
+  <compound refid="structtle92466ed_1_1FaultReport" kind="struct"><name>tle92466ed::FaultReport</name>
+    <member refid="structtle92466ed_1_1FaultReport_1a69edc86c1536417f51073ce076fa3449" kind="variable"><name>any_fault</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1a89727a4c0c9b8263002fdec2f4e80861" kind="variable"><name>vbat_uv</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1a2414734f7ca3c299c711f8aa40bdd770" kind="variable"><name>vbat_ov</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1a751260da444ff7c1d148308ed99f990f" kind="variable"><name>vio_uv</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1a6879492ce3337c90e7020c1f7fb2cf4e" kind="variable"><name>vio_ov</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1ac047aa8a818d5bfd81026acfab5ad772" kind="variable"><name>vdd_uv</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1a5e2ac35bd6360adec4ceda2e23e0efca" kind="variable"><name>vdd_ov</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1a75648d68776139cbffdeef46becbf198" kind="variable"><name>vr_iref_uv</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1a140e8d1b03a94c657b932374944f2cb8" kind="variable"><name>vr_iref_ov</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1ae9dd39a8923141c1be6be8749e9b4d3b" kind="variable"><name>vdd2v5_uv</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1a6f3fc0d5141d69d50678bdce836ab4d1" kind="variable"><name>vdd2v5_ov</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1a971f6300f44c28106af237635951923c" kind="variable"><name>ref_uv</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1a89054d85eab2cd8dcfabaec3ef46aa03" kind="variable"><name>ref_ov</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1aec6210188389257846b28bd9d9e58c9d" kind="variable"><name>vpre_ov</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1ab83566e506a21416f828321686d5f6e7" kind="variable"><name>hvadc_err</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1a14628b08be133d058e8b9d4c77354858" kind="variable"><name>clock_fault</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1a5c3ba1fe9f2a4b79e19c9f97e9ba1ed7" kind="variable"><name>spi_wd_error</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1a85b047e6c8a7c6b9aec1cc26ddc58290" kind="variable"><name>ot_error</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1a921f5ac33e57565c314bdaa0b4aabccf" kind="variable"><name>ot_warning</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1aa2c83c8c95e6ad639c71cc54baaae99f" kind="variable"><name>por_event</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1ab6b86486bef397dd0b730f9ac127d3b2" kind="variable"><name>reset_event</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1ace85713f00ab3868d1ff51ce7bfef7ab" kind="variable"><name>reg_ecc_err</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1a789402af237ee094c086df5b7e164dd0" kind="variable"><name>otp_ecc_err</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1a5d533b391476520e3a7ef86b22fc34e2" kind="variable"><name>otp_virgin</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1a5ca3075027c1719e09273c1174b22664" kind="variable"><name>channels</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1a60e46892445a659ad2c90a2deaf898be" kind="variable"><name>supply_nok_internal</name></member>
+    <member refid="structtle92466ed_1_1FaultReport_1a3c9635200f9baa420fc3e806763ef88c" kind="variable"><name>supply_nok_external</name></member>
+  </compound>
+  <compound refid="structtle92466ed_1_1GlobalConfig" kind="struct"><name>tle92466ed::GlobalConfig</name>
+    <member refid="structtle92466ed_1_1GlobalConfig_1a841ab2a4ec8a97261a698ff16f344cc0" kind="variable"><name>crc_enabled</name></member>
+    <member refid="structtle92466ed_1_1GlobalConfig_1a0d0adb40f145dfeb51a48eb4de9e84d1" kind="variable"><name>spi_watchdog_enabled</name></member>
+    <member refid="structtle92466ed_1_1GlobalConfig_1a2b70b6f18d3243e0c0e42a76e34208bc" kind="variable"><name>clock_watchdog_enabled</name></member>
+    <member refid="structtle92466ed_1_1GlobalConfig_1a29845a8839a8e84a7f7ecf4c46653949" kind="variable"><name>vio_5v</name></member>
+    <member refid="structtle92466ed_1_1GlobalConfig_1a47f1ed6a4bf77d0337f77d00e4abe624" kind="variable"><name>vbat_uv_voltage</name></member>
+    <member refid="structtle92466ed_1_1GlobalConfig_1a635ea48eba6cb16098db9161676ced07" kind="variable"><name>vbat_ov_voltage</name></member>
+    <member refid="structtle92466ed_1_1GlobalConfig_1af17a04f51c93cd83e0687f3d6665bffe" kind="variable"><name>spi_watchdog_reload</name></member>
+  </compound>
+  <compound refid="structtle92466ed_1_1PERIOD_1_1PeriodConfig" kind="struct"><name>tle92466ed::PERIOD::PeriodConfig</name>
+    <member refid="structtle92466ed_1_1PERIOD_1_1PeriodConfig_1af3d24a510c6baf03719bef03c2478fa0" kind="variable"><name>mantissa</name></member>
+    <member refid="structtle92466ed_1_1PERIOD_1_1PeriodConfig_1a6f4a6bae3862fe5b2365ee4b2c7d5b75" kind="variable"><name>exponent</name></member>
+    <member refid="structtle92466ed_1_1PERIOD_1_1PeriodConfig_1a0c5886642e85f14a32a0e359a399b6e2" kind="variable"><name>low_freq_range</name></member>
+    <member refid="structtle92466ed_1_1PERIOD_1_1PeriodConfig_1abcec709b699336b530e99640ad969b01" kind="function"><name>CalculatePeriodUs</name></member>
+  </compound>
+  <compound refid="structtle92466ed_1_1PinStatus" kind="struct"><name>tle92466ed::PinStatus</name>
+    <member refid="structtle92466ed_1_1PinStatus_1a8113a63b7cd3a7df58f3788ab7b9a490" kind="variable"><name>drv0</name></member>
+    <member refid="structtle92466ed_1_1PinStatus_1a79175067bd31c3edf86f9145af51396e" kind="variable"><name>drv1</name></member>
+    <member refid="structtle92466ed_1_1PinStatus_1ae2156b37eb648cfae815c211048c155f" kind="variable"><name>en</name></member>
+    <member refid="structtle92466ed_1_1PinStatus_1a5e1a0144e26e2853688b3fec45c5edff" kind="variable"><name>faultn_driver</name></member>
+    <member refid="structtle92466ed_1_1PinStatus_1a7699ff72132b529a974311f2a58d7cb9" kind="variable"><name>faultn_fb</name></member>
+    <member refid="structtle92466ed_1_1PinStatus_1a4badbf79387f305d43312ae8bf47fbe9" kind="variable"><name>raw</name></member>
+  </compound>
+  <compound refid="structtle92466ed_1_1CLK__DIV_1_1PllConfig" kind="struct"><name>tle92466ed::CLK_DIV::PllConfig</name>
+    <member refid="structtle92466ed_1_1CLK__DIV_1_1PllConfig_1aa9c9deea696e9fd8565ef6845c39cee9" kind="variable"><name>refdiv</name></member>
+    <member refid="structtle92466ed_1_1CLK__DIV_1_1PllConfig_1abc9d0afe7ce2259bc1d48d795ad2d162" kind="variable"><name>fbdiv</name></member>
+    <member refid="structtle92466ed_1_1CLK__DIV_1_1PllConfig_1a3b71a45ca8e2f1e745068daf90825752" kind="variable"><name>actual_f_sys_hz</name></member>
   </compound>
   <compound refid="structSolenoid1Config" kind="struct"><name>Solenoid1Config</name>
     <member refid="structSolenoid1Config_1a7a5e0d6d3f9f53ad0d8ca2ebfe88e205" kind="variable"><name>CHANNEL</name></member>
@@ -99,6 +456,68 @@
     <member refid="structEsp32Tle92466edSpiBus_1_1SPIConfig_1ac6c8a1274bffd8902b0a95b7c3d974ff" kind="variable"><name>cs_ena_pretrans</name></member>
     <member refid="structEsp32Tle92466edSpiBus_1_1SPIConfig_1a8afab88769e928304f4e3e0c0370598f" kind="variable"><name>cs_ena_posttrans</name></member>
   </compound>
+  <compound refid="structtle92466ed_1_1SPIConfig" kind="struct"><name>tle92466ed::SPIConfig</name>
+    <member refid="structtle92466ed_1_1SPIConfig_1ad079f04bb56f0411b3ade232e4faceba" kind="variable"><name>frequency</name></member>
+    <member refid="structtle92466ed_1_1SPIConfig_1a641d1540074e45b2d5c51e40660da90f" kind="variable"><name>mode</name></member>
+    <member refid="structtle92466ed_1_1SPIConfig_1acdf2341e4a255df0dcbda3182bb66ec7" kind="variable"><name>msb_first</name></member>
+    <member refid="structtle92466ed_1_1SPIConfig_1afeb4a866b925db68fb05d4fa1cfa2815" kind="variable"><name>timeout_ms</name></member>
+  </compound>
+  <compound refid="uniontle92466ed_1_1SPIFrame" kind="union"><name>tle92466ed::SPIFrame</name>
+    <member refid="uniontle92466ed_1_1SPIFrame_1adc1289f427ff9416cbbc2831ed166b7a" kind="variable"><name>word</name></member>
+    <member refid="uniontle92466ed_1_1SPIFrame_1a115b217a35657afadb256c7a0e2d77b1" kind="variable"><name>data</name></member>
+    <member refid="uniontle92466ed_1_1SPIFrame_1ac5ff7ca3d05c579224f041f78807dd39" kind="variable"><name>rw</name></member>
+    <member refid="uniontle92466ed_1_1SPIFrame_1a35c3a46f07634e2b5b12692e8f9298b8" kind="variable"><name>address</name></member>
+    <member refid="uniontle92466ed_1_1SPIFrame_1a2ac8d6092d1bf23b1f892e177f1ed769" kind="variable"><name>crc</name></member>
+    <member refid="uniontle92466ed_1_1SPIFrame_1a725fd5d3491ccd0120b22f9357b767bb" kind="variable"><name>tx_fields</name></member>
+    <member refid="uniontle92466ed_1_1SPIFrame_1ab3681800e8c3bf636598f4ebafe9bbcd" kind="variable"><name>_data_low</name></member>
+    <member refid="uniontle92466ed_1_1SPIFrame_1a06fad1273b6669645eda92782c4c9797" kind="variable"><name>_field_16</name></member>
+    <member refid="uniontle92466ed_1_1SPIFrame_1ac9087a50d92ba9f71cd2d409c5be5dc7" kind="variable"><name>_field_17_21</name></member>
+    <member refid="uniontle92466ed_1_1SPIFrame_1a35e47b9b98ad1b21fdb3238de04ba6da" kind="variable"><name>reply_mode</name></member>
+    <member refid="uniontle92466ed_1_1SPIFrame_1a0cabc0548dbc9536e1030ae76e65bfae" kind="variable"><name>rx_common</name></member>
+    <member refid="uniontle92466ed_1_1SPIFrame_1a6f210670a4936ff0d7b0d20dca1f26be" kind="variable"><name>rw_echo</name></member>
+    <member refid="uniontle92466ed_1_1SPIFrame_1accf7056933484218fa5a7260822e0ed5" kind="variable"><name>status</name></member>
+    <member refid="uniontle92466ed_1_1SPIFrame_1abba229d3f6ad6ba601a619cbd7c37dfe" kind="variable"><name>rx_16bit</name></member>
+    <member refid="uniontle92466ed_1_1SPIFrame_1afe4ad4bcfe361f1c85498deb39aeadb2" kind="variable"><name>rx_22bit</name></member>
+    <member refid="uniontle92466ed_1_1SPIFrame_1a18d4ecba825b8262074b7b108b68d65f" kind="variable"><name>fault_flags</name></member>
+    <member refid="uniontle92466ed_1_1SPIFrame_1a5d61a30c9689123b6f065502ea0c92c0" kind="variable"><name>_reserved</name></member>
+    <member refid="uniontle92466ed_1_1SPIFrame_1a1d8123ecb5ca33993aa411e93827736c" kind="variable"><name>_reserved2</name></member>
+    <member refid="uniontle92466ed_1_1SPIFrame_1a9f31256b75f7251e631ba1bd291ce8e7" kind="variable"><name>_reserved3</name></member>
+    <member refid="uniontle92466ed_1_1SPIFrame_1a82f7080b9b33ace4ed9bce06fa7969b5" kind="variable"><name>_dont_care</name></member>
+    <member refid="uniontle92466ed_1_1SPIFrame_1ac1f49ea7e227d3b6d1729d99dc2a8a42" kind="variable"><name>rx_fault</name></member>
+    <member refid="uniontle92466ed_1_1SPIFrame_1ae5c5a3b7ad3cc6083b4168f1035ceb1a" kind="function"><name>MakeRead</name></member>
+    <member refid="uniontle92466ed_1_1SPIFrame_1aec6903aac37ef52ecfea43c68d372e6d" kind="function"><name>MakeWrite</name></member>
+  </compound>
+  <compound refid="classtle92466ed_1_1SpiInterface" kind="class"><name>tle92466ed::SpiInterface</name>
+    <member refid="classtle92466ed_1_1SpiInterface_1a20687f8951efeaa6cd7d7b40922b9c13" kind="variable"><name>kMaxPipelinedReads</name></member>
+    <member refid="classtle92466ed_1_1SpiInterface_1a397ed0830fad6afe541163c91b78c965" kind="variable"><name>last_critical_fault_flags_</name></member>
+    <member refid="classtle92466ed_1_1SpiInterface_1a126fd7bd4ac2afb6d0f5752a8a505240" kind="variable"><name>saw_critical_fault_</name></member>
+    <member refid="classtle92466ed_1_1SpiInterface_1aa68b021917632b21f8c9f2b0ac0cf665" kind="function"><name>Init</name></member>
+    <member refid="classtle92466ed_1_1SpiInterface_1a63683e3410c3773ac311037215ef34ef" kind="function"><name>Deinit</name></member>
+    <member refid="classtle92466ed_1_1SpiInterface_1a402b215387796d2dd36d429c46d92b11" kind="function"><name>Transfer32</name></member>
+    <member refid="classtle92466ed_1_1SpiInterface_1ac638c7e316d2be23f240c482619e2433" kind="function"><name>TransferMulti</name></member>
+    <member refid="classtle92466ed_1_1SpiInterface_1ab94ea9f452febbe30c0a44e1e00f911c" kind="function"><name>Delay</name></member>
+    <member refid="classtle92466ed_1_1SpiInterface_1a0629ce233e0aa304d7faaf6aebf083e5" kind="function"><name>Configure</name></member>
+    <member refid="classtle92466ed_1_1SpiInterface_1ac9625b7265238ef71cc3d8081fd944b3" kind="function"><name>IsReady</name></member>
+    <member refid="classtle92466ed_1_1SpiInterface_1ab95fc99a3717ccbf9de96d69a10cf5b4" kind="function"><name>GetLastError</name></member>
+    <member refid="classtle92466ed_1_1SpiInterface_1aa236926f38300295cc4b82fdd137db37" kind="function"><name>ClearErrors</name></member>
+    <member refid="classtle92466ed_1_1SpiInterface_1ab542050209c981cc40f597aa1049044e" kind="function"><name>GpioSet</name></member>
+    <member refid="classtle92466ed_1_1SpiInterface_1a2d653db43a17168a1e3b758ec624f099" kind="function"><name>GpioRead</name></member>
+    <member refid="classtle92466ed_1_1SpiInterface_1abb0cde5946fe750c68999f06dc156122" kind="function"><name>GpioSetActive</name></member>
+    <member refid="classtle92466ed_1_1SpiInterface_1a60b6e281ad9b45cce384a3da91ab8c1b" kind="function"><name>GpioSetInactive</name></member>
+    <member refid="classtle92466ed_1_1SpiInterface_1a39597910309873f982f3ac2a9a9a9560" kind="function"><name>Log</name></member>
+    <member refid="classtle92466ed_1_1SpiInterface_1a499995340062b2a3018af8638982316a" kind="function"><name>Read</name></member>
+    <member refid="classtle92466ed_1_1SpiInterface_1a7304d96b475520cf4fa9aacd6caaf8e0" kind="function"><name>ReadMulti</name></member>
+    <member refid="classtle92466ed_1_1SpiInterface_1aac5543c7a64a50838af7de423bc0afa5" kind="function"><name>Write</name></member>
+    <member refid="classtle92466ed_1_1SpiInterface_1aaf8fc2c71e6a9649771d7b434301f14c" kind="function"><name>LastCriticalFaultFlags</name></member>
+    <member refid="classtle92466ed_1_1SpiInterface_1ae6a5b71e43580d66d2e4027499a73c81" kind="function"><name>SawCriticalFault</name></member>
+    <member refid="classtle92466ed_1_1SpiInterface_1a2482b560740049f6ecb95f09c92b6617" kind="function"><name>SpiInterface</name></member>
+    <member refid="classtle92466ed_1_1SpiInterface_1a238f0e5a2d9d1de916621c07d0f98b46" kind="function"><name>operator=</name></member>
+    <member refid="classtle92466ed_1_1SpiInterface_1afff56a5b049483311b255e19db2b4823" kind="function"><name>SpiInterface</name></member>
+    <member refid="classtle92466ed_1_1SpiInterface_1a5f2b6268b54a0417c7f9d8b1f5dd4fbd" kind="function"><name>SpiInterface</name></member>
+    <member refid="classtle92466ed_1_1SpiInterface_1aaebb9bbf0c619b67975c7ee3c622b5a9" kind="function"><name>operator=</name></member>
+    <member refid="classtle92466ed_1_1SpiInterface_1a4ed9a296bc8ca57da8a4aadc0e0ca8ac" kind="function"><name>NoteCriticalFault</name></member>
+    <member refid="classtle92466ed_1_1SpiInterface_1a5febc3318592905b3b17118f229763d6" kind="function"><name>~SpiInterface</name></member>
+  </compound>
   <compound refid="structTLE92466ED__TestConfig_1_1SPIParams" kind="struct"><name>TLE92466ED_TestConfig::SPIParams</name>
     <member refid="structTLE92466ED__TestConfig_1_1SPIParams_1a7c1be1681df077d91b1fd20fed51652b" kind="variable"><name>FREQUENCY</name></member>
     <member refid="structTLE92466ED__TestConfig_1_1SPIParams_1a719af124eb343a53918944b959526fb3" kind="variable"><name>MODE</name></member>
@@ -112,11 +531,24 @@
     <member refid="structTLE92466ED__TestConfig_1_1SPIPins_1a41782c91af07fc43521527f1ada311ef" kind="variable"><name>SCLK</name></member>
     <member refid="structTLE92466ED__TestConfig_1_1SPIPins_1a144454730100985c5bc1ad819cfa0ddf" kind="variable"><name>CS</name></member>
   </compound>
+  <compound refid="structtle92466ed_1_1SupplyMonitorSelfTestResult" kind="struct"><name>tle92466ed::SupplyMonitorSelfTestResult</name>
+    <member refid="structtle92466ed_1_1SupplyMonitorSelfTestResult_1ad441a920b0fce3a67445fb81f49b9acc" kind="variable"><name>uv_ov_swap_ok</name></member>
+    <member refid="structtle92466ed_1_1SupplyMonitorSelfTestResult_1afaf4ce03db3a06877e923ad956ec530b" kind="variable"><name>v1v5_uv_ok</name></member>
+    <member refid="structtle92466ed_1_1SupplyMonitorSelfTestResult_1a88a1898f274d52fcd13114a0e49311c6" kind="variable"><name>v1v5_ov_ok</name></member>
+    <member refid="structtle92466ed_1_1SupplyMonitorSelfTestResult_1afd1f1119b50e63b5946567d76ad5f9ae" kind="variable"><name>ot_test_ok</name></member>
+    <member refid="structtle92466ed_1_1SupplyMonitorSelfTestResult_1a9e0ee2ef8cf3a444a09f75ef52e22673" kind="variable"><name>overall_pass</name></member>
+  </compound>
   <compound refid="structTLE92466ED__TestConfig_1_1SupplyVoltage" kind="struct"><name>TLE92466ED_TestConfig::SupplyVoltage</name>
     <member refid="structTLE92466ED__TestConfig_1_1SupplyVoltage_1a394e7be9e053e324ccbaef9b337448d7" kind="variable"><name>VBAT_MIN</name></member>
     <member refid="structTLE92466ED__TestConfig_1_1SupplyVoltage_1aed8c289d6b0161bd6209df05f6ac76ac" kind="variable"><name>VBAT_NOM</name></member>
     <member refid="structTLE92466ED__TestConfig_1_1SupplyVoltage_1a282fd518667fd1a9ea43a71e571fe7b0" kind="variable"><name>VBAT_MAX</name></member>
     <member refid="structTLE92466ED__TestConfig_1_1SupplyVoltage_1a8138a20d65edeb17a743fb0ae469cfa4" kind="variable"><name>VDD_NOM</name></member>
+  </compound>
+  <compound refid="structtle92466ed_1_1SupplyVoltages" kind="struct"><name>tle92466ed::SupplyVoltages</name>
+    <member refid="structtle92466ed_1_1SupplyVoltages_1a76463a4196c4bd50c1794aac68f8f632" kind="variable"><name>vbat_mV</name></member>
+    <member refid="structtle92466ed_1_1SupplyVoltages_1a79cd908ab874bef8f78c9a15b01885db" kind="variable"><name>vio_mV</name></member>
+    <member refid="structtle92466ed_1_1SupplyVoltages_1a148fa21e4b2947418b9f7180a821b888" kind="variable"><name>vdd_mV</name></member>
+    <member refid="structtle92466ed_1_1SupplyVoltages_1a9f21b99d3705007fb3ba444b0a87b824" kind="variable"><name>temperature_c</name></member>
   </compound>
   <compound refid="structTLE92466ED__TestConfig_1_1Temperature" kind="struct"><name>TLE92466ED_TestConfig::Temperature</name>
     <member refid="structTLE92466ED__TestConfig_1_1Temperature_1a9401801f59fc0d49016785d352b55e0d" kind="variable"><name>OPERATING_MIN</name></member>
@@ -153,6 +585,14 @@
     <member refid="structTLE92466ED__TestConfig_1_1Timing_1a1f88aa3a269db676482a797545b65476" kind="variable"><name>POWER_ON_DELAY_MS</name></member>
     <member refid="structTLE92466ED__TestConfig_1_1Timing_1aba1378da52ce221954d8958323003953" kind="variable"><name>RESET_DELAY_MS</name></member>
   </compound>
+  <compound refid="classtle_1_1unexpected" kind="class"><name>tle::unexpected</name>
+    <member refid="classtle_1_1unexpected_1aa5f72fbc53e61905a5b435c86ffacbb0" kind="variable"><name>error_</name></member>
+    <member refid="classtle_1_1unexpected_1a63dd19deda0a51e31a3c6aab446adbf4" kind="function"><name>unexpected</name></member>
+    <member refid="classtle_1_1unexpected_1a926bdb8995c7ee49466ae17aca5b7cbe" kind="function"><name>unexpected</name></member>
+    <member refid="classtle_1_1unexpected_1ac94cbd53d458e4e99b1bca047f9a8eb1" kind="function"><name>error</name></member>
+    <member refid="classtle_1_1unexpected_1a6bf1f5e7283f34d661f6d78186400c22" kind="function"><name>error</name></member>
+    <member refid="classtle_1_1unexpected_1a900e2d8059c916e49cbe4c2d1227e342" kind="function"><name>error</name></member>
+  </compound>
   <compound refid="namespaceanonymous__namespace_02esp32__tle92466ed__bus_8hpp_03" kind="namespace"><name>anonymous_namespace{esp32_tle92466ed_bus.hpp}</name>
     <member refid="namespaceanonymous__namespace_02esp32__tle92466ed__bus_8hpp_03_1ad748e43f07b909572a5efdf4fe76e440" kind="function"><name>byte_swap_32</name></member>
   </compound>
@@ -169,7 +609,605 @@
     <member refid="namespacecfg_1ada89c01b01fd8122837e99fa2a8ff305" kind="variable"><name>kCycleCount</name></member>
     <member refid="namespacecfg_1ae6874d737cfb7e9425a7b2684a757f70" kind="variable"><name>kTelemetryPeriod_ms</name></member>
   </compound>
+  <compound refid="namespacetle" kind="namespace"><name>tle</name>
+    <member refid="namespacetle_1a6937ee0e699154f80408081b2ae947a2" kind="function"><name>unexpected</name></member>
+  </compound>
   <compound refid="namespacetle92466ed" kind="namespace"><name>tle92466ed</name>
+    <member refid="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693" kind="enum"><name>DriverError</name></member>
+    <member refid="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693a6adf97f83acf6453d4a6a4b1070f3754" kind="enumvalue"><name>None</name></member>
+    <member refid="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693a9646ad3a1c3e708b4fa8b4b4270fbab6" kind="enumvalue"><name>NotInitialized</name></member>
+    <member refid="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693a4852946e074a1f48ed7de9a024b10c03" kind="enumvalue"><name>HardwareError</name></member>
+    <member refid="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693a94a9e4213f08b322090d83fa5a8be5e4" kind="enumvalue"><name>InvalidChannel</name></member>
+    <member refid="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693a627251310d3384b591e4138be21145d5" kind="enumvalue"><name>InvalidParameter</name></member>
+    <member refid="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693a203bb9823df0c54c271585d4bfb69762" kind="enumvalue"><name>DeviceNotResponding</name></member>
+    <member refid="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693a7edfebe0f108ca457da80a3d0b64fdd4" kind="enumvalue"><name>WrongDeviceID</name></member>
+    <member refid="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693a1228b94748cada1774376467864079ac" kind="enumvalue"><name>RegisterError</name></member>
+    <member refid="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693a8717c18fa957be6f62f14404ce4c014b" kind="enumvalue"><name>CRCError</name></member>
+    <member refid="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693a11efe260e52c20b0d4c8ebd2da844862" kind="enumvalue"><name>FaultDetected</name></member>
+    <member refid="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693a05f6ffa53682f5ecd6164f8a3524733a" kind="enumvalue"><name>ConfigurationError</name></member>
+    <member refid="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693a2ce01afd7e833fc13c63448689ea762a" kind="enumvalue"><name>TimeoutError</name></member>
+    <member refid="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693add498c17cdbac13335b3810f8265f1a4" kind="enumvalue"><name>WrongMode</name></member>
+    <member refid="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693a168c342f0736ad372d2a7483a82a2f4a" kind="enumvalue"><name>SPIFrameError</name></member>
+    <member refid="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693ab8add73778549df4bf6ffc5a72acddcd" kind="enumvalue"><name>WriteToReadOnly</name></member>
+    <member refid="namespacetle92466ed_1a42072777d6f7c0e70bf0067c99027693ab78ca7889a18f8d7430ee3663183aa13" kind="enumvalue"><name>FeedbackNotReady</name></member>
+    <member refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957" kind="enum"><name>Channel</name></member>
+    <member refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957a2264c6e9d8288b49bfcf8018d64bc4ec" kind="enumvalue"><name>CH0</name></member>
+    <member refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957ae36fe09eceee9fa8f63747109d31cac5" kind="enumvalue"><name>CH1</name></member>
+    <member refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957a79a66be7a0427b4ce07a201d58f80d0c" kind="enumvalue"><name>CH2</name></member>
+    <member refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957a6c88494b48501a9de03abd4b7056cd33" kind="enumvalue"><name>CH3</name></member>
+    <member refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957aec9eb60d9c94f6b9ca2ecd6db52e158c" kind="enumvalue"><name>CH4</name></member>
+    <member refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957a9906695eb33d2d71b9fcc9a693bc1c68" kind="enumvalue"><name>CH5</name></member>
+    <member refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957a4905ac9d6a22bdfc1ae096094ce6248d" kind="enumvalue"><name>COUNT</name></member>
+    <member refid="namespacetle92466ed_1a4354ef9226739c1ea8a59eb36e95760c" kind="enum"><name>ChannelMode</name></member>
+    <member refid="namespacetle92466ed_1a4354ef9226739c1ea8a59eb36e95760ca88559a0cfd8250c9d65970cc145c92d4" kind="enumvalue"><name>OFF</name></member>
+    <member refid="namespacetle92466ed_1a4354ef9226739c1ea8a59eb36e95760cab6b8d73d401b7611fac37ab11898f598" kind="enumvalue"><name>ICC</name></member>
+    <member refid="namespacetle92466ed_1a4354ef9226739c1ea8a59eb36e95760ca97d0fb8fdfbdfa81cdd928907b35ed40" kind="enumvalue"><name>DIRECT_DRIVE_SPI</name></member>
+    <member refid="namespacetle92466ed_1a4354ef9226739c1ea8a59eb36e95760ca01972e7fc9ec5c902670e0798df618dc" kind="enumvalue"><name>DIRECT_DRIVE_DRV0</name></member>
+    <member refid="namespacetle92466ed_1a4354ef9226739c1ea8a59eb36e95760ca0509d9148c57b323fdd295712d4c8d47" kind="enumvalue"><name>DIRECT_DRIVE_DRV1</name></member>
+    <member refid="namespacetle92466ed_1a4354ef9226739c1ea8a59eb36e95760ca2e898746eeac1ff8dbf048e5a5343855" kind="enumvalue"><name>FREE_RUN_MEAS</name></member>
+    <member refid="namespacetle92466ed_1ae03b3b5991ee6faf1e97fed34ef2b78d" kind="enum"><name>SlewRate</name></member>
+    <member refid="namespacetle92466ed_1ae03b3b5991ee6faf1e97fed34ef2b78da98ab2e3497ba33c02228b42f9713b8af" kind="enumvalue"><name>SLOW_1V0_US</name></member>
+    <member refid="namespacetle92466ed_1ae03b3b5991ee6faf1e97fed34ef2b78dad03b5aab26bc0ac73e100adfd1572602" kind="enumvalue"><name>MEDIUM_2V5_US</name></member>
+    <member refid="namespacetle92466ed_1ae03b3b5991ee6faf1e97fed34ef2b78da8bcffcbc78276caf12d0022bf8a638fe" kind="enumvalue"><name>FAST_5V0_US</name></member>
+    <member refid="namespacetle92466ed_1ae03b3b5991ee6faf1e97fed34ef2b78dab64d2fd61ffbc4476d28e6d792ea875e" kind="enumvalue"><name>FASTEST_10V0_US</name></member>
+    <member refid="namespacetle92466ed_1ac478d8027f99bfc8e6a985fb3b4b5e9d" kind="enum"><name>DiagCurrent</name></member>
+    <member refid="namespacetle92466ed_1ac478d8027f99bfc8e6a985fb3b4b5e9dabf8a2e7e31b6227326246d4e841a0af1" kind="enumvalue"><name>I_80UA</name></member>
+    <member refid="namespacetle92466ed_1ac478d8027f99bfc8e6a985fb3b4b5e9dad9072c91edbaa9467e784093e4cf3a82" kind="enumvalue"><name>I_190UA</name></member>
+    <member refid="namespacetle92466ed_1ac478d8027f99bfc8e6a985fb3b4b5e9dab9723da541cfdb951a6464b3131f0376" kind="enumvalue"><name>I_720UA</name></member>
+    <member refid="namespacetle92466ed_1ac478d8027f99bfc8e6a985fb3b4b5e9dafabad8c26f1d6f2dd67f43017cdd55ae" kind="enumvalue"><name>I_1250UA</name></member>
+    <member refid="namespacetle92466ed_1aaf5177696585d9100c7e4e73000b48c1" kind="enum"><name>ParallelPair</name></member>
+    <member refid="namespacetle92466ed_1aaf5177696585d9100c7e4e73000b48c1ab50339a10e1de285ac99d4c3990b8693" kind="enumvalue"><name>NONE</name></member>
+    <member refid="namespacetle92466ed_1aaf5177696585d9100c7e4e73000b48c1ac97e7cdf859b2e97096e4801cfa3d6cf" kind="enumvalue"><name>CH0_CH3</name></member>
+    <member refid="namespacetle92466ed_1aaf5177696585d9100c7e4e73000b48c1a791da23111807f9fb0734d20e9acc425" kind="enumvalue"><name>CH1_CH2</name></member>
+    <member refid="namespacetle92466ed_1aaf5177696585d9100c7e4e73000b48c1a592c5a822b3e86ff8c39b8ae0c343e5c" kind="enumvalue"><name>CH4_CH5</name></member>
+    <member refid="namespacetle92466ed_1a877a95a1cb5667aab7bd7c1b0f14d7dc" kind="enum"><name>ExpectedReply</name></member>
+    <member refid="namespacetle92466ed_1a877a95a1cb5667aab7bd7c1b0f14d7dca02d5ba53dbd26550a12ad57f712d3b1f" kind="enumvalue"><name>Bits16</name></member>
+    <member refid="namespacetle92466ed_1a877a95a1cb5667aab7bd7c1b0f14d7dcad21b15cb38606a9cb2960e82b8f58db8" kind="enumvalue"><name>Bits22</name></member>
+    <member refid="namespacetle92466ed_1a9a8012917941cbbda8d79fb78358448a" kind="enum"><name>ClockSource</name></member>
+    <member refid="namespacetle92466ed_1a9a8012917941cbbda8d79fb78358448aa57cf41087a32235b2cfbc1c90f7efc4f" kind="enumvalue"><name>InternalOscillator</name></member>
+    <member refid="namespacetle92466ed_1a9a8012917941cbbda8d79fb78358448aa6a55574eba65341700b99a841545aeb2" kind="enumvalue"><name>ExternalClockPll</name></member>
+    <member refid="namespacetle92466ed_1a9409c3094f465ef557b3f1400aa3443c" kind="enum"><name>VioLevel</name></member>
+    <member refid="namespacetle92466ed_1a9409c3094f465ef557b3f1400aa3443caf869fb390f575744d7e1a3845efec815" kind="enumvalue"><name>V3_3</name></member>
+    <member refid="namespacetle92466ed_1a9409c3094f465ef557b3f1400aa3443caa4ab6982e01b0554d528038974fc1cc3" kind="enumvalue"><name>V5_0</name></member>
+    <member refid="namespacetle92466ed_1a9b1173fa43c42134c90627f9f0a21229" kind="enum"><name>OperationState</name></member>
+    <member refid="namespacetle92466ed_1a9b1173fa43c42134c90627f9f0a21229a526d688f37a86d3c3f27d0c5016eb71d" kind="enumvalue"><name>Reset</name></member>
+    <member refid="namespacetle92466ed_1a9b1173fa43c42134c90627f9f0a21229afa535ffb25e1fd20341652f9be21e06e" kind="enumvalue"><name>Config</name></member>
+    <member refid="namespacetle92466ed_1a9b1173fa43c42134c90627f9f0a21229a70d529695c253d17e992cb9265abc57f" kind="enumvalue"><name>Mission</name></member>
+    <member refid="namespacetle92466ed_1a9b1173fa43c42134c90627f9f0a21229a3305c164bf8a79dccc6ac712d7aa2132" kind="enumvalue"><name>CriticalFault</name></member>
+    <member refid="namespacetle92466ed_1a7a810a2ee5f3edef167c753d660af92f" kind="enum"><name>FastMeasureMode</name></member>
+    <member refid="namespacetle92466ed_1a7a810a2ee5f3edef167c753d660af92fabbc6cbc1503ff58ccc2914e373280842" kind="enumvalue"><name>FullPeriod</name></member>
+    <member refid="namespacetle92466ed_1a7a810a2ee5f3edef167c753d660af92fa96bba6638f6f12ef033c5dbb525ad057" kind="enumvalue"><name>HalfPeriod</name></member>
+    <member refid="namespacetle92466ed_1a7a810a2ee5f3edef167c753d660af92fa9349e3688de3063353762253adbd6b27" kind="enumvalue"><name>QuarterPeriod</name></member>
+    <member refid="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fd" kind="enum"><name>MaskableFault</name></member>
+    <member refid="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda496b1c33ac1ece9a88e8402035f459f1" kind="enumvalue"><name>Ch0Error</name></member>
+    <member refid="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda3f3b0689bbdcaaad413cfe89468e000d" kind="enumvalue"><name>Ch1Error</name></member>
+    <member refid="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda4c10a51333bb1e9856ae0f0bc8a95b5c" kind="enumvalue"><name>Ch2Error</name></member>
+    <member refid="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fdaaecb342e7acf2a1c16740f3d02882bc5" kind="enumvalue"><name>Ch3Error</name></member>
+    <member refid="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fdaaab8abeabb845fe1472392990571b3e1" kind="enumvalue"><name>Ch4Error</name></member>
+    <member refid="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda24da0e86e9f0969be7b80a4b471326a9" kind="enumvalue"><name>Ch5Error</name></member>
+    <member refid="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda258d8699f517f9931fff4124fcc62eea" kind="enumvalue"><name>EnPin</name></member>
+    <member refid="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fdada668dc34b509b10272c18be40abed9d" kind="enumvalue"><name>SupplyNokInternal</name></member>
+    <member refid="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda4dcb390d336cda06ea189f9a124bcd56" kind="enumvalue"><name>SupplyNokExternal</name></member>
+    <member refid="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda5e988b9157a27a55581ce4ee6b2a61d9" kind="enumvalue"><name>Ch0Warning</name></member>
+    <member refid="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda12dd56c3aaa64b2fb3303f8d7611d6b4" kind="enumvalue"><name>Ch1Warning</name></member>
+    <member refid="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fdaf63064c8c4cf292548c209b64d4ff995" kind="enumvalue"><name>Ch2Warning</name></member>
+    <member refid="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda72259fc2a56b21a0d1396d862c1ea66f" kind="enumvalue"><name>Ch3Warning</name></member>
+    <member refid="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fdada1e0e2689f4865c69b2909357fc9960" kind="enumvalue"><name>Ch4Warning</name></member>
+    <member refid="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda5935cc2e282376b7e839669aeed7f7e4" kind="enumvalue"><name>Ch5Warning</name></member>
+    <member refid="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fdaadfc4e7b9b7b2c8e54f77e0a2f51ffc3" kind="enumvalue"><name>CentralOtWarning</name></member>
+    <member refid="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda0487632d3fd3a5f42fa49d3f904a9530" kind="enumvalue"><name>CentralOtError</name></member>
+    <member refid="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda8be0ebfbcd9ab228d764fd52b5099c88" kind="enumvalue"><name>ClockLow</name></member>
+    <member refid="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda5ae93a45ffe10457408e6fd5b69fdf79" kind="enumvalue"><name>VbatUv</name></member>
+    <member refid="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fdaa110243d921712cdf10f15941e43d4ba" kind="enumvalue"><name>VbatOv</name></member>
+    <member refid="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fdab062e84ecefa677e622e3f0d6232f097" kind="enumvalue"><name>VioUv</name></member>
+    <member refid="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fdafee0f9535f89ba0f406bf1335dd8fdee" kind="enumvalue"><name>VioOv</name></member>
+    <member refid="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda958305dcc7f35cfadb6e3f3206d14296" kind="enumvalue"><name>VddUv</name></member>
+    <member refid="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda5ffca3c13db3b359af49b9611f3a4445" kind="enumvalue"><name>VddOv</name></member>
+    <member refid="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fda523b7a06ac3f2f09352744db109b9941" kind="enumvalue"><name>DataErr</name></member>
+    <member refid="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fdab732c5f7f79ae3a906f1f5bcd610e8d1" kind="enumvalue"><name>SpiWatchdog</name></member>
+    <member refid="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4a" kind="enum"><name>CommError</name></member>
+    <member refid="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aa6adf97f83acf6453d4a6a4b1070f3754" kind="enumvalue"><name>None</name></member>
+    <member refid="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aa062b178ecb015aa2e6324dffd1b4f5f2" kind="enumvalue"><name>BusError</name></member>
+    <member refid="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aac85a251cc457840f1e032f1b733e9398" kind="enumvalue"><name>Timeout</name></member>
+    <member refid="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aa627251310d3384b591e4138be21145d5" kind="enumvalue"><name>InvalidParameter</name></member>
+    <member refid="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aab36f64f307472d2304bafef8bebc15a9" kind="enumvalue"><name>TransferError</name></member>
+    <member refid="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aa257b0abd705d3c26ae57e58f6732eb0a" kind="enumvalue"><name>HardwareNotReady</name></member>
+    <member refid="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aa68ec6e62c5fcbbb68b5ce093bdd60717" kind="enumvalue"><name>BufferOverflow</name></member>
+    <member refid="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aa8717c18fa957be6f62f14404ce4c014b" kind="enumvalue"><name>CRCError</name></member>
+    <member refid="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aaa7d7b6f9bcf9382faedac781806df3dc" kind="enumvalue"><name>NoReply</name></member>
+    <member refid="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4aabfaef30f1c8011c5cefa38ae470fb7aa" kind="enumvalue"><name>UnknownError</name></member>
+    <member refid="namespacetle92466ed_1a42eacb1b3fd11b3412b6aef4b0d2e1d8" kind="enum"><name>CtrlPin</name></member>
+    <member refid="namespacetle92466ed_1a42eacb1b3fd11b3412b6aef4b0d2e1d8a46ef2575e05f89865ad2e173e52fc95c" kind="enumvalue"><name>RESN</name></member>
+    <member refid="namespacetle92466ed_1a42eacb1b3fd11b3412b6aef4b0d2e1d8aaa85f1840e282d8a8304dbc2c0d7c9b2" kind="enumvalue"><name>EN</name></member>
+    <member refid="namespacetle92466ed_1a42eacb1b3fd11b3412b6aef4b0d2e1d8a8a08cd30efd24033555d0244cfce27a7" kind="enumvalue"><name>FAULTN</name></member>
+    <member refid="namespacetle92466ed_1a3e575e91f20807f25c8de6922b3def9d" kind="enum"><name>GpioSignal</name></member>
+    <member refid="namespacetle92466ed_1a3e575e91f20807f25c8de6922b3def9da6b273343c454f9c53dcfc9c4ccf171d2" kind="enumvalue"><name>INACTIVE</name></member>
+    <member refid="namespacetle92466ed_1a3e575e91f20807f25c8de6922b3def9da18ff74f43da410c5529f7d6fca84f115" kind="enumvalue"><name>ACTIVE</name></member>
+    <member refid="namespacetle92466ed_1ae9d7e11b24ee920250df1e83b0f98509" kind="enum"><name>LogLevel</name></member>
+    <member refid="namespacetle92466ed_1ae9d7e11b24ee920250df1e83b0f98509a902b0d55fddef6f8d651fe1035b7d4bd" kind="enumvalue"><name>Error</name></member>
+    <member refid="namespacetle92466ed_1ae9d7e11b24ee920250df1e83b0f98509a56525ae64d370c0b448ac0d60710ef17" kind="enumvalue"><name>Warn</name></member>
+    <member refid="namespacetle92466ed_1ae9d7e11b24ee920250df1e83b0f98509a4059b0251f66a18cb56f544728796875" kind="enumvalue"><name>Info</name></member>
+    <member refid="namespacetle92466ed_1ae9d7e11b24ee920250df1e83b0f98509aa603905470e2a5b8c13e96b579ef0dba" kind="enumvalue"><name>Debug</name></member>
+    <member refid="namespacetle92466ed_1ae9d7e11b24ee920250df1e83b0f98509ad4a9fa383ab700c5bdd6f31cf7df0faf" kind="enumvalue"><name>Verbose</name></member>
+    <member refid="namespacetle92466ed_1aa8a8d673ba02bbca9770978491fce143" kind="enum"><name>ReplyMode</name></member>
+    <member refid="namespacetle92466ed_1aa8a8d673ba02bbca9770978491fce143a1aaedee3b7ce4f8b3b49bb5ae5510c40" kind="enumvalue"><name>REPLY_16BIT</name></member>
+    <member refid="namespacetle92466ed_1aa8a8d673ba02bbca9770978491fce143a4f3a163255b23c62e33f1600850bc955" kind="enumvalue"><name>REPLY_22BIT</name></member>
+    <member refid="namespacetle92466ed_1aa8a8d673ba02bbca9770978491fce143a8ab5dedd5c8767859380101c259c22de" kind="enumvalue"><name>CRITICAL_FAULT</name></member>
+    <member refid="namespacetle92466ed_1aa8a8d673ba02bbca9770978491fce143a83c7f2aa8c3ac10ed8beb75cad162827" kind="enumvalue"><name>RESERVED</name></member>
+    <member refid="namespacetle92466ed_1a3e7c32ed41f7fc9b6bf02262c584a53f" kind="enum"><name>SPIStatus</name></member>
+    <member refid="namespacetle92466ed_1a3e7c32ed41f7fc9b6bf02262c584a53fad306b6fdee05fe87455110ddf6501e6c" kind="enumvalue"><name>NO_ERROR</name></member>
+    <member refid="namespacetle92466ed_1a3e7c32ed41f7fc9b6bf02262c584a53faa55177fdde536953ec9e9dcc74edc1bb" kind="enumvalue"><name>SPI_FRAME_ERROR</name></member>
+    <member refid="namespacetle92466ed_1a3e7c32ed41f7fc9b6bf02262c584a53fafde7dcbac92720d696e3ef02bf6435db" kind="enumvalue"><name>CRC_ERROR</name></member>
+    <member refid="namespacetle92466ed_1a3e7c32ed41f7fc9b6bf02262c584a53fac1918c879d3aaafa7752515f7425a411" kind="enumvalue"><name>WRITE_RO_REG</name></member>
+    <member refid="namespacetle92466ed_1a3e7c32ed41f7fc9b6bf02262c584a53fab2706b5ce3bc1944e76b8b31344e3818" kind="enumvalue"><name>INTERNAL_BUS_FAULT</name></member>
+    <member refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kind="typedef"><name>DriverResult</name></member>
+    <member refid="namespacetle92466ed_1a21f593ab13bf03c108a99ea2f0e3ee31" kind="typedef"><name>CommResult</name></member>
+    <member refid="namespacetle92466ed_1a433f2be56bcad43648e509e6bdafaf15" kind="function"><name>GetDriverVersion</name></member>
+    <member refid="namespacetle92466ed_1a7770b0284ed6c00667ff46dc97d7fc7d" kind="function"><name>GetChannelBase</name></member>
+    <member refid="namespacetle92466ed_1a1fab0aa5ce62f60a43acdcb8820baf5a" kind="function"><name>GetChannelRegister</name></member>
+    <member refid="namespacetle92466ed_1acbbba5a918710a5ac5da8fd514035c3b" kind="function"><name>ExpectedReplyFor</name></member>
+    <member refid="namespacetle92466ed_1a14b526442cab0b973a367d32828d7a21" kind="function"><name>ToIndex</name></member>
+    <member refid="namespacetle92466ed_1a28e33fd2cf2d9987c0caf0b12324a8bc" kind="function"><name>ToString</name></member>
+    <member refid="namespacetle92466ed_1a90f1e6b60d34e1f37ef5519a56e6c001" kind="function"><name>ToString</name></member>
+    <member refid="namespacetle92466ed_1afc84eecf6f861304cdc62128c829960e" kind="function"><name>ToString</name></member>
+    <member refid="namespacetle92466ed_1ad5c5440d12149543e03c438c68201ed4" kind="function"><name>ToString</name></member>
+    <member refid="namespacetle92466ed_1ab5de7ba482757f61b229f6c232c15324" kind="function"><name>ToString</name></member>
+    <member refid="namespacetle92466ed_1a77dea1b15da97f920f588cd3264857a7" kind="function"><name>IsValidChannel</name></member>
+    <member refid="namespacetle92466ed_1ab6ec2b61fed36cbfc9fdf6fbe64ee5c0" kind="function"><name>CalculateCrc8J1850</name></member>
+    <member refid="namespacetle92466ed_1ad7fe2b874158dd8a66bd93f43bd85ddd" kind="function"><name>CalculateFrameCrc</name></member>
+    <member refid="namespacetle92466ed_1a6bdc721f40f29b3d22ae1696478f544c" kind="function"><name>VerifyFrameCrc</name></member>
+    <member refid="namespacetle92466ed_1aacc402d67ba0cbf4bd7474f4f40151c6" kind="function"><name>FaultMaskIndex</name></member>
+    <member refid="namespacetle92466ed_1ae118315b166480f9ded637fd23db0de9" kind="function"><name>FaultMaskBit</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1CentralReg" kind="namespace"><name>tle92466ed::CentralReg</name>
+    <member refid="namespacetle92466ed_1_1CentralReg_1aeac6697edbbae3cc23a8e6fdf2f5c9d9" kind="variable"><name>CH_CTRL</name></member>
+    <member refid="namespacetle92466ed_1_1CentralReg_1a69b47a7154ffa1666c053cf163aec751" kind="variable"><name>GLOBAL_CONFIG</name></member>
+    <member refid="namespacetle92466ed_1_1CentralReg_1aa3e32f7ff1db1ba76b1a51cc20a2dabb" kind="variable"><name>GLOBAL_DIAG0</name></member>
+    <member refid="namespacetle92466ed_1_1CentralReg_1ac8df2f2014a9fe944e9cc69c9cb60386" kind="variable"><name>GLOBAL_DIAG1</name></member>
+    <member refid="namespacetle92466ed_1_1CentralReg_1a007776b8ad8434a96362419453d83b3c" kind="variable"><name>GLOBAL_DIAG2</name></member>
+    <member refid="namespacetle92466ed_1_1CentralReg_1a7a6c2cc734584c57e93389afc27745ba" kind="variable"><name>VBAT_TH</name></member>
+    <member refid="namespacetle92466ed_1_1CentralReg_1a3a44abc86e7252fcc09d19d1b3e2b314" kind="variable"><name>FB_FRZ</name></member>
+    <member refid="namespacetle92466ed_1_1CentralReg_1aaa3fbcff39a54199459aec455d68383d" kind="variable"><name>FB_UPD</name></member>
+    <member refid="namespacetle92466ed_1_1CentralReg_1a152b9dfc21f7fcee3170fefae510cdf6" kind="variable"><name>WD_RELOAD</name></member>
+    <member refid="namespacetle92466ed_1_1CentralReg_1a5da670386c8a5ff2e43bee89ac64fac5" kind="variable"><name>DIAG_ERR_CHGR0</name></member>
+    <member refid="namespacetle92466ed_1_1CentralReg_1a696c4d3ff68eb7491176953ee4ccca3b" kind="variable"><name>DIAG_ERR_CHGR1</name></member>
+    <member refid="namespacetle92466ed_1_1CentralReg_1a4a82dcefb77df81487986d51c5e9b705" kind="variable"><name>DIAG_ERR_CHGR2</name></member>
+    <member refid="namespacetle92466ed_1_1CentralReg_1a6572ec371f01147ded0c8ff58217a9da" kind="variable"><name>DIAG_WARN_CHGR0</name></member>
+    <member refid="namespacetle92466ed_1_1CentralReg_1a7ecdb274a4a52e1499fe310363734137" kind="variable"><name>DIAG_WARN_CHGR1</name></member>
+    <member refid="namespacetle92466ed_1_1CentralReg_1a34b60820d4e53a1fcd8ea191e3c6a9c6" kind="variable"><name>DIAG_WARN_CHGR2</name></member>
+    <member refid="namespacetle92466ed_1_1CentralReg_1a9de0a67adf43fc8d2b4f3902b51a9139" kind="variable"><name>FAULT_MASK0</name></member>
+    <member refid="namespacetle92466ed_1_1CentralReg_1a9d120b68fd42fd8cb82ab362282d10b6" kind="variable"><name>FAULT_MASK1</name></member>
+    <member refid="namespacetle92466ed_1_1CentralReg_1ac56c42d5d4508d022da3144f6bb466df" kind="variable"><name>FAULT_MASK2</name></member>
+    <member refid="namespacetle92466ed_1_1CentralReg_1aa51de35a6c7b90d04895c6683c7de52a" kind="variable"><name>CLK_DIV</name></member>
+    <member refid="namespacetle92466ed_1_1CentralReg_1a7d7ea63031dbc49ef051606303fbf8ec" kind="variable"><name>SFF_BIST</name></member>
+    <member refid="namespacetle92466ed_1_1CentralReg_1a0f0eac53e8a589e078c9a240c2ef3684" kind="variable"><name>ICVID</name></member>
+    <member refid="namespacetle92466ed_1_1CentralReg_1af61d9aa81b2e8b5b93705a7c3bf47175" kind="variable"><name>PIN_STAT</name></member>
+    <member refid="namespacetle92466ed_1_1CentralReg_1ab9afdfdc7272eb010c9d876bafe2a825" kind="variable"><name>FB_STAT</name></member>
+    <member refid="namespacetle92466ed_1_1CentralReg_1ae21b64e38cdf7c1e2e04eacc323973a9" kind="variable"><name>FB_VOLTAGE1</name></member>
+    <member refid="namespacetle92466ed_1_1CentralReg_1a232fd801d03dccca8fa043eb38c9c3eb" kind="variable"><name>FB_VOLTAGE2</name></member>
+    <member refid="namespacetle92466ed_1_1CentralReg_1aa5f47ea08b7e2a45053f870f392f91b0" kind="variable"><name>CHIPID0</name></member>
+    <member refid="namespacetle92466ed_1_1CentralReg_1a38fb3a79a6c315b16300d898a75141e0" kind="variable"><name>CHIPID1</name></member>
+    <member refid="namespacetle92466ed_1_1CentralReg_1a7a0978d995717f91f6d1812931df658d" kind="variable"><name>CHIPID2</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1CH__CONFIG" kind="namespace"><name>tle92466ed::CH_CONFIG</name>
+    <member refid="namespacetle92466ed_1_1CH__CONFIG_1a16c6cd97b0d60f7834e0e54c7a2a2339" kind="variable"><name>SLEWR_1V0_US</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CONFIG_1ade652be38a42233737a40f143465cad5" kind="variable"><name>SLEWR_2V5_US</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CONFIG_1a34910b7b77e10a8f703c52e454182714" kind="variable"><name>SLEWR_5V0_US</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CONFIG_1ad2bffdcadfdc13fdca9f8e826f50a119" kind="variable"><name>SLEWR_10V0_US</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CONFIG_1a39a8d7bcbd54045fe0545595a2f26d61" kind="variable"><name>SLEWR_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CONFIG_1a0fa94efb6deff9caf4e6bbbe47d8d53d" kind="variable"><name>I_DIAG_80UA</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CONFIG_1a1e93f168cd22a6fccf9c8922f378050b" kind="variable"><name>I_DIAG_190UA</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CONFIG_1a87b13f0a6758b12575eba5d03fe2716a" kind="variable"><name>I_DIAG_720UA</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CONFIG_1a9deb212ff8ce1d147652225a9dfb7d49" kind="variable"><name>I_DIAG_1250UA</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CONFIG_1a7f5b53e9e012e078b010fcd09943d6ec" kind="variable"><name>I_DIAG_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CONFIG_1a9c1dbe265c408db743cdc1f47a15faeb" kind="variable"><name>OL_TH_DISABLED</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CONFIG_1a690e82599097dc46926ddd8a34484c87" kind="variable"><name>OL_TH_1_8</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CONFIG_1a08594f0ac8303243c11b7165266698ee" kind="variable"><name>OL_TH_2_8</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CONFIG_1a974e34400087b6338bb26c3af2606759" kind="variable"><name>OL_TH_3_8</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CONFIG_1a064775bf701028f988c987257d02dc51" kind="variable"><name>OL_TH_4_8</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CONFIG_1a227069db43b14daf7c0799af83a761cb" kind="variable"><name>OL_TH_5_8</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CONFIG_1a56abbb12e9aafd2e4a43029dbb668222" kind="variable"><name>OL_TH_6_8</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CONFIG_1a7e03fa399daab04045b917570287d9b3" kind="variable"><name>OL_TH_7_8</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CONFIG_1a5f93c3896a648962450e3c66d1704fe0" kind="variable"><name>OL_TH_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CONFIG_1a436b95d7dc0d5175c5c4e8c35320d11a" kind="variable"><name>OL_TH_VALUE_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CONFIG_1ae160ffc4f0f7bd8eed9759cf0f694751" kind="variable"><name>OL_TH_SHIFT</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CONFIG_1a1c00c7a0b292a6e2fcc0e4401125c007" kind="variable"><name>OL_TH_FIXED_SHIFT</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CONFIG_1a3b0c8fb8609b94224e76b8c05766d2ba" kind="variable"><name>OL_TH_FIXED_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CONFIG_1af59a9b31f1146052e46fd9e2dc64985a" kind="variable"><name>OC_DIAG_EN</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CONFIG_1afe2486291226f9d6b5313f1511f2df08" kind="variable"><name>OFF_DIAG_ENABLED</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CONFIG_1af9facb48c69637c8a03536aad8c3cb9c" kind="variable"><name>OFF_DIAG_LS_ONLY</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CONFIG_1acfdeca72325f8c01f9e7ebb3be42b0ba" kind="variable"><name>OFF_DIAG_HS_ONLY</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CONFIG_1a41f05fd357d1daf0fdb7e28d1ef72c45" kind="variable"><name>OFF_DIAG_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CONFIG_1a5a76ae54e4549283a2ee3e5bb82a0e60" kind="variable"><name>DEFAULT</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1CH__CTRL" kind="namespace"><name>tle92466ed::CH_CTRL</name>
+    <member refid="namespacetle92466ed_1_1CH__CTRL_1ad371749fb675099ae4af3ff1464102e2" kind="variable"><name>EN_CH0</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CTRL_1a918e06d3c14dd2216564c49cf1dade7c" kind="variable"><name>EN_CH1</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CTRL_1a1567b4ea55933e55a8bfc6f21f74f021" kind="variable"><name>EN_CH2</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CTRL_1a838c25a272852a18779c8350dc36c6c0" kind="variable"><name>EN_CH3</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CTRL_1a6c352f1b8620beccfe5a64baf8f5a118" kind="variable"><name>EN_CH4</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CTRL_1a0a78ea976d4b98edbe2d575af9ec4265" kind="variable"><name>EN_CH5</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CTRL_1ab39899a532b02057c175280f7f158bca" kind="variable"><name>CH_PAR_4_5</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CTRL_1adf59983c71e49207889474cab7789d0f" kind="variable"><name>CH_PAR_0_3</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CTRL_1a1512652132a1f5e9978e324f35cfb78d" kind="variable"><name>CH_PAR_1_2</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CTRL_1a24a1cc718bce56fc5beb60729ed76036" kind="variable"><name>OP_MODE</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CTRL_1a0730f1dfcf7d90a3cfb288ef6785025d" kind="variable"><name>ALL_CH_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CTRL_1aa5000e06138c124bbce9c9ce406b8ced" kind="variable"><name>ALL_PAR_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CTRL_1a53f8cec15937d2d93abd7a450db523a6" kind="variable"><name>DEFAULT</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CTRL_1ab69a64db001e3af116e33e62d69ac318" kind="variable"><name>CONFIG_MODE</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CTRL_1aa5aca68a194172b9c995a0da46758436" kind="variable"><name>MISSION_MODE</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CTRL_1a1548bbf264c85d7e5dc72c9055976402" kind="function"><name>ChannelMask</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1CH__CTRL__REG" kind="namespace"><name>tle92466ed::CH_CTRL_REG</name>
+    <member refid="namespacetle92466ed_1_1CH__CTRL__REG_1a4546d2f98485d1e179146fb36f0b99b0" kind="variable"><name>MIN_INT_THRESH_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CTRL__REG_1aad81bd3dde7a2b281ec2a71f6e9d5b59" kind="variable"><name>PWM_PERIOD_CALC_MODE</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CTRL__REG_1afc038298ca0f2bb28ce21048b42e29b6" kind="variable"><name>OLSG_WARN_WINDOW_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CTRL__REG_1a48ebc767724ee6dab9fb3ec9b072fbf7" kind="variable"><name>OLSG_WARN_WINDOW_SHIFT</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CTRL__REG_1abb651d8a86e5a181cf56cbfcf3f36755" kind="variable"><name>OLSG_WARN_EN</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CTRL__REG_1a8983da7b14aa08c1d88f533220d2a2a3" kind="variable"><name>DEFAULT</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1CH__MODE" kind="namespace"><name>tle92466ed::CH_MODE</name>
+    <member refid="namespacetle92466ed_1_1CH__MODE_1a83bbec2b37ad13d7f3e1cf262f15b34d" kind="variable"><name>OFF</name></member>
+    <member refid="namespacetle92466ed_1_1CH__MODE_1a314fb04ca584165fa0092dd9d8553da9" kind="variable"><name>ICC_CURRENT_CTRL</name></member>
+    <member refid="namespacetle92466ed_1_1CH__MODE_1a58768920e5c07083bb364129bf9e138d" kind="variable"><name>DIRECT_DRIVE_SPI</name></member>
+    <member refid="namespacetle92466ed_1_1CH__MODE_1a01cc3a0c39949fe0c9cf0c1909213ca7" kind="variable"><name>DIRECT_DRIVE_DRV0</name></member>
+    <member refid="namespacetle92466ed_1_1CH__MODE_1a60f42c2ed06555fd842aa3e7ec74ab71" kind="variable"><name>DIRECT_DRIVE_DRV1</name></member>
+    <member refid="namespacetle92466ed_1_1CH__MODE_1ab92ced1de807efb81b1fc4d6273c54ff" kind="variable"><name>FREE_RUN_MEAS</name></member>
+    <member refid="namespacetle92466ed_1_1CH__MODE_1a01c1d15d71e9c4ff0e2649d0cf52fe1c" kind="variable"><name>MODE_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1CH__MODE_1a9cfb46afa1236375335c1c4273009894" kind="variable"><name>DEFAULT</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1ChannelBase" kind="namespace"><name>tle92466ed::ChannelBase</name>
+    <member refid="namespacetle92466ed_1_1ChannelBase_1abe474bb42f50cdb3d6589ca3f7634fcc" kind="variable"><name>CH0</name></member>
+    <member refid="namespacetle92466ed_1_1ChannelBase_1a01bb43f908a7ef0ace482d1f40c5013d" kind="variable"><name>CH1</name></member>
+    <member refid="namespacetle92466ed_1_1ChannelBase_1ad466e27d0583006063075a266e73fbe2" kind="variable"><name>CH2</name></member>
+    <member refid="namespacetle92466ed_1_1ChannelBase_1a8e1c6eff08def54da813249d33cb0d12" kind="variable"><name>CH3</name></member>
+    <member refid="namespacetle92466ed_1_1ChannelBase_1afe25885a1ab86bcd2ec8f1582e8bbd1c" kind="variable"><name>CH4</name></member>
+    <member refid="namespacetle92466ed_1_1ChannelBase_1a1794d3730386de0982af7509c9324714" kind="variable"><name>CH5</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1ChannelReg" kind="namespace"><name>tle92466ed::ChannelReg</name>
+    <member refid="namespacetle92466ed_1_1ChannelReg_1abbdec09f36053037b181f579671c5cdf" kind="variable"><name>SETPOINT</name></member>
+    <member refid="namespacetle92466ed_1_1ChannelReg_1aefc3aebba864e47cd81a27d8a3026185" kind="variable"><name>CTRL</name></member>
+    <member refid="namespacetle92466ed_1_1ChannelReg_1a62ce51a241fd5c365f1cf0efd5cb1928" kind="variable"><name>PERIOD</name></member>
+    <member refid="namespacetle92466ed_1_1ChannelReg_1a339b9d5b25c2d0d92d43454f8a0c6c76" kind="variable"><name>INTEGRATOR_LIMIT</name></member>
+    <member refid="namespacetle92466ed_1_1ChannelReg_1ac091e8a9a968247a7b20c7515a302ccb" kind="variable"><name>DITHER_CLK_DIV</name></member>
+    <member refid="namespacetle92466ed_1_1ChannelReg_1a330c46bcc423f4b55f9511446f2b764a" kind="variable"><name>DITHER_STEP</name></member>
+    <member refid="namespacetle92466ed_1_1ChannelReg_1a515f426b93b3cdfcfbc03180b04e9b86" kind="variable"><name>DITHER_CTRL</name></member>
+    <member refid="namespacetle92466ed_1_1ChannelReg_1a66c5a447a6b3d351b2cee1fc5cb1edeb" kind="variable"><name>CH_CONFIG</name></member>
+    <member refid="namespacetle92466ed_1_1ChannelReg_1af3f64d829458a25feac1f85de989813d" kind="variable"><name>MODE</name></member>
+    <member refid="namespacetle92466ed_1_1ChannelReg_1ab5855a061885c7e8f740c4ffabd49ca6" kind="variable"><name>TON</name></member>
+    <member refid="namespacetle92466ed_1_1ChannelReg_1a7ceff049371743b9e2671d9ff826e77e" kind="variable"><name>CTRL_INT_THRESH</name></member>
+    <member refid="namespacetle92466ed_1_1ChannelReg_1aa0aa7093ffec7ca9881c94fca713fd71" kind="variable"><name>FB_DC</name></member>
+    <member refid="namespacetle92466ed_1_1ChannelReg_1a55b2a76ecccf74e2f60fd26a95486812" kind="variable"><name>FB_VBAT</name></member>
+    <member refid="namespacetle92466ed_1_1ChannelReg_1abe9227084ac4510a634fb84747c225b2" kind="variable"><name>FB_I_AVG</name></member>
+    <member refid="namespacetle92466ed_1_1ChannelReg_1a268314fe1df66390c9a20a79630a1b8e" kind="variable"><name>FB_IMIN_IMAX</name></member>
+    <member refid="namespacetle92466ed_1_1ChannelReg_1a018f587a57299d044d7e2badfa9caafc" kind="variable"><name>FB_I_AVG_s16</name></member>
+    <member refid="namespacetle92466ed_1_1ChannelReg_1af2275dc73afa24e0c50a5cb3df9512a9" kind="variable"><name>FB_INT_THRESH</name></member>
+    <member refid="namespacetle92466ed_1_1ChannelReg_1aeb47051701a51b51e4dba69440f2d976" kind="variable"><name>FB_PERIOD_MIN_MAX</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1CLK__DIV" kind="namespace"><name>tle92466ed::CLK_DIV</name>
+    <member refid="namespacetle92466ed_1_1CLK__DIV_1a35086ab543fbd87d9422dceb4cd5b20d" kind="variable"><name>EXT_CLK_BIT</name></member>
+    <member refid="namespacetle92466ed_1_1CLK__DIV_1a56afa4e12afc6a75b217fd7ef508b465" kind="variable"><name>PLL_REFDIV_SHIFT</name></member>
+    <member refid="namespacetle92466ed_1_1CLK__DIV_1a82809be479f1cf589cd00dadde233dc7" kind="variable"><name>PLL_REFDIV_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1CLK__DIV_1a3a5eaa114741e32b4f958a3c25a8adf5" kind="variable"><name>PLL_FBDIV_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1CLK__DIV_1a4f532340ce58a1e4b08281e2512b3085" kind="variable"><name>F_SYS_TARGET_HZ</name></member>
+    <member refid="namespacetle92466ed_1_1CLK__DIV_1ad69a760fad0db3da47805c2474c27bb4" kind="variable"><name>INTERNAL_OSC</name></member>
+    <member refid="namespacetle92466ed_1_1CLK__DIV_1aaf089b09a3520568c7232f7514b774d8" kind="function"><name>BuildExternalPll</name></member>
+    <member refid="namespacetle92466ed_1_1CLK__DIV_1a18b229efb2399a5f99e419fcc3303101" kind="function"><name>CalculatePllFromExternalHz</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1CTRL__INT__THRESH" kind="namespace"><name>tle92466ed::CTRL_INT_THRESH</name>
+    <member refid="namespacetle92466ed_1_1CTRL__INT__THRESH_1a2c116a9d5232f9587c3ba543c83f0efe" kind="variable"><name>INT_THRESH_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1CTRL__INT__THRESH_1a0451953ab7362af21458ac686579929a" kind="variable"><name>PERIOD_MANT_SHIFT</name></member>
+    <member refid="namespacetle92466ed_1_1CTRL__INT__THRESH_1a30c4116c37eb56509e50d987c2c8f267" kind="variable"><name>PERIOD_MANT_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1CTRL__INT__THRESH_1a1a112aa98414f3c99b686a8c84c01f44" kind="variable"><name>DEFAULT</name></member>
+    <member refid="namespacetle92466ed_1_1CTRL__INT__THRESH_1a2011977311468e0dafa3b6f27d83ad85" kind="function"><name>Build</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1DeviceID" kind="namespace"><name>tle92466ed::DeviceID</name>
+    <member refid="namespacetle92466ed_1_1DeviceID_1a084683c51ce2e8dc647402a5be7753eb" kind="variable"><name>DEVICE_TYPE_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1DeviceID_1a41dcb2a19a64943177b58e3c4437dbba" kind="variable"><name>REVISION_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1DeviceID_1a9fbe784deebcfad38078426fefafebda" kind="variable"><name>EXPECTED_TYPE_92466ED</name></member>
+    <member refid="namespacetle92466ed_1_1DeviceID_1a1edd5f958a6a3f1372687b360843d897" kind="variable"><name>MIN_REVISION</name></member>
+    <member refid="namespacetle92466ed_1_1DeviceID_1ad1b6c13b22a6bd28b5b756fa1dd43709" kind="function"><name>IsValidDevice</name></member>
+    <member refid="namespacetle92466ed_1_1DeviceID_1a2395329ba7b440491b0c22f7fbc44c82" kind="function"><name>GetDeviceType</name></member>
+    <member refid="namespacetle92466ed_1_1DeviceID_1a0201a98e256ba5657365199dcdf56ed2" kind="function"><name>GetRevision</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1DIAG__ERR__CHGR" kind="namespace"><name>tle92466ed::DIAG_ERR_CHGR</name>
+    <member refid="namespacetle92466ed_1_1DIAG__ERR__CHGR_1ae52d0e669257177a82cbe3673b8975ce" kind="variable"><name>BIT_OLSG</name></member>
+    <member refid="namespacetle92466ed_1_1DIAG__ERR__CHGR_1a7f47790a585b600bff1331259dc48a6c" kind="variable"><name>BIT_OL</name></member>
+    <member refid="namespacetle92466ed_1_1DIAG__ERR__CHGR_1afc5ca2f0321faf8eb73f2e520e501ec8" kind="variable"><name>BIT_OC</name></member>
+    <member refid="namespacetle92466ed_1_1DIAG__ERR__CHGR_1ac7556d9ec12a6bc03857d4592c6be9c3" kind="variable"><name>BIT_SG</name></member>
+    <member refid="namespacetle92466ed_1_1DIAG__ERR__CHGR_1a27244504e68cdbeffa280cf043cb7420" kind="variable"><name>BIT_OTE</name></member>
+    <member refid="namespacetle92466ed_1_1DIAG__ERR__CHGR_1a60add04166e989a5eadac9e09ef965ff" kind="variable"><name>PER_CHANNEL_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1DIAG__ERR__CHGR_1a68d4420692748fb1706305ce00ca118c" kind="variable"><name>OC_BOTH_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1DIAG__ERR__CHGR_1a344922fa5dded7020fb3b728fdd027a5" kind="function"><name>AddressForChannel</name></member>
+    <member refid="namespacetle92466ed_1_1DIAG__ERR__CHGR_1a6d819d27b521e9b7364fce06998a7b77" kind="function"><name>YShiftForChannel</name></member>
+    <member refid="namespacetle92466ed_1_1DIAG__ERR__CHGR_1aef2897c6fdd4e2e4e737f4fd515f9844" kind="function"><name>ChannelBitMask</name></member>
+    <member refid="namespacetle92466ed_1_1DIAG__ERR__CHGR_1a6fc5db55c6104bd69bf77cd96fb72ad2" kind="function"><name>OcClearMaskForChannel</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1DIAG__WARN__CHGR" kind="namespace"><name>tle92466ed::DIAG_WARN_CHGR</name>
+    <member refid="namespacetle92466ed_1_1DIAG__WARN__CHGR_1ab14ad8bba9eb14e9fa253744210d5863" kind="variable"><name>BIT_PWM_REG</name></member>
+    <member refid="namespacetle92466ed_1_1DIAG__WARN__CHGR_1a2b3242127502a7e70ad950066a36d9d2" kind="variable"><name>BIT_I_REG</name></member>
+    <member refid="namespacetle92466ed_1_1DIAG__WARN__CHGR_1a86a3bd2fe56772c68b87dab09b0939a9" kind="variable"><name>BIT_OTW</name></member>
+    <member refid="namespacetle92466ed_1_1DIAG__WARN__CHGR_1a965377137f9ef298a8f40de2f8c9d887" kind="variable"><name>BIT_OLSG_WARN</name></member>
+    <member refid="namespacetle92466ed_1_1DIAG__WARN__CHGR_1aca4b754f40e81b207b51838ca72eb745" kind="variable"><name>BIT_OLSG_CHK_NOK</name></member>
+    <member refid="namespacetle92466ed_1_1DIAG__WARN__CHGR_1aa89a920c9aa1697e0db1f447206a6dd5" kind="variable"><name>PER_CHANNEL_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1DIAG__WARN__CHGR_1a03c5c2ede17d9afb8af898e6fe08f71e" kind="function"><name>AddressForChannel</name></member>
+    <member refid="namespacetle92466ed_1_1DIAG__WARN__CHGR_1ae863a1abf82221eab8318ea0e0b01fbb" kind="function"><name>YShiftForChannel</name></member>
+    <member refid="namespacetle92466ed_1_1DIAG__WARN__CHGR_1a8d6cc8bae309c98382af55fed6e17558" kind="function"><name>ChannelBitMask</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1DITHER" kind="namespace"><name>tle92466ed::DITHER</name>
+    <member refid="namespacetle92466ed_1_1DITHER_1afa5140dc9bc2fd4464ef836d9fe90e41" kind="variable"><name>F_SYS_HZ</name></member>
+    <member refid="namespacetle92466ed_1_1DITHER_1a1885577a7252f1053c51da9ff288773f" kind="variable"><name>DEFAULT_T_REF_CLK_US</name></member>
+    <member refid="namespacetle92466ed_1_1DITHER_1a73f754e8580f34adc95cfa3493c0e03f" kind="function"><name>CalculateFromAmplitudeFrequency</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1DITHER__CLK__DIV" kind="namespace"><name>tle92466ed::DITHER_CLK_DIV</name>
+    <member refid="namespacetle92466ed_1_1DITHER__CLK__DIV_1aeac99e6ffff79c02db79fabd5727d883" kind="variable"><name>MANT_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1DITHER__CLK__DIV_1a73f984625db0b55a832977ab201f891e" kind="variable"><name>EXP_SHIFT</name></member>
+    <member refid="namespacetle92466ed_1_1DITHER__CLK__DIV_1a22b2ee45bd98b0e0116a24bcafb338d2" kind="variable"><name>EXP_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1DITHER__CLK__DIV_1a602be6c15e8f13fe0895a04d2d9f8e95" kind="variable"><name>EXP_VALUE_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1DITHER__CLK__DIV_1a0d2c452a8f2d0ab1c6d5289aa47ca963" kind="variable"><name>DITHER_PWM_SYNC_EN_BIT</name></member>
+    <member refid="namespacetle92466ed_1_1DITHER__CLK__DIV_1a03d7f89ed67effd2ec937c1b81b42081" kind="variable"><name>DITHER_SETPOINT_SYNC_EN_BIT</name></member>
+    <member refid="namespacetle92466ed_1_1DITHER__CLK__DIV_1a0dff7d40238549c2356a197b74883114" kind="variable"><name>F_SYS_HZ</name></member>
+    <member refid="namespacetle92466ed_1_1DITHER__CLK__DIV_1ada0938928c5e008360486c0ea590c0e3" kind="variable"><name>F_SYS_PERIOD_US</name></member>
+    <member refid="namespacetle92466ed_1_1DITHER__CLK__DIV_1a88d8da8e842acf48a2fe0e70277c39f3" kind="function"><name>CalculateFromTrefClkUs</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1DITHER__CTRL" kind="namespace"><name>tle92466ed::DITHER_CTRL</name>
+    <member refid="namespacetle92466ed_1_1DITHER__CTRL_1a333e276ae515f6b28e16a3ace67c42c5" kind="variable"><name>STEP_SIZE_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1DITHER__CTRL_1a223d523acbbd61abaaefa8e52137f715" kind="variable"><name>DEEP_DITHER</name></member>
+    <member refid="namespacetle92466ed_1_1DITHER__CTRL_1a12d2efd615abf3917f4f4e6fb9b14562" kind="variable"><name>FAST_MEAS_DITH</name></member>
+    <member refid="namespacetle92466ed_1_1DITHER__CTRL_1a9e55be1ada548d1cf918f7a6724c45e6" kind="variable"><name>FAST_MEAS_HALF</name></member>
+    <member refid="namespacetle92466ed_1_1DITHER__CTRL_1aedc4ce2daf046bc7cb2448de02206077" kind="variable"><name>FAST_MEAS_QUAD</name></member>
+    <member refid="namespacetle92466ed_1_1DITHER__CTRL_1a68601978d6a97311666cdb276e8a8439" kind="variable"><name>FAST_MEAS_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1DITHER__CTRL_1ac4b0a9faeb699116385b849487679a41" kind="variable"><name>DEFAULT</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1DITHER__STEP" kind="namespace"><name>tle92466ed::DITHER_STEP</name>
+    <member refid="namespacetle92466ed_1_1DITHER__STEP_1aaef73e20564e99ac42964cb2f23fa36b" kind="variable"><name>FLAT_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1DITHER__STEP_1a623602621836561e4be9cc25a550aa10" kind="variable"><name>STEPS_SHIFT</name></member>
+    <member refid="namespacetle92466ed_1_1DITHER__STEP_1a1ba5ad73a78c832394c1b59c1a5ba878" kind="variable"><name>STEPS_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1DITHER__STEP_1a2dece67210f26bf9490591ae6162e83c" kind="variable"><name>DEFAULT</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1FAULT__MASK0" kind="namespace"><name>tle92466ed::FAULT_MASK0</name>
+    <member refid="namespacetle92466ed_1_1FAULT__MASK0_1a60a3bdeec39ca504d12aa1c12de3dac3" kind="variable"><name>CH_ERR_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1FAULT__MASK0_1ac7f32fea4328481f608084fae85361a6" kind="variable"><name>EN_PIN_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1FAULT__MASK0_1a43b908b17140c3b085899df85798eff9" kind="variable"><name>SUP_NOK_INT_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1FAULT__MASK0_1aee3f20a0b0e5f87f58f65d38d96a48d9" kind="variable"><name>SUP_NOK_EXT_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1FAULT__MASK0_1a337c670bbe56618a2719cb8abd7e6e9d" kind="variable"><name>DEFAULT</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1FAULT__MASK1" kind="namespace"><name>tle92466ed::FAULT_MASK1</name>
+    <member refid="namespacetle92466ed_1_1FAULT__MASK1_1a7d62075fd27b6799c2e2cbc5da9018e6" kind="variable"><name>CH_WARN_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1FAULT__MASK1_1a5dc4332cd2da94509df1b3d81437061c" kind="variable"><name>COTWARN_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1FAULT__MASK1_1ae70f5447cec90fd1b31fddee088df325" kind="variable"><name>COTERR_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1FAULT__MASK1_1a43b7212a3a99516ae7baa3d9735796e1" kind="variable"><name>CLK_LOW_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1FAULT__MASK1_1a0f49814fb39e4244b838d9eea0f0a253" kind="variable"><name>DEFAULT</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1FAULT__MASK2" kind="namespace"><name>tle92466ed::FAULT_MASK2</name>
+    <member refid="namespacetle92466ed_1_1FAULT__MASK2_1a53ba34539149aa7e2a6beb86fa9247ea" kind="variable"><name>VBAT_UV_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1FAULT__MASK2_1a1caf69bfef884cc5a8a55a81164bb074" kind="variable"><name>VBAT_OV_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1FAULT__MASK2_1ad7e7e2d5434056d4a438b4a7d8f73471" kind="variable"><name>VIO_UV_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1FAULT__MASK2_1aee9bbb6a4882fbfe13274bebf987b7aa" kind="variable"><name>VIO_OV_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1FAULT__MASK2_1a7560da804ba75fcf4e40a9bac7b5b362" kind="variable"><name>VDD_UV_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1FAULT__MASK2_1ac33c3a21840c4433973a67a9aaeeee9c" kind="variable"><name>VDD_OV_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1FAULT__MASK2_1a38605fc0ee24370c03d21b5af755e0fa" kind="variable"><name>DATA_ERR_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1FAULT__MASK2_1ab2e40a8dc8719d66ad7c44e5da8f9489" kind="variable"><name>SPI_WD_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1FAULT__MASK2_1ac8c8e5ca6ba4a9bfb4b8902a83c21191" kind="variable"><name>DEFAULT</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1FB__FEEDBACK" kind="namespace"><name>tle92466ed::FB_FEEDBACK</name>
+    <member refid="namespacetle92466ed_1_1FB__FEEDBACK_1af0a762c34fad86b43cce32aae54cd132" kind="variable"><name>MANT11_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1FB__FEEDBACK_1a25ad93b3d6daea916f7ec7f0c123a187" kind="variable"><name>TP_MANT_SHIFT</name></member>
+    <member refid="namespacetle92466ed_1_1FB__FEEDBACK_1acae811446bb7cf36eefbc0468f60ba48" kind="variable"><name>TO_MANT_SHIFT</name></member>
+    <member refid="namespacetle92466ed_1_1FB__FEEDBACK_1aa8c4b327a8378b13177d318852dbbd7c" kind="variable"><name>I_AVG_MANT_SHIFT</name></member>
+    <member refid="namespacetle92466ed_1_1FB__FEEDBACK_1a648013befe3a4fd8cd01ba714c31e05d" kind="variable"><name>VBAT_MANT_SHIFT</name></member>
+    <member refid="namespacetle92466ed_1_1FB__FEEDBACK_1ab185748d8944d1a8352a7f1f6f629ca5" kind="variable"><name>MEAS_EXP_SHIFT</name></member>
+    <member refid="namespacetle92466ed_1_1FB__FEEDBACK_1a78fed74bbbad44d2c6ab8caec4dcb166" kind="variable"><name>MEAS_EXP_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1FB__FEEDBACK_1a8cd2b4948924211829a99887b70ad3cf" kind="variable"><name>I_AVG_FULL_SCALE_AMPS</name></member>
+    <member refid="namespacetle92466ed_1_1FB__FEEDBACK_1a210c8515fd10a7644db5032692d7b0e8" kind="variable"><name>VBAT_FULL_SCALE_VOLTS</name></member>
+    <member refid="namespacetle92466ed_1_1FB__FEEDBACK_1aacbfe9c9f4bdb12665d413a32840140e" kind="variable"><name>kMinValidTpMant</name></member>
+    <member refid="namespacetle92466ed_1_1FB__FEEDBACK_1ac5124d824cde526c425f428f906e79b1" kind="function"><name>SignExtend11</name></member>
+    <member refid="namespacetle92466ed_1_1FB__FEEDBACK_1aa4e43aed044bac739dcd0325e4738d51" kind="function"><name>ExtractTpMant</name></member>
+    <member refid="namespacetle92466ed_1_1FB__FEEDBACK_1aab1e06f3c4496620a6862d6a3d430fec" kind="function"><name>ExtractToMant</name></member>
+    <member refid="namespacetle92466ed_1_1FB__FEEDBACK_1a448408a75c795ccc1f520ebf163140be" kind="function"><name>ExtractIAvgMant</name></member>
+    <member refid="namespacetle92466ed_1_1FB__FEEDBACK_1a82b7a34f4e8d194741f1731af469bc6c" kind="function"><name>ExtractMeasExp</name></member>
+    <member refid="namespacetle92466ed_1_1FB__FEEDBACK_1afcb6b1a6b94efd0c1e19fb3fc1327317" kind="function"><name>ComputeDutyCycle</name></member>
+    <member refid="namespacetle92466ed_1_1FB__FEEDBACK_1a3f046aea7a3b4d2c4cdee8ab2a0c2391" kind="function"><name>HasValidMeasurementWindow</name></member>
+    <member refid="namespacetle92466ed_1_1FB__FEEDBACK_1a4cf01ca7621b1e88e1dd0cc27f9c27f6" kind="function"><name>ComputeAverageCurrent_mA</name></member>
+    <member refid="namespacetle92466ed_1_1FB__FEEDBACK_1a5c2c89086abaa1162dc62027bf6dd56b" kind="function"><name>ComputeVbatChannel_mV</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1FB__I__AVG__s16" kind="namespace"><name>tle92466ed::FB_I_AVG_s16</name>
+    <member refid="namespacetle92466ed_1_1FB__I__AVG__s16_1a30bb06f8595f069fc9f507904b9768f2" kind="variable"><name>I_AVG_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1FB__I__AVG__s16_1a14d7b748adf07fc0e9aa73f3cf96db94" kind="variable"><name>I_AVG_SIGN_BIT</name></member>
+    <member refid="namespacetle92466ed_1_1FB__I__AVG__s16_1a14c3d6f02348b4e64c9efb0b09ccd3ce" kind="variable"><name>TIME_STAMP_SHIFT</name></member>
+    <member refid="namespacetle92466ed_1_1FB__I__AVG__s16_1a1fce60ae20df9c824e8a4940d9e911fc" kind="variable"><name>TIME_STAMP_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1FB__I__AVG__s16_1a0459bbcb639a6883cb8bf5e980473ffd" kind="variable"><name>FULL_SCALE_mA</name></member>
+    <member refid="namespacetle92466ed_1_1FB__I__AVG__s16_1a29e93117f5b79ea08957254f5c03a27d" kind="variable"><name>FULL_SCALE_COUNT</name></member>
+    <member refid="namespacetle92466ed_1_1FB__I__AVG__s16_1a89143e1c995f7ecc38ad8e8648d1868c" kind="variable"><name>SETTLING_CODE</name></member>
+    <member refid="namespacetle92466ed_1_1FB__I__AVG__s16_1a6c862d28cba092b58758647d14f95ee9" kind="function"><name>SignExtend17</name></member>
+    <member refid="namespacetle92466ed_1_1FB__I__AVG__s16_1abae50e1218736238f255240b3bd03985" kind="function"><name>IsSettlingFrame</name></member>
+    <member refid="namespacetle92466ed_1_1FB__I__AVG__s16_1a8dac4efc29e4d20efa65bb5b11d416a9" kind="function"><name>ToMilliamps</name></member>
+    <member refid="namespacetle92466ed_1_1FB__I__AVG__s16_1ae8f3e5304972eed115b0d4e137dd880d" kind="function"><name>ExtractTimestamp</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1FB__IMIN__IMAX" kind="namespace"><name>tle92466ed::FB_IMIN_IMAX</name>
+    <member refid="namespacetle92466ed_1_1FB__IMIN__IMAX_1ac3c820a22fdee740ed49899a107ccb18" kind="variable"><name>IMIN_SHIFT</name></member>
+    <member refid="namespacetle92466ed_1_1FB__IMIN__IMAX_1a40e63c3ab4b8f34af4f82568ee2112c7" kind="variable"><name>IMIN_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1FB__IMIN__IMAX_1aa8d22c28d4bb28952e31fd3ec865d9e5" kind="variable"><name>IMAX_SHIFT</name></member>
+    <member refid="namespacetle92466ed_1_1FB__IMIN__IMAX_1a2c95435f954b44766a4d49331fce7f77" kind="variable"><name>IMAX_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1FB__IMIN__IMAX_1ab86d988b6819089641ab0e4969a6ec17" kind="variable"><name>FULL_SCALE_mA</name></member>
+    <member refid="namespacetle92466ed_1_1FB__IMIN__IMAX_1ac55822eaff3e9b0dbc00ac827d74b3e7" kind="variable"><name>FULL_SCALE_COUNT</name></member>
+    <member refid="namespacetle92466ed_1_1FB__IMIN__IMAX_1ae29ddf9dab590e199ae76e24789db518" kind="function"><name>SignExtend10</name></member>
+    <member refid="namespacetle92466ed_1_1FB__IMIN__IMAX_1a22547e8377648e37d3221aa3f38bf836" kind="function"><name>ExtractIMin</name></member>
+    <member refid="namespacetle92466ed_1_1FB__IMIN__IMAX_1a8df2dd72cbbd3da7de3cf85edc079a8e" kind="function"><name>ExtractIMax</name></member>
+    <member refid="namespacetle92466ed_1_1FB__IMIN__IMAX_1a2f30a07402cd6a58efd3fabf44fd6a1d" kind="function"><name>FieldToMilliamps</name></member>
+    <member refid="namespacetle92466ed_1_1FB__IMIN__IMAX_1a54aa44cf3acbefaf3d21b129d5d15a88" kind="function"><name>IMin_mA</name></member>
+    <member refid="namespacetle92466ed_1_1FB__IMIN__IMAX_1a3664f740ccf27cef7dc7c8830ae1d49b" kind="function"><name>IMax_mA</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1FB__INT__THRESH" kind="namespace"><name>tle92466ed::FB_INT_THRESH</name>
+    <member refid="namespacetle92466ed_1_1FB__INT__THRESH_1a568233725b97b9506bb7d27ed7d81df3" kind="variable"><name>INT_THRESH_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1FB__INT__THRESH_1aad9e43ad33f3d7d6c21c66061b264160" kind="function"><name>Extract</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1FB__PERIOD__MIN__MAX" kind="namespace"><name>tle92466ed::FB_PERIOD_MIN_MAX</name>
+    <member refid="namespacetle92466ed_1_1FB__PERIOD__MIN__MAX_1a46517c28a4f7de4b68cef2bae66f2847" kind="variable"><name>PERIOD_MIN_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1FB__PERIOD__MIN__MAX_1a4e7b5eee130811a8267c44f89d222645" kind="variable"><name>PERIOD_MAX_SHIFT</name></member>
+    <member refid="namespacetle92466ed_1_1FB__PERIOD__MIN__MAX_1a0f875c6441313476bb282114f4e74bc1" kind="variable"><name>PERIOD_MAX_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1FB__PERIOD__MIN__MAX_1a00b485f1987c872ed712c3274eb7b949" kind="variable"><name>TICK_CYCLES</name></member>
+    <member refid="namespacetle92466ed_1_1FB__PERIOD__MIN__MAX_1a2218f35bc88a0f64c34a230010028715" kind="function"><name>ToMicroseconds</name></member>
+    <member refid="namespacetle92466ed_1_1FB__PERIOD__MIN__MAX_1aa5db5bfb16c6439987bbae975b093eef" kind="function"><name>ExtractMin</name></member>
+    <member refid="namespacetle92466ed_1_1FB__PERIOD__MIN__MAX_1a0b62b3985b49e71c13963a017df580ad" kind="function"><name>ExtractMax</name></member>
+    <member refid="namespacetle92466ed_1_1FB__PERIOD__MIN__MAX_1a84c3226db33066ce08354ae40c7c3dec" kind="function"><name>PeriodMinMicroseconds</name></member>
+    <member refid="namespacetle92466ed_1_1FB__PERIOD__MIN__MAX_1ae7fd1ec0a35e3fef3e976a63acf2e43f" kind="function"><name>PeriodMaxMicroseconds</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1FB__STAT" kind="namespace"><name>tle92466ed::FB_STAT</name>
+    <member refid="namespacetle92466ed_1_1FB__STAT_1a6f8caf6d7854db4afd4afccdf9e7b461" kind="variable"><name>DIAG_WARN_CHGR0</name></member>
+    <member refid="namespacetle92466ed_1_1FB__STAT_1a062242c3fa5aa21d418f56bf2e322ee9" kind="variable"><name>DIAG_WARN_CHGR1</name></member>
+    <member refid="namespacetle92466ed_1_1FB__STAT_1a105aa87d9aae85a7eab7ed081fc3366c" kind="variable"><name>DIAG_WARN_CHGR2</name></member>
+    <member refid="namespacetle92466ed_1_1FB__STAT_1a549fe52040b7839aea446c191a4c6b58" kind="variable"><name>OLSG_WARN_CHK_NOK_CHGR0</name></member>
+    <member refid="namespacetle92466ed_1_1FB__STAT_1a2b55be1a736c00f46eb5018c0cb732e2" kind="variable"><name>OLSG_WARN_CHK_NOK_CHGR1</name></member>
+    <member refid="namespacetle92466ed_1_1FB__STAT_1a83e7def6d207d487cc87bfa385a111a9" kind="variable"><name>OLSG_WARN_CHK_NOK_CHGR2</name></member>
+    <member refid="namespacetle92466ed_1_1FB__STAT_1a4f72aa0e5b7cfd84651ad93eef1e7b35" kind="variable"><name>CLK_NOK_STAT</name></member>
+    <member refid="namespacetle92466ed_1_1FB__STAT_1af36eee12c24ba448e478aa045374a00c" kind="variable"><name>COTERR</name></member>
+    <member refid="namespacetle92466ed_1_1FB__STAT_1a66542c4c5daf8f6edae2fbe4c85ebe07" kind="variable"><name>COTWARN</name></member>
+    <member refid="namespacetle92466ed_1_1FB__STAT_1ae5f3ee636be9fe76c29cd91437bf8bc6" kind="variable"><name>RES_EVENT</name></member>
+    <member refid="namespacetle92466ed_1_1FB__STAT_1a263d92c6270d0b51d5a1e36a161fe1ab" kind="variable"><name>POR_EVENT</name></member>
+    <member refid="namespacetle92466ed_1_1FB__STAT_1a67d648167a7a9aebc507ada6e54b2cec" kind="variable"><name>DATA_ERR</name></member>
+    <member refid="namespacetle92466ed_1_1FB__STAT_1a853080c02be51fdb630103d64f321e01" kind="variable"><name>SUP_NOK_EXT</name></member>
+    <member refid="namespacetle92466ed_1_1FB__STAT_1a41ca82e1089d50d493736116fcab5bbf" kind="variable"><name>SUP_NOK_INT</name></member>
+    <member refid="namespacetle92466ed_1_1FB__STAT_1a39c6ad8c3b65aea401b7798652a1343c" kind="variable"><name>ERR_CHGR0</name></member>
+    <member refid="namespacetle92466ed_1_1FB__STAT_1af34938a59bae410645ef92f6bdfb6fcb" kind="variable"><name>ERR_CHGR1</name></member>
+    <member refid="namespacetle92466ed_1_1FB__STAT_1a7822d54190bc741f41cc547b9cdc2778" kind="variable"><name>ERR_CHGR2</name></member>
+    <member refid="namespacetle92466ed_1_1FB__STAT_1a4b53c8312e177e28e11b2eb2ceb99747" kind="variable"><name>SPI_WD_ERR</name></member>
+    <member refid="namespacetle92466ed_1_1FB__STAT_1a1c4d0c779ee8eaf985434e2ecc2928d5" kind="variable"><name>INIT_DONE</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1GLOBAL__CONFIG" kind="namespace"><name>tle92466ed::GLOBAL_CONFIG</name>
+    <member refid="namespacetle92466ed_1_1GLOBAL__CONFIG_1a9f85c5ae7aaf6dd67ca06b9c65a9eea9" kind="variable"><name>CLK_WD_EN</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__CONFIG_1af66a7dee653e4e50efa94065d007dfc8" kind="variable"><name>SPI_WD_EN</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__CONFIG_1aafe4071ebd8a51e4c0eaad5e3ae22520" kind="variable"><name>CRC_EN</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__CONFIG_1aa3865108a83ebf179ba0b79f170d0fbf" kind="variable"><name>V1V5_UV_TEST</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__CONFIG_1a56af825bd9aa58730602f788941b9f05" kind="variable"><name>V1V5_OV_TEST</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__CONFIG_1ab5cff77fdebc80e9c2ea929b80512703" kind="variable"><name>OT_TEST</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__CONFIG_1ac2289675b5c32868ba5b286b5585ab13" kind="variable"><name>UV_OV_SWAP</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__CONFIG_1a4aec2e49c545fe93f70d5ee9bc4baa38" kind="variable"><name>VIO_SEL</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__CONFIG_1a5f3ba024e11a478276228c6eb7fccd8a" kind="variable"><name>DEFAULT</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1GLOBAL__DIAG0" kind="namespace"><name>tle92466ed::GLOBAL_DIAG0</name>
+    <member refid="namespacetle92466ed_1_1GLOBAL__DIAG0_1a1a3a88f9e526d681957ccb3613b555a8" kind="variable"><name>VBAT_UV</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__DIAG0_1a4ea559181b9e258087e032f165dffc00" kind="variable"><name>VBAT_OV</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__DIAG0_1ac214150af1e5d5c300459decbcd1ff19" kind="variable"><name>VIO_UV</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__DIAG0_1ad989574b20781247cc3c0d26b4737b57" kind="variable"><name>VIO_OV</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__DIAG0_1aca4b5197eb9d9f6f11dbac394cef0bf7" kind="variable"><name>VDD_UV</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__DIAG0_1a934baf829e9d131ac9cc47330ad12723" kind="variable"><name>VDD_OV</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__DIAG0_1a1043bb66b1f99573507ae3ec6a44f646" kind="variable"><name>CLK_NOK</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__DIAG0_1a95ba7d9cb92c51b152e2f591827d0852" kind="variable"><name>COTERR</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__DIAG0_1ad4f7f52a6e03d892d754771b8b2a33de" kind="variable"><name>COTWARN</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__DIAG0_1a8cacd16e930ed28fee0be70733bb1d4c" kind="variable"><name>RES_EVENT</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__DIAG0_1a906bb23187a3153df8df34881ee0b062" kind="variable"><name>POR_EVENT</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__DIAG0_1a59f679d02afd087abbf059610748ad58" kind="variable"><name>SPI_WD_ERR</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__DIAG0_1a54312e3609c623432f1f626569496083" kind="variable"><name>DEFAULT</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__DIAG0_1ad02f16e39dce56dfdcfbc48f522afa36" kind="variable"><name>FAULT_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__DIAG0_1afa9731ef21846e9fc701d23a20a4e5c6" kind="variable"><name>CLEAR_ALL</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1GLOBAL__DIAG1" kind="namespace"><name>tle92466ed::GLOBAL_DIAG1</name>
+    <member refid="namespacetle92466ed_1_1GLOBAL__DIAG1_1a9e8b6e006032a0d9440b5e5866112672" kind="variable"><name>VR_IREF_UV</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__DIAG1_1a193a3cd474f8499eeacffb9c20c56a77" kind="variable"><name>VR_IREF_OV</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__DIAG1_1a64b432db5b5494f6a9417d10cb948cda" kind="variable"><name>VDD2V5_UV</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__DIAG1_1ab6f48c390d99eb36ff2a17b3aae52975" kind="variable"><name>VDD2V5_OV</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__DIAG1_1a6e46a0f5546dc05aa11e016724b82aad" kind="variable"><name>REF_UV</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__DIAG1_1acebe75a44f2b52907e4bc86cdf2a6c9d" kind="variable"><name>REF_OV</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__DIAG1_1a3f09cb8d4293068fd9e031fa951f65e0" kind="variable"><name>VPRE_OV</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__DIAG1_1a70a3ce52bc1f15ea718a75079ecf70ac" kind="variable"><name>HVADC_ERR</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__DIAG1_1aea859edbbce93739a9c609981adb31f4" kind="variable"><name>DEFAULT</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__DIAG1_1ab31bb110b5cd6db4daea924f45e7188f" kind="variable"><name>CLEAR_ALL</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1GLOBAL__DIAG2" kind="namespace"><name>tle92466ed::GLOBAL_DIAG2</name>
+    <member refid="namespacetle92466ed_1_1GLOBAL__DIAG2_1a6bb39fc32c292658c924ef381416b2b4" kind="variable"><name>REG_ECC_ERR</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__DIAG2_1a42ae394dff63c8797f5d184592fe3be4" kind="variable"><name>OTP_ECC_ERR</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__DIAG2_1a2daf0b79cba27d232d7ed2783444274e" kind="variable"><name>OTP_VIRGIN</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__DIAG2_1a0776ea610f41ee62a87ce4bec846d4d9" kind="variable"><name>DEFAULT</name></member>
+    <member refid="namespacetle92466ed_1_1GLOBAL__DIAG2_1a28f74ad58443a07e8eec15619397ce28" kind="variable"><name>CLEAR_ALL</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1INTEGRATOR__LIMIT" kind="namespace"><name>tle92466ed::INTEGRATOR_LIMIT</name>
+    <member refid="namespacetle92466ed_1_1INTEGRATOR__LIMIT_1adbafe5d5b82d44363a32b653b08bc376" kind="variable"><name>LIM_VALUE_ABS_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1INTEGRATOR__LIMIT_1a778040724273a769f1dd64aea7f94109" kind="variable"><name>AUTO_LIM_VALUE_ABS_SHIFT</name></member>
+    <member refid="namespacetle92466ed_1_1INTEGRATOR__LIMIT_1aaf4d11038c49b85f40990a478b774a8b" kind="variable"><name>AUTO_LIM_VALUE_ABS_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1INTEGRATOR__LIMIT_1ad74283dd285a17993bf493aa9b4f3c47" kind="variable"><name>DEFAULT</name></member>
+    <member refid="namespacetle92466ed_1_1INTEGRATOR__LIMIT_1a9210fad3be4929a4074f362766a4f6f5" kind="function"><name>Build</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1PERIOD" kind="namespace"><name>tle92466ed::PERIOD</name>
+    <member refid="namespacetle92466ed_1_1PERIOD_1a3eb03139b8303e847bd1b8a598963caf" kind="variable"><name>MANT_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1PERIOD_1a61729a67de4003b0f93f94a36f3afab9" kind="variable"><name>EXP_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1PERIOD_1a4fd1e621c78f960da566ed94ab83cc55" kind="variable"><name>EXP_SHIFT</name></member>
+    <member refid="namespacetle92466ed_1_1PERIOD_1a84a1d9bc8ff89644ee5c08b7209a59c1" kind="variable"><name>EXP_VALUE_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1PERIOD_1a0a3e1ee2a3f50ec24dfdc307ad802138" kind="variable"><name>LOW_FREQ_BIT</name></member>
+    <member refid="namespacetle92466ed_1_1PERIOD_1a170194d1f3a07eefb8ab01da2610f5b5" kind="variable"><name>PWM_CTRL_PARAM_SHIFT</name></member>
+    <member refid="namespacetle92466ed_1_1PERIOD_1ad67ca04e4ca4b8f9c1a046755ef178ad" kind="variable"><name>PWM_CTRL_PARAM_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1PERIOD_1af42d77787910f06ce9662d1a0bd74d2d" kind="variable"><name>F_SYS_HZ</name></member>
+    <member refid="namespacetle92466ed_1_1PERIOD_1a42acfc67e1e6628778a9a29b15236c9b" kind="variable"><name>F_SYS_PERIOD_US</name></member>
+    <member refid="namespacetle92466ed_1_1PERIOD_1a2d28e2824c23997ea4d84e28c88c0f38" kind="variable"><name>kSpecMinFrequency_Hz</name></member>
+    <member refid="namespacetle92466ed_1_1PERIOD_1a5eb97902e948debef6a7515d11fe456a" kind="variable"><name>kSpecMaxFrequency_Hz</name></member>
+    <member refid="namespacetle92466ed_1_1PERIOD_1a202d165178bfb96cc013278f2c4effd8" kind="variable"><name>kSpecMinPeriod_us</name></member>
+    <member refid="namespacetle92466ed_1_1PERIOD_1aa4614d11f975ffdd39a3c2bff6baa96d" kind="variable"><name>kSpecMaxPeriod_us</name></member>
+    <member refid="namespacetle92466ed_1_1PERIOD_1a0b8678422f2798b9dd6687c506555551" kind="variable"><name>kSpecLowRangeMinFreq_Hz</name></member>
+    <member refid="namespacetle92466ed_1_1PERIOD_1a767827431fd9d97030b14f3f7746324b" kind="variable"><name>kSpecLowRangeMaxFreq_Hz</name></member>
+    <member refid="namespacetle92466ed_1_1PERIOD_1a8d3c26fb778180c746fcb9a0ae24fc35" kind="variable"><name>kSpecLowRangeMinPeriod_us</name></member>
+    <member refid="namespacetle92466ed_1_1PERIOD_1afffed0beee96db0202facce6b822a1e0" kind="variable"><name>kSpecLowRangeMaxPeriod_us</name></member>
+    <member refid="namespacetle92466ed_1_1PERIOD_1a8a78f49b6c1afb55512b52ef281693aa" kind="variable"><name>kSpecCombinedMinPeriod_us</name></member>
+    <member refid="namespacetle92466ed_1_1PERIOD_1ad32250f6190d145d9af511982529bd38" kind="variable"><name>kSpecCombinedMaxPeriod_us</name></member>
+    <member refid="namespacetle92466ed_1_1PERIOD_1a5d2442ac87c2fd898bab99110afdc91a" kind="function"><name>CalculateFromPeriodUs</name></member>
+    <member refid="namespacetle92466ed_1_1PERIOD_1a14413595d919a502cb94e1a008061cda" kind="function"><name>BuildRegisterValue</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1PIN__STAT" kind="namespace"><name>tle92466ed::PIN_STAT</name>
+    <member refid="namespacetle92466ed_1_1PIN__STAT_1a56abcf15957c44165bb331a03ea72ffc" kind="variable"><name>DRV0</name></member>
+    <member refid="namespacetle92466ed_1_1PIN__STAT_1aca22d647eb66d349583b70f8338fc55a" kind="variable"><name>DRV1</name></member>
+    <member refid="namespacetle92466ed_1_1PIN__STAT_1a02beb987c430c7db4eb598a51f7bb086" kind="variable"><name>EN</name></member>
+    <member refid="namespacetle92466ed_1_1PIN__STAT_1a5cb05b7e90b788487a60866d07a4d56f" kind="variable"><name>FAULTN</name></member>
+    <member refid="namespacetle92466ed_1_1PIN__STAT_1adf4e954b559692ffedff8c70758de26e" kind="variable"><name>FAULTN_FB</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1SETPOINT" kind="namespace"><name>tle92466ed::SETPOINT</name>
+    <member refid="namespacetle92466ed_1_1SETPOINT_1a73de3c116b68a99982840c2609e29f00" kind="variable"><name>TARGET_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1SETPOINT_1a35f632b0fe16db493b669c0938f3f0d6" kind="variable"><name>AUTO_LIMIT_DIS</name></member>
+    <member refid="namespacetle92466ed_1_1SETPOINT_1a70b61e75de0c61eb0cd8e41f66e86e20" kind="variable"><name>DEFAULT</name></member>
+    <member refid="namespacetle92466ed_1_1SETPOINT_1ac593d7592e4b120ad42cad54558f142d" kind="variable"><name>MAX_TARGET</name></member>
+    <member refid="namespacetle92466ed_1_1SETPOINT_1a26ab23764b3e49d89196e8d5c82dea19" kind="function"><name>CalculateTarget</name></member>
+    <member refid="namespacetle92466ed_1_1SETPOINT_1a602f596ce33dbdf6cad7f31f748f0a7f" kind="function"><name>CalculateCurrent</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1SFF__BIST" kind="namespace"><name>tle92466ed::SFF_BIST</name>
+    <member refid="namespacetle92466ed_1_1SFF__BIST_1a3b6cdd94b261d70f1e2433df573ecd9d" kind="variable"><name>EN</name></member>
+    <member refid="namespacetle92466ed_1_1SFF__BIST_1a81abf23cfded65423486469531b96cf5" kind="variable"><name>DONE</name></member>
+    <member refid="namespacetle92466ed_1_1SFF__BIST_1a7a189b6c7b02c50cf52f7409f28a0f79" kind="variable"><name>FAIL</name></member>
+    <member refid="namespacetle92466ed_1_1SFF__BIST_1ab2372cec5f8963fac1c508c5aa851511" kind="variable"><name>UERR</name></member>
+    <member refid="namespacetle92466ed_1_1SFF__BIST_1ac12ab06b31dc7a80c5413982774f2f94" kind="variable"><name>CERR</name></member>
+    <member refid="namespacetle92466ed_1_1SFF__BIST_1a3ba3f4376ae29768da6973f98cb6ca6e" kind="variable"><name>DEFAULT</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1TON" kind="namespace"><name>tle92466ed::TON</name>
+    <member refid="namespacetle92466ed_1_1TON_1aca6a0f06a586b7ae522b6544526ac6ea" kind="variable"><name>TON_MANT_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1TON_1a085257ba8eac07c9840c203c18fd3799" kind="variable"><name>OLSG_TIMEOUT_SHIFT</name></member>
+    <member refid="namespacetle92466ed_1_1TON_1a9953f95329f80ce86593f89bdf4d6b12" kind="variable"><name>OLSG_TIMEOUT_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1TON_1a7bac6ebf05dc830dc29c41d874c26179" kind="variable"><name>DEFAULT</name></member>
+    <member refid="namespacetle92466ed_1_1TON_1a24d693aef9cccd60538ebee3a5944c8c" kind="function"><name>Build</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1VBAT__THRESHOLD" kind="namespace"><name>tle92466ed::VBAT_THRESHOLD</name>
+    <member refid="namespacetle92466ed_1_1VBAT__THRESHOLD_1a2ad7b799e40bf7f351e39d2debf47e5b" kind="variable"><name>LSB_VOLTAGE</name></member>
+    <member refid="namespacetle92466ed_1_1VBAT__THRESHOLD_1a2b0f389cd833ee70e8a4d0f231c052ad" kind="variable"><name>MIN_VOLTAGE</name></member>
+    <member refid="namespacetle92466ed_1_1VBAT__THRESHOLD_1a50b0e62e17aabf420693c082a190540a" kind="variable"><name>MAX_VOLTAGE</name></member>
+    <member refid="namespacetle92466ed_1_1VBAT__THRESHOLD_1a6ab6602793e6ab8f0c3f262a7a180e74" kind="function"><name>CalculateFromVoltage</name></member>
+    <member refid="namespacetle92466ed_1_1VBAT__THRESHOLD_1ab7766108415f09476fb954484f0318ce" kind="function"><name>CalculateVoltage</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1VOLTAGE__FEEDBACK" kind="namespace"><name>tle92466ed::VOLTAGE_FEEDBACK</name>
+    <member refid="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1a42ce9d02d4d7c8172c0b291877f975be" kind="variable"><name>VIO_VDD_LSB_VOLTAGE</name></member>
+    <member refid="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1ac9af663ba09130277335651418297a4d" kind="variable"><name>VIO_VDD_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1a30fb016ad70d581ee6fc5ff93680a64c" kind="variable"><name>VDD_SHIFT</name></member>
+    <member refid="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1aaee2aaad06ca9987b839694d7a47be09" kind="variable"><name>VBAT_MAX_VOLTAGE</name></member>
+    <member refid="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1ae2a9cf0d21080c5470d39c1323358e03" kind="variable"><name>VBAT_MAX_COUNT</name></member>
+    <member refid="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1ae9278f7b479c8c4d8035736c85c65eb9" kind="variable"><name>VBAT_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1a41c308d116696362472a37f8de3ab87e" kind="variable"><name>VBAT_SHIFT</name></member>
+    <member refid="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1a7c30b65cbc9632c59bc17d63230dad5b" kind="function"><name>ExtractVioMillivolts</name></member>
+    <member refid="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1a4866924104905fd8764d7b489e8c8347" kind="function"><name>ExtractVddMillivolts</name></member>
+    <member refid="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1a9c64f9811307f812855e3af87bef0bbc" kind="function"><name>ExtractVbatMillivolts</name></member>
+    <member refid="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1ab9c879e1c7414ae4d052a4e4cbcad919" kind="function"><name>ExtractTemperatureRaw</name></member>
+    <member refid="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1a3b6f713c72ed72af558bc3baf92a07a2" kind="function"><name>TemperatureCelsiusFromRaw</name></member>
+    <member refid="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1ac8ae8c80756a3e9c9e6fa41f63e808c5" kind="function"><name>TemperatureCelsiusFromFbVoltage2</name></member>
+  </compound>
+  <compound refid="namespacetle92466ed_1_1WD__RELOAD" kind="namespace"><name>tle92466ed::WD_RELOAD</name>
+    <member refid="namespacetle92466ed_1_1WD__RELOAD_1a4335ca6ce1fa436dc744722ce687eb46" kind="variable"><name>WD_TIME_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1WD__RELOAD_1a9e92767468cbb6c7e62d0401eb2441f5" kind="variable"><name>WD_TIME_MAX</name></member>
+    <member refid="namespacetle92466ed_1_1WD__RELOAD_1a1ec27586c94f5202438f6e5e08329621" kind="variable"><name>DEFAULT</name></member>
+    <member refid="namespacetle92466ed_1_1WD__RELOAD_1aa4c48b62870374f519b88bcdc97b351b" kind="function"><name>MaskValue</name></member>
   </compound>
   <compound refid="namespaceTLE92466ED__TestConfig" kind="namespace"><name>TLE92466ED_TestConfig</name>
   </compound>
@@ -316,11 +1354,22 @@
     <member refid="TestFramework_8h_1a5c46ab8dc59b071f0843bc287145d5f1" kind="function"><name>print_test_section_header</name></member>
     <member refid="TestFramework_8h_1a5fe4d7658c49a1f3999cd09c0db952c0" kind="function"><name>print_test_section_footer</name></member>
   </compound>
+  <compound refid="tle92466ed_8hpp" kind="file"><name>tle92466ed.hpp</name>
+    <member refid="tle92466ed_8hpp_1a1096be4d42f267d714c9596a3d0a8994" kind="define"><name>TLE92466ED_HEADER_INCLUDED</name></member>
+  </compound>
+  <compound refid="tle92466ed__expected_8hpp" kind="file"><name>tle92466ed_expected.hpp</name>
+  </compound>
+  <compound refid="tle92466ed__registers_8hpp" kind="file"><name>tle92466ed_registers.hpp</name>
+  </compound>
+  <compound refid="tle92466ed__spi__interface_8hpp" kind="file"><name>tle92466ed_spi_interface.hpp</name>
+  </compound>
   <compound refid="README_8md" kind="file"><name>README.md</name>
   </compound>
   <compound refid="dir_74be4f6a8c360206df72b1bb4057fb39" kind="dir"><name>examples/esp32</name>
   </compound>
   <compound refid="dir_d28a4824dc47e487b107a5db32ef43c4" kind="dir"><name>examples</name>
+  </compound>
+  <compound refid="dir_bfccd401955b95cf8c75461437045ac0" kind="dir"><name>inc</name>
   </compound>
   <compound refid="dir_7751913d9073a449937b5bcfd50bf3a6" kind="dir"><name>examples/esp32/main</name>
   </compound>

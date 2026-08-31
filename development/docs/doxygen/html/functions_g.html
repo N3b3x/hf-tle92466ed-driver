@@ -20,6 +20,7 @@
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -30,7 +31,7 @@
   <td id="projectalign">
    <div id="projectname">TLE92466ED Driver<span id="projectnumber">&#160;0.1.0-dev</span>
    </div>
-   <div id="projectbrief">Modern C++23 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver</div>
+   <div id="projectbrief">Modern C++20 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver</div>
   </td>
  </tr>
  </tbody>
@@ -96,19 +97,37 @@ $(function(){initNavTree('functions_g.html',''); initResizable(); });
 <div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
 
 <h3><a id="index_g" name="index_g"></a>- g -</h3><ul>
-<li>get_average_current()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#a1e4f817695678d3ae9c844512b96d040">TLE92466ED::Driver</a></li>
-<li>get_channel_diagnostics()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#a45a4f6258caf6ec76cf06b6077a36460">TLE92466ED::Driver</a></li>
-<li>get_chip_id()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#a342fe5af74ea4a9e03f46c6ca3ef30ba">TLE92466ED::Driver</a></li>
-<li>get_current_setpoint()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#ad696ae90dd7fa2afe483ab955c5f1336">TLE92466ED::Driver</a></li>
-<li>get_device_status()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#a5f923222620a05acdff0a387407ac26f">TLE92466ED::Driver</a></li>
-<li>get_duty_cycle()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#a9fd56d1ec673d123eec46723211adf09">TLE92466ED::Driver</a></li>
-<li>get_ic_version()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#a509c70079dabd676a16d364f648765ad">TLE92466ED::Driver</a></li>
-<li>get_last_error()&#160;:&#160;<a class="el" href="classESP32C6__HAL.html#a83aaf16125ff1d4b509b17d266a653b0">ESP32C6_HAL</a>, <a class="el" href="classTLE92466ED_1_1ExampleHAL.html#a82b32aadebefa4c9516cdfc806adbc76">TLE92466ED::ExampleHAL</a>, <a class="el" href="classTLE92466ED_1_1HAL.html#a15cae9dcbfd3f6161bc0b8ce776fc8ec">TLE92466ED::HAL</a></li>
-<li>get_success_percentage()&#160;:&#160;<a class="el" href="structTestResults.html#abd312f39dea9e43056ca161f315c7569">TestResults</a></li>
-<li>get_total_time_ms()&#160;:&#160;<a class="el" href="structTestResults.html#a7466f28f6ee19443a8c8510588c7844e">TestResults</a></li>
-<li>get_vbat_voltage()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#a98fa552d77741e77809b1359269b01a9">TLE92466ED::Driver</a></li>
-<li>get_vio_voltage()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#a22e122617080a86b08a257e59d12c2d6">TLE92466ED::Driver</a></li>
-<li>getConfig()&#160;:&#160;<a class="el" href="classArduino__HAL.html#af4fdc46e21a752b20f742bbfc08b1e81">Arduino_HAL</a>, <a class="el" href="classESP32C6__HAL.html#a053c2a667c59846f094a7a220f056a41">ESP32C6_HAL</a></li>
+<li>get_success_percentage()&#160;:&#160;<a class="el" href="structTestResults.html#ab98f9ad5f994aa31bd7c0cd8ae551fb8">TestResults</a></li>
+<li>get_total_time_ms()&#160;:&#160;<a class="el" href="structTestResults.html#a6d2e718d81a8b4a4dcca515ee858de57">TestResults</a></li>
+<li>GetAllFaults()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#aa7c959f39be3651418ff60cfd8d5df7b">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>GetAverageCurrent()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a4e64d39d457faa626180bf06289ab5d4">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>GetCalibrationAvgCurrent_mA()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#af662285eb7af800cde98e2e77109b9dc">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>GetCentralTemperatureCelsius()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#adf3480d13b580f6f8539fb11f25dc3ff">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>GetChannelControlShadow()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a8f50392a7991793e49d2847b224637ef">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>GetChannelDiagnostics()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a1edd8296661ee6f56103bdc7d8b4798b">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>GetChipId()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#af4fdaad502211d337255fe8c13380c98">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>getConfig()&#160;:&#160;<a class="el" href="classEsp32Tle92466edSpiBus.html#a92aaf5c2cdd6e26daa496051a8426a16">Esp32Tle92466edSpiBus</a></li>
+<li>GetCurrentSetpoint()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#aecfdbdd6f2232bd011a273098c78b42d">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>GetDeviceStatus()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a3877d72aa85902217f443a7b7cb4e796">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>GetDriverVersion()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a3e7fff62addb9553240dd0f7884e2c10">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>GetDriverVersionMajor()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#af43a8f9b508b9dc402fe4d9184614ef3">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>GetDriverVersionMinor()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a907df64599237464fa9de46b293ae3ad">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>GetDriverVersionPatch()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a12ae4a9ebb8761034850bfd6b642cced">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>GetDutyCycle()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#aed676fc09bee1e64faeac4fad677b9c4">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>GetFeedbackUpdateMask()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#ac45d17a7ffd172f149c32cd491bc2fea">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>GetIcVersion()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a1113b778e16a4b383ab6b691f4dc966a">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>GetLastError()&#160;:&#160;<a class="el" href="classEsp32Tle92466edSpiBus.html#a230b32d97c901977d39f76648523c3c0">Esp32Tle92466edSpiBus</a>, <a class="el" href="classtle92466ed_1_1SpiInterface.html#ab95fc99a3717ccbf9de96d69a10cf5b4">tle92466ed::SpiInterface&lt; Derived &gt;</a></li>
+<li>GetOperationState()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a266399a10e9af00eb734265f2be30f7a">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>GetSystemClockHz()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a6c259045c0fde048c41457610dde60b6">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>GetVbatThresholds()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a5c963243d040147d83a3fa73e4a7efc2">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>GetVbatVoltage()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a863779c097ad50ad68a00d484efb71fb">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>GetVddVoltage()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a4a31b1468d0f896c9cbe6b0a90220c63">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>GetVioVoltage()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a412fd06745172c4eefdf4a88d272cd65">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>GPIO_PIN&#160;:&#160;<a class="el" href="structADCConfig.html#af79e226540f25bb3bf16c03aa16a7b0f">ADCConfig</a></li>
+<li>GpioRead()&#160;:&#160;<a class="el" href="classEsp32Tle92466edSpiBus.html#a516f3843e68dfb83264a7d2747e6bc18">Esp32Tle92466edSpiBus</a>, <a class="el" href="classtle92466ed_1_1SpiInterface.html#a2d653db43a17168a1e3b758ec624f099">tle92466ed::SpiInterface&lt; Derived &gt;</a></li>
+<li>GpioSet()&#160;:&#160;<a class="el" href="classEsp32Tle92466edSpiBus.html#a932d66a7d0dec57677864b3a01c6102b">Esp32Tle92466edSpiBus</a>, <a class="el" href="classtle92466ed_1_1SpiInterface.html#ab542050209c981cc40f597aa1049044e">tle92466ed::SpiInterface&lt; Derived &gt;</a></li>
+<li>GpioSetActive()&#160;:&#160;<a class="el" href="classtle92466ed_1_1SpiInterface.html#abb0cde5946fe750c68999f06dc156122">tle92466ed::SpiInterface&lt; Derived &gt;</a></li>
+<li>GpioSetInactive()&#160;:&#160;<a class="el" href="classtle92466ed_1_1SpiInterface.html#a60b6e281ad9b45cce384a3da91ab8c1b">tle92466ed::SpiInterface&lt; Derived &gt;</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

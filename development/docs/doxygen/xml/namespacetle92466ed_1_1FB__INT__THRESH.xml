@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1FB__INT__THRESH" kind="namespace" language="C++">
+    <compoundname>tle92466ed::FB_INT_THRESH</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__INT__THRESH_1a568233725b97b9506bb7d27ed7d81df3" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_INT_THRESH::INT_THRESH_MASK</definition>
+        <argsstring></argsstring>
+        <name>INT_THRESH_MASK</name>
+        <qualifiedname>tle92466ed::FB_INT_THRESH::INT_THRESH_MASK</qualifiedname>
+        <initializer>= 0x0000FFFFu</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1865" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1865" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacetle92466ed_1_1FB__INT__THRESH_1aad9e43ad33f3d7d6c21c66061b264160" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr int16_t</type>
+        <definition>constexpr int16_t tle92466ed::FB_INT_THRESH::Extract</definition>
+        <argsstring>(uint32_t reply_22bit) noexcept</argsstring>
+        <name>Extract</name>
+        <qualifiedname>tle92466ed::FB_INT_THRESH::Extract</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>reply_22bit</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1867" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1867" bodyend="1869"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespacetle92466ed_1_1FB__INT__THRESH" kindref="compound">FB_INT_THRESH</ref> feedback reader. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Per datasheet \u00a75.3.3.22 p.105. Read-only snapshot of the current integrator threshold value (signed 8-bit, sign-extended to 16-bit). Used to monitor the auto-seeded integrator after setpoint changes. </para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="1864" column="1"/>
+  </compounddef>
+</doxygen>

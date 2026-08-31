@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="structtle92466ed_1_1FaultReport_1_1ChannelFaults" kind="struct" language="C++" prot="public">
+    <compoundname>tle92466ed::FaultReport::ChannelFaults</compoundname>
+    <includes refid="tle92466ed_8hpp" local="no">tle92466ed.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1a8f59a19a97066fca51558ee9314f23eb" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::FaultReport::ChannelFaults::has_fault</definition>
+        <argsstring></argsstring>
+        <name>has_fault</name>
+        <qualifiedname>tle92466ed::FaultReport::ChannelFaults::has_fault</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Any fault on this channel. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="231" column="10" bodyfile="inc/tle92466ed.hpp" bodystart="231" bodyend="231"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1a62ac3b0e93118dcfd2f1753066641def" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::FaultReport::ChannelFaults::overcurrent</definition>
+        <argsstring></argsstring>
+        <name>overcurrent</name>
+        <qualifiedname>tle92466ed::FaultReport::ChannelFaults::overcurrent</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Over-current. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="232" column="10" bodyfile="inc/tle92466ed.hpp" bodystart="232" bodyend="232"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1a1d11d612b600e40969307ccd05ce1281" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::FaultReport::ChannelFaults::short_to_ground</definition>
+        <argsstring></argsstring>
+        <name>short_to_ground</name>
+        <qualifiedname>tle92466ed::FaultReport::ChannelFaults::short_to_ground</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Short to ground. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="233" column="10" bodyfile="inc/tle92466ed.hpp" bodystart="233" bodyend="233"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1ac96d23535ed772c95982d15ef7bf43ca" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::FaultReport::ChannelFaults::open_load</definition>
+        <argsstring></argsstring>
+        <name>open_load</name>
+        <qualifiedname>tle92466ed::FaultReport::ChannelFaults::open_load</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Open load. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="234" column="10" bodyfile="inc/tle92466ed.hpp" bodystart="234" bodyend="234"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1a78061b124127fe10d17893ec139c3d3e" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::FaultReport::ChannelFaults::over_temperature</definition>
+        <argsstring></argsstring>
+        <name>over_temperature</name>
+        <qualifiedname>tle92466ed::FaultReport::ChannelFaults::over_temperature</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Over-temperature. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="235" column="10" bodyfile="inc/tle92466ed.hpp" bodystart="235" bodyend="235"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1a39d451a2be45323a13c1176124d8e3b0" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::FaultReport::ChannelFaults::open_load_short_ground</definition>
+        <argsstring></argsstring>
+        <name>open_load_short_ground</name>
+        <qualifiedname>tle92466ed::FaultReport::ChannelFaults::open_load_short_ground</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Open load or short to ground. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="236" column="10" bodyfile="inc/tle92466ed.hpp" bodystart="236" bodyend="236"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1afa5d7feb3000ec999d31471950b9c143" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::FaultReport::ChannelFaults::ot_warning</definition>
+        <argsstring></argsstring>
+        <name>ot_warning</name>
+        <qualifiedname>tle92466ed::FaultReport::ChannelFaults::ot_warning</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Over-temperature warning. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="237" column="10" bodyfile="inc/tle92466ed.hpp" bodystart="237" bodyend="237"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1acf7ef97645a607962e0028de8c87a26f" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::FaultReport::ChannelFaults::current_regulation_warning</definition>
+        <argsstring></argsstring>
+        <name>current_regulation_warning</name>
+        <qualifiedname>tle92466ed::FaultReport::ChannelFaults::current_regulation_warning</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Current regulation warning. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="238" column="10" bodyfile="inc/tle92466ed.hpp" bodystart="238" bodyend="238"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1a9222e4128fffe7417677ed533ee70b59" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::FaultReport::ChannelFaults::pwm_regulation_warning</definition>
+        <argsstring></argsstring>
+        <name>pwm_regulation_warning</name>
+        <qualifiedname>tle92466ed::FaultReport::ChannelFaults::pwm_regulation_warning</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>PWM regulation warning. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="239" column="10" bodyfile="inc/tle92466ed.hpp" bodystart="239" bodyend="239"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1acbe1826b900feb00cc844ce4f8684bc0" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::FaultReport::ChannelFaults::olsg_warning</definition>
+        <argsstring></argsstring>
+        <name>olsg_warning</name>
+        <qualifiedname>tle92466ed::FaultReport::ChannelFaults::olsg_warning</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>OLSG warning. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="240" column="10" bodyfile="inc/tle92466ed.hpp" bodystart="240" bodyend="240"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="inc/tle92466ed.hpp" line="230" column="3" bodyfile="inc/tle92466ed.hpp" bodystart="230" bodyend="241"/>
+    <listofallmembers>
+      <member refid="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1acf7ef97645a607962e0028de8c87a26f" prot="public" virt="non-virtual"><scope>tle92466ed::FaultReport::ChannelFaults</scope><name>current_regulation_warning</name></member>
+      <member refid="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1a8f59a19a97066fca51558ee9314f23eb" prot="public" virt="non-virtual"><scope>tle92466ed::FaultReport::ChannelFaults</scope><name>has_fault</name></member>
+      <member refid="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1acbe1826b900feb00cc844ce4f8684bc0" prot="public" virt="non-virtual"><scope>tle92466ed::FaultReport::ChannelFaults</scope><name>olsg_warning</name></member>
+      <member refid="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1ac96d23535ed772c95982d15ef7bf43ca" prot="public" virt="non-virtual"><scope>tle92466ed::FaultReport::ChannelFaults</scope><name>open_load</name></member>
+      <member refid="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1a39d451a2be45323a13c1176124d8e3b0" prot="public" virt="non-virtual"><scope>tle92466ed::FaultReport::ChannelFaults</scope><name>open_load_short_ground</name></member>
+      <member refid="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1afa5d7feb3000ec999d31471950b9c143" prot="public" virt="non-virtual"><scope>tle92466ed::FaultReport::ChannelFaults</scope><name>ot_warning</name></member>
+      <member refid="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1a78061b124127fe10d17893ec139c3d3e" prot="public" virt="non-virtual"><scope>tle92466ed::FaultReport::ChannelFaults</scope><name>over_temperature</name></member>
+      <member refid="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1a62ac3b0e93118dcfd2f1753066641def" prot="public" virt="non-virtual"><scope>tle92466ed::FaultReport::ChannelFaults</scope><name>overcurrent</name></member>
+      <member refid="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1a9222e4128fffe7417677ed533ee70b59" prot="public" virt="non-virtual"><scope>tle92466ed::FaultReport::ChannelFaults</scope><name>pwm_regulation_warning</name></member>
+      <member refid="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1a1d11d612b600e40969307ccd05ce1281" prot="public" virt="non-virtual"><scope>tle92466ed::FaultReport::ChannelFaults</scope><name>short_to_ground</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1PIN__STAT" kind="namespace" language="C++">
+    <compoundname>tle92466ed::PIN_STAT</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1PIN__STAT_1a56abcf15957c44165bb331a03ea72ffc" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::PIN_STAT::DRV0</definition>
+        <argsstring></argsstring>
+        <name>DRV0</name>
+        <qualifiedname>tle92466ed::PIN_STAT::DRV0</qualifiedname>
+        <initializer>= (1u &lt;&lt; 0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1106" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1PIN__STAT_1aca22d647eb66d349583b70f8338fc55a" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::PIN_STAT::DRV1</definition>
+        <argsstring></argsstring>
+        <name>DRV1</name>
+        <qualifiedname>tle92466ed::PIN_STAT::DRV1</qualifiedname>
+        <initializer>= (1u &lt;&lt; 1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1107" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1PIN__STAT_1a02beb987c430c7db4eb598a51f7bb086" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::PIN_STAT::EN</definition>
+        <argsstring></argsstring>
+        <name>EN</name>
+        <qualifiedname>tle92466ed::PIN_STAT::EN</qualifiedname>
+        <initializer>= (1u &lt;&lt; 4)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1108" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1PIN__STAT_1a5cb05b7e90b788487a60866d07a4d56f" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::PIN_STAT::FAULTN</definition>
+        <argsstring></argsstring>
+        <name>FAULTN</name>
+        <qualifiedname>tle92466ed::PIN_STAT::FAULTN</qualifiedname>
+        <initializer>= (1u &lt;&lt; 5)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1109" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1PIN__STAT_1adf4e954b559692ffedff8c70758de26e" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::PIN_STAT::FAULTN_FB</definition>
+        <argsstring></argsstring>
+        <name>FAULTN_FB</name>
+        <qualifiedname>tle92466ed::PIN_STAT::FAULTN_FB</qualifiedname>
+        <initializer>= (1u &lt;&lt; 6)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1110" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1110" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespacetle92466ed_1_1PIN__STAT" kindref="compound">PIN_STAT</ref> bit definitions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Per datasheet \u00a75.3.2.20 p.76. Read-only snapshot of the driver&apos;s input control pins and the FAULTN output feedback: bit 0 DRV0 Level of DRV0 input pin bit 1 DRV1 Level of DRV1 input pin bit 4 EN Level of EN pin bit 5 FAULTN <ref refid="classtle92466ed_1_1Driver" kindref="compound">Driver</ref> side of the FAULTN open-drain output bit 6 FAULTN_FB External feedback of FAULTN (1 = line high) </para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="1105" column="1"/>
+  </compounddef>
+</doxygen>

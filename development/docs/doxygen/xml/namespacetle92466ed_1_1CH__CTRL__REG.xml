@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1CH__CTRL__REG" kind="namespace" language="C++">
+    <compoundname>tle92466ed::CH_CTRL_REG</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CTRL__REG_1a4546d2f98485d1e179146fb36f0b99b0" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CTRL_REG::MIN_INT_THRESH_MASK</definition>
+        <argsstring></argsstring>
+        <name>MIN_INT_THRESH_MASK</name>
+        <qualifiedname>tle92466ed::CH_CTRL_REG::MIN_INT_THRESH_MASK</qualifiedname>
+        <initializer>= 0x00FF</initializer>
+        <briefdescription>
+<para>Min threshold mask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="817" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="817" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CTRL__REG_1aad81bd3dde7a2b281ec2a71f6e9d5b59" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CTRL_REG::PWM_PERIOD_CALC_MODE</definition>
+        <argsstring></argsstring>
+        <name>PWM_PERIOD_CALC_MODE</name>
+        <qualifiedname>tle92466ed::CH_CTRL_REG::PWM_PERIOD_CALC_MODE</qualifiedname>
+        <initializer>= (1 &lt;&lt; 8)</initializer>
+        <briefdescription>
+<para>PWM calc mode. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="818" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="818" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CTRL__REG_1afc038298ca0f2bb28ce21048b42e29b6" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CTRL_REG::OLSG_WARN_WINDOW_MASK</definition>
+        <argsstring></argsstring>
+        <name>OLSG_WARN_WINDOW_MASK</name>
+        <qualifiedname>tle92466ed::CH_CTRL_REG::OLSG_WARN_WINDOW_MASK</qualifiedname>
+        <initializer>= 0x3E00</initializer>
+        <briefdescription>
+<para>OLSG window mask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="819" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="819" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CTRL__REG_1a48ebc767724ee6dab9fb3ec9b072fbf7" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CTRL_REG::OLSG_WARN_WINDOW_SHIFT</definition>
+        <argsstring></argsstring>
+        <name>OLSG_WARN_WINDOW_SHIFT</name>
+        <qualifiedname>tle92466ed::CH_CTRL_REG::OLSG_WARN_WINDOW_SHIFT</qualifiedname>
+        <initializer>= 9</initializer>
+        <briefdescription>
+<para>OLSG window shift. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="820" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="820" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CTRL__REG_1abb651d8a86e5a181cf56cbfcf3f36755" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CTRL_REG::OLSG_WARN_EN</definition>
+        <argsstring></argsstring>
+        <name>OLSG_WARN_EN</name>
+        <qualifiedname>tle92466ed::CH_CTRL_REG::OLSG_WARN_EN</qualifiedname>
+        <initializer>= (1 &lt;&lt; 14)</initializer>
+        <briefdescription>
+<para>OLSG warn enable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="821" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="821" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CTRL__REG_1a8983da7b14aa08c1d88f533220d2a2a3" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CTRL_REG::DEFAULT</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT</name>
+        <qualifiedname>tle92466ed::CH_CTRL_REG::DEFAULT</qualifiedname>
+        <initializer>= 0x4600</initializer>
+        <briefdescription>
+<para>Default value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="823" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="823" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Channel CTRL register bit definitions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="par"><title>Bit Map:</title><para><verbatim>* Bit 14    : OLSG_WARN_EN      - OLSG warning enable
+* Bits 13-9 : OLSG_WARN_WINDOW  - OLSG warning window
+* Bit 8     : PWM_PERIOD_CALC_MODE - PWM period calc mode
+* Bits 7-0  : MIN_INT_THRESH    - Minimum integrator threshold
+* </verbatim> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="816" column="1"/>
+  </compounddef>
+</doxygen>

@@ -20,6 +20,7 @@
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -30,7 +31,7 @@
   <td id="projectalign">
    <div id="projectname">TLE92466ED Driver<span id="projectnumber">&#160;0.1.0-dev</span>
    </div>
-   <div id="projectbrief">Modern C++23 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver</div>
+   <div id="projectbrief">Modern C++20 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver</div>
   </td>
  </tr>
  </tbody>
@@ -96,19 +97,27 @@ $(function(){initNavTree('functions_e.html',''); initResizable(); });
 <div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
 
 <h3><a id="index_e" name="index_e"></a>- e -</h3><ul>
-<li>en_pin&#160;:&#160;<a class="el" href="structArduino__HAL_1_1SPIConfig.html#a7de47950621c64859459f02a0d1dd332">Arduino_HAL::SPIConfig</a></li>
-<li>enable_all_channels()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#a62a69d75a299fcce3edef506ac252cc3">TLE92466ED::Driver</a></li>
-<li>ENABLE_AUTO_RECOVERY&#160;:&#160;<a class="el" href="structTLE92466ED__Config_1_1AppConfig.html#a16e1410566f5007111bfd414bbeaf979">TLE92466ED_Config::AppConfig</a></li>
-<li>enable_channel()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#a14901f750a8234e4feedbdd3f1ef0ef0">TLE92466ED::Driver</a></li>
-<li>enable_channels()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#a53f4052759edfa3e4d97c02f6227a38f">TLE92466ED::Driver</a></li>
-<li>ENABLE_DEBUG_LOGGING&#160;:&#160;<a class="el" href="structTLE92466ED__Config_1_1AppConfig.html#a032941dbfee66755ae741015eaac26d5">TLE92466ED_Config::AppConfig</a></li>
-<li>ENABLE_PERFORMANCE_MONITORING&#160;:&#160;<a class="el" href="structTLE92466ED__Config_1_1AppConfig.html#abc39c5d9adfbf1bae555c0a923681b09">TLE92466ED_Config::AppConfig</a></li>
-<li>ENABLE_SPI_LOGGING&#160;:&#160;<a class="el" href="structTLE92466ED__Config_1_1AppConfig.html#af44f2d552dd7901eb646bf7dcd5dc1f1">TLE92466ED_Config::AppConfig</a></li>
-<li>enableDevice()&#160;:&#160;<a class="el" href="classArduino__HAL.html#a0d6cb789947835469c5f5c785f7dd8e9">Arduino_HAL</a></li>
-<li>enter_config_mode()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#a933e029c3f19c9750b45f458915f328e">TLE92466ED::Driver</a></li>
-<li>enter_mission_mode()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#a5d6ac4bc1ac01a52c2a9c22be270dc51">TLE92466ED::Driver</a></li>
-<li>ESP32C6_HAL()&#160;:&#160;<a class="el" href="classESP32C6__HAL.html#aeea7988bfd0b77e22cf2b590d80e278f">ESP32C6_HAL</a></li>
-<li>ExampleHAL()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1ExampleHAL.html#af303b6513437914a99dfcfa4d265d1fb">TLE92466ED::ExampleHAL</a></li>
+<li>en&#160;:&#160;<a class="el" href="structtle92466ed_1_1PinStatus.html#ae2156b37eb648cfae815c211048c155f">tle92466ed::PinStatus</a></li>
+<li>EN&#160;:&#160;<a class="el" href="structTLE92466ED__TestConfig_1_1ControlPins.html#a9d17758f1c459951f04a5e932f6b9157">TLE92466ED_TestConfig::ControlPins</a></li>
+<li>en_pin&#160;:&#160;<a class="el" href="structEsp32Tle92466edSpiBus_1_1SPIConfig.html#aa852ba3d82c9a13097e964600ca6a59b">Esp32Tle92466edSpiBus::SPIConfig</a></li>
+<li>Enable()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a973b3f4b7e576a21648486595a4974b7">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>ENABLE_AUTO_RECOVERY&#160;:&#160;<a class="el" href="structTLE92466ED__TestConfig_1_1AppConfig.html#a3ef17aa73f6bc44607cc2f83bf3c7745">TLE92466ED_TestConfig::AppConfig</a></li>
+<li>ENABLE_DEBUG_LOGGING&#160;:&#160;<a class="el" href="structTLE92466ED__TestConfig_1_1AppConfig.html#a6bdda711f77ba91e423e1502c5b2a397">TLE92466ED_TestConfig::AppConfig</a></li>
+<li>ENABLE_PERFORMANCE_MONITORING&#160;:&#160;<a class="el" href="structTLE92466ED__TestConfig_1_1AppConfig.html#af8de3a818970b3ca408963b48605eb30">TLE92466ED_TestConfig::AppConfig</a></li>
+<li>ENABLE_SPI_LOGGING&#160;:&#160;<a class="el" href="structTLE92466ED__TestConfig_1_1AppConfig.html#a979487f02eb09e526f8a9cac2e322fbc">TLE92466ED_TestConfig::AppConfig</a></li>
+<li>EnableAllChannels()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#aa0df97823a8e3974a79b37c724c9094c">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>EnableChannel()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a9046b6dbfc83a4d3d9e1615fbfaaace6">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>EnableChannels()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a2129eaf5c179a3e7916eaeae77eda278">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>EnsureDitherRunning()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a314b3fd9e723097a93814aca43e05ded">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>EnterConfigMode()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a4faef014ee789d7a08209177cd6310c9">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>EnterMissionMode()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#ad9a9c48d2b66db9cba5536cf99b63a6d">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>EnterMissionModeChecked()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a27f0adf7f7dd939f2c55aac88afe283f">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>error()&#160;:&#160;<a class="el" href="classtle_1_1expected.html#ac34a44a1e737eea3d7fb1b4375f641f7">tle::expected&lt; T, E &gt;</a>, <a class="el" href="classtle_1_1expected_3_01void_00_01E_01_4.html#a9865262424f6ba47c161bbf81ee97584">tle::expected&lt; void, E &gt;</a>, <a class="el" href="classtle_1_1unexpected.html#a6bf1f5e7283f34d661f6d78186400c22">tle::unexpected&lt; E &gt;</a></li>
+<li>error_&#160;:&#160;<a class="el" href="classtle_1_1expected.html#a946004e95041162b6c048b15580d08cb">tle::expected&lt; T, E &gt;</a>, <a class="el" href="classtle_1_1expected_3_01void_00_01E_01_4.html#a5fd2fce81a068c580af5f7a0281698f3">tle::expected&lt; void, E &gt;</a>, <a class="el" href="classtle_1_1unexpected.html#aa5f72fbc53e61905a5b435c86ffacbb0">tle::unexpected&lt; E &gt;</a></li>
+<li>Esp32Tle92466edSpiBus()&#160;:&#160;<a class="el" href="classEsp32Tle92466edSpiBus.html#a7765e7f78ed52fca520dcb3d6dffdd16">Esp32Tle92466edSpiBus</a></li>
+<li>expected()&#160;:&#160;<a class="el" href="classtle_1_1expected.html#a8edcb81c8a2fa42ac72874dcecb5d7b5">tle::expected&lt; T, E &gt;</a>, <a class="el" href="classtle_1_1expected_3_01void_00_01E_01_4.html#a78a647f5d355754a94d960ee6a225b75">tle::expected&lt; void, E &gt;</a></li>
+<li>exponent&#160;:&#160;<a class="el" href="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig.html#ade1a70fd47c8053600814775d176a05c">tle92466ed::DITHER_CLK_DIV::ClkDivConfig</a>, <a class="el" href="structtle92466ed_1_1PERIOD_1_1PeriodConfig.html#a6f4a6bae3862fe5b2365ee4b2c7d5b75">tle92466ed::PERIOD::PeriodConfig</a></li>
+<li>Extract()&#160;:&#160;<a class="el" href="structtle92466ed_1_1CriticalFaultFlags.html#a2790657fc4d6c9dbe678a3a0d20d7553">tle92466ed::CriticalFaultFlags</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

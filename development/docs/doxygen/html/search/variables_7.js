@@ -1,4 +1,17 @@
 var searchData=
 [
-  ['host_0',['host',['../structEsp32Tle92466edSpiBus_1_1SPIConfig.html#abcbcad537c036befe1a85c73584b19fb',1,'Esp32Tle92466edSpiBus::SPIConfig']]]
+  ['g_5fadc_5fcali_5fhandle_0',['g_adc_cali_handle',['../solenoid__control__test_8cpp.html#ae17bd7fdeae9b708d352e36672e0b72e',1,'solenoid_control_test.cpp']]],
+  ['g_5fadc_5fhandle_1',['g_adc_handle',['../solenoid__control__test_8cpp.html#acefbb4b5237cd7692227db14429b5dff',1,'solenoid_control_test.cpp']]],
+  ['g_5fbus_2',['g_bus',['../lm__pro__cycle__test_8cpp.html#a0807b75bf04c40941bd5d8f4704ce975',1,'lm_pro_cycle_test.cpp']]],
+  ['g_5fdriver_3',['g_driver',['../driver__integration__test_8cpp.html#a3373634be9233201d6554eb7cc7a2da6',1,'g_driver:&#160;driver_integration_test.cpp'],['../lm__pro__cycle__test_8cpp.html#a1e71ee082940e90179434ff81dc9c310',1,'g_driver:&#160;lm_pro_cycle_test.cpp'],['../solenoid__control__test_8cpp.html#a3373634be9233201d6554eb7cc7a2da6',1,'g_driver:&#160;solenoid_control_test.cpp']]],
+  ['g_5fhal_4',['g_hal',['../driver__integration__test_8cpp.html#a98e7328ae9e7016a8df9584e5fbea942',1,'g_hal:&#160;driver_integration_test.cpp'],['../solenoid__control__test_8cpp.html#a98e7328ae9e7016a8df9584e5fbea942',1,'g_hal:&#160;solenoid_control_test.cpp']]],
+  ['g_5ftelemetry_5frunning_5',['g_telemetry_running',['../lm__pro__cycle__test_8cpp.html#ae5414c21c8c137ad157ec98223db1eec',1,'lm_pro_cycle_test.cpp']]],
+  ['g_5ftest_5fprogress_5finitialized_6',['g_test_progress_initialized',['../TestFramework_8h.html#a9bf612ec5a7eaad74cbd8fce98033f70',1,'TestFramework.h']]],
+  ['g_5ftest_5fprogress_5fstate_7',['g_test_progress_state',['../TestFramework_8h.html#a09ea58b300726075945c5f209f7d1aeb',1,'TestFramework.h']]],
+  ['g_5ftest_5fresults_8',['g_test_results',['../driver__integration__test_8cpp.html#aaff89257c54366921eebb8ec1348b1fd',1,'driver_integration_test.cpp']]],
+  ['global_5fconfig_9',['GLOBAL_CONFIG',['../namespacetle92466ed_1_1CentralReg.html#a69b47a7154ffa1666c053cf163aec751',1,'tle92466ed::CentralReg']]],
+  ['global_5fdiag0_10',['GLOBAL_DIAG0',['../namespacetle92466ed_1_1CentralReg.html#aa3e32f7ff1db1ba76b1a51cc20a2dabb',1,'tle92466ed::CentralReg']]],
+  ['global_5fdiag1_11',['GLOBAL_DIAG1',['../namespacetle92466ed_1_1CentralReg.html#ac8df2f2014a9fe944e9cc69c9cb60386',1,'tle92466ed::CentralReg']]],
+  ['global_5fdiag2_12',['GLOBAL_DIAG2',['../namespacetle92466ed_1_1CentralReg.html#a007776b8ad8434a96362419453d83b3c',1,'tle92466ed::CentralReg']]],
+  ['gpio_5fpin_13',['GPIO_PIN',['../structADCConfig.html#af79e226540f25bb3bf16c03aa16a7b0f',1,'ADCConfig']]]
 ];

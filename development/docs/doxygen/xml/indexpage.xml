@@ -14,16 +14,16 @@
 </ulink></para>
 <sect1 id="index_1autotoc_md1">
 <title>📚 Table of Contents</title><para><orderedlist>
-<listitem><para><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">Overview</ref></para>
-</listitem><listitem><para><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">Features</ref></para>
-</listitem><listitem><para><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">Quick Start</ref></para>
-</listitem><listitem><para><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">Installation</ref></para>
-</listitem><listitem><para><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">API Reference</ref></para>
-</listitem><listitem><para><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">Examples</ref></para>
-</listitem><listitem><para><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">Documentation</ref></para>
-</listitem><listitem><para><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">References</ref></para>
-</listitem><listitem><para><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">Contributing</ref></para>
-</listitem><listitem><para><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">License</ref></para>
+<listitem><para>Overview</para>
+</listitem><listitem><para>Features</para>
+</listitem><listitem><para>Quick Start</para>
+</listitem><listitem><para>Installation</para>
+</listitem><listitem><para>API Reference</para>
+</listitem><listitem><para>Examples</para>
+</listitem><listitem><para>Documentation</para>
+</listitem><listitem><para>References</para>
+</listitem><listitem><para>Contributing</para>
+</listitem><listitem><para>License</para>
 </listitem></orderedlist>
 </para>
 </sect1>
@@ -47,36 +47,36 @@
 </listitem><listitem><para>✅ <bold>Comprehensive Diagnostics</bold>: Overcurrent, overtemperature, open load, short-to-ground detection; OLSG timeout; off-state diagnostic injection; SFF_BIST; PIN_STAT readback</para>
 </listitem><listitem><para>✅ <bold>Fault Mask Control</bold>: Per-source enable/suppress of FAULTN pin contribution via FAULT_MASK0/1/2</para>
 </listitem><listitem><para>✅ <bold>Atomic Channel Feedback</bold>: Coherent per-channel snapshot (avg current, duty cycle, VBAT, IMIN/IMAX, period min/max, integrator threshold) using FB_FRZ/FB_UPD handshake</para>
-</listitem><listitem><para>✅ <bold>Safe Mission-Mode Entry</bold>: <computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">EnterMissionModeChecked()</ref></computeroutput> waits for settle time and verifies no fault</para>
+</listitem><listitem><para>✅ <bold>Safe Mission-Mode Entry</bold>: <computeroutput>EnterMissionModeChecked()</computeroutput> waits for settle time and verifies no fault</para>
 </listitem><listitem><para>✅ <bold>Hardware Agnostic</bold>: CRTP SPI interface; pipelined two-frame reads via <computeroutput>TransferMulti()</computeroutput></para>
-</listitem><listitem><para>✅ <bold>Modern C++20</bold>: Using <computeroutput>tle::expected</computeroutput> (polyfill for <computeroutput>std::expected</computeroutput>) for type-safe error handling without exceptions</para>
+</listitem><listitem><para>✅ <bold>Modern C++20</bold>: Using <computeroutput><ref refid="classtle_1_1expected" kindref="compound">tle::expected</ref></computeroutput> (polyfill for <computeroutput>std::expected</computeroutput>) for type-safe error handling without exceptions</para>
 </listitem><listitem><para>✅ <bold>Zero Overhead</bold>: All functions <computeroutput>noexcept</computeroutput>, freestanding-compatible</para>
 </listitem></itemizedlist>
 </para>
 </sect1>
 <sect1 id="index_1autotoc_md4">
-<title>🚀 Quick Start</title><para><programlisting filename=".cpp"><codeline><highlight class="preprocessor">#include<sp/>&quot;inc/tle92466ed.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;inc/tle92466ed_spi_interface.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<title>🚀 Quick Start</title><para><programlisting filename=".cpp"><codeline><highlight class="preprocessor">#include<sp/>&quot;<ref refid="tle92466ed_8hpp" kindref="compound">inc/tle92466ed.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="tle92466ed__spi__interface_8hpp" kindref="compound">inc/tle92466ed_spi_interface.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>1.<sp/>Implement<sp/>the<sp/>SPI<sp/>interface<sp/>(see<sp/>platform_integration.md)</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">MySpi</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>tle92466ed::SpiInterface&lt;MySpi&gt;<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">MySpi<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classtle92466ed_1_1SpiInterface" kindref="compound">tle92466ed::SpiInterface</ref>&lt;MySpi&gt;<sp/>{</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>...<sp/>implement<sp/>required<sp/>methods</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal">};</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>2.<sp/>Create<sp/>driver<sp/>instance</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">MySpi</ref><sp/><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">spi</ref>;</highlight></codeline>
-<codeline><highlight class="normal">tle92466ed::Driver<sp/><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">driver</ref>(<ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">spi</ref>);</highlight></codeline>
+<codeline><highlight class="normal">MySpi<sp/>spi;</highlight></codeline>
+<codeline><highlight class="normal"><ref refid="classtle92466ed_1_1Driver" kindref="compound">tle92466ed::Driver</ref><sp/>driver(spi);</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>3.<sp/>Initialize<sp/>and<sp/>use</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">result</ref><sp/>=<sp/><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">driver</ref>.Init();<sp/>!<ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">result</ref>)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>result<sp/>=<sp/>driver.Init();<sp/>!result)<sp/>{</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Handle<sp/>error</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
 <codeline><highlight class="normal">}</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">driver</ref>.EnterMissionMode();</highlight></codeline>
-<codeline><highlight class="normal"><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">driver</ref>.SetChannelMode(tle92466ed::Channel::CH0,<sp/>tle92466ed::ChannelMode::ICC);</highlight></codeline>
-<codeline><highlight class="normal"><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">driver</ref>.SetCurrentSetpoint(tle92466ed::Channel::CH0,<sp/>1500);<sp/></highlight><highlight class="comment">//<sp/>1.5A</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">driver</ref>.EnableChannel(tle92466ed::Channel::CH0,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal">driver.EnterMissionMode();</highlight></codeline>
+<codeline><highlight class="normal">driver.SetChannelMode(<ref refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957a2264c6e9d8288b49bfcf8018d64bc4ec" kindref="member">tle92466ed::Channel::CH0</ref>,<sp/><ref refid="namespacetle92466ed_1a4354ef9226739c1ea8a59eb36e95760cab6b8d73d401b7611fac37ab11898f598" kindref="member">tle92466ed::ChannelMode::ICC</ref>);</highlight></codeline>
+<codeline><highlight class="normal">driver.SetCurrentSetpoint(<ref refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957a2264c6e9d8288b49bfcf8018d64bc4ec" kindref="member">tle92466ed::Channel::CH0</ref>,<sp/>1500);<sp/></highlight><highlight class="comment">//<sp/>1.5A</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">driver.EnableChannel(<ref refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957a2264c6e9d8288b49bfcf8018d64bc4ec" kindref="member">tle92466ed::Channel::CH0</ref>,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
 </programlisting></para>
 <para>For detailed setup, see Installation and Quick Start Guide.</para>
 </sect1>
@@ -84,7 +84,7 @@
 <title>🔧 Installation</title><para><orderedlist>
 <listitem><para><bold>Clone or copy</bold> the driver files into your project</para>
 </listitem><listitem><para><bold>Implement the SPI interface</bold> for your platform (see Platform Integration)</para>
-</listitem><listitem><para><bold>Include the header</bold> in your code: <programlisting filename=".cpp"><codeline><highlight class="preprocessor">#include<sp/>&quot;inc/tle92466ed.hpp&quot;</highlight></codeline>
+</listitem><listitem><para><bold>Include the header</bold> in your code: <programlisting filename=".cpp"><codeline><highlight class="preprocessor">#include<sp/>&quot;<ref refid="tle92466ed_8hpp" kindref="compound">inc/tle92466ed.hpp</ref>&quot;</highlight></codeline>
 </programlisting></para>
 </listitem><listitem><para>Compile with a <bold>C++20</bold> or newer compiler</para>
 </listitem></orderedlist>
@@ -101,107 +101,107 @@
 </entry><entry thead="no"><para>Initialize the driver and hardware    </para>
 </entry></row>
 <row>
-<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">EnterMissionMode()</ref></computeroutput>   </para>
+<entry thead="no"><para><computeroutput>EnterMissionMode()</computeroutput>   </para>
 </entry><entry thead="no"><para>Enter mission mode (enables channel control)    </para>
 </entry></row>
 <row>
-<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">EnterMissionModeChecked()</ref></computeroutput>   </para>
+<entry thead="no"><para><computeroutput>EnterMissionModeChecked()</computeroutput>   </para>
 </entry><entry thead="no"><para>Enter mission mode, settle, verify no fault    </para>
 </entry></row>
 <row>
-<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">SetChannelMode()</ref></computeroutput>   </para>
+<entry thead="no"><para><computeroutput>SetChannelMode()</computeroutput>   </para>
 </entry><entry thead="no"><para>Set channel operation mode (ICC, Direct Drive, etc.)    </para>
 </entry></row>
 <row>
-<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">SetCurrentSetpoint()</ref></computeroutput>   </para>
+<entry thead="no"><para><computeroutput>SetCurrentSetpoint()</computeroutput>   </para>
 </entry><entry thead="no"><para>Set current setpoint for a channel    </para>
 </entry></row>
 <row>
-<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">EnableChannel()</ref></computeroutput>   </para>
+<entry thead="no"><para><computeroutput>EnableChannel()</computeroutput>   </para>
 </entry><entry thead="no"><para>Enable or disable a channel    </para>
 </entry></row>
 <row>
-<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">ConfigurePwmPeriod()</ref></computeroutput>   </para>
+<entry thead="no"><para><computeroutput>ConfigurePwmPeriod()</computeroutput>   </para>
 </entry><entry thead="no"><para>Set ICC PWM frequency    </para>
 </entry></row>
 <row>
-<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">ConfigureDither()</ref></computeroutput>   </para>
+<entry thead="no"><para><computeroutput>ConfigureDither()</computeroutput>   </para>
 </entry><entry thead="no"><para>Set dither amplitude and frequency    </para>
 </entry></row>
 <row>
-<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">SetDitherAdvanced()</ref></computeroutput>   </para>
+<entry thead="no"><para><computeroutput>SetDitherAdvanced()</computeroutput>   </para>
 </entry><entry thead="no"><para>Full dither setup including deep-dither and fast-measure mode    </para>
 </entry></row>
 <row>
-<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">ConfigureClockSource()</ref></computeroutput>   </para>
+<entry thead="no"><para><computeroutput>ConfigureClockSource()</computeroutput>   </para>
 </entry><entry thead="no"><para>Select internal OSC or external PLL clock    </para>
 </entry></row>
 <row>
-<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">ReadAllSupplyVoltages()</ref></computeroutput>   </para>
+<entry thead="no"><para><computeroutput>ReadAllSupplyVoltages()</computeroutput>   </para>
 </entry><entry thead="no"><para>Read VBAT, VIO, VDD (mV) and temperature (°C)    </para>
 </entry></row>
 <row>
-<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">GetOperationState()</ref></computeroutput>   </para>
+<entry thead="no"><para><computeroutput>GetOperationState()</computeroutput>   </para>
 </entry><entry thead="no"><para>Query current driver state (Reset/Config/Mission/CriticalFault)    </para>
 </entry></row>
 <row>
-<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">SetIntegratorLimits()</ref></computeroutput>   </para>
+<entry thead="no"><para><computeroutput>SetIntegratorLimits()</computeroutput>   </para>
 </entry><entry thead="no"><para>Configure ICC integrator absolute and auto-limit    </para>
 </entry></row>
 <row>
-<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">SetPwmControllerKi()</ref></computeroutput>   </para>
+<entry thead="no"><para><computeroutput>SetPwmControllerKi()</computeroutput>   </para>
 </entry><entry thead="no"><para>Set ICC Ki gain (4-bit)    </para>
 </entry></row>
 <row>
-<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">SetManualOnTimeMode()</ref></computeroutput>   </para>
+<entry thead="no"><para><computeroutput>SetManualOnTimeMode()</computeroutput>   </para>
 </entry><entry thead="no"><para>Set manual on-time with automatic exponent selection    </para>
 </entry></row>
 <row>
-<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">SeedIntegratorThresholdFromFeedback()</ref></computeroutput>   </para>
+<entry thead="no"><para><computeroutput>SeedIntegratorThresholdFromFeedback()</computeroutput>   </para>
 </entry><entry thead="no"><para>Warm-start integrator threshold from live feedback    </para>
 </entry></row>
 <row>
-<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">RunSffBist()</ref></computeroutput>   </para>
+<entry thead="no"><para><computeroutput>RunSffBist()</computeroutput>   </para>
 </entry><entry thead="no"><para>Run SFF_BIST and return pass/fail + correctable/uncorrectable error flags    </para>
 </entry></row>
 <row>
-<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">ReadPinStatus()</ref></computeroutput>   </para>
+<entry thead="no"><para><computeroutput>ReadPinStatus()</computeroutput>   </para>
 </entry><entry thead="no"><para>Read DRV0/DRV1/EN/FAULTN/FAULTN_FB pin states    </para>
 </entry></row>
 <row>
-<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">SetFaultMask()</ref></computeroutput>   </para>
+<entry thead="no"><para><computeroutput>SetFaultMask()</computeroutput>   </para>
 </entry><entry thead="no"><para>Enable or suppress a fault source on the FAULTN pin    </para>
 </entry></row>
 <row>
-<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">SetOlsgTimeout()</ref></computeroutput>   </para>
+<entry thead="no"><para><computeroutput>SetOlsgTimeout()</computeroutput>   </para>
 </entry><entry thead="no"><para>Configure open-load/short-to-GND detection timeout    </para>
 </entry></row>
 <row>
-<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">GetAverageCurrent()</ref></computeroutput>   </para>
+<entry thead="no"><para><computeroutput>GetAverageCurrent()</computeroutput>   </para>
 </entry><entry thead="no"><para>Average load current (mA); returns <computeroutput>FeedbackNotReady</computeroutput> if measurement window invalid    </para>
 </entry></row>
 <row>
-<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">GetCalibrationAvgCurrent_mA()</ref></computeroutput>   </para>
+<entry thead="no"><para><computeroutput>GetCalibrationAvgCurrent_mA()</computeroutput>   </para>
 </entry><entry thead="no"><para>Signed calibration current from <computeroutput>FB_I_AVG_s16</computeroutput>    </para>
 </entry></row>
 <row>
-<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">ReadChannelFeedback()</ref></computeroutput>   </para>
+<entry thead="no"><para><computeroutput>ReadChannelFeedback()</computeroutput>   </para>
 </entry><entry thead="no"><para>Read coherent per-channel snapshot (avg current, duty, VBAT, IMIN/IMAX, period)    </para>
 </entry></row>
 <row>
-<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">ReadAllChannelFeedback()</ref></computeroutput>   </para>
+<entry thead="no"><para><computeroutput>ReadAllChannelFeedback()</computeroutput>   </para>
 </entry><entry thead="no"><para>Read coherent snapshot for all 6 channels    </para>
 </entry></row>
 <row>
-<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">RunSupplyMonitorSelfTest()</ref></computeroutput>   </para>
+<entry thead="no"><para><computeroutput>RunSupplyMonitorSelfTest()</computeroutput>   </para>
 </entry><entry thead="no"><para>Execute four-phase supply-monitor self-test    </para>
 </entry></row>
 <row>
-<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">GetChannelDiagnostics()</ref></computeroutput>   </para>
+<entry thead="no"><para><computeroutput>GetChannelDiagnostics()</computeroutput>   </para>
 </entry><entry thead="no"><para>Get channel diagnostic information    </para>
 </entry></row>
 <row>
-<entry thead="no"><para><computeroutput><ref refid="solenoid__control__test_8cpp_1a684b069c84ce5dc67835571c78d5759c" kindref="member">GetAllFaults()</ref></computeroutput>   </para>
+<entry thead="no"><para><computeroutput>GetAllFaults()</computeroutput>   </para>
 </entry><entry thead="no"><para>Get comprehensive fault report   </para>
 </entry></row>
 </table>

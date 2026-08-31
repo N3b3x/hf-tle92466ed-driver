@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1ChannelBase" kind="namespace" language="C++">
+    <compoundname>tle92466ed::ChannelBase</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1ChannelBase_1abe474bb42f50cdb3d6589ca3f7634fcc" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::ChannelBase::CH0</definition>
+        <argsstring></argsstring>
+        <name>CH0</name>
+        <qualifiedname>tle92466ed::ChannelBase::CH0</qualifiedname>
+        <initializer>= 0x0040</initializer>
+        <briefdescription>
+<para>Channel 0 base address. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="143" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1ChannelBase_1a01bb43f908a7ef0ace482d1f40c5013d" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::ChannelBase::CH1</definition>
+        <argsstring></argsstring>
+        <name>CH1</name>
+        <qualifiedname>tle92466ed::ChannelBase::CH1</qualifiedname>
+        <initializer>= 0x0050</initializer>
+        <briefdescription>
+<para>Channel 1 base address. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="144" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1ChannelBase_1ad466e27d0583006063075a266e73fbe2" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::ChannelBase::CH2</definition>
+        <argsstring></argsstring>
+        <name>CH2</name>
+        <qualifiedname>tle92466ed::ChannelBase::CH2</qualifiedname>
+        <initializer>= 0x0060</initializer>
+        <briefdescription>
+<para>Channel 2 base address. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="145" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1ChannelBase_1a8e1c6eff08def54da813249d33cb0d12" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::ChannelBase::CH3</definition>
+        <argsstring></argsstring>
+        <name>CH3</name>
+        <qualifiedname>tle92466ed::ChannelBase::CH3</qualifiedname>
+        <initializer>= 0x0070</initializer>
+        <briefdescription>
+<para>Channel 3 base address. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="146" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1ChannelBase_1afe25885a1ab86bcd2ec8f1582e8bbd1c" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::ChannelBase::CH4</definition>
+        <argsstring></argsstring>
+        <name>CH4</name>
+        <qualifiedname>tle92466ed::ChannelBase::CH4</qualifiedname>
+        <initializer>= 0x0020</initializer>
+        <briefdescription>
+<para>Channel 4 base address. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="147" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1ChannelBase_1a1794d3730386de0982af7509c9324714" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::ChannelBase::CH5</definition>
+        <argsstring></argsstring>
+        <name>CH5</name>
+        <qualifiedname>tle92466ed::ChannelBase::CH5</qualifiedname>
+        <initializer>= 0x0030</initializer>
+        <briefdescription>
+<para>Channel 5 base address. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="148" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="148" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Per-channel register base addresses. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Each channel has its own set of registers at a specific base address. Per datasheet Table 25 (Register Address Space - Channel):<itemizedlist>
+<listitem><para>CH0: 0x0040</para>
+</listitem><listitem><para>CH1: 0x0050</para>
+</listitem><listitem><para>CH2: 0x0060</para>
+</listitem><listitem><para>CH3: 0x0070</para>
+</listitem><listitem><para>CH4: 0x0020</para>
+</listitem><listitem><para>CH5: 0x0030</para>
+</listitem></itemizedlist>
+</para>
+<para>Note: Channels are NOT in sequential order. CH4 and CH5 have lower addresses. </para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="142" column="1"/>
+  </compounddef>
+</doxygen>

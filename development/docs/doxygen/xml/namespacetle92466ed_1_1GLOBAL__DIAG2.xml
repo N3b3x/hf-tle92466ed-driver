@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1GLOBAL__DIAG2" kind="namespace" language="C++">
+    <compoundname>tle92466ed::GLOBAL_DIAG2</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__DIAG2_1a6bb39fc32c292658c924ef381416b2b4" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_DIAG2::REG_ECC_ERR</definition>
+        <argsstring></argsstring>
+        <name>REG_ECC_ERR</name>
+        <qualifiedname>tle92466ed::GLOBAL_DIAG2::REG_ECC_ERR</qualifiedname>
+        <initializer>= (1 &lt;&lt; 1)</initializer>
+        <briefdescription>
+<para>Multi-bit flip in a register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="511" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="511" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__DIAG2_1a42ae394dff63c8797f5d184592fe3be4" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_DIAG2::OTP_ECC_ERR</definition>
+        <argsstring></argsstring>
+        <name>OTP_ECC_ERR</name>
+        <qualifiedname>tle92466ed::GLOBAL_DIAG2::OTP_ECC_ERR</qualifiedname>
+        <initializer>= (1 &lt;&lt; 3)</initializer>
+        <briefdescription>
+<para>Non-repairable OTP multi-bit flip. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="512" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="512" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__DIAG2_1a2daf0b79cba27d232d7ed2783444274e" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_DIAG2::OTP_VIRGIN</definition>
+        <argsstring></argsstring>
+        <name>OTP_VIRGIN</name>
+        <qualifiedname>tle92466ed::GLOBAL_DIAG2::OTP_VIRGIN</qualifiedname>
+        <initializer>= (1 &lt;&lt; 4)</initializer>
+        <briefdescription>
+<para>1 = virgin OTP address (must be 0) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="513" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="513" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__DIAG2_1a0776ea610f41ee62a87ce4bec846d4d9" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_DIAG2::DEFAULT</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT</name>
+        <qualifiedname>tle92466ed::GLOBAL_DIAG2::DEFAULT</qualifiedname>
+        <initializer>= 0x0000</initializer>
+        <briefdescription>
+<para>Default value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="515" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="515" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__DIAG2_1a28f74ad58443a07e8eec15619397ce28" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_DIAG2::CLEAR_ALL</definition>
+        <argsstring></argsstring>
+        <name>CLEAR_ALL</name>
+        <qualifiedname>tle92466ed::GLOBAL_DIAG2::CLEAR_ALL</qualifiedname>
+        <initializer>= 0xFFFF</initializer>
+        <briefdescription>
+<para>Clear all bits (write-to-clear) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="516" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="516" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespacetle92466ed_1_1GLOBAL__DIAG2" kindref="compound">GLOBAL_DIAG2</ref> register bit definitions (datasheet Rev 1.2 §5.3.2.7). </para>
+    </briefdescription>
+    <detaileddescription>
+<para>TLE92466ED has <bold>no</bold> <computeroutput>OTP_ECC_WARN</computeroutput> / <computeroutput>REG_ECC_WARN</computeroutput> bits. Successful single-bit ECC correction is silent. Only uncorrectable multi-bit flips set the ERR bits.<itemizedlist>
+<listitem><para><computeroutput>REG_ECC_ERR</computeroutput> disables power stages and forces Config Mode (§4.9.7).</para>
+</listitem><listitem><para><computeroutput>OTP_ECC_ERR</computeroutput> is factory OTP content; write-1-to-clear <bold>twice</bold>. It re-asserts if the cells stay corrupt and does <bold>not</bold> by itself force Config Mode.</para>
+</listitem><listitem><para><computeroutput>OTP_VIRGIN</computeroutput> must always be 0 (1 = unprogrammed OTP address). </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="510" column="1"/>
+  </compounddef>
+</doxygen>

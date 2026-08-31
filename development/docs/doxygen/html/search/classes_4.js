@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['solenoid1config_0',['Solenoid1Config',['../structSolenoid1Config.html',1,'']]],
-  ['solenoid2config_1',['Solenoid2Config',['../structSolenoid2Config.html',1,'']]],
-  ['spiconfig_2',['SPIConfig',['../structEsp32Tle92466edSpiBus_1_1SPIConfig.html',1,'Esp32Tle92466edSpiBus']]],
-  ['spiparams_3',['SPIParams',['../structTLE92466ED__TestConfig_1_1SPIParams.html',1,'TLE92466ED_TestConfig']]],
-  ['spipins_4',['SPIPins',['../structTLE92466ED__TestConfig_1_1SPIPins.html',1,'TLE92466ED_TestConfig']]],
-  ['supplyvoltage_5',['SupplyVoltage',['../structTLE92466ED__TestConfig_1_1SupplyVoltage.html',1,'TLE92466ED_TestConfig']]]
+  ['esp32tle92466edspibus_0',['Esp32Tle92466edSpiBus',['../classEsp32Tle92466edSpiBus.html',1,'']]],
+  ['expected_1',['expected',['../classtle_1_1expected.html',1,'tle']]],
+  ['expected_3c_20void_2c_20e_20_3e_2',['expected&lt; void, E &gt;',['../classtle_1_1expected_3_01void_00_01E_01_4.html',1,'tle']]]
 ];

@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
   <compounddef id="classEsp32Tle92466edSpiBus" kind="class" language="C++" prot="public">
     <compoundname>Esp32Tle92466edSpiBus</compoundname>
-    <basecompoundref prot="public" virt="non-virtual">tle92466ed::SpiInterface&lt; Esp32Tle92466edSpiBus &gt;</basecompoundref>
+    <basecompoundref refid="classtle92466ed_1_1SpiInterface" prot="public" virt="non-virtual">tle92466ed::SpiInterface&lt; Esp32Tle92466edSpiBus &gt;</basecompoundref>
     <includes refid="esp32__tle92466ed__bus_8hpp" local="no">esp32_tle92466ed_bus.hpp</includes>
     <innerclass refid="structEsp32Tle92466edSpiBus_1_1SPIConfig" prot="public">Esp32Tle92466edSpiBus::SPIConfig</innerclass>
     <sectiondef kind="private-attrib">
@@ -54,7 +54,7 @@
         <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="453" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="453" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classEsp32Tle92466edSpiBus_1a096bb9a950f4f648b6ee6273f5bb2067" prot="private" static="no" mutable="no">
-        <type>CommError</type>
+        <type><ref refid="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4a" kindref="member">CommError</ref></type>
         <definition>CommError Esp32Tle92466edSpiBus::last_error_</definition>
         <argsstring></argsstring>
         <name>last_error_</name>
@@ -297,7 +297,7 @@
         <name>Configure</name>
         <qualifiedname>Esp32Tle92466edSpiBus::Configure</qualifiedname>
         <param>
-          <type>const tle92466ed::SPIConfig &amp;</type>
+          <type>const <ref refid="structtle92466ed_1_1SPIConfig" kindref="compound">tle92466ed::SPIConfig</ref> &amp;</type>
           <declname>config</declname>
         </param>
         <briefdescription>
@@ -340,7 +340,7 @@
         <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="312" column="10" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="312" bodyend="314"/>
       </memberdef>
       <memberdef kind="function" id="classEsp32Tle92466edSpiBus_1a230b32d97c901977d39f76648523c3c0" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
-        <type>CommError</type>
+        <type><ref refid="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4a" kindref="member">CommError</ref></type>
         <definition>CommError Esp32Tle92466edSpiBus::GetLastError</definition>
         <argsstring>() const noexcept</argsstring>
         <name>GetLastError</name>
@@ -400,11 +400,11 @@
         <name>GpioSet</name>
         <qualifiedname>Esp32Tle92466edSpiBus::GpioSet</qualifiedname>
         <param>
-          <type>CtrlPin</type>
+          <type><ref refid="namespacetle92466ed_1a42eacb1b3fd11b3412b6aef4b0d2e1d8" kindref="member">CtrlPin</ref></type>
           <declname>pin</declname>
         </param>
         <param>
-          <type>GpioSignal</type>
+          <type><ref refid="namespacetle92466ed_1a3e575e91f20807f25c8de6922b3def9d" kindref="member">GpioSignal</ref></type>
           <declname>signal</declname>
         </param>
         <briefdescription>
@@ -445,7 +445,7 @@
         <name>GpioRead</name>
         <qualifiedname>Esp32Tle92466edSpiBus::GpioRead</qualifiedname>
         <param>
-          <type>CtrlPin</type>
+          <type><ref refid="namespacetle92466ed_1a42eacb1b3fd11b3412b6aef4b0d2e1d8" kindref="member">CtrlPin</ref></type>
           <declname>pin</declname>
         </param>
         <briefdescription>
@@ -478,7 +478,7 @@
         <name>Log</name>
         <qualifiedname>Esp32Tle92466edSpiBus::Log</qualifiedname>
         <param>
-          <type>LogLevel</type>
+          <type><ref refid="namespacetle92466ed_1ae9d7e11b24ee920250df1e83b0f98509" kindref="member">LogLevel</ref></type>
           <declname>level</declname>
         </param>
         <param>
@@ -627,6 +627,7 @@
       </node>
       <node id="2">
         <label>tle92466ed::SpiInterface&lt; Esp32Tle92466edSpiBus &gt;</label>
+        <link refid="classtle92466ed_1_1SpiInterface"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
@@ -645,6 +646,7 @@
       </node>
       <node id="2">
         <label>tle92466ed::SpiInterface&lt; Esp32Tle92466edSpiBus &gt;</label>
+        <link refid="classtle92466ed_1_1SpiInterface"/>
       </node>
     </collaborationgraph>
     <location file="examples/esp32/main/esp32_tle92466ed_bus.hpp" line="46" column="1" bodyfile="examples/esp32/main/esp32_tle92466ed_bus.hpp" bodystart="46" bodyend="562"/>
@@ -661,19 +663,37 @@
       <member refid="classEsp32Tle92466edSpiBus_1a230b32d97c901977d39f76648523c3c0" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>GetLastError</name></member>
       <member refid="classEsp32Tle92466edSpiBus_1a516f3843e68dfb83264a7d2747e6bc18" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>GpioRead</name></member>
       <member refid="classEsp32Tle92466edSpiBus_1a932d66a7d0dec57677864b3a01c6102b" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>GpioSet</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1abb0cde5946fe750c68999f06dc156122" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>GpioSetActive</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1a60b6e281ad9b45cce384a3da91ab8c1b" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>GpioSetInactive</name></member>
       <member refid="classEsp32Tle92466edSpiBus_1a3da7b727dfd17c6e0f08833961efc23d" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>Init</name></member>
       <member refid="classEsp32Tle92466edSpiBus_1a043069850e70f93ebb4639914835636d" prot="private" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>initialized_</name></member>
       <member refid="classEsp32Tle92466edSpiBus_1ae017c339fbd0d40607ad84eeba91aecf" prot="private" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>initializeGPIO</name></member>
       <member refid="classEsp32Tle92466edSpiBus_1a3ab0c7e560efec4561c7940538e4cceb" prot="private" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>initializeSPI</name></member>
       <member refid="classEsp32Tle92466edSpiBus_1ad73eb0c20ff589310eaef5e501e32f20" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>isInitialized</name></member>
       <member refid="classEsp32Tle92466edSpiBus_1a8584733434267fd3fe40a05918994178" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>IsReady</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1a20687f8951efeaa6cd7d7b40922b9c13" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>kMaxPipelinedReads</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1a397ed0830fad6afe541163c91b78c965" prot="protected" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>last_critical_fault_flags_</name></member>
       <member refid="classEsp32Tle92466edSpiBus_1a096bb9a950f4f648b6ee6273f5bb2067" prot="private" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>last_error_</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1aaf8fc2c71e6a9649771d7b434301f14c" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>LastCriticalFaultFlags</name></member>
       <member refid="classEsp32Tle92466edSpiBus_1a51ba27e05beb007f49ecba1bfd72eb74" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>Log</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1a39597910309873f982f3ac2a9a9a9560" prot="public" virt="non-virtual" ambiguityscope="SpiInterface&lt; Esp32Tle92466edSpiBus &gt;::"><scope>Esp32Tle92466edSpiBus</scope><name>Log</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1a4ed9a296bc8ca57da8a4aadc0e0ca8ac" prot="protected" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>NoteCriticalFault</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1a238f0e5a2d9d1de916621c07d0f98b46" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>operator=</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1aaebb9bbf0c619b67975c7ee3c622b5a9" prot="protected" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>operator=</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1a499995340062b2a3018af8638982316a" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>Read</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1a7304d96b475520cf4fa9aacd6caaf8e0" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>ReadMulti</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1a126fd7bd4ac2afb6d0f5752a8a505240" prot="protected" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>saw_critical_fault_</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1ae6a5b71e43580d66d2e4027499a73c81" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>SawCriticalFault</name></member>
       <member refid="classEsp32Tle92466edSpiBus_1aa2ade5d165ae594007a6e7c0f9a4ce4c" prot="private" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>spi_device_</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1a2482b560740049f6ecb95f09c92b6617" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>SpiInterface</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1afff56a5b049483311b255e19db2b4823" prot="protected" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>SpiInterface</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1a5f2b6268b54a0417c7f9d8b1f5dd4fbd" prot="protected" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>SpiInterface</name></member>
       <member refid="classEsp32Tle92466edSpiBus_1a600e90229e8b9a5adb891ed7acf1a6bb" prot="private" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>TAG</name></member>
       <member refid="classEsp32Tle92466edSpiBus_1a9b2dffe7d4f9bad0e67eb27867736e61" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>Transfer32</name></member>
       <member refid="classEsp32Tle92466edSpiBus_1ac8eb66b714d008e98fd6862f959d000e" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>TransferMulti</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1aac5543c7a64a50838af7de423bc0afa5" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>Write</name></member>
       <member refid="classEsp32Tle92466edSpiBus_1a95dc225cfcc75e153c20d0d638b3eaf0" prot="public" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>~Esp32Tle92466edSpiBus</name></member>
+      <member refid="classtle92466ed_1_1SpiInterface_1a5febc3318592905b3b17118f229763d6" prot="protected" virt="non-virtual"><scope>Esp32Tle92466edSpiBus</scope><name>~SpiInterface</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

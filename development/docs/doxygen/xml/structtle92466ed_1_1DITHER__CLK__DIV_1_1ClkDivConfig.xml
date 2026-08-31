@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig" kind="struct" language="C++" prot="public">
+    <compoundname>tle92466ed::DITHER_CLK_DIV::ClkDivConfig</compoundname>
+    <includes refid="tle92466ed__registers_8hpp" local="no">tle92466ed_registers.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig_1a520c50a316c9e94e227e35fcca2772ba" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t tle92466ed::DITHER_CLK_DIV::ClkDivConfig::mantissa</definition>
+        <argsstring></argsstring>
+        <name>mantissa</name>
+        <qualifiedname>tle92466ed::DITHER_CLK_DIV::ClkDivConfig::mantissa</qualifiedname>
+        <briefdescription>
+<para>MANT field (0..1023) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1243" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1243" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig_1ade1a70fd47c8053600814775d176a05c" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t tle92466ed::DITHER_CLK_DIV::ClkDivConfig::exponent</definition>
+        <argsstring></argsstring>
+        <name>exponent</name>
+        <qualifiedname>tle92466ed::DITHER_CLK_DIV::ClkDivConfig::exponent</qualifiedname>
+        <briefdescription>
+<para>EXP field (0..15) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1244" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1244" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig_1a06b3154f42cab2c6d435d0f7ad51ba06" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::DITHER_CLK_DIV::ClkDivConfig::dither_pwm_sync_en</definition>
+        <argsstring></argsstring>
+        <name>dither_pwm_sync_en</name>
+        <qualifiedname>tle92466ed::DITHER_CLK_DIV::ClkDivConfig::dither_pwm_sync_en</qualifiedname>
+        <briefdescription>
+<para>DITHER_PWM_SYNC_EN. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1245" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1245" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig_1ab3cb86b4de95aed272777e47c0be3cb0" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::DITHER_CLK_DIV::ClkDivConfig::dither_setpoint_sync_en</definition>
+        <argsstring></argsstring>
+        <name>dither_setpoint_sync_en</name>
+        <qualifiedname>tle92466ed::DITHER_CLK_DIV::ClkDivConfig::dither_setpoint_sync_en</qualifiedname>
+        <briefdescription>
+<para>DITHER_SETPOINT_SYNC_EN. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1246" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1246" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig_1a51042c302c1aecc24a0c1db52fe14f30" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>constexpr float</type>
+        <definition>constexpr float tle92466ed::DITHER_CLK_DIV::ClkDivConfig::CalculateTrefClkUs</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>CalculateTrefClkUs</name>
+        <qualifiedname>tle92466ed::DITHER_CLK_DIV::ClkDivConfig::CalculateTrefClkUs</qualifiedname>
+        <briefdescription>
+<para>Compute the resulting tref_clk in microseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1249" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1249" bodyend="1253"/>
+      </memberdef>
+      <memberdef kind="function" id="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig_1abbbb5220c2cd5224f620d6679902a045" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::DITHER_CLK_DIV::ClkDivConfig::ToRegister</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>ToRegister</name>
+        <qualifiedname>tle92466ed::DITHER_CLK_DIV::ClkDivConfig::ToRegister</qualifiedname>
+        <briefdescription>
+<para>Pack into the raw 16-bit register value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1256" column="23" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1256" bodyend="1261"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Encoded <ref refid="namespacetle92466ed_1_1DITHER__CLK__DIV" kindref="compound">DITHER_CLK_DIV</ref> configuration. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="1242" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1242" bodyend="1262"/>
+    <listofallmembers>
+      <member refid="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig_1a51042c302c1aecc24a0c1db52fe14f30" prot="public" virt="non-virtual"><scope>tle92466ed::DITHER_CLK_DIV::ClkDivConfig</scope><name>CalculateTrefClkUs</name></member>
+      <member refid="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig_1a06b3154f42cab2c6d435d0f7ad51ba06" prot="public" virt="non-virtual"><scope>tle92466ed::DITHER_CLK_DIV::ClkDivConfig</scope><name>dither_pwm_sync_en</name></member>
+      <member refid="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig_1ab3cb86b4de95aed272777e47c0be3cb0" prot="public" virt="non-virtual"><scope>tle92466ed::DITHER_CLK_DIV::ClkDivConfig</scope><name>dither_setpoint_sync_en</name></member>
+      <member refid="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig_1ade1a70fd47c8053600814775d176a05c" prot="public" virt="non-virtual"><scope>tle92466ed::DITHER_CLK_DIV::ClkDivConfig</scope><name>exponent</name></member>
+      <member refid="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig_1a520c50a316c9e94e227e35fcca2772ba" prot="public" virt="non-virtual"><scope>tle92466ed::DITHER_CLK_DIV::ClkDivConfig</scope><name>mantissa</name></member>
+      <member refid="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig_1abbbb5220c2cd5224f620d6679902a045" prot="public" virt="non-virtual"><scope>tle92466ed::DITHER_CLK_DIV::ClkDivConfig</scope><name>ToRegister</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

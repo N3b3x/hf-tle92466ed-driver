@@ -1,4 +1,19 @@
 var searchData=
 [
-  ['bitwidth_0',['BITWIDTH',['../structADCConfig.html#a2c750253b441627940641261ca5b955b',1,'ADCConfig']]]
+  ['actual_5ff_5fsys_5fhz_0',['actual_f_sys_hz',['../structtle92466ed_1_1CLK__DIV_1_1PllConfig.html#a3b71a45ca8e2f1e745068daf90825752',1,'tle92466ed::CLK_DIV::PllConfig']]],
+  ['adc_5fbandgap_5fok_1',['adc_bandgap_ok',['../structtle92466ed_1_1CriticalFaultFlags.html#afa68a52267c6f467fbc8f6db682ab4de',1,'tle92466ed::CriticalFaultFlags']]],
+  ['adc_5fmax_2',['ADC_MAX',['../structADCConfig.html#a50bc4d09543221f73674c5f950fbe3b7',1,'ADCConfig']]],
+  ['address_3',['address',['../uniontle92466ed_1_1SPIFrame.html#a35c3a46f07634e2b5b12692e8f9298b8',1,'tle92466ed::SPIFrame']]],
+  ['all_5fch_5fmask_4',['ALL_CH_MASK',['../namespacetle92466ed_1_1CH__CTRL.html#a0730f1dfcf7d90a3cfb288ef6785025d',1,'tle92466ed::CH_CTRL']]],
+  ['all_5fpar_5fmask_5',['ALL_PAR_MASK',['../namespacetle92466ed_1_1CH__CTRL.html#aa5000e06138c124bbce9c9ce406b8ced',1,'tle92466ed::CH_CTRL']]],
+  ['amplitude_5fma_6',['amplitude_mA',['../structtle92466ed_1_1DitherSetup.html#a73b403ea772af05595d2a15bb9e0fd07',1,'tle92466ed::DitherSetup']]],
+  ['any_5ffault_7',['any_fault',['../structtle92466ed_1_1DeviceStatus.html#a5843ad67772ad8392669203955791b22',1,'tle92466ed::DeviceStatus::any_fault'],['../structtle92466ed_1_1FaultReport.html#a69edc86c1536417f51073ce076fa3449',1,'tle92466ed::FaultReport::any_fault']]],
+  ['atten_8',['ATTEN',['../structADCConfig.html#a35c66d72ba1ee264175de3523a709032',1,'ADCConfig']]],
+  ['auto_5flim_5fvalue_5fabs_5fmask_9',['AUTO_LIM_VALUE_ABS_MASK',['../namespacetle92466ed_1_1INTEGRATOR__LIMIT.html#aaf4d11038c49b85f40990a478b774a8b',1,'tle92466ed::INTEGRATOR_LIMIT']]],
+  ['auto_5flim_5fvalue_5fabs_5fshift_10',['AUTO_LIM_VALUE_ABS_SHIFT',['../namespacetle92466ed_1_1INTEGRATOR__LIMIT.html#a778040724273a769f1dd64aea7f94109',1,'tle92466ed::INTEGRATOR_LIMIT']]],
+  ['auto_5flimit_5fdis_11',['AUTO_LIMIT_DIS',['../namespacetle92466ed_1_1SETPOINT.html#a35f632b0fe16db493b669c0938f3f0d6',1,'tle92466ed::SETPOINT']]],
+  ['auto_5flimit_5fdisabled_12',['auto_limit_disabled',['../structtle92466ed_1_1ChannelConfig.html#a5f96dca09375a0488479f1ff7610a5c8',1,'tle92466ed::ChannelConfig']]],
+  ['average_5fcurrent_13',['average_current',['../structtle92466ed_1_1ChannelDiagnostics.html#af5e7e651adc3768048c785ff41a9a86e',1,'tle92466ed::ChannelDiagnostics']]],
+  ['avg_5fcurrent_5fma_14',['avg_current_mA',['../structtle92466ed_1_1ChannelFeedback.html#adef390827f7b8f8222777dac552d536f',1,'tle92466ed::ChannelFeedback']]],
+  ['avg_5fvbat_5fmv_15',['avg_vbat_mV',['../structtle92466ed_1_1ChannelFeedback.html#a72443b5923fb6d27b0a42dc60561c740',1,'tle92466ed::ChannelFeedback']]]
 ];

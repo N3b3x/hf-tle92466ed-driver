@@ -1,0 +1,270 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1GLOBAL__DIAG0" kind="namespace" language="C++">
+    <compoundname>tle92466ed::GLOBAL_DIAG0</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__DIAG0_1a1a3a88f9e526d681957ccb3613b555a8" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_DIAG0::VBAT_UV</definition>
+        <argsstring></argsstring>
+        <name>VBAT_UV</name>
+        <qualifiedname>tle92466ed::GLOBAL_DIAG0::VBAT_UV</qualifiedname>
+        <initializer>= (1 &lt;&lt; 0)</initializer>
+        <briefdescription>
+<para>VBAT undervoltage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="300" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="300" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__DIAG0_1a4ea559181b9e258087e032f165dffc00" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_DIAG0::VBAT_OV</definition>
+        <argsstring></argsstring>
+        <name>VBAT_OV</name>
+        <qualifiedname>tle92466ed::GLOBAL_DIAG0::VBAT_OV</qualifiedname>
+        <initializer>= (1 &lt;&lt; 1)</initializer>
+        <briefdescription>
+<para>VBAT overvoltage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="301" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="301" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__DIAG0_1ac214150af1e5d5c300459decbcd1ff19" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_DIAG0::VIO_UV</definition>
+        <argsstring></argsstring>
+        <name>VIO_UV</name>
+        <qualifiedname>tle92466ed::GLOBAL_DIAG0::VIO_UV</qualifiedname>
+        <initializer>= (1 &lt;&lt; 2)</initializer>
+        <briefdescription>
+<para>VIO undervoltage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="302" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="302" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__DIAG0_1ad989574b20781247cc3c0d26b4737b57" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_DIAG0::VIO_OV</definition>
+        <argsstring></argsstring>
+        <name>VIO_OV</name>
+        <qualifiedname>tle92466ed::GLOBAL_DIAG0::VIO_OV</qualifiedname>
+        <initializer>= (1 &lt;&lt; 3)</initializer>
+        <briefdescription>
+<para>VIO overvoltage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="303" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="303" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__DIAG0_1aca4b5197eb9d9f6f11dbac394cef0bf7" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_DIAG0::VDD_UV</definition>
+        <argsstring></argsstring>
+        <name>VDD_UV</name>
+        <qualifiedname>tle92466ed::GLOBAL_DIAG0::VDD_UV</qualifiedname>
+        <initializer>= (1 &lt;&lt; 4)</initializer>
+        <briefdescription>
+<para>VDD undervoltage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="304" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="304" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__DIAG0_1a934baf829e9d131ac9cc47330ad12723" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_DIAG0::VDD_OV</definition>
+        <argsstring></argsstring>
+        <name>VDD_OV</name>
+        <qualifiedname>tle92466ed::GLOBAL_DIAG0::VDD_OV</qualifiedname>
+        <initializer>= (1 &lt;&lt; 5)</initializer>
+        <briefdescription>
+<para>VDD overvoltage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="305" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="305" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__DIAG0_1a1043bb66b1f99573507ae3ec6a44f646" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_DIAG0::CLK_NOK</definition>
+        <argsstring></argsstring>
+        <name>CLK_NOK</name>
+        <qualifiedname>tle92466ed::GLOBAL_DIAG0::CLK_NOK</qualifiedname>
+        <initializer>= (1 &lt;&lt; 6)</initializer>
+        <briefdescription>
+<para>Clock fault. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="306" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="306" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__DIAG0_1a95ba7d9cb92c51b152e2f591827d0852" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_DIAG0::COTERR</definition>
+        <argsstring></argsstring>
+        <name>COTERR</name>
+        <qualifiedname>tle92466ed::GLOBAL_DIAG0::COTERR</qualifiedname>
+        <initializer>= (1 &lt;&lt; 7)</initializer>
+        <briefdescription>
+<para>Central OT error. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="307" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="307" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__DIAG0_1ad4f7f52a6e03d892d754771b8b2a33de" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_DIAG0::COTWARN</definition>
+        <argsstring></argsstring>
+        <name>COTWARN</name>
+        <qualifiedname>tle92466ed::GLOBAL_DIAG0::COTWARN</qualifiedname>
+        <initializer>= (1 &lt;&lt; 8)</initializer>
+        <briefdescription>
+<para>Central OT warning. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="308" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="308" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__DIAG0_1a8cacd16e930ed28fee0be70733bb1d4c" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_DIAG0::RES_EVENT</definition>
+        <argsstring></argsstring>
+        <name>RES_EVENT</name>
+        <qualifiedname>tle92466ed::GLOBAL_DIAG0::RES_EVENT</qualifiedname>
+        <initializer>= (1 &lt;&lt; 9)</initializer>
+        <briefdescription>
+<para>Reset event. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="309" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="309" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__DIAG0_1a906bb23187a3153df8df34881ee0b062" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_DIAG0::POR_EVENT</definition>
+        <argsstring></argsstring>
+        <name>POR_EVENT</name>
+        <qualifiedname>tle92466ed::GLOBAL_DIAG0::POR_EVENT</qualifiedname>
+        <initializer>= (1 &lt;&lt; 10)</initializer>
+        <briefdescription>
+<para>Power-on reset. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="310" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="310" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__DIAG0_1a59f679d02afd087abbf059610748ad58" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_DIAG0::SPI_WD_ERR</definition>
+        <argsstring></argsstring>
+        <name>SPI_WD_ERR</name>
+        <qualifiedname>tle92466ed::GLOBAL_DIAG0::SPI_WD_ERR</qualifiedname>
+        <initializer>= (1 &lt;&lt; 14)</initializer>
+        <briefdescription>
+<para>SPI watchdog error. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="311" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="311" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__DIAG0_1a54312e3609c623432f1f626569496083" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_DIAG0::DEFAULT</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT</name>
+        <qualifiedname>tle92466ed::GLOBAL_DIAG0::DEFAULT</qualifiedname>
+        <initializer>= 0x0600</initializer>
+        <briefdescription>
+<para>Default value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="313" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="313" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__DIAG0_1ad02f16e39dce56dfdcfbc48f522afa36" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_DIAG0::FAULT_MASK</definition>
+        <argsstring></argsstring>
+        <name>FAULT_MASK</name>
+        <qualifiedname>tle92466ed::GLOBAL_DIAG0::FAULT_MASK</qualifiedname>
+        <initializer>= 0x47FF</initializer>
+        <briefdescription>
+<para>All fault bits. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="314" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="314" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1GLOBAL__DIAG0_1afa9731ef21846e9fc701d23a20a4e5c6" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::GLOBAL_DIAG0::CLEAR_ALL</definition>
+        <argsstring></argsstring>
+        <name>CLEAR_ALL</name>
+        <qualifiedname>tle92466ed::GLOBAL_DIAG0::CLEAR_ALL</qualifiedname>
+        <initializer>= 0xFFFF</initializer>
+        <briefdescription>
+<para>Clear all bits (write-to-clear) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="315" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="315" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespacetle92466ed_1_1GLOBAL__DIAG0" kindref="compound">GLOBAL_DIAG0</ref> register bit definitions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Global diagnosis register for supply voltages, reset events, and faults.</para>
+<para><simplesect kind="par"><title>Bit Map:</title><para><verbatim>* Bit 14  : SPI_WD_ERR  - SPI watchdog error
+* Bit 10  : POR_EVENT   - Power-on reset event
+* Bit 9   : RES_EVENT   - Reset event (RESN pin)
+* Bit 8   : COTWARN     - Central over-temp warning
+* Bit 7   : COTERR      - Central over-temp error
+* Bit 6   : CLK_NOK     - Clock fault
+* Bit 5   : VDD_OV      - VDD overvoltage
+* Bit 4   : VDD_UV      - VDD undervoltage
+* Bit 3   : VIO_OV      - VIO overvoltage
+* Bit 2   : VIO_UV      - VIO undervoltage
+* Bit 1   : VBAT_OV     - VBAT overvoltage
+* Bit 0   : VBAT_UV     - VBAT undervoltage
+* </verbatim></para>
+</simplesect>
+Default: 0x0600 </para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="299" column="1"/>
+  </compounddef>
+</doxygen>

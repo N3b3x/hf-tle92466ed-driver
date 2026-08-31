@@ -20,6 +20,7 @@
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -30,7 +31,7 @@
   <td id="projectalign">
    <div id="projectname">TLE92466ED Driver<span id="projectnumber">&#160;0.1.0-dev</span>
    </div>
-   <div id="projectbrief">Modern C++23 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver</div>
+   <div id="projectbrief">Modern C++20 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver</div>
   </td>
  </tr>
  </tbody>
@@ -96,23 +97,39 @@ $(function(){initNavTree('functions_v.html',''); initResizable(); });
 <div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
 
 <h3><a id="index_v" name="index_v"></a>- v -</h3><ul>
-<li>vbat_feedback&#160;:&#160;<a class="el" href="structTLE92466ED_1_1ChannelDiagnostics.html#a8c6244159329b2d08e3c8dd21bd3a84a">TLE92466ED::ChannelDiagnostics</a></li>
-<li>VBAT_MAX&#160;:&#160;<a class="el" href="structTLE92466ED__Config_1_1SupplyVoltage.html#a132997bdedaa8c88c8191dac6d2e9a7f">TLE92466ED_Config::SupplyVoltage</a></li>
-<li>VBAT_MIN&#160;:&#160;<a class="el" href="structTLE92466ED__Config_1_1SupplyVoltage.html#a3e06f01bbf367edc804d9af9c815af6e">TLE92466ED_Config::SupplyVoltage</a></li>
-<li>VBAT_NOM&#160;:&#160;<a class="el" href="structTLE92466ED__Config_1_1SupplyVoltage.html#ab881ffad00fb9ea0603182adf61bb0ce">TLE92466ED_Config::SupplyVoltage</a></li>
-<li>vbat_ov&#160;:&#160;<a class="el" href="structTLE92466ED_1_1DeviceStatus.html#a0d3f30354e35183b2e30a8dc447fa96e">TLE92466ED::DeviceStatus</a></li>
-<li>vbat_ov_threshold&#160;:&#160;<a class="el" href="structTLE92466ED_1_1GlobalConfig.html#a7e7721552acf91fb4aeb41e3b7318a9d">TLE92466ED::GlobalConfig</a></li>
-<li>vbat_uv&#160;:&#160;<a class="el" href="structTLE92466ED_1_1DeviceStatus.html#a9987d4b8fc44681e75449e94216061da">TLE92466ED::DeviceStatus</a></li>
-<li>vbat_uv_threshold&#160;:&#160;<a class="el" href="structTLE92466ED_1_1GlobalConfig.html#af906a7c7df285344e291a4ee0422fc16">TLE92466ED::GlobalConfig</a></li>
-<li>vbat_voltage&#160;:&#160;<a class="el" href="structTLE92466ED_1_1DeviceStatus.html#a405a725286312a5755c4470d7e0920ac">TLE92466ED::DeviceStatus</a></li>
-<li>VDD_NOM&#160;:&#160;<a class="el" href="structTLE92466ED__Config_1_1SupplyVoltage.html#a7346eab0e8978adb222258b2e47f6678">TLE92466ED_Config::SupplyVoltage</a></li>
-<li>vdd_ov&#160;:&#160;<a class="el" href="structTLE92466ED_1_1DeviceStatus.html#aeab84e672c30716501ad0f3bb6479af3">TLE92466ED::DeviceStatus</a></li>
-<li>vdd_uv&#160;:&#160;<a class="el" href="structTLE92466ED_1_1DeviceStatus.html#ac1009c2438fcaf9fc7f52441253cbbc9">TLE92466ED::DeviceStatus</a></li>
-<li>verify_device()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#a52fed085cd65033e051c0a2569299160">TLE92466ED::Driver</a></li>
-<li>vio_5v&#160;:&#160;<a class="el" href="structTLE92466ED_1_1GlobalConfig.html#a3e512b0be7b8cb0eef1f60797b9a5c80">TLE92466ED::GlobalConfig</a></li>
-<li>vio_ov&#160;:&#160;<a class="el" href="structTLE92466ED_1_1DeviceStatus.html#a470b03020e23c9e2c44d6d7ce7b4145c">TLE92466ED::DeviceStatus</a></li>
-<li>vio_uv&#160;:&#160;<a class="el" href="structTLE92466ED_1_1DeviceStatus.html#acdc2ba550db01db61dc025015dc6533b">TLE92466ED::DeviceStatus</a></li>
-<li>vio_voltage&#160;:&#160;<a class="el" href="structTLE92466ED_1_1DeviceStatus.html#a4bf2242fe36a1769fc377c34f9dc16f3">TLE92466ED::DeviceStatus</a></li>
+<li>v1v5_ov_ok&#160;:&#160;<a class="el" href="structtle92466ed_1_1SupplyMonitorSelfTestResult.html#a88a1898f274d52fcd13114a0e49311c6">tle92466ed::SupplyMonitorSelfTestResult</a></li>
+<li>v1v5_uv_ok&#160;:&#160;<a class="el" href="structtle92466ed_1_1SupplyMonitorSelfTestResult.html#afaf4ce03db3a06877e923ad956ec530b">tle92466ed::SupplyMonitorSelfTestResult</a></li>
+<li>valid_mask&#160;:&#160;<a class="el" href="structtle92466ed_1_1CurrentFeedbackBatch.html#a83fcc81d9ed8432dd2ec6acc3cc627f6">tle92466ed::CurrentFeedbackBatch</a></li>
+<li>value()&#160;:&#160;<a class="el" href="classtle_1_1expected.html#a355a52bfbcd842447f275e018d536f8a">tle::expected&lt; T, E &gt;</a></li>
+<li>value_&#160;:&#160;<a class="el" href="classtle_1_1expected.html#aa02e14620f46bafd53d7ce8afa010af1">tle::expected&lt; T, E &gt;</a></li>
+<li>value_or()&#160;:&#160;<a class="el" href="classtle_1_1expected.html#a5a0a10a4edab938c6a50e6b8c32b12cf">tle::expected&lt; T, E &gt;</a></li>
+<li>vbat_feedback&#160;:&#160;<a class="el" href="structtle92466ed_1_1ChannelDiagnostics.html#a39dd23c72c86686ac20d12ba1aa42847">tle92466ed::ChannelDiagnostics</a></li>
+<li>VBAT_MAX&#160;:&#160;<a class="el" href="structTLE92466ED__TestConfig_1_1SupplyVoltage.html#a282fd518667fd1a9ea43a71e571fe7b0">TLE92466ED_TestConfig::SupplyVoltage</a></li>
+<li>VBAT_MIN&#160;:&#160;<a class="el" href="structTLE92466ED__TestConfig_1_1SupplyVoltage.html#a394e7be9e053e324ccbaef9b337448d7">TLE92466ED_TestConfig::SupplyVoltage</a></li>
+<li>vbat_mV&#160;:&#160;<a class="el" href="structtle92466ed_1_1SupplyVoltages.html#a76463a4196c4bd50c1794aac68f8f632">tle92466ed::SupplyVoltages</a></li>
+<li>VBAT_NOM&#160;:&#160;<a class="el" href="structTLE92466ED__TestConfig_1_1SupplyVoltage.html#aed8c289d6b0161bd6209df05f6ac76ac">TLE92466ED_TestConfig::SupplyVoltage</a></li>
+<li>vbat_ov&#160;:&#160;<a class="el" href="structtle92466ed_1_1DeviceStatus.html#a73ee41566b9835685d550445c0be1a2a">tle92466ed::DeviceStatus</a>, <a class="el" href="structtle92466ed_1_1FaultReport.html#a2414734f7ca3c299c711f8aa40bdd770">tle92466ed::FaultReport</a></li>
+<li>vbat_ov_voltage&#160;:&#160;<a class="el" href="structtle92466ed_1_1GlobalConfig.html#a635ea48eba6cb16098db9161676ced07">tle92466ed::GlobalConfig</a></li>
+<li>vbat_uv&#160;:&#160;<a class="el" href="structtle92466ed_1_1DeviceStatus.html#a9a22f111782d4965d037b300d11f9985">tle92466ed::DeviceStatus</a>, <a class="el" href="structtle92466ed_1_1FaultReport.html#a89727a4c0c9b8263002fdec2f4e80861">tle92466ed::FaultReport</a></li>
+<li>vbat_uv_voltage&#160;:&#160;<a class="el" href="structtle92466ed_1_1GlobalConfig.html#a47f1ed6a4bf77d0337f77d00e4abe624">tle92466ed::GlobalConfig</a></li>
+<li>vbat_voltage&#160;:&#160;<a class="el" href="structtle92466ed_1_1DeviceStatus.html#ac78643fa043eff8a4067f525e8476fc6">tle92466ed::DeviceStatus</a></li>
+<li>vdd2v5_ov&#160;:&#160;<a class="el" href="structtle92466ed_1_1FaultReport.html#a6f3fc0d5141d69d50678bdce836ab4d1">tle92466ed::FaultReport</a></li>
+<li>vdd2v5_uv&#160;:&#160;<a class="el" href="structtle92466ed_1_1FaultReport.html#ae9dd39a8923141c1be6be8749e9b4d3b">tle92466ed::FaultReport</a></li>
+<li>vdd_mV&#160;:&#160;<a class="el" href="structtle92466ed_1_1SupplyVoltages.html#a148fa21e4b2947418b9f7180a821b888">tle92466ed::SupplyVoltages</a></li>
+<li>VDD_NOM&#160;:&#160;<a class="el" href="structTLE92466ED__TestConfig_1_1SupplyVoltage.html#a8138a20d65edeb17a743fb0ae469cfa4">TLE92466ED_TestConfig::SupplyVoltage</a></li>
+<li>vdd_ov&#160;:&#160;<a class="el" href="structtle92466ed_1_1DeviceStatus.html#a1641d22d1ba761833fb910f89128e43e">tle92466ed::DeviceStatus</a>, <a class="el" href="structtle92466ed_1_1FaultReport.html#a5e2ac35bd6360adec4ceda2e23e0efca">tle92466ed::FaultReport</a></li>
+<li>vdd_uv&#160;:&#160;<a class="el" href="structtle92466ed_1_1DeviceStatus.html#a26e3ac654f38e9d250b18ba97a4b52cc">tle92466ed::DeviceStatus</a>, <a class="el" href="structtle92466ed_1_1FaultReport.html#ac047aa8a818d5bfd81026acfab5ad772">tle92466ed::FaultReport</a></li>
+<li>VerifyDevice()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a998031c8c4766a2b84d2cf92482c32bb">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>vio_5v&#160;:&#160;<a class="el" href="structtle92466ed_1_1GlobalConfig.html#a29845a8839a8e84a7f7ecf4c46653949">tle92466ed::GlobalConfig</a></li>
+<li>vio_5v_mode_&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#aec91000356a2c59b14a7633a41845024">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>vio_mV&#160;:&#160;<a class="el" href="structtle92466ed_1_1SupplyVoltages.html#a79cd908ab874bef8f78c9a15b01885db">tle92466ed::SupplyVoltages</a></li>
+<li>vio_ov&#160;:&#160;<a class="el" href="structtle92466ed_1_1DeviceStatus.html#aa94ecf0a7df62e9aaf83bbdd55611218">tle92466ed::DeviceStatus</a>, <a class="el" href="structtle92466ed_1_1FaultReport.html#a6879492ce3337c90e7020c1f7fb2cf4e">tle92466ed::FaultReport</a></li>
+<li>vio_uv&#160;:&#160;<a class="el" href="structtle92466ed_1_1DeviceStatus.html#a2375a607590d38b69fa6e565d2887070">tle92466ed::DeviceStatus</a>, <a class="el" href="structtle92466ed_1_1FaultReport.html#a751260da444ff7c1d148308ed99f990f">tle92466ed::FaultReport</a></li>
+<li>vio_voltage&#160;:&#160;<a class="el" href="structtle92466ed_1_1DeviceStatus.html#a6feeedf58f723c1fbfece4dd3721a857">tle92466ed::DeviceStatus</a></li>
+<li>vpre_ov&#160;:&#160;<a class="el" href="structtle92466ed_1_1FaultReport.html#aec6210188389257846b28bd9d9e58c9d">tle92466ed::FaultReport</a></li>
+<li>vr_iref_ov&#160;:&#160;<a class="el" href="structtle92466ed_1_1FaultReport.html#a140e8d1b03a94c657b932374944f2cb8">tle92466ed::FaultReport</a></li>
+<li>vr_iref_uv&#160;:&#160;<a class="el" href="structtle92466ed_1_1FaultReport.html#a75648d68776139cbffdeef46becbf198">tle92466ed::FaultReport</a></li>
+<li>VREF_MV&#160;:&#160;<a class="el" href="structADCConfig.html#aad0972dc88daba8224b38370ea860adb">ADCConfig</a>, <a class="el" href="structTLE92466ED__TestConfig_1_1ADCConfig.html#a7ac6b7505fdbf0bce8c0dcb793651779">TLE92466ED_TestConfig::ADCConfig</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

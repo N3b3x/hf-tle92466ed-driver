@@ -20,6 +20,7 @@
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -30,7 +31,7 @@
   <td id="projectalign">
    <div id="projectname">TLE92466ED Driver<span id="projectnumber">&#160;0.1.0-dev</span>
    </div>
-   <div id="projectbrief">Modern C++23 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver</div>
+   <div id="projectbrief">Modern C++20 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver</div>
   </td>
  </tr>
  </tbody>
@@ -96,20 +97,33 @@ $(function(){initNavTree('functions_d.html',''); initResizable(); });
 <div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
 
 <h3><a id="index_d" name="index_d"></a>- d -</h3><ul>
-<li>data&#160;:&#160;<a class="el" href="unionTLE92466ED_1_1SPIFrame.html#ae9a9f795276e931a795c76107ada865a">TLE92466ED::SPIFrame</a></li>
-<li>deep_dither_enabled&#160;:&#160;<a class="el" href="structTLE92466ED_1_1ChannelConfig.html#a38ce5209824c6c02c9f038558bc0713f">TLE92466ED::ChannelConfig</a></li>
-<li>DEFAULT_TEST_CURRENT&#160;:&#160;<a class="el" href="structTLE92466ED__Config_1_1TestConfig.html#acb92d47b7570fa407604e316f68dcdaa">TLE92466ED_Config::TestConfig</a></li>
-<li>deinit()&#160;:&#160;<a class="el" href="classESP32C6__HAL.html#a0cd39c4f854d92a34e7e0931e2ba63c8">ESP32C6_HAL</a>, <a class="el" href="classTLE92466ED_1_1ExampleHAL.html#aca2fe4367464d9c650d8639452f71e4f">TLE92466ED::ExampleHAL</a>, <a class="el" href="classTLE92466ED_1_1HAL.html#a956672b9644a0c6d0e909a42a5905507">TLE92466ED::HAL</a></li>
-<li>delay()&#160;:&#160;<a class="el" href="classESP32C6__HAL.html#a6984cad256521ecb06fda8ffadd56abf">ESP32C6_HAL</a>, <a class="el" href="classTLE92466ED_1_1ExampleHAL.html#a3f86764aa0b4e2408e826e4986893389">TLE92466ED::ExampleHAL</a>, <a class="el" href="classTLE92466ED_1_1HAL.html#a44752042b769aab71d215d9c6557349a">TLE92466ED::HAL</a></li>
-<li>delayMicroseconds()&#160;:&#160;<a class="el" href="classArduino__HAL.html#ad4454000b5545ee13fd4e0827f7fd020">Arduino_HAL</a></li>
-<li>diag_current&#160;:&#160;<a class="el" href="structTLE92466ED_1_1ChannelConfig.html#a5d5e9abc950957c4b3a7c3f77a33b006">TLE92466ED::ChannelConfig</a></li>
-<li>disable_all_channels()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#a2dd973bbe408b7531601d8cbd0ef8ff6">TLE92466ED::Driver</a></li>
-<li>disableDevice()&#160;:&#160;<a class="el" href="classArduino__HAL.html#abf13cadba52f978f5b615f9cd60c3ea0">Arduino_HAL</a></li>
-<li>dither_flat&#160;:&#160;<a class="el" href="structTLE92466ED_1_1ChannelConfig.html#a86bd77f473efec53d3537b80059646dd">TLE92466ED::ChannelConfig</a></li>
-<li>dither_step_size&#160;:&#160;<a class="el" href="structTLE92466ED_1_1ChannelConfig.html#a9fc7980271b7bbeb574a7abc1cdec11e">TLE92466ED::ChannelConfig</a></li>
-<li>dither_steps&#160;:&#160;<a class="el" href="structTLE92466ED_1_1ChannelConfig.html#acaa55e3af55c8a754b42f975bbe5afff">TLE92466ED::ChannelConfig</a></li>
-<li>Driver()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#a4bbb14e00b6ddbe34178a10a1f1437b3">TLE92466ED::Driver</a></li>
-<li>duty_cycle&#160;:&#160;<a class="el" href="structTLE92466ED_1_1ChannelDiagnostics.html#a95d4a82f2ac6a079f9984e637e388798">TLE92466ED::ChannelDiagnostics</a></li>
+<li>data&#160;:&#160;<a class="el" href="uniontle92466ed_1_1SPIFrame.html#a115b217a35657afadb256c7a0e2d77b1">tle92466ed::SPIFrame</a></li>
+<li>deep_dither&#160;:&#160;<a class="el" href="structtle92466ed_1_1DitherSetup.html#a28fc75d8fdb53cc19f18554c311dbaf6">tle92466ed::DitherSetup</a></li>
+<li>deep_dither_enabled&#160;:&#160;<a class="el" href="structtle92466ed_1_1ChannelConfig.html#abcf20f9f10c92540cce5e506d2e671ea">tle92466ed::ChannelConfig</a></li>
+<li>DEFAULT_TEST_CURRENT&#160;:&#160;<a class="el" href="structTLE92466ED__TestConfig_1_1TestConfig.html#a7fb0173a5edf16d673974b9cc0d0956e">TLE92466ED_TestConfig::TestConfig</a></li>
+<li>Deinit()&#160;:&#160;<a class="el" href="classEsp32Tle92466edSpiBus.html#a5c3494ca635f993181689a0f8c1c6972">Esp32Tle92466edSpiBus</a>, <a class="el" href="classtle92466ed_1_1SpiInterface.html#a63683e3410c3773ac311037215ef34ef">tle92466ed::SpiInterface&lt; Derived &gt;</a></li>
+<li>Delay()&#160;:&#160;<a class="el" href="classEsp32Tle92466edSpiBus.html#ae86fba1c53bcf96b262060304b8b115a">Esp32Tle92466edSpiBus</a>, <a class="el" href="classtle92466ed_1_1SpiInterface.html#ab94ea9f452febbe30c0a44e1e00f911c">tle92466ed::SpiInterface&lt; Derived &gt;</a></li>
+<li>diag_current&#160;:&#160;<a class="el" href="structtle92466ed_1_1ChannelConfig.html#ae6d8633829367e22a24f64b6d2aaee24">tle92466ed::ChannelConfig</a></li>
+<li>diagnoseClockConfiguration()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#ae2ee1778a8454e715ce893d019dc1e9d">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>dig_clk_too_fast&#160;:&#160;<a class="el" href="structtle92466ed_1_1CriticalFaultFlags.html#a266b3d230b9910c2f28a73eacdd1555f">tle92466ed::CriticalFaultFlags</a></li>
+<li>dig_clk_too_slow&#160;:&#160;<a class="el" href="structtle92466ed_1_1CriticalFaultFlags.html#a8d54e196eda91e21a0a7dc8a9cfaebdb">tle92466ed::CriticalFaultFlags</a></li>
+<li>Disable()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#ac78fe02ef77f4776ac765494b82912f9">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>DisableAllChannels()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#ae2d390d7acca1096e570f85df8f82fc9">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>dither_flat&#160;:&#160;<a class="el" href="structtle92466ed_1_1ChannelConfig.html#a72303925f471090d675b07e5f70ac7e2">tle92466ed::ChannelConfig</a></li>
+<li>dither_pwm_sync_en&#160;:&#160;<a class="el" href="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig.html#a06b3154f42cab2c6d435d0f7ad51ba06">tle92466ed::DITHER_CLK_DIV::ClkDivConfig</a></li>
+<li>dither_setpoint_sync_en&#160;:&#160;<a class="el" href="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig.html#ab3cb86b4de95aed272777e47c0be3cb0">tle92466ed::DITHER_CLK_DIV::ClkDivConfig</a></li>
+<li>dither_step_size&#160;:&#160;<a class="el" href="structtle92466ed_1_1ChannelConfig.html#abe9757f70f407163c930ebdc1e4161f7">tle92466ed::ChannelConfig</a></li>
+<li>dither_steps&#160;:&#160;<a class="el" href="structtle92466ed_1_1ChannelConfig.html#abdf47c355b3b1504ff75da6f6dffc96c">tle92466ed::ChannelConfig</a></li>
+<li>done&#160;:&#160;<a class="el" href="structtle92466ed_1_1BistResult.html#ace615fe635e425a15c8c1cdb50b65582">tle92466ed::BistResult</a></li>
+<li>Driver()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#aa146de0469bf888d66d831328f218f19">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>drv0&#160;:&#160;<a class="el" href="structtle92466ed_1_1PinStatus.html#a8113a63b7cd3a7df58f3788ab7b9a490">tle92466ed::PinStatus</a></li>
+<li>DRV0&#160;:&#160;<a class="el" href="structTLE92466ED__TestConfig_1_1ControlPins.html#a2d22c523fac2c084d1821d7dcdf3d78a">TLE92466ED_TestConfig::ControlPins</a></li>
+<li>drv0_pin&#160;:&#160;<a class="el" href="structEsp32Tle92466edSpiBus_1_1SPIConfig.html#aaaa088590d983170afebe31a174bd8d3">Esp32Tle92466edSpiBus::SPIConfig</a></li>
+<li>drv1&#160;:&#160;<a class="el" href="structtle92466ed_1_1PinStatus.html#a79175067bd31c3edf86f9145af51396e">tle92466ed::PinStatus</a></li>
+<li>DRV1&#160;:&#160;<a class="el" href="structTLE92466ED__TestConfig_1_1ControlPins.html#aea4b6762eaab6ac731f1f22b207d2f9a">TLE92466ED_TestConfig::ControlPins</a></li>
+<li>drv1_pin&#160;:&#160;<a class="el" href="structEsp32Tle92466edSpiBus_1_1SPIConfig.html#a939fc22fb553af941359b679b178677e">Esp32Tle92466edSpiBus::SPIConfig</a></li>
+<li>duty_cycle&#160;:&#160;<a class="el" href="structtle92466ed_1_1ChannelDiagnostics.html#acee3dc25873b6c6f5319edca39ae69fb">tle92466ed::ChannelDiagnostics</a></li>
+<li>duty_cycle_permyriad&#160;:&#160;<a class="el" href="structtle92466ed_1_1ChannelFeedback.html#a4e46252424655469681b58304b75a0a0">tle92466ed::ChannelFeedback</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

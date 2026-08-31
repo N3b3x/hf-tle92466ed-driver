@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="classtle_1_1unexpected" kind="class" language="C++" prot="public">
+    <compoundname>tle::unexpected</compoundname>
+    <includes refid="tle92466ed__expected_8hpp" local="no">tle92466ed_expected.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type><ref refid="classtle_1_1expected" kindref="compound">typename</ref> <ref refid="classtle_1_1expected" kindref="compound">E</ref></type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classtle_1_1unexpected_1aa5f72fbc53e61905a5b435c86ffacbb0" prot="private" static="no" mutable="no">
+        <type><ref refid="classtle_1_1expected" kindref="compound">E</ref></type>
+        <definition>E tle::unexpected&lt; E &gt;::error_</definition>
+        <argsstring></argsstring>
+        <name>error_</name>
+        <qualifiedname>tle::unexpected::error_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="57" column="5" bodyfile="inc/tle92466ed_expected.hpp" bodystart="57" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classtle_1_1unexpected_1a63dd19deda0a51e31a3c6aab446adbf4" prot="public" static="no" constexpr="yes" const="no" explicit="yes" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classtle_1_1expected" kindref="compound">constexpr</ref></type>
+        <definition>constexpr tle::unexpected&lt; E &gt;::unexpected</definition>
+        <argsstring>(const E &amp;e) noexcept</argsstring>
+        <name>unexpected</name>
+        <qualifiedname>tle::unexpected::unexpected</qualifiedname>
+        <param>
+          <type><ref refid="classtle_1_1expected" kindref="compound">const</ref> <ref refid="classtle_1_1expected" kindref="compound">E</ref> &amp;</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="60" column="22" bodyfile="inc/tle92466ed_expected.hpp" bodystart="60" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle_1_1unexpected_1a926bdb8995c7ee49466ae17aca5b7cbe" prot="public" static="no" constexpr="yes" const="no" explicit="yes" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classtle_1_1expected" kindref="compound">constexpr</ref></type>
+        <definition>constexpr tle::unexpected&lt; E &gt;::unexpected</definition>
+        <argsstring>(E &amp;&amp;e) noexcept</argsstring>
+        <name>unexpected</name>
+        <qualifiedname>tle::unexpected::unexpected</qualifiedname>
+        <param>
+          <type><ref refid="classtle_1_1expected" kindref="compound">E</ref> &amp;&amp;</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="61" column="22" bodyfile="inc/tle92466ed_expected.hpp" bodystart="61" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle_1_1unexpected_1ac94cbd53d458e4e99b1bca047f9a8eb1" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" refqual="lvalue" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classtle_1_1expected" kindref="compound">constexpr</ref> <ref refid="classtle_1_1expected" kindref="compound">const</ref> <ref refid="classtle_1_1expected" kindref="compound">E</ref> &amp;</type>
+        <definition>constexpr const E &amp; tle::unexpected&lt; E &gt;::error</definition>
+        <argsstring>() const &amp;noexcept</argsstring>
+        <name>error</name>
+        <qualifiedname>tle::unexpected::error</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="63" column="22" bodyfile="inc/tle92466ed_expected.hpp" bodystart="63" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle_1_1unexpected_1a6bf1f5e7283f34d661f6d78186400c22" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" refqual="lvalue" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classtle_1_1expected" kindref="compound">constexpr</ref> <ref refid="classtle_1_1expected" kindref="compound">E</ref> &amp;</type>
+        <definition>constexpr E &amp; tle::unexpected&lt; E &gt;::error</definition>
+        <argsstring>() &amp;noexcept</argsstring>
+        <name>error</name>
+        <qualifiedname>tle::unexpected::error</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="64" column="16" bodyfile="inc/tle92466ed_expected.hpp" bodystart="64" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classtle_1_1unexpected_1a900e2d8059c916e49cbe4c2d1227e342" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" refqual="rvalue" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classtle_1_1expected" kindref="compound">constexpr</ref> <ref refid="classtle_1_1expected" kindref="compound">E</ref> &amp;&amp;</type>
+        <definition>constexpr E &amp;&amp; tle::unexpected&lt; E &gt;::error</definition>
+        <argsstring>() &amp;&amp;noexcept</argsstring>
+        <name>error</name>
+        <qualifiedname>tle::unexpected::error</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_expected.hpp" line="65" column="16" bodyfile="inc/tle92466ed_expected.hpp" bodystart="65" bodyend="65"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Wrapper for an error value (mirrors std::unexpected) </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>E</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error type </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_expected.hpp" line="56" column="12" bodyfile="inc/tle92466ed_expected.hpp" bodystart="56" bodyend="66"/>
+    <listofallmembers>
+      <member refid="classtle_1_1unexpected_1ac94cbd53d458e4e99b1bca047f9a8eb1" prot="public" virt="non-virtual"><scope>tle::unexpected</scope><name>error</name></member>
+      <member refid="classtle_1_1unexpected_1a6bf1f5e7283f34d661f6d78186400c22" prot="public" virt="non-virtual"><scope>tle::unexpected</scope><name>error</name></member>
+      <member refid="classtle_1_1unexpected_1a900e2d8059c916e49cbe4c2d1227e342" prot="public" virt="non-virtual"><scope>tle::unexpected</scope><name>error</name></member>
+      <member refid="classtle_1_1unexpected_1aa5f72fbc53e61905a5b435c86ffacbb0" prot="private" virt="non-virtual"><scope>tle::unexpected</scope><name>error_</name></member>
+      <member refid="classtle_1_1unexpected_1a63dd19deda0a51e31a3c6aab446adbf4" prot="public" virt="non-virtual"><scope>tle::unexpected</scope><name>unexpected</name></member>
+      <member refid="classtle_1_1unexpected_1a926bdb8995c7ee49466ae17aca5b7cbe" prot="public" virt="non-virtual"><scope>tle::unexpected</scope><name>unexpected</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

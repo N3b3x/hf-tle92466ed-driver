@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="structtle92466ed_1_1DitherSetup" kind="struct" language="C++" prot="public">
+    <compoundname>tle92466ed::DitherSetup</compoundname>
+    <includes refid="tle92466ed__registers_8hpp" local="no">tle92466ed_registers.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtle92466ed_1_1DitherSetup_1a73b403ea772af05595d2a15bb9e0fd07" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float tle92466ed::DitherSetup::amplitude_mA</definition>
+        <argsstring></argsstring>
+        <name>amplitude_mA</name>
+        <qualifiedname>tle92466ed::DitherSetup::amplitude_mA</qualifiedname>
+        <initializer>{0.0F}</initializer>
+        <briefdescription>
+<para>Peak-to-peak dither amplitude in mA. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2325" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2325" bodyend="2325"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1DitherSetup_1ad3cf5eb2a33d91dccc4b1bd37676cfa6" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float tle92466ed::DitherSetup::frequency_Hz</definition>
+        <argsstring></argsstring>
+        <name>frequency_Hz</name>
+        <qualifiedname>tle92466ed::DitherSetup::frequency_Hz</qualifiedname>
+        <initializer>{0.0F}</initializer>
+        <briefdescription>
+<para>Dither frequency in Hz. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2326" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2326" bodyend="2326"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1DitherSetup_1a2fca8729472dff4666903434fa040f0e" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::DitherSetup::sync_with_pwm</definition>
+        <argsstring></argsstring>
+        <name>sync_with_pwm</name>
+        <qualifiedname>tle92466ed::DitherSetup::sync_with_pwm</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Restart dither on each PWM rising edge. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2327" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2327" bodyend="2327"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1DitherSetup_1a908d6e95beb4c6a1650fb14eda660e5d" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::DitherSetup::sync_with_setpoint</definition>
+        <argsstring></argsstring>
+        <name>sync_with_setpoint</name>
+        <qualifiedname>tle92466ed::DitherSetup::sync_with_setpoint</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Restart dither on setpoint change. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2328" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2328" bodyend="2328"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1DitherSetup_1a28fc75d8fdb53cc19f18554c311dbaf6" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::DitherSetup::deep_dither</definition>
+        <argsstring></argsstring>
+        <name>deep_dither</name>
+        <qualifiedname>tle92466ed::DitherSetup::deep_dither</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Enable deep-dither (extended amplitude range) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2329" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2329" bodyend="2329"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1DitherSetup_1a04f5443bf7bd96b8e20adb6b9e09289d" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacetle92466ed_1a7a810a2ee5f3edef167c753d660af92f" kindref="member">FastMeasureMode</ref></type>
+        <definition>FastMeasureMode tle92466ed::DitherSetup::fast_measure</definition>
+        <argsstring></argsstring>
+        <name>fast_measure</name>
+        <qualifiedname>tle92466ed::DitherSetup::fast_measure</qualifiedname>
+        <initializer>{<ref refid="namespacetle92466ed_1a7a810a2ee5f3edef167c753d660af92fabbc6cbc1503ff58ccc2914e373280842" kindref="member">FastMeasureMode::FullPeriod</ref>}</initializer>
+        <briefdescription>
+<para>Feedback averaging window. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="2330" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2330" bodyend="2330"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>High-level dither configuration (Phase 4 superset of ConfigureDither). </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="2324" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2324" bodyend="2331"/>
+    <listofallmembers>
+      <member refid="structtle92466ed_1_1DitherSetup_1a73b403ea772af05595d2a15bb9e0fd07" prot="public" virt="non-virtual"><scope>tle92466ed::DitherSetup</scope><name>amplitude_mA</name></member>
+      <member refid="structtle92466ed_1_1DitherSetup_1a28fc75d8fdb53cc19f18554c311dbaf6" prot="public" virt="non-virtual"><scope>tle92466ed::DitherSetup</scope><name>deep_dither</name></member>
+      <member refid="structtle92466ed_1_1DitherSetup_1a04f5443bf7bd96b8e20adb6b9e09289d" prot="public" virt="non-virtual"><scope>tle92466ed::DitherSetup</scope><name>fast_measure</name></member>
+      <member refid="structtle92466ed_1_1DitherSetup_1ad3cf5eb2a33d91dccc4b1bd37676cfa6" prot="public" virt="non-virtual"><scope>tle92466ed::DitherSetup</scope><name>frequency_Hz</name></member>
+      <member refid="structtle92466ed_1_1DitherSetup_1a2fca8729472dff4666903434fa040f0e" prot="public" virt="non-virtual"><scope>tle92466ed::DitherSetup</scope><name>sync_with_pwm</name></member>
+      <member refid="structtle92466ed_1_1DitherSetup_1a908d6e95beb4c6a1650fb14eda660e5d" prot="public" virt="non-virtual"><scope>tle92466ed::DitherSetup</scope><name>sync_with_setpoint</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

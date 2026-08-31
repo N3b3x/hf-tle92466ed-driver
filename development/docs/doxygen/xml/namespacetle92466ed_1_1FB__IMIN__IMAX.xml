@@ -1,0 +1,226 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1FB__IMIN__IMAX" kind="namespace" language="C++">
+    <compoundname>tle92466ed::FB_IMIN_IMAX</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__IMIN__IMAX_1ac3c820a22fdee740ed49899a107ccb18" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_IMIN_IMAX::IMIN_SHIFT</definition>
+        <argsstring></argsstring>
+        <name>IMIN_SHIFT</name>
+        <qualifiedname>tle92466ed::FB_IMIN_IMAX::IMIN_SHIFT</qualifiedname>
+        <initializer>= 0u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1588" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1588" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__IMIN__IMAX_1a40e63c3ab4b8f34af4f82568ee2112c7" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_IMIN_IMAX::IMIN_MASK</definition>
+        <argsstring></argsstring>
+        <name>IMIN_MASK</name>
+        <qualifiedname>tle92466ed::FB_IMIN_IMAX::IMIN_MASK</qualifiedname>
+        <initializer>= 0x3FFu</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1589" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1589" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__IMIN__IMAX_1aa8d22c28d4bb28952e31fd3ec865d9e5" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_IMIN_IMAX::IMAX_SHIFT</definition>
+        <argsstring></argsstring>
+        <name>IMAX_SHIFT</name>
+        <qualifiedname>tle92466ed::FB_IMIN_IMAX::IMAX_SHIFT</qualifiedname>
+        <initializer>= 10u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1590" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1590" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__IMIN__IMAX_1a2c95435f954b44766a4d49331fce7f77" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_IMIN_IMAX::IMAX_MASK</definition>
+        <argsstring></argsstring>
+        <name>IMAX_MASK</name>
+        <qualifiedname>tle92466ed::FB_IMIN_IMAX::IMAX_MASK</qualifiedname>
+        <initializer>= 0x3FFu</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1591" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1591" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__IMIN__IMAX_1ab86d988b6819089641ab0e4969a6ec17" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr int32_t</type>
+        <definition>constexpr int32_t tle92466ed::FB_IMIN_IMAX::FULL_SCALE_mA</definition>
+        <argsstring></argsstring>
+        <name>FULL_SCALE_mA</name>
+        <qualifiedname>tle92466ed::FB_IMIN_IMAX::FULL_SCALE_mA</qualifiedname>
+        <initializer>= 4000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1592" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1592" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__IMIN__IMAX_1ac55822eaff3e9b0dbc00ac827d74b3e7" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr int32_t</type>
+        <definition>constexpr int32_t tle92466ed::FB_IMIN_IMAX::FULL_SCALE_COUNT</definition>
+        <argsstring></argsstring>
+        <name>FULL_SCALE_COUNT</name>
+        <qualifiedname>tle92466ed::FB_IMIN_IMAX::FULL_SCALE_COUNT</qualifiedname>
+        <initializer>= 511</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1593" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1593" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacetle92466ed_1_1FB__IMIN__IMAX_1ae29ddf9dab590e199ae76e24789db518" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr int16_t</type>
+        <definition>constexpr int16_t tle92466ed::FB_IMIN_IMAX::SignExtend10</definition>
+        <argsstring>(uint32_t v) noexcept</argsstring>
+        <name>SignExtend10</name>
+        <qualifiedname>tle92466ed::FB_IMIN_IMAX::SignExtend10</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Sign-extend a 10-bit two&apos;s-complement field to int16_t. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1596" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1596" bodyend="1599"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1FB__IMIN__IMAX_1a22547e8377648e37d3221aa3f38bf836" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr int16_t</type>
+        <definition>constexpr int16_t tle92466ed::FB_IMIN_IMAX::ExtractIMin</definition>
+        <argsstring>(uint32_t raw) noexcept</argsstring>
+        <name>ExtractIMin</name>
+        <qualifiedname>tle92466ed::FB_IMIN_IMAX::ExtractIMin</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>raw</declname>
+        </param>
+        <briefdescription>
+<para>Extract signed 10-bit IMIN field from raw <ref refid="namespacetle92466ed_1_1FB__IMIN__IMAX" kindref="compound">FB_IMIN_IMAX</ref> read. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1602" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1602" bodyend="1604"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1FB__IMIN__IMAX_1a8df2dd72cbbd3da7de3cf85edc079a8e" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr int16_t</type>
+        <definition>constexpr int16_t tle92466ed::FB_IMIN_IMAX::ExtractIMax</definition>
+        <argsstring>(uint32_t raw) noexcept</argsstring>
+        <name>ExtractIMax</name>
+        <qualifiedname>tle92466ed::FB_IMIN_IMAX::ExtractIMax</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>raw</declname>
+        </param>
+        <briefdescription>
+<para>Extract signed 10-bit IMAX field from raw <ref refid="namespacetle92466ed_1_1FB__IMIN__IMAX" kindref="compound">FB_IMIN_IMAX</ref> read. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1607" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1607" bodyend="1609"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1FB__IMIN__IMAX_1a2f30a07402cd6a58efd3fabf44fd6a1d" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr int32_t</type>
+        <definition>constexpr int32_t tle92466ed::FB_IMIN_IMAX::FieldToMilliamps</definition>
+        <argsstring>(int16_t field) noexcept</argsstring>
+        <name>FieldToMilliamps</name>
+        <qualifiedname>tle92466ed::FB_IMIN_IMAX::FieldToMilliamps</qualifiedname>
+        <param>
+          <type>int16_t</type>
+          <declname>field</declname>
+        </param>
+        <briefdescription>
+<para>Convert a signed 10-bit IMIN/IMAX field value to milliamperes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1612" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1612" bodyend="1615"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1FB__IMIN__IMAX_1a54aa44cf3acbefaf3d21b129d5d15a88" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr int32_t</type>
+        <definition>constexpr int32_t tle92466ed::FB_IMIN_IMAX::IMin_mA</definition>
+        <argsstring>(uint32_t raw) noexcept</argsstring>
+        <name>IMin_mA</name>
+        <qualifiedname>tle92466ed::FB_IMIN_IMAX::IMin_mA</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>raw</declname>
+        </param>
+        <briefdescription>
+<para>Decode IMIN in mA from a raw <ref refid="namespacetle92466ed_1_1FB__IMIN__IMAX" kindref="compound">FB_IMIN_IMAX</ref> read. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1618" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1618" bodyend="1620"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1FB__IMIN__IMAX_1a3664f740ccf27cef7dc7c8830ae1d49b" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr int32_t</type>
+        <definition>constexpr int32_t tle92466ed::FB_IMIN_IMAX::IMax_mA</definition>
+        <argsstring>(uint32_t raw) noexcept</argsstring>
+        <name>IMax_mA</name>
+        <qualifiedname>tle92466ed::FB_IMIN_IMAX::IMax_mA</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>raw</declname>
+        </param>
+        <briefdescription>
+<para>Decode IMAX in mA from a raw <ref refid="namespacetle92466ed_1_1FB__IMIN__IMAX" kindref="compound">FB_IMIN_IMAX</ref> read. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1623" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1623" bodyend="1625"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Decoder for the <ref refid="namespacetle92466ed_1_1FB__IMIN__IMAX" kindref="compound">FB_IMIN_IMAX</ref> register (<ref refid="namespacetle92466ed_1_1ChannelReg_1a268314fe1df66390c9a20a79630a1b8e" kindref="member">ChannelReg::FB_IMIN_IMAX</ref>). </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Per datasheet \u00a75.3.3.17 p.101, <ref refid="namespacetle92466ed_1_1FB__IMIN__IMAX" kindref="compound">FB_IMIN_IMAX</ref> is a 22-bit reply frame containing two 10-bit SIGNED (two&apos;s-complement) fields:</para>
+<para>bits 9:0 IMIN I_min = &lt;IMIN&gt; \u00b7 4 A / (2^9 \u2212 1) = &lt;IMIN&gt; \u00b7 4 A / 511 bits 19:10 IMAX I_max = &lt;IMAX&gt; \u00b7 4 A / 511 bits 21:20 reserved</para>
+<para>Full-scale range is approximately \u00b14 A (values 512\u2026\u22121 map to \u22124.007\u2026+4.0 A). Negative values represent recirculation current.</para>
+<para><simplesect kind="note"><para>The previous driver decoded these as unsigned 8-bit halves; that rendered all min/max reports garbage. Always route through this namespace. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="1587" column="1"/>
+  </compounddef>
+</doxygen>

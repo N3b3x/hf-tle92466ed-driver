@@ -1,0 +1,272 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="structtle92466ed_1_1ChannelDiagnostics" kind="struct" language="C++" prot="public">
+    <compoundname>tle92466ed::ChannelDiagnostics</compoundname>
+    <includes refid="tle92466ed_8hpp" local="no">tle92466ed.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelDiagnostics_1ac69237d943d626beca5f13b9f3add335" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::ChannelDiagnostics::overcurrent</definition>
+        <argsstring></argsstring>
+        <name>overcurrent</name>
+        <qualifiedname>tle92466ed::ChannelDiagnostics::overcurrent</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Over-current detected. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="117" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="117" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelDiagnostics_1a209ffb2cf9cf8979b0235956b1ae1a5b" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::ChannelDiagnostics::short_to_ground</definition>
+        <argsstring></argsstring>
+        <name>short_to_ground</name>
+        <qualifiedname>tle92466ed::ChannelDiagnostics::short_to_ground</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Short to ground. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="118" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="118" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelDiagnostics_1a8cacc75843ea4c29ce4ee9da0bca79db" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::ChannelDiagnostics::open_load</definition>
+        <argsstring></argsstring>
+        <name>open_load</name>
+        <qualifiedname>tle92466ed::ChannelDiagnostics::open_load</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Open load. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="119" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="119" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelDiagnostics_1a44b917b5954cbfd8ef641c2f7542709a" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::ChannelDiagnostics::over_temperature</definition>
+        <argsstring></argsstring>
+        <name>over_temperature</name>
+        <qualifiedname>tle92466ed::ChannelDiagnostics::over_temperature</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Channel over-temperature error (OTE) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="120" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="120" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelDiagnostics_1a87d81edac85c7c452bd60f106cd63f02" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::ChannelDiagnostics::open_load_short_ground</definition>
+        <argsstring></argsstring>
+        <name>open_load_short_ground</name>
+        <qualifiedname>tle92466ed::ChannelDiagnostics::open_load_short_ground</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Open load or short to ground (OLSG pre-check) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="121" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="121" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelDiagnostics_1a1adeb4824d25703c9be6fc57e8b439b9" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::ChannelDiagnostics::ot_warning</definition>
+        <argsstring></argsstring>
+        <name>ot_warning</name>
+        <qualifiedname>tle92466ed::ChannelDiagnostics::ot_warning</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Channel over-temperature warning (OTW) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="124" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="124" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelDiagnostics_1ae0f53cfe04b3e5b4a70b818f4cd340c9" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::ChannelDiagnostics::current_regulation_warning</definition>
+        <argsstring></argsstring>
+        <name>current_regulation_warning</name>
+        <qualifiedname>tle92466ed::ChannelDiagnostics::current_regulation_warning</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>ICC current regulation warning (I_REG) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="125" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="125" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelDiagnostics_1a558ddb13f9c9dd85e8cbe2d306c3e25d" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::ChannelDiagnostics::pwm_regulation_warning</definition>
+        <argsstring></argsstring>
+        <name>pwm_regulation_warning</name>
+        <qualifiedname>tle92466ed::ChannelDiagnostics::pwm_regulation_warning</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>ICC PWM regulation warning (PWM_REG) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="126" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="126" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelDiagnostics_1a5efa1a8379e2097cae5c55cdcb29119f" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::ChannelDiagnostics::olsg_warning</definition>
+        <argsstring></argsstring>
+        <name>olsg_warning</name>
+        <qualifiedname>tle92466ed::ChannelDiagnostics::olsg_warning</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>OLSG warning (OLSG_WARN) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="127" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="127" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelDiagnostics_1ae81facf6eab49abf961be9a892187bc4" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::ChannelDiagnostics::olsg_check_not_performed</definition>
+        <argsstring></argsstring>
+        <name>olsg_check_not_performed</name>
+        <qualifiedname>tle92466ed::ChannelDiagnostics::olsg_check_not_performed</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>OLSG check not yet performed (OLSG_WARN_CHK_NOK; POR=1) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="128" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="128" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelDiagnostics_1af5e7e651adc3768048c785ff41a9a86e" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t tle92466ed::ChannelDiagnostics::average_current</definition>
+        <argsstring></argsstring>
+        <name>average_current</name>
+        <qualifiedname>tle92466ed::ChannelDiagnostics::average_current</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>Raw FB_I_AVG bits — use GetAverageCurrent() for mA. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="131" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="131" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelDiagnostics_1acee3dc25873b6c6f5319edca39ae69fb" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t tle92466ed::ChannelDiagnostics::duty_cycle</definition>
+        <argsstring></argsstring>
+        <name>duty_cycle</name>
+        <qualifiedname>tle92466ed::ChannelDiagnostics::duty_cycle</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>Raw FB_DC bits — use GetDutyCycle() for permyriad. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="132" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="132" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelDiagnostics_1a344be3d05074192bcd2ea96b866ba00b" prot="public" static="no" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t tle92466ed::ChannelDiagnostics::min_current_mA</definition>
+        <argsstring></argsstring>
+        <name>min_current_mA</name>
+        <qualifiedname>tle92466ed::ChannelDiagnostics::min_current_mA</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>Minimum load current in mA (signed; FB_IMIN_IMAX.IMIN) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="133" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="133" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelDiagnostics_1a2c6d2cf1587bfa8cc3ea02134cfcd9f4" prot="public" static="no" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t tle92466ed::ChannelDiagnostics::max_current_mA</definition>
+        <argsstring></argsstring>
+        <name>max_current_mA</name>
+        <qualifiedname>tle92466ed::ChannelDiagnostics::max_current_mA</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>Maximum load current in mA (signed; FB_IMIN_IMAX.IMAX) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="134" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="134" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelDiagnostics_1a39dd23c72c86686ac20d12ba1aa42847" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t tle92466ed::ChannelDiagnostics::vbat_feedback</definition>
+        <argsstring></argsstring>
+        <name>vbat_feedback</name>
+        <qualifiedname>tle92466ed::ChannelDiagnostics::vbat_feedback</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>VBAT feedback (raw FB_VBAT) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="135" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="135" bodyend="135"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Channel diagnostic information. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="inc/tle92466ed.hpp" line="115" column="1" bodyfile="inc/tle92466ed.hpp" bodystart="115" bodyend="136"/>
+    <listofallmembers>
+      <member refid="structtle92466ed_1_1ChannelDiagnostics_1af5e7e651adc3768048c785ff41a9a86e" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelDiagnostics</scope><name>average_current</name></member>
+      <member refid="structtle92466ed_1_1ChannelDiagnostics_1ae0f53cfe04b3e5b4a70b818f4cd340c9" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelDiagnostics</scope><name>current_regulation_warning</name></member>
+      <member refid="structtle92466ed_1_1ChannelDiagnostics_1acee3dc25873b6c6f5319edca39ae69fb" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelDiagnostics</scope><name>duty_cycle</name></member>
+      <member refid="structtle92466ed_1_1ChannelDiagnostics_1a2c6d2cf1587bfa8cc3ea02134cfcd9f4" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelDiagnostics</scope><name>max_current_mA</name></member>
+      <member refid="structtle92466ed_1_1ChannelDiagnostics_1a344be3d05074192bcd2ea96b866ba00b" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelDiagnostics</scope><name>min_current_mA</name></member>
+      <member refid="structtle92466ed_1_1ChannelDiagnostics_1ae81facf6eab49abf961be9a892187bc4" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelDiagnostics</scope><name>olsg_check_not_performed</name></member>
+      <member refid="structtle92466ed_1_1ChannelDiagnostics_1a5efa1a8379e2097cae5c55cdcb29119f" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelDiagnostics</scope><name>olsg_warning</name></member>
+      <member refid="structtle92466ed_1_1ChannelDiagnostics_1a8cacc75843ea4c29ce4ee9da0bca79db" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelDiagnostics</scope><name>open_load</name></member>
+      <member refid="structtle92466ed_1_1ChannelDiagnostics_1a87d81edac85c7c452bd60f106cd63f02" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelDiagnostics</scope><name>open_load_short_ground</name></member>
+      <member refid="structtle92466ed_1_1ChannelDiagnostics_1a1adeb4824d25703c9be6fc57e8b439b9" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelDiagnostics</scope><name>ot_warning</name></member>
+      <member refid="structtle92466ed_1_1ChannelDiagnostics_1a44b917b5954cbfd8ef641c2f7542709a" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelDiagnostics</scope><name>over_temperature</name></member>
+      <member refid="structtle92466ed_1_1ChannelDiagnostics_1ac69237d943d626beca5f13b9f3add335" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelDiagnostics</scope><name>overcurrent</name></member>
+      <member refid="structtle92466ed_1_1ChannelDiagnostics_1a558ddb13f9c9dd85e8cbe2d306c3e25d" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelDiagnostics</scope><name>pwm_regulation_warning</name></member>
+      <member refid="structtle92466ed_1_1ChannelDiagnostics_1a209ffb2cf9cf8979b0235956b1ae1a5b" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelDiagnostics</scope><name>short_to_ground</name></member>
+      <member refid="structtle92466ed_1_1ChannelDiagnostics_1a39dd23c72c86686ac20d12ba1aa42847" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelDiagnostics</scope><name>vbat_feedback</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

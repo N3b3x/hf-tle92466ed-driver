@@ -20,6 +20,7 @@
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -30,7 +31,7 @@
   <td id="projectalign">
    <div id="projectname">TLE92466ED Driver<span id="projectnumber">&#160;0.1.0-dev</span>
    </div>
-   <div id="projectbrief">Modern C++23 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver</div>
+   <div id="projectbrief">Modern C++20 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver</div>
   </td>
  </tr>
  </tbody>
@@ -96,18 +97,26 @@ $(function(){initNavTree('functions_i.html',''); initResizable(); });
 <div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
 
 <h3><a id="index_i" name="index_i"></a>- i -</h3><ul>
-<li>init()&#160;:&#160;<a class="el" href="classESP32C6__HAL.html#af2d75b2faaa787b1149e51d18ab0b379">ESP32C6_HAL</a>, <a class="el" href="classTLE92466ED_1_1Driver.html#a6812c6ddad257631f76e5535dc0348a4">TLE92466ED::Driver</a>, <a class="el" href="classTLE92466ED_1_1ExampleHAL.html#ade76b2bdcbe732aaf5d048cf9cb5e9b8">TLE92466ED::ExampleHAL</a>, <a class="el" href="classTLE92466ED_1_1HAL.html#a9e9e1030ced3f189fabb99ab539117ca">TLE92466ED::HAL</a></li>
-<li>init_done&#160;:&#160;<a class="el" href="structTLE92466ED_1_1DeviceStatus.html#ac132cdffd394a9acd70baf0548493cc7">TLE92466ED::DeviceStatus</a></li>
-<li>initialize()&#160;:&#160;<a class="el" href="classArduino__HAL.html#afc441d28da42aef29a55907a319086a5">Arduino_HAL</a></li>
-<li>initialized_&#160;:&#160;<a class="el" href="classESP32C6__HAL.html#a3b0a1ae6dd53fe8845d459294721b2cf">ESP32C6_HAL</a>, <a class="el" href="classTLE92466ED_1_1Driver.html#acb0604487319d6d57e1fe206e726251d">TLE92466ED::Driver</a>, <a class="el" href="classTLE92466ED_1_1ExampleHAL.html#a03fab6d1a70b3ea3822eb1385e0748a3">TLE92466ED::ExampleHAL</a></li>
-<li>initializeSPI()&#160;:&#160;<a class="el" href="classESP32C6__HAL.html#a8250c6300b43ea23a8403f3b0b6661e4">ESP32C6_HAL</a></li>
-<li>INTER_FRAME_US&#160;:&#160;<a class="el" href="structTLE92466ED__Config_1_1Timing.html#a71fd26eb2b0d746b4dae150bf160110c">TLE92466ED_Config::Timing</a></li>
-<li>is_channel_parallel()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#ac039d4d1a62b9e997dcaec6e920e5e44">TLE92466ED::Driver</a></li>
-<li>is_initialized()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#a0ee1ce0891a58b814c85003e52d93980">TLE92466ED::Driver</a></li>
-<li>is_mission_mode()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#a53d39f2f39da5aa0bc7fcdf5c884fc3e">TLE92466ED::Driver</a></li>
-<li>is_ready()&#160;:&#160;<a class="el" href="classESP32C6__HAL.html#ac8978aa80fb655cd33c96a3c3590c54e">ESP32C6_HAL</a>, <a class="el" href="classTLE92466ED_1_1ExampleHAL.html#acb6f6bbc4c2c8d28892ba095386346ed">TLE92466ED::ExampleHAL</a>, <a class="el" href="classTLE92466ED_1_1HAL.html#ad20769b9f4fbcb0ca6e23800feccccf3">TLE92466ED::HAL</a></li>
-<li>is_valid_channel_internal()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#adb669e39a82b1f895787eb554f1c400b">TLE92466ED::Driver</a></li>
-<li>isInitialized()&#160;:&#160;<a class="el" href="classArduino__HAL.html#aa867c51a61820644bd4ea914e95db08d">Arduino_HAL</a>, <a class="el" href="classESP32C6__HAL.html#a78d464168fcb8326b05282500c38463d">ESP32C6_HAL</a></li>
+<li>iavg_ma&#160;:&#160;<a class="el" href="structtle92466ed_1_1ChannelCurrentSample.html#ace84deb8ceb96da12535ff1107f72233">tle92466ed::ChannelCurrentSample</a></li>
+<li>imax_mA&#160;:&#160;<a class="el" href="structtle92466ed_1_1ChannelFeedback.html#a5ef365c652b2a80c46e3d8ed2ae6a9c1">tle92466ed::ChannelFeedback</a></li>
+<li>imin_mA&#160;:&#160;<a class="el" href="structtle92466ed_1_1ChannelFeedback.html#a5e4d5cbce04e85b47748ca022dace868">tle92466ed::ChannelFeedback</a></li>
+<li>Init()&#160;:&#160;<a class="el" href="classEsp32Tle92466edSpiBus.html#a3da7b727dfd17c6e0f08833961efc23d">Esp32Tle92466edSpiBus</a>, <a class="el" href="classtle92466ed_1_1Driver.html#a30d209f519943c70f69a160179fc8bf6">tle92466ed::Driver&lt; CommType &gt;</a>, <a class="el" href="classtle92466ed_1_1SpiInterface.html#aa68b021917632b21f8c9f2b0ac0cf665">tle92466ed::SpiInterface&lt; Derived &gt;</a></li>
+<li>init_done&#160;:&#160;<a class="el" href="structtle92466ed_1_1DeviceStatus.html#a3ab1fe0bcddd2efc648e36226e47e4ab">tle92466ed::DeviceStatus</a></li>
+<li>initialized_&#160;:&#160;<a class="el" href="classEsp32Tle92466edSpiBus.html#a043069850e70f93ebb4639914835636d">Esp32Tle92466edSpiBus</a>, <a class="el" href="classtle92466ed_1_1Driver.html#a47951e9f709f5128d6367fca15d13091">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>initializeGPIO()&#160;:&#160;<a class="el" href="classEsp32Tle92466edSpiBus.html#ae017c339fbd0d40607ad84eeba91aecf">Esp32Tle92466edSpiBus</a></li>
+<li>initializeSPI()&#160;:&#160;<a class="el" href="classEsp32Tle92466edSpiBus.html#a3ab0c7e560efec4561c7940538e4cceb">Esp32Tle92466edSpiBus</a></li>
+<li>int_thresh_seed&#160;:&#160;<a class="el" href="structtle92466ed_1_1ChannelFeedback.html#a8596104225e0d9fc2ecd3694b6293e46">tle92466ed::ChannelFeedback</a></li>
+<li>INTER_FRAME_US&#160;:&#160;<a class="el" href="structTLE92466ED__TestConfig_1_1Timing.html#aaf023abf41e248e4753d731bed20d781">TLE92466ED_TestConfig::Timing</a></li>
+<li>isChannelParallel()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a29a466a41e96d8d6eb35a22b65f8a312">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>IsConfigMode()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a50f87c21f3550f2e719a86f7292b5e60">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>IsFault()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a77658657535cc943e6ef5486e605a95e">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>isInitialized()&#160;:&#160;<a class="el" href="classEsp32Tle92466edSpiBus.html#ad73eb0c20ff589310eaef5e501e32f20">Esp32Tle92466edSpiBus</a></li>
+<li>IsInitialized()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a253a5b94877a1df932ed8e2ba036c879">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>IsMeasurementClockRunning()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a1c409cc2305d747e3aefdca8b6fe5a44">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>IsMissionMode()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#adb3fe0e3319c8a1456e670123a45279d">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>IsReady()&#160;:&#160;<a class="el" href="classEsp32Tle92466edSpiBus.html#a8584733434267fd3fe40a05918994178">Esp32Tle92466edSpiBus</a>, <a class="el" href="classtle92466ed_1_1SpiInterface.html#ac9625b7265238ef71cc3d8081fd944b3">tle92466ed::SpiInterface&lt; Derived &gt;</a></li>
+<li>isSlaveChannel()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a3963e901350df139bb429f3c5fd89264">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>isValidChannelInternal()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a177980ae6820e7339e150a457d9329c5">tle92466ed::Driver&lt; CommType &gt;</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

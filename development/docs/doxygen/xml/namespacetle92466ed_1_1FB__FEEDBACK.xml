@@ -1,0 +1,408 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1FB__FEEDBACK" kind="namespace" language="C++">
+    <compoundname>tle92466ed::FB_FEEDBACK</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__FEEDBACK_1af0a762c34fad86b43cce32aae54cd132" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_FEEDBACK::MANT11_MASK</definition>
+        <argsstring></argsstring>
+        <name>MANT11_MASK</name>
+        <qualifiedname>tle92466ed::FB_FEEDBACK::MANT11_MASK</qualifiedname>
+        <initializer>= 0x7FFu</initializer>
+        <briefdescription>
+<para>11-bit mantissa mask </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1663" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1663" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__FEEDBACK_1a25ad93b3d6daea916f7ec7f0c123a187" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_FEEDBACK::TP_MANT_SHIFT</definition>
+        <argsstring></argsstring>
+        <name>TP_MANT_SHIFT</name>
+        <qualifiedname>tle92466ed::FB_FEEDBACK::TP_MANT_SHIFT</qualifiedname>
+        <initializer>= 0u</initializer>
+        <briefdescription>
+<para>FB_DC: TP_MANT in [10:0]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1664" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1664" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__FEEDBACK_1acae811446bb7cf36eefbc0468f60ba48" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_FEEDBACK::TO_MANT_SHIFT</definition>
+        <argsstring></argsstring>
+        <name>TO_MANT_SHIFT</name>
+        <qualifiedname>tle92466ed::FB_FEEDBACK::TO_MANT_SHIFT</qualifiedname>
+        <initializer>= 11u</initializer>
+        <briefdescription>
+<para>FB_DC: TO_MANT in [21:11]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1665" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1665" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__FEEDBACK_1aa8c4b327a8378b13177d318852dbbd7c" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_FEEDBACK::I_AVG_MANT_SHIFT</definition>
+        <argsstring></argsstring>
+        <name>I_AVG_MANT_SHIFT</name>
+        <qualifiedname>tle92466ed::FB_FEEDBACK::I_AVG_MANT_SHIFT</qualifiedname>
+        <initializer>= 0u</initializer>
+        <briefdescription>
+<para>FB_I_AVG: I_AVG_MANT in [10:0]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1666" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1666" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__FEEDBACK_1a648013befe3a4fd8cd01ba714c31e05d" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_FEEDBACK::VBAT_MANT_SHIFT</definition>
+        <argsstring></argsstring>
+        <name>VBAT_MANT_SHIFT</name>
+        <qualifiedname>tle92466ed::FB_FEEDBACK::VBAT_MANT_SHIFT</qualifiedname>
+        <initializer>= 0u</initializer>
+        <briefdescription>
+<para>FB_VBAT: VBAT_AVG_MANT in [10:0]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1667" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1667" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__FEEDBACK_1ab185748d8944d1a8352a7f1f6f629ca5" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_FEEDBACK::MEAS_EXP_SHIFT</definition>
+        <argsstring></argsstring>
+        <name>MEAS_EXP_SHIFT</name>
+        <qualifiedname>tle92466ed::FB_FEEDBACK::MEAS_EXP_SHIFT</qualifiedname>
+        <initializer>= 12u</initializer>
+        <briefdescription>
+<para>FB_VBAT/FB_I_AVG: EXP in [15:12]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1668" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1668" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__FEEDBACK_1a78fed74bbbad44d2c6ab8caec4dcb166" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::FB_FEEDBACK::MEAS_EXP_MASK</definition>
+        <argsstring></argsstring>
+        <name>MEAS_EXP_MASK</name>
+        <qualifiedname>tle92466ed::FB_FEEDBACK::MEAS_EXP_MASK</qualifiedname>
+        <initializer>= 0xFu</initializer>
+        <briefdescription>
+<para>4-bit exponent mask </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1669" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1669" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__FEEDBACK_1a8cd2b4948924211829a99887b70ad3cf" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float tle92466ed::FB_FEEDBACK::I_AVG_FULL_SCALE_AMPS</definition>
+        <argsstring></argsstring>
+        <name>I_AVG_FULL_SCALE_AMPS</name>
+        <qualifiedname>tle92466ed::FB_FEEDBACK::I_AVG_FULL_SCALE_AMPS</qualifiedname>
+        <initializer>= 4.0f</initializer>
+        <briefdescription>
+<para>Iavg formula scale (4 A) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1671" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1671" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__FEEDBACK_1a210c8515fd10a7644db5032692d7b0e8" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float tle92466ed::FB_FEEDBACK::VBAT_FULL_SCALE_VOLTS</definition>
+        <argsstring></argsstring>
+        <name>VBAT_FULL_SCALE_VOLTS</name>
+        <qualifiedname>tle92466ed::FB_FEEDBACK::VBAT_FULL_SCALE_VOLTS</qualifiedname>
+        <initializer>= 41.47f</initializer>
+        <briefdescription>
+<para>VBAT formula scale (41.47 V) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1672" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1672" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FB__FEEDBACK_1aacbfe9c9f4bdb12665d413a32840140e" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::FB_FEEDBACK::kMinValidTpMant</definition>
+        <argsstring></argsstring>
+        <name>kMinValidTpMant</name>
+        <qualifiedname>tle92466ed::FB_FEEDBACK::kMinValidTpMant</qualifiedname>
+        <initializer>= 64u</initializer>
+        <briefdescription>
+<para>Smallest TP_MANT that makes the mantissa-ratio formula meaningful. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The averaged current is <computeroutput>4000 mA x I_AVG_MANT / TP_MANT</computeroutput>, so TP_MANT is the divisor <emphasis>and</emphasis> sets the resolution: 4000/TP_MANT mA per I_AVG_MANT count. At 64 counts that is ~62 mA/count, already coarse; below it a single count of noise swings the result by hundreds of mA. TP_MANT lands in that range only when the measurement window never ran (<ref refid="namespacetle92466ed_1_1DITHER__CLK__DIV" kindref="compound">DITHER_CLK_DIV</ref> at its POR value of 0, or feedback frozen by FB_FRZ) or when the reply frame was spliced on a shared bus — never during healthy operation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1721" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1721" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacetle92466ed_1_1FB__FEEDBACK_1ac5124d824cde526c425f428f906e79b1" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr int16_t</type>
+        <definition>constexpr int16_t tle92466ed::FB_FEEDBACK::SignExtend11</definition>
+        <argsstring>(uint32_t v) noexcept</argsstring>
+        <name>SignExtend11</name>
+        <qualifiedname>tle92466ed::FB_FEEDBACK::SignExtend11</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Sign-extend an 11-bit two&apos;s-complement value into int16_t. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1675" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1675" bodyend="1678"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1FB__FEEDBACK_1aa4e43aed044bac739dcd0325e4738d51" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::FB_FEEDBACK::ExtractTpMant</definition>
+        <argsstring>(uint32_t fb_dc_raw) noexcept</argsstring>
+        <name>ExtractTpMant</name>
+        <qualifiedname>tle92466ed::FB_FEEDBACK::ExtractTpMant</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>fb_dc_raw</declname>
+        </param>
+        <briefdescription>
+<para>Extract TP_MANT (Period Mantissa, 11 bits unsigned) from a raw FB_DC read. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1681" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1681" bodyend="1683"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1FB__FEEDBACK_1aab1e06f3c4496620a6862d6a3d430fec" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::FB_FEEDBACK::ExtractToMant</definition>
+        <argsstring>(uint32_t fb_dc_raw) noexcept</argsstring>
+        <name>ExtractToMant</name>
+        <qualifiedname>tle92466ed::FB_FEEDBACK::ExtractToMant</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>fb_dc_raw</declname>
+        </param>
+        <briefdescription>
+<para>Extract TO_MANT (On-time Mantissa, 11 bits unsigned) from a raw FB_DC read. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1686" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1686" bodyend="1688"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1FB__FEEDBACK_1a448408a75c795ccc1f520ebf163140be" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr int16_t</type>
+        <definition>constexpr int16_t tle92466ed::FB_FEEDBACK::ExtractIAvgMant</definition>
+        <argsstring>(uint32_t fb_i_avg_raw) noexcept</argsstring>
+        <name>ExtractIAvgMant</name>
+        <qualifiedname>tle92466ed::FB_FEEDBACK::ExtractIAvgMant</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>fb_i_avg_raw</declname>
+        </param>
+        <briefdescription>
+<para>Extract signed I_AVG_MANT (11-bit two&apos;s-complement) from FB_I_AVG. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1691" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1691" bodyend="1693"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1FB__FEEDBACK_1a82b7a34f4e8d194741f1731af469bc6c" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint8_t</type>
+        <definition>constexpr uint8_t tle92466ed::FB_FEEDBACK::ExtractMeasExp</definition>
+        <argsstring>(uint32_t fb_vbat_or_iavg_raw) noexcept</argsstring>
+        <name>ExtractMeasExp</name>
+        <qualifiedname>tle92466ed::FB_FEEDBACK::ExtractMeasExp</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>fb_vbat_or_iavg_raw</declname>
+        </param>
+        <briefdescription>
+<para>Extract the 4-bit measurement exponent from FB_VBAT or FB_I_AVG. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1696" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1696" bodyend="1698"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1FB__FEEDBACK_1afcb6b1a6b94efd0c1e19fb3fc1327317" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr float</type>
+        <definition>constexpr float tle92466ed::FB_FEEDBACK::ComputeDutyCycle</definition>
+        <argsstring>(uint32_t fb_dc_raw) noexcept</argsstring>
+        <name>ComputeDutyCycle</name>
+        <qualifiedname>tle92466ed::FB_FEEDBACK::ComputeDutyCycle</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>fb_dc_raw</declname>
+        </param>
+        <briefdescription>
+<para>Compute duty cycle (0.0 – 1.0) from a raw FB_DC value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Duty cycle as a float in [0.0, 1.0]; returns 0 if TP_MANT is 0. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1704" column="18" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1704" bodyend="1708"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1FB__FEEDBACK_1a3f046aea7a3b4d2c4cdee8ab2a0c2391" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr bool</type>
+        <definition>constexpr bool tle92466ed::FB_FEEDBACK::HasValidMeasurementWindow</definition>
+        <argsstring>(uint32_t fb_dc_raw) noexcept</argsstring>
+        <name>HasValidMeasurementWindow</name>
+        <qualifiedname>tle92466ed::FB_FEEDBACK::HasValidMeasurementWindow</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>fb_dc_raw</declname>
+        </param>
+        <briefdescription>
+<para>True when FB_DC reports a measurement period usable for ratio decoding. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1724" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1724" bodyend="1726"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1FB__FEEDBACK_1a4cf01ca7621b1e88e1dd0cc27f9c27f6" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>int32_t</type>
+        <definition>int32_t tle92466ed::FB_FEEDBACK::ComputeAverageCurrent_mA</definition>
+        <argsstring>(uint32_t fb_i_avg_raw, uint32_t fb_dc_raw) noexcept</argsstring>
+        <name>ComputeAverageCurrent_mA</name>
+        <qualifiedname>tle92466ed::FB_FEEDBACK::ComputeAverageCurrent_mA</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>fb_i_avg_raw</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>fb_dc_raw</declname>
+        </param>
+        <briefdescription>
+<para>Compute average current in mA (signed) from FB_I_AVG and FB_DC. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fb_i_avg_raw</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Raw 22-bit FB_I_AVG read (provides I_AVG_MANT) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fb_dc_raw</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Raw 22-bit FB_DC read (provides TP_MANT for the divisor) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Average load current in mA (signed); returns 0 if TP_MANT is 0. </para>
+</simplesect>
+<simplesect kind="warning"><para>Callers should gate on <ref refid="namespacetle92466ed_1_1FB__FEEDBACK_1a3f046aea7a3b4d2c4cdee8ab2a0c2391" kindref="member">HasValidMeasurementWindow</ref> first; this function only guards against division by zero, not against the near-zero divisors that produce wildly overstated currents. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1737" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1737" bodyend="1746"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1FB__FEEDBACK_1a5c2c89086abaa1162dc62027bf6dd56b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t tle92466ed::FB_FEEDBACK::ComputeVbatChannel_mV</definition>
+        <argsstring>(uint32_t fb_vbat_raw, uint32_t fb_dc_raw) noexcept</argsstring>
+        <name>ComputeVbatChannel_mV</name>
+        <qualifiedname>tle92466ed::FB_FEEDBACK::ComputeVbatChannel_mV</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>fb_vbat_raw</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>fb_dc_raw</declname>
+        </param>
+        <briefdescription>
+<para>Compute averaged battery voltage in mV from FB_VBAT and FB_DC. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fb_vbat_raw</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Raw 22-bit FB_VBAT read (provides VBAT_AVG_MANT) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fb_dc_raw</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Raw 22-bit FB_DC read (provides TP_MANT for the divisor) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Battery voltage in mV; returns 0 if TP_MANT is 0. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1754" column="18" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1754" bodyend="1764"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Per-channel averaged feedback decoders for FB_DC, FB_I_AVG, FB_VBAT. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Per datasheet §4.10.2 &quot;Average feedback values&quot;, each per-channel feedback register is a 22-bit reply frame containing mantissa fields. The averaged quantities are reconstructed as ratios of mantissa values:</para>
+<para>FB_DC (offset 0x200 within channel bank): bits [10:0] = TP_MANT (Period Mantissa, unsigned 11-bit) bits [21:11] = TO_MANT (On-time Mantissa, unsigned 11-bit) → Duty cycle (fraction) = TO_MANT / TP_MANT → T_meas = TP_MANT × 2^EXP / fSYS (EXP from FB_VBAT or FB_I_AVG) → t_ON = TO_MANT × 2^EXP / fSYS</para>
+<para>FB_I_AVG (offset 0x202 within channel bank): bits [10:0] = I_AVG_MANT (signed 11-bit, two&apos;s complement) bits [15:12] = EXP (4-bit measurement exponent) → Iavg = 4 A × signed(I_AVG_MANT) / TP_MANT</para>
+<para>FB_VBAT (offset 0x201 within channel bank): bits [10:0] = VBAT_AVG_MANT (unsigned 11-bit) bits [15:12] = EXP (4-bit measurement exponent) → VBAT = 41.47 V × VBAT_AVG_MANT / TP_MANT</para>
+<para><simplesect kind="note"><para>To compute average current or duty cycle in engineering units, BOTH FB_DC and FB_I_AVG must be read for the same channel (TP_MANT lives in FB_DC, I_AVG_MANT in FB_I_AVG). </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="1661" column="1"/>
+  </compounddef>
+</doxygen>

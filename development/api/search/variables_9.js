@@ -1,4 +1,29 @@
 var searchData=
 [
-  ['junction_5fmax_0',['JUNCTION_MAX',['../structTLE92466ED__TestConfig_1_1Temperature.html#a916d4ee3dd1b99e45a2e7982801f82e5',1,'TLE92466ED_TestConfig::Temperature']]]
+  ['i_5favg_5ffull_5fscale_5famps_0',['I_AVG_FULL_SCALE_AMPS',['../namespacetle92466ed_1_1FB__FEEDBACK.html#a8cd2b4948924211829a99887b70ad3cf',1,'tle92466ed::FB_FEEDBACK']]],
+  ['i_5favg_5fmant_5fshift_1',['I_AVG_MANT_SHIFT',['../namespacetle92466ed_1_1FB__FEEDBACK.html#aa8c4b327a8378b13177d318852dbbd7c',1,'tle92466ed::FB_FEEDBACK']]],
+  ['i_5favg_5fmask_2',['I_AVG_MASK',['../namespacetle92466ed_1_1FB__I__AVG__s16.html#a30bb06f8595f069fc9f507904b9768f2',1,'tle92466ed::FB_I_AVG_s16']]],
+  ['i_5favg_5fsign_5fbit_3',['I_AVG_SIGN_BIT',['../namespacetle92466ed_1_1FB__I__AVG__s16.html#a14d7b748adf07fc0e9aa73f3cf96db94',1,'tle92466ed::FB_I_AVG_s16']]],
+  ['i_5fdiag_5f1250ua_4',['I_DIAG_1250UA',['../namespacetle92466ed_1_1CH__CONFIG.html#a9deb212ff8ce1d147652225a9dfb7d49',1,'tle92466ed::CH_CONFIG']]],
+  ['i_5fdiag_5f190ua_5',['I_DIAG_190UA',['../namespacetle92466ed_1_1CH__CONFIG.html#a1e93f168cd22a6fccf9c8922f378050b',1,'tle92466ed::CH_CONFIG']]],
+  ['i_5fdiag_5f720ua_6',['I_DIAG_720UA',['../namespacetle92466ed_1_1CH__CONFIG.html#a87b13f0a6758b12575eba5d03fe2716a',1,'tle92466ed::CH_CONFIG']]],
+  ['i_5fdiag_5f80ua_7',['I_DIAG_80UA',['../namespacetle92466ed_1_1CH__CONFIG.html#a0fa94efb6deff9caf4e6bbbe47d8d53d',1,'tle92466ed::CH_CONFIG']]],
+  ['i_5fdiag_5fmask_8',['I_DIAG_MASK',['../namespacetle92466ed_1_1CH__CONFIG.html#a7f5b53e9e012e078b010fcd09943d6ec',1,'tle92466ed::CH_CONFIG']]],
+  ['iavg_5fma_9',['iavg_ma',['../structtle92466ed_1_1ChannelCurrentSample.html#ace84deb8ceb96da12535ff1107f72233',1,'tle92466ed::ChannelCurrentSample']]],
+  ['icc_5fcurrent_5fctrl_10',['ICC_CURRENT_CTRL',['../namespacetle92466ed_1_1CH__MODE.html#a314fb04ca584165fa0092dd9d8553da9',1,'tle92466ed::CH_MODE']]],
+  ['icvid_11',['ICVID',['../namespacetle92466ed_1_1CentralReg.html#a0f0eac53e8a589e078c9a240c2ef3684',1,'tle92466ed::CentralReg']]],
+  ['imax_5fma_12',['imax_mA',['../structtle92466ed_1_1ChannelFeedback.html#a5ef365c652b2a80c46e3d8ed2ae6a9c1',1,'tle92466ed::ChannelFeedback']]],
+  ['imax_5fmask_13',['IMAX_MASK',['../namespacetle92466ed_1_1FB__IMIN__IMAX.html#a2c95435f954b44766a4d49331fce7f77',1,'tle92466ed::FB_IMIN_IMAX']]],
+  ['imax_5fshift_14',['IMAX_SHIFT',['../namespacetle92466ed_1_1FB__IMIN__IMAX.html#aa8d22c28d4bb28952e31fd3ec865d9e5',1,'tle92466ed::FB_IMIN_IMAX']]],
+  ['imin_5fma_15',['imin_mA',['../structtle92466ed_1_1ChannelFeedback.html#a5e4d5cbce04e85b47748ca022dace868',1,'tle92466ed::ChannelFeedback']]],
+  ['imin_5fmask_16',['IMIN_MASK',['../namespacetle92466ed_1_1FB__IMIN__IMAX.html#a40e63c3ab4b8f34af4f82568ee2112c7',1,'tle92466ed::FB_IMIN_IMAX']]],
+  ['imin_5fshift_17',['IMIN_SHIFT',['../namespacetle92466ed_1_1FB__IMIN__IMAX.html#ac3c820a22fdee740ed49899a107ccb18',1,'tle92466ed::FB_IMIN_IMAX']]],
+  ['init_5fdone_18',['init_done',['../structtle92466ed_1_1DeviceStatus.html#a3ab1fe0bcddd2efc648e36226e47e4ab',1,'tle92466ed::DeviceStatus']]],
+  ['init_5fdone_19',['INIT_DONE',['../namespacetle92466ed_1_1FB__STAT.html#a1c4d0c779ee8eaf985434e2ecc2928d5',1,'tle92466ed::FB_STAT']]],
+  ['initialized_5f_20',['initialized_',['../classtle92466ed_1_1Driver.html#a47951e9f709f5128d6367fca15d13091',1,'tle92466ed::Driver::initialized_'],['../classEsp32Tle92466edSpiBus.html#a043069850e70f93ebb4639914835636d',1,'Esp32Tle92466edSpiBus::initialized_']]],
+  ['int_5fthresh_5fmask_21',['INT_THRESH_MASK',['../namespacetle92466ed_1_1CTRL__INT__THRESH.html#a2c116a9d5232f9587c3ba543c83f0efe',1,'tle92466ed::CTRL_INT_THRESH::INT_THRESH_MASK'],['../namespacetle92466ed_1_1FB__INT__THRESH.html#a568233725b97b9506bb7d27ed7d81df3',1,'tle92466ed::FB_INT_THRESH::INT_THRESH_MASK']]],
+  ['int_5fthresh_5fseed_22',['int_thresh_seed',['../structtle92466ed_1_1ChannelFeedback.html#a8596104225e0d9fc2ecd3694b6293e46',1,'tle92466ed::ChannelFeedback']]],
+  ['integrator_5flimit_23',['INTEGRATOR_LIMIT',['../namespacetle92466ed_1_1ChannelReg.html#a339b9d5b25c2d0d92d43454f8a0c6c76',1,'tle92466ed::ChannelReg']]],
+  ['inter_5fframe_5fus_24',['INTER_FRAME_US',['../structTLE92466ED__TestConfig_1_1Timing.html#aaf023abf41e248e4753d731bed20d781',1,'TLE92466ED_TestConfig::Timing']]],
+  ['internal_5fosc_25',['INTERNAL_OSC',['../namespacetle92466ed_1_1CLK__DIV.html#ad69a760fad0db3da47805c2474c27bb4',1,'tle92466ed::CLK_DIV']]]
 ];

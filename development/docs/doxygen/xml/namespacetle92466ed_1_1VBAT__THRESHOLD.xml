@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1VBAT__THRESHOLD" kind="namespace" language="C++">
+    <compoundname>tle92466ed::VBAT_THRESHOLD</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1VBAT__THRESHOLD_1a2ad7b799e40bf7f351e39d2debf47e5b" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float tle92466ed::VBAT_THRESHOLD::LSB_VOLTAGE</definition>
+        <argsstring></argsstring>
+        <name>LSB_VOLTAGE</name>
+        <qualifiedname>tle92466ed::VBAT_THRESHOLD::LSB_VOLTAGE</qualifiedname>
+        <initializer>= 0.16208F</initializer>
+        <briefdescription>
+<para>Voltage per LSB (0.16208V) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1433" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1433" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1VBAT__THRESHOLD_1a2b0f389cd833ee70e8a4d0f231c052ad" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float tle92466ed::VBAT_THRESHOLD::MIN_VOLTAGE</definition>
+        <argsstring></argsstring>
+        <name>MIN_VOLTAGE</name>
+        <qualifiedname>tle92466ed::VBAT_THRESHOLD::MIN_VOLTAGE</qualifiedname>
+        <initializer>= 0.0F</initializer>
+        <briefdescription>
+<para>Minimum voltage (0V) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1434" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1434" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1VBAT__THRESHOLD_1a50b0e62e17aabf420693c082a190540a" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float tle92466ed::VBAT_THRESHOLD::MAX_VOLTAGE</definition>
+        <argsstring></argsstring>
+        <name>MAX_VOLTAGE</name>
+        <qualifiedname>tle92466ed::VBAT_THRESHOLD::MAX_VOLTAGE</qualifiedname>
+        <initializer>= 41.4F</initializer>
+        <briefdescription>
+<para>Maximum voltage (255 × 0.16208V) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1435" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1435" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacetle92466ed_1_1VBAT__THRESHOLD_1a6ab6602793e6ab8f0c3f262a7a180e74" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint8_t</type>
+        <definition>constexpr uint8_t tle92466ed::VBAT_THRESHOLD::CalculateFromVoltage</definition>
+        <argsstring>(float voltage_volts) noexcept</argsstring>
+        <name>CalculateFromVoltage</name>
+        <qualifiedname>tle92466ed::VBAT_THRESHOLD::CalculateFromVoltage</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>voltage_volts</declname>
+        </param>
+        <briefdescription>
+<para>Calculate register value from voltage. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>voltage_volts</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Voltage in volts </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Register value (0-255), or 0 if out of range </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1442" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1442" bodyend="1451"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1VBAT__THRESHOLD_1ab7766108415f09476fb954484f0318ce" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr float</type>
+        <definition>constexpr float tle92466ed::VBAT_THRESHOLD::CalculateVoltage</definition>
+        <argsstring>(uint8_t register_value) noexcept</argsstring>
+        <name>CalculateVoltage</name>
+        <qualifiedname>tle92466ed::VBAT_THRESHOLD::CalculateVoltage</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>register_value</declname>
+        </param>
+        <briefdescription>
+<para>Calculate voltage from register value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>register_value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Register value (0-255) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Voltage in volts </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1458" column="18" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1458" bodyend="1460"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>VBAT threshold helper functions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Provides functions to convert between voltage values and register values.</para>
+<para><bold>Formula</bold>: V_BAT = register_value × 0.16208V register_value = V_BAT / 0.16208V</para>
+<para>Valid range: 0V to ~41.4V (255 × 0.16208V) </para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="1432" column="1"/>
+  </compounddef>
+</doxygen>

@@ -113,8 +113,11 @@ $(function(){initNavTree('classEsp32Tle92466edSpiBus.html',''); initResizable();
 Inheritance diagram for Esp32Tle92466edSpiBus:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="classEsp32Tle92466edSpiBus.png" alt=""/>
- </div></div>
+  <img src="classEsp32Tle92466edSpiBus.png" usemap="#Esp32Tle92466edSpiBus_map" alt=""/>
+  <map id="Esp32Tle92466edSpiBus_map" name="Esp32Tle92466edSpiBus_map">
+<area href="classtle92466ed_1_1SpiInterface.html" alt="tle92466ed::SpiInterface&lt; Esp32Tle92466edSpiBus &gt;" shape="rect" coords="0,0,312,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -133,58 +136,121 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a95dc225cfcc75e153c20d0d638b3eaf0" id="r_a95dc225cfcc75e153c20d0d638b3eaf0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a95dc225cfcc75e153c20d0d638b3eaf0">~Esp32Tle92466edSpiBus</a> () noexcept</td></tr>
 <tr class="memdesc:a95dc225cfcc75e153c20d0d638b3eaf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor - cleans up SPI resources.  <br /></td></tr>
 <tr class="separator:a95dc225cfcc75e153c20d0d638b3eaf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3da7b727dfd17c6e0f08833961efc23d" id="r_a3da7b727dfd17c6e0f08833961efc23d"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3da7b727dfd17c6e0f08833961efc23d">Init</a> () noexcept -&gt; CommResult&lt; void &gt;</td></tr>
+<tr class="memitem:a3da7b727dfd17c6e0f08833961efc23d" id="r_a3da7b727dfd17c6e0f08833961efc23d"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3da7b727dfd17c6e0f08833961efc23d">Init</a> () noexcept -&gt; <a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt; void &gt;</td></tr>
 <tr class="memdesc:a3da7b727dfd17c6e0f08833961efc23d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the CommInterface (must be called before use)  <br /></td></tr>
 <tr class="separator:a3da7b727dfd17c6e0f08833961efc23d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c3494ca635f993181689a0f8c1c6972" id="r_a5c3494ca635f993181689a0f8c1c6972"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c3494ca635f993181689a0f8c1c6972">Deinit</a> () noexcept -&gt; CommResult&lt; void &gt;</td></tr>
+<tr class="memitem:a5c3494ca635f993181689a0f8c1c6972" id="r_a5c3494ca635f993181689a0f8c1c6972"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c3494ca635f993181689a0f8c1c6972">Deinit</a> () noexcept -&gt; <a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt; void &gt;</td></tr>
 <tr class="memdesc:a5c3494ca635f993181689a0f8c1c6972"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitialize the CommInterface.  <br /></td></tr>
 <tr class="separator:a5c3494ca635f993181689a0f8c1c6972"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b2dffe7d4f9bad0e67eb27867736e61" id="r_a9b2dffe7d4f9bad0e67eb27867736e61"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b2dffe7d4f9bad0e67eb27867736e61">Transfer32</a> (uint32_t tx_data) noexcept -&gt; CommResult&lt; uint32_t &gt;</td></tr>
+<tr class="memitem:a9b2dffe7d4f9bad0e67eb27867736e61" id="r_a9b2dffe7d4f9bad0e67eb27867736e61"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b2dffe7d4f9bad0e67eb27867736e61">Transfer32</a> (uint32_t tx_data) noexcept -&gt; <a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt; uint32_t &gt;</td></tr>
 <tr class="memdesc:a9b2dffe7d4f9bad0e67eb27867736e61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfer 32-bit data via SPI (full-duplex)  <br /></td></tr>
 <tr class="separator:a9b2dffe7d4f9bad0e67eb27867736e61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8eb66b714d008e98fd6862f959d000e" id="r_ac8eb66b714d008e98fd6862f959d000e"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac8eb66b714d008e98fd6862f959d000e">TransferMulti</a> (std::span&lt; const uint32_t &gt; tx_data, std::span&lt; uint32_t &gt; rx_data) noexcept -&gt; CommResult&lt; void &gt;</td></tr>
+<tr class="memitem:ac8eb66b714d008e98fd6862f959d000e" id="r_ac8eb66b714d008e98fd6862f959d000e"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac8eb66b714d008e98fd6862f959d000e">TransferMulti</a> (std::span&lt; const uint32_t &gt; tx_data, std::span&lt; uint32_t &gt; rx_data) noexcept -&gt; <a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt; void &gt;</td></tr>
 <tr class="memdesc:ac8eb66b714d008e98fd6862f959d000e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfer multiple 32-bit words via SPI.  <br /></td></tr>
 <tr class="separator:ac8eb66b714d008e98fd6862f959d000e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae86fba1c53bcf96b262060304b8b115a" id="r_ae86fba1c53bcf96b262060304b8b115a"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae86fba1c53bcf96b262060304b8b115a">Delay</a> (uint32_t microseconds) noexcept -&gt; CommResult&lt; void &gt;</td></tr>
+<tr class="memitem:ae86fba1c53bcf96b262060304b8b115a" id="r_ae86fba1c53bcf96b262060304b8b115a"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae86fba1c53bcf96b262060304b8b115a">Delay</a> (uint32_t microseconds) noexcept -&gt; <a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt; void &gt;</td></tr>
 <tr class="memdesc:ae86fba1c53bcf96b262060304b8b115a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delay for specified duration.  <br /></td></tr>
 <tr class="separator:ae86fba1c53bcf96b262060304b8b115a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5711f4c3c3bdf545ca10b32ef2399aac" id="r_a5711f4c3c3bdf545ca10b32ef2399aac"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5711f4c3c3bdf545ca10b32ef2399aac">Configure</a> (const tle92466ed::SPIConfig &amp;config) noexcept -&gt; CommResult&lt; void &gt;</td></tr>
+<tr class="memitem:a5711f4c3c3bdf545ca10b32ef2399aac" id="r_a5711f4c3c3bdf545ca10b32ef2399aac"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5711f4c3c3bdf545ca10b32ef2399aac">Configure</a> (const <a class="el" href="structtle92466ed_1_1SPIConfig.html">tle92466ed::SPIConfig</a> &amp;config) noexcept -&gt; <a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt; void &gt;</td></tr>
 <tr class="memdesc:a5711f4c3c3bdf545ca10b32ef2399aac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure SPI parameters.  <br /></td></tr>
 <tr class="separator:a5711f4c3c3bdf545ca10b32ef2399aac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8584733434267fd3fe40a05918994178" id="r_a8584733434267fd3fe40a05918994178"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8584733434267fd3fe40a05918994178">IsReady</a> () const noexcept</td></tr>
 <tr class="memdesc:a8584733434267fd3fe40a05918994178"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if hardware is ready for communication.  <br /></td></tr>
 <tr class="separator:a8584733434267fd3fe40a05918994178"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a230b32d97c901977d39f76648523c3c0" id="r_a230b32d97c901977d39f76648523c3c0"><td class="memItemLeft" align="right" valign="top">CommError&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a230b32d97c901977d39f76648523c3c0">GetLastError</a> () const noexcept</td></tr>
+<tr class="memitem:a230b32d97c901977d39f76648523c3c0" id="r_a230b32d97c901977d39f76648523c3c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetle92466ed.html#aa2dd28a51f522fa021dc03e744b51a4a">CommError</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a230b32d97c901977d39f76648523c3c0">GetLastError</a> () const noexcept</td></tr>
 <tr class="memdesc:a230b32d97c901977d39f76648523c3c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the last error that occurred.  <br /></td></tr>
 <tr class="separator:a230b32d97c901977d39f76648523c3c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af63d5b9edd17b58a23febdcf6c927efb" id="r_af63d5b9edd17b58a23febdcf6c927efb"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af63d5b9edd17b58a23febdcf6c927efb">ClearErrors</a> () noexcept -&gt; CommResult&lt; void &gt;</td></tr>
+<tr class="memitem:af63d5b9edd17b58a23febdcf6c927efb" id="r_af63d5b9edd17b58a23febdcf6c927efb"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af63d5b9edd17b58a23febdcf6c927efb">ClearErrors</a> () noexcept -&gt; <a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt; void &gt;</td></tr>
 <tr class="memdesc:af63d5b9edd17b58a23febdcf6c927efb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear any pending errors.  <br /></td></tr>
 <tr class="separator:af63d5b9edd17b58a23febdcf6c927efb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92aaf5c2cdd6e26daa496051a8426a16" id="r_a92aaf5c2cdd6e26daa496051a8426a16"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92aaf5c2cdd6e26daa496051a8426a16">getConfig</a> () const noexcept -&gt; const <a class="el" href="structEsp32Tle92466edSpiBus_1_1SPIConfig.html">SPIConfig</a> &amp;</td></tr>
 <tr class="memdesc:a92aaf5c2cdd6e26daa496051a8426a16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current SPI configuration.  <br /></td></tr>
 <tr class="separator:a92aaf5c2cdd6e26daa496051a8426a16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a932d66a7d0dec57677864b3a01c6102b" id="r_a932d66a7d0dec57677864b3a01c6102b"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a932d66a7d0dec57677864b3a01c6102b">GpioSet</a> (CtrlPin pin, GpioSignal signal) noexcept -&gt; CommResult&lt; void &gt;</td></tr>
+<tr class="memitem:a932d66a7d0dec57677864b3a01c6102b" id="r_a932d66a7d0dec57677864b3a01c6102b"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a932d66a7d0dec57677864b3a01c6102b">GpioSet</a> (<a class="el" href="namespacetle92466ed.html#a42eacb1b3fd11b3412b6aef4b0d2e1d8">CtrlPin</a> pin, <a class="el" href="namespacetle92466ed.html#a3e575e91f20807f25c8de6922b3def9d">GpioSignal</a> signal) noexcept -&gt; <a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt; void &gt;</td></tr>
 <tr class="memdesc:a932d66a7d0dec57677864b3a01c6102b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set GPIO control pin signal.  <br /></td></tr>
 <tr class="separator:a932d66a7d0dec57677864b3a01c6102b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a516f3843e68dfb83264a7d2747e6bc18" id="r_a516f3843e68dfb83264a7d2747e6bc18"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a516f3843e68dfb83264a7d2747e6bc18">GpioRead</a> (CtrlPin pin) noexcept -&gt; CommResult&lt; GpioSignal &gt;</td></tr>
+<tr class="memitem:a516f3843e68dfb83264a7d2747e6bc18" id="r_a516f3843e68dfb83264a7d2747e6bc18"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a516f3843e68dfb83264a7d2747e6bc18">GpioRead</a> (<a class="el" href="namespacetle92466ed.html#a42eacb1b3fd11b3412b6aef4b0d2e1d8">CtrlPin</a> pin) noexcept -&gt; <a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt; <a class="el" href="namespacetle92466ed.html#a3e575e91f20807f25c8de6922b3def9d">GpioSignal</a> &gt;</td></tr>
 <tr class="memdesc:a516f3843e68dfb83264a7d2747e6bc18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read GPIO control pin signal.  <br /></td></tr>
 <tr class="separator:a516f3843e68dfb83264a7d2747e6bc18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51ba27e05beb007f49ecba1bfd72eb74" id="r_a51ba27e05beb007f49ecba1bfd72eb74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a51ba27e05beb007f49ecba1bfd72eb74">Log</a> (LogLevel level, const char *tag, const char *format, va_list args) noexcept</td></tr>
+<tr class="memitem:a51ba27e05beb007f49ecba1bfd72eb74" id="r_a51ba27e05beb007f49ecba1bfd72eb74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a51ba27e05beb007f49ecba1bfd72eb74">Log</a> (<a class="el" href="namespacetle92466ed.html#ae9d7e11b24ee920250df1e83b0f98509">LogLevel</a> level, const char *tag, const char *format, va_list args) noexcept</td></tr>
 <tr class="memdesc:a51ba27e05beb007f49ecba1bfd72eb74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log a message with specified severity level and tag (ESP_LOG implementation)  <br /></td></tr>
 <tr class="separator:a51ba27e05beb007f49ecba1bfd72eb74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad73eb0c20ff589310eaef5e501e32f20" id="r_ad73eb0c20ff589310eaef5e501e32f20"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad73eb0c20ff589310eaef5e501e32f20">isInitialized</a> () const noexcept -&gt; bool</td></tr>
 <tr class="memdesc:ad73eb0c20ff589310eaef5e501e32f20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if CommInterface is initialized.  <br /></td></tr>
 <tr class="separator:ad73eb0c20ff589310eaef5e501e32f20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classtle92466ed_1_1SpiInterface"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classtle92466ed_1_1SpiInterface')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classtle92466ed_1_1SpiInterface.html">tle92466ed::SpiInterface&lt; Esp32Tle92466edSpiBus &gt;</a></td></tr>
+<tr class="memitem:aa68b021917632b21f8c9f2b0ac0cf665 inherit pub_methods_classtle92466ed_1_1SpiInterface" id="r_aa68b021917632b21f8c9f2b0ac0cf665"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtle92466ed_1_1SpiInterface.html#aa68b021917632b21f8c9f2b0ac0cf665">Init</a> () noexcept</td></tr>
+<tr class="memdesc:aa68b021917632b21f8c9f2b0ac0cf665 inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the hardware interface.  <br /></td></tr>
+<tr class="separator:aa68b021917632b21f8c9f2b0ac0cf665 inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63683e3410c3773ac311037215ef34ef inherit pub_methods_classtle92466ed_1_1SpiInterface" id="r_a63683e3410c3773ac311037215ef34ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtle92466ed_1_1SpiInterface.html#a63683e3410c3773ac311037215ef34ef">Deinit</a> () noexcept</td></tr>
+<tr class="memdesc:a63683e3410c3773ac311037215ef34ef inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitialize the hardware interface.  <br /></td></tr>
+<tr class="separator:a63683e3410c3773ac311037215ef34ef inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a402b215387796d2dd36d429c46d92b11 inherit pub_methods_classtle92466ed_1_1SpiInterface" id="r_a402b215387796d2dd36d429c46d92b11"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtle92466ed_1_1SpiInterface.html#a402b215387796d2dd36d429c46d92b11">Transfer32</a> (uint32_t tx_data) noexcept</td></tr>
+<tr class="memdesc:a402b215387796d2dd36d429c46d92b11 inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfer 32-bit data via SPI (full-duplex)  <br /></td></tr>
+<tr class="separator:a402b215387796d2dd36d429c46d92b11 inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac638c7e316d2be23f240c482619e2433 inherit pub_methods_classtle92466ed_1_1SpiInterface" id="r_ac638c7e316d2be23f240c482619e2433"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtle92466ed_1_1SpiInterface.html#ac638c7e316d2be23f240c482619e2433">TransferMulti</a> (std::span&lt; const uint32_t &gt; tx_data, std::span&lt; uint32_t &gt; rx_data) noexcept</td></tr>
+<tr class="memdesc:ac638c7e316d2be23f240c482619e2433 inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfer multiple 32-bit words via SPI in one CS assertion window.  <br /></td></tr>
+<tr class="separator:ac638c7e316d2be23f240c482619e2433 inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab94ea9f452febbe30c0a44e1e00f911c inherit pub_methods_classtle92466ed_1_1SpiInterface" id="r_ab94ea9f452febbe30c0a44e1e00f911c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtle92466ed_1_1SpiInterface.html#ab94ea9f452febbe30c0a44e1e00f911c">Delay</a> (uint32_t microseconds) noexcept</td></tr>
+<tr class="memdesc:ab94ea9f452febbe30c0a44e1e00f911c inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delay for specified duration.  <br /></td></tr>
+<tr class="separator:ab94ea9f452febbe30c0a44e1e00f911c inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0629ce233e0aa304d7faaf6aebf083e5 inherit pub_methods_classtle92466ed_1_1SpiInterface" id="r_a0629ce233e0aa304d7faaf6aebf083e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtle92466ed_1_1SpiInterface.html#a0629ce233e0aa304d7faaf6aebf083e5">Configure</a> (const <a class="el" href="structtle92466ed_1_1SPIConfig.html">SPIConfig</a> &amp;config) noexcept</td></tr>
+<tr class="memdesc:a0629ce233e0aa304d7faaf6aebf083e5 inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure SPI parameters.  <br /></td></tr>
+<tr class="separator:a0629ce233e0aa304d7faaf6aebf083e5 inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9625b7265238ef71cc3d8081fd944b3 inherit pub_methods_classtle92466ed_1_1SpiInterface" id="r_ac9625b7265238ef71cc3d8081fd944b3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtle92466ed_1_1SpiInterface.html#ac9625b7265238ef71cc3d8081fd944b3">IsReady</a> () const noexcept</td></tr>
+<tr class="memdesc:ac9625b7265238ef71cc3d8081fd944b3 inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if hardware is ready for communication.  <br /></td></tr>
+<tr class="separator:ac9625b7265238ef71cc3d8081fd944b3 inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab95fc99a3717ccbf9de96d69a10cf5b4 inherit pub_methods_classtle92466ed_1_1SpiInterface" id="r_ab95fc99a3717ccbf9de96d69a10cf5b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetle92466ed.html#aa2dd28a51f522fa021dc03e744b51a4a">CommError</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtle92466ed_1_1SpiInterface.html#ab95fc99a3717ccbf9de96d69a10cf5b4">GetLastError</a> () const noexcept</td></tr>
+<tr class="memdesc:ab95fc99a3717ccbf9de96d69a10cf5b4 inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the last error that occurred.  <br /></td></tr>
+<tr class="separator:ab95fc99a3717ccbf9de96d69a10cf5b4 inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa236926f38300295cc4b82fdd137db37 inherit pub_methods_classtle92466ed_1_1SpiInterface" id="r_aa236926f38300295cc4b82fdd137db37"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtle92466ed_1_1SpiInterface.html#aa236926f38300295cc4b82fdd137db37">ClearErrors</a> () noexcept</td></tr>
+<tr class="memdesc:aa236926f38300295cc4b82fdd137db37 inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear any pending errors.  <br /></td></tr>
+<tr class="separator:aa236926f38300295cc4b82fdd137db37 inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab542050209c981cc40f597aa1049044e inherit pub_methods_classtle92466ed_1_1SpiInterface" id="r_ab542050209c981cc40f597aa1049044e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtle92466ed_1_1SpiInterface.html#ab542050209c981cc40f597aa1049044e">GpioSet</a> (<a class="el" href="namespacetle92466ed.html#a42eacb1b3fd11b3412b6aef4b0d2e1d8">CtrlPin</a> pin, <a class="el" href="namespacetle92466ed.html#a3e575e91f20807f25c8de6922b3def9d">GpioSignal</a> signal) noexcept</td></tr>
+<tr class="memdesc:ab542050209c981cc40f597aa1049044e inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set GPIO control pin signal state (output control).  <br /></td></tr>
+<tr class="separator:ab542050209c981cc40f597aa1049044e inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d653db43a17168a1e3b758ec624f099 inherit pub_methods_classtle92466ed_1_1SpiInterface" id="r_a2d653db43a17168a1e3b758ec624f099"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt; <a class="el" href="namespacetle92466ed.html#a3e575e91f20807f25c8de6922b3def9d">GpioSignal</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtle92466ed_1_1SpiInterface.html#a2d653db43a17168a1e3b758ec624f099">GpioRead</a> (<a class="el" href="namespacetle92466ed.html#a42eacb1b3fd11b3412b6aef4b0d2e1d8">CtrlPin</a> pin) noexcept</td></tr>
+<tr class="memdesc:a2d653db43a17168a1e3b758ec624f099 inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read GPIO control pin signal state (input state).  <br /></td></tr>
+<tr class="separator:a2d653db43a17168a1e3b758ec624f099 inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb0cde5946fe750c68999f06dc156122 inherit pub_methods_classtle92466ed_1_1SpiInterface" id="r_abb0cde5946fe750c68999f06dc156122"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtle92466ed_1_1SpiInterface.html#abb0cde5946fe750c68999f06dc156122">GpioSetActive</a> (<a class="el" href="namespacetle92466ed.html#a42eacb1b3fd11b3412b6aef4b0d2e1d8">CtrlPin</a> pin) noexcept</td></tr>
+<tr class="memdesc:abb0cde5946fe750c68999f06dc156122 inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set GPIO pin to active state (convenience method).  <br /></td></tr>
+<tr class="separator:abb0cde5946fe750c68999f06dc156122 inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60b6e281ad9b45cce384a3da91ab8c1b inherit pub_methods_classtle92466ed_1_1SpiInterface" id="r_a60b6e281ad9b45cce384a3da91ab8c1b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtle92466ed_1_1SpiInterface.html#a60b6e281ad9b45cce384a3da91ab8c1b">GpioSetInactive</a> (<a class="el" href="namespacetle92466ed.html#a42eacb1b3fd11b3412b6aef4b0d2e1d8">CtrlPin</a> pin) noexcept</td></tr>
+<tr class="memdesc:a60b6e281ad9b45cce384a3da91ab8c1b inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set GPIO pin to inactive state (convenience method).  <br /></td></tr>
+<tr class="separator:a60b6e281ad9b45cce384a3da91ab8c1b inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39597910309873f982f3ac2a9a9a9560 inherit pub_methods_classtle92466ed_1_1SpiInterface" id="r_a39597910309873f982f3ac2a9a9a9560"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtle92466ed_1_1SpiInterface.html#a39597910309873f982f3ac2a9a9a9560">Log</a> (<a class="el" href="namespacetle92466ed.html#ae9d7e11b24ee920250df1e83b0f98509">LogLevel</a> level, const char *tag, const char *format,...) noexcept</td></tr>
+<tr class="memdesc:a39597910309873f982f3ac2a9a9a9560 inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log a message with specified severity level and tag.  <br /></td></tr>
+<tr class="separator:a39597910309873f982f3ac2a9a9a9560 inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a499995340062b2a3018af8638982316a inherit pub_methods_classtle92466ed_1_1SpiInterface" id="r_a499995340062b2a3018af8638982316a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtle92466ed_1_1SpiInterface.html#a499995340062b2a3018af8638982316a">Read</a> (uint16_t address, bool verify_crc=true) noexcept</td></tr>
+<tr class="memdesc:a499995340062b2a3018af8638982316a inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read a register from the TLE92466ED (High-Level API)  <br /></td></tr>
+<tr class="separator:a499995340062b2a3018af8638982316a inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7304d96b475520cf4fa9aacd6caaf8e0 inherit pub_methods_classtle92466ed_1_1SpiInterface" id="r_a7304d96b475520cf4fa9aacd6caaf8e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtle92466ed_1_1SpiInterface.html#a7304d96b475520cf4fa9aacd6caaf8e0">ReadMulti</a> (std::span&lt; const uint16_t &gt; addresses, std::span&lt; uint32_t &gt; values, uint16_t &amp;valid_mask) noexcept</td></tr>
+<tr class="memdesc:a7304d96b475520cf4fa9aacd6caaf8e0 inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read several registers in ONE pipelined chain.  <br /></td></tr>
+<tr class="separator:a7304d96b475520cf4fa9aacd6caaf8e0 inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac5543c7a64a50838af7de423bc0afa5 inherit pub_methods_classtle92466ed_1_1SpiInterface" id="r_aac5543c7a64a50838af7de423bc0afa5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtle92466ed_1_1SpiInterface.html#aac5543c7a64a50838af7de423bc0afa5">Write</a> (uint16_t address, uint16_t value, bool verify_crc=true) noexcept</td></tr>
+<tr class="memdesc:aac5543c7a64a50838af7de423bc0afa5 inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a register to the TLE92466ED (High-Level API)  <br /></td></tr>
+<tr class="separator:aac5543c7a64a50838af7de423bc0afa5 inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf8fc2c71e6a9649771d7b434301f14c inherit pub_methods_classtle92466ed_1_1SpiInterface" id="r_aaf8fc2c71e6a9649771d7b434301f14c"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtle92466ed_1_1SpiInterface.html#aaf8fc2c71e6a9649771d7b434301f14c">LastCriticalFaultFlags</a> () const noexcept</td></tr>
+<tr class="memdesc:aaf8fc2c71e6a9649771d7b434301f14c inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fault byte from the most recent critical-fault reply frame.  <br /></td></tr>
+<tr class="separator:aaf8fc2c71e6a9649771d7b434301f14c inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6a5b71e43580d66d2e4027499a73c81 inherit pub_methods_classtle92466ed_1_1SpiInterface" id="r_ae6a5b71e43580d66d2e4027499a73c81"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtle92466ed_1_1SpiInterface.html#ae6a5b71e43580d66d2e4027499a73c81">SawCriticalFault</a> () const noexcept</td></tr>
+<tr class="memdesc:ae6a5b71e43580d66d2e4027499a73c81 inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">True once a critical-fault reply frame has been decoded.  <br /></td></tr>
+<tr class="separator:ae6a5b71e43580d66d2e4027499a73c81 inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2482b560740049f6ecb95f09c92b6617 inherit pub_methods_classtle92466ed_1_1SpiInterface" id="r_a2482b560740049f6ecb95f09c92b6617"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtle92466ed_1_1SpiInterface.html#a2482b560740049f6ecb95f09c92b6617">SpiInterface</a> (const <a class="el" href="classtle92466ed_1_1SpiInterface.html">SpiInterface</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a2482b560740049f6ecb95f09c92b6617 inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prevent copying.  <br /></td></tr>
+<tr class="separator:a2482b560740049f6ecb95f09c92b6617 inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a238f0e5a2d9d1de916621c07d0f98b46 inherit pub_methods_classtle92466ed_1_1SpiInterface" id="r_a238f0e5a2d9d1de916621c07d0f98b46"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtle92466ed_1_1SpiInterface.html">SpiInterface</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtle92466ed_1_1SpiInterface.html#a238f0e5a2d9d1de916621c07d0f98b46">operator=</a> (const <a class="el" href="classtle92466ed_1_1SpiInterface.html">SpiInterface</a> &amp;)=delete</td></tr>
+<tr class="separator:a238f0e5a2d9d1de916621c07d0f98b46 inherit pub_methods_classtle92466ed_1_1SpiInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:ae017c339fbd0d40607ad84eeba91aecf" id="r_ae017c339fbd0d40607ad84eeba91aecf"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae017c339fbd0d40607ad84eeba91aecf">initializeGPIO</a> () noexcept -&gt; CommResult&lt; void &gt;</td></tr>
+<tr class="memitem:ae017c339fbd0d40607ad84eeba91aecf" id="r_ae017c339fbd0d40607ad84eeba91aecf"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae017c339fbd0d40607ad84eeba91aecf">initializeGPIO</a> () noexcept -&gt; <a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt; void &gt;</td></tr>
 <tr class="memdesc:ae017c339fbd0d40607ad84eeba91aecf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize GPIO pins (RESN, EN, FAULTN)  <br /></td></tr>
 <tr class="separator:ae017c339fbd0d40607ad84eeba91aecf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ab0c7e560efec4561c7940538e4cceb" id="r_a3ab0c7e560efec4561c7940538e4cceb"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ab0c7e560efec4561c7940538e4cceb">initializeSPI</a> () noexcept -&gt; CommResult&lt; void &gt;</td></tr>
+<tr class="memitem:a3ab0c7e560efec4561c7940538e4cceb" id="r_a3ab0c7e560efec4561c7940538e4cceb"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ab0c7e560efec4561c7940538e4cceb">initializeSPI</a> () noexcept -&gt; <a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt; void &gt;</td></tr>
 <tr class="memdesc:a3ab0c7e560efec4561c7940538e4cceb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize SPI bus.  <br /></td></tr>
 <tr class="separator:a3ab0c7e560efec4561c7940538e4cceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeed7f6eaa33189a9520bc0b34c332734" id="r_aeed7f6eaa33189a9520bc0b34c332734"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeed7f6eaa33189a9520bc0b34c332734">addSPIDevice</a> () noexcept -&gt; CommResult&lt; void &gt;</td></tr>
+<tr class="memitem:aeed7f6eaa33189a9520bc0b34c332734" id="r_aeed7f6eaa33189a9520bc0b34c332734"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeed7f6eaa33189a9520bc0b34c332734">addSPIDevice</a> () noexcept -&gt; <a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt; void &gt;</td></tr>
 <tr class="memdesc:aeed7f6eaa33189a9520bc0b34c332734"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add SPI device to the bus.  <br /></td></tr>
 <tr class="separator:aeed7f6eaa33189a9520bc0b34c332734"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -199,7 +265,7 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a043069850e70f93ebb4639914835636d" id="r_a043069850e70f93ebb4639914835636d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a043069850e70f93ebb4639914835636d">initialized_</a> = false</td></tr>
 <tr class="memdesc:a043069850e70f93ebb4639914835636d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization state.  <br /></td></tr>
 <tr class="separator:a043069850e70f93ebb4639914835636d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a096bb9a950f4f648b6ee6273f5bb2067" id="r_a096bb9a950f4f648b6ee6273f5bb2067"><td class="memItemLeft" align="right" valign="top">CommError&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a096bb9a950f4f648b6ee6273f5bb2067">last_error_</a> = CommError::None</td></tr>
+<tr class="memitem:a096bb9a950f4f648b6ee6273f5bb2067" id="r_a096bb9a950f4f648b6ee6273f5bb2067"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetle92466ed.html#aa2dd28a51f522fa021dc03e744b51a4a">CommError</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a096bb9a950f4f648b6ee6273f5bb2067">last_error_</a> = CommError::None</td></tr>
 <tr class="memdesc:a096bb9a950f4f648b6ee6273f5bb2067"><td class="mdescLeft">&#160;</td><td class="mdescRight">Last error that occurred.  <br /></td></tr>
 <tr class="separator:a096bb9a950f4f648b6ee6273f5bb2067"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -208,6 +274,33 @@ Static Private Attributes</h2></td></tr>
 <tr class="memitem:a600e90229e8b9a5adb891ed7acf1a6bb" id="r_a600e90229e8b9a5adb891ed7acf1a6bb"><td class="memItemLeft" align="right" valign="top">static constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a600e90229e8b9a5adb891ed7acf1a6bb">TAG</a> = &quot;Esp32TleComm&quot;</td></tr>
 <tr class="memdesc:a600e90229e8b9a5adb891ed7acf1a6bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logging tag.  <br /></td></tr>
 <tr class="separator:a600e90229e8b9a5adb891ed7acf1a6bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_static_attribs_classtle92466ed_1_1SpiInterface"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_static_attribs_classtle92466ed_1_1SpiInterface')"><img src="closed.png" alt="-"/>&#160;Static Public Attributes inherited from <a class="el" href="classtle92466ed_1_1SpiInterface.html">tle92466ed::SpiInterface&lt; Esp32Tle92466edSpiBus &gt;</a></td></tr>
+<tr class="memitem:a20687f8951efeaa6cd7d7b40922b9c13 inherit pub_static_attribs_classtle92466ed_1_1SpiInterface" id="r_a20687f8951efeaa6cd7d7b40922b9c13"><td class="memItemLeft" align="right" valign="top">static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtle92466ed_1_1SpiInterface.html#a20687f8951efeaa6cd7d7b40922b9c13">kMaxPipelinedReads</a></td></tr>
+<tr class="memdesc:a20687f8951efeaa6cd7d7b40922b9c13 inherit pub_static_attribs_classtle92466ed_1_1SpiInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Largest burst <a class="el" href="classtle92466ed_1_1SpiInterface.html#a7304d96b475520cf4fa9aacd6caaf8e0">ReadMulti</a> will issue in one CS-session chain.  <br /></td></tr>
+<tr class="separator:a20687f8951efeaa6cd7d7b40922b9c13 inherit pub_static_attribs_classtle92466ed_1_1SpiInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_classtle92466ed_1_1SpiInterface"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classtle92466ed_1_1SpiInterface')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classtle92466ed_1_1SpiInterface.html">tle92466ed::SpiInterface&lt; Esp32Tle92466edSpiBus &gt;</a></td></tr>
+<tr class="memitem:afff56a5b049483311b255e19db2b4823 inherit pro_methods_classtle92466ed_1_1SpiInterface" id="r_afff56a5b049483311b255e19db2b4823"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtle92466ed_1_1SpiInterface.html#afff56a5b049483311b255e19db2b4823">SpiInterface</a> ()=default</td></tr>
+<tr class="memdesc:afff56a5b049483311b255e19db2b4823 inherit pro_methods_classtle92466ed_1_1SpiInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Protected constructor to prevent direct instantiation.  <br /></td></tr>
+<tr class="separator:afff56a5b049483311b255e19db2b4823 inherit pro_methods_classtle92466ed_1_1SpiInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f2b6268b54a0417c7f9d8b1f5dd4fbd inherit pro_methods_classtle92466ed_1_1SpiInterface" id="r_a5f2b6268b54a0417c7f9d8b1f5dd4fbd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtle92466ed_1_1SpiInterface.html#a5f2b6268b54a0417c7f9d8b1f5dd4fbd">SpiInterface</a> (<a class="el" href="classtle92466ed_1_1SpiInterface.html">SpiInterface</a> &amp;&amp;) noexcept=default</td></tr>
+<tr class="memdesc:a5f2b6268b54a0417c7f9d8b1f5dd4fbd inherit pro_methods_classtle92466ed_1_1SpiInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow moving.  <br /></td></tr>
+<tr class="separator:a5f2b6268b54a0417c7f9d8b1f5dd4fbd inherit pro_methods_classtle92466ed_1_1SpiInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaebb9bbf0c619b67975c7ee3c622b5a9 inherit pro_methods_classtle92466ed_1_1SpiInterface" id="r_aaebb9bbf0c619b67975c7ee3c622b5a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtle92466ed_1_1SpiInterface.html">SpiInterface</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtle92466ed_1_1SpiInterface.html#aaebb9bbf0c619b67975c7ee3c622b5a9">operator=</a> (<a class="el" href="classtle92466ed_1_1SpiInterface.html">SpiInterface</a> &amp;&amp;) noexcept=default</td></tr>
+<tr class="separator:aaebb9bbf0c619b67975c7ee3c622b5a9 inherit pro_methods_classtle92466ed_1_1SpiInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ed9a296bc8ca57da8a4aadc0e0ca8ac inherit pro_methods_classtle92466ed_1_1SpiInterface" id="r_a4ed9a296bc8ca57da8a4aadc0e0ca8ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtle92466ed_1_1SpiInterface.html#a4ed9a296bc8ca57da8a4aadc0e0ca8ac">NoteCriticalFault</a> (const <a class="el" href="uniontle92466ed_1_1SPIFrame.html">SPIFrame</a> &amp;frame) noexcept</td></tr>
+<tr class="memdesc:a4ed9a296bc8ca57da8a4aadc0e0ca8ac inherit pro_methods_classtle92466ed_1_1SpiInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Latch a critical-fault reply so callers can report the cause.  <br /></td></tr>
+<tr class="separator:a4ed9a296bc8ca57da8a4aadc0e0ca8ac inherit pro_methods_classtle92466ed_1_1SpiInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5febc3318592905b3b17118f229763d6 inherit pro_methods_classtle92466ed_1_1SpiInterface" id="r_a5febc3318592905b3b17118f229763d6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtle92466ed_1_1SpiInterface.html#a5febc3318592905b3b17118f229763d6">~SpiInterface</a> ()=default</td></tr>
+<tr class="memdesc:a5febc3318592905b3b17118f229763d6 inherit pro_methods_classtle92466ed_1_1SpiInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Protected destructor.  <br /></td></tr>
+<tr class="separator:a5febc3318592905b3b17118f229763d6 inherit pro_methods_classtle92466ed_1_1SpiInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_classtle92466ed_1_1SpiInterface"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classtle92466ed_1_1SpiInterface')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classtle92466ed_1_1SpiInterface.html">tle92466ed::SpiInterface&lt; Esp32Tle92466edSpiBus &gt;</a></td></tr>
+<tr class="memitem:a397ed0830fad6afe541163c91b78c965 inherit pro_attribs_classtle92466ed_1_1SpiInterface" id="r_a397ed0830fad6afe541163c91b78c965"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtle92466ed_1_1SpiInterface.html#a397ed0830fad6afe541163c91b78c965">last_critical_fault_flags_</a></td></tr>
+<tr class="separator:a397ed0830fad6afe541163c91b78c965 inherit pro_attribs_classtle92466ed_1_1SpiInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a126fd7bd4ac2afb6d0f5752a8a505240 inherit pro_attribs_classtle92466ed_1_1SpiInterface" id="r_a126fd7bd4ac2afb6d0f5752a8a505240"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtle92466ed_1_1SpiInterface.html#a126fd7bd4ac2afb6d0f5752a8a505240">saw_critical_fault_</a></td></tr>
+<tr class="separator:a126fd7bd4ac2afb6d0f5752a8a505240 inherit pro_attribs_classtle92466ed_1_1SpiInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>ESP32 implementation of the TLE92466ED CommInterface. </p>
@@ -315,7 +408,7 @@ Static Private Attributes</h2></td></tr>
           <td class="memname">auto Esp32Tle92466edSpiBus::addSPIDevice </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td> -&gt; CommResult&lt;void&gt; </td>
+          <td> -&gt; <a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt;void&gt; </td>
         </tr>
       </table>
   </td>
@@ -344,7 +437,7 @@ Static Private Attributes</h2></td></tr>
           <td class="memname">auto Esp32Tle92466edSpiBus::ClearErrors </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td> -&gt; CommResult&lt;void&gt; </td>
+          <td> -&gt; <a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt;void&gt; </td>
         </tr>
       </table>
   </td>
@@ -371,8 +464,8 @@ Static Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">auto Esp32Tle92466edSpiBus::Configure </td>
           <td>(</td>
-          <td class="paramtype">const tle92466ed::SPIConfig &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
-          <td> -&gt; CommResult&lt;void&gt; </td>
+          <td class="paramtype">const <a class="el" href="structtle92466ed_1_1SPIConfig.html">tle92466ed::SPIConfig</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
+          <td> -&gt; <a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt;void&gt; </td>
         </tr>
       </table>
   </td>
@@ -406,7 +499,7 @@ Static Private Attributes</h2></td></tr>
           <td class="memname">auto Esp32Tle92466edSpiBus::Deinit </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td> -&gt; CommResult&lt;void&gt; </td>
+          <td> -&gt; <a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt;void&gt; </td>
         </tr>
       </table>
   </td>
@@ -434,7 +527,7 @@ Static Private Attributes</h2></td></tr>
           <td class="memname">auto Esp32Tle92466edSpiBus::Delay </td>
           <td>(</td>
           <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>microseconds</em></span></td><td>)</td>
-          <td> -&gt; CommResult&lt;void&gt; </td>
+          <td> -&gt; <a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt;void&gt; </td>
         </tr>
       </table>
   </td>
@@ -493,7 +586,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CommError Esp32Tle92466edSpiBus::GetLastError </td>
+          <td class="memname"><a class="el" href="namespacetle92466ed.html#aa2dd28a51f522fa021dc03e744b51a4a">CommError</a> Esp32Tle92466edSpiBus::GetLastError </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td> const</td>
@@ -523,8 +616,8 @@ Static Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">auto Esp32Tle92466edSpiBus::GpioRead </td>
           <td>(</td>
-          <td class="paramtype">CtrlPin</td>          <td class="paramname"><span class="paramname"><em>pin</em></span></td><td>)</td>
-          <td> -&gt; CommResult&lt;GpioSignal&gt; </td>
+          <td class="paramtype"><a class="el" href="namespacetle92466ed.html#a42eacb1b3fd11b3412b6aef4b0d2e1d8">CtrlPin</a></td>          <td class="paramname"><span class="paramname"><em>pin</em></span></td><td>)</td>
+          <td> -&gt; <a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt;<a class="el" href="namespacetle92466ed.html#a3e575e91f20807f25c8de6922b3def9d">GpioSignal</a>&gt; </td>
         </tr>
       </table>
   </td>
@@ -558,12 +651,12 @@ Static Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">auto Esp32Tle92466edSpiBus::GpioSet </td>
           <td>(</td>
-          <td class="paramtype">CtrlPin</td>          <td class="paramname"><span class="paramname"><em>pin</em>, </span></td>
+          <td class="paramtype"><a class="el" href="namespacetle92466ed.html#a42eacb1b3fd11b3412b6aef4b0d2e1d8">CtrlPin</a></td>          <td class="paramname"><span class="paramname"><em>pin</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">GpioSignal</td>          <td class="paramname"><span class="paramname"><em>signal</em></span>&#160;) -&gt; CommResult&lt;void&gt; </td>
+          <td class="paramtype"><a class="el" href="namespacetle92466ed.html#a3e575e91f20807f25c8de6922b3def9d">GpioSignal</a></td>          <td class="paramname"><span class="paramname"><em>signal</em></span>&#160;) -&gt; <a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt;void&gt; </td>
         </tr>
       </table>
   </td>
@@ -599,7 +692,7 @@ Static Private Attributes</h2></td></tr>
           <td class="memname">auto Esp32Tle92466edSpiBus::Init </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td> -&gt; CommResult&lt;void&gt; </td>
+          <td> -&gt; <a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt;void&gt; </td>
         </tr>
       </table>
   </td>
@@ -627,7 +720,7 @@ Static Private Attributes</h2></td></tr>
           <td class="memname">auto Esp32Tle92466edSpiBus::initializeGPIO </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td> -&gt; CommResult&lt;void&gt; </td>
+          <td> -&gt; <a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt;void&gt; </td>
         </tr>
       </table>
   </td>
@@ -655,7 +748,7 @@ Static Private Attributes</h2></td></tr>
           <td class="memname">auto Esp32Tle92466edSpiBus::initializeSPI </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td> -&gt; CommResult&lt;void&gt; </td>
+          <td> -&gt; <a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt;void&gt; </td>
         </tr>
       </table>
   </td>
@@ -738,7 +831,7 @@ Static Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">void Esp32Tle92466edSpiBus::Log </td>
           <td>(</td>
-          <td class="paramtype">LogLevel</td>          <td class="paramname"><span class="paramname"><em>level</em>, </span></td>
+          <td class="paramtype"><a class="el" href="namespacetle92466ed.html#ae9d7e11b24ee920250df1e83b0f98509">LogLevel</a></td>          <td class="paramname"><span class="paramname"><em>level</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -789,7 +882,7 @@ Static Private Attributes</h2></td></tr>
           <td class="memname">auto Esp32Tle92466edSpiBus::Transfer32 </td>
           <td>(</td>
           <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>tx_data</em></span></td><td>)</td>
-          <td> -&gt; CommResult&lt;uint32_t&gt; </td>
+          <td> -&gt; <a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt;uint32_t&gt; </td>
         </tr>
       </table>
   </td>
@@ -827,7 +920,7 @@ Static Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::span&lt; uint32_t &gt;</td>          <td class="paramname"><span class="paramname"><em>rx_data</em></span>&#160;) -&gt; CommResult&lt;void&gt; </td>
+          <td class="paramtype">std::span&lt; uint32_t &gt;</td>          <td class="paramname"><span class="paramname"><em>rx_data</em></span>&#160;) -&gt; <a class="el" href="namespacetle92466ed.html#a21f593ab13bf03c108a99ea2f0e3ee31">CommResult</a>&lt;void&gt; </td>
         </tr>
       </table>
   </td>
@@ -908,7 +1001,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CommError Esp32Tle92466edSpiBus::last_error_ = CommError::None</td>
+          <td class="memname"><a class="el" href="namespacetle92466ed.html#aa2dd28a51f522fa021dc03e744b51a4a">CommError</a> Esp32Tle92466edSpiBus::last_error_ = CommError::None</td>
         </tr>
       </table>
   </td>

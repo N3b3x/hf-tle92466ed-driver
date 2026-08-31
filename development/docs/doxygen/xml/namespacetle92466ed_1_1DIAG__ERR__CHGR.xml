@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1DIAG__ERR__CHGR" kind="namespace" language="C++">
+    <compoundname>tle92466ed::DIAG_ERR_CHGR</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DIAG__ERR__CHGR_1ae52d0e669257177a82cbe3673b8975ce" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint8_t</type>
+        <definition>constexpr uint8_t tle92466ed::DIAG_ERR_CHGR::BIT_OLSG</definition>
+        <argsstring></argsstring>
+        <name>BIT_OLSG</name>
+        <qualifiedname>tle92466ed::DIAG_ERR_CHGR::BIT_OLSG</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Open-Load / Short-to-Ground. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="419" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="419" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DIAG__ERR__CHGR_1a7f47790a585b600bff1331259dc48a6c" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint8_t</type>
+        <definition>constexpr uint8_t tle92466ed::DIAG_ERR_CHGR::BIT_OL</definition>
+        <argsstring></argsstring>
+        <name>BIT_OL</name>
+        <qualifiedname>tle92466ed::DIAG_ERR_CHGR::BIT_OL</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+<para>Open-Load. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="420" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="420" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DIAG__ERR__CHGR_1afc5ca2f0321faf8eb73f2e520e501ec8" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint8_t</type>
+        <definition>constexpr uint8_t tle92466ed::DIAG_ERR_CHGR::BIT_OC</definition>
+        <argsstring></argsstring>
+        <name>BIT_OC</name>
+        <qualifiedname>tle92466ed::DIAG_ERR_CHGR::BIT_OC</qualifiedname>
+        <initializer>= 2</initializer>
+        <briefdescription>
+<para>Overcurrent (double-clear) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="421" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="421" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DIAG__ERR__CHGR_1ac7556d9ec12a6bc03857d4592c6be9c3" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint8_t</type>
+        <definition>constexpr uint8_t tle92466ed::DIAG_ERR_CHGR::BIT_SG</definition>
+        <argsstring></argsstring>
+        <name>BIT_SG</name>
+        <qualifiedname>tle92466ed::DIAG_ERR_CHGR::BIT_SG</qualifiedname>
+        <initializer>= 3</initializer>
+        <briefdescription>
+<para>Short-to-Ground. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="422" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="422" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DIAG__ERR__CHGR_1a27244504e68cdbeffa280cf043cb7420" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint8_t</type>
+        <definition>constexpr uint8_t tle92466ed::DIAG_ERR_CHGR::BIT_OTE</definition>
+        <argsstring></argsstring>
+        <name>BIT_OTE</name>
+        <qualifiedname>tle92466ed::DIAG_ERR_CHGR::BIT_OTE</qualifiedname>
+        <initializer>= 4</initializer>
+        <briefdescription>
+<para>Channel overtemperature error. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="423" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="423" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DIAG__ERR__CHGR_1a60add04166e989a5eadac9e09ef965ff" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::DIAG_ERR_CHGR::PER_CHANNEL_MASK</definition>
+        <argsstring></argsstring>
+        <name>PER_CHANNEL_MASK</name>
+        <qualifiedname>tle92466ed::DIAG_ERR_CHGR::PER_CHANNEL_MASK</qualifiedname>
+        <initializer>= 0x001Fu</initializer>
+        <briefdescription>
+<para>5-bit mask of all error bits for one channel (before 8*y shift). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="426" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="426" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1DIAG__ERR__CHGR_1a68d4420692748fb1706305ce00ca118c" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::DIAG_ERR_CHGR::OC_BOTH_MASK</definition>
+        <argsstring></argsstring>
+        <name>OC_BOTH_MASK</name>
+        <qualifiedname>tle92466ed::DIAG_ERR_CHGR::OC_BOTH_MASK</qualifiedname>
+        <initializer>= (1u &lt;&lt; <ref refid="namespacetle92466ed_1_1DIAG__ERR__CHGR_1afc5ca2f0321faf8eb73f2e520e501ec8" kindref="member">BIT_OC</ref>) | (1u &lt;&lt; (<ref refid="namespacetle92466ed_1_1DIAG__ERR__CHGR_1afc5ca2f0321faf8eb73f2e520e501ec8" kindref="member">BIT_OC</ref> + 8))</initializer>
+        <briefdescription>
+<para>16-bit mask of both-channel OC bits in a group (bits 2 and 10). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="429" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="429" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacetle92466ed_1_1DIAG__ERR__CHGR_1a344922fa5dded7020fb3b728fdd027a5" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::DIAG_ERR_CHGR::AddressForChannel</definition>
+        <argsstring>(uint8_t channel) noexcept</argsstring>
+        <name>AddressForChannel</name>
+        <qualifiedname>tle92466ed::DIAG_ERR_CHGR::AddressForChannel</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Register address for the group covering a channel. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="432" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="432" bodyend="434"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1DIAG__ERR__CHGR_1a6d819d27b521e9b7364fce06998a7b77" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint8_t</type>
+        <definition>constexpr uint8_t tle92466ed::DIAG_ERR_CHGR::YShiftForChannel</definition>
+        <argsstring>(uint8_t channel) noexcept</argsstring>
+        <name>YShiftForChannel</name>
+        <qualifiedname>tle92466ed::DIAG_ERR_CHGR::YShiftForChannel</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Bit shift (0 or 8) selecting the channel within its group. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="437" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="437" bodyend="439"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1DIAG__ERR__CHGR_1aef2897c6fdd4e2e4e737f4fd515f9844" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::DIAG_ERR_CHGR::ChannelBitMask</definition>
+        <argsstring>(uint8_t channel, uint8_t bit_index) noexcept</argsstring>
+        <name>ChannelBitMask</name>
+        <qualifiedname>tle92466ed::DIAG_ERR_CHGR::ChannelBitMask</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>bit_index</declname>
+        </param>
+        <briefdescription>
+<para>Build a single-bit test mask for a given channel and bit index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="442" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="442" bodyend="444"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1DIAG__ERR__CHGR_1a6fc5db55c6104bd69bf77cd96fb72ad2" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::DIAG_ERR_CHGR::OcClearMaskForChannel</definition>
+        <argsstring>(uint8_t channel) noexcept</argsstring>
+        <name>OcClearMaskForChannel</name>
+        <qualifiedname>tle92466ed::DIAG_ERR_CHGR::OcClearMaskForChannel</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Clear mask writing 1s only to the OC bit(s) of the affected channel. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="447" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="447" bodyend="449"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespacetle92466ed_1_1DIAG__ERR__CHGR" kindref="compound">DIAG_ERR_CHGR</ref> bit layout and address helpers. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Per datasheet \u00a75.3.2.12 p.67. There are only THREE groups, each covering a channel pair (low channel = y=0, high channel = y=1). The per-channel bit offset is <computeroutput>8*y</computeroutput>: bit 8*y+0 OLSG Open-Load or Short-to-Ground (latched pre-check) bit 8*y+1 OL Open-Load bit 8*y+2 OC Overcurrent (requires TWO consecutive clear writes) bit 8*y+3 SG Short-to-Ground bit 8*y+4 OTE Channel overtemperature error bits 8*y+5..7 reserved</para>
+<para>Example: DIAG_ERR_CHGR0 holds CH0 error flags in bits [4:0] and CH1 error flags in bits [12:8]. </para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="418" column="1"/>
+  </compounddef>
+</doxygen>

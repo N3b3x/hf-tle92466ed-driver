@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1FAULT__MASK1" kind="namespace" language="C++">
+    <compoundname>tle92466ed::FAULT_MASK1</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FAULT__MASK1_1a7d62075fd27b6799c2e2cbc5da9018e6" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::FAULT_MASK1::CH_WARN_MASK</definition>
+        <argsstring></argsstring>
+        <name>CH_WARN_MASK</name>
+        <qualifiedname>tle92466ed::FAULT_MASK1::CH_WARN_MASK</qualifiedname>
+        <initializer>= 0x003Fu</initializer>
+        <briefdescription>
+<para>Per-channel warning (CH0..5) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1134" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FAULT__MASK1_1a5dc4332cd2da94509df1b3d81437061c" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::FAULT_MASK1::COTWARN_MASK</definition>
+        <argsstring></argsstring>
+        <name>COTWARN_MASK</name>
+        <qualifiedname>tle92466ed::FAULT_MASK1::COTWARN_MASK</qualifiedname>
+        <initializer>= (1u &lt;&lt; 12)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1135" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FAULT__MASK1_1ae70f5447cec90fd1b31fddee088df325" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::FAULT_MASK1::COTERR_MASK</definition>
+        <argsstring></argsstring>
+        <name>COTERR_MASK</name>
+        <qualifiedname>tle92466ed::FAULT_MASK1::COTERR_MASK</qualifiedname>
+        <initializer>= (1u &lt;&lt; 13)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1136" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FAULT__MASK1_1a43b7212a3a99516ae7baa3d9735796e1" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::FAULT_MASK1::CLK_LOW_MASK</definition>
+        <argsstring></argsstring>
+        <name>CLK_LOW_MASK</name>
+        <qualifiedname>tle92466ed::FAULT_MASK1::CLK_LOW_MASK</qualifiedname>
+        <initializer>= (1u &lt;&lt; 14)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1137" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1FAULT__MASK1_1a0f49814fb39e4244b838d9eea0f0a253" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::FAULT_MASK1::DEFAULT</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT</name>
+        <qualifiedname>tle92466ed::FAULT_MASK1::DEFAULT</qualifiedname>
+        <initializer>= 0x703Fu</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1138" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1138" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="1133" column="1"/>
+  </compounddef>
+</doxygen>

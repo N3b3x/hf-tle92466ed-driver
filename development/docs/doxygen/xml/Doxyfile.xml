@@ -122,10 +122,10 @@
   <option  id='WARN_LINE_FORMAT' default='yes' type='string'><value><![CDATA["at line $line of file $file"]]></value></option>
   <option  id='WARN_LOGFILE' default='yes' type='string'><value><![CDATA[]]></value></option>
   <option  id='INPUT' default='no' type='stringlist'>
-    <value><![CDATA[include/]]></value>
-    <value><![CDATA[src/]]></value>
-    <value><![CDATA[examples/]]></value>
-    <value><![CDATA[docs/]]></value>
+    <value><![CDATA[inc]]></value>
+    <value><![CDATA[src]]></value>
+    <value><![CDATA[examples]]></value>
+    <value><![CDATA[docs]]></value>
     <value><![CDATA[README.md]]></value>
   </option>
   <option  id='INPUT_ENCODING' default='yes' type='string'><value><![CDATA[UTF-8]]></value></option>

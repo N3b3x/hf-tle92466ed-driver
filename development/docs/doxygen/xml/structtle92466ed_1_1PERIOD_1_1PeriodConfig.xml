@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="structtle92466ed_1_1PERIOD_1_1PeriodConfig" kind="struct" language="C++" prot="public">
+    <compoundname>tle92466ed::PERIOD::PeriodConfig</compoundname>
+    <includes refid="tle92466ed__registers_8hpp" local="no">tle92466ed_registers.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtle92466ed_1_1PERIOD_1_1PeriodConfig_1af3d24a510c6baf03719bef03c2478fa0" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t tle92466ed::PERIOD::PeriodConfig::mantissa</definition>
+        <argsstring></argsstring>
+        <name>mantissa</name>
+        <qualifiedname>tle92466ed::PERIOD::PeriodConfig::mantissa</qualifiedname>
+        <briefdescription>
+<para>Period mantissa (0-255) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="734" column="11" bodyfile="inc/tle92466ed_registers.hpp" bodystart="734" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1PERIOD_1_1PeriodConfig_1a6f4a6bae3862fe5b2365ee4b2c7d5b75" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t tle92466ed::PERIOD::PeriodConfig::exponent</definition>
+        <argsstring></argsstring>
+        <name>exponent</name>
+        <qualifiedname>tle92466ed::PERIOD::PeriodConfig::exponent</qualifiedname>
+        <briefdescription>
+<para>Period exponent (0-7) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="735" column="11" bodyfile="inc/tle92466ed_registers.hpp" bodystart="735" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1PERIOD_1_1PeriodConfig_1a0c5886642e85f14a32a0e359a399b6e2" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::PERIOD::PeriodConfig::low_freq_range</definition>
+        <argsstring></argsstring>
+        <name>low_freq_range</name>
+        <qualifiedname>tle92466ed::PERIOD::PeriodConfig::low_freq_range</qualifiedname>
+        <briefdescription>
+<para>Low frequency range enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="736" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="736" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structtle92466ed_1_1PERIOD_1_1PeriodConfig_1abcec709b699336b530e99640ad969b01" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>constexpr float</type>
+        <definition>constexpr float tle92466ed::PERIOD::PeriodConfig::CalculatePeriodUs</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>CalculatePeriodUs</name>
+        <qualifiedname>tle92466ed::PERIOD::PeriodConfig::CalculatePeriodUs</qualifiedname>
+        <briefdescription>
+<para>Calculate actual period from register values. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Actual period in microseconds </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="742" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="742" bodyend="746"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Calculate PWM period register values from desired period in microseconds. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>period_us</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Desired PWM period in microseconds </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Structure containing mantissa, exponent, and low_freq_range</para>
+</simplesect>
+Automatically selects the best combination of mantissa, exponent, and low_freq_range to achieve the desired period. Tries standard range first, then low frequency range if needed for longer periods.</para>
+<para>Valid range: ~0.125 µs to ~32.64 ms </para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="733" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="733" bodyend="747"/>
+    <listofallmembers>
+      <member refid="structtle92466ed_1_1PERIOD_1_1PeriodConfig_1abcec709b699336b530e99640ad969b01" prot="public" virt="non-virtual"><scope>tle92466ed::PERIOD::PeriodConfig</scope><name>CalculatePeriodUs</name></member>
+      <member refid="structtle92466ed_1_1PERIOD_1_1PeriodConfig_1a6f4a6bae3862fe5b2365ee4b2c7d5b75" prot="public" virt="non-virtual"><scope>tle92466ed::PERIOD::PeriodConfig</scope><name>exponent</name></member>
+      <member refid="structtle92466ed_1_1PERIOD_1_1PeriodConfig_1a0c5886642e85f14a32a0e359a399b6e2" prot="public" virt="non-virtual"><scope>tle92466ed::PERIOD::PeriodConfig</scope><name>low_freq_range</name></member>
+      <member refid="structtle92466ed_1_1PERIOD_1_1PeriodConfig_1af3d24a510c6baf03719bef03c2478fa0" prot="public" virt="non-virtual"><scope>tle92466ed::PERIOD::PeriodConfig</scope><name>mantissa</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

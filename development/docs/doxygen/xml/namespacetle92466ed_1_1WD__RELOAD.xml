@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1WD__RELOAD" kind="namespace" language="C++">
+    <compoundname>tle92466ed::WD_RELOAD</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1WD__RELOAD_1a4335ca6ce1fa436dc744722ce687eb46" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::WD_RELOAD::WD_TIME_MASK</definition>
+        <argsstring></argsstring>
+        <name>WD_TIME_MASK</name>
+        <qualifiedname>tle92466ed::WD_RELOAD::WD_TIME_MASK</qualifiedname>
+        <initializer>= 0x07FF</initializer>
+        <briefdescription>
+<para>11-bit mask for WD_TIME field (bits 10:0) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="345" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="345" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1WD__RELOAD_1a9e92767468cbb6c7e62d0401eb2441f5" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::WD_RELOAD::WD_TIME_MAX</definition>
+        <argsstring></argsstring>
+        <name>WD_TIME_MAX</name>
+        <qualifiedname>tle92466ed::WD_RELOAD::WD_TIME_MAX</qualifiedname>
+        <initializer>= 0x07FF</initializer>
+        <briefdescription>
+<para>Maximum WD_TIME value (2047) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="346" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="346" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1WD__RELOAD_1a1ec27586c94f5202438f6e5e08329621" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::WD_RELOAD::DEFAULT</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT</name>
+        <qualifiedname>tle92466ed::WD_RELOAD::DEFAULT</qualifiedname>
+        <initializer>= 0x0001</initializer>
+        <briefdescription>
+<para>Default value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="347" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="347" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacetle92466ed_1_1WD__RELOAD_1aa4c48b62870374f519b88bcdc97b351b" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::WD_RELOAD::MaskValue</definition>
+        <argsstring>(uint16_t value) noexcept</argsstring>
+        <name>MaskValue</name>
+        <qualifiedname>tle92466ed::WD_RELOAD::MaskValue</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Mask WD_TIME value to valid 11-bit range. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Raw value to mask </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Masked value (bits 10:0) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="354" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="354" bodyend="356"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespacetle92466ed_1_1WD__RELOAD" kindref="compound">WD_RELOAD</ref> register bit definitions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>SPI Watchdog Counter Reload Register. The watchdog counter is decremented with fSPI,WD. If it reaches 0, SPI_WD_ERR is set and the device enters Config Mode. The register must be reloaded periodically.</para>
+<para><simplesect kind="par"><title>Bit Map:</title><para><verbatim>* Bits 15-11: Reserved
+* Bits 10-0 : WD_TIME - Reload value (11-bit)
+* </verbatim></para>
+</simplesect>
+<simplesect kind="par"><title>Formula:</title><para>&lt;WD_TIME&gt; = rounddown( t_SPI_WD * f_SYS / 2^14 )</para>
+</simplesect>
+<simplesect kind="par"><title>Timeout:</title><para>t_SPI_WD = &lt;WD_TIME&gt; / f_SPI_WD</para>
+</simplesect>
+Default: 0x0001 </para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="344" column="1"/>
+  </compounddef>
+</doxygen>

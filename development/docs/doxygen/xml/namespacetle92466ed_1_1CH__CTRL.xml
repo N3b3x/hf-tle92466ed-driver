@@ -1,0 +1,290 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1CH__CTRL" kind="namespace" language="C++">
+    <compoundname>tle92466ed::CH_CTRL</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CTRL_1ad371749fb675099ae4af3ff1464102e2" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CTRL::EN_CH0</definition>
+        <argsstring></argsstring>
+        <name>EN_CH0</name>
+        <qualifiedname>tle92466ed::CH_CTRL::EN_CH0</qualifiedname>
+        <initializer>= (1 &lt;&lt; 0)</initializer>
+        <briefdescription>
+<para>Enable Channel 0. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="205" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="205" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CTRL_1a918e06d3c14dd2216564c49cf1dade7c" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CTRL::EN_CH1</definition>
+        <argsstring></argsstring>
+        <name>EN_CH1</name>
+        <qualifiedname>tle92466ed::CH_CTRL::EN_CH1</qualifiedname>
+        <initializer>= (1 &lt;&lt; 1)</initializer>
+        <briefdescription>
+<para>Enable Channel 1. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="206" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="206" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CTRL_1a1567b4ea55933e55a8bfc6f21f74f021" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CTRL::EN_CH2</definition>
+        <argsstring></argsstring>
+        <name>EN_CH2</name>
+        <qualifiedname>tle92466ed::CH_CTRL::EN_CH2</qualifiedname>
+        <initializer>= (1 &lt;&lt; 2)</initializer>
+        <briefdescription>
+<para>Enable Channel 2. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="207" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="207" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CTRL_1a838c25a272852a18779c8350dc36c6c0" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CTRL::EN_CH3</definition>
+        <argsstring></argsstring>
+        <name>EN_CH3</name>
+        <qualifiedname>tle92466ed::CH_CTRL::EN_CH3</qualifiedname>
+        <initializer>= (1 &lt;&lt; 3)</initializer>
+        <briefdescription>
+<para>Enable Channel 3. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="208" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="208" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CTRL_1a6c352f1b8620beccfe5a64baf8f5a118" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CTRL::EN_CH4</definition>
+        <argsstring></argsstring>
+        <name>EN_CH4</name>
+        <qualifiedname>tle92466ed::CH_CTRL::EN_CH4</qualifiedname>
+        <initializer>= (1 &lt;&lt; 4)</initializer>
+        <briefdescription>
+<para>Enable Channel 4. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="209" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="209" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CTRL_1a0a78ea976d4b98edbe2d575af9ec4265" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CTRL::EN_CH5</definition>
+        <argsstring></argsstring>
+        <name>EN_CH5</name>
+        <qualifiedname>tle92466ed::CH_CTRL::EN_CH5</qualifiedname>
+        <initializer>= (1 &lt;&lt; 5)</initializer>
+        <briefdescription>
+<para>Enable Channel 5. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="210" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="210" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CTRL_1ab39899a532b02057c175280f7f158bca" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CTRL::CH_PAR_4_5</definition>
+        <argsstring></argsstring>
+        <name>CH_PAR_4_5</name>
+        <qualifiedname>tle92466ed::CH_CTRL::CH_PAR_4_5</qualifiedname>
+        <initializer>= (1 &lt;&lt; 12)</initializer>
+        <briefdescription>
+<para>Parallel CH4/CH5. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="211" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="211" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CTRL_1adf59983c71e49207889474cab7789d0f" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CTRL::CH_PAR_0_3</definition>
+        <argsstring></argsstring>
+        <name>CH_PAR_0_3</name>
+        <qualifiedname>tle92466ed::CH_CTRL::CH_PAR_0_3</qualifiedname>
+        <initializer>= (1 &lt;&lt; 13)</initializer>
+        <briefdescription>
+<para>Parallel CH0/CH3. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="212" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="212" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CTRL_1a1512652132a1f5e9978e324f35cfb78d" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CTRL::CH_PAR_1_2</definition>
+        <argsstring></argsstring>
+        <name>CH_PAR_1_2</name>
+        <qualifiedname>tle92466ed::CH_CTRL::CH_PAR_1_2</qualifiedname>
+        <initializer>= (1 &lt;&lt; 14)</initializer>
+        <briefdescription>
+<para>Parallel CH1/CH2. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="213" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="213" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CTRL_1a24a1cc718bce56fc5beb60729ed76036" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CTRL::OP_MODE</definition>
+        <argsstring></argsstring>
+        <name>OP_MODE</name>
+        <qualifiedname>tle92466ed::CH_CTRL::OP_MODE</qualifiedname>
+        <initializer>= (1 &lt;&lt; 15)</initializer>
+        <briefdescription>
+<para>Operation Mode. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="214" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="214" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CTRL_1a0730f1dfcf7d90a3cfb288ef6785025d" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CTRL::ALL_CH_MASK</definition>
+        <argsstring></argsstring>
+        <name>ALL_CH_MASK</name>
+        <qualifiedname>tle92466ed::CH_CTRL::ALL_CH_MASK</qualifiedname>
+        <initializer>= 0x003F</initializer>
+        <briefdescription>
+<para>All channel bits. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="216" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="216" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CTRL_1aa5000e06138c124bbce9c9ce406b8ced" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CTRL::ALL_PAR_MASK</definition>
+        <argsstring></argsstring>
+        <name>ALL_PAR_MASK</name>
+        <qualifiedname>tle92466ed::CH_CTRL::ALL_PAR_MASK</qualifiedname>
+        <initializer>= 0x7000</initializer>
+        <briefdescription>
+<para>All parallel bits. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="217" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="217" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CTRL_1a53f8cec15937d2d93abd7a450db523a6" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CTRL::DEFAULT</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT</name>
+        <qualifiedname>tle92466ed::CH_CTRL::DEFAULT</qualifiedname>
+        <initializer>= 0x0000</initializer>
+        <briefdescription>
+<para>Default value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="219" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="219" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CTRL_1ab69a64db001e3af116e33e62d69ac318" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CTRL::CONFIG_MODE</definition>
+        <argsstring></argsstring>
+        <name>CONFIG_MODE</name>
+        <qualifiedname>tle92466ed::CH_CTRL::CONFIG_MODE</qualifiedname>
+        <initializer>= 0x0000</initializer>
+        <briefdescription>
+<para>Config Mode (OP_MODE=0) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="222" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="222" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CTRL_1aa5aca68a194172b9c995a0da46758436" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CTRL::MISSION_MODE</definition>
+        <argsstring></argsstring>
+        <name>MISSION_MODE</name>
+        <qualifiedname>tle92466ed::CH_CTRL::MISSION_MODE</qualifiedname>
+        <initializer>= <ref refid="namespacetle92466ed_1_1CH__CTRL_1a24a1cc718bce56fc5beb60729ed76036" kindref="member">OP_MODE</ref></initializer>
+        <briefdescription>
+<para>Mission Mode (OP_MODE=1) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="224" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="224" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacetle92466ed_1_1CH__CTRL_1a1548bbf264c85d7e5dc72c9055976402" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CH_CTRL::ChannelMask</definition>
+        <argsstring>(uint8_t channel) noexcept</argsstring>
+        <name>ChannelMask</name>
+        <qualifiedname>tle92466ed::CH_CTRL::ChannelMask</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Get channel enable bit mask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="229" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="229" bodyend="231"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespacetle92466ed_1_1CH__CTRL" kindref="compound">CH_CTRL</ref> register bit definitions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Main channel enable/disable and parallel operation configuration. Channel enable bits can only be set in Mission Mode. Parallel mode bits can only be set in Config Mode.</para>
+<para><simplesect kind="par"><title>Bit Map:</title><para><verbatim>* Bit 15  : OP_MODE     - Operation mode (0=Config, 1=Mission)
+* Bit 14  : CH_PAR_1_2  - Parallel operation CH1/CH2
+* Bit 13  : CH_PAR_0_3  - Parallel operation CH0/CH3
+* Bit 12  : CH_PAR_4_5  - Parallel operation CH4/CH5
+* Bits 11-6: Reserved
+* Bit 5   : EN_CH5      - Enable Channel 5
+* Bit 4   : EN_CH4      - Enable Channel 4
+* Bit 3   : EN_CH3      - Enable Channel 3
+* Bit 2   : EN_CH2      - Enable Channel 2
+* Bit 1   : EN_CH1      - Enable Channel 1
+* Bit 0   : EN_CH0      - Enable Channel 0
+* </verbatim></para>
+</simplesect>
+Default: 0x0000 </para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="204" column="1"/>
+  </compounddef>
+</doxygen>

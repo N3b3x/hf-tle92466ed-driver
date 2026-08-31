@@ -1,4 +1,31 @@
 var searchData=
 [
-  ['_7eesp32tle92466edspibus_0',['~Esp32Tle92466edSpiBus',['../classEsp32Tle92466edSpiBus.html#a95dc225cfcc75e153c20d0d638b3eaf0',1,'Esp32Tle92466edSpiBus']]]
+  ['samplechannelcurrents_0',['SampleChannelCurrents',['../classtle92466ed_1_1Driver.html#ab57fa0d97b4712b9160d91f0ca17bdf3',1,'tle92466ed::Driver']]],
+  ['sawcriticalfault_1',['SawCriticalFault',['../classtle92466ed_1_1SpiInterface.html#ae6a5b71e43580d66d2e4027499a73c81',1,'tle92466ed::SpiInterface']]],
+  ['seedintegratorthresholdfromfeedback_2',['SeedIntegratorThresholdFromFeedback',['../classtle92466ed_1_1Driver.html#ace6602a2863b29b1be9bbc4d0bc40d95',1,'tle92466ed::Driver']]],
+  ['set_5fsolenoids_5fenabled_3',['set_solenoids_enabled',['../solenoid__control__test_8cpp.html#a8beedbcdc4953c460d1e38286a1883ae',1,'solenoid_control_test.cpp']]],
+  ['setchannelmode_4',['SetChannelMode',['../classtle92466ed_1_1Driver.html#a528db488107d7118493de023ac4e8883',1,'tle92466ed::Driver']]],
+  ['setcrcenabled_5',['SetCrcEnabled',['../classtle92466ed_1_1Driver.html#a51e567341fb7d100bc4886b4bc36fd46',1,'tle92466ed::Driver']]],
+  ['setcurrentsetpoint_6',['SetCurrentSetpoint',['../classtle92466ed_1_1Driver.html#a4a93317fec0a31a89d0318d8598fd1cb',1,'tle92466ed::Driver']]],
+  ['setditheradvanced_7',['SetDitherAdvanced',['../classtle92466ed_1_1Driver.html#aa72fd92c607a8cf8944a31a9e7b943be',1,'tle92466ed::Driver']]],
+  ['setenable_8',['SetEnable',['../classtle92466ed_1_1Driver.html#a298572f287a74674b2cbc99a32de7dac',1,'tle92466ed::Driver']]],
+  ['setfaultcontributionmask_9',['SetFaultContributionMask',['../classtle92466ed_1_1Driver.html#a4c101da82ad2c7a6c2a11888daee4026',1,'tle92466ed::Driver']]],
+  ['setfaultmask_10',['SetFaultMask',['../classtle92466ed_1_1Driver.html#a359b4c3fab1c5d04fea115244e1e2479',1,'tle92466ed::Driver']]],
+  ['setintegratorlimits_11',['SetIntegratorLimits',['../classtle92466ed_1_1Driver.html#a8d3f663f92a36fe60677ba828905099a',1,'tle92466ed::Driver']]],
+  ['setmanualontimemode_12',['SetManualOnTimeMode',['../classtle92466ed_1_1Driver.html#a47c6e737e69d9926477a0e28fa1e740e',1,'tle92466ed::Driver']]],
+  ['setminintegratorthreshold_13',['SetMinIntegratorThreshold',['../classtle92466ed_1_1Driver.html#a7e2c658849cad3ef64e8f7dcc1494d33',1,'tle92466ed::Driver']]],
+  ['setoffstatediagnostics_14',['SetOffStateDiagnostics',['../classtle92466ed_1_1Driver.html#ab0590f1749e403127427afcc639ee877',1,'tle92466ed::Driver']]],
+  ['setolsgtimeout_15',['SetOlsgTimeout',['../classtle92466ed_1_1Driver.html#ab743323d6d19b377ea4a4563ecaa1424',1,'tle92466ed::Driver']]],
+  ['setparalleloperation_16',['SetParallelOperation',['../classtle92466ed_1_1Driver.html#a046218a7d74808eb4e82c266e404b738',1,'tle92466ed::Driver']]],
+  ['setpwmcontrollerki_17',['SetPwmControllerKi',['../classtle92466ed_1_1Driver.html#a35f6bcc2ed2e033d54a822f275ff5b32',1,'tle92466ed::Driver']]],
+  ['setreset_18',['SetReset',['../classtle92466ed_1_1Driver.html#a5522257381016829a19208dc05aa01bd',1,'tle92466ed::Driver']]],
+  ['setvbatthresholds_19',['SetVbatThresholds',['../classtle92466ed_1_1Driver.html#ab1dd73e9b7d0d3ca7bc30cac29b4e573',1,'tle92466ed::Driver']]],
+  ['setvbatthresholdsinternal_20',['setVbatThresholdsInternal',['../classtle92466ed_1_1Driver.html#ad88c75adc854247b08362057789f8aed',1,'tle92466ed::Driver']]],
+  ['setvbatthresholdsraw_21',['SetVbatThresholdsRaw',['../classtle92466ed_1_1Driver.html#ac254a11d5cf49459bd6e8396c42c4f2a',1,'tle92466ed::Driver']]],
+  ['setviolevel_22',['SetVioLevel',['../classtle92466ed_1_1Driver.html#a4e8438f30f3ed2719220051ab0f67d89',1,'tle92466ed::Driver']]],
+  ['signextend10_23',['SignExtend10',['../namespacetle92466ed_1_1FB__IMIN__IMAX.html#ae29ddf9dab590e199ae76e24789db518',1,'tle92466ed::FB_IMIN_IMAX']]],
+  ['signextend11_24',['SignExtend11',['../namespacetle92466ed_1_1FB__FEEDBACK.html#ac5124d824cde526c425f428f906e79b1',1,'tle92466ed::FB_FEEDBACK']]],
+  ['signextend17_25',['SignExtend17',['../namespacetle92466ed_1_1FB__I__AVG__s16.html#a6c862d28cba092b58758647d14f95ee9',1,'tle92466ed::FB_I_AVG_s16']]],
+  ['softwarereset_26',['SoftwareReset',['../classtle92466ed_1_1Driver.html#a783995930de5507ab37877386c384536',1,'tle92466ed::Driver']]],
+  ['spiinterface_27',['SpiInterface',['../classtle92466ed_1_1SpiInterface.html#a2482b560740049f6ecb95f09c92b6617',1,'tle92466ed::SpiInterface::SpiInterface(const SpiInterface &amp;)=delete'],['../classtle92466ed_1_1SpiInterface.html#afff56a5b049483311b255e19db2b4823',1,'tle92466ed::SpiInterface::SpiInterface()=default'],['../classtle92466ed_1_1SpiInterface.html#a5f2b6268b54a0417c7f9d8b1f5dd4fbd',1,'tle92466ed::SpiInterface::SpiInterface(SpiInterface &amp;&amp;) noexcept=default']]]
 ];

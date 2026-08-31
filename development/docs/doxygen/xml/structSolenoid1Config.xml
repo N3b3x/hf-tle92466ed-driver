@@ -4,7 +4,7 @@
     <compoundname>Solenoid1Config</compoundname>
     <sectiondef kind="public-static-attrib">
       <memberdef kind="variable" id="structSolenoid1Config_1a7a5e0d6d3f9f53ad0d8ca2ebfe88e205" prot="public" static="yes" constexpr="yes" mutable="no">
-        <type>constexpr Channel</type>
+        <type>constexpr <ref refid="namespacetle92466ed_1adad08c8dc7d47ab5303ba67922bd0957" kindref="member">Channel</ref></type>
         <definition>constexpr Channel Solenoid1Config::CHANNEL</definition>
         <argsstring></argsstring>
         <name>CHANNEL</name>

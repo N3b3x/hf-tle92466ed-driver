@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1CLK__DIV" kind="namespace" language="C++">
+    <compoundname>tle92466ed::CLK_DIV</compoundname>
+    <innerclass refid="structtle92466ed_1_1CLK__DIV_1_1PllConfig" prot="public">tle92466ed::CLK_DIV::PllConfig</innerclass>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CLK__DIV_1a35086ab543fbd87d9422dceb4cd5b20d" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CLK_DIV::EXT_CLK_BIT</definition>
+        <argsstring></argsstring>
+        <name>EXT_CLK_BIT</name>
+        <qualifiedname>tle92466ed::CLK_DIV::EXT_CLK_BIT</qualifiedname>
+        <initializer>= (1u &lt;&lt; 15)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1029" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1029" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CLK__DIV_1a56afa4e12afc6a75b217fd7ef508b465" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CLK_DIV::PLL_REFDIV_SHIFT</definition>
+        <argsstring></argsstring>
+        <name>PLL_REFDIV_SHIFT</name>
+        <qualifiedname>tle92466ed::CLK_DIV::PLL_REFDIV_SHIFT</qualifiedname>
+        <initializer>= 9u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1030" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1030" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CLK__DIV_1a82809be479f1cf589cd00dadde233dc7" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CLK_DIV::PLL_REFDIV_MASK</definition>
+        <argsstring></argsstring>
+        <name>PLL_REFDIV_MASK</name>
+        <qualifiedname>tle92466ed::CLK_DIV::PLL_REFDIV_MASK</qualifiedname>
+        <initializer>= 0x7E00u</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1031" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1031" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CLK__DIV_1a3a5eaa114741e32b4f958a3c25a8adf5" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CLK_DIV::PLL_FBDIV_MASK</definition>
+        <argsstring></argsstring>
+        <name>PLL_FBDIV_MASK</name>
+        <qualifiedname>tle92466ed::CLK_DIV::PLL_FBDIV_MASK</qualifiedname>
+        <initializer>= 0x01FFu</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1032" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1032" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CLK__DIV_1a4f532340ce58a1e4b08281e2512b3085" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t tle92466ed::CLK_DIV::F_SYS_TARGET_HZ</definition>
+        <argsstring></argsstring>
+        <name>F_SYS_TARGET_HZ</name>
+        <qualifiedname>tle92466ed::CLK_DIV::F_SYS_TARGET_HZ</qualifiedname>
+        <initializer>= 28&apos;000&apos;000UL</initializer>
+        <briefdescription>
+<para>Target fSYS. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1034" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1034" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CLK__DIV_1ad69a760fad0db3da47805c2474c27bb4" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CLK_DIV::INTERNAL_OSC</definition>
+        <argsstring></argsstring>
+        <name>INTERNAL_OSC</name>
+        <qualifiedname>tle92466ed::CLK_DIV::INTERNAL_OSC</qualifiedname>
+        <initializer>= 0x0000u</initializer>
+        <briefdescription>
+<para>Internal-oscillator configuration (no PLL). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1045" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1045" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacetle92466ed_1_1CLK__DIV_1aaf089b09a3520568c7232f7514b774d8" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CLK_DIV::BuildExternalPll</definition>
+        <argsstring>(uint8_t pll_refdiv, uint16_t pll_fbdiv) noexcept</argsstring>
+        <name>BuildExternalPll</name>
+        <qualifiedname>tle92466ed::CLK_DIV::BuildExternalPll</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>pll_refdiv</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>pll_fbdiv</declname>
+        </param>
+        <briefdescription>
+<para>Pack the external-clock PLL configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1037" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1037" bodyend="1042"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetle92466ed_1_1CLK__DIV_1a18b229efb2399a5f99e419fcc3303101" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtle92466ed_1_1CLK__DIV_1_1PllConfig" kindref="compound">PllConfig</ref></type>
+        <definition>PllConfig tle92466ed::CLK_DIV::CalculatePllFromExternalHz</definition>
+        <argsstring>(uint32_t f_clk_hz) noexcept</argsstring>
+        <name>CalculatePllFromExternalHz</name>
+        <qualifiedname>tle92466ed::CLK_DIV::CalculatePllFromExternalHz</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>f_clk_hz</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="1051" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1051" bodyend="1060"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespacetle92466ed_1_1CLK__DIV" kindref="compound">CLK_DIV</ref> bit definitions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Per datasheet \u00a75.3.2.16 p.71. Selects between external clock and the internal oscillator and configures the PLL generating fSYS from the external clock (when EXT_CLK=1): bit 15 EXT_CLK 0 = internal oscillator, 1 = external + PLL bits 14:9 PLL_REFDIV Reference divider R (fREF = fCLK / (R+1)) bits 8:0 PLL_FBDIV Feedback divider N (fSYS = fREF * (N+1))</para>
+<para>Resulting system clock must equal 28 MHz \u00b1 tolerances for ICC math to be valid. Typical external clock is 4 or 8 MHz. </para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="1028" column="1"/>
+  </compounddef>
+</doxygen>

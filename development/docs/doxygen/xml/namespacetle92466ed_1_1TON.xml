@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1TON" kind="namespace" language="C++">
+    <compoundname>tle92466ed::TON</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1TON_1aca6a0f06a586b7ae522b6544526ac6ea" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::TON::TON_MANT_MASK</definition>
+        <argsstring></argsstring>
+        <name>TON_MANT_MASK</name>
+        <qualifiedname>tle92466ed::TON::TON_MANT_MASK</qualifiedname>
+        <initializer>= 0x03FFu</initializer>
+        <briefdescription>
+<para>10-bit mantissa mask </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="935" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="935" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1TON_1a085257ba8eac07c9840c203c18fd3799" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::TON::OLSG_TIMEOUT_SHIFT</definition>
+        <argsstring></argsstring>
+        <name>OLSG_TIMEOUT_SHIFT</name>
+        <qualifiedname>tle92466ed::TON::OLSG_TIMEOUT_SHIFT</qualifiedname>
+        <initializer>= 10u</initializer>
+        <briefdescription>
+<para>OLSG timeout shift. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="936" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="936" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1TON_1a9953f95329f80ce86593f89bdf4d6b12" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::TON::OLSG_TIMEOUT_MASK</definition>
+        <argsstring></argsstring>
+        <name>OLSG_TIMEOUT_MASK</name>
+        <qualifiedname>tle92466ed::TON::OLSG_TIMEOUT_MASK</qualifiedname>
+        <initializer>= 0xFC00u</initializer>
+        <briefdescription>
+<para>6-bit OLSG timeout mask </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="937" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="937" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1TON_1a7bac6ebf05dc830dc29c41d874c26179" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::TON::DEFAULT</definition>
+        <argsstring></argsstring>
+        <name>DEFAULT</name>
+        <qualifiedname>tle92466ed::TON::DEFAULT</qualifiedname>
+        <initializer>= 0x0000</initializer>
+        <briefdescription>
+<para>POR default. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="939" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="939" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacetle92466ed_1_1TON_1a24d693aef9cccd60538ebee3a5944c8c" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::TON::Build</definition>
+        <argsstring>(uint16_t ton_mant, uint8_t olsg_timeout) noexcept</argsstring>
+        <name>Build</name>
+        <qualifiedname>tle92466ed::TON::Build</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>ton_mant</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>olsg_timeout</declname>
+        </param>
+        <briefdescription>
+<para>Pack TON_MANT + OLSG_TIMEOUT into the raw register value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="942" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="942" bodyend="945"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="namespacetle92466ed_1_1TON" kindref="compound">TON</ref> register bit definitions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Per datasheet \u00a75.3.3.12 p.96. Provides: bits 9:0 TON_MANT On-time mantissa (exponent comes from DITHER_CLK_DIV.EXP, NOT PERIOD.EXP). bits 15:10 OLSG_TIMEOUT Open-load / short-to-ground check timeout.</para>
+<para>Used in DIRECT_DRIVE_SPI mode to control constant on-time without dither. Formula: t_ON = TON_MANT * 2^EXP / fSYS (EXP from per-channel dither clock). </para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="934" column="1"/>
+  </compounddef>
+</doxygen>

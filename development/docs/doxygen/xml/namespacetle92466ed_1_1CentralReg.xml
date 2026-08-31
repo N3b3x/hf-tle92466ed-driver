@@ -1,0 +1,463 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.10.0" xml:lang="en-US">
+  <compounddef id="namespacetle92466ed_1_1CentralReg" kind="namespace" language="C++">
+    <compoundname>tle92466ed::CentralReg</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CentralReg_1aeac6697edbbae3cc23a8e6fdf2f5c9d9" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CentralReg::CH_CTRL</definition>
+        <argsstring></argsstring>
+        <name>CH_CTRL</name>
+        <qualifiedname>tle92466ed::CentralReg::CH_CTRL</qualifiedname>
+        <initializer>= 0x0000</initializer>
+        <briefdescription>
+<para>Channel Control Register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="26" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CentralReg_1a69b47a7154ffa1666c053cf163aec751" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CentralReg::GLOBAL_CONFIG</definition>
+        <argsstring></argsstring>
+        <name>GLOBAL_CONFIG</name>
+        <qualifiedname>tle92466ed::CentralReg::GLOBAL_CONFIG</qualifiedname>
+        <initializer>= 0x0002</initializer>
+        <briefdescription>
+<para>Global Configuration Register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="27" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CentralReg_1aa3e32f7ff1db1ba76b1a51cc20a2dabb" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CentralReg::GLOBAL_DIAG0</definition>
+        <argsstring></argsstring>
+        <name>GLOBAL_DIAG0</name>
+        <qualifiedname>tle92466ed::CentralReg::GLOBAL_DIAG0</qualifiedname>
+        <initializer>= 0x0003</initializer>
+        <briefdescription>
+<para>Global Diagnosis Register 0. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="28" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CentralReg_1ac8df2f2014a9fe944e9cc69c9cb60386" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CentralReg::GLOBAL_DIAG1</definition>
+        <argsstring></argsstring>
+        <name>GLOBAL_DIAG1</name>
+        <qualifiedname>tle92466ed::CentralReg::GLOBAL_DIAG1</qualifiedname>
+        <initializer>= 0x0004</initializer>
+        <briefdescription>
+<para>Global Diagnosis Register 1. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="29" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CentralReg_1a007776b8ad8434a96362419453d83b3c" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CentralReg::GLOBAL_DIAG2</definition>
+        <argsstring></argsstring>
+        <name>GLOBAL_DIAG2</name>
+        <qualifiedname>tle92466ed::CentralReg::GLOBAL_DIAG2</qualifiedname>
+        <initializer>= 0x0005</initializer>
+        <briefdescription>
+<para>Global Diagnosis Register 2. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="30" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CentralReg_1a7a6c2cc734584c57e93389afc27745ba" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CentralReg::VBAT_TH</definition>
+        <argsstring></argsstring>
+        <name>VBAT_TH</name>
+        <qualifiedname>tle92466ed::CentralReg::VBAT_TH</qualifiedname>
+        <initializer>= 0x0006</initializer>
+        <briefdescription>
+<para>VBAT Threshold Register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="31" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CentralReg_1a3a44abc86e7252fcc09d19d1b3e2b314" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CentralReg::FB_FRZ</definition>
+        <argsstring></argsstring>
+        <name>FB_FRZ</name>
+        <qualifiedname>tle92466ed::CentralReg::FB_FRZ</qualifiedname>
+        <initializer>= 0x0007</initializer>
+        <briefdescription>
+<para>Feedback Freeze Register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="32" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CentralReg_1aaa3fbcff39a54199459aec455d68383d" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CentralReg::FB_UPD</definition>
+        <argsstring></argsstring>
+        <name>FB_UPD</name>
+        <qualifiedname>tle92466ed::CentralReg::FB_UPD</qualifiedname>
+        <initializer>= 0x0008</initializer>
+        <briefdescription>
+<para>Feedback Update Register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="33" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CentralReg_1a152b9dfc21f7fcee3170fefae510cdf6" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CentralReg::WD_RELOAD</definition>
+        <argsstring></argsstring>
+        <name>WD_RELOAD</name>
+        <qualifiedname>tle92466ed::CentralReg::WD_RELOAD</qualifiedname>
+        <initializer>= 0x0009</initializer>
+        <briefdescription>
+<para>SPI Watchdog Reload Register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="34" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CentralReg_1a5da670386c8a5ff2e43bee89ac64fac5" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CentralReg::DIAG_ERR_CHGR0</definition>
+        <argsstring></argsstring>
+        <name>DIAG_ERR_CHGR0</name>
+        <qualifiedname>tle92466ed::CentralReg::DIAG_ERR_CHGR0</qualifiedname>
+        <initializer>= 0x000A</initializer>
+        <briefdescription>
+<para>Diag Error CHGR0 (CH0+CH1) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="44" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CentralReg_1a696c4d3ff68eb7491176953ee4ccca3b" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CentralReg::DIAG_ERR_CHGR1</definition>
+        <argsstring></argsstring>
+        <name>DIAG_ERR_CHGR1</name>
+        <qualifiedname>tle92466ed::CentralReg::DIAG_ERR_CHGR1</qualifiedname>
+        <initializer>= 0x000B</initializer>
+        <briefdescription>
+<para>Diag Error CHGR1 (CH2+CH3) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="45" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CentralReg_1a4a82dcefb77df81487986d51c5e9b705" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CentralReg::DIAG_ERR_CHGR2</definition>
+        <argsstring></argsstring>
+        <name>DIAG_ERR_CHGR2</name>
+        <qualifiedname>tle92466ed::CentralReg::DIAG_ERR_CHGR2</qualifiedname>
+        <initializer>= 0x000C</initializer>
+        <briefdescription>
+<para>Diag Error CHGR2 (CH4+CH5) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="46" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CentralReg_1a6572ec371f01147ded0c8ff58217a9da" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CentralReg::DIAG_WARN_CHGR0</definition>
+        <argsstring></argsstring>
+        <name>DIAG_WARN_CHGR0</name>
+        <qualifiedname>tle92466ed::CentralReg::DIAG_WARN_CHGR0</qualifiedname>
+        <initializer>= 0x0010</initializer>
+        <briefdescription>
+<para>Diag Warn CHGR0 (CH0+CH1) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="48" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CentralReg_1a7ecdb274a4a52e1499fe310363734137" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CentralReg::DIAG_WARN_CHGR1</definition>
+        <argsstring></argsstring>
+        <name>DIAG_WARN_CHGR1</name>
+        <qualifiedname>tle92466ed::CentralReg::DIAG_WARN_CHGR1</qualifiedname>
+        <initializer>= 0x0011</initializer>
+        <briefdescription>
+<para>Diag Warn CHGR1 (CH2+CH3) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="49" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CentralReg_1a34b60820d4e53a1fcd8ea191e3c6a9c6" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CentralReg::DIAG_WARN_CHGR2</definition>
+        <argsstring></argsstring>
+        <name>DIAG_WARN_CHGR2</name>
+        <qualifiedname>tle92466ed::CentralReg::DIAG_WARN_CHGR2</qualifiedname>
+        <initializer>= 0x0012</initializer>
+        <briefdescription>
+<para>Diag Warn CHGR2 (CH4+CH5) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="50" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CentralReg_1a9de0a67adf43fc8d2b4f3902b51a9139" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CentralReg::FAULT_MASK0</definition>
+        <argsstring></argsstring>
+        <name>FAULT_MASK0</name>
+        <qualifiedname>tle92466ed::CentralReg::FAULT_MASK0</qualifiedname>
+        <initializer>= 0x0016</initializer>
+        <briefdescription>
+<para>Fault Mask Register 0. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="52" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CentralReg_1a9d120b68fd42fd8cb82ab362282d10b6" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CentralReg::FAULT_MASK1</definition>
+        <argsstring></argsstring>
+        <name>FAULT_MASK1</name>
+        <qualifiedname>tle92466ed::CentralReg::FAULT_MASK1</qualifiedname>
+        <initializer>= 0x0017</initializer>
+        <briefdescription>
+<para>Fault Mask Register 1. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="53" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CentralReg_1ac56c42d5d4508d022da3144f6bb466df" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CentralReg::FAULT_MASK2</definition>
+        <argsstring></argsstring>
+        <name>FAULT_MASK2</name>
+        <qualifiedname>tle92466ed::CentralReg::FAULT_MASK2</qualifiedname>
+        <initializer>= 0x0018</initializer>
+        <briefdescription>
+<para>Fault Mask Register 2. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="54" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CentralReg_1aa51de35a6c7b90d04895c6683c7de52a" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CentralReg::CLK_DIV</definition>
+        <argsstring></argsstring>
+        <name>CLK_DIV</name>
+        <qualifiedname>tle92466ed::CentralReg::CLK_DIV</qualifiedname>
+        <initializer>= 0x0019</initializer>
+        <briefdescription>
+<para>Clock Control Register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="55" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CentralReg_1a7d7ea63031dbc49ef051606303fbf8ec" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CentralReg::SFF_BIST</definition>
+        <argsstring></argsstring>
+        <name>SFF_BIST</name>
+        <qualifiedname>tle92466ed::CentralReg::SFF_BIST</qualifiedname>
+        <initializer>= 0x003F</initializer>
+        <briefdescription>
+<para>BIST Register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="56" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CentralReg_1a0f0eac53e8a589e078c9a240c2ef3684" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CentralReg::ICVID</definition>
+        <argsstring></argsstring>
+        <name>ICVID</name>
+        <qualifiedname>tle92466ed::CentralReg::ICVID</qualifiedname>
+        <initializer>= 0x0200</initializer>
+        <briefdescription>
+<para>IC Version and ID. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="59" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CentralReg_1af61d9aa81b2e8b5b93705a7c3bf47175" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CentralReg::PIN_STAT</definition>
+        <argsstring></argsstring>
+        <name>PIN_STAT</name>
+        <qualifiedname>tle92466ed::CentralReg::PIN_STAT</qualifiedname>
+        <initializer>= 0x0201</initializer>
+        <briefdescription>
+<para>Pin Status Register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="60" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CentralReg_1ab9afdfdc7272eb010c9d876bafe2a825" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CentralReg::FB_STAT</definition>
+        <argsstring></argsstring>
+        <name>FB_STAT</name>
+        <qualifiedname>tle92466ed::CentralReg::FB_STAT</qualifiedname>
+        <initializer>= 0x0202</initializer>
+        <briefdescription>
+<para>Feedback Status Register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="61" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CentralReg_1ae21b64e38cdf7c1e2e04eacc323973a9" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CentralReg::FB_VOLTAGE1</definition>
+        <argsstring></argsstring>
+        <name>FB_VOLTAGE1</name>
+        <qualifiedname>tle92466ed::CentralReg::FB_VOLTAGE1</qualifiedname>
+        <initializer>= 0x0203</initializer>
+        <briefdescription>
+<para>Feedback Voltage Register 1. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="62" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CentralReg_1a232fd801d03dccca8fa043eb38c9c3eb" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CentralReg::FB_VOLTAGE2</definition>
+        <argsstring></argsstring>
+        <name>FB_VOLTAGE2</name>
+        <qualifiedname>tle92466ed::CentralReg::FB_VOLTAGE2</qualifiedname>
+        <initializer>= 0x0204</initializer>
+        <briefdescription>
+<para>Feedback Voltage Register 2. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="63" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CentralReg_1aa5f47ea08b7e2a45053f870f392f91b0" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CentralReg::CHIPID0</definition>
+        <argsstring></argsstring>
+        <name>CHIPID0</name>
+        <qualifiedname>tle92466ed::CentralReg::CHIPID0</qualifiedname>
+        <initializer>= 0x0205</initializer>
+        <briefdescription>
+<para>Unique Chip ID Register 0. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="64" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CentralReg_1a38fb3a79a6c315b16300d898a75141e0" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CentralReg::CHIPID1</definition>
+        <argsstring></argsstring>
+        <name>CHIPID1</name>
+        <qualifiedname>tle92466ed::CentralReg::CHIPID1</qualifiedname>
+        <initializer>= 0x0206</initializer>
+        <briefdescription>
+<para>Unique Chip ID Register 1. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="65" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetle92466ed_1_1CentralReg_1a7a0978d995717f91f6d1812931df658d" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t tle92466ed::CentralReg::CHIPID2</definition>
+        <argsstring></argsstring>
+        <name>CHIPID2</name>
+        <qualifiedname>tle92466ed::CentralReg::CHIPID2</qualifiedname>
+        <initializer>= 0x0207</initializer>
+        <briefdescription>
+<para>Unique Chip ID Register 2. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed_registers.hpp" line="66" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="66" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Central and global register addresses. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>These registers control global device configuration, status, and diagnostics. All addresses are 10-bit (0x0000 - 0x03FF). </para>
+    </detaileddescription>
+    <location file="inc/tle92466ed_registers.hpp" line="25" column="1"/>
+  </compounddef>
+</doxygen>
