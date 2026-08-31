@@ -20,6 +20,7 @@
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -30,7 +31,7 @@
   <td id="projectalign">
    <div id="projectname">TLE92466ED Driver<span id="projectnumber">&#160;0.1.0-dev</span>
    </div>
-   <div id="projectbrief">Modern C++23 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver</div>
+   <div id="projectbrief">Modern C++20 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver</div>
   </td>
  </tr>
  </tbody>
@@ -96,19 +97,27 @@ $(function(){initNavTree('functions_o.html',''); initResizable(); });
 <div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
 
 <h3><a id="index_o" name="index_o"></a>- o -</h3><ul>
-<li>olsg_warning&#160;:&#160;<a class="el" href="structTLE92466ED_1_1ChannelDiagnostics.html#ad0f5d6f5dde2a091088504365e968ad9">TLE92466ED::ChannelDiagnostics</a></li>
-<li>olsg_warning_enabled&#160;:&#160;<a class="el" href="structTLE92466ED_1_1ChannelConfig.html#a3c840dedd34f2dda059f48e8b77c4b9b">TLE92466ED::ChannelConfig</a></li>
-<li>open_load&#160;:&#160;<a class="el" href="structTLE92466ED_1_1ChannelDiagnostics.html#ae995b432e2e1b4cc7cde0d799cbb3a76">TLE92466ED::ChannelDiagnostics</a></li>
-<li>open_load_short_ground&#160;:&#160;<a class="el" href="structTLE92466ED_1_1ChannelDiagnostics.html#aa118258879449c58f642c0546424b13e">TLE92466ED::ChannelDiagnostics</a></li>
-<li>open_load_threshold&#160;:&#160;<a class="el" href="structTLE92466ED_1_1ChannelConfig.html#add6c87ba93a089db36087ae8c121626d">TLE92466ED::ChannelConfig</a></li>
-<li>OPERATING_MAX&#160;:&#160;<a class="el" href="structTLE92466ED__Config_1_1Temperature.html#ab30719c0236ab1ca6e4eac73cd71c662">TLE92466ED_Config::Temperature</a></li>
-<li>OPERATING_MIN&#160;:&#160;<a class="el" href="structTLE92466ED__Config_1_1Temperature.html#ad5e5558ffce6636e04b5c05ede11fae6">TLE92466ED_Config::Temperature</a></li>
-<li>operator=()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#a5363c080f497af5079fe48f6ec484272">TLE92466ED::Driver</a>, <a class="el" href="classTLE92466ED_1_1HAL.html#a39c1634fce8b96b25d35661a015c1845">TLE92466ED::HAL</a></li>
-<li>ot_error&#160;:&#160;<a class="el" href="structTLE92466ED_1_1DeviceStatus.html#a84ec632eadb5effea477ce8ed4d2967f">TLE92466ED::DeviceStatus</a></li>
-<li>ot_warning&#160;:&#160;<a class="el" href="structTLE92466ED_1_1ChannelDiagnostics.html#a1c2e00c5757338dd9d7fb56934441a0c">TLE92466ED::ChannelDiagnostics</a>, <a class="el" href="structTLE92466ED_1_1DeviceStatus.html#af983a2a18ac35e9997d41a7d919c1f44">TLE92466ED::DeviceStatus</a></li>
-<li>over_temperature&#160;:&#160;<a class="el" href="structTLE92466ED_1_1ChannelDiagnostics.html#aeec3c0211672b7e0600eb8f7bcb835ae">TLE92466ED::ChannelDiagnostics</a></li>
-<li>overcurrent&#160;:&#160;<a class="el" href="structTLE92466ED_1_1ChannelDiagnostics.html#a77ade5bcfd40e3cf0616fcdcffd9cef9">TLE92466ED::ChannelDiagnostics</a></li>
-<li>OVERCURRENT_THRESHOLD_MA&#160;:&#160;<a class="el" href="structTLE92466ED__Config_1_1Diagnostics.html#a84c944a741e553632cfb19d86e07f395">TLE92466ED_Config::Diagnostics</a></li>
+<li>olsg_check_not_performed&#160;:&#160;<a class="el" href="structtle92466ed_1_1ChannelDiagnostics.html#ae81facf6eab49abf961be9a892187bc4">tle92466ed::ChannelDiagnostics</a></li>
+<li>olsg_warning&#160;:&#160;<a class="el" href="structtle92466ed_1_1ChannelDiagnostics.html#a5efa1a8379e2097cae5c55cdcb29119f">tle92466ed::ChannelDiagnostics</a>, <a class="el" href="structtle92466ed_1_1FaultReport_1_1ChannelFaults.html#acbe1826b900feb00cc844ce4f8684bc0">tle92466ed::FaultReport::ChannelFaults</a></li>
+<li>olsg_warning_enabled&#160;:&#160;<a class="el" href="structtle92466ed_1_1ChannelConfig.html#abb7e956bfc48868d79181f227896241a">tle92466ed::ChannelConfig</a></li>
+<li>open_load&#160;:&#160;<a class="el" href="structtle92466ed_1_1ChannelDiagnostics.html#a8cacc75843ea4c29ce4ee9da0bca79db">tle92466ed::ChannelDiagnostics</a>, <a class="el" href="structtle92466ed_1_1ChannelErrorFlags.html#a1ec98beb0c39ec343aea71f8548debac">tle92466ed::ChannelErrorFlags</a>, <a class="el" href="structtle92466ed_1_1FaultReport_1_1ChannelFaults.html#ac96d23535ed772c95982d15ef7bf43ca">tle92466ed::FaultReport::ChannelFaults</a></li>
+<li>open_load_short_ground&#160;:&#160;<a class="el" href="structtle92466ed_1_1ChannelDiagnostics.html#a87d81edac85c7c452bd60f106cd63f02">tle92466ed::ChannelDiagnostics</a>, <a class="el" href="structtle92466ed_1_1ChannelErrorFlags.html#ac599e9bd4dcd7487e6941d0727700357">tle92466ed::ChannelErrorFlags</a>, <a class="el" href="structtle92466ed_1_1FaultReport_1_1ChannelFaults.html#a39d451a2be45323a13c1176124d8e3b0">tle92466ed::FaultReport::ChannelFaults</a></li>
+<li>open_load_threshold&#160;:&#160;<a class="el" href="structtle92466ed_1_1ChannelConfig.html#a87f7bfbad88755a0c78ea08345eaeb10">tle92466ed::ChannelConfig</a></li>
+<li>OPERATING_MAX&#160;:&#160;<a class="el" href="structTLE92466ED__TestConfig_1_1Temperature.html#a675c3168bd5d45619d2855e5a221e89b">TLE92466ED_TestConfig::Temperature</a></li>
+<li>OPERATING_MIN&#160;:&#160;<a class="el" href="structTLE92466ED__TestConfig_1_1Temperature.html#a9401801f59fc0d49016785d352b55e0d">TLE92466ED_TestConfig::Temperature</a></li>
+<li>operator bool()&#160;:&#160;<a class="el" href="classtle_1_1expected.html#acdf932e070827abb8bf123cefe004112">tle::expected&lt; T, E &gt;</a>, <a class="el" href="classtle_1_1expected_3_01void_00_01E_01_4.html#abe357163262623fb1a6f2f7ffb26c0cb">tle::expected&lt; void, E &gt;</a></li>
+<li>operator*()&#160;:&#160;<a class="el" href="classtle_1_1expected.html#a7364f52278ec70fb916fab4e6609cfb0">tle::expected&lt; T, E &gt;</a></li>
+<li>operator-&gt;()&#160;:&#160;<a class="el" href="classtle_1_1expected.html#a86ddf268a99a2f128fac89de8c2da8de">tle::expected&lt; T, E &gt;</a></li>
+<li>operator=()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#ad017c574e029c55b7fe64fda7a244882">tle92466ed::Driver&lt; CommType &gt;</a>, <a class="el" href="classtle92466ed_1_1SpiInterface.html#aaebb9bbf0c619b67975c7ee3c622b5a9">tle92466ed::SpiInterface&lt; Derived &gt;</a>, <a class="el" href="classtle_1_1expected.html#a30fd2a788d8406d4d734ec5b98fdc320">tle::expected&lt; T, E &gt;</a>, <a class="el" href="classtle_1_1expected_3_01void_00_01E_01_4.html#a7617a0d8bccd798a91ae0e89d2920848">tle::expected&lt; void, E &gt;</a></li>
+<li>ot_error&#160;:&#160;<a class="el" href="structtle92466ed_1_1DeviceStatus.html#a6bc02519bbe96ebcc7ad76872d3f5902">tle92466ed::DeviceStatus</a>, <a class="el" href="structtle92466ed_1_1FaultReport.html#a85b047e6c8a7c6b9aec1cc26ddc58290">tle92466ed::FaultReport</a></li>
+<li>ot_test_ok&#160;:&#160;<a class="el" href="structtle92466ed_1_1SupplyMonitorSelfTestResult.html#afd1f1119b50e63b5946567d76ad5f9ae">tle92466ed::SupplyMonitorSelfTestResult</a></li>
+<li>ot_warning&#160;:&#160;<a class="el" href="structtle92466ed_1_1ChannelDiagnostics.html#a1adeb4824d25703c9be6fc57e8b439b9">tle92466ed::ChannelDiagnostics</a>, <a class="el" href="structtle92466ed_1_1DeviceStatus.html#a75a9546e210e00f9784902756f5cd27c">tle92466ed::DeviceStatus</a>, <a class="el" href="structtle92466ed_1_1FaultReport_1_1ChannelFaults.html#afa5d7feb3000ec999d31471950b9c143">tle92466ed::FaultReport::ChannelFaults</a>, <a class="el" href="structtle92466ed_1_1FaultReport.html#a921f5ac33e57565c314bdaa0b4aabccf">tle92466ed::FaultReport</a></li>
+<li>otp_ecc_err&#160;:&#160;<a class="el" href="structtle92466ed_1_1FaultReport.html#a789402af237ee094c086df5b7e164dd0">tle92466ed::FaultReport</a></li>
+<li>otp_virgin&#160;:&#160;<a class="el" href="structtle92466ed_1_1FaultReport.html#a5d533b391476520e3a7ef86b22fc34e2">tle92466ed::FaultReport</a></li>
+<li>over_temperature&#160;:&#160;<a class="el" href="structtle92466ed_1_1ChannelDiagnostics.html#a44b917b5954cbfd8ef641c2f7542709a">tle92466ed::ChannelDiagnostics</a>, <a class="el" href="structtle92466ed_1_1ChannelErrorFlags.html#abedb60895e5e0c53457eaaf82d22e146">tle92466ed::ChannelErrorFlags</a>, <a class="el" href="structtle92466ed_1_1FaultReport_1_1ChannelFaults.html#a78061b124127fe10d17893ec139c3d3e">tle92466ed::FaultReport::ChannelFaults</a></li>
+<li>overall_pass&#160;:&#160;<a class="el" href="structtle92466ed_1_1SupplyMonitorSelfTestResult.html#a9e0ee2ef8cf3a444a09f75ef52e22673">tle92466ed::SupplyMonitorSelfTestResult</a></li>
+<li>overcurrent&#160;:&#160;<a class="el" href="structtle92466ed_1_1ChannelDiagnostics.html#ac69237d943d626beca5f13b9f3add335">tle92466ed::ChannelDiagnostics</a>, <a class="el" href="structtle92466ed_1_1ChannelErrorFlags.html#af178b1d02f6dac8fc5bc0dc5bb49ff93">tle92466ed::ChannelErrorFlags</a>, <a class="el" href="structtle92466ed_1_1FaultReport_1_1ChannelFaults.html#a62ac3b0e93118dcfd2f1753066641def">tle92466ed::FaultReport::ChannelFaults</a></li>
+<li>OVERCURRENT_THRESHOLD_MA&#160;:&#160;<a class="el" href="structTLE92466ED__TestConfig_1_1Diagnostics.html#a49d34cf3a8b44272e2311ad052dfc618">TLE92466ED_TestConfig::Diagnostics</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -20,6 +20,7 @@
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -30,7 +31,7 @@
   <td id="projectalign">
    <div id="projectname">TLE92466ED Driver<span id="projectnumber">&#160;0.1.0-dev</span>
    </div>
-   <div id="projectbrief">Modern C++23 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver</div>
+   <div id="projectbrief">Modern C++20 driver for Infineon TLE92466ED Six-Channel Low-Side Solenoid Driver</div>
   </td>
  </tr>
  </tbody>
@@ -96,35 +97,53 @@ $(function(){initNavTree('functions_c.html',''); initResizable(); });
 <div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
 
 <h3><a id="index_c" name="index_c"></a>- c -</h3><ul>
-<li>channel_enable_cache_&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#ae2e4af149a51b43def4a7b3c58fdeb54">TLE92466ED::Driver</a></li>
-<li>channel_setpoints_&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#a00f387cb0c9e0874323d268151528687">TLE92466ED::Driver</a></li>
-<li>check_config_mode()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#a354840dade594f90213b3f996fd9e838">TLE92466ED::Driver</a></li>
-<li>check_initialized()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#aae490abce5f136e7a475a102eafce95b">TLE92466ED::Driver</a></li>
-<li>check_mission_mode()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#ab76438152acbbec8c8fbc72b0a3f52b2">TLE92466ED::Driver</a></li>
-<li>check_spi_status()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#a70e208f183cbb65ea3704617f6740f37">TLE92466ED::Driver</a></li>
-<li>chip_deselect()&#160;:&#160;<a class="el" href="classESP32C6__HAL.html#a81780a19adefacd78f45fe679102dc9e">ESP32C6_HAL</a>, <a class="el" href="classTLE92466ED_1_1ExampleHAL.html#a2a23fe30261ec2b948bd01e3d41a14e7">TLE92466ED::ExampleHAL</a>, <a class="el" href="classTLE92466ED_1_1HAL.html#adc04e4611b63548e71dea1b54b50f6ff">TLE92466ED::HAL</a></li>
-<li>chip_select()&#160;:&#160;<a class="el" href="classESP32C6__HAL.html#a2a36f2190e7f4cdc86791af78cecb504">ESP32C6_HAL</a>, <a class="el" href="classTLE92466ED_1_1ExampleHAL.html#ab5ce6d1f460d9078afcbe40a21897be0">TLE92466ED::ExampleHAL</a>, <a class="el" href="classTLE92466ED_1_1HAL.html#acf35d9f891cd8430a6ef3cee2772995d">TLE92466ED::HAL</a></li>
-<li>clear_errors()&#160;:&#160;<a class="el" href="classESP32C6__HAL.html#a71369798c2b0ba86b1effd88b98b9488">ESP32C6_HAL</a>, <a class="el" href="classTLE92466ED_1_1ExampleHAL.html#af3c3239541c6cee3e33679bedfb670bd">TLE92466ED::ExampleHAL</a>, <a class="el" href="classTLE92466ED_1_1HAL.html#a3e16e6e34b24bc62c183f77a2c10926b">TLE92466ED::HAL</a></li>
-<li>clear_faults()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#a6dd36fed098213f081b83429ac36e155">TLE92466ED::Driver</a></li>
-<li>clock_fault&#160;:&#160;<a class="el" href="structTLE92466ED_1_1DeviceStatus.html#a35ebeacb7cb98745c1a7467e06d7871f">TLE92466ED::DeviceStatus</a></li>
-<li>clock_watchdog_enabled&#160;:&#160;<a class="el" href="structTLE92466ED_1_1GlobalConfig.html#ae69ac56ab00d15d763448ebc1cf2d399">TLE92466ED::GlobalConfig</a></li>
+<li>cached_icvid_&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a87fd6e22ad75b9e52b3f4f41217a5431">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>CalculateAmplitudeMa()&#160;:&#160;<a class="el" href="structtle92466ed_1_1DITHER_1_1DitherConfig.html#a89e67b6e8fb997dabba748a732b5370c">tle92466ed::DITHER::DitherConfig</a></li>
+<li>CalculatePeriodUs()&#160;:&#160;<a class="el" href="structtle92466ed_1_1DITHER_1_1DitherConfig.html#aca193fe202148c797393d5cf40fde116">tle92466ed::DITHER::DitherConfig</a>, <a class="el" href="structtle92466ed_1_1PERIOD_1_1PeriodConfig.html#abcec709b699336b530e99640ad969b01">tle92466ed::PERIOD::PeriodConfig</a></li>
+<li>CalculateTrefClkUs()&#160;:&#160;<a class="el" href="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig.html#a51042c302c1aecc24a0c1db52fe14f30">tle92466ed::DITHER_CLK_DIV::ClkDivConfig</a></li>
+<li>ch_ctrl_cache_&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#ad09de11b9b6854c81e260648bff0e4b6">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>CHANNEL&#160;:&#160;<a class="el" href="structADCConfig.html#a50cbf9858ed09cf95bc20587757328f4">ADCConfig</a>, <a class="el" href="structSolenoid1Config.html#a7a5e0d6d3f9f53ad0d8ca2ebfe88e205">Solenoid1Config</a></li>
+<li>channel_enable_cache_&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a846d9b9f5963e52e5dc9c4d83f8ae638">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>channel_setpoints_&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a4f841209018bbb0d1da2cf65a341140a">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>channels&#160;:&#160;<a class="el" href="structtle92466ed_1_1CurrentFeedbackBatch.html#a6dee9b77a9a433e52cef9e7c78a522ca">tle92466ed::CurrentFeedbackBatch</a>, <a class="el" href="structtle92466ed_1_1FaultReport.html#a5ca3075027c1719e09273c1174b22664">tle92466ed::FaultReport</a></li>
+<li>checkConfigMode()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a50757519190df91afb7207cd162c63c5">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>checkInitialized()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#ab2894233752ec76e246ec823764ec45d">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>checkMissionMode()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a9b11b99a6c20b1903a54666f736df6aa">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>checkSpiStatus()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a530670d94708b1e603d108cf45e44f70">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>ClearErrors()&#160;:&#160;<a class="el" href="classEsp32Tle92466edSpiBus.html#af63d5b9edd17b58a23febdcf6c927efb">Esp32Tle92466edSpiBus</a>, <a class="el" href="classtle92466ed_1_1SpiInterface.html#aa236926f38300295cc4b82fdd137db37">tle92466ed::SpiInterface&lt; Derived &gt;</a></li>
+<li>ClearFaults()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#adef98b992a4de30b6089733616e30053">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>clearFaultsInternal()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#abf81ffb528844010e6db8dafc104d287">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>clk_too_fast&#160;:&#160;<a class="el" href="structtle92466ed_1_1CriticalFaultFlags.html#a3d6b5694de42765b48d6872e80c82d98">tle92466ed::CriticalFaultFlags</a></li>
+<li>clk_too_slow&#160;:&#160;<a class="el" href="structtle92466ed_1_1CriticalFaultFlags.html#ae4365f734f6db1b00ce16ab45e56995b">tle92466ed::CriticalFaultFlags</a></li>
+<li>clock_fault&#160;:&#160;<a class="el" href="structtle92466ed_1_1DeviceStatus.html#a7f30580eb78da2fb4c3505edac89f552">tle92466ed::DeviceStatus</a>, <a class="el" href="structtle92466ed_1_1FaultReport.html#a14628b08be133d058e8b9d4c77354858">tle92466ed::FaultReport</a></li>
+<li>clock_watchdog_enabled&#160;:&#160;<a class="el" href="structtle92466ed_1_1GlobalConfig.html#a2b70b6f18d3243e0c0e42a76e34208bc">tle92466ed::GlobalConfig</a></li>
+<li>comm_&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#ac72df6322286a7525df5f95b732c550d">tle92466ed::Driver&lt; CommType &gt;</a></li>
 <li>completion_semaphore&#160;:&#160;<a class="el" href="structTestTaskContext.html#ab82bee11b198be2f2b4d6c908573ddb6">TestTaskContext</a></li>
-<li>config_&#160;:&#160;<a class="el" href="classESP32C6__HAL.html#ad5036139d8a26dd2dedc3eed1a577412">ESP32C6_HAL</a>, <a class="el" href="classTLE92466ED_1_1ExampleHAL.html#ac30ffe21f8cf4bdc0d37dc6f0294c48a">TLE92466ED::ExampleHAL</a></li>
-<li>config_mode&#160;:&#160;<a class="el" href="structTLE92466ED_1_1DeviceStatus.html#ae7279eaf94916f343b8ffeba1e661d3a">TLE92466ED::DeviceStatus</a></li>
-<li>configure()&#160;:&#160;<a class="el" href="classESP32C6__HAL.html#a1da1475a6a8062e217bd38ea11838aa7">ESP32C6_HAL</a>, <a class="el" href="classTLE92466ED_1_1ExampleHAL.html#a233bb6b92374f0ae245f62054e7850dd">TLE92466ED::ExampleHAL</a>, <a class="el" href="classTLE92466ED_1_1HAL.html#ac7d9c64c836ab51a0f878698302a1413">TLE92466ED::HAL</a></li>
-<li>configure_channel()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#ad126e0f11adb3e9d221d70bed57bbccb">TLE92466ED::Driver</a></li>
-<li>configure_dither()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#a2cb6dacc7feda300a48123a9ab18b4fc">TLE92466ED::Driver</a></li>
-<li>configure_global()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#a7e495e105a1eac168b635d5612df3b91">TLE92466ED::Driver</a></li>
-<li>configure_pwm_period()&#160;:&#160;<a class="el" href="classTLE92466ED_1_1Driver.html#a3e2439020c84551e24fdcc65792bbd21">TLE92466ED::Driver</a></li>
-<li>crc&#160;:&#160;<a class="el" href="unionTLE92466ED_1_1SPIFrame.html#ae777d3989ca5646cfc85e3f00c06ce69">TLE92466ED::SPIFrame</a></li>
-<li>crc_enabled&#160;:&#160;<a class="el" href="structTLE92466ED_1_1GlobalConfig.html#a4239ff6f2e6c61a98ae8d0fc8206824e">TLE92466ED::GlobalConfig</a></li>
-<li>CS&#160;:&#160;<a class="el" href="structTLE92466ED__Config_1_1SPIPins.html#a8b6229d16553e448402aca7be548cbea">TLE92466ED_Config::SPIPins</a></li>
-<li>CS_HOLD_US&#160;:&#160;<a class="el" href="structTLE92466ED__Config_1_1Timing.html#adcae151cd3c0a4dd95ca54754cd93612">TLE92466ED_Config::Timing</a></li>
-<li>cs_pin&#160;:&#160;<a class="el" href="structArduino__HAL_1_1SPIConfig.html#a78740088a33e446394e9cee68ddba7fa">Arduino_HAL::SPIConfig</a>, <a class="el" href="structESP32C6__HAL_1_1SPIConfig.html#ac58247759a8a6e565048e46cdb23df0c">ESP32C6_HAL::SPIConfig</a></li>
-<li>cs_pin_&#160;:&#160;<a class="el" href="classTLE92466ED_1_1ExampleHAL.html#a5ab8c6c8f1e7f76762563f7872e086d3">TLE92466ED::ExampleHAL</a></li>
-<li>CS_SETUP_US&#160;:&#160;<a class="el" href="structTLE92466ED__Config_1_1Timing.html#a91715bc50490bd065883ef8300f2d1ca">TLE92466ED_Config::Timing</a></li>
-<li>current_regulation_warning&#160;:&#160;<a class="el" href="structTLE92466ED_1_1ChannelDiagnostics.html#a404b9496bc434aa1ec021c4b4bb0be90">TLE92466ED::ChannelDiagnostics</a></li>
-<li>current_setpoint_ma&#160;:&#160;<a class="el" href="structTLE92466ED_1_1ChannelConfig.html#a49171c26b8813e1fba865fc743d2df78">TLE92466ED::ChannelConfig</a></li>
+<li>config_&#160;:&#160;<a class="el" href="classEsp32Tle92466edSpiBus.html#a982bcaa9045a6a4c5336f6867015d208">Esp32Tle92466edSpiBus</a></li>
+<li>config_mode&#160;:&#160;<a class="el" href="structtle92466ed_1_1DeviceStatus.html#a3b5da820eb70c6213d23cb9cdc9d3e14">tle92466ed::DeviceStatus</a></li>
+<li>Configure()&#160;:&#160;<a class="el" href="classEsp32Tle92466edSpiBus.html#a5711f4c3c3bdf545ca10b32ef2399aac">Esp32Tle92466edSpiBus</a>, <a class="el" href="classtle92466ed_1_1SpiInterface.html#a0629ce233e0aa304d7faaf6aebf083e5">tle92466ed::SpiInterface&lt; Derived &gt;</a></li>
+<li>ConfigureChannel()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#acdf69b750381f25cd56bebc655932dde">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>ConfigureClockSource()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#aa78284a05e1c23791b4eae97dabab3d3">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>ConfigureDither()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a8eb16ab00cb03f99a15620663d058e65">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>ConfigureDitherClock()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#ab44b690cd47cfc576e7583eb08a1ec0f">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>ConfigureDitherRaw()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#ad3a91c4c6a52197ebf7c99b7007e8903">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>ConfigureGlobal()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a772a3298100180ceb69a4e6fd2f230a5">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>ConfigurePwmPeriod()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#acab3b4ba7466937c84c2f9f94b70e5df">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>ConfigurePwmPeriodRaw()&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#a549c24ab6f54047ec82243d7a37a0fa1">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>correctable_reg_err&#160;:&#160;<a class="el" href="structtle92466ed_1_1BistResult.html#ab0cf36d9483dd7d91d57b7ff92b1ec39">tle92466ed::BistResult</a></li>
+<li>crc&#160;:&#160;<a class="el" href="uniontle92466ed_1_1SPIFrame.html#a2ac8d6092d1bf23b1f892e177f1ed769">tle92466ed::SPIFrame</a></li>
+<li>crc_enabled&#160;:&#160;<a class="el" href="structtle92466ed_1_1GlobalConfig.html#a841ab2a4ec8a97261a698ff16f344cc0">tle92466ed::GlobalConfig</a></li>
+<li>crc_enabled_&#160;:&#160;<a class="el" href="classtle92466ed_1_1Driver.html#aef6b4ace86c70c9636203e452fca5474">tle92466ed::Driver&lt; CommType &gt;</a></li>
+<li>CS&#160;:&#160;<a class="el" href="structTLE92466ED__TestConfig_1_1SPIPins.html#a144454730100985c5bc1ad819cfa0ddf">TLE92466ED_TestConfig::SPIPins</a></li>
+<li>cs_ena_posttrans&#160;:&#160;<a class="el" href="structEsp32Tle92466edSpiBus_1_1SPIConfig.html#a8afab88769e928304f4e3e0c0370598f">Esp32Tle92466edSpiBus::SPIConfig</a></li>
+<li>CS_ENA_POSTTRANS&#160;:&#160;<a class="el" href="structTLE92466ED__TestConfig_1_1SPIParams.html#abbc31a95b8b58b08104aecc97a94f3f3">TLE92466ED_TestConfig::SPIParams</a></li>
+<li>cs_ena_pretrans&#160;:&#160;<a class="el" href="structEsp32Tle92466edSpiBus_1_1SPIConfig.html#ac6c8a1274bffd8902b0a95b7c3d974ff">Esp32Tle92466edSpiBus::SPIConfig</a></li>
+<li>CS_ENA_PRETRANS&#160;:&#160;<a class="el" href="structTLE92466ED__TestConfig_1_1SPIParams.html#ab2f4932fc67cbfd35cf4e7c235b64eb4">TLE92466ED_TestConfig::SPIParams</a></li>
+<li>CS_HOLD_US&#160;:&#160;<a class="el" href="structTLE92466ED__TestConfig_1_1Timing.html#adc6d7d41ea03acc3ef9d63d3a9d43999">TLE92466ED_TestConfig::Timing</a></li>
+<li>cs_pin&#160;:&#160;<a class="el" href="structEsp32Tle92466edSpiBus_1_1SPIConfig.html#a9c18bd7362a5c8d05873f720bcba4480">Esp32Tle92466edSpiBus::SPIConfig</a></li>
+<li>CS_SETUP_US&#160;:&#160;<a class="el" href="structTLE92466ED__TestConfig_1_1Timing.html#ae15c69fddca4a34f67cedea6ad9a6ea1">TLE92466ED_TestConfig::Timing</a></li>
+<li>current_regulation_warning&#160;:&#160;<a class="el" href="structtle92466ed_1_1ChannelDiagnostics.html#ae0f53cfe04b3e5b4a70b818f4cd340c9">tle92466ed::ChannelDiagnostics</a>, <a class="el" href="structtle92466ed_1_1FaultReport_1_1ChannelFaults.html#acf7ef97645a607962e0028de8c87a26f">tle92466ed::FaultReport::ChannelFaults</a></li>
+<li>current_setpoint_ma&#160;:&#160;<a class="el" href="structtle92466ed_1_1ChannelConfig.html#a7b2c513434fb9719009e394f71969f67">tle92466ed::ChannelConfig</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

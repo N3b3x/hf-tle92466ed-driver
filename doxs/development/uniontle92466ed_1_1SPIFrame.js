@@ -1,0 +1,26 @@
+var uniontle92466ed_1_1SPIFrame =
+[
+    [ "MakeRead", "uniontle92466ed_1_1SPIFrame.html#ae5c5a3b7ad3cc6083b4168f1035ceb1a", null ],
+    [ "MakeWrite", "uniontle92466ed_1_1SPIFrame.html#aec6903aac37ef52ecfea43c68d372e6d", null ],
+    [ "_data_low", "uniontle92466ed_1_1SPIFrame.html#ab3681800e8c3bf636598f4ebafe9bbcd", null ],
+    [ "_dont_care", "uniontle92466ed_1_1SPIFrame.html#a82f7080b9b33ace4ed9bce06fa7969b5", null ],
+    [ "_field_16", "uniontle92466ed_1_1SPIFrame.html#a06fad1273b6669645eda92782c4c9797", null ],
+    [ "_field_17_21", "uniontle92466ed_1_1SPIFrame.html#ac9087a50d92ba9f71cd2d409c5be5dc7", null ],
+    [ "_reserved", "uniontle92466ed_1_1SPIFrame.html#a5d61a30c9689123b6f065502ea0c92c0", null ],
+    [ "_reserved2", "uniontle92466ed_1_1SPIFrame.html#a1d8123ecb5ca33993aa411e93827736c", null ],
+    [ "_reserved3", "uniontle92466ed_1_1SPIFrame.html#a9f31256b75f7251e631ba1bd291ce8e7", null ],
+    [ "address", "uniontle92466ed_1_1SPIFrame.html#a35c3a46f07634e2b5b12692e8f9298b8", null ],
+    [ "crc", "uniontle92466ed_1_1SPIFrame.html#a2ac8d6092d1bf23b1f892e177f1ed769", null ],
+    [ "data", "uniontle92466ed_1_1SPIFrame.html#a115b217a35657afadb256c7a0e2d77b1", null ],
+    [ "fault_flags", "uniontle92466ed_1_1SPIFrame.html#a18d4ecba825b8262074b7b108b68d65f", null ],
+    [ "reply_mode", "uniontle92466ed_1_1SPIFrame.html#a35e47b9b98ad1b21fdb3238de04ba6da", null ],
+    [ "rw", "uniontle92466ed_1_1SPIFrame.html#ac5ff7ca3d05c579224f041f78807dd39", null ],
+    [ "rw_echo", "uniontle92466ed_1_1SPIFrame.html#a6f210670a4936ff0d7b0d20dca1f26be", null ],
+    [ "rx_16bit", "uniontle92466ed_1_1SPIFrame.html#abba229d3f6ad6ba601a619cbd7c37dfe", null ],
+    [ "rx_22bit", "uniontle92466ed_1_1SPIFrame.html#afe4ad4bcfe361f1c85498deb39aeadb2", null ],
+    [ "rx_common", "uniontle92466ed_1_1SPIFrame.html#a0cabc0548dbc9536e1030ae76e65bfae", null ],
+    [ "rx_fault", "uniontle92466ed_1_1SPIFrame.html#ac1f49ea7e227d3b6d1729d99dc2a8a42", null ],
+    [ "status", "uniontle92466ed_1_1SPIFrame.html#accf7056933484218fa5a7260822e0ed5", null ],
+    [ "tx_fields", "uniontle92466ed_1_1SPIFrame.html#a725fd5d3491ccd0120b22f9357b767bb", null ],
+    [ "word", "uniontle92466ed_1_1SPIFrame.html#adc1289f427ff9416cbbc2831ed166b7a", null ]
+];

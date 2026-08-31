@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['write_5fro_5freg_0',['WRITE_RO_REG',['../namespaceTLE92466ED.html#aa27c516cf61148a416ccab1c79f37b51ac1918c879d3aaafa7752515f7425a411',1,'TLE92466ED']]],
-  ['writetoreadonly_1',['WriteToReadOnly',['../namespaceTLE92466ED.html#a575be450839f70a2517e896131f37ad6ab8add73778549df4bf6ffc5a72acddcd',1,'TLE92466ED']]],
-  ['wrongdeviceid_2',['WrongDeviceID',['../namespaceTLE92466ED.html#a575be450839f70a2517e896131f37ad6a7edfebe0f108ca457da80a3d0b64fdd4',1,'TLE92466ED']]],
-  ['wrongmode_3',['WrongMode',['../namespaceTLE92466ED.html#a575be450839f70a2517e896131f37ad6add498c17cdbac13335b3810f8265f1a4',1,'TLE92466ED']]]
+  ['slow_5f1v0_5fus_0',['SLOW_1V0_US',['../namespacetle92466ed.html#ae03b3b5991ee6faf1e97fed34ef2b78da98ab2e3497ba33c02228b42f9713b8af',1,'tle92466ed']]],
+  ['spi_5fframe_5ferror_1',['SPI_FRAME_ERROR',['../namespacetle92466ed.html#a3e7c32ed41f7fc9b6bf02262c584a53faa55177fdde536953ec9e9dcc74edc1bb',1,'tle92466ed']]],
+  ['spiframeerror_2',['SPIFrameError',['../namespacetle92466ed.html#a42072777d6f7c0e70bf0067c99027693a168c342f0736ad372d2a7483a82a2f4a',1,'tle92466ed']]],
+  ['spiwatchdog_3',['SpiWatchdog',['../namespacetle92466ed.html#a81b2a3f148467a21945b66f2e93297fdab732c5f7f79ae3a906f1f5bcd610e8d1',1,'tle92466ed']]],
+  ['supplynokexternal_4',['SupplyNokExternal',['../namespacetle92466ed.html#a81b2a3f148467a21945b66f2e93297fda4dcb390d336cda06ea189f9a124bcd56',1,'tle92466ed']]],
+  ['supplynokinternal_5',['SupplyNokInternal',['../namespacetle92466ed.html#a81b2a3f148467a21945b66f2e93297fdada668dc34b509b10272c18be40abed9d',1,'tle92466ed']]]
 ];
