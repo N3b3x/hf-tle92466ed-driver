@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1323" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1323" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1396" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1396" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER_1a1885577a7252f1053c51da9ff288773f" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr float</type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1324" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1324" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1397" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1397" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="func">
@@ -105,7 +105,7 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1373" column="22" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1373" bodyend="1414"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1446" column="22" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1446" bodyend="1487"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -120,6 +120,6 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
 </para>
 <para>Where t_ref_clk is set by the per-channel <ref refid="namespacetle92466ed_1_1DITHER__CLK__DIV" kindref="compound">DITHER_CLK_DIV</ref> register (see <ref refid="namespacetle92466ed_1_1DITHER__CLK__DIV" kindref="compound">DITHER_CLK_DIV</ref> namespace above). The chip&apos;s POR default of <ref refid="namespacetle92466ed_1_1DITHER__CLK__DIV" kindref="compound">DITHER_CLK_DIV</ref> = 0x0000 makes t_ref_clk = 0, so any channel that needs feedback values populated MUST have <ref refid="namespacetle92466ed_1_1DITHER__CLK__DIV" kindref="compound">DITHER_CLK_DIV</ref> programmed to a non-zero MANT/EXP combination first. </para>
     </detaileddescription>
-    <location file="inc/tle92466ed_registers.hpp" line="1322" column="1"/>
+    <location file="inc/tle92466ed_registers.hpp" line="1395" column="1"/>
   </compounddef>
 </doxygen>

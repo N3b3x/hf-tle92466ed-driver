@@ -342,7 +342,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a2c12c9859df430cecf0bc0bf787008d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear FB_FRZ for every channel, resuming feedback updates.  <br /></td></tr>
 <tr class="separator:a2c12c9859df430cecf0bc0bf787008d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab57fa0d97b4712b9160d91f0ca17bdf3" id="r_ab57fa0d97b4712b9160d91f0ca17bdf3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetle92466ed.html#ac468593f8010ed1b36b603c07364cc8e">DriverResult</a>&lt; <a class="el" href="structtle92466ed_1_1CurrentFeedbackBatch.html">CurrentFeedbackBatch</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab57fa0d97b4712b9160d91f0ca17bdf3">SampleChannelCurrents</a> (uint8_t channel_mask) noexcept</td></tr>
-<tr class="memdesc:ab57fa0d97b4712b9160d91f0ca17bdf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coherent average current for several channels in one freeze window.  <br /></td></tr>
+<tr class="memdesc:ab57fa0d97b4712b9160d91f0ca17bdf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Average current for several channels in one pipelined burst.  <br /></td></tr>
 <tr class="separator:ab57fa0d97b4712b9160d91f0ca17bdf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6a57264f1df64ca68fe440f2f682abe" id="r_ad6a57264f1df64ca68fe440f2f682abe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetle92466ed.html#ac468593f8010ed1b36b603c07364cc8e">DriverResult</a>&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6a57264f1df64ca68fe440f2f682abe">ReadAllChannelErrorFlags</a> (std::array&lt; <a class="el" href="structtle92466ed_1_1ChannelErrorFlags.html">ChannelErrorFlags</a>, 6 &gt; &amp;out) noexcept</td></tr>
 <tr class="memdesc:ad6a57264f1df64ca68fe440f2f682abe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Latched error bits for all six channels.  <br /></td></tr>
@@ -1712,7 +1712,7 @@ Negative load current (recirculation) is clamped to 0 in this legacy unsigned re
 <dl class="section warning"><dt>Warning</dt><dd>This path freezes the channel and polls <code>FB_UPD</code> with <code>Delay()</code> for up to ~8 ms. It is a diagnostic / console helper. Real-time control must use <a class="el" href="#ab57fa0d97b4712b9160d91f0ca17bdf3">SampleChannelCurrents</a>, which never blocks.</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacetle92466ed_1_1FB__FEEDBACK.html#aacbfe9c9f4bdb12665d413a32840140e" title="Smallest TP_MANT that makes the mantissa-ratio formula meaningful.">FB_FEEDBACK::kMinValidTpMant</a>, <a class="el" href="namespacetle92466ed_1_1FB__FEEDBACK.html#a3f046aea7a3b4d2c4cdee8ab2a0c2391" title="True when FB_DC reports a measurement period usable for ratio decoding.">FB_FEEDBACK::HasValidMeasurementWindow</a> </dd>
 <dd>
-<a class="el" href="#ab57fa0d97b4712b9160d91f0ca17bdf3" title="Coherent average current for several channels in one freeze window.">SampleChannelCurrents</a> </dd></dl>
+<a class="el" href="#ab57fa0d97b4712b9160d91f0ca17bdf3" title="Average current for several channels in one pipelined burst.">SampleChannelCurrents</a> </dd></dl>
 
 </div>
 </div>
@@ -3310,7 +3310,7 @@ template&lt;typename CommType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Coherent average current for several channels in one freeze window. </p>
+<p>Average current for several channels in one pipelined burst. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">channel_mask</td><td>Bit N requests channel N (bits above 5 ignored). </td></tr>
@@ -3318,14 +3318,13 @@ template&lt;typename CommType &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Batch with per-channel current and the masks describing what was actually usable. Never blocks and never polls.</dd></dl>
-<p>Implements the datasheet Figure 22 readout for a <em>set</em> of channels rather than one at a time:</p><ol type="1">
-<li>read FB_UPD once — which channels have a fresh window,</li>
-<li>freeze exactly those channels,</li>
-<li>one pipelined burst reading FB_DC + FB_I_AVG for each of them,</li>
-<li>release the freeze.</li>
+<p>Figure 22 wants a freeze around the FB_DC / FB_I_AVG pair. On the desk Mid eval FB_FRZ is unreadable (and an un-acked freeze sticks, aborting Tmeas for the rest of the session). This path therefore:</p><ol type="1">
+<li>writes FB_FRZ=0 (clear a stuck freeze),</li>
+<li>reads FB_UPD for telemetry only,</li>
+<li>one anchored pipelined burst (ICVID / FB_I_AVG / FB_DC per channel) for every requested channel; TP_MANT gates decode,</li>
+<li>writes FB_FRZ=0 again.</li>
 </ol>
-<p>That is four bus transactions regardless of how many channels are in the mask, because step 3 is a single <code>ReadMulti</code> chain. Refreshing all six channels costs 4 transactions / 20 frames instead of the 24 transactions / 72 frames a per-channel loop needs.</p>
-<p>Channels whose FB_UPD bit is clear are skipped rather than reported as failures — no new window has completed, so the caller's previous sample is still the most recent truth.</p>
+<p>A chain whose ICVID anchors do not verify is discarded whole — a spliced neighbour current is never published as this channel's. Host: <code>tests/host/test_tle_anchored_chain.cpp</code>.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Unlike <a class="el" href="#af98615b33b6627795636089b3fe96b95">ReadChannelFeedback</a> this does not wait for FB_UPD. It is meant to be called at the control-loop rate: whatever is ready is sampled, the rest is picked up next tick. That is what makes it usable from a 2 ms thread that also owns actuator writes. </dd></dl>
 
 </div>

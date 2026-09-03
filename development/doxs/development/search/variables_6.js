@@ -36,8 +36,8 @@ var searchData=
   ['flat_5fmask_33',['FLAT_MASK',['../namespacetle92466ed_1_1DITHER__STEP.html#aaef73e20564e99ac42964cb2f23fa36b',1,'tle92466ed::DITHER_STEP']]],
   ['flat_5fsteps_34',['flat_steps',['../structtle92466ed_1_1DITHER_1_1DitherConfig.html#a605229f9af2a0527aa8e19e12e123c12',1,'tle92466ed::DITHER::DitherConfig']]],
   ['free_5frun_5fmeas_35',['FREE_RUN_MEAS',['../namespacetle92466ed_1_1CH__MODE.html#ab92ced1de807efb81b1fc4d6273c54ff',1,'tle92466ed::CH_MODE']]],
-  ['frequency_36',['frequency',['../structtle92466ed_1_1SPIConfig.html#ad079f04bb56f0411b3ade232e4faceba',1,'tle92466ed::SPIConfig::frequency'],['../structEsp32Tle92466edSpiBus_1_1SPIConfig.html#ab10408aba51ef0668d4f45bed3e62b4b',1,'Esp32Tle92466edSpiBus::SPIConfig::frequency']]],
-  ['frequency_37',['FREQUENCY',['../structTLE92466ED__TestConfig_1_1SPIParams.html#a7c1be1681df077d91b1fd20fed51652b',1,'TLE92466ED_TestConfig::SPIParams']]],
+  ['frequency_36',['FREQUENCY',['../structTLE92466ED__TestConfig_1_1SPIParams.html#a7c1be1681df077d91b1fd20fed51652b',1,'TLE92466ED_TestConfig::SPIParams']]],
+  ['frequency_37',['frequency',['../structtle92466ed_1_1SPIConfig.html#ad079f04bb56f0411b3ade232e4faceba',1,'tle92466ed::SPIConfig::frequency'],['../structEsp32Tle92466edSpiBus_1_1SPIConfig.html#ab10408aba51ef0668d4f45bed3e62b4b',1,'Esp32Tle92466edSpiBus::SPIConfig::frequency']]],
   ['frequency_5fhz_38',['frequency_Hz',['../structtle92466ed_1_1DitherSetup.html#ad3cf5eb2a33d91dccc4b1bd37676cfa6',1,'tle92466ed::DitherSetup']]],
   ['full_5fscale_5fcount_39',['FULL_SCALE_COUNT',['../namespacetle92466ed_1_1FB__IMIN__IMAX.html#ac55822eaff3e9b0dbc00ac827d74b3e7',1,'tle92466ed::FB_IMIN_IMAX::FULL_SCALE_COUNT'],['../namespacetle92466ed_1_1FB__I__AVG__s16.html#a29e93117f5b79ea08957254f5c03a27d',1,'tle92466ed::FB_I_AVG_s16::FULL_SCALE_COUNT']]],
   ['full_5fscale_5fma_40',['FULL_SCALE_mA',['../namespacetle92466ed_1_1FB__IMIN__IMAX.html#ab86d988b6819089641ab0e4969a6ec17',1,'tle92466ed::FB_IMIN_IMAX::FULL_SCALE_mA'],['../namespacetle92466ed_1_1FB__I__AVG__s16.html#a0459bbcb639a6883cb8bf5e980473ffd',1,'tle92466ed::FB_I_AVG_s16::FULL_SCALE_mA']]]

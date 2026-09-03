@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1243" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1243" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1316" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1316" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig_1ade1a70fd47c8053600814775d176a05c" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1244" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1244" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1317" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1317" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig_1a06b3154f42cab2c6d435d0f7ad51ba06" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1245" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1245" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1318" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1318" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig_1ab3cb86b4de95aed272777e47c0be3cb0" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -62,7 +62,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1246" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1246" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1319" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1319" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -79,7 +79,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1249" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1249" bodyend="1253"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1322" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1322" bodyend="1326"/>
       </memberdef>
       <memberdef kind="function" id="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig_1abbbb5220c2cd5224f620d6679902a045" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>constexpr uint16_t</type>
@@ -94,7 +94,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1256" column="23" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1256" bodyend="1261"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1329" column="23" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1329" bodyend="1334"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -102,7 +102,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="inc/tle92466ed_registers.hpp" line="1242" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1242" bodyend="1262"/>
+    <location file="inc/tle92466ed_registers.hpp" line="1315" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1315" bodyend="1335"/>
     <listofallmembers>
       <member refid="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig_1a51042c302c1aecc24a0c1db52fe14f30" prot="public" virt="non-virtual"><scope>tle92466ed::DITHER_CLK_DIV::ClkDivConfig</scope><name>CalculateTrefClkUs</name></member>
       <member refid="structtle92466ed_1_1DITHER__CLK__DIV_1_1ClkDivConfig_1a06b3154f42cab2c6d435d0f7ad51ba06" prot="public" virt="non-virtual"><scope>tle92466ed::DITHER_CLK_DIV::ClkDivConfig</scope><name>dither_pwm_sync_en</name></member>

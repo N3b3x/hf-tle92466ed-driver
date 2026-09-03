@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1029" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1029" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1102" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1102" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CLK__DIV_1a56afa4e12afc6a75b217fd7ef508b465" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1030" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1030" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1103" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1103" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CLK__DIV_1a82809be479f1cf589cd00dadde233dc7" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1031" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1031" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1104" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1104" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CLK__DIV_1a3a5eaa114741e32b4f958a3c25a8adf5" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -62,7 +62,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1032" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1032" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1105" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1105" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CLK__DIV_1a4f532340ce58a1e4b08281e2512b3085" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint32_t</type>
@@ -78,7 +78,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1034" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1034" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1107" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1107" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CLK__DIV_1ad69a760fad0db3da47805c2474c27bb4" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -94,7 +94,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1045" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1045" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1118" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1118" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="func">
@@ -119,7 +119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1037" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1037" bodyend="1042"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1110" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1110" bodyend="1115"/>
       </memberdef>
       <memberdef kind="function" id="namespacetle92466ed_1_1CLK__DIV_1a18b229efb2399a5f99e419fcc3303101" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="structtle92466ed_1_1CLK__DIV_1_1PllConfig" kindref="compound">PllConfig</ref></type>
@@ -137,7 +137,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1051" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1051" bodyend="1060"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1124" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1124" bodyend="1133"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -147,6 +147,6 @@
 <para>Per datasheet \u00a75.3.2.16 p.71. Selects between external clock and the internal oscillator and configures the PLL generating fSYS from the external clock (when EXT_CLK=1): bit 15 EXT_CLK 0 = internal oscillator, 1 = external + PLL bits 14:9 PLL_REFDIV Reference divider R (fREF = fCLK / (R+1)) bits 8:0 PLL_FBDIV Feedback divider N (fSYS = fREF * (N+1))</para>
 <para>Resulting system clock must equal 28 MHz \u00b1 tolerances for ICC math to be valid. Typical external clock is 4 or 8 MHz. </para>
     </detaileddescription>
-    <location file="inc/tle92466ed_registers.hpp" line="1028" column="1"/>
+    <location file="inc/tle92466ed_registers.hpp" line="1101" column="1"/>
   </compounddef>
 </doxygen>

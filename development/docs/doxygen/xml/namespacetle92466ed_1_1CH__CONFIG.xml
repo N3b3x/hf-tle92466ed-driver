@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="850" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="850" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="904" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="904" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1ade652be38a42233737a40f143465cad5" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -33,7 +33,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="851" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="851" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="905" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="905" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a34910b7b77e10a8f703c52e454182714" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -49,7 +49,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="852" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="852" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="906" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="906" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1ad2bffdcadfdc13fdca9f8e826f50a119" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -65,7 +65,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="853" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="853" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="907" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="907" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a39a8d7bcbd54045fe0545595a2f26d61" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -81,7 +81,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="854" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="854" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="908" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="908" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a0fa94efb6deff9caf4e6bbbe47d8d53d" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -97,7 +97,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="857" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="857" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="911" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="911" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a1e93f168cd22a6fccf9c8922f378050b" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -113,7 +113,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="858" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="858" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="912" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="912" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a87b13f0a6758b12575eba5d03fe2716a" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -129,7 +129,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="859" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="859" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="913" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="913" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a9deb212ff8ce1d147652225a9dfb7d49" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -145,7 +145,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="860" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="860" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="914" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="914" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a7f5b53e9e012e078b010fcd09943d6ec" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -161,7 +161,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="861" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="861" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="915" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="915" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a9c1dbe265c408db743cdc1f47a15faeb" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -177,7 +177,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="864" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="864" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="918" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="918" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a690e82599097dc46926ddd8a34484c87" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -193,7 +193,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="865" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="865" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="919" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="919" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a08594f0ac8303243c11b7165266698ee" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -209,7 +209,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="866" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="866" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="920" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="920" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a974e34400087b6338bb26c3af2606759" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -225,7 +225,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="867" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="867" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="921" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="921" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a064775bf701028f988c987257d02dc51" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -241,7 +241,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="868" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="868" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="922" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="922" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a227069db43b14daf7c0799af83a761cb" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -257,7 +257,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="869" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="869" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="923" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="923" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a56abbb12e9aafd2e4a43029dbb668222" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -273,7 +273,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="870" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="870" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="924" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="924" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a7e03fa399daab04045b917570287d9b3" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -289,7 +289,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="871" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="871" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="925" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="925" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a5f93c3896a648962450e3c66d1704fe0" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -305,7 +305,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="872" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="872" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="926" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="926" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a436b95d7dc0d5175c5c4e8c35320d11a" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint8_t</type>
@@ -321,7 +321,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="873" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="873" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="927" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="927" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1ae160ffc4f0f7bd8eed9759cf0f694751" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint8_t</type>
@@ -337,7 +337,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="874" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="874" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="928" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="928" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a1c00c7a0b292a6e2fcc0e4401125c007" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -352,7 +352,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="877" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="877" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="931" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="931" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a3b0c8fb8609b94224e76b8c05766d2ba" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -367,7 +367,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="878" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="878" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="932" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="932" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1af59a9b31f1146052e46fd9e2dc64985a" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -383,7 +383,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="880" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="880" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="934" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="934" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1afe2486291226f9d6b5313f1511f2df08" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -399,7 +399,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="883" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="883" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="937" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="937" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1af9facb48c69637c8a03536aad8c3cb9c" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -415,7 +415,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="884" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="884" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="938" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="938" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1acfdeca72325f8c01f9e7ebb3be42b0ba" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -431,7 +431,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="885" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="885" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="939" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="939" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a41f05fd357d1daf0fdb7e28d1ef72c45" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -447,7 +447,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="886" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="886" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="940" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="940" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CONFIG_1a5a76ae54e4549283a2ee3e5bb82a0e60" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -463,7 +463,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="888" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="888" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="942" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="942" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -481,6 +481,6 @@
 </simplesect>
 Default: 0x0003 </para>
     </detaileddescription>
-    <location file="inc/tle92466ed_registers.hpp" line="848" column="1"/>
+    <location file="inc/tle92466ed_registers.hpp" line="902" column="1"/>
   </compounddef>
 </doxygen>

@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1193" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1193" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1266" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1266" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER__STEP_1a623602621836561e4be9cc25a550aa10" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -33,7 +33,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1194" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1194" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1267" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1267" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER__STEP_1a1ba5ad73a78c832394c1b59c1a5ba878" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -49,7 +49,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1195" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1195" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1268" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1268" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER__STEP_1a2dece67210f26bf9490591ae6162e83c" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -65,7 +65,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1197" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1197" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1270" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1270" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -78,6 +78,6 @@
 </simplesect>
 </para>
     </detaileddescription>
-    <location file="inc/tle92466ed_registers.hpp" line="1192" column="1"/>
+    <location file="inc/tle92466ed_registers.hpp" line="1265" column="1"/>
   </compounddef>
 </doxygen>

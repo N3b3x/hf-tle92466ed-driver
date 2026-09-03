@@ -95,6 +95,7 @@ $(function(){initNavTree('namespacetle92466ed_1_1CH__CTRL__REG.html',''); initRe
 
 <div class="header">
   <div class="summary">
+<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">tle92466ed::CH_CTRL_REG Namespace Reference</div></div>
 </div><!--header-->
@@ -103,6 +104,12 @@ $(function(){initNavTree('namespacetle92466ed_1_1CH__CTRL__REG.html',''); initRe
 <p>Channel CTRL register bit definitions.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a1fabb0a56db218aa86e55a2019675ed6" id="r_a1fabb0a56db218aa86e55a2019675ed6"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fabb0a56db218aa86e55a2019675ed6">Build</a> (uint8_t min_int_thresh, bool olsg_warning_enabled, bool pwm_period_calc_mode) noexcept</td></tr>
+<tr class="memdesc:a1fabb0a56db218aa86e55a2019675ed6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a complete CTRL value instead of read-modify-writing it.  <br /></td></tr>
+<tr class="separator:a1fabb0a56db218aa86e55a2019675ed6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a4546d2f98485d1e179146fb36f0b99b0" id="r_a4546d2f98485d1e179146fb36f0b99b0"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4546d2f98485d1e179146fb36f0b99b0">MIN_INT_THRESH_MASK</a> = 0x00FF</td></tr>
@@ -121,8 +128,17 @@ Variables</h2></td></tr>
 <tr class="memdesc:abb651d8a86e5a181cf56cbfcf3f36755"><td class="mdescLeft">&#160;</td><td class="mdescRight">OLSG warn enable.  <br /></td></tr>
 <tr class="separator:abb651d8a86e5a181cf56cbfcf3f36755"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8983da7b14aa08c1d88f533220d2a2a3" id="r_a8983da7b14aa08c1d88f533220d2a2a3"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8983da7b14aa08c1d88f533220d2a2a3">DEFAULT</a> = 0x4600</td></tr>
-<tr class="memdesc:a8983da7b14aa08c1d88f533220d2a2a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default value.  <br /></td></tr>
+<tr class="memdesc:a8983da7b14aa08c1d88f533220d2a2a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">POR: OLSG_WARN_EN, window 3, MIN_INT_THRESH 0.  <br /></td></tr>
 <tr class="separator:a8983da7b14aa08c1d88f533220d2a2a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2b97e1a10a725a0ed1b5daba4f1a7fc" id="r_af2b97e1a10a725a0ed1b5daba4f1a7fc"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2b97e1a10a725a0ed1b5daba4f1a7fc">DEFAULT_OLSG_WARN_WINDOW</a> = 3u</td></tr>
+<tr class="memdesc:af2b97e1a10a725a0ed1b5daba4f1a7fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">OLSG warning window encoded in the POR value, preserved when rebuilding.  <br /></td></tr>
+<tr class="separator:af2b97e1a10a725a0ed1b5daba4f1a7fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63042f4a360f3e6e4d1a16fb24e3a310" id="r_a63042f4a360f3e6e4d1a16fb24e3a310"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63042f4a360f3e6e4d1a16fb24e3a310">MIN_INT_THRESH_FLOOR</a> = 2u</td></tr>
+<tr class="memdesc:a63042f4a360f3e6e4d1a16fb24e3a310"><td class="mdescLeft">&#160;</td><td class="mdescRight">Smallest <code>MIN_INT_THRESH</code> that keeps the ICC power stage switching.  <br /></td></tr>
+<tr class="separator:a63042f4a360f3e6e4d1a16fb24e3a310"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f57caa09252ffa14c6473386963019b" id="r_a8f57caa09252ffa14c6473386963019b"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f57caa09252ffa14c6473386963019b">MIN_INT_THRESH_CEIL</a> = 12u</td></tr>
+<tr class="memdesc:a8f57caa09252ffa14c6473386963019b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Largest <code>MIN_INT_THRESH</code> compatible with the Autolimit constraint.  <br /></td></tr>
+<tr class="separator:a8f57caa09252ffa14c6473386963019b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Channel CTRL register bit definitions. </p>
@@ -131,7 +147,53 @@ Variables</h2></td></tr>
 * Bit 8     : PWM_PERIOD_CALC_MODE - PWM period calc mode
 * Bits 7-0  : MIN_INT_THRESH    - Minimum integrator threshold
 * </pre> </dd></dl>
-</div><h2 class="groupheader">Variable Documentation</h2>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a1fabb0a56db218aa86e55a2019675ed6" name="a1fabb0a56db218aa86e55a2019675ed6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fabb0a56db218aa86e55a2019675ed6">&#9670;&#160;</a></span>Build()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint16_t tle92466ed::CH_CTRL_REG::Build </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>min_int_thresh</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>olsg_warning_enabled</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>pwm_period_calc_mode</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Build a complete CTRL value instead of read-modify-writing it. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">min_int_thresh</td><td>Minimum integrator threshold (see the floor/ceil above). </td></tr>
+    <tr><td class="paramname">olsg_warning_enabled</td><td>Enable the OLSG warning check. </td></tr>
+    <tr><td class="paramname">pwm_period_calc_mode</td><td>Ignore falling dither slopes in the PWM period controller (§4.6.2.3, for steep dither settings).</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Per-channel CTRL does not read back reliably on every board, so a read-modify-write can fold a corrupt read into the written value and drop the OLSG window or the threshold. Every field is therefore specified here. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
 <a id="a8983da7b14aa08c1d88f533220d2a2a3" name="a8983da7b14aa08c1d88f533220d2a2a3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8983da7b14aa08c1d88f533220d2a2a3">&#9670;&#160;</a></span>DEFAULT</h2>
 
@@ -152,7 +214,83 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Default value. </p>
+<p>POR: OLSG_WARN_EN, window 3, MIN_INT_THRESH 0. </p>
+
+</div>
+</div>
+<a id="af2b97e1a10a725a0ed1b5daba4f1a7fc" name="af2b97e1a10a725a0ed1b5daba4f1a7fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2b97e1a10a725a0ed1b5daba4f1a7fc">&#9670;&#160;</a></span>DEFAULT_OLSG_WARN_WINDOW</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint16_t tle92466ed::CH_CTRL_REG::DEFAULT_OLSG_WARN_WINDOW = 3u</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>OLSG warning window encoded in the POR value, preserved when rebuilding. </p>
+
+</div>
+</div>
+<a id="a8f57caa09252ffa14c6473386963019b" name="a8f57caa09252ffa14c6473386963019b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f57caa09252ffa14c6473386963019b">&#9670;&#160;</a></span>MIN_INT_THRESH_CEIL</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint8_t tle92466ed::CH_CTRL_REG::MIN_INT_THRESH_CEIL = 12u</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Largest <code>MIN_INT_THRESH</code> compatible with the Autolimit constraint. </p>
+<p>Datasheet §4.6.2.3 requires <code>AUTO_LIM_VALUE_ABS</code> &gt; <code>MIN_INT_THRESH</code> + 3. With <a class="el" href="namespacetle92466ed_1_1INTEGRATOR__LIMIT.html">INTEGRATOR_LIMIT</a> left at its POR <code>AUTO_LIM_VALUE_ABS</code> of 16 that caps <code>MIN_INT_THRESH</code> at 12. </p>
+
+</div>
+</div>
+<a id="a63042f4a360f3e6e4d1a16fb24e3a310" name="a63042f4a360f3e6e4d1a16fb24e3a310"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63042f4a360f3e6e4d1a16fb24e3a310">&#9670;&#160;</a></span>MIN_INT_THRESH_FLOOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint8_t tle92466ed::CH_CTRL_REG::MIN_INT_THRESH_FLOOR = 2u</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Smallest <code>MIN_INT_THRESH</code> that keeps the ICC power stage switching. </p>
+<p>Datasheet §4.6.2.4: the effective integrator threshold is referenced to the lowest deviation integral captured during the on-phase, so it can go negative. When it does, "the integrated current deviation could not exceed
+the zero level and therefore the power stage would not switch on anymore" — the channel stays enabled with its setpoint intact while the load current silently goes to zero. The datasheet's remedy is to program <code>MIN_INT_THRESH</code> greater than 1.</p>
+<p>The POR value is 0, so a channel left unconfigured is exposed to this. </p>
 
 </div>
 </div>

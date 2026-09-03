@@ -41,6 +41,8 @@
     <member refid="structtle92466ed_1_1ChannelConfig_1ae27ee46252295dbc1272f695c8074a12" kind="variable"><name>pwm_period_exponent</name></member>
     <member refid="structtle92466ed_1_1ChannelConfig_1a5f96dca09375a0488479f1ff7610a5c8" kind="variable"><name>auto_limit_disabled</name></member>
     <member refid="structtle92466ed_1_1ChannelConfig_1abb7e956bfc48868d79181f227896241a" kind="variable"><name>olsg_warning_enabled</name></member>
+    <member refid="structtle92466ed_1_1ChannelConfig_1aa9ddf1f0e2b918c4b90fbc45add87986" kind="variable"><name>min_int_thresh</name></member>
+    <member refid="structtle92466ed_1_1ChannelConfig_1aa36fc989e16d696cefe6111f419ed2dc" kind="variable"><name>pwm_period_calc_mode</name></member>
     <member refid="structtle92466ed_1_1ChannelConfig_1abcf20f9f10c92540cce5e506d2e671ea" kind="variable"><name>deep_dither_enabled</name></member>
     <member refid="structtle92466ed_1_1ChannelConfig_1abe9757f70f407163c930ebdc1e4161f7" kind="variable"><name>dither_step_size</name></member>
     <member refid="structtle92466ed_1_1ChannelConfig_1abdf47c355b3b1504ff75da6f6dffc96c" kind="variable"><name>dither_steps</name></member>
@@ -845,6 +847,10 @@
     <member refid="namespacetle92466ed_1_1CH__CTRL__REG_1a48ebc767724ee6dab9fb3ec9b072fbf7" kind="variable"><name>OLSG_WARN_WINDOW_SHIFT</name></member>
     <member refid="namespacetle92466ed_1_1CH__CTRL__REG_1abb651d8a86e5a181cf56cbfcf3f36755" kind="variable"><name>OLSG_WARN_EN</name></member>
     <member refid="namespacetle92466ed_1_1CH__CTRL__REG_1a8983da7b14aa08c1d88f533220d2a2a3" kind="variable"><name>DEFAULT</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CTRL__REG_1af2b97e1a10a725a0ed1b5daba4f1a7fc" kind="variable"><name>DEFAULT_OLSG_WARN_WINDOW</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CTRL__REG_1a63042f4a360f3e6e4d1a16fb24e3a310" kind="variable"><name>MIN_INT_THRESH_FLOOR</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CTRL__REG_1a8f57caa09252ffa14c6473386963019b" kind="variable"><name>MIN_INT_THRESH_CEIL</name></member>
+    <member refid="namespacetle92466ed_1_1CH__CTRL__REG_1a1fabb0a56db218aa86e55a2019675ed6" kind="function"><name>Build</name></member>
   </compound>
   <compound refid="namespacetle92466ed_1_1CH__MODE" kind="namespace"><name>tle92466ed::CH_MODE</name>
     <member refid="namespacetle92466ed_1_1CH__MODE_1a83bbec2b37ad13d7f3e1cf262f15b34d" kind="variable"><name>OFF</name></member>
@@ -896,10 +902,9 @@
   </compound>
   <compound refid="namespacetle92466ed_1_1CTRL__INT__THRESH" kind="namespace"><name>tle92466ed::CTRL_INT_THRESH</name>
     <member refid="namespacetle92466ed_1_1CTRL__INT__THRESH_1a2c116a9d5232f9587c3ba543c83f0efe" kind="variable"><name>INT_THRESH_MASK</name></member>
-    <member refid="namespacetle92466ed_1_1CTRL__INT__THRESH_1a0451953ab7362af21458ac686579929a" kind="variable"><name>PERIOD_MANT_SHIFT</name></member>
-    <member refid="namespacetle92466ed_1_1CTRL__INT__THRESH_1a30c4116c37eb56509e50d987c2c8f267" kind="variable"><name>PERIOD_MANT_MASK</name></member>
+    <member refid="namespacetle92466ed_1_1CTRL__INT__THRESH_1ac850ff2e88b68a39cdc986460b1d4b12" kind="variable"><name>INT_THRESH_MAX</name></member>
     <member refid="namespacetle92466ed_1_1CTRL__INT__THRESH_1a1a112aa98414f3c99b686a8c84c01f44" kind="variable"><name>DEFAULT</name></member>
-    <member refid="namespacetle92466ed_1_1CTRL__INT__THRESH_1a2011977311468e0dafa3b6f27d83ad85" kind="function"><name>Build</name></member>
+    <member refid="namespacetle92466ed_1_1CTRL__INT__THRESH_1aea1684f4ec4add5d3165b97d5e55e136" kind="function"><name>Build</name></member>
   </compound>
   <compound refid="namespacetle92466ed_1_1DeviceID" kind="namespace"><name>tle92466ed::DeviceID</name>
     <member refid="namespacetle92466ed_1_1DeviceID_1a084683c51ce2e8dc647402a5be7753eb" kind="variable"><name>DEVICE_TYPE_MASK</name></member>

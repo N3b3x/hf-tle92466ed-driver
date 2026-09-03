@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1126" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1126" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1199" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1199" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1FAULT__MASK0_1ac7f32fea4328481f608084fae85361a6" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1127" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1127" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1200" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1200" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1FAULT__MASK0_1a43b908b17140c3b085899df85798eff9" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1128" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1128" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1201" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1201" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1FAULT__MASK0_1aee3f20a0b0e5f87f58f65d38d96a48d9" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -62,7 +62,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1129" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1129" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1202" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1202" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1FAULT__MASK0_1a337c670bbe56618a2719cb8abd7e6e9d" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -77,7 +77,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1130" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1130" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1203" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1203" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -86,6 +86,6 @@
     <detaileddescription>
 <para>Per datasheet \u00a75.3.2.14-5.3.2.17 p.69-72. Bit=1 means the condition pulls FAULTN low; bit=0 masks it out. Organized across three registers for error/warn/supply domains. </para>
     </detaileddescription>
-    <location file="inc/tle92466ed_registers.hpp" line="1125" column="1"/>
+    <location file="inc/tle92466ed_registers.hpp" line="1198" column="1"/>
   </compounddef>
 </doxygen>

@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="231" column="10" bodyfile="inc/tle92466ed.hpp" bodystart="231" bodyend="231"/>
+        <location file="inc/tle92466ed.hpp" line="240" column="10" bodyfile="inc/tle92466ed.hpp" bodystart="240" bodyend="240"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1a62ac3b0e93118dcfd2f1753066641def" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="232" column="10" bodyfile="inc/tle92466ed.hpp" bodystart="232" bodyend="232"/>
+        <location file="inc/tle92466ed.hpp" line="241" column="10" bodyfile="inc/tle92466ed.hpp" bodystart="241" bodyend="241"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1a1d11d612b600e40969307ccd05ce1281" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -50,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="233" column="10" bodyfile="inc/tle92466ed.hpp" bodystart="233" bodyend="233"/>
+        <location file="inc/tle92466ed.hpp" line="242" column="10" bodyfile="inc/tle92466ed.hpp" bodystart="242" bodyend="242"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1ac96d23535ed772c95982d15ef7bf43ca" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="234" column="10" bodyfile="inc/tle92466ed.hpp" bodystart="234" bodyend="234"/>
+        <location file="inc/tle92466ed.hpp" line="243" column="10" bodyfile="inc/tle92466ed.hpp" bodystart="243" bodyend="243"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1a78061b124127fe10d17893ec139c3d3e" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -82,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="235" column="10" bodyfile="inc/tle92466ed.hpp" bodystart="235" bodyend="235"/>
+        <location file="inc/tle92466ed.hpp" line="244" column="10" bodyfile="inc/tle92466ed.hpp" bodystart="244" bodyend="244"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1a39d451a2be45323a13c1176124d8e3b0" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -98,7 +98,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="236" column="10" bodyfile="inc/tle92466ed.hpp" bodystart="236" bodyend="236"/>
+        <location file="inc/tle92466ed.hpp" line="245" column="10" bodyfile="inc/tle92466ed.hpp" bodystart="245" bodyend="245"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1afa5d7feb3000ec999d31471950b9c143" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -114,7 +114,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="237" column="10" bodyfile="inc/tle92466ed.hpp" bodystart="237" bodyend="237"/>
+        <location file="inc/tle92466ed.hpp" line="246" column="10" bodyfile="inc/tle92466ed.hpp" bodystart="246" bodyend="246"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1acf7ef97645a607962e0028de8c87a26f" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -130,7 +130,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="238" column="10" bodyfile="inc/tle92466ed.hpp" bodystart="238" bodyend="238"/>
+        <location file="inc/tle92466ed.hpp" line="247" column="10" bodyfile="inc/tle92466ed.hpp" bodystart="247" bodyend="247"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1a9222e4128fffe7417677ed533ee70b59" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -146,7 +146,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="239" column="10" bodyfile="inc/tle92466ed.hpp" bodystart="239" bodyend="239"/>
+        <location file="inc/tle92466ed.hpp" line="248" column="10" bodyfile="inc/tle92466ed.hpp" bodystart="248" bodyend="248"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1acbe1826b900feb00cc844ce4f8684bc0" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -162,14 +162,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="240" column="10" bodyfile="inc/tle92466ed.hpp" bodystart="240" bodyend="240"/>
+        <location file="inc/tle92466ed.hpp" line="249" column="10" bodyfile="inc/tle92466ed.hpp" bodystart="249" bodyend="249"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="inc/tle92466ed.hpp" line="230" column="3" bodyfile="inc/tle92466ed.hpp" bodystart="230" bodyend="241"/>
+    <location file="inc/tle92466ed.hpp" line="239" column="3" bodyfile="inc/tle92466ed.hpp" bodystart="239" bodyend="250"/>
     <listofallmembers>
       <member refid="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1acf7ef97645a607962e0028de8c87a26f" prot="public" virt="non-virtual"><scope>tle92466ed::FaultReport::ChannelFaults</scope><name>current_regulation_warning</name></member>
       <member refid="structtle92466ed_1_1FaultReport_1_1ChannelFaults_1a8f59a19a97066fca51558ee9314f23eb" prot="public" virt="non-virtual"><scope>tle92466ed::FaultReport::ChannelFaults</scope><name>has_fault</name></member>

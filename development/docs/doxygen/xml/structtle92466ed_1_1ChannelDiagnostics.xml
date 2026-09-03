@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="117" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="117" bodyend="117"/>
+        <location file="inc/tle92466ed.hpp" line="126" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="126" bodyend="126"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1ChannelDiagnostics_1a209ffb2cf9cf8979b0235956b1ae1a5b" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="118" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="118" bodyend="118"/>
+        <location file="inc/tle92466ed.hpp" line="127" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="127" bodyend="127"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1ChannelDiagnostics_1a8cacc75843ea4c29ce4ee9da0bca79db" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -50,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="119" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="119" bodyend="119"/>
+        <location file="inc/tle92466ed.hpp" line="128" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="128" bodyend="128"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1ChannelDiagnostics_1a44b917b5954cbfd8ef641c2f7542709a" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="120" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="120" bodyend="120"/>
+        <location file="inc/tle92466ed.hpp" line="129" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="129" bodyend="129"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1ChannelDiagnostics_1a87d81edac85c7c452bd60f106cd63f02" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -82,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="121" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="121" bodyend="121"/>
+        <location file="inc/tle92466ed.hpp" line="130" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="130" bodyend="130"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1ChannelDiagnostics_1a1adeb4824d25703c9be6fc57e8b439b9" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -98,7 +98,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="124" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="124" bodyend="124"/>
+        <location file="inc/tle92466ed.hpp" line="133" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="133" bodyend="133"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1ChannelDiagnostics_1ae0f53cfe04b3e5b4a70b818f4cd340c9" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -114,7 +114,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="125" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="125" bodyend="125"/>
+        <location file="inc/tle92466ed.hpp" line="134" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="134" bodyend="134"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1ChannelDiagnostics_1a558ddb13f9c9dd85e8cbe2d306c3e25d" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -130,7 +130,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="126" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="126" bodyend="126"/>
+        <location file="inc/tle92466ed.hpp" line="135" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="135" bodyend="135"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1ChannelDiagnostics_1a5efa1a8379e2097cae5c55cdcb29119f" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -146,7 +146,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="127" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="127" bodyend="127"/>
+        <location file="inc/tle92466ed.hpp" line="136" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="136" bodyend="136"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1ChannelDiagnostics_1ae81facf6eab49abf961be9a892187bc4" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -162,7 +162,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="128" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="128" bodyend="128"/>
+        <location file="inc/tle92466ed.hpp" line="137" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="137" bodyend="137"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1ChannelDiagnostics_1af5e7e651adc3768048c785ff41a9a86e" prot="public" static="no" mutable="no">
         <type>uint16_t</type>
@@ -178,7 +178,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="131" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="131" bodyend="131"/>
+        <location file="inc/tle92466ed.hpp" line="140" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="140" bodyend="140"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1ChannelDiagnostics_1acee3dc25873b6c6f5319edca39ae69fb" prot="public" static="no" mutable="no">
         <type>uint16_t</type>
@@ -194,7 +194,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="132" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="132" bodyend="132"/>
+        <location file="inc/tle92466ed.hpp" line="141" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="141" bodyend="141"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1ChannelDiagnostics_1a344be3d05074192bcd2ea96b866ba00b" prot="public" static="no" mutable="no">
         <type>int16_t</type>
@@ -210,7 +210,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="133" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="133" bodyend="133"/>
+        <location file="inc/tle92466ed.hpp" line="142" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="142" bodyend="142"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1ChannelDiagnostics_1a2c6d2cf1587bfa8cc3ea02134cfcd9f4" prot="public" static="no" mutable="no">
         <type>int16_t</type>
@@ -226,7 +226,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="134" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="134" bodyend="134"/>
+        <location file="inc/tle92466ed.hpp" line="143" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="143" bodyend="143"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1ChannelDiagnostics_1a39dd23c72c86686ac20d12ba1aa42847" prot="public" static="no" mutable="no">
         <type>uint16_t</type>
@@ -242,7 +242,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="135" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="135" bodyend="135"/>
+        <location file="inc/tle92466ed.hpp" line="144" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="144" bodyend="144"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -250,7 +250,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="inc/tle92466ed.hpp" line="115" column="1" bodyfile="inc/tle92466ed.hpp" bodystart="115" bodyend="136"/>
+    <location file="inc/tle92466ed.hpp" line="124" column="1" bodyfile="inc/tle92466ed.hpp" bodystart="124" bodyend="145"/>
     <listofallmembers>
       <member refid="structtle92466ed_1_1ChannelDiagnostics_1af5e7e651adc3768048c785ff41a9a86e" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelDiagnostics</scope><name>average_current</name></member>
       <member refid="structtle92466ed_1_1ChannelDiagnostics_1ae0f53cfe04b3e5b4a70b818f4cd340c9" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelDiagnostics</scope><name>current_regulation_warning</name></member>

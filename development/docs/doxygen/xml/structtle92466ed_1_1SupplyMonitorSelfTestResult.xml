@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2427" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2427" bodyend="2427"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2500" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2500" bodyend="2500"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1SupplyMonitorSelfTestResult_1afaf4ce03db3a06877e923ad956ec530b" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2428" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2428" bodyend="2428"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2501" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2501" bodyend="2501"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1SupplyMonitorSelfTestResult_1a88a1898f274d52fcd13114a0e49311c6" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2429" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2429" bodyend="2429"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2502" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2502" bodyend="2502"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1SupplyMonitorSelfTestResult_1afd1f1119b50e63b5946567d76ad5f9ae" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -62,7 +62,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2430" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2430" bodyend="2430"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2503" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2503" bodyend="2503"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1SupplyMonitorSelfTestResult_1a9e0ee2ef8cf3a444a09f75ef52e22673" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -77,7 +77,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2431" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2431" bodyend="2431"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2504" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2504" bodyend="2504"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -85,7 +85,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="inc/tle92466ed_registers.hpp" line="2426" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2426" bodyend="2432"/>
+    <location file="inc/tle92466ed_registers.hpp" line="2499" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2499" bodyend="2505"/>
     <listofallmembers>
       <member refid="structtle92466ed_1_1SupplyMonitorSelfTestResult_1afd1f1119b50e63b5946567d76ad5f9ae" prot="public" virt="non-virtual"><scope>tle92466ed::SupplyMonitorSelfTestResult</scope><name>ot_test_ok</name></member>
       <member refid="structtle92466ed_1_1SupplyMonitorSelfTestResult_1a9e0ee2ef8cf3a444a09f75ef52e22673" prot="public" virt="non-virtual"><scope>tle92466ed::SupplyMonitorSelfTestResult</scope><name>overall_pass</name></member>

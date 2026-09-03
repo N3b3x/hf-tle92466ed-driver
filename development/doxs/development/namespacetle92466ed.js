@@ -80,7 +80,11 @@ var namespacetle92466ed =
       [ "OP_MODE", "namespacetle92466ed_1_1CH__CTRL.html#a24a1cc718bce56fc5beb60729ed76036", null ]
     ] ],
     [ "CH_CTRL_REG", "namespacetle92466ed_1_1CH__CTRL__REG.html", [
+      [ "Build", "namespacetle92466ed_1_1CH__CTRL__REG.html#a1fabb0a56db218aa86e55a2019675ed6", null ],
       [ "DEFAULT", "namespacetle92466ed_1_1CH__CTRL__REG.html#a8983da7b14aa08c1d88f533220d2a2a3", null ],
+      [ "DEFAULT_OLSG_WARN_WINDOW", "namespacetle92466ed_1_1CH__CTRL__REG.html#af2b97e1a10a725a0ed1b5daba4f1a7fc", null ],
+      [ "MIN_INT_THRESH_CEIL", "namespacetle92466ed_1_1CH__CTRL__REG.html#a8f57caa09252ffa14c6473386963019b", null ],
+      [ "MIN_INT_THRESH_FLOOR", "namespacetle92466ed_1_1CH__CTRL__REG.html#a63042f4a360f3e6e4d1a16fb24e3a310", null ],
       [ "MIN_INT_THRESH_MASK", "namespacetle92466ed_1_1CH__CTRL__REG.html#a4546d2f98485d1e179146fb36f0b99b0", null ],
       [ "OLSG_WARN_EN", "namespacetle92466ed_1_1CH__CTRL__REG.html#abb651d8a86e5a181cf56cbfcf3f36755", null ],
       [ "OLSG_WARN_WINDOW_MASK", "namespacetle92466ed_1_1CH__CTRL__REG.html#afc038298ca0f2bb28ce21048b42e29b6", null ],
@@ -127,11 +131,10 @@ var namespacetle92466ed =
     ] ],
     [ "CLK_DIV", "namespacetle92466ed_1_1CLK__DIV.html", "namespacetle92466ed_1_1CLK__DIV" ],
     [ "CTRL_INT_THRESH", "namespacetle92466ed_1_1CTRL__INT__THRESH.html", [
-      [ "Build", "namespacetle92466ed_1_1CTRL__INT__THRESH.html#a2011977311468e0dafa3b6f27d83ad85", null ],
+      [ "Build", "namespacetle92466ed_1_1CTRL__INT__THRESH.html#aea1684f4ec4add5d3165b97d5e55e136", null ],
       [ "DEFAULT", "namespacetle92466ed_1_1CTRL__INT__THRESH.html#a1a112aa98414f3c99b686a8c84c01f44", null ],
       [ "INT_THRESH_MASK", "namespacetle92466ed_1_1CTRL__INT__THRESH.html#a2c116a9d5232f9587c3ba543c83f0efe", null ],
-      [ "PERIOD_MANT_MASK", "namespacetle92466ed_1_1CTRL__INT__THRESH.html#a30c4116c37eb56509e50d987c2c8f267", null ],
-      [ "PERIOD_MANT_SHIFT", "namespacetle92466ed_1_1CTRL__INT__THRESH.html#a0451953ab7362af21458ac686579929a", null ]
+      [ "INT_THRESH_MAX", "namespacetle92466ed_1_1CTRL__INT__THRESH.html#ac850ff2e88b68a39cdc986460b1d4b12", null ]
     ] ],
     [ "DeviceID", "namespacetle92466ed_1_1DeviceID.html", [
       [ "GetDeviceType", "namespacetle92466ed_1_1DeviceID.html#a2395329ba7b440491b0c22f7fbc44c82", null ],

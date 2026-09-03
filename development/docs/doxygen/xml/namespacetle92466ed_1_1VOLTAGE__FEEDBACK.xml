@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1484" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1484" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1557" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1557" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1ac9af663ba09130277335651418297a4d" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint32_t</type>
@@ -33,7 +33,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1485" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1485" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1558" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1558" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1a30fb016ad70d581ee6fc5ff93680a64c" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint32_t</type>
@@ -49,7 +49,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1486" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1486" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1559" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1559" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1aaee2aaad06ca9987b839694d7a47be09" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr float</type>
@@ -65,7 +65,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1489" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1489" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1562" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1562" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1ae2a9cf0d21080c5470d39c1323358e03" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint32_t</type>
@@ -81,7 +81,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1490" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1490" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1563" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1563" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1ae9278f7b479c8c4d8035736c85c65eb9" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint32_t</type>
@@ -97,7 +97,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1491" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1491" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1564" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1564" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1a41c308d116696362472a37f8de3ab87e" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint32_t</type>
@@ -113,7 +113,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1492" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1492" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1565" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1565" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="func">
@@ -146,7 +146,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1499" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1499" bodyend="1503"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1572" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1572" bodyend="1576"/>
       </memberdef>
       <memberdef kind="function" id="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1a4866924104905fd8764d7b489e8c8347" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type>constexpr uint16_t</type>
@@ -177,7 +177,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1510" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1510" bodyend="1514"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1583" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1583" bodyend="1587"/>
       </memberdef>
       <memberdef kind="function" id="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1a9c64f9811307f812855e3af87bef0bbc" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type>constexpr uint16_t</type>
@@ -208,7 +208,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1521" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1521" bodyend="1526"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1594" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1594" bodyend="1599"/>
       </memberdef>
       <memberdef kind="function" id="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1ab9c879e1c7414ae4d052a4e4cbcad919" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type>constexpr uint16_t</type>
@@ -239,7 +239,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1533" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1533" bodyend="1535"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1606" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1606" bodyend="1608"/>
       </memberdef>
       <memberdef kind="function" id="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1a3b6f713c72ed72af558bc3baf92a07a2" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type>constexpr float</type>
@@ -272,7 +272,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1549" column="18" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1549" bodyend="1555"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1622" column="18" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1622" bodyend="1628"/>
       </memberdef>
       <memberdef kind="function" id="namespacetle92466ed_1_1VOLTAGE__FEEDBACK_1ac8ae8c80756a3e9c9e6fa41f63e808c5" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type>constexpr float</type>
@@ -291,7 +291,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1560" column="18" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1560" bodyend="1562"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1633" column="18" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1633" bodyend="1635"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -312,6 +312,6 @@
 </simplesect>
 </para>
     </detaileddescription>
-    <location file="inc/tle92466ed_registers.hpp" line="1482" column="1"/>
+    <location file="inc/tle92466ed_registers.hpp" line="1555" column="1"/>
   </compounddef>
 </doxygen>

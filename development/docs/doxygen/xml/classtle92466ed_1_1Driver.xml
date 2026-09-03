@@ -22,7 +22,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1558" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="1558" bodyend="-1"/>
+        <location file="inc/tle92466ed.hpp" line="1564" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="1564" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classtle92466ed_1_1Driver_1a47951e9f709f5128d6367fca15d13091" prot="private" static="no" mutable="no">
         <type>bool</type>
@@ -38,7 +38,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1559" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="1559" bodyend="1559"/>
+        <location file="inc/tle92466ed.hpp" line="1565" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="1565" bodyend="1565"/>
       </memberdef>
       <memberdef kind="variable" id="classtle92466ed_1_1Driver_1a40b991c5159034c3893361314a801def" prot="private" static="no" mutable="no">
         <type>bool</type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1560" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="1560" bodyend="1560"/>
+        <location file="inc/tle92466ed.hpp" line="1566" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="1566" bodyend="1566"/>
       </memberdef>
       <memberdef kind="variable" id="classtle92466ed_1_1Driver_1aef6b4ace86c70c9636203e452fca5474" prot="private" static="no" mutable="no">
         <type>bool</type>
@@ -70,7 +70,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1561" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="1561" bodyend="1561"/>
+        <location file="inc/tle92466ed.hpp" line="1567" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="1567" bodyend="1567"/>
       </memberdef>
       <memberdef kind="variable" id="classtle92466ed_1_1Driver_1aec91000356a2c59b14a7633a41845024" prot="private" static="no" mutable="no">
         <type>bool</type>
@@ -86,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1562" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="1562" bodyend="1562"/>
+        <location file="inc/tle92466ed.hpp" line="1568" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="1568" bodyend="1568"/>
       </memberdef>
       <memberdef kind="variable" id="classtle92466ed_1_1Driver_1ad09de11b9b6854c81e260648bff0e4b6" prot="private" static="no" mutable="no">
         <type>uint16_t</type>
@@ -102,7 +102,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1563" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="1563" bodyend="1563"/>
+        <location file="inc/tle92466ed.hpp" line="1569" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="1569" bodyend="1569"/>
       </memberdef>
       <memberdef kind="variable" id="classtle92466ed_1_1Driver_1a846d9b9f5963e52e5dc9c4d83f8ae638" prot="private" static="no" mutable="no">
         <type>uint16_t</type>
@@ -118,7 +118,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1564" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="1564" bodyend="1564"/>
+        <location file="inc/tle92466ed.hpp" line="1570" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="1570" bodyend="1570"/>
       </memberdef>
       <memberdef kind="variable" id="classtle92466ed_1_1Driver_1a87fd6e22ad75b9e52b3f4f41217a5431" prot="private" static="no" mutable="no">
         <type>uint16_t</type>
@@ -134,7 +134,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1565" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="1565" bodyend="1565"/>
+        <location file="inc/tle92466ed.hpp" line="1571" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="1571" bodyend="1571"/>
       </memberdef>
       <memberdef kind="variable" id="classtle92466ed_1_1Driver_1a4f841209018bbb0d1da2cf65a341140a" prot="private" static="no" mutable="no">
         <type>std::array&lt; uint16_t, 6 &gt;</type>
@@ -149,7 +149,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1566" column="14" bodyfile="inc/tle92466ed.hpp" bodystart="1566" bodyend="-1"/>
+        <location file="inc/tle92466ed.hpp" line="1572" column="14" bodyfile="inc/tle92466ed.hpp" bodystart="1572" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -184,7 +184,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="301" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="301" bodyend="302"/>
+        <location file="inc/tle92466ed.hpp" line="310" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="310" bodyend="311"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a1a47af332b6a8d64a4a8c24ff3e98567" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -199,7 +199,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="307" column="3" bodyfile="inc/tle92466ed.hpp" bodystart="307" bodyend="312"/>
+        <location file="inc/tle92466ed.hpp" line="316" column="3" bodyfile="inc/tle92466ed.hpp" bodystart="316" bodyend="321"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1afac6fae75e54966084a120c47f286d47" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -216,7 +216,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="315" column="3"/>
+        <location file="inc/tle92466ed.hpp" line="324" column="3"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1ad017c574e029c55b7fe64fda7a244882" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classtle92466ed_1_1Driver" kindref="compound">Driver</ref> &amp;</type>
@@ -233,7 +233,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="316" column="10"/>
+        <location file="inc/tle92466ed.hpp" line="325" column="10"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a9be435d733715ce71dd2bf332a807684" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -250,7 +250,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="319" column="3"/>
+        <location file="inc/tle92466ed.hpp" line="328" column="3"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a8025434e8497ae406bf0d18da1e8ff3e" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="classtle92466ed_1_1Driver" kindref="compound">Driver</ref> &amp;</type>
@@ -267,7 +267,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="320" column="10"/>
+        <location file="inc/tle92466ed.hpp" line="329" column="10"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a30d209f519943c70f69a160179fc8bf6" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -333,7 +333,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="348" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="357" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1ad9a9c48d2b66db9cba5536cf99b63a6d" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -361,7 +361,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="361" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="370" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a4faef014ee789d7a08209177cd6310c9" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -380,7 +380,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="372" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="381" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1adb3fe0e3319c8a1456e670123a45279d" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
@@ -398,7 +398,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="378" column="9" bodyfile="inc/tle92466ed.hpp" bodystart="378" bodyend="380"/>
+        <location file="inc/tle92466ed.hpp" line="387" column="9" bodyfile="inc/tle92466ed.hpp" bodystart="387" bodyend="389"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a50f87c21f3550f2e719a86f7292b5e60" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
@@ -416,7 +416,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="386" column="9" bodyfile="inc/tle92466ed.hpp" bodystart="386" bodyend="388"/>
+        <location file="inc/tle92466ed.hpp" line="395" column="9" bodyfile="inc/tle92466ed.hpp" bodystart="395" bodyend="397"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a772a3298100180ceb69a4e6fd2f230a5" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -464,7 +464,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="402" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="411" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a51e567341fb7d100bc4886b4bc36fd46" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -495,7 +495,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="410" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="419" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1ab1dd73e9b7d0d3ca7bc30cac29b4e573" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -541,7 +541,7 @@ Automatically calculates register values from voltage. Formula: register_value =
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="426" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="435" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1ac254a11d5cf49459bd6e8396c42c4f2a" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -586,7 +586,7 @@ Automatically calculates register values from voltage. Formula: register_value =
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="438" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="447" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a9046b6dbfc83a4d3d9e1615fbfaaace6" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -638,7 +638,7 @@ Automatically calculates register values from voltage. Formula: register_value =
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="453" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="462" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a2129eaf5c179a3e7916eaeae77eda278" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -669,7 +669,7 @@ Automatically calculates register values from voltage. Formula: register_value =
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="461" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="470" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1aa0df97823a8e3974a79b37c724c9094c" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -684,7 +684,7 @@ Automatically calculates register values from voltage. Formula: register_value =
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="466" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="475" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1ae2d390d7acca1096e570f85df8f82fc9" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -699,7 +699,7 @@ Automatically calculates register values from voltage. Formula: register_value =
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="471" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="480" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a528db488107d7118493de023ac4e8883" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -751,7 +751,7 @@ Automatically calculates register values from voltage. Formula: register_value =
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="481" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="490" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a046218a7d74808eb4e82c266e404b738" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -803,7 +803,7 @@ Automatically calculates register values from voltage. Formula: register_value =
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="491" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="500" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a4a93317fec0a31a89d0318d8598fd1cb" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -871,7 +871,7 @@ Automatically calculates register values from voltage. Formula: register_value =
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="516" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="525" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1aecfdbdd6f2232bd011a273098c78b42d" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; uint16_t &gt;</type>
@@ -915,7 +915,7 @@ Automatically calculates register values from voltage. Formula: register_value =
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="526" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="535" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1acab3b4ba7466937c84c2f9f94b70e5df" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -972,7 +972,7 @@ The TLE92466ED&apos;s PWM frequency controller is specified to operate between 1
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="566" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="575" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a549c24ab6f54047ec82243d7a37a0fa1" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -1043,7 +1043,7 @@ PWM period: t_PWM = mantissa * 2^exponent * (1/f_sys) If low_freq_range: t_PWM =
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="583" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="592" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a8eb16ab00cb03f99a15620663d058e65" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -1119,7 +1119,7 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="607" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="616" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1ad3a91c4c6a52197ebf7c99b7007e8903" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -1193,7 +1193,7 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="628" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="637" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1ab44b690cd47cfc576e7583eb08a1ec0f" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -1264,7 +1264,7 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="663" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="672" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1acdf69b750381f25cd56bebc655932dde" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -1307,7 +1307,7 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="676" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="685" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a3877d72aa85902217f443a7b7cb4e796" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; <ref refid="structtle92466ed_1_1DeviceStatus" kindref="compound">DeviceStatus</ref> &gt;</type>
@@ -1325,7 +1325,7 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="688" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="697" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a1edd8296661ee6f56103bdc7d8b4798b" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; <ref refid="structtle92466ed_1_1ChannelDiagnostics" kindref="compound">ChannelDiagnostics</ref> &gt;</type>
@@ -1356,7 +1356,7 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="696" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="705" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a4e64d39d457faa626180bf06289ab5d4" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; uint16_t &gt;</type>
@@ -1437,7 +1437,7 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="737" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="746" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1aed676fc09bee1e64faeac4fad677b9c4" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; uint16_t &gt;</type>
@@ -1471,7 +1471,7 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="756" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="765" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a863779c097ad50ad68a00d484efb71fb" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; uint16_t &gt;</type>
@@ -1489,7 +1489,7 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="763" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="772" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a412fd06745172c4eefdf4a88d272cd65" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; uint16_t &gt;</type>
@@ -1507,7 +1507,7 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="770" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="779" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a4a31b1468d0f896c9cbe6b0a90220c63" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; uint16_t &gt;</type>
@@ -1525,7 +1525,7 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="777" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="786" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a5c963243d040147d83a3fa73e4a7efc2" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -1568,7 +1568,7 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="786" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="795" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1adef98b992a4de30b6089733616e30053" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -1587,7 +1587,7 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="801" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="810" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a3f2bca409ef8d5b00a0a57e1ee1b18b6" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; bool &gt;</type>
@@ -1605,7 +1605,7 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="808" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="817" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1aa7c959f39be3651418ff60cfd8d5df7b" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; <ref refid="structtle92466ed_1_1FaultReport" kindref="compound">FaultReport</ref> &gt;</type>
@@ -1624,7 +1624,7 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="819" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="828" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a22da64e691adf43d5d93be1280e9dabe" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -1643,7 +1643,7 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="830" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="839" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a783995930de5507ab37877386c384536" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -1662,7 +1662,7 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="840" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="849" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1ad4ae8ff2403ad0a4e49171f22b8e5a14" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -1694,7 +1694,7 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="856" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="865" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a1113b778e16a4b383ab6b691f4dc966a" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; uint16_t &gt;</type>
@@ -1712,7 +1712,7 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="867" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="876" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1af4fdaad502211d337255fe8c13380c98" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; std::array&lt; uint16_t, 3 &gt; &gt;</type>
@@ -1730,7 +1730,7 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="874" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="883" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a998031c8c4766a2b84d2cf92482c32bb" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; bool &gt;</type>
@@ -1748,7 +1748,7 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="881" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="890" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a253a5b94877a1df932ed8e2ba036c879" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
@@ -1766,7 +1766,7 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="888" column="9" bodyfile="inc/tle92466ed.hpp" bodystart="888" bodyend="890"/>
+        <location file="inc/tle92466ed.hpp" line="897" column="9" bodyfile="inc/tle92466ed.hpp" bodystart="897" bodyend="899"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a5522257381016829a19208dc05aa01bd" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -1811,7 +1811,7 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="910" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="919" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a70ba9c46b7740a5a5c18496a84e8dc9d" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -1830,7 +1830,7 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="921" column="17" bodyfile="inc/tle92466ed.hpp" bodystart="921" bodyend="923"/>
+        <location file="inc/tle92466ed.hpp" line="930" column="17" bodyfile="inc/tle92466ed.hpp" bodystart="930" bodyend="932"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1ae15cb007edc9a429027684f3965fa9ee" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -1849,7 +1849,7 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="934" column="17" bodyfile="inc/tle92466ed.hpp" bodystart="934" bodyend="936"/>
+        <location file="inc/tle92466ed.hpp" line="943" column="17" bodyfile="inc/tle92466ed.hpp" bodystart="943" bodyend="945"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a298572f287a74674b2cbc99a32de7dac" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -1894,7 +1894,7 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="952" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="961" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a973b3f4b7e576a21648486595a4974b7" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -1913,7 +1913,7 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="963" column="17" bodyfile="inc/tle92466ed.hpp" bodystart="963" bodyend="965"/>
+        <location file="inc/tle92466ed.hpp" line="972" column="17" bodyfile="inc/tle92466ed.hpp" bodystart="972" bodyend="974"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1ac78fe02ef77f4776ac765494b82912f9" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -1932,7 +1932,7 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="976" column="17" bodyfile="inc/tle92466ed.hpp" bodystart="976" bodyend="978"/>
+        <location file="inc/tle92466ed.hpp" line="985" column="17" bodyfile="inc/tle92466ed.hpp" bodystart="985" bodyend="987"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a77658657535cc943e6ef5486e605a95e" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; bool &gt;</type>
@@ -1976,7 +1976,7 @@ Automatically calculates step_size, num_steps, and flat_steps to achieve the des
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="998" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1007" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1aa78284a05e1c23791b4eae97dabab3d3" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -2020,7 +2020,7 @@ Writes <ref refid="namespacetle92466ed_1_1CLK__DIV" kindref="compound">CLK_DIV</
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1016" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1025" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a92f4cc12b0122216da43d222c4b4e5c2" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; <ref refid="structtle92466ed_1_1SupplyVoltages" kindref="compound">SupplyVoltages</ref> &gt;</type>
@@ -2036,7 +2036,7 @@ Writes <ref refid="namespacetle92466ed_1_1CLK__DIV" kindref="compound">CLK_DIV</
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1033" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1042" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1adf3480d13b580f6f8539fb11f25dc3ff" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; float &gt;</type>
@@ -2051,7 +2051,7 @@ Writes <ref refid="namespacetle92466ed_1_1CLK__DIV" kindref="compound">CLK_DIV</
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1038" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1047" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a4e8438f30f3ed2719220051ab0f67d89" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -2071,7 +2071,7 @@ Writes <ref refid="namespacetle92466ed_1_1CLK__DIV" kindref="compound">CLK_DIV</
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1047" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1056" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a266399a10e9af00eb734265f2be30f7a" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; <ref refid="namespacetle92466ed_1a9b1173fa43c42134c90627f9f0a21229" kindref="member">OperationState</ref> &gt;</type>
@@ -2086,7 +2086,7 @@ Writes <ref refid="namespacetle92466ed_1_1CLK__DIV" kindref="compound">CLK_DIV</
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1052" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1061" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a27f0adf7f7dd939f2c55aac88afe283f" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -2116,7 +2116,7 @@ Writes <ref refid="namespacetle92466ed_1_1CLK__DIV" kindref="compound">CLK_DIV</
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1058" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1067" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1ab9852925d252ba2b6daded98720fac27" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; <ref refid="structtle92466ed_1_1SupplyMonitorSelfTestResult" kindref="compound">SupplyMonitorSelfTestResult</ref> &gt;</type>
@@ -2132,7 +2132,7 @@ Writes <ref refid="namespacetle92466ed_1_1CLK__DIV" kindref="compound">CLK_DIV</
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1068" column="3"/>
+        <location file="inc/tle92466ed.hpp" line="1077" column="3"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a8d3f663f92a36fe60677ba828905099a" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -2185,7 +2185,7 @@ The driver enforces the datasheet constraint that auto_lim_value_abs must be gre
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1085" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1094" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a35f6bcc2ed2e033d54a822f275ff5b32" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -2226,7 +2226,7 @@ The driver enforces the datasheet constraint that auto_lim_value_abs must be gre
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1095" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1104" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a7e2c658849cad3ef64e8f7dcc1494d33" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -2267,7 +2267,7 @@ The driver enforces the datasheet constraint that auto_lim_value_abs must be gre
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1103" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1112" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a47c6e737e69d9926477a0e28fa1e740e" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -2308,7 +2308,7 @@ Writes TON.TON_MANT and sets CTRL_INT_THRESH.PERIOD_MANT=0 which disables the IC
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1115" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1124" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1ace6602a2863b29b1be9bbc4d0bc40d95" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -2328,7 +2328,7 @@ Writes TON.TON_MANT and sets CTRL_INT_THRESH.PERIOD_MANT=0 which disables the IC
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1124" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1133" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1aa72fd92c607a8cf8944a31a9e7b943be" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -2357,7 +2357,7 @@ Writes TON.TON_MANT and sets CTRL_INT_THRESH.PERIOD_MANT=0 which disables the IC
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1137" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1146" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1ab743323d6d19b377ea4a4563ecaa1424" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -2398,7 +2398,7 @@ Writes TON.TON_MANT and sets CTRL_INT_THRESH.PERIOD_MANT=0 which disables the IC
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1151" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1160" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1ab0590f1749e403127427afcc639ee877" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -2451,7 +2451,7 @@ Writes TON.TON_MANT and sets CTRL_INT_THRESH.PERIOD_MANT=0 which disables the IC
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1161" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1170" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1aac32fb6d4b7dca0b0d953d1d26518825" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; <ref refid="structtle92466ed_1_1BistResult" kindref="compound">BistResult</ref> &gt;</type>
@@ -2471,7 +2471,7 @@ Writes TON.TON_MANT and sets CTRL_INT_THRESH.PERIOD_MANT=0 which disables the IC
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1168" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1177" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a440b892255536d4b7694bd39e2d25f30" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; <ref refid="structtle92466ed_1_1PinStatus" kindref="compound">PinStatus</ref> &gt;</type>
@@ -2486,7 +2486,7 @@ Writes TON.TON_MANT and sets CTRL_INT_THRESH.PERIOD_MANT=0 which disables the IC
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1173" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1182" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a359b4c3fab1c5d04fea115244e1e2479" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -2509,7 +2509,7 @@ Writes TON.TON_MANT and sets CTRL_INT_THRESH.PERIOD_MANT=0 which disables the IC
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1178" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1187" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1af98615b33b6627795636089b3fe96b95" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; <ref refid="structtle92466ed_1_1ChannelFeedback" kindref="compound">ChannelFeedback</ref> &gt;</type>
@@ -2570,7 +2570,7 @@ Writes TON.TON_MANT and sets CTRL_INT_THRESH.PERIOD_MANT=0 which disables the IC
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1206" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1215" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a5608193112f762f6f9cfb5f8844389da" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; std::array&lt; <ref refid="structtle92466ed_1_1ChannelFeedback" kindref="compound">ChannelFeedback</ref>, 6 &gt; &gt;</type>
@@ -2602,7 +2602,7 @@ Writes TON.TON_MANT and sets CTRL_INT_THRESH.PERIOD_MANT=0 which disables the IC
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1216" column="3"/>
+        <location file="inc/tle92466ed.hpp" line="1225" column="3"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1af662285eb7af800cde98e2e77109b9dc" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; int32_t &gt;</type>
@@ -2640,7 +2640,7 @@ Writes TON.TON_MANT and sets CTRL_INT_THRESH.PERIOD_MANT=0 which disables the IC
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1245" column="3"/>
+        <location file="inc/tle92466ed.hpp" line="1254" column="3"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1ac45d17a7ffd172f149c32cd491bc2fea" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; uint8_t &gt;</type>
@@ -2656,7 +2656,7 @@ Writes TON.TON_MANT and sets CTRL_INT_THRESH.PERIOD_MANT=0 which disables the IC
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1259" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1268" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a37e150c3f47afa70330a63a93ef2bc20" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -2678,7 +2678,7 @@ Writes TON.TON_MANT and sets CTRL_INT_THRESH.PERIOD_MANT=0 which disables the IC
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1266" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1275" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a2c12c9859df430cecf0bc0bf787008d3" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -2696,7 +2696,7 @@ Writes TON.TON_MANT and sets CTRL_INT_THRESH.PERIOD_MANT=0 which disables the IC
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1272" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1281" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1ab57fa0d97b4712b9160d91f0ca17bdf3" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; <ref refid="structtle92466ed_1_1CurrentFeedbackBatch" kindref="compound">CurrentFeedbackBatch</ref> &gt;</type>
@@ -2709,7 +2709,7 @@ Writes TON.TON_MANT and sets CTRL_INT_THRESH.PERIOD_MANT=0 which disables the IC
           <declname>channel_mask</declname>
         </param>
         <briefdescription>
-<para>Coherent average current for several channels in one freeze window. </para>
+<para>Average current for several channels in one pipelined burst. </para>
         </briefdescription>
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
@@ -2723,22 +2723,21 @@ Writes TON.TON_MANT and sets CTRL_INT_THRESH.PERIOD_MANT=0 which disables the IC
 </parameterlist>
 <simplesect kind="return"><para>Batch with per-channel current and the masks describing what was actually usable. Never blocks and never polls.</para>
 </simplesect>
-Implements the datasheet Figure 22 readout for a <emphasis>set</emphasis> of channels rather than one at a time:<orderedlist>
-<listitem><para>read FB_UPD once — which channels have a fresh window,</para>
-</listitem><listitem><para>freeze exactly those channels,</para>
-</listitem><listitem><para>one pipelined burst reading FB_DC + FB_I_AVG for each of them,</para>
-</listitem><listitem><para>release the freeze.</para>
+Figure 22 wants a freeze around the FB_DC / FB_I_AVG pair. On the desk Mid eval FB_FRZ is unreadable (and an un-acked freeze sticks, aborting Tmeas for the rest of the session). This path therefore:<orderedlist>
+<listitem><para>writes FB_FRZ=0 (clear a stuck freeze),</para>
+</listitem><listitem><para>reads FB_UPD for telemetry only,</para>
+</listitem><listitem><para>one anchored pipelined burst (ICVID / FB_I_AVG / FB_DC per channel) for every requested channel; TP_MANT gates decode,</para>
+</listitem><listitem><para>writes FB_FRZ=0 again.</para>
 </listitem></orderedlist>
 </para>
-<para>That is four bus transactions regardless of how many channels are in the mask, because step 3 is a single <computeroutput>ReadMulti</computeroutput> chain. Refreshing all six channels costs 4 transactions / 20 frames instead of the 24 transactions / 72 frames a per-channel loop needs.</para>
-<para>Channels whose FB_UPD bit is clear are skipped rather than reported as failures — no new window has completed, so the caller&apos;s previous sample is still the most recent truth.</para>
+<para>A chain whose ICVID anchors do not verify is discarded whole — a spliced neighbour current is never published as this channel&apos;s. Host: <computeroutput>tests/host/test_tle_anchored_chain.cpp</computeroutput>.</para>
 <para><simplesect kind="warning"><para>Unlike <ref refid="classtle92466ed_1_1Driver_1af98615b33b6627795636089b3fe96b95" kindref="member">ReadChannelFeedback</ref> this does not wait for FB_UPD. It is meant to be called at the control-loop rate: whatever is ready is sampled, the rest is picked up next tick. That is what makes it usable from a 2 ms thread that also owns actuator writes. </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1304" column="3"/>
+        <location file="inc/tle92466ed.hpp" line="1310" column="3"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1ad6a57264f1df64ca68fe440f2f682abe" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -2761,7 +2760,7 @@ Implements the datasheet Figure 22 readout for a <emphasis>set</emphasis> of cha
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1318" column="3"/>
+        <location file="inc/tle92466ed.hpp" line="1324" column="3"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a1c409cc2305d747e3aefdca8b6fe5a44" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; bool &gt;</type>
@@ -2781,7 +2780,7 @@ Implements the datasheet Figure 22 readout for a <emphasis>set</emphasis> of cha
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1327" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1333" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a314b3fd9e723097a93814aca43e05ded" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; bool &gt;</type>
@@ -2849,7 +2848,7 @@ Implements the datasheet Figure 22 readout for a <emphasis>set</emphasis> of cha
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1341" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1347" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a8f50392a7991793e49d2847b224637ef" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>uint16_t</type>
@@ -2865,7 +2864,7 @@ Implements the datasheet Figure 22 readout for a <emphasis>set</emphasis> of cha
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1353" column="13" bodyfile="inc/tle92466ed.hpp" bodystart="1353" bodyend="1353"/>
+        <location file="inc/tle92466ed.hpp" line="1359" column="13" bodyfile="inc/tle92466ed.hpp" bodystart="1359" bodyend="1359"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a4c101da82ad2c7a6c2a11888daee4026" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -2894,7 +2893,7 @@ Which channels are populated is product wiring, so the mask is an argument; how 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1363" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1369" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1aab98d70715f7a21f4853f861d0a70071" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; uint32_t &gt;</type>
@@ -2940,7 +2939,7 @@ Which channels are populated is product wiring, so the mask is an argument; how 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1379" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1385" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a1959bc6629542a6afc303a460ab0cfc3" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -2996,7 +2995,7 @@ N reads cost N+2 SPI frames here instead of 3N, because the pipeline is opened o
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1398" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1404" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1ac4a0ed8918427219d56778bbd2b9a6cf" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -3069,7 +3068,7 @@ N reads cost N+2 SPI frames here instead of 3N, because the pipeline is opened o
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1416" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1422" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1ae878b4c487d7d6e7a0547accb2f2916e" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -3124,7 +3123,7 @@ N reads cost N+2 SPI frames here instead of 3N, because the pipeline is opened o
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1428" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1434" column="17"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-static-func">
@@ -3141,7 +3140,7 @@ N reads cost N+2 SPI frames here instead of 3N, because the pipeline is opened o
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1022" column="30" bodyfile="inc/tle92466ed.hpp" bodystart="1022" bodyend="1024"/>
+        <location file="inc/tle92466ed.hpp" line="1031" column="30" bodyfile="inc/tle92466ed.hpp" bodystart="1031" bodyend="1033"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a3e7fff62addb9553240dd0f7884e2c10" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>constexpr const char *</type>
@@ -3156,7 +3155,7 @@ N reads cost N+2 SPI frames here instead of 3N, because the pipeline is opened o
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1436" column="31" bodyfile="inc/tle92466ed.hpp" bodystart="1436" bodyend="1438"/>
+        <location file="inc/tle92466ed.hpp" line="1442" column="31" bodyfile="inc/tle92466ed.hpp" bodystart="1442" bodyend="1444"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1af43a8f9b508b9dc402fe4d9184614ef3" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>constexpr uint8_t</type>
@@ -3171,7 +3170,7 @@ N reads cost N+2 SPI frames here instead of 3N, because the pipeline is opened o
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1441" column="28" bodyfile="inc/tle92466ed.hpp" bodystart="1441" bodyend="1443"/>
+        <location file="inc/tle92466ed.hpp" line="1447" column="28" bodyfile="inc/tle92466ed.hpp" bodystart="1447" bodyend="1449"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a907df64599237464fa9de46b293ae3ad" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>constexpr uint8_t</type>
@@ -3186,7 +3185,7 @@ N reads cost N+2 SPI frames here instead of 3N, because the pipeline is opened o
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1446" column="28" bodyfile="inc/tle92466ed.hpp" bodystart="1446" bodyend="1448"/>
+        <location file="inc/tle92466ed.hpp" line="1452" column="28" bodyfile="inc/tle92466ed.hpp" bodystart="1452" bodyend="1454"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a12ae4a9ebb8761034850bfd6b642cced" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>constexpr uint8_t</type>
@@ -3201,7 +3200,7 @@ N reads cost N+2 SPI frames here instead of 3N, because the pipeline is opened o
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1451" column="28" bodyfile="inc/tle92466ed.hpp" bodystart="1451" bodyend="1453"/>
+        <location file="inc/tle92466ed.hpp" line="1457" column="28" bodyfile="inc/tle92466ed.hpp" bodystart="1457" bodyend="1459"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="private-func">
@@ -3228,7 +3227,7 @@ N reads cost N+2 SPI frames here instead of 3N, because the pipeline is opened o
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1467" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1473" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a177980ae6820e7339e150a457d9329c5" prot="private" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>constexpr bool</type>
@@ -3247,7 +3246,7 @@ N reads cost N+2 SPI frames here instead of 3N, because the pipeline is opened o
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1473" column="19" bodyfile="inc/tle92466ed.hpp" bodystart="1473" bodyend="1475"/>
+        <location file="inc/tle92466ed.hpp" line="1479" column="19" bodyfile="inc/tle92466ed.hpp" bodystart="1479" bodyend="1481"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1ab2894233752ec76e246ec823764ec45d" prot="private" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -3262,7 +3261,7 @@ N reads cost N+2 SPI frames here instead of 3N, because the pipeline is opened o
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1480" column="17" bodyfile="inc/tle92466ed.hpp" bodystart="1480" bodyend="1485"/>
+        <location file="inc/tle92466ed.hpp" line="1486" column="17" bodyfile="inc/tle92466ed.hpp" bodystart="1486" bodyend="1491"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a9b11b99a6c20b1903a54666f736df6aa" prot="private" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -3277,7 +3276,7 @@ N reads cost N+2 SPI frames here instead of 3N, because the pipeline is opened o
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1490" column="17" bodyfile="inc/tle92466ed.hpp" bodystart="1490" bodyend="1495"/>
+        <location file="inc/tle92466ed.hpp" line="1496" column="17" bodyfile="inc/tle92466ed.hpp" bodystart="1496" bodyend="1501"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a50757519190df91afb7207cd162c63c5" prot="private" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -3292,7 +3291,7 @@ N reads cost N+2 SPI frames here instead of 3N, because the pipeline is opened o
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1500" column="17" bodyfile="inc/tle92466ed.hpp" bodystart="1500" bodyend="1505"/>
+        <location file="inc/tle92466ed.hpp" line="1506" column="17" bodyfile="inc/tle92466ed.hpp" bodystart="1506" bodyend="1511"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1acd7bd9bb9639ef3ca963a91ae4a773ef" prot="private" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -3307,7 +3306,7 @@ N reads cost N+2 SPI frames here instead of 3N, because the pipeline is opened o
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1510" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1516" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1abf81ffb528844010e6db8dafc104d287" prot="private" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -3322,7 +3321,7 @@ N reads cost N+2 SPI frames here instead of 3N, because the pipeline is opened o
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1515" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1521" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1ad88c75adc854247b08362057789f8aed" prot="private" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -3365,7 +3364,7 @@ N reads cost N+2 SPI frames here instead of 3N, because the pipeline is opened o
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1523" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1529" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a530670d94708b1e603d108cf45e44f70" prot="private" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; void &gt;</type>
@@ -3384,7 +3383,7 @@ N reads cost N+2 SPI frames here instead of 3N, because the pipeline is opened o
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1529" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1535" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a29a466a41e96d8d6eb35a22b65f8a312" prot="private" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; bool &gt;</type>
@@ -3415,7 +3414,7 @@ N reads cost N+2 SPI frames here instead of 3N, because the pipeline is opened o
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1536" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1542" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1a3963e901350df139bb429f3c5fd89264" prot="private" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type><ref refid="namespacetle92466ed_1ac468593f8010ed1b36b603c07364cc8e" kindref="member">DriverResult</ref>&lt; bool &gt;</type>
@@ -3434,7 +3433,7 @@ N reads cost N+2 SPI frames here instead of 3N, because the pipeline is opened o
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1543" column="17"/>
+        <location file="inc/tle92466ed.hpp" line="1549" column="17"/>
       </memberdef>
       <memberdef kind="function" id="classtle92466ed_1_1Driver_1ae2ee1778a8454e715ce893d019dc1e9d" prot="private" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type>void</type>
@@ -3450,7 +3449,7 @@ N reads cost N+2 SPI frames here instead of 3N, because the pipeline is opened o
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1552" column="8"/>
+        <location file="inc/tle92466ed.hpp" line="1558" column="8"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -3474,7 +3473,7 @@ N reads cost N+2 SPI frames here instead of 3N, because the pipeline is opened o
 </simplesect>
 </para>
     </detaileddescription>
-    <location file="inc/tle92466ed.hpp" line="291" column="1" bodyfile="inc/tle92466ed.hpp" bodystart="291" bodyend="1567"/>
+    <location file="inc/tle92466ed.hpp" line="300" column="1" bodyfile="inc/tle92466ed.hpp" bodystart="300" bodyend="1573"/>
     <listofallmembers>
       <member refid="classtle92466ed_1_1Driver_1acd7bd9bb9639ef3ca963a91ae4a773ef" prot="private" virt="non-virtual"><scope>tle92466ed::Driver</scope><name>applyDefaultConfig</name></member>
       <member refid="classtle92466ed_1_1Driver_1a87fd6e22ad75b9e52b3f4f41217a5431" prot="private" virt="non-virtual"><scope>tle92466ed::Driver</scope><name>cached_icvid_</name></member>

@@ -1276,6 +1276,20 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
+      <type>uint8_t</type>
+      <name>min_int_thresh</name>
+      <anchorfile>structtle92466ed_1_1ChannelConfig.html</anchorfile>
+      <anchor>aa9ddf1f0e2b918c4b90fbc45add87986</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>pwm_period_calc_mode</name>
+      <anchorfile>structtle92466ed_1_1ChannelConfig.html</anchorfile>
+      <anchor>aa36fc989e16d696cefe6111f419ed2dc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
       <type>bool</type>
       <name>deep_dither_enabled</name>
       <anchorfile>structtle92466ed_1_1ChannelConfig.html</anchorfile>
@@ -5796,6 +5810,13 @@
   <compound kind="namespace">
     <name>tle92466ed::CH_CTRL_REG</name>
     <filename>namespacetle92466ed_1_1CH__CTRL__REG.html</filename>
+    <member kind="function">
+      <type>constexpr uint16_t</type>
+      <name>Build</name>
+      <anchorfile>namespacetle92466ed_1_1CH__CTRL__REG.html</anchorfile>
+      <anchor>a1fabb0a56db218aa86e55a2019675ed6</anchor>
+      <arglist>(uint8_t min_int_thresh, bool olsg_warning_enabled, bool pwm_period_calc_mode) noexcept</arglist>
+    </member>
     <member kind="variable">
       <type>constexpr uint16_t</type>
       <name>MIN_INT_THRESH_MASK</name>
@@ -5836,6 +5857,27 @@
       <name>DEFAULT</name>
       <anchorfile>namespacetle92466ed_1_1CH__CTRL__REG.html</anchorfile>
       <anchor>a8983da7b14aa08c1d88f533220d2a2a3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>constexpr uint16_t</type>
+      <name>DEFAULT_OLSG_WARN_WINDOW</name>
+      <anchorfile>namespacetle92466ed_1_1CH__CTRL__REG.html</anchorfile>
+      <anchor>af2b97e1a10a725a0ed1b5daba4f1a7fc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>constexpr uint8_t</type>
+      <name>MIN_INT_THRESH_FLOOR</name>
+      <anchorfile>namespacetle92466ed_1_1CH__CTRL__REG.html</anchorfile>
+      <anchor>a63042f4a360f3e6e4d1a16fb24e3a310</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>constexpr uint8_t</type>
+      <name>MIN_INT_THRESH_CEIL</name>
+      <anchorfile>namespacetle92466ed_1_1CH__CTRL__REG.html</anchorfile>
+      <anchor>a8f57caa09252ffa14c6473386963019b</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -6143,8 +6185,8 @@
       <type>constexpr uint16_t</type>
       <name>Build</name>
       <anchorfile>namespacetle92466ed_1_1CTRL__INT__THRESH.html</anchorfile>
-      <anchor>a2011977311468e0dafa3b6f27d83ad85</anchor>
-      <arglist>(int8_t int_thresh, uint8_t period_mant_hi) noexcept</arglist>
+      <anchor>aea1684f4ec4add5d3165b97d5e55e136</anchor>
+      <arglist>(uint16_t int_thresh) noexcept</arglist>
     </member>
     <member kind="variable">
       <type>constexpr uint16_t</type>
@@ -6155,16 +6197,9 @@
     </member>
     <member kind="variable">
       <type>constexpr uint16_t</type>
-      <name>PERIOD_MANT_SHIFT</name>
+      <name>INT_THRESH_MAX</name>
       <anchorfile>namespacetle92466ed_1_1CTRL__INT__THRESH.html</anchorfile>
-      <anchor>a0451953ab7362af21458ac686579929a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>constexpr uint16_t</type>
-      <name>PERIOD_MANT_MASK</name>
-      <anchorfile>namespacetle92466ed_1_1CTRL__INT__THRESH.html</anchorfile>
-      <anchor>a30c4116c37eb56509e50d987c2c8f267</anchor>
+      <anchor>ac850ff2e88b68a39cdc986460b1d4b12</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">

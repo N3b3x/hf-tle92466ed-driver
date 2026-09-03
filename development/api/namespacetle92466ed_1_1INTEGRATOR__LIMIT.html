@@ -119,7 +119,7 @@ Variables</h2></td></tr>
 <tr class="memitem:aaf4d11038c49b85f40990a478b774a8b" id="r_aaf4d11038c49b85f40990a478b774a8b"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf4d11038c49b85f40990a478b774a8b">AUTO_LIM_VALUE_ABS_MASK</a> = 0x7C00u</td></tr>
 <tr class="memdesc:aaf4d11038c49b85f40990a478b774a8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">5-bit  <br /></td></tr>
 <tr class="separator:aaf4d11038c49b85f40990a478b774a8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad74283dd285a17993bf493aa9b4f3c47" id="r_ad74283dd285a17993bf493aa9b4f3c47"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad74283dd285a17993bf493aa9b4f3c47">DEFAULT</a> = 0x0000</td></tr>
+<tr class="memitem:ad74283dd285a17993bf493aa9b4f3c47" id="r_ad74283dd285a17993bf493aa9b4f3c47"><td class="memItemLeft" align="right" valign="top">constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad74283dd285a17993bf493aa9b4f3c47">DEFAULT</a> = 0x43FFu</td></tr>
 <tr class="separator:ad74283dd285a17993bf493aa9b4f3c47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -213,7 +213,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr uint16_t tle92466ed::INTEGRATOR_LIMIT::DEFAULT = 0x0000</td>
+          <td class="memname">constexpr uint16_t tle92466ed::INTEGRATOR_LIMIT::DEFAULT = 0x43FFu</td>
         </tr>
       </table>
   </td>
@@ -222,6 +222,7 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>POR value per datasheet Rev 1.2 §5.3.3.6 p.89: LIM_VALUE_ABS = 0x3FF (1023, the field maximum) and AUTO_LIM_VALUE_ABS = 0x10 (16). This register was previously documented here as resetting to 0x0000, which would have meant a zero integrator clamp and an Autolimit threshold violating the §4.6.2.3 constraint. It does not: the reset state already satisfies AUTO_LIM_VALUE_ABS &gt; MIN_INT_THRESH+3 while MIN_INT_THRESH is at its own reset value of 0, so leaving this register unwritten is safe. Anything doing a read-modify-write against the old 0x0000 assumption would have silently destroyed both clamps. </p>
 
 </div>
 </div>

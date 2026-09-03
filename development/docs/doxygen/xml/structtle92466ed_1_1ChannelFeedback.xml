@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2411" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2411" bodyend="2411"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2484" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2484" bodyend="2484"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1ChannelFeedback_1a4e46252424655469681b58304b75a0a0" prot="public" static="no" mutable="no">
         <type>uint16_t</type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2412" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2412" bodyend="2412"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2485" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2485" bodyend="2485"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1ChannelFeedback_1a72443b5923fb6d27b0a42dc60561c740" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -50,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2413" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2413" bodyend="2413"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2486" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2486" bodyend="2486"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1ChannelFeedback_1a5e4d5cbce04e85b47748ca022dace868" prot="public" static="no" mutable="no">
         <type>int32_t</type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2414" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2414" bodyend="2414"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2487" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2487" bodyend="2487"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1ChannelFeedback_1a5ef365c652b2a80c46e3d8ed2ae6a9c1" prot="public" static="no" mutable="no">
         <type>int32_t</type>
@@ -82,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2415" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2415" bodyend="2415"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2488" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2488" bodyend="2488"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1ChannelFeedback_1a770d327284f2f6d300697f27831aba0f" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -98,7 +98,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2416" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2416" bodyend="2416"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2489" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2489" bodyend="2489"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1ChannelFeedback_1af72ebdfd3670226e77745e02a39d6263" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -114,7 +114,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2417" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2417" bodyend="2417"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2490" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2490" bodyend="2490"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1ChannelFeedback_1a8596104225e0d9fc2ecd3694b6293e46" prot="public" static="no" mutable="no">
         <type>int16_t</type>
@@ -130,7 +130,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2418" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2418" bodyend="2418"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2491" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2491" bodyend="2491"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1ChannelFeedback_1a60803ebaf7c36f89ecaa5c33f7731581" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -146,7 +146,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2419" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2419" bodyend="2419"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2492" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2492" bodyend="2492"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1ChannelFeedback_1ae1bdb157d38ea89567757377b97365e9" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -162,7 +162,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2420" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2420" bodyend="2420"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2493" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2493" bodyend="2493"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -171,7 +171,7 @@
     <detaileddescription>
 <para>Populated by <computeroutput>ReadChannelFeedback()</computeroutput>. Average current uses the <computeroutput>FB_I_AVG</computeroutput> mantissa ratio with <computeroutput>TP_MANT</computeroutput> from <computeroutput>FB_DC</computeroutput> — not <computeroutput><ref refid="namespacetle92466ed_1_1FB__I__AVG__s16" kindref="compound">FB_I_AVG_s16</ref></computeroutput> (see <computeroutput>GetCalibrationAvgCurrent_mA()</computeroutput>). </para>
     </detaileddescription>
-    <location file="inc/tle92466ed_registers.hpp" line="2410" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2410" bodyend="2421"/>
+    <location file="inc/tle92466ed_registers.hpp" line="2483" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2483" bodyend="2494"/>
     <listofallmembers>
       <member refid="structtle92466ed_1_1ChannelFeedback_1adef390827f7b8f8222777dac552d536f" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelFeedback</scope><name>avg_current_mA</name></member>
       <member refid="structtle92466ed_1_1ChannelFeedback_1a72443b5923fb6d27b0a42dc60561c740" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelFeedback</scope><name>avg_vbat_mV</name></member>

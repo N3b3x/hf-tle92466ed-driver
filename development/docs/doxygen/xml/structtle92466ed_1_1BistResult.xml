@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2337" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2337" bodyend="2337"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2410" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2410" bodyend="2410"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1BistResult_1a8bf17aa75c7579b88684d610bba91336" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2338" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2338" bodyend="2338"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2411" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2411" bodyend="2411"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1BistResult_1a6351f4c6a467cab01b5bacd5e370aabc" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -49,7 +49,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2339" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2339" bodyend="2339"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2412" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2412" bodyend="2412"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1BistResult_1ab0cf36d9483dd7d91d57b7ff92b1ec39" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -64,7 +64,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2340" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2340" bodyend="2340"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2413" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2413" bodyend="2413"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1BistResult_1ae4656a44295a1d3af204cddca92bba76" prot="public" static="no" mutable="no">
         <type>uint16_t</type>
@@ -80,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2341" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2341" bodyend="2341"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2414" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2414" bodyend="2414"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -88,7 +88,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="inc/tle92466ed_registers.hpp" line="2336" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2336" bodyend="2342"/>
+    <location file="inc/tle92466ed_registers.hpp" line="2409" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2409" bodyend="2415"/>
     <listofallmembers>
       <member refid="structtle92466ed_1_1BistResult_1ab0cf36d9483dd7d91d57b7ff92b1ec39" prot="public" virt="non-virtual"><scope>tle92466ed::BistResult</scope><name>correctable_reg_err</name></member>
       <member refid="structtle92466ed_1_1BistResult_1ace615fe635e425a15c8c1cdb50b65582" prot="public" virt="non-virtual"><scope>tle92466ed::BistResult</scope><name>done</name></member>

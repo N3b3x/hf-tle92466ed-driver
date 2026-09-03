@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1433" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1433" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1506" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1506" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1VBAT__THRESHOLD_1a2b0f389cd833ee70e8a4d0f231c052ad" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr float</type>
@@ -33,7 +33,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1434" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1434" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1507" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1507" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1VBAT__THRESHOLD_1a50b0e62e17aabf420693c082a190540a" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr float</type>
@@ -49,7 +49,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1435" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1435" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1508" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1508" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="func">
@@ -82,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1442" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1442" bodyend="1451"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1515" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1515" bodyend="1524"/>
       </memberdef>
       <memberdef kind="function" id="namespacetle92466ed_1_1VBAT__THRESHOLD_1ab7766108415f09476fb954484f0318ce" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type>constexpr float</type>
@@ -113,7 +113,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1458" column="18" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1458" bodyend="1460"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1531" column="18" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1531" bodyend="1533"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -124,6 +124,6 @@
 <para><bold>Formula</bold>: V_BAT = register_value × 0.16208V register_value = V_BAT / 0.16208V</para>
 <para>Valid range: 0V to ~41.4V (255 × 0.16208V) </para>
     </detaileddescription>
-    <location file="inc/tle92466ed_registers.hpp" line="1432" column="1"/>
+    <location file="inc/tle92466ed_registers.hpp" line="1505" column="1"/>
   </compounddef>
 </doxygen>

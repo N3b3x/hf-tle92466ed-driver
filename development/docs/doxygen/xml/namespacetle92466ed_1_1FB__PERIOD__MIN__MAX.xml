@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1887" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1887" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1960" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1960" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1FB__PERIOD__MIN__MAX_1a4e7b5eee130811a8267c44f89d222645" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint32_t</type>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1888" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1888" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1961" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1961" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1FB__PERIOD__MIN__MAX_1a0f875c6441313476bb282114f4e74bc1" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint32_t</type>
@@ -46,7 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1889" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1889" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1962" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1962" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1FB__PERIOD__MIN__MAX_1a00b485f1987c872ed712c3274eb7b949" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint32_t</type>
@@ -61,7 +61,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1890" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1890" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1963" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1963" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="func">
@@ -82,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1893" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1893" bodyend="1896"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1966" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1966" bodyend="1969"/>
       </memberdef>
       <memberdef kind="function" id="namespacetle92466ed_1_1FB__PERIOD__MIN__MAX_1aa5db5bfb16c6439987bbae975b093eef" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type>constexpr uint16_t</type>
@@ -100,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1898" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1898" bodyend="1900"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1971" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1971" bodyend="1973"/>
       </memberdef>
       <memberdef kind="function" id="namespacetle92466ed_1_1FB__PERIOD__MIN__MAX_1a0b62b3985b49e71c13963a017df580ad" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type>constexpr uint16_t</type>
@@ -118,7 +118,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1901" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1901" bodyend="1903"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1974" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1974" bodyend="1976"/>
       </memberdef>
       <memberdef kind="function" id="namespacetle92466ed_1_1FB__PERIOD__MIN__MAX_1a84c3226db33066ce08354ae40c7c3dec" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type>constexpr uint32_t</type>
@@ -136,7 +136,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1905" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1905" bodyend="1907"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1978" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1978" bodyend="1980"/>
       </memberdef>
       <memberdef kind="function" id="namespacetle92466ed_1_1FB__PERIOD__MIN__MAX_1ae7fd1ec0a35e3fef3e976a63acf2e43f" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type>constexpr uint32_t</type>
@@ -154,7 +154,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1908" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1908" bodyend="1910"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1981" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1981" bodyend="1983"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -163,6 +163,6 @@
     <detaileddescription>
 <para>Per datasheet \u00a75.3.3.23 p.106. Reports the minimum and maximum PWM period observed during the last measurement window in 256-cycle units of fSYS: bits 9:0 PERIOD_MIN T_MIN = PERIOD_MIN * 256 / fSYS bits 19:10 PERIOD_MAX T_MAX = PERIOD_MAX * 256 / fSYS </para>
     </detaileddescription>
-    <location file="inc/tle92466ed_registers.hpp" line="1886" column="1"/>
+    <location file="inc/tle92466ed_registers.hpp" line="1959" column="1"/>
   </compounddef>
 </doxygen>

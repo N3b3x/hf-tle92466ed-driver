@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1330" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1330" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1403" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1403" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1DITHER_1_1DitherConfig_1aa03ae82b94696313f9635bd2fdbed9c7" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1331" column="11" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1331" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1404" column="11" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1404" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1DITHER_1_1DitherConfig_1a605229f9af2a0527aa8e19e12e123c12" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1332" column="11" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1332" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1405" column="11" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1405" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -81,7 +81,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1339" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1339" bodyend="1345"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1412" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1412" bodyend="1418"/>
       </memberdef>
       <memberdef kind="function" id="structtle92466ed_1_1DITHER_1_1DitherConfig_1aca193fe202148c797393d5cf40fde116" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>constexpr float</type>
@@ -113,7 +113,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1352" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1352" bodyend="1356"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1425" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1425" bodyend="1429"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -121,7 +121,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="inc/tle92466ed_registers.hpp" line="1329" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1329" bodyend="1357"/>
+    <location file="inc/tle92466ed_registers.hpp" line="1402" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1402" bodyend="1430"/>
     <listofallmembers>
       <member refid="structtle92466ed_1_1DITHER_1_1DitherConfig_1a89e67b6e8fb997dabba748a732b5370c" prot="public" virt="non-virtual"><scope>tle92466ed::DITHER::DitherConfig</scope><name>CalculateAmplitudeMa</name></member>
       <member refid="structtle92466ed_1_1DITHER_1_1DitherConfig_1aca193fe202148c797393d5cf40fde116" prot="public" virt="non-virtual"><scope>tle92466ed::DITHER::DitherConfig</scope><name>CalculatePeriodUs</name></member>

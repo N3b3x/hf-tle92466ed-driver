@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="81" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="81" bodyend="81"/>
+        <location file="inc/tle92466ed.hpp" line="90" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="90" bodyend="90"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1a3ab1fe0bcddd2efc648e36226e47e4ab" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="82" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="82" bodyend="82"/>
+        <location file="inc/tle92466ed.hpp" line="91" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="91" bodyend="91"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1a5843ad67772ad8392669203955791b22" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -50,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="83" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="83" bodyend="83"/>
+        <location file="inc/tle92466ed.hpp" line="92" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="92" bodyend="92"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1a9a22f111782d4965d037b300d11f9985" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="86" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="86" bodyend="86"/>
+        <location file="inc/tle92466ed.hpp" line="95" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="95" bodyend="95"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1a73ee41566b9835685d550445c0be1a2a" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -82,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="87" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="87" bodyend="87"/>
+        <location file="inc/tle92466ed.hpp" line="96" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="96" bodyend="96"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1a2375a607590d38b69fa6e565d2887070" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -98,7 +98,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="88" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="88" bodyend="88"/>
+        <location file="inc/tle92466ed.hpp" line="97" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="97" bodyend="97"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1aa94ecf0a7df62e9aaf83bbdd55611218" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -114,7 +114,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="89" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="89" bodyend="89"/>
+        <location file="inc/tle92466ed.hpp" line="98" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="98" bodyend="98"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1a26e3ac654f38e9d250b18ba97a4b52cc" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -130,7 +130,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="90" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="90" bodyend="90"/>
+        <location file="inc/tle92466ed.hpp" line="99" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="99" bodyend="99"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1a1641d22d1ba761833fb910f89128e43e" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -146,7 +146,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="91" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="91" bodyend="91"/>
+        <location file="inc/tle92466ed.hpp" line="100" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="100" bodyend="100"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1a75a9546e210e00f9784902756f5cd27c" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -162,7 +162,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="94" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="94" bodyend="94"/>
+        <location file="inc/tle92466ed.hpp" line="103" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="103" bodyend="103"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1a6bc02519bbe96ebcc7ad76872d3f5902" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -178,7 +178,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="95" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="95" bodyend="95"/>
+        <location file="inc/tle92466ed.hpp" line="104" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="104" bodyend="104"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1a7f30580eb78da2fb4c3505edac89f552" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -194,7 +194,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="98" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="98" bodyend="98"/>
+        <location file="inc/tle92466ed.hpp" line="107" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="107" bodyend="107"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1a2df7e6abf2d0b940e09861153203aa16" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -210,7 +210,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="99" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="99" bodyend="99"/>
+        <location file="inc/tle92466ed.hpp" line="108" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="108" bodyend="108"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1a06e7f029d3e82fc19889027a04ad4bf8" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -226,7 +226,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="100" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="100" bodyend="100"/>
+        <location file="inc/tle92466ed.hpp" line="109" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="109" bodyend="109"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1ab46f83b6cb4987bc25bd70d30933726b" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -242,7 +242,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="101" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="101" bodyend="101"/>
+        <location file="inc/tle92466ed.hpp" line="110" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="110" bodyend="110"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1ad158be28450aec0e21fa0fb323895021" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -258,7 +258,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="104" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="104" bodyend="104"/>
+        <location file="inc/tle92466ed.hpp" line="113" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="113" bodyend="113"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1acc5df03f6e17cd712540214990e3c361" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -274,7 +274,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="105" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="105" bodyend="105"/>
+        <location file="inc/tle92466ed.hpp" line="114" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="114" bodyend="114"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1ac78643fa043eff8a4067f525e8476fc6" prot="public" static="no" mutable="no">
         <type>uint16_t</type>
@@ -290,7 +290,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="108" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="108" bodyend="108"/>
+        <location file="inc/tle92466ed.hpp" line="117" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="117" bodyend="117"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1DeviceStatus_1a6feeedf58f723c1fbfece4dd3721a857" prot="public" static="no" mutable="no">
         <type>uint16_t</type>
@@ -306,7 +306,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="109" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="109" bodyend="109"/>
+        <location file="inc/tle92466ed.hpp" line="118" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="118" bodyend="118"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -314,7 +314,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="inc/tle92466ed.hpp" line="80" column="1" bodyfile="inc/tle92466ed.hpp" bodystart="80" bodyend="110"/>
+    <location file="inc/tle92466ed.hpp" line="89" column="1" bodyfile="inc/tle92466ed.hpp" bodystart="89" bodyend="119"/>
     <listofallmembers>
       <member refid="structtle92466ed_1_1DeviceStatus_1a5843ad67772ad8392669203955791b22" prot="public" virt="non-virtual"><scope>tle92466ed::DeviceStatus</scope><name>any_fault</name></member>
       <member refid="structtle92466ed_1_1DeviceStatus_1a7f30580eb78da2fb4c3505edac89f552" prot="public" virt="non-virtual"><scope>tle92466ed::DeviceStatus</scope><name>clock_fault</name></member>

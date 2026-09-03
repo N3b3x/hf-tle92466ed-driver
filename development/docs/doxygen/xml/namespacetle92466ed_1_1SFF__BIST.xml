@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1080" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1080" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1153" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1153" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1SFF__BIST_1a81abf23cfded65423486469531b96cf5" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1081" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1081" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1154" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1154" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1SFF__BIST_1a7a189b6c7b02c50cf52f7409f28a0f79" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -46,7 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1082" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1082" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1155" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1155" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1SFF__BIST_1ab2372cec5f8963fac1c508c5aa851511" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -61,7 +61,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1083" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1083" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1156" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1156" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1SFF__BIST_1ac12ab06b31dc7a80c5413982774f2f94" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -76,7 +76,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1084" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1084" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1157" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1157" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1SFF__BIST_1a3ba3f4376ae29768da6973f98cb6ca6e" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -91,7 +91,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1086" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1086" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1159" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1159" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -100,6 +100,6 @@
     <detaileddescription>
 <para>Per datasheet \u00a75.3.2.18 p.74. Triggers the built-in safe-state logic-BIST and surfaces the result status: bit 0 SFF_BIST_EN Start / run BIST (write 1 to trigger) bit 1 SFF_BIST_DONE 1 = BIST completed bit 2 SFF_BIST_FAIL 1 = BIST detected a stuck-at / logic fault bit 3 SFF_BIST_UERR 1 = Uncorrectable register error during BIST bit 4 SFF_BIST_CERR 1 = Correctable register error during BIST </para>
     </detaileddescription>
-    <location file="inc/tle92466ed_registers.hpp" line="1079" column="1"/>
+    <location file="inc/tle92466ed_registers.hpp" line="1152" column="1"/>
   </compounddef>
 </doxygen>

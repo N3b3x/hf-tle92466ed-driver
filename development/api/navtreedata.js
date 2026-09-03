@@ -64,12 +64,12 @@ var NAVTREEINDEX =
 "classtle92466ed_1_1Driver.html#adb3fe0e3319c8a1456e670123a45279d",
 "driver__integration__test_8cpp.html#accc4cbd28ece229c1cc42fadfc6301ce",
 "namespacetle92466ed.html#a7a810a2ee5f3edef167c753d660af92fa9349e3688de3063353762253adbd6b27",
-"namespacetle92466ed_1_1DIAG__WARN__CHGR.html#aa89a920c9aa1697e0db1f447206a6dd5",
-"namespacetle92466ed_1_1VOLTAGE__FEEDBACK.html#aaee2aaad06ca9987b839694d7a47be09",
-"structtle92466ed_1_1ChannelConfig.html#abdf47c355b3b1504ff75da6f6dffc96c",
-"structtle92466ed_1_1FaultReport.html#aec6210188389257846b28bd9d9e58c9d",
-"tle92466ed__registers_8hpp.html#a4354ef9226739c1ea8a59eb36e95760cab6b8d73d401b7611fac37ab11898f598",
-"tle92466ed__registers_8hpp.html#ac7f32fea4328481f608084fae85361a6"
+"namespacetle92466ed_1_1DIAG__WARN__CHGR.html#a86a3bd2fe56772c68b87dab09b0939a9",
+"namespacetle92466ed_1_1VOLTAGE__FEEDBACK.html#a4866924104905fd8764d7b489e8c8347",
+"structtle92466ed_1_1ChannelConfig.html#aa9ddf1f0e2b918c4b90fbc45add87986",
+"structtle92466ed_1_1FaultReport.html#ac047aa8a818d5bfd81026acfab5ad772",
+"tle92466ed__registers_8hpp.html#a4354ef9226739c1ea8a59eb36e95760ca01972e7fc9ec5c902670e0798df618dc",
+"tle92466ed__registers_8hpp.html#ac478d8027f99bfc8e6a985fb3b4b5e9dafabad8c26f1d6f2dd67f43017cdd55ae"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

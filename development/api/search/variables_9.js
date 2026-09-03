@@ -22,8 +22,9 @@ var searchData=
   ['init_5fdone_19',['INIT_DONE',['../namespacetle92466ed_1_1FB__STAT.html#a1c4d0c779ee8eaf985434e2ecc2928d5',1,'tle92466ed::FB_STAT']]],
   ['initialized_5f_20',['initialized_',['../classtle92466ed_1_1Driver.html#a47951e9f709f5128d6367fca15d13091',1,'tle92466ed::Driver::initialized_'],['../classEsp32Tle92466edSpiBus.html#a043069850e70f93ebb4639914835636d',1,'Esp32Tle92466edSpiBus::initialized_']]],
   ['int_5fthresh_5fmask_21',['INT_THRESH_MASK',['../namespacetle92466ed_1_1CTRL__INT__THRESH.html#a2c116a9d5232f9587c3ba543c83f0efe',1,'tle92466ed::CTRL_INT_THRESH::INT_THRESH_MASK'],['../namespacetle92466ed_1_1FB__INT__THRESH.html#a568233725b97b9506bb7d27ed7d81df3',1,'tle92466ed::FB_INT_THRESH::INT_THRESH_MASK']]],
-  ['int_5fthresh_5fseed_22',['int_thresh_seed',['../structtle92466ed_1_1ChannelFeedback.html#a8596104225e0d9fc2ecd3694b6293e46',1,'tle92466ed::ChannelFeedback']]],
-  ['integrator_5flimit_23',['INTEGRATOR_LIMIT',['../namespacetle92466ed_1_1ChannelReg.html#a339b9d5b25c2d0d92d43454f8a0c6c76',1,'tle92466ed::ChannelReg']]],
-  ['inter_5fframe_5fus_24',['INTER_FRAME_US',['../structTLE92466ED__TestConfig_1_1Timing.html#aaf023abf41e248e4753d731bed20d781',1,'TLE92466ED_TestConfig::Timing']]],
-  ['internal_5fosc_25',['INTERNAL_OSC',['../namespacetle92466ed_1_1CLK__DIV.html#ad69a760fad0db3da47805c2474c27bb4',1,'tle92466ed::CLK_DIV']]]
+  ['int_5fthresh_5fmax_22',['INT_THRESH_MAX',['../namespacetle92466ed_1_1CTRL__INT__THRESH.html#ac850ff2e88b68a39cdc986460b1d4b12',1,'tle92466ed::CTRL_INT_THRESH']]],
+  ['int_5fthresh_5fseed_23',['int_thresh_seed',['../structtle92466ed_1_1ChannelFeedback.html#a8596104225e0d9fc2ecd3694b6293e46',1,'tle92466ed::ChannelFeedback']]],
+  ['integrator_5flimit_24',['INTEGRATOR_LIMIT',['../namespacetle92466ed_1_1ChannelReg.html#a339b9d5b25c2d0d92d43454f8a0c6c76',1,'tle92466ed::ChannelReg']]],
+  ['inter_5fframe_5fus_25',['INTER_FRAME_US',['../structTLE92466ED__TestConfig_1_1Timing.html#aaf023abf41e248e4753d731bed20d781',1,'TLE92466ED_TestConfig::Timing']]],
+  ['internal_5fosc_26',['INTERNAL_OSC',['../namespacetle92466ed_1_1CLK__DIV.html#ad69a760fad0db3da47805c2474c27bb4',1,'tle92466ed::CLK_DIV']]]
 ];

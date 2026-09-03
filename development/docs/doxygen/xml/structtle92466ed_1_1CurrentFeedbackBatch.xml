@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="170" column="11" bodyfile="inc/tle92466ed.hpp" bodystart="170" bodyend="170"/>
+        <location file="inc/tle92466ed.hpp" line="179" column="11" bodyfile="inc/tle92466ed.hpp" bodystart="179" bodyend="179"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1CurrentFeedbackBatch_1a1a47cc38a15e3885f0c8fd80a44548a1" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="171" column="11" bodyfile="inc/tle92466ed.hpp" bodystart="171" bodyend="171"/>
+        <location file="inc/tle92466ed.hpp" line="180" column="11" bodyfile="inc/tle92466ed.hpp" bodystart="180" bodyend="180"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1CurrentFeedbackBatch_1a83fcc81d9ed8432dd2ec6acc3cc627f6" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -50,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="172" column="11" bodyfile="inc/tle92466ed.hpp" bodystart="172" bodyend="172"/>
+        <location file="inc/tle92466ed.hpp" line="181" column="11" bodyfile="inc/tle92466ed.hpp" bodystart="181" bodyend="181"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1CurrentFeedbackBatch_1ab6f2bcaf12c71813540aac57b70f41d7" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="180" column="11" bodyfile="inc/tle92466ed.hpp" bodystart="180" bodyend="180"/>
+        <location file="inc/tle92466ed.hpp" line="189" column="11" bodyfile="inc/tle92466ed.hpp" bodystart="189" bodyend="189"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1CurrentFeedbackBatch_1a6dee9b77a9a433e52cef9e7c78a522ca" prot="public" static="no" mutable="no">
         <type>std::array&lt; <ref refid="structtle92466ed_1_1ChannelCurrentSample" kindref="compound">ChannelCurrentSample</ref>, 6 &gt;</type>
@@ -82,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="181" column="14" bodyfile="inc/tle92466ed.hpp" bodystart="181" bodyend="181"/>
+        <location file="inc/tle92466ed.hpp" line="190" column="14" bodyfile="inc/tle92466ed.hpp" bodystart="190" bodyend="190"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -90,7 +90,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="inc/tle92466ed.hpp" line="169" column="1" bodyfile="inc/tle92466ed.hpp" bodystart="169" bodyend="182"/>
+    <location file="inc/tle92466ed.hpp" line="178" column="1" bodyfile="inc/tle92466ed.hpp" bodystart="178" bodyend="191"/>
     <listofallmembers>
       <member refid="structtle92466ed_1_1CurrentFeedbackBatch_1a6dee9b77a9a433e52cef9e7c78a522ca" prot="public" virt="non-virtual"><scope>tle92466ed::CurrentFeedbackBatch</scope><name>channels</name></member>
       <member refid="structtle92466ed_1_1CurrentFeedbackBatch_1ab6f2bcaf12c71813540aac57b70f41d7" prot="public" virt="non-virtual"><scope>tle92466ed::CurrentFeedbackBatch</scope><name>rejected_chains</name></member>

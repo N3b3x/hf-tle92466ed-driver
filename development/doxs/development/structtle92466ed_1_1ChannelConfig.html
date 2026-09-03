@@ -135,6 +135,11 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:abb7e956bfc48868d79181f227896241a" id="r_abb7e956bfc48868d79181f227896241a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb7e956bfc48868d79181f227896241a">olsg_warning_enabled</a> {false}</td></tr>
 <tr class="memdesc:abb7e956bfc48868d79181f227896241a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable OLSG warning.  <br /></td></tr>
 <tr class="separator:abb7e956bfc48868d79181f227896241a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9ddf1f0e2b918c4b90fbc45add87986" id="r_aa9ddf1f0e2b918c4b90fbc45add87986"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9ddf1f0e2b918c4b90fbc45add87986">min_int_thresh</a> {<a class="el" href="namespacetle92466ed_1_1CH__CTRL__REG.html#a63042f4a360f3e6e4d1a16fb24e3a310">CH_CTRL_REG::MIN_INT_THRESH_FLOOR</a>}</td></tr>
+<tr class="separator:aa9ddf1f0e2b918c4b90fbc45add87986"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa36fc989e16d696cefe6111f419ed2dc" id="r_aa36fc989e16d696cefe6111f419ed2dc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa36fc989e16d696cefe6111f419ed2dc">pwm_period_calc_mode</a> {false}</td></tr>
+<tr class="memdesc:aa36fc989e16d696cefe6111f419ed2dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ignore falling dither slopes in the PWM period controller (§4.6.2.3).  <br /></td></tr>
+<tr class="separator:aa36fc989e16d696cefe6111f419ed2dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcf20f9f10c92540cce5e506d2e671ea" id="r_abcf20f9f10c92540cce5e506d2e671ea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abcf20f9f10c92540cce5e506d2e671ea">deep_dither_enabled</a> {false}</td></tr>
 <tr class="memdesc:abcf20f9f10c92540cce5e506d2e671ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable deep dither.  <br /></td></tr>
 <tr class="separator:abcf20f9f10c92540cce5e506d2e671ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -264,6 +269,21 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="aa9ddf1f0e2b918c4b90fbc45add87986" name="aa9ddf1f0e2b918c4b90fbc45add87986"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9ddf1f0e2b918c4b90fbc45add87986">&#9670;&#160;</a></span>min_int_thresh</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t tle92466ed::ChannelConfig::min_int_thresh {<a class="el" href="namespacetle92466ed_1_1CH__CTRL__REG.html#a63042f4a360f3e6e4d1a16fb24e3a310">CH_CTRL_REG::MIN_INT_THRESH_FLOOR</a>}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Minimum ICC integrator threshold (CTRL.MIN_INT_THRESH). Defaults to the datasheet §4.6.2.4 floor rather than the POR value of 0: at 0 the effective threshold can go negative and the power stage stops switching while the channel still reports enabled with its setpoint intact. </p>
+
+</div>
+</div>
 <a id="a2939c054f58c386082af866edf62d0d7" name="a2939c054f58c386082af866edf62d0d7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2939c054f58c386082af866edf62d0d7">&#9670;&#160;</a></span>mode</h2>
 
@@ -309,6 +329,22 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>OL threshold (0=disabled, 1-7 = 1/8 to 7/8) </p>
+
+</div>
+</div>
+<a id="aa36fc989e16d696cefe6111f419ed2dc" name="aa36fc989e16d696cefe6111f419ed2dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa36fc989e16d696cefe6111f419ed2dc">&#9670;&#160;</a></span>pwm_period_calc_mode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tle92466ed::ChannelConfig::pwm_period_calc_mode {false}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ignore falling dither slopes in the PWM period controller (§4.6.2.3). </p>
 
 </div>
 </div>

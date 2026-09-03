@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1231" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1231" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1304" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1304" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER__CLK__DIV_1a73f984625db0b55a832977ab201f891e" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1232" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1232" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1305" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1305" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER__CLK__DIV_1a22b2ee45bd98b0e0116a24bcafb338d2" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -50,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1233" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1233" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1306" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1306" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER__CLK__DIV_1a602be6c15e8f13fe0895a04d2d9f8e95" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint8_t</type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1234" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1234" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1307" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1307" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER__CLK__DIV_1a0d2c452a8f2d0ab1c6d5289aa47ca963" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -81,7 +81,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1235" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1235" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1308" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1308" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER__CLK__DIV_1a03d7f89ed67effd2ec937c1b81b42081" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -96,7 +96,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1236" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1236" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1309" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1309" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER__CLK__DIV_1a0dff7d40238549c2356a197b74883114" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint32_t</type>
@@ -112,7 +112,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1238" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1238" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1311" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1311" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1DITHER__CLK__DIV_1ada0938928c5e008360486c0ea590c0e3" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr float</type>
@@ -128,7 +128,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1239" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1239" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1312" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1312" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="func">
@@ -164,7 +164,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1276" column="22" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1276" bodyend="1301"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1349" column="22" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1349" bodyend="1374"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -176,6 +176,6 @@
 <para>The dither reference clock is <computeroutput>tref_clk = MANT × 2^EXP / fSYS</computeroutput>. From this, the dither period is <computeroutput>TDither = (4×STEPS + 2×FLAT) × tref_clk</computeroutput> and the averaged feedback measurement period is <computeroutput>Tmeas = TDither</computeroutput> in ICC mode (per §4.4.2 &quot;Channel Modes&quot;).</para>
 <para><bold>POR reset value is 0x0000</bold> which gives MANT=0, EXP=0 → tref_clk = 0, which means TDither = 0 and the per-channel feedback averager NEVER runs (FB_DC / FB_I_AVG / FB_VBAT stay at 0 forever). <ref refid="namespacetle92466ed_1_1DITHER__CLK__DIV" kindref="compound">DITHER_CLK_DIV</ref> must therefore be explicitly programmed before any channel feedback can be read back from those registers. </para>
     </detaileddescription>
-    <location file="inc/tle92466ed_registers.hpp" line="1230" column="1"/>
+    <location file="inc/tle92466ed_registers.hpp" line="1303" column="1"/>
   </compounddef>
 </doxygen>

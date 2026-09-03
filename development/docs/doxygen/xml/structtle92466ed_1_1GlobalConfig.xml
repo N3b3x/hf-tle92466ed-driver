@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="254" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="254" bodyend="254"/>
+        <location file="inc/tle92466ed.hpp" line="263" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="263" bodyend="263"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1GlobalConfig_1a0d0adb40f145dfeb51a48eb4de9e84d1" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="255" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="255" bodyend="255"/>
+        <location file="inc/tle92466ed.hpp" line="264" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="264" bodyend="264"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1GlobalConfig_1a2b70b6f18d3243e0c0e42a76e34208bc" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -50,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="256" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="256" bodyend="256"/>
+        <location file="inc/tle92466ed.hpp" line="265" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="265" bodyend="265"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1GlobalConfig_1a29845a8839a8e84a7f7ecf4c46653949" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="257" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="257" bodyend="257"/>
+        <location file="inc/tle92466ed.hpp" line="266" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="266" bodyend="266"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1GlobalConfig_1a47f1ed6a4bf77d0337f77d00e4abe624" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -82,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="258" column="9" bodyfile="inc/tle92466ed.hpp" bodystart="258" bodyend="258"/>
+        <location file="inc/tle92466ed.hpp" line="267" column="9" bodyfile="inc/tle92466ed.hpp" bodystart="267" bodyend="267"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1GlobalConfig_1a635ea48eba6cb16098db9161676ced07" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -98,7 +98,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="259" column="9" bodyfile="inc/tle92466ed.hpp" bodystart="259" bodyend="259"/>
+        <location file="inc/tle92466ed.hpp" line="268" column="9" bodyfile="inc/tle92466ed.hpp" bodystart="268" bodyend="268"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1GlobalConfig_1af17a04f51c93cd83e0687f3d6665bffe" prot="public" static="no" mutable="no">
         <type>uint16_t</type>
@@ -114,7 +114,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="260" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="260" bodyend="260"/>
+        <location file="inc/tle92466ed.hpp" line="269" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="269" bodyend="269"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -122,7 +122,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="inc/tle92466ed.hpp" line="253" column="1" bodyfile="inc/tle92466ed.hpp" bodystart="253" bodyend="261"/>
+    <location file="inc/tle92466ed.hpp" line="262" column="1" bodyfile="inc/tle92466ed.hpp" bodystart="262" bodyend="270"/>
     <listofallmembers>
       <member refid="structtle92466ed_1_1GlobalConfig_1a2b70b6f18d3243e0c0e42a76e34208bc" prot="public" virt="non-virtual"><scope>tle92466ed::GlobalConfig</scope><name>clock_watchdog_enabled</name></member>
       <member refid="structtle92466ed_1_1GlobalConfig_1a841ab2a4ec8a97261a698ff16f344cc0" prot="public" virt="non-virtual"><scope>tle92466ed::GlobalConfig</scope><name>crc_enabled</name></member>

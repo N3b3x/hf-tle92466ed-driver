@@ -148,6 +148,38 @@
         </inbodydescription>
         <location file="inc/tle92466ed.hpp" line="70" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="70" bodyend="70"/>
       </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelConfig_1aa9ddf1f0e2b918c4b90fbc45add87986" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t tle92466ed::ChannelConfig::min_int_thresh</definition>
+        <argsstring></argsstring>
+        <name>min_int_thresh</name>
+        <qualifiedname>tle92466ed::ChannelConfig::min_int_thresh</qualifiedname>
+        <initializer>{<ref refid="namespacetle92466ed_1_1CH__CTRL__REG_1a63042f4a360f3e6e4d1a16fb24e3a310" kindref="member">CH_CTRL_REG::MIN_INT_THRESH_FLOOR</ref>}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Minimum ICC integrator threshold (CTRL.MIN_INT_THRESH). Defaults to the datasheet §4.6.2.4 floor rather than the POR value of 0: at 0 the effective threshold can go negative and the power stage stops switching while the channel still reports enabled with its setpoint intact. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="77" column="11" bodyfile="inc/tle92466ed.hpp" bodystart="77" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtle92466ed_1_1ChannelConfig_1aa36fc989e16d696cefe6111f419ed2dc" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tle92466ed::ChannelConfig::pwm_period_calc_mode</definition>
+        <argsstring></argsstring>
+        <name>pwm_period_calc_mode</name>
+        <qualifiedname>tle92466ed::ChannelConfig::pwm_period_calc_mode</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Ignore falling dither slopes in the PWM period controller (§4.6.2.3). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="inc/tle92466ed.hpp" line="79" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="79" bodyend="79"/>
+      </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1ChannelConfig_1abcf20f9f10c92540cce5e506d2e671ea" prot="public" static="no" mutable="no">
         <type>bool</type>
         <definition>bool tle92466ed::ChannelConfig::deep_dither_enabled</definition>
@@ -162,7 +194,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="71" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="71" bodyend="71"/>
+        <location file="inc/tle92466ed.hpp" line="80" column="8" bodyfile="inc/tle92466ed.hpp" bodystart="80" bodyend="80"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1ChannelConfig_1abe9757f70f407163c930ebdc1e4161f7" prot="public" static="no" mutable="no">
         <type>uint16_t</type>
@@ -178,7 +210,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="72" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="72" bodyend="72"/>
+        <location file="inc/tle92466ed.hpp" line="81" column="12" bodyfile="inc/tle92466ed.hpp" bodystart="81" bodyend="81"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1ChannelConfig_1abdf47c355b3b1504ff75da6f6dffc96c" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -194,7 +226,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="73" column="11" bodyfile="inc/tle92466ed.hpp" bodystart="73" bodyend="73"/>
+        <location file="inc/tle92466ed.hpp" line="82" column="11" bodyfile="inc/tle92466ed.hpp" bodystart="82" bodyend="82"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1ChannelConfig_1a72303925f471090d675b07e5f70ac7e2" prot="public" static="no" mutable="no">
         <type>uint8_t</type>
@@ -210,7 +242,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="74" column="11" bodyfile="inc/tle92466ed.hpp" bodystart="74" bodyend="74"/>
+        <location file="inc/tle92466ed.hpp" line="83" column="11" bodyfile="inc/tle92466ed.hpp" bodystart="83" bodyend="83"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -219,7 +251,7 @@
     <detaileddescription>
 <para>Contains all configurable parameters for an output channel. </para>
     </detaileddescription>
-    <location file="inc/tle92466ed.hpp" line="61" column="1" bodyfile="inc/tle92466ed.hpp" bodystart="61" bodyend="75"/>
+    <location file="inc/tle92466ed.hpp" line="61" column="1" bodyfile="inc/tle92466ed.hpp" bodystart="61" bodyend="84"/>
     <listofallmembers>
       <member refid="structtle92466ed_1_1ChannelConfig_1a5f96dca09375a0488479f1ff7610a5c8" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelConfig</scope><name>auto_limit_disabled</name></member>
       <member refid="structtle92466ed_1_1ChannelConfig_1a7b2c513434fb9719009e394f71969f67" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelConfig</scope><name>current_setpoint_ma</name></member>
@@ -228,9 +260,11 @@
       <member refid="structtle92466ed_1_1ChannelConfig_1a72303925f471090d675b07e5f70ac7e2" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelConfig</scope><name>dither_flat</name></member>
       <member refid="structtle92466ed_1_1ChannelConfig_1abe9757f70f407163c930ebdc1e4161f7" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelConfig</scope><name>dither_step_size</name></member>
       <member refid="structtle92466ed_1_1ChannelConfig_1abdf47c355b3b1504ff75da6f6dffc96c" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelConfig</scope><name>dither_steps</name></member>
+      <member refid="structtle92466ed_1_1ChannelConfig_1aa9ddf1f0e2b918c4b90fbc45add87986" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelConfig</scope><name>min_int_thresh</name></member>
       <member refid="structtle92466ed_1_1ChannelConfig_1a2939c054f58c386082af866edf62d0d7" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelConfig</scope><name>mode</name></member>
       <member refid="structtle92466ed_1_1ChannelConfig_1abb7e956bfc48868d79181f227896241a" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelConfig</scope><name>olsg_warning_enabled</name></member>
       <member refid="structtle92466ed_1_1ChannelConfig_1a87f7bfbad88755a0c78ea08345eaeb10" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelConfig</scope><name>open_load_threshold</name></member>
+      <member refid="structtle92466ed_1_1ChannelConfig_1aa36fc989e16d696cefe6111f419ed2dc" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelConfig</scope><name>pwm_period_calc_mode</name></member>
       <member refid="structtle92466ed_1_1ChannelConfig_1ae27ee46252295dbc1272f695c8074a12" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelConfig</scope><name>pwm_period_exponent</name></member>
       <member refid="structtle92466ed_1_1ChannelConfig_1a7c9a0e39f54763a3ffb926a6fb9189fe" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelConfig</scope><name>pwm_period_mantissa</name></member>
       <member refid="structtle92466ed_1_1ChannelConfig_1aa75bfb4c1919661eb6fe2ed396837c65" prot="public" virt="non-virtual"><scope>tle92466ed::ChannelConfig</scope><name>slew_rate</name></member>

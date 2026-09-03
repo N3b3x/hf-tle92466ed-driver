@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2296" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2296" bodyend="2296"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2369" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2369" bodyend="2369"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1SupplyVoltages_1a79cd908ab874bef8f78c9a15b01885db" prot="public" static="no" mutable="no">
         <type>uint16_t</type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2297" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2297" bodyend="2297"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2370" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2370" bodyend="2370"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1SupplyVoltages_1a148fa21e4b2947418b9f7180a821b888" prot="public" static="no" mutable="no">
         <type>uint16_t</type>
@@ -50,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2298" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2298" bodyend="2298"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2371" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2371" bodyend="2371"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1SupplyVoltages_1a9f21b99d3705007fb3ba444b0a87b824" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2299" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2299" bodyend="2299"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2372" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2372" bodyend="2372"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -74,7 +74,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="inc/tle92466ed_registers.hpp" line="2295" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2295" bodyend="2300"/>
+    <location file="inc/tle92466ed_registers.hpp" line="2368" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2368" bodyend="2373"/>
     <listofallmembers>
       <member refid="structtle92466ed_1_1SupplyVoltages_1a9f21b99d3705007fb3ba444b0a87b824" prot="public" virt="non-virtual"><scope>tle92466ed::SupplyVoltages</scope><name>temperature_c</name></member>
       <member refid="structtle92466ed_1_1SupplyVoltages_1a76463a4196c4bd50c1794aac68f8f632" prot="public" virt="non-virtual"><scope>tle92466ed::SupplyVoltages</scope><name>vbat_mV</name></member>

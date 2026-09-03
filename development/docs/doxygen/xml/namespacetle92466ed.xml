@@ -276,7 +276,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1920" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1920" bodyend="1929"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1993" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1993" bodyend="2002"/>
       </memberdef>
       <memberdef kind="enum" id="namespacetle92466ed_1a4354ef9226739c1ea8a59eb36e95760c" prot="public" static="no" strong="yes">
         <type>uint8_t</type>
@@ -343,7 +343,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1934" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1934" bodyend="1941"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2007" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2007" bodyend="2014"/>
       </memberdef>
       <memberdef kind="enum" id="namespacetle92466ed_1ae03b3b5991ee6faf1e97fed34ef2b78d" prot="public" static="no" strong="yes">
         <type>uint8_t</type>
@@ -392,7 +392,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1946" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1946" bodyend="1951"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2019" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2019" bodyend="2024"/>
       </memberdef>
       <memberdef kind="enum" id="namespacetle92466ed_1ac478d8027f99bfc8e6a985fb3b4b5e9d" prot="public" static="no" strong="yes">
         <type>uint8_t</type>
@@ -441,7 +441,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1956" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1956" bodyend="1961"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2029" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2029" bodyend="2034"/>
       </memberdef>
       <memberdef kind="enum" id="namespacetle92466ed_1aaf5177696585d9100c7e4e73000b48c1" prot="public" static="no" strong="yes">
         <type>uint8_t</type>
@@ -490,7 +490,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1966" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1966" bodyend="1971"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2039" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2039" bodyend="2044"/>
       </memberdef>
       <memberdef kind="enum" id="namespacetle92466ed_1a877a95a1cb5667aab7bd7c1b0f14d7dc" prot="public" static="no" strong="yes">
         <type>uint8_t</type>
@@ -522,7 +522,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2026" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2026" bodyend="2029"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2099" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2099" bodyend="2102"/>
       </memberdef>
       <memberdef kind="enum" id="namespacetle92466ed_1a9a8012917941cbbda8d79fb78358448a" prot="public" static="no" strong="yes">
         <type>uint8_t</type>
@@ -551,7 +551,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2282" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2282" bodyend="2285"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2355" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2355" bodyend="2358"/>
       </memberdef>
       <memberdef kind="enum" id="namespacetle92466ed_1a9409c3094f465ef557b3f1400aa3443c" prot="public" static="no" strong="yes">
         <type>uint8_t</type>
@@ -580,7 +580,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2290" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2290" bodyend="2290"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2363" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2363" bodyend="2363"/>
       </memberdef>
       <memberdef kind="enum" id="namespacetle92466ed_1a9b1173fa43c42134c90627f9f0a21229" prot="public" static="no" strong="yes">
         <type>uint8_t</type>
@@ -625,7 +625,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2305" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2305" bodyend="2310"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2378" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2378" bodyend="2383"/>
       </memberdef>
       <memberdef kind="enum" id="namespacetle92466ed_1a7a810a2ee5f3edef167c753d660af92f" prot="public" static="no" strong="yes">
         <type>uint8_t</type>
@@ -665,7 +665,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2315" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2315" bodyend="2319"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2388" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2388" bodyend="2392"/>
       </memberdef>
       <memberdef kind="enum" id="namespacetle92466ed_1a81b2a3f148467a21945b66f2e93297fd" prot="public" static="no" strong="yes">
         <type>uint32_t</type>
@@ -913,7 +913,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2362" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2362" bodyend="2392"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2435" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2435" bodyend="2465"/>
       </memberdef>
       <memberdef kind="enum" id="namespacetle92466ed_1aa2dd28a51f522fa021dc03e744b51a4a" prot="public" static="no" strong="yes">
         <type>uint8_t</type>
@@ -1316,7 +1316,7 @@ This provides a modern, safe way to return either a success value or an error. U
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed.hpp" line="1577" column="19" bodyfile="inc/tle92466ed.hpp" bodystart="1577" bodyend="1579"/>
+        <location file="inc/tle92466ed.hpp" line="1583" column="19" bodyfile="inc/tle92466ed.hpp" bodystart="1583" bodyend="1585"/>
       </memberdef>
       <memberdef kind="function" id="namespacetle92466ed_1a7770b0284ed6c00667ff46dc97d7fc7d" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type>constexpr uint16_t</type>
@@ -1356,7 +1356,7 @@ Per datasheet Table 25, channel base addresses are:<itemizedlist>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1993" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1993" bodyend="2010"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2066" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2066" bodyend="2083"/>
       </memberdef>
       <memberdef kind="function" id="namespacetle92466ed_1a1fab0aa5ce62f60a43acdcb8820baf5a" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type>constexpr uint16_t</type>
@@ -1399,7 +1399,7 @@ Per datasheet Table 25, channel base addresses are:<itemizedlist>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2018" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2018" bodyend="2020"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2091" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2091" bodyend="2093"/>
       </memberdef>
       <memberdef kind="function" id="namespacetle92466ed_1acbbba5a918710a5ac5da8fd514035c3b" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type>constexpr <ref refid="namespacetle92466ed_1a877a95a1cb5667aab7bd7c1b0f14d7dc" kindref="member">ExpectedReply</ref></type>
@@ -1433,7 +1433,7 @@ The pipelined bus does not echo the address in a reply, so a reply that arrives 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2052" column="26" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2052" bodyend="2079"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2125" column="26" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2125" bodyend="2152"/>
       </memberdef>
       <memberdef kind="function" id="namespacetle92466ed_1a14b526442cab0b973a367d32828d7a21" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type>constexpr uint8_t</type>
@@ -1452,7 +1452,7 @@ The pipelined bus does not echo the address in a reply, so a reply that arrives 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2084" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2084" bodyend="2086"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2157" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2157" bodyend="2159"/>
       </memberdef>
       <memberdef kind="function" id="namespacetle92466ed_1a28e33fd2cf2d9987c0caf0b12324a8bc" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>const char *</type>
@@ -1483,7 +1483,7 @@ The pipelined bus does not echo the address in a reply, so a reply that arrives 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2097" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2097" bodyend="2114"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2170" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2170" bodyend="2187"/>
       </memberdef>
       <memberdef kind="function" id="namespacetle92466ed_1a90f1e6b60d34e1f37ef5519a56e6c001" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>const char *</type>
@@ -1514,7 +1514,7 @@ The pipelined bus does not echo the address in a reply, so a reply that arrives 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2121" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2121" bodyend="2134"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2194" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2194" bodyend="2207"/>
       </memberdef>
       <memberdef kind="function" id="namespacetle92466ed_1afc84eecf6f861304cdc62128c829960e" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>const char *</type>
@@ -1545,7 +1545,7 @@ The pipelined bus does not echo the address in a reply, so a reply that arrives 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2141" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2141" bodyend="2154"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2214" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2214" bodyend="2227"/>
       </memberdef>
       <memberdef kind="function" id="namespacetle92466ed_1ad5c5440d12149543e03c438c68201ed4" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>const char *</type>
@@ -1576,7 +1576,7 @@ The pipelined bus does not echo the address in a reply, so a reply that arrives 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2161" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2161" bodyend="2174"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2234" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2234" bodyend="2247"/>
       </memberdef>
       <memberdef kind="function" id="namespacetle92466ed_1ab5de7ba482757f61b229f6c232c15324" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>const char *</type>
@@ -1607,7 +1607,7 @@ The pipelined bus does not echo the address in a reply, so a reply that arrives 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2181" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2181" bodyend="2198"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2254" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2254" bodyend="2271"/>
       </memberdef>
       <memberdef kind="function" id="namespacetle92466ed_1a77dea1b15da97f920f588cd3264857a7" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type>constexpr bool</type>
@@ -1626,7 +1626,7 @@ The pipelined bus does not echo the address in a reply, so a reply that arrives 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2203" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2203" bodyend="2205"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2276" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2276" bodyend="2278"/>
       </memberdef>
       <memberdef kind="function" id="namespacetle92466ed_1ab6ec2b61fed36cbfc9fdf6fbe64ee5c0" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type>constexpr uint8_t</type>
@@ -1670,7 +1670,7 @@ The pipelined bus does not echo the address in a reply, so a reply that arrives 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2223" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2223" bodyend="2240"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2296" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2296" bodyend="2313"/>
       </memberdef>
       <memberdef kind="function" id="namespacetle92466ed_1ad7fe2b874158dd8a66bd93f43bd85ddd" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>uint8_t</type>
@@ -1701,7 +1701,7 @@ Datasheet Rev 1.2 §5.1.2 fixes the CRC byte sequence as frame[7:0], then frame[
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2252" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2252" bodyend="2259"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2325" column="17" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2325" bodyend="2332"/>
       </memberdef>
       <memberdef kind="function" id="namespacetle92466ed_1a6bdc721f40f29b3d22ae1696478f544c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type>bool</type>
@@ -1732,7 +1732,7 @@ Datasheet Rev 1.2 §5.1.2 fixes the CRC byte sequence as frame[7:0], then frame[
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2266" column="14" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2266" bodyend="2273"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2339" column="14" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2339" bodyend="2346"/>
       </memberdef>
       <memberdef kind="function" id="namespacetle92466ed_1aacc402d67ba0cbf4bd7474f4f40151c6" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type>constexpr uint8_t</type>
@@ -1751,7 +1751,7 @@ Datasheet Rev 1.2 §5.1.2 fixes the CRC byte sequence as frame[7:0], then frame[
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2395" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2395" bodyend="2397"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2468" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2468" bodyend="2470"/>
       </memberdef>
       <memberdef kind="function" id="namespacetle92466ed_1ae118315b166480f9ded637fd23db0de9" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <type>constexpr uint16_t</type>
@@ -1770,7 +1770,7 @@ Datasheet Rev 1.2 §5.1.2 fixes the CRC byte sequence as frame[7:0], then frame[
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2399" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2399" bodyend="2401"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2472" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2472" bodyend="2474"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1865" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1865" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1938" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1938" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="func">
@@ -36,7 +36,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="1867" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1867" bodyend="1869"/>
+        <location file="inc/tle92466ed_registers.hpp" line="1940" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="1940" bodyend="1942"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -45,6 +45,6 @@
     <detaileddescription>
 <para>Per datasheet \u00a75.3.3.22 p.105. Read-only snapshot of the current integrator threshold value (signed 8-bit, sign-extended to 16-bit). Used to monitor the auto-seeded integrator after setpoint changes. </para>
     </detaileddescription>
-    <location file="inc/tle92466ed_registers.hpp" line="1864" column="1"/>
+    <location file="inc/tle92466ed_registers.hpp" line="1937" column="1"/>
   </compounddef>
 </doxygen>
