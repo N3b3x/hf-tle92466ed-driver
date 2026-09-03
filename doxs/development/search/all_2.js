@@ -15,7 +15,7 @@ var searchData=
   ['bits22_12',['Bits22',['../namespacetle92466ed.html#a877a95a1cb5667aab7bd7c1b0f14d7dcad21b15cb38606a9cb2960e82b8f58db8',1,'tle92466ed']]],
   ['bitwidth_13',['BITWIDTH',['../structADCConfig.html#a2c750253b441627940641261ca5b955b',1,'ADCConfig']]],
   ['bufferoverflow_14',['BufferOverflow',['../namespacetle92466ed.html#aa2dd28a51f522fa021dc03e744b51a4aa68ec6e62c5fcbbb68b5ce093bdd60717',1,'tle92466ed']]],
-  ['build_15',['Build',['../namespacetle92466ed_1_1TON.html#a24d693aef9cccd60538ebee3a5944c8c',1,'tle92466ed::TON::Build()'],['../namespacetle92466ed_1_1INTEGRATOR__LIMIT.html#a9210fad3be4929a4074f362766a4f6f5',1,'tle92466ed::INTEGRATOR_LIMIT::Build()'],['../namespacetle92466ed_1_1CTRL__INT__THRESH.html#a2011977311468e0dafa3b6f27d83ad85',1,'tle92466ed::CTRL_INT_THRESH::Build()']]],
+  ['build_15',['Build',['../namespacetle92466ed_1_1CH__CTRL__REG.html#a1fabb0a56db218aa86e55a2019675ed6',1,'tle92466ed::CH_CTRL_REG::Build()'],['../namespacetle92466ed_1_1TON.html#a24d693aef9cccd60538ebee3a5944c8c',1,'tle92466ed::TON::Build()'],['../namespacetle92466ed_1_1INTEGRATOR__LIMIT.html#a9210fad3be4929a4074f362766a4f6f5',1,'tle92466ed::INTEGRATOR_LIMIT::Build()'],['../namespacetle92466ed_1_1CTRL__INT__THRESH.html#aea1684f4ec4add5d3165b97d5e55e136',1,'tle92466ed::CTRL_INT_THRESH::Build()']]],
   ['buildexternalpll_16',['BuildExternalPll',['../namespacetle92466ed_1_1CLK__DIV.html#aaf089b09a3520568c7232f7514b774d8',1,'tle92466ed::CLK_DIV']]],
   ['buildregistervalue_17',['BuildRegisterValue',['../namespacetle92466ed_1_1PERIOD.html#a14413595d919a502cb94e1a008061cda',1,'tle92466ed::PERIOD']]],
   ['buserror_18',['BusError',['../namespacetle92466ed.html#aa2dd28a51f522fa021dc03e744b51a4aa062b178ecb015aa2e6324dffd1b4f5f2',1,'tle92466ed']]],
