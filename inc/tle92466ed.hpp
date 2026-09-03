@@ -68,6 +68,15 @@ struct ChannelConfig {
   uint8_t pwm_period_exponent{0};                ///< PWM period exponent
   bool auto_limit_disabled{false};               ///< Disable auto-limit feature
   bool olsg_warning_enabled{false};              ///< Enable OLSG warning
+  /**
+   * Minimum ICC integrator threshold (CTRL.MIN_INT_THRESH). Defaults to the
+   * datasheet §4.6.2.4 floor rather than the POR value of 0: at 0 the
+   * effective threshold can go negative and the power stage stops switching
+   * while the channel still reports enabled with its setpoint intact.
+   */
+  uint8_t min_int_thresh{CH_CTRL_REG::MIN_INT_THRESH_FLOOR};
+  /// Ignore falling dither slopes in the PWM period controller (§4.6.2.3).
+  bool pwm_period_calc_mode{false};
   bool deep_dither_enabled{false};               ///< Enable deep dither
   uint16_t dither_step_size{0};                  ///< Dither amplitude step size
   uint8_t dither_steps{0};                       ///< Number of dither steps
@@ -1272,28 +1281,25 @@ public:
   [[nodiscard]] DriverResult<void> ReleaseFeedbackFreeze() noexcept;
 
   /**
-   * @brief Coherent average current for several channels in one freeze window.
+   * @brief Average current for several channels in one pipelined burst.
    *
    * @param channel_mask Bit N requests channel N (bits above 5 ignored).
    * @return Batch with per-channel current and the masks describing what was
    *         actually usable. Never blocks and never polls.
    *
    * @details
-   * Implements the datasheet Figure 22 readout for a *set* of channels rather
-   * than one at a time:
-   *   1. read FB_UPD once — which channels have a fresh window,
-   *   2. freeze exactly those channels,
-   *   3. one pipelined burst reading FB_DC + FB_I_AVG for each of them,
-   *   4. release the freeze.
+   * Figure 22 wants a freeze around the FB_DC / FB_I_AVG pair. On the desk Mid
+   * eval FB_FRZ is unreadable (and an un-acked freeze sticks, aborting Tmeas
+   * for the rest of the session). This path therefore:
+   *   1. writes FB_FRZ=0 (clear a stuck freeze),
+   *   2. reads FB_UPD for telemetry only,
+   *   3. one anchored pipelined burst (ICVID / FB_I_AVG / FB_DC per channel)
+   *      for every requested channel; TP_MANT gates decode,
+   *   4. writes FB_FRZ=0 again.
    *
-   * That is four bus transactions regardless of how many channels are in the
-   * mask, because step 3 is a single @c ReadMulti chain. Refreshing all six
-   * channels costs 4 transactions / 20 frames instead of the 24 transactions /
-   * 72 frames a per-channel loop needs.
-   *
-   * Channels whose FB_UPD bit is clear are skipped rather than reported as
-   * failures — no new window has completed, so the caller's previous sample is
-   * still the most recent truth.
+   * A chain whose ICVID anchors do not verify is discarded whole — a spliced
+   * neighbour current is never published as this channel's. Host:
+   * `tests/host/test_tle_anchored_chain.cpp`.
    *
    * @warning Unlike @ref ReadChannelFeedback this does not wait for FB_UPD. It
    *          is meant to be called at the control-loop rate: whatever is ready

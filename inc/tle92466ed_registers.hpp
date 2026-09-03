@@ -820,7 +820,61 @@ constexpr uint16_t OLSG_WARN_WINDOW_MASK = 0x3E00;  ///< OLSG window mask
 constexpr uint16_t OLSG_WARN_WINDOW_SHIFT = 9;      ///< OLSG window shift
 constexpr uint16_t OLSG_WARN_EN = (1 << 14);        ///< OLSG warn enable
 
-constexpr uint16_t DEFAULT = 0x4600; ///< Default value
+constexpr uint16_t DEFAULT = 0x4600; ///< POR: OLSG_WARN_EN, window 3, MIN_INT_THRESH 0
+
+/// OLSG warning window encoded in the POR value, preserved when rebuilding.
+constexpr uint16_t DEFAULT_OLSG_WARN_WINDOW = 3u;
+
+/**
+ * @brief Smallest @c MIN_INT_THRESH that keeps the ICC power stage switching.
+ *
+ * @details
+ * Datasheet §4.6.2.4: the effective integrator threshold is referenced to the
+ * lowest deviation integral captured during the on-phase, so it can go
+ * negative. When it does, "the integrated current deviation could not exceed
+ * the zero level and therefore the power stage would not switch on anymore" —
+ * the channel stays enabled with its setpoint intact while the load current
+ * silently goes to zero. The datasheet's remedy is to program
+ * @c MIN_INT_THRESH greater than 1.
+ *
+ * The POR value is 0, so a channel left unconfigured is exposed to this.
+ */
+constexpr uint8_t MIN_INT_THRESH_FLOOR = 2u;
+
+/**
+ * @brief Largest @c MIN_INT_THRESH compatible with the Autolimit constraint.
+ *
+ * @details
+ * Datasheet §4.6.2.3 requires @c AUTO_LIM_VALUE_ABS > @c MIN_INT_THRESH + 3.
+ * With @ref INTEGRATOR_LIMIT left at its POR @c AUTO_LIM_VALUE_ABS of 16 that
+ * caps @c MIN_INT_THRESH at 12.
+ */
+constexpr uint8_t MIN_INT_THRESH_CEIL = 12u;
+
+/**
+ * @brief Build a complete CTRL value instead of read-modify-writing it.
+ *
+ * @param min_int_thresh      Minimum integrator threshold (see the floor/ceil above).
+ * @param olsg_warning_enabled Enable the OLSG warning check.
+ * @param pwm_period_calc_mode Ignore falling dither slopes in the PWM period
+ *                             controller (§4.6.2.3, for steep dither settings).
+ *
+ * Per-channel CTRL does not read back reliably on every board, so a
+ * read-modify-write can fold a corrupt read into the written value and drop
+ * the OLSG window or the threshold. Every field is therefore specified here.
+ */
+[[nodiscard]] constexpr uint16_t Build(uint8_t min_int_thresh,
+                                       bool olsg_warning_enabled,
+                                       bool pwm_period_calc_mode) noexcept {
+  return static_cast<uint16_t>(
+      (static_cast<uint16_t>(min_int_thresh) & MIN_INT_THRESH_MASK) |
+      ((DEFAULT_OLSG_WARN_WINDOW << OLSG_WARN_WINDOW_SHIFT) & OLSG_WARN_WINDOW_MASK) |
+      (olsg_warning_enabled ? OLSG_WARN_EN : 0u) |
+      (pwm_period_calc_mode ? PWM_PERIOD_CALC_MODE : 0u));
+}
+
+static_assert(Build(0u, true, false) == DEFAULT,
+              "Build with POR fields must reproduce the datasheet reset value");
 } // namespace CH_CTRL_REG
 
 //==============================================================================
@@ -966,7 +1020,18 @@ constexpr uint16_t LIM_VALUE_ABS_MASK      = 0x03FFu; ///< 10-bit
 constexpr uint16_t AUTO_LIM_VALUE_ABS_SHIFT = 10u;
 constexpr uint16_t AUTO_LIM_VALUE_ABS_MASK  = 0x7C00u; ///< 5-bit
 
-constexpr uint16_t DEFAULT = 0x0000;
+/**
+ * POR value per datasheet Rev 1.2 §5.3.3.6 p.89: LIM_VALUE_ABS = 0x3FF (1023,
+ * the field maximum) and AUTO_LIM_VALUE_ABS = 0x10 (16). This register was
+ * previously documented here as resetting to 0x0000, which would have meant a
+ * zero integrator clamp and an Autolimit threshold violating the §4.6.2.3
+ * constraint. It does not: the reset state already satisfies
+ * AUTO_LIM_VALUE_ABS > MIN_INT_THRESH+3 while MIN_INT_THRESH is at its own
+ * reset value of 0, so leaving this register unwritten is safe. Anything doing
+ * a read-modify-write against the old 0x0000 assumption would have silently
+ * destroyed both clamps.
+ */
+constexpr uint16_t DEFAULT = 0x43FFu;
 
 [[nodiscard]] constexpr uint16_t Build(uint16_t lim_value_abs,
                                        uint8_t  auto_lim_value_abs) noexcept {
@@ -984,26 +1049,34 @@ constexpr uint16_t DEFAULT = 0x0000;
  * @brief CTRL_INT_THRESH register bit definitions.
  *
  * @details
- * Per datasheet \u00a75.3.3.13 p.97. Seeds the integrator + latches the
- * current PWM period mantissa for fast transient response.
- *   bits 15:8   PERIOD_MANT         11-bit mantissa (only 8 fit here; the
- *                                   extra bits live in PERIOD.MANT; setting
- *                                   PERIOD_MANT=0 switches the channel to
- *                                   manual on-time mode using TON.TON_MANT.)
- *   bits  7:0   INT_THRESH          Signed 8-bit integrator seed value.
+ * Per datasheet Rev 1.2 \u00a75.3.3.13 p.97. Holds the integrator threshold used
+ * after a setpoint change or when the PWM frequency controller is activated;
+ * a greater threshold yields a longer on-time (\u00a74.6.2.3).
+ *   bits 15:9   Reserved (read-only)
+ *   bits  8:0   INT_THRESH   9-bit integrator threshold. The programmed value
+ *                            is positive; the *effective* threshold may still
+ *                            go negative because it is referenced to the
+ *                            lowest deviation integral captured during the
+ *                            on-phase. @ref CH_CTRL_REG::MIN_INT_THRESH_MASK
+ *                            bounds that.
+ *
+ * @warning This register has **no PERIOD_MANT field**. It was previously
+ *          documented here as `PERIOD_MANT` in bits 15:8 with a signed 8-bit
+ *          `INT_THRESH` in 7:0, and manual on-time mode was described as
+ *          "set PERIOD_MANT=0 here". Per \u00a74.6.2.3 the PWM frequency
+ *          controller is disabled by zeroing `PERIOD_MANT` in the **PERIOD**
+ *          register instead. Writing this register through the old layout put
+ *          the seed in the wrong bits and drove reserved bits 15:9.
  */
 namespace CTRL_INT_THRESH {
-constexpr uint16_t INT_THRESH_MASK    = 0x00FFu; ///< signed 8-bit
-constexpr uint16_t PERIOD_MANT_SHIFT  = 8u;
-constexpr uint16_t PERIOD_MANT_MASK   = 0xFF00u; ///< upper 8 bits of period_mant
+constexpr uint16_t INT_THRESH_MASK = 0x01FFu; ///< 9-bit, bits 8:0
+constexpr uint16_t INT_THRESH_MAX  = 0x01FFu; ///< Field maximum (511)
 
-constexpr uint16_t DEFAULT = 0x0000;
+constexpr uint16_t DEFAULT = 0x0003u; ///< POR per §5.3.3.13
 
-/// Build raw value. int_thresh is signed (int8_t range).
-[[nodiscard]] constexpr uint16_t Build(int8_t int_thresh, uint8_t period_mant_hi) noexcept {
-  return static_cast<uint16_t>((static_cast<uint16_t>(static_cast<uint8_t>(int_thresh))
-          & INT_THRESH_MASK)
-       | ((static_cast<uint16_t>(period_mant_hi) << PERIOD_MANT_SHIFT) & PERIOD_MANT_MASK));
+/// Build raw value from a 9-bit integrator threshold.
+[[nodiscard]] constexpr uint16_t Build(uint16_t int_thresh) noexcept {
+  return static_cast<uint16_t>(int_thresh & INT_THRESH_MASK);
 }
 } // namespace CTRL_INT_THRESH
 

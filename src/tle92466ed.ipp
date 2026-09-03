@@ -20,6 +20,8 @@
 #else
 // Not included from header (shouldn't happen for template implementation)
 #include "../inc/tle92466ed.hpp"
+
+#include <algorithm>
 namespace tle92466ed {
 #endif
 
@@ -337,6 +339,17 @@ DriverResult<void> Driver<CommType>::applyDefaultConfig() noexcept {
     }
 
     if (auto result = WriteRegister(ch_base + ChannelReg::SETPOINT, 0, false, false);
+        !result) {
+      return tle::unexpected(result.error());
+    }
+
+    /* Lift CTRL.MIN_INT_THRESH off its POR value of 0 during bootstrap so a
+     * channel enabled before ConfigureChannel runs still cannot calculate a
+     * negative integrator threshold and stop switching (§4.6.2.4). */
+    if (auto result = WriteRegister(
+            ch_base + ChannelReg::CTRL,
+            CH_CTRL_REG::Build(CH_CTRL_REG::MIN_INT_THRESH_FLOOR, true, false),
+            false, false);
         !result) {
       return tle::unexpected(result.error());
     }
@@ -1233,11 +1246,25 @@ DriverResult<void> Driver<CommType>::ConfigureChannel(Channel channel, const Cha
     return tle::unexpected(result.error());
   }
 
-  // 3a. Configure OLSG warning enable if requested (bit 14 of CTRL register)
-  if (config.olsg_warning_enabled) {
-    if (auto result = ModifyRegister(ch_base + ChannelReg::CTRL, CH_CTRL_REG::OLSG_WARN_EN,
-                                     CH_CTRL_REG::OLSG_WARN_EN);
-        !result) {
+  /* 3a. CTRL: MIN_INT_THRESH, OLSG warning, PWM period calc mode.
+   *
+   * Written as a complete value rather than read-modify-written. Per-channel
+   * CTRL does not read back reliably on every board (same sticky-zero /
+   * spliced-reply class as MODE and CH_CONFIG), and a RMW that folds in a
+   * corrupt read would silently drop MIN_INT_THRESH or the OLSG window.
+   *
+   * MIN_INT_THRESH must be > 1 (§4.6.2.4): at the POR value of 0 the effective
+   * integrator threshold can go negative, "the power stage would not switch on
+   * anymore", and the channel reports enabled at its setpoint while the load
+   * current silently sits at zero. It must also stay below
+   * AUTO_LIM_VALUE_ABS-3 (§4.6.2.3) or Autolimit recovery breaks. */
+  {
+    const uint8_t min_int = std::clamp(config.min_int_thresh,
+                                       CH_CTRL_REG::MIN_INT_THRESH_FLOOR,
+                                       CH_CTRL_REG::MIN_INT_THRESH_CEIL);
+    const uint16_t ctrl_value = CH_CTRL_REG::Build(
+        min_int, config.olsg_warning_enabled, config.pwm_period_calc_mode);
+    if (auto result = WriteRegister(ch_base + ChannelReg::CTRL, ctrl_value); !result) {
       return tle::unexpected(result.error());
     }
   }
@@ -1565,35 +1592,24 @@ Driver<CommType>::SampleChannelCurrents(uint8_t channel_mask) noexcept {
     return batch;
   }
 
-  /* Datasheet Figure 22 step 1: ask the chip which windows finished. One
-   * central read answers for all six channels, so this does not scale with the
-   * size of the mask. */
+  /* FB_FRZ is in the boot-stable unreadable set on the desk Mid eval
+   * (console `tle reg 0x0007` is err=8, CRC of the reply is not a function
+   * of the payload). A freeze write that does not actually land, or an
+   * unfreeze that doesn't, leaves Tmeas aborted for those bits — the
+   * "session collapse" where the first hold is 36 mA Healthy and every
+   * later hold is n/a. Datasheet Figure 22 wants a freeze; this silicon
+   * cannot host one. Unfreeze at both ends and never freeze. Torn I_AVG vs
+   * FB_DC is rejected by HasValidMeasurementWindow + the load classifier. */
+  (void)ReleaseFeedbackFreeze();
+
+  /* FB_UPD is advisory. A failed or empty read used to return here and
+   * skip the extract, so a stuck freeze looked like "no window" forever.
+   * Sample every requested channel; TP_MANT still gates decode. */
   auto upd = GetFeedbackUpdateMask();
-  if (!upd) {
-    return tle::unexpected(upd.error());
-  }
-  batch.update_mask = static_cast<uint8_t>(*upd & batch.requested_mask);
-  if (batch.update_mask == 0U) {
-    /* Nothing new. Freezing a channel whose FB_UPD bit is still clear aborts
-     * Tmeas (~5 ms) and is exactly how CH0 stayed n/a while CH5 (bit set)
-     * read Healthy. Leave the registers running; the next 8 ms tick picks
-     * the window up. */
-    return batch;
-  }
+  batch.update_mask =
+      upd ? static_cast<uint8_t>(*upd & batch.requested_mask) : 0U;
 
-  /* Step 2: freeze precisely the channels that have data. */
-  if (auto frz = FreezeFeedback(batch.update_mask); !frz) {
-    return tle::unexpected(frz.error());
-  }
-
-  /* The freeze write must retire before the pair of FB reads.
-   * GetAverageCurrent gets this for free because it polls FB_UPD (~200 µs+).
-   * Without that flush the first ReadRegister can still see the unfrozen
-   * window (torn 0 mA vs a later 36 mA on the same coil). One FB_FRZ read
-   * both confirms the bits and drains the pipeline. */
-  (void)ReadRegister(CentralReg::FB_FRZ, false);
-
-  /* Step 3: anchored pipelined chains, I_AVG then FB_DC per channel.
+  /* Anchored pipelined chains, I_AVG then FB_DC per channel.
    *
    * Every register in the per-channel feedback bank answers in 22-bit reply
    * mode, so ExpectedReplyFor cannot tell CH3's FB_I_AVG from CH4's. A reply
@@ -1619,10 +1635,49 @@ Driver<CommType>::SampleChannelCurrents(uint8_t channel_mask) noexcept {
   uint8_t pending[6] = {};
   size_t pending_n = 0U;
   for (uint8_t ch = 0; ch < 6U; ++ch) {
-    if ((batch.update_mask & static_cast<uint8_t>(1U << ch)) != 0U) {
+    if ((batch.requested_mask & static_cast<uint8_t>(1U << ch)) != 0U) {
       pending[pending_n++] = ch;
     }
   }
+
+  auto accept_pair = [&](uint8_t ch, uint32_t iavg_raw, uint32_t dc_raw) {
+    if (!FB_FEEDBACK::HasValidMeasurementWindow(dc_raw)) {
+      return;
+    }
+    auto& s = batch.channels[ch];
+    s.tp_mant = FB_FEEDBACK::ExtractTpMant(dc_raw);
+    s.to_mant = FB_FEEDBACK::ExtractToMant(dc_raw);
+    s.iavg_ma = FB_FEEDBACK::ComputeAverageCurrent_mA(iavg_raw, dc_raw);
+    s.window_valid = true;
+    batch.valid_mask = static_cast<uint8_t>(batch.valid_mask | (1U << ch));
+  };
+
+  auto serial_fallback = [&](size_t from, size_t count) {
+    /* Hunt ICVID with the self-sync 3-frame Read until the pipeline is
+     * back on a 16-bit identity reply, then take FB_I_AVG / FB_DC the
+     * same way. A leftover burst slot is never decoded as current. */
+    bool synced = false;
+    for (unsigned hunt = 0U; hunt < 3U; ++hunt) {
+      auto id = ReadRegister(CentralReg::ICVID, false);
+      if (id && DeviceID::IsValidDevice(static_cast<uint16_t>(*id))) {
+        synced = true;
+        break;
+      }
+    }
+    if (!synced) {
+      return;
+    }
+    for (size_t j = 0U; j < count; ++j) {
+      const uint8_t ch = pending[from + j];
+      const auto tch = static_cast<Channel>(ch);
+      auto iavg = ReadRegister(GetChannelRegister(tch, ChannelReg::FB_I_AVG), false);
+      auto dc = ReadRegister(GetChannelRegister(tch, ChannelReg::FB_DC), false);
+      if (!iavg || !dc) {
+        continue;
+      }
+      accept_pair(ch, *iavg, *dc);
+    }
+  };
 
   for (size_t start = 0U; start < pending_n; start += kChannelsPerChain) {
     const size_t remaining = pending_n - start;
@@ -1645,6 +1700,7 @@ Driver<CommType>::SampleChannelCurrents(uint8_t channel_mask) noexcept {
                                    std::span<uint32_t>{vals, n}, valid);
         !r) {
       ++batch.rejected_chains;
+      serial_fallback(start, k);
       continue;
     }
 
@@ -1659,6 +1715,7 @@ Driver<CommType>::SampleChannelCurrents(uint8_t channel_mask) noexcept {
     }
     if (!anchors_ok) {
       ++batch.rejected_chains;
+      serial_fallback(start, k);
       continue;
     }
 
@@ -1669,27 +1726,15 @@ Driver<CommType>::SampleChannelCurrents(uint8_t channel_mask) noexcept {
           (valid & static_cast<uint16_t>(1U << d_idx)) == 0U) {
         continue;
       }
-      if (!FB_FEEDBACK::HasValidMeasurementWindow(vals[d_idx])) {
-        continue;
-      }
       /* TO_MANT is the last PWM cycle in the window, not the average. Dither
        * at 200 Hz can freeze on a zero-crossing (TO=0) while I_AVG still
        * holds the real window current. Gating on TO==0 made FRV/LSV go n/a
        * after they had been 36 mA. Keep TO for telemetry; I_AVG is the
        * measurement. */
-      const uint8_t ch = pending[start + j];
-      auto& s = batch.channels[ch];
-      s.tp_mant = FB_FEEDBACK::ExtractTpMant(vals[d_idx]);
-      s.to_mant = FB_FEEDBACK::ExtractToMant(vals[d_idx]);
-      s.iavg_ma =
-          FB_FEEDBACK::ComputeAverageCurrent_mA(vals[i_idx], vals[d_idx]);
-      s.window_valid = true;
-      batch.valid_mask = static_cast<uint8_t>(batch.valid_mask | (1U << ch));
+      accept_pair(pending[start + j], vals[i_idx], vals[d_idx]);
     }
   }
 
-  /* Step 4: unfreeze immediately even when every read failed. A stuck
-   * FB_FRZ stops Tmeas for those channels. */
   (void)ReleaseFeedbackFreeze();
   return batch;
 }
@@ -3289,9 +3334,14 @@ Driver<CommType>::SetManualOnTimeMode(Channel channel, float on_time_us) noexcep
                               TON::Build(static_cast<uint16_t>(mant), 0u)); !w) {
     return tle::unexpected(w.error());
   }
-  // Zero PERIOD_MANT in CTRL_INT_THRESH to enter manual on-time mode.
-  return WriteRegister(GetChannelRegister(channel, ChannelReg::CTRL_INT_THRESH),
-                        CTRL_INT_THRESH::Build(0, 0));
+  /* Manual on-time means disabling the PWM frequency controller, which
+   * §4.6.2.3 does by zeroing PERIOD_MANT in the PERIOD register — not in
+   * CTRL_INT_THRESH, which has no such field. Preserve EXP/LOW_FREQ/KI. */
+  const uint16_t period_addr = GetChannelRegister(channel, ChannelReg::PERIOD);
+  auto period_cur = ReadRegister(period_addr, false);
+  const uint16_t period_new = static_cast<uint16_t>(
+      (period_cur ? period_cur.value() : 0u) & ~PERIOD::MANT_MASK);
+  return WriteRegister(period_addr, period_new);
 }
 
 template <typename CommType>
@@ -3301,10 +3351,17 @@ Driver<CommType>::SeedIntegratorThresholdFromFeedback(Channel channel) noexcept 
   if (!isValidChannelInternal(channel)) return tle::unexpected(DriverError::InvalidChannel);
   auto fb = ReadRegister(GetChannelRegister(channel, ChannelReg::FB_INT_THRESH), false);
   if (!fb) return tle::unexpected(fb.error());
+  /* INT_THRESH is a 9-bit field and the programmed value is positive
+   * (§4.6.2.3); only the threshold the controller derives from it can go
+   * negative. Clamping the feedback into int8_t truncated the seed and could
+   * write a negative pattern into a positive field. */
   const int16_t seed16 = FB_INT_THRESH::Extract(fb.value());
-  const int8_t  seed8  = static_cast<int8_t>(seed16 > 127 ? 127 : seed16 < -128 ? -128 : seed16);
+  const uint16_t seed = static_cast<uint16_t>(
+      seed16 <= 0 ? 0 : (seed16 > static_cast<int16_t>(CTRL_INT_THRESH::INT_THRESH_MAX)
+                             ? CTRL_INT_THRESH::INT_THRESH_MAX
+                             : static_cast<uint16_t>(seed16)));
   return WriteRegister(GetChannelRegister(channel, ChannelReg::CTRL_INT_THRESH),
-                        CTRL_INT_THRESH::Build(seed8, 0));
+                        CTRL_INT_THRESH::Build(seed));
 }
 
 // ---------------------------- Phase 4 helpers -------------------------------
