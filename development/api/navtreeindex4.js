@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"namespacetle92466ed_1_1DIAG__WARN__CHGR.html#a03c5c2ede17d9afb8af898e6fe08f71e":[1,0,3,11,0],
+"namespacetle92466ed_1_1DIAG__WARN__CHGR.html#a2b3242127502a7e70ad950066a36d9d2":[1,0,3,11,3],
 "namespacetle92466ed_1_1DIAG__WARN__CHGR.html#a86a3bd2fe56772c68b87dab09b0939a9":[1,0,3,11,6],
 "namespacetle92466ed_1_1DIAG__WARN__CHGR.html#a8d6cc8bae309c98382af55fed6e17558":[1,0,3,11,1],
 "namespacetle92466ed_1_1DIAG__WARN__CHGR.html#a965377137f9ef298a8f40de2f8c9d887":[1,0,3,11,5],
@@ -220,12 +222,13 @@ var NAVTREEINDEX4 =
 "namespacetle92466ed_1_1PIN__STAT.html#aca22d647eb66d349583b70f8338fc55a":[1,0,3,31,1],
 "namespacetle92466ed_1_1PIN__STAT.html#adf4e954b559692ffedff8c70758de26e":[1,0,3,31,4],
 "namespacetle92466ed_1_1SETPOINT.html":[1,0,3,32],
+"namespacetle92466ed_1_1SETPOINT.html#a17e9b9c155810b6b031f9417f9b447d7":[1,0,3,32,2],
 "namespacetle92466ed_1_1SETPOINT.html#a26ab23764b3e49d89196e8d5c82dea19":[1,0,3,32,1],
-"namespacetle92466ed_1_1SETPOINT.html#a35f632b0fe16db493b669c0938f3f0d6":[1,0,3,32,2],
+"namespacetle92466ed_1_1SETPOINT.html#a35f632b0fe16db493b669c0938f3f0d6":[1,0,3,32,3],
 "namespacetle92466ed_1_1SETPOINT.html#a602f596ce33dbdf6cad7f31f748f0a7f":[1,0,3,32,0],
-"namespacetle92466ed_1_1SETPOINT.html#a70b61e75de0c61eb0cd8e41f66e86e20":[1,0,3,32,3],
-"namespacetle92466ed_1_1SETPOINT.html#a73de3c116b68a99982840c2609e29f00":[1,0,3,32,5],
-"namespacetle92466ed_1_1SETPOINT.html#ac593d7592e4b120ad42cad54558f142d":[1,0,3,32,4],
+"namespacetle92466ed_1_1SETPOINT.html#a70b61e75de0c61eb0cd8e41f66e86e20":[1,0,3,32,4],
+"namespacetle92466ed_1_1SETPOINT.html#a73de3c116b68a99982840c2609e29f00":[1,0,3,32,6],
+"namespacetle92466ed_1_1SETPOINT.html#ac593d7592e4b120ad42cad54558f142d":[1,0,3,32,5],
 "namespacetle92466ed_1_1SFF__BIST.html":[1,0,3,33],
 "namespacetle92466ed_1_1SFF__BIST.html#a3b6cdd94b261d70f1e2433df573ecd9d":[1,0,3,33,3],
 "namespacetle92466ed_1_1SFF__BIST.html#a3ba3f4376ae29768da6973f98cb6ca6e":[1,0,3,33,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX4 =
 "namespacetle92466ed_1_1VBAT__THRESHOLD.html#a6ab6602793e6ab8f0c3f262a7a180e74":[1,0,3,35,0],
 "namespacetle92466ed_1_1VBAT__THRESHOLD.html#ab7766108415f09476fb954484f0318ce":[1,0,3,35,1],
 "namespacetle92466ed_1_1VOLTAGE__FEEDBACK.html":[1,0,3,36],
-"namespacetle92466ed_1_1VOLTAGE__FEEDBACK.html#a30fb016ad70d581ee6fc5ff93680a64c":[1,0,3,36,10],
-"namespacetle92466ed_1_1VOLTAGE__FEEDBACK.html#a3b6f713c72ed72af558bc3baf92a07a2":[1,0,3,36,5],
-"namespacetle92466ed_1_1VOLTAGE__FEEDBACK.html#a41c308d116696362472a37f8de3ab87e":[1,0,3,36,9],
-"namespacetle92466ed_1_1VOLTAGE__FEEDBACK.html#a42ce9d02d4d7c8172c0b291877f975be":[1,0,3,36,11]
+"namespacetle92466ed_1_1VOLTAGE__FEEDBACK.html#a30fb016ad70d581ee6fc5ff93680a64c":[1,0,3,36,10]
 };

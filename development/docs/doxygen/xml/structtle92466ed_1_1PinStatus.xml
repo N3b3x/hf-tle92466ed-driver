@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2421" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2421" bodyend="2421"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2439" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2439" bodyend="2439"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1PinStatus_1a79175067bd31c3edf86f9145af51396e" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2422" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2422" bodyend="2422"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2440" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2440" bodyend="2440"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1PinStatus_1ae2156b37eb648cfae815c211048c155f" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -50,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2423" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2423" bodyend="2423"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2441" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2441" bodyend="2441"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1PinStatus_1a5e1a0144e26e2853688b3fec45c5edff" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2424" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2424" bodyend="2424"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2442" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2442" bodyend="2442"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1PinStatus_1a7699ff72132b529a974311f2a58d7cb9" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -82,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2425" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2425" bodyend="2425"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2443" column="8" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2443" bodyend="2443"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1PinStatus_1a4badbf79387f305d43312ae8bf47fbe9" prot="public" static="no" mutable="no">
         <type>uint16_t</type>
@@ -98,7 +98,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2426" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2426" bodyend="2426"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2444" column="12" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2444" bodyend="2444"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -106,7 +106,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="inc/tle92466ed_registers.hpp" line="2420" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2420" bodyend="2427"/>
+    <location file="inc/tle92466ed_registers.hpp" line="2438" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2438" bodyend="2445"/>
     <listofallmembers>
       <member refid="structtle92466ed_1_1PinStatus_1a8113a63b7cd3a7df58f3788ab7b9a490" prot="public" virt="non-virtual"><scope>tle92466ed::PinStatus</scope><name>drv0</name></member>
       <member refid="structtle92466ed_1_1PinStatus_1a79175067bd31c3edf86f9145af51396e" prot="public" virt="non-virtual"><scope>tle92466ed::PinStatus</scope><name>drv1</name></member>

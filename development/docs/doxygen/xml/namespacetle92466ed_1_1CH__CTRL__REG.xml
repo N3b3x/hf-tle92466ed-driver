@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="817" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="817" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="835" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="835" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CTRL__REG_1aad81bd3dde7a2b281ec2a71f6e9d5b59" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -33,7 +33,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="818" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="818" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="836" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="836" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CTRL__REG_1afc038298ca0f2bb28ce21048b42e29b6" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -49,7 +49,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="819" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="819" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="837" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="837" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CTRL__REG_1a48ebc767724ee6dab9fb3ec9b072fbf7" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -65,7 +65,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="820" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="820" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="838" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="838" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CTRL__REG_1abb651d8a86e5a181cf56cbfcf3f36755" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -81,7 +81,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="821" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="821" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="839" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="839" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CTRL__REG_1a8983da7b14aa08c1d88f533220d2a2a3" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -97,7 +97,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="823" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="823" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="841" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="841" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CTRL__REG_1af2b97e1a10a725a0ed1b5daba4f1a7fc" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint16_t</type>
@@ -113,7 +113,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="826" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="826" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="844" column="20" bodyfile="inc/tle92466ed_registers.hpp" bodystart="844" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CTRL__REG_1a63042f4a360f3e6e4d1a16fb24e3a310" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint8_t</type>
@@ -132,7 +132,7 @@ the zero level and therefore the power stage would not switch on anymore&quot; â
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="842" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="842" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="860" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="860" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespacetle92466ed_1_1CH__CTRL__REG_1a8f57caa09252ffa14c6473386963019b" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr uint8_t</type>
@@ -149,7 +149,7 @@ the zero level and therefore the power stage would not switch on anymore&quot; â
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="852" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="852" bodyend="-1"/>
+        <location file="inc/tle92466ed_registers.hpp" line="870" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="870" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="func">
@@ -204,7 +204,7 @@ Per-channel CTRL does not read back reliably on every board, so a read-modify-wr
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="866" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="866" bodyend="874"/>
+        <location file="inc/tle92466ed_registers.hpp" line="884" column="21" bodyfile="inc/tle92466ed_registers.hpp" bodystart="884" bodyend="892"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -219,6 +219,6 @@ Per-channel CTRL does not read back reliably on every board, so a read-modify-wr
 </simplesect>
 </para>
     </detaileddescription>
-    <location file="inc/tle92466ed_registers.hpp" line="816" column="1"/>
+    <location file="inc/tle92466ed_registers.hpp" line="834" column="1"/>
   </compounddef>
 </doxygen>

@@ -214,6 +214,7 @@
     <member refid="classtle92466ed_1_1Driver_1a528db488107d7118493de023ac4e8883" kind="function"><name>SetChannelMode</name></member>
     <member refid="classtle92466ed_1_1Driver_1a046218a7d74808eb4e82c266e404b738" kind="function"><name>SetParallelOperation</name></member>
     <member refid="classtle92466ed_1_1Driver_1a4a93317fec0a31a89d0318d8598fd1cb" kind="function"><name>SetCurrentSetpoint</name></member>
+    <member refid="classtle92466ed_1_1Driver_1aaf8f73f1499d907f308a47ed7d62f9a4" kind="function"><name>SetCurrentSetpointUa</name></member>
     <member refid="classtle92466ed_1_1Driver_1aecfdbdd6f2232bd011a273098c78b42d" kind="function"><name>GetCurrentSetpoint</name></member>
     <member refid="classtle92466ed_1_1Driver_1acab3b4ba7466937c84c2f9f94b70e5df" kind="function"><name>ConfigurePwmPeriod</name></member>
     <member refid="classtle92466ed_1_1Driver_1a549c24ab6f54047ec82243d7a37a0fa1" kind="function"><name>ConfigurePwmPeriodRaw</name></member>
@@ -1169,6 +1170,7 @@
     <member refid="namespacetle92466ed_1_1SETPOINT_1a70b61e75de0c61eb0cd8e41f66e86e20" kind="variable"><name>DEFAULT</name></member>
     <member refid="namespacetle92466ed_1_1SETPOINT_1ac593d7592e4b120ad42cad54558f142d" kind="variable"><name>MAX_TARGET</name></member>
     <member refid="namespacetle92466ed_1_1SETPOINT_1a26ab23764b3e49d89196e8d5c82dea19" kind="function"><name>CalculateTarget</name></member>
+    <member refid="namespacetle92466ed_1_1SETPOINT_1a17e9b9c155810b6b031f9417f9b447d7" kind="function"><name>CalculateTargetUa</name></member>
     <member refid="namespacetle92466ed_1_1SETPOINT_1a602f596ce33dbdf6cad7f31f748f0a7f" kind="function"><name>CalculateCurrent</name></member>
   </compound>
   <compound refid="namespacetle92466ed_1_1SFF__BIST" kind="namespace"><name>tle92466ed::SFF_BIST</name>

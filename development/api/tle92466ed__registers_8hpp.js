@@ -113,6 +113,7 @@ var tle92466ed__registers_8hpp =
     [ "CalculateFromVoltage", "tle92466ed__registers_8hpp.html#a6ab6602793e6ab8f0c3f262a7a180e74", null ],
     [ "CalculatePllFromExternalHz", "tle92466ed__registers_8hpp.html#a18b229efb2399a5f99e419fcc3303101", null ],
     [ "CalculateTarget", "tle92466ed__registers_8hpp.html#a26ab23764b3e49d89196e8d5c82dea19", null ],
+    [ "CalculateTargetUa", "tle92466ed__registers_8hpp.html#a17e9b9c155810b6b031f9417f9b447d7", null ],
     [ "CalculateVoltage", "tle92466ed__registers_8hpp.html#ab7766108415f09476fb954484f0318ce", null ],
     [ "ChannelBitMask", "tle92466ed__registers_8hpp.html#aef2897c6fdd4e2e4e737f4fd515f9844", null ],
     [ "ChannelBitMask", "tle92466ed__registers_8hpp.html#a8d6cc8bae309c98382af55fed6e17558", null ],

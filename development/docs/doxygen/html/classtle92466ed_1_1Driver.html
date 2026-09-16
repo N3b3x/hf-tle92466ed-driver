@@ -173,6 +173,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4a93317fec0a31a89d0318d8598fd1cb" id="r_a4a93317fec0a31a89d0318d8598fd1cb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetle92466ed.html#ac468593f8010ed1b36b603c07364cc8e">DriverResult</a>&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a93317fec0a31a89d0318d8598fd1cb">SetCurrentSetpoint</a> (<a class="el" href="namespacetle92466ed.html#adad08c8dc7d47ab5303ba67922bd0957">Channel</a> channel, uint16_t current_ma, bool parallel_mode=false) noexcept</td></tr>
 <tr class="memdesc:a4a93317fec0a31a89d0318d8598fd1cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set current setpoint for channel.  <br /></td></tr>
 <tr class="separator:a4a93317fec0a31a89d0318d8598fd1cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf8f73f1499d907f308a47ed7d62f9a4" id="r_aaf8f73f1499d907f308a47ed7d62f9a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetle92466ed.html#ac468593f8010ed1b36b603c07364cc8e">DriverResult</a>&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf8f73f1499d907f308a47ed7d62f9a4">SetCurrentSetpointUa</a> (<a class="el" href="namespacetle92466ed.html#adad08c8dc7d47ab5303ba67922bd0957">Channel</a> channel, uint32_t current_ua, bool parallel_mode=false) noexcept</td></tr>
+<tr class="memdesc:aaf8f73f1499d907f308a47ed7d62f9a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the ICC current setpoint in microamperes (full 15-bit TARGET resolution).  <br /></td></tr>
+<tr class="separator:aaf8f73f1499d907f308a47ed7d62f9a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aecfdbdd6f2232bd011a273098c78b42d" id="r_aecfdbdd6f2232bd011a273098c78b42d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetle92466ed.html#ac468593f8010ed1b36b603c07364cc8e">DriverResult</a>&lt; uint16_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aecfdbdd6f2232bd011a273098c78b42d">GetCurrentSetpoint</a> (<a class="el" href="namespacetle92466ed.html#adad08c8dc7d47ab5303ba67922bd0957">Channel</a> channel, bool parallel_mode=false) noexcept</td></tr>
 <tr class="memdesc:aecfdbdd6f2232bd011a273098c78b42d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current setpoint for channel.  <br /></td></tr>
 <tr class="separator:aecfdbdd6f2232bd011a273098c78b42d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -3495,6 +3498,53 @@ Resolution: 15-bit (0.061mA per LSB in single mode)</dd></dl>
 </ul>
 </dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Setting currents above typical continuous ratings may result in thermal limiting, reduced accuracy, or current regulation at the device's natural limit rather than the requested setpoint. </dd></dl>
+
+</div>
+</div>
+<a id="aaf8f73f1499d907f308a47ed7d62f9a4" name="aaf8f73f1499d907f308a47ed7d62f9a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf8f73f1499d907f308a47ed7d62f9a4">&#9670;&#160;</a></span>SetCurrentSetpointUa()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CommType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetle92466ed.html#ac468593f8010ed1b36b603c07364cc8e">DriverResult</a>&lt; void &gt; <a class="el" href="classtle92466ed_1_1Driver.html">tle92466ed::Driver</a>&lt; CommType &gt;::SetCurrentSetpointUa </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetle92466ed.html#adad08c8dc7d47ab5303ba67922bd0957">Channel</a></td>          <td class="paramname"><span class="paramname"><em>channel</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>current_ua</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>parallel_mode</em><span class="paramdefsep"> = </span><span class="paramdefval">false</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the ICC current setpoint in microamperes (full 15-bit TARGET resolution). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>Channel. </td></tr>
+    <tr><td class="paramname">current_ua</td><td>Target in µA (≤ 2 000 000 single / 4 000 000 parallel). </td></tr>
+    <tr><td class="paramname">parallel_mode</td><td>Parallel-channel scaling.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Same write/verify path as <a class="el" href="#a4a93317fec0a31a89d0318d8598fd1cb">SetCurrentSetpoint</a>, which now delegates here with <code>current_ma * 1000</code>. </p>
 
 </div>
 </div>

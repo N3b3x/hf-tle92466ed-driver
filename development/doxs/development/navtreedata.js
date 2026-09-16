@@ -61,15 +61,15 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "TestFramework_8h.html",
-"classtle92466ed_1_1Driver.html#adb3fe0e3319c8a1456e670123a45279d",
-"driver__integration__test_8cpp.html#accc4cbd28ece229c1cc42fadfc6301ce",
-"namespacetle92466ed.html#a7a810a2ee5f3edef167c753d660af92fa9349e3688de3063353762253adbd6b27",
-"namespacetle92466ed_1_1DIAG__WARN__CHGR.html#a86a3bd2fe56772c68b87dab09b0939a9",
-"namespacetle92466ed_1_1VOLTAGE__FEEDBACK.html#a4866924104905fd8764d7b489e8c8347",
-"structtle92466ed_1_1ChannelConfig.html#aa9ddf1f0e2b918c4b90fbc45add87986",
-"structtle92466ed_1_1FaultReport.html#ac047aa8a818d5bfd81026acfab5ad772",
-"tle92466ed__registers_8hpp.html#a4354ef9226739c1ea8a59eb36e95760ca01972e7fc9ec5c902670e0798df618dc",
-"tle92466ed__registers_8hpp.html#ac478d8027f99bfc8e6a985fb3b4b5e9dafabad8c26f1d6f2dd67f43017cdd55ae"
+"classtle92466ed_1_1Driver.html#ad9a9c48d2b66db9cba5536cf99b63a6d",
+"driver__integration__test_8cpp.html#ac045b9f4aee0ed911929f4d4b4fd67c1",
+"namespacetle92466ed.html#a77dea1b15da97f920f588cd3264857a7",
+"namespacetle92466ed_1_1DIAG__WARN__CHGR.html#a03c5c2ede17d9afb8af898e6fe08f71e",
+"namespacetle92466ed_1_1VOLTAGE__FEEDBACK.html#a3b6f713c72ed72af558bc3baf92a07a2",
+"structtle92466ed_1_1ChannelConfig.html#aa36fc989e16d696cefe6111f419ed2dc",
+"structtle92466ed_1_1FaultReport.html#ab6b86486bef397dd0b730f9ac127d3b2",
+"tle92466ed__registers_8hpp.html#a42ae394dff63c8797f5d184592fe3be4",
+"tle92466ed__registers_8hpp.html#ac478d8027f99bfc8e6a985fb3b4b5e9d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2398" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2398" bodyend="2398"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2416" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2416" bodyend="2416"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1DitherSetup_1ad3cf5eb2a33d91dccc4b1bd37676cfa6" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2399" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2399" bodyend="2399"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2417" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2417" bodyend="2417"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1DitherSetup_1a2fca8729472dff4666903434fa040f0e" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -50,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2400" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2400" bodyend="2400"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2418" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2418" bodyend="2418"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1DitherSetup_1a908d6e95beb4c6a1650fb14eda660e5d" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2401" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2401" bodyend="2401"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2419" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2419" bodyend="2419"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1DitherSetup_1a28fc75d8fdb53cc19f18554c311dbaf6" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -82,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2402" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2402" bodyend="2402"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2420" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2420" bodyend="2420"/>
       </memberdef>
       <memberdef kind="variable" id="structtle92466ed_1_1DitherSetup_1a04f5443bf7bd96b8e20adb6b9e09289d" prot="public" static="no" mutable="no">
         <type><ref refid="namespacetle92466ed_1a7a810a2ee5f3edef167c753d660af92f" kindref="member">FastMeasureMode</ref></type>
@@ -98,7 +98,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="inc/tle92466ed_registers.hpp" line="2403" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2403" bodyend="2403"/>
+        <location file="inc/tle92466ed_registers.hpp" line="2421" column="19" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2421" bodyend="2421"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -106,7 +106,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="inc/tle92466ed_registers.hpp" line="2397" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2397" bodyend="2404"/>
+    <location file="inc/tle92466ed_registers.hpp" line="2415" column="1" bodyfile="inc/tle92466ed_registers.hpp" bodystart="2415" bodyend="2422"/>
     <listofallmembers>
       <member refid="structtle92466ed_1_1DitherSetup_1a73b403ea772af05595d2a15bb9e0fd07" prot="public" virt="non-virtual"><scope>tle92466ed::DitherSetup</scope><name>amplitude_mA</name></member>
       <member refid="structtle92466ed_1_1DitherSetup_1a28fc75d8fdb53cc19f18554c311dbaf6" prot="public" virt="non-virtual"><scope>tle92466ed::DitherSetup</scope><name>deep_dither</name></member>
