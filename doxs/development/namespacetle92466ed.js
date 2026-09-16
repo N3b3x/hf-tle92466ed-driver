@@ -360,6 +360,7 @@ var namespacetle92466ed =
     [ "SETPOINT", "namespacetle92466ed_1_1SETPOINT.html", [
       [ "CalculateCurrent", "namespacetle92466ed_1_1SETPOINT.html#a602f596ce33dbdf6cad7f31f748f0a7f", null ],
       [ "CalculateTarget", "namespacetle92466ed_1_1SETPOINT.html#a26ab23764b3e49d89196e8d5c82dea19", null ],
+      [ "CalculateTargetUa", "namespacetle92466ed_1_1SETPOINT.html#a17e9b9c155810b6b031f9417f9b447d7", null ],
       [ "AUTO_LIMIT_DIS", "namespacetle92466ed_1_1SETPOINT.html#a35f632b0fe16db493b669c0938f3f0d6", null ],
       [ "DEFAULT", "namespacetle92466ed_1_1SETPOINT.html#a70b61e75de0c61eb0cd8e41f66e86e20", null ],
       [ "MAX_TARGET", "namespacetle92466ed_1_1SETPOINT.html#ac593d7592e4b120ad42cad54558f142d", null ],

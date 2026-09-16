@@ -85,6 +85,7 @@ var classtle92466ed_1_1Driver =
     [ "SetChannelMode", "classtle92466ed_1_1Driver.html#a528db488107d7118493de023ac4e8883", null ],
     [ "SetCrcEnabled", "classtle92466ed_1_1Driver.html#a51e567341fb7d100bc4886b4bc36fd46", null ],
     [ "SetCurrentSetpoint", "classtle92466ed_1_1Driver.html#a4a93317fec0a31a89d0318d8598fd1cb", null ],
+    [ "SetCurrentSetpointUa", "classtle92466ed_1_1Driver.html#aaf8f73f1499d907f308a47ed7d62f9a4", null ],
     [ "SetDitherAdvanced", "classtle92466ed_1_1Driver.html#aa72fd92c607a8cf8944a31a9e7b943be", null ],
     [ "SetEnable", "classtle92466ed_1_1Driver.html#a298572f287a74674b2cbc99a32de7dac", null ],
     [ "SetFaultContributionMask", "classtle92466ed_1_1Driver.html#a4c101da82ad2c7a6c2a11888daee4026", null ],

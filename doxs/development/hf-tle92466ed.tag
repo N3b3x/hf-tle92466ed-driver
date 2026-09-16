@@ -2275,6 +2275,13 @@
       <arglist>(Channel channel, uint16_t current_ma, bool parallel_mode=false) noexcept</arglist>
     </member>
     <member kind="function">
+      <type>DriverResult&lt; void &gt;</type>
+      <name>SetCurrentSetpointUa</name>
+      <anchorfile>classtle92466ed_1_1Driver.html</anchorfile>
+      <anchor>aaf8f73f1499d907f308a47ed7d62f9a4</anchor>
+      <arglist>(Channel channel, uint32_t current_ua, bool parallel_mode=false) noexcept</arglist>
+    </member>
+    <member kind="function">
       <type>DriverResult&lt; uint16_t &gt;</type>
       <name>GetCurrentSetpoint</name>
       <anchorfile>classtle92466ed_1_1Driver.html</anchorfile>
@@ -7791,6 +7798,13 @@
       <anchorfile>namespacetle92466ed_1_1SETPOINT.html</anchorfile>
       <anchor>a26ab23764b3e49d89196e8d5c82dea19</anchor>
       <arglist>(uint16_t current_ma, bool parallel_mode=false) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr uint16_t</type>
+      <name>CalculateTargetUa</name>
+      <anchorfile>namespacetle92466ed_1_1SETPOINT.html</anchorfile>
+      <anchor>a17e9b9c155810b6b031f9417f9b447d7</anchor>
+      <arglist>(uint32_t current_ua, bool parallel_mode=false) noexcept</arglist>
     </member>
     <member kind="function">
       <type>constexpr uint16_t</type>
