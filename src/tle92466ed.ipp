@@ -806,6 +806,12 @@ DriverResult<void> Driver<CommType>::SetParallelOperation(ParallelPair pair, boo
 template <typename CommType>
 DriverResult<void> Driver<CommType>::SetCurrentSetpoint(Channel channel, uint16_t current_ma,
                                               bool parallel_mode) noexcept {
+  return SetCurrentSetpointUa(channel, static_cast<uint32_t>(current_ma) * 1000UL, parallel_mode);
+}
+
+template <typename CommType>
+DriverResult<void> Driver<CommType>::SetCurrentSetpointUa(Channel channel, uint32_t current_ua,
+                                                          bool parallel_mode) noexcept {
 
   if (auto result = checkInitialized(); !result) {
     return result;
@@ -818,13 +824,14 @@ DriverResult<void> Driver<CommType>::SetCurrentSetpoint(Channel channel, uint16_
   // Validate current range (using absolute register scale)
   // Note: Datasheet typical continuous limits are ~1.5A single, ~2.7A parallel
   // but register scale allows up to 2A/4A for transient operation
-  uint16_t max_current = parallel_mode ? 4000 : 2000;
-  if (current_ma > max_current) {
+  const uint32_t max_current_ua = parallel_mode ? 4000000UL : 2000000UL;
+  if (current_ua > max_current_ua) {
     return tle::unexpected(DriverError::InvalidParameter);
   }
+  const uint16_t current_ma = static_cast<uint16_t>((current_ua + 500UL) / 1000UL);
 
-  // Calculate setpoint register value
-  uint16_t target = SETPOINT::CalculateTarget(current_ma, parallel_mode);
+  // Calculate setpoint register value (full 15-bit resolution)
+  uint16_t target = SETPOINT::CalculateTargetUa(current_ua, parallel_mode);
 
   // Cache the setpoint
   channel_setpoints_[ToIndex(channel)] = target;

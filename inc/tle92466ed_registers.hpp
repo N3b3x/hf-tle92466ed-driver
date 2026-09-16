@@ -620,6 +620,24 @@ constexpr uint16_t MAX_TARGET = 0x6000;
 }
 
 /**
+ * @brief Calculate setpoint value for a desired current in microamperes.
+ * @details TARGET is 15-bit: one LSB is 2000 mA / 32767 ≈ 61 µA (single) or
+ *          122 µA (parallel). The mA overload throws that resolution away,
+ *          which matters for proportional valves whose flow moves 1–2 slpm
+ *          per mA. Rounds to nearest, saturates at MAX_TARGET.
+ * @param current_ua Desired current in µA (0–2 000 000 single, 0–4 000 000 parallel).
+ */
+[[nodiscard]] constexpr uint16_t CalculateTargetUa(uint32_t current_ua,
+                                                   bool parallel_mode = false) noexcept {
+  const uint64_t max_ua = parallel_mode ? 4000000ULL : 2000000ULL;
+  uint64_t target = (static_cast<uint64_t>(current_ua) * 32767ULL + (max_ua / 2ULL)) / max_ua;
+  if (target > MAX_TARGET) {
+    target = MAX_TARGET;
+  }
+  return static_cast<uint16_t>(target);
+}
+
+/**
  * @brief Calculate current from setpoint value
  * @param target Setpoint register value
  * @param parallel_mode true if channel is in parallel mode

@@ -526,6 +526,17 @@ public:
                                                       bool parallel_mode = false) noexcept;
 
   /**
+   * @brief Set the ICC current setpoint in microamperes (full 15-bit TARGET resolution).
+   * @param channel Channel.
+   * @param current_ua Target in µA (≤ 2 000 000 single / 4 000 000 parallel).
+   * @param parallel_mode Parallel-channel scaling.
+   * @details Same write/verify path as @ref SetCurrentSetpoint, which now
+   *          delegates here with `current_ma * 1000`.
+   */
+  [[nodiscard]] DriverResult<void> SetCurrentSetpointUa(Channel channel, uint32_t current_ua,
+                                                        bool parallel_mode = false) noexcept;
+
+  /**
    * @brief Get current setpoint for channel
    *
    * @param channel Channel to query
